@@ -1,0 +1,9 @@
+numpy>=1.24
+scipy>=1.10
+pandas>=1.5
+scikit-learn>=1.2
+networkx>=3.0
+statsmodels>=0.14
+biopython>=1.80
+matplotlib>=3.7
+seaborn>=0.12
