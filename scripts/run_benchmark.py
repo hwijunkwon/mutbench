@@ -1,4 +1,5 @@
 """Run the full MutBench benchmark with real or synthetic SARS-CoV-2 data."""
+import argparse
 import os
 import sys
 import json
@@ -9,11 +10,14 @@ import pandas as pd
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from tools.mutbench.config import BenchmarkConfig
-from tools.mutbench.ground_truth.dms_loader import dms_to_position_scores, get_functional_positions
+from tools.mutbench.ground_truth.dms_loader import (
+    load_dms_fitness, dms_to_position_scores, get_functional_positions,
+)
 from tools.mutbench.ground_truth.coord_mapper import CoordinateMapper
 from tools.mutbench.ground_truth.labeler import create_ground_truth_labels, GroundTruthSource
 from tools.mutbench.runner import run_benchmark
-from tools.mutbench.variants.registry import get_variant
+from tools.mutbench.variants.registry import get_variant, list_variants
+from tools.mutbench.evaluation.metrics import hotspot_score, compute_stability
 from tools.mutclust.dnds_annotation.core import annotate_clusters
 from tools.mutbench.visualization.plots import (
     plot_method_comparison, plot_genome_hotspot_map,
@@ -88,41 +92,134 @@ def build_ground_truth(genome_length):
     return functional_nuc
 
 
+def run_dms_benchmark(config):
+    """Run benchmark using real Bloom lab DMS data as ground truth.
+
+    Loads the DMS fitness CSV, derives functional positions from high-effect
+    amino acid sites, maps them to nucleotide coordinates, and runs the full
+    benchmark pipeline against those positions.
+
+    Returns:
+        Tuple of (results_dict, hscores, gt_positions, genome_length), or
+        None if the DMS data file is not found.
+    """
+    dms_path = os.path.join(DATA_DIR, 'aamut_fitness_all.csv')
+    if not os.path.exists(dms_path):
+        print(f"DMS data not found at {dms_path}")
+        print("Run: python scripts/download_dms_data.py")
+        return None
+
+    dms_df = load_dms_fitness(dms_path)
+    scores = dms_to_position_scores(dms_df, gene='S')
+    functional_aa = get_functional_positions(scores, threshold_percentile=80)
+
+    mapper = CoordinateMapper(gene_start=SPIKE_GENE_START, gene_end=SPIKE_GENE_END)
+    gt_positions = mapper.aa_set_to_nuc_set(functional_aa)
+
+    genome_length = 29903
+    hscores = generate_synthetic_hscores(genome_length, seed=config.seed)
+    gt_positions = {p for p in gt_positions if 0 <= p < genome_length}
+
+    print(f"DMS ground truth: {len(functional_aa)} AA positions "
+          f"-> {len(gt_positions)} nucleotide positions")
+
+    results = run_benchmark(hscores, gt_positions, genome_length, config=config)
+    return results, hscores, gt_positions, genome_length
+
+
+def compute_extended_metrics(method_df, hscores, gt_positions, genome_length):
+    """Add stability and hotspot-score columns to the method results table.
+
+    For each registered MutClust variant the bootstrap stability is computed
+    via ``compute_stability``.  Baselines that are not in the variant registry
+    receive NaN for stability and hotspot-score.
+    """
+    extended_rows = []
+    for _, row in method_df.iterrows():
+        method_name = row['method']
+        try:
+            detect_fn = get_variant(method_name)
+        except KeyError:
+            # Baselines not in the registry -- skip stability
+            extended_rows.append({
+                **row.to_dict(),
+                'stability': float('nan'),
+                'hotspot_score': float('nan'),
+            })
+            continue
+
+        stability = compute_stability(
+            hscores, detect_fn, n_iter=20, subsample_frac=0.8, seed=42,
+        )
+        hs = hotspot_score(
+            recall_known=row['recall'],
+            precision_simulated=row['precision'],
+            stability=stability,
+        )
+        extended_rows.append({
+            **row.to_dict(),
+            'stability': stability,
+            'hotspot_score': hs,
+        })
+
+    return pd.DataFrame(extended_rows)
+
+
 def main():
+    parser = argparse.ArgumentParser(description='MutBench Benchmark')
+    parser.add_argument(
+        '--mode', choices=['synthetic', 'dms'], default='synthetic',
+        help='Ground-truth source: synthetic (known functional sites) or '
+             'dms (Bloom lab deep mutational scanning data)',
+    )
+    args = parser.parse_args()
+
     os.makedirs(RESULTS_DIR, exist_ok=True)
     config = BenchmarkConfig(seed=42)
 
     print("=" * 60)
     print("MutBench: Viral Mutation Hotspot Detection Benchmark")
+    print(f"Mode: {args.mode}")
     print("=" * 60)
 
-    # Load or generate H-scores
-    hscores = load_hscores(HSCORES_PATH)
-    if hscores is not None:
-        genome_length = len(hscores)
-        print(f"Loaded real H-scores: {genome_length} positions")
+    if args.mode == 'dms':
+        result = run_dms_benchmark(config)
+        if result is None:
+            return
+        results, hscores, gt_positions, genome_length = result
     else:
-        genome_length = 29903
-        hscores = generate_synthetic_hscores(genome_length, seed=config.seed)
-        print(f"Using synthetic H-scores: {genome_length} positions")
+        # Synthetic mode -- existing logic
+        hscores = load_hscores(HSCORES_PATH)
+        if hscores is not None:
+            genome_length = len(hscores)
+            print(f"Loaded real H-scores: {genome_length} positions")
+        else:
+            genome_length = 29903
+            hscores = generate_synthetic_hscores(genome_length, seed=config.seed)
+            print(f"Using synthetic H-scores: {genome_length} positions")
 
-    # Build ground truth
-    gt_positions = build_ground_truth(genome_length)
-    print(f"Ground truth: {len(gt_positions)} functional nucleotide positions")
+        gt_positions = build_ground_truth(genome_length)
+        print(f"Ground truth: {len(gt_positions)} functional nucleotide positions")
 
-    # Run benchmark
-    print("\nRunning benchmark...")
-    results = run_benchmark(hscores, gt_positions, genome_length, config=config)
+        results = run_benchmark(hscores, gt_positions, genome_length, config=config)
 
     method_df = results['method_results']
     sensitivity_df = results['sensitivity_results']
+
+    # Compute extended metrics (stability + hotspot-score) for every method
+    method_df = compute_extended_metrics(method_df, hscores, gt_positions, genome_length)
 
     # Print results table
     print("\n" + "=" * 60)
     print("Method Comparison Results")
     print("=" * 60)
-    display_cols = ['method', 'precision', 'recall', 'f1', 'enrichment_ratio', 'n_detected', 'n_clusters']
-    print(method_df[display_cols].to_string(index=False))
+    display_cols = [
+        'method', 'precision', 'recall', 'f1',
+        'enrichment_ratio', 'n_detected', 'n_clusters',
+        'stability', 'hotspot_score',
+    ]
+    available_cols = [c for c in display_cols if c in method_df.columns]
+    print(method_df[available_cols].to_string(index=False))
 
     # Save results
     method_df.to_csv(os.path.join(RESULTS_DIR, 'method_comparison.csv'), index=False)
