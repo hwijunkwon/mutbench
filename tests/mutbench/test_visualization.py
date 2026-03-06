@@ -6,7 +6,8 @@ matplotlib.use('Agg')
 from matplotlib.figure import Figure
 from tools.mutbench.visualization.plots import (
     plot_method_comparison, plot_genome_hotspot_map,
-    plot_sensitivity_heatmap, plot_dnds_enrichment
+    plot_sensitivity_heatmap, plot_dnds_enrichment,
+    plot_hotspot_score_comparison,
 )
 
 
@@ -48,4 +49,16 @@ def test_plot_dnds_enrichment():
         {'start': 500, 'end': 520, 'dnds': float('inf')},
     ]
     fig = plot_dnds_enrichment(clusters)
+    assert isinstance(fig, Figure)
+
+
+def test_plot_hotspot_score_comparison():
+    df = pd.DataFrame({
+        'method': ['v2a-bugfix', 'v2b-bugfix+dnds', 'v3-hdbscan'],
+        'precision': [0.8, 0.7, 0.75],
+        'recall': [0.7, 0.6, 0.65],
+        'stability': [0.6, 0.5, 0.7],
+        'hotspot_score': [0.7, 0.6, 0.7],
+    })
+    fig = plot_hotspot_score_comparison(df)
     assert isinstance(fig, Figure)

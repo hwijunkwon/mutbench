@@ -133,3 +133,48 @@ def plot_dnds_enrichment(cluster_data: list[dict], output_path: str = None):
     if output_path:
         fig.savefig(output_path, dpi=150, bbox_inches='tight')
     return fig
+
+
+def plot_hotspot_score_comparison(results_df: pd.DataFrame, output_path: str = None):
+    """Bar chart comparing hotspot-score components per method.
+
+    Shows recall, precision, stability, and hotspot_score as grouped bars.
+    Only plots methods that have non-NaN hotspot_score values.
+
+    Args:
+        results_df: DataFrame with columns 'method', 'recall', 'precision', 'stability', 'hotspot_score'
+        output_path: optional path to save figure
+    Returns:
+        matplotlib Figure
+    """
+    # Filter to methods with valid hotspot scores
+    df = results_df.dropna(subset=['hotspot_score']).copy()
+    if df.empty:
+        fig, ax = plt.subplots(figsize=(10, 6))
+        ax.text(0.5, 0.5, 'No methods with hotspot scores', ha='center', va='center')
+        if output_path:
+            fig.savefig(output_path, dpi=150, bbox_inches='tight')
+        return fig
+
+    fig, ax = plt.subplots(figsize=(12, 6))
+    metrics = ['recall', 'precision', 'stability', 'hotspot_score']
+    colors = ['#2196F3', '#4CAF50', '#FF9800', '#E91E63']
+    x = np.arange(len(df))
+    width = 0.2
+
+    for i, (metric, color) in enumerate(zip(metrics, colors)):
+        if metric in df.columns:
+            label = metric.replace('_', ' ').title()
+            ax.bar(x + i * width, df[metric].values, width, label=label, color=color, alpha=0.8)
+
+    ax.set_xlabel('Method')
+    ax.set_ylabel('Score')
+    ax.set_title('Hotspot Score Comparison (Recall + Precision + Stability) / 3')
+    ax.set_xticks(x + 1.5 * width)
+    ax.set_xticklabels(df['method'].values, rotation=45, ha='right')
+    ax.legend()
+    ax.set_ylim(0, 1)
+    plt.tight_layout()
+    if output_path:
+        fig.savefig(output_path, dpi=150, bbox_inches='tight')
+    return fig

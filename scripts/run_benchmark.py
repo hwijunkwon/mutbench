@@ -22,6 +22,7 @@ from tools.mutclust.dnds_annotation.core import annotate_clusters
 from tools.mutbench.visualization.plots import (
     plot_method_comparison, plot_genome_hotspot_map,
     plot_sensitivity_heatmap, plot_dnds_enrichment,
+    plot_hotspot_score_comparison,
 )
 
 RESULTS_DIR = os.path.join(os.path.dirname(__file__), '..', 'results', 'mutbench')
@@ -254,6 +255,16 @@ def main():
         annotated = annotate_clusters(v2a_clusters, reference_seq, mutations)
         plot_dnds_enrichment(annotated, os.path.join(RESULTS_DIR, 'dnds_enrichment.png'))
         print("  - dnds_enrichment.png")
+
+    # Hotspot score comparison
+    if 'hotspot_score' in method_df.columns:
+        plot_hotspot_score_comparison(method_df, os.path.join(RESULTS_DIR, 'hotspot_score_comparison.png'))
+        print("  - hotspot_score_comparison.png")
+
+    if 'hdbscan_sensitivity_results' in results:
+        results['hdbscan_sensitivity_results'].to_csv(
+            os.path.join(RESULTS_DIR, 'hdbscan_sensitivity_results.csv'), index=False)
+        print(f"Saved HDBSCAN sensitivity to {RESULTS_DIR}/hdbscan_sensitivity_results.csv")
 
     # Sanity checks
     print("\n" + "=" * 60)
