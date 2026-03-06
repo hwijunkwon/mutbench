@@ -52,7 +52,7 @@ def _expand_cluster(seed, hscores, gamma, d, minpts):
             next_pos = seed + direction * distance
             if next_pos < 0 or next_pos >= len(hscores):
                 break
-            current_deps = current_deps - (deps_ccm - distance) / d
+            current_deps = deps_ccm - distance / d
             if distance > current_deps:
                 break
             if hscores[next_pos] > 0:

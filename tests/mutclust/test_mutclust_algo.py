@@ -36,3 +36,14 @@ def test_mutclust_no_clusters_in_noise():
     hscores = np.random.uniform(0, 0.01, 500)
     clusters = mutclust(hscores, gamma=10, d=3, minpts=5)
     assert len(clusters) == 0
+
+def test_expand_cluster_range_preserved():
+    """Bug: cumulative subtraction causes premature cluster termination.
+    A CCM with H=1.0 (deps=10) should expand ~7-10 positions, not 2-3."""
+    hscores = np.zeros(100)
+    hscores[40:60] = 0.1  # dense region
+    hscores[50] = 1.0     # CCM seed
+    from tools.mutclust.mutclust_algo.core import _expand_cluster
+    cluster = _expand_cluster(50, hscores, gamma=10, d=3, minpts=5)
+    # With H=1.0, deps_ccm=10, cluster should span at least 7 positions each direction
+    assert cluster.size >= 10, f"Cluster too small: {cluster.size} (bug: premature termination)"
