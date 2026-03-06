@@ -57,3 +57,57 @@ def evaluate_method(detected_clusters: list[dict],
         'n_detected': len(detected),
         'n_clusters': len(detected_clusters),
     }
+
+
+def hotspot_score(recall_known: float, precision_simulated: float, stability: float) -> float:
+    """Composite hotspot evaluation score (inspired by MOSD cluster-score).
+
+    hotspot-score = (recall_known + precision_simulated + stability) / 3
+    """
+    return (recall_known + precision_simulated + stability) / 3
+
+
+def compute_stability(hscores, detect_fn, n_iter: int = 50,
+                      subsample_frac: float = 0.8, seed: int = 42) -> float:
+    """Bootstrap subsampling stability of detected hotspots.
+
+    Subsamples the H-scores n_iter times, runs detection on each subsample,
+    and computes the mean Jaccard similarity with the full-data result.
+    """
+    hscores = np.asarray(hscores, dtype=float)
+    n = len(hscores)
+
+    # Full-data reference
+    full_clusters = detect_fn(hscores)
+    full_positions = set()
+    for c in full_clusters:
+        full_positions.update(c['positions'])
+
+    if not full_positions:
+        return 0.0
+
+    rng = np.random.default_rng(seed)
+    jaccard_scores = []
+
+    for _ in range(n_iter):
+        # Create subsampled H-scores (zero out random positions)
+        mask = rng.random(n) < subsample_frac
+        sub_hscores = hscores.copy()
+        sub_hscores[~mask] = 0.0
+
+        sub_clusters = detect_fn(sub_hscores)
+        sub_positions = set()
+        for c in sub_clusters:
+            sub_positions.update(c['positions'])
+
+        # Jaccard similarity
+        if not full_positions and not sub_positions:
+            jaccard_scores.append(1.0)
+        elif not full_positions or not sub_positions:
+            jaccard_scores.append(0.0)
+        else:
+            intersection = len(full_positions & sub_positions)
+            union = len(full_positions | sub_positions)
+            jaccard_scores.append(intersection / union)
+
+    return float(np.mean(jaccard_scores))
