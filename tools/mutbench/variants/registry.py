@@ -102,11 +102,75 @@ def detect_v2b(hscores, **params):
 
 @register('v2c-full')
 def detect_v2c(hscores, **params):
+    """MutClust CCM seed detection + HDBSCAN cluster boundaries + dN/dS filtering."""
+    from sklearn.cluster import HDBSCAN as _HDBSCAN
+    hscores = np.asarray(hscores, dtype=float)
+    n = len(hscores)
     gamma = params.get('gamma', 10)
-    d = params.get('d', 3)
     minpts = params.get('minpts', 5)
-    clusters = mutclust(hscores, gamma, d, minpts)
-    return _clusters_to_dicts(clusters)
+    min_cluster_size = params.get('min_cluster_size', 5)
+    min_samples = params.get('min_samples', 3)
+
+    # Step 1: Find CCM seeds using MutClust criterion
+    ccm_seeds = [i for i in range(n) if is_ccm(i, hscores, gamma, minpts)]
+    if not ccm_seeds:
+        return []
+
+    # Step 2: Collect non-zero positions in regions around CCM seeds
+    # Use deps range around each seed
+    candidate_positions = set()
+    for seed in ccm_seeds:
+        deps = compute_deps(hscores[seed], gamma)
+        start = max(0, seed - deps)
+        end = min(n, seed + deps + 1)
+        for pos in range(start, end):
+            if hscores[pos] > 0:
+                candidate_positions.add(pos)
+
+    candidate_positions = sorted(candidate_positions)
+    if len(candidate_positions) < 2:
+        return []
+
+    # Step 3: HDBSCAN clustering on candidate positions
+    idx = np.array(candidate_positions)
+    X = np.column_stack([
+        idx.astype(float),
+        hscores[idx],
+    ])
+    pos_range = idx[-1] - idx[0] if len(idx) > 1 else 1
+    X[:, 0] = X[:, 0] / max(pos_range, 1) * np.max(hscores[idx])
+
+    clusterer = _HDBSCAN(
+        min_cluster_size=min_cluster_size,
+        min_samples=min_samples,
+        metric='euclidean',
+    )
+    labels = clusterer.fit_predict(X)
+
+    clusters = []
+    for label in set(labels):
+        if label == -1:
+            continue
+        mask = labels == label
+        positions = sorted(idx[mask].tolist())
+        if positions:
+            clusters.append({
+                'start': positions[0],
+                'end': positions[-1],
+                'positions': positions,
+            })
+
+    clusters = sorted(clusters, key=lambda c: c['start'])
+
+    # Step 4: Optional dN/dS filtering
+    reference_seq = params.get('reference_seq')
+    mutations = params.get('mutations')
+    if reference_seq and mutations:
+        from tools.mutclust.dnds_annotation.core import annotate_clusters
+        annotated = annotate_clusters(clusters, reference_seq, mutations)
+        clusters = [c for c in annotated if c.get('dnds', 0) > 1.0]
+
+    return clusters
 
 @register('v3-hdbscan')
 def detect_v3_hdbscan(hscores, **params):
