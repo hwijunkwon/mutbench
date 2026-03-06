@@ -7,7 +7,7 @@ from tools.mutbench.variants.registry import list_variants, get_variant
 from tools.mutbench.baselines.shannon_entropy import detect_hotspots as entropy_detect
 from tools.mutbench.baselines.frequency_based import detect_hotspots as freq_detect
 from tools.mutbench.baselines.sliding_window import detect_hotspots as window_detect
-from tools.mutbench.sensitivity.sweep import ParameterSweep
+from tools.mutbench.sensitivity.sweep import ParameterSweep, HDBSCANSweep
 
 
 def get_all_methods():
@@ -79,7 +79,15 @@ def run_benchmark(hscores, ground_truth_positions: set, genome_length: int,
         lambda clusters: evaluate_method(clusters, ground_truth_positions, genome_length)
     )
 
+    # HDBSCAN sensitivity
+    hdbscan_sweep = HDBSCANSweep()
+    hdbscan_sensitivity = hdbscan_sweep.run(
+        hscores,
+        lambda clusters: evaluate_method(clusters, ground_truth_positions, genome_length)
+    )
+
     return {
         'method_results': pd.DataFrame(method_results),
         'sensitivity_results': pd.DataFrame(sensitivity_results),
+        'hdbscan_sensitivity_results': pd.DataFrame(hdbscan_sensitivity),
     }

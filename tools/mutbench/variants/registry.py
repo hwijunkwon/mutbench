@@ -114,7 +114,15 @@ def detect_v3_hdbscan(hscores, **params):
     from sklearn.cluster import HDBSCAN
     hscores = np.asarray(hscores, dtype=float)
 
-    nonzero_idx = np.where(hscores > 0)[0]
+    # Adaptive threshold: filter out background noise before clustering.
+    # Use an explicit threshold if provided, otherwise use median of non-zero
+    # scores as the cutoff to separate signal from background.
+    nonzero_vals = hscores[hscores > 0]
+    if len(nonzero_vals) < 2:
+        return []
+    score_threshold = params.get('score_threshold', float(np.median(nonzero_vals)))
+
+    nonzero_idx = np.where(hscores > score_threshold)[0]
     if len(nonzero_idx) < 2:
         return []
 

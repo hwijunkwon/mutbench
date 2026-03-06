@@ -45,3 +45,31 @@ class ParameterSweep:
         """Convert results list to pandas DataFrame."""
         import pandas as pd
         return pd.DataFrame(results)
+
+
+class HDBSCANSweep:
+    """Parameter sensitivity sweep for HDBSCAN-based hotspot detection."""
+
+    def __init__(self, min_cluster_sizes=None, min_samples_values=None):
+        self.min_cluster_sizes = min_cluster_sizes or [3, 5, 10, 15]
+        self.min_samples_values = min_samples_values or [2, 3, 5, 7]
+
+    def run(self, hscores, evaluate_fn):
+        """Run sweep over all HDBSCAN parameter combinations.
+
+        Args:
+            hscores: array of H-scores
+            evaluate_fn: callable(detected_clusters) -> dict of metrics
+
+        Returns:
+            list of dicts with params and metrics
+        """
+        from tools.mutbench.variants.registry import get_variant
+        detect_fn = get_variant('v3-hdbscan')
+        hscores = np.asarray(hscores, dtype=float)
+        results = []
+        for mcs, ms in product(self.min_cluster_sizes, self.min_samples_values):
+            clusters = detect_fn(hscores, min_cluster_size=mcs, min_samples=ms)
+            metrics = evaluate_fn(clusters)
+            results.append({'min_cluster_size': mcs, 'min_samples': ms, **metrics})
+        return results
