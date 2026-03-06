@@ -47,17 +47,22 @@ def compute_hscores_from_counts(counts_per_position: list[dict[str, int]], refer
 
 def compute_hscores_from_alignment(alignment: list[str], reference: str) -> list[float]:
     seq_len = len(reference)
-    hscores = []
-    for pos in range(seq_len):
-        counts = {n: 0 for n in NUCLEOTIDES}
-        for seq in alignment:
-            nuc = seq[pos].upper()
-            if nuc in counts:
-                counts[nuc] += 1
-        ref_nuc = reference[pos].upper()
-        ratios = compute_nucleotide_ratios(counts)
-        P = compute_mutation_ratio(ratios, ref_nuc)
-        E = compute_mutation_entropy(ratios, ref_nuc)
-        H = compute_hscore(P, E)
-        hscores.append(H)
-    return hscores
+    n_seqs = len(alignment)
+    nuc_to_idx = {'A': 0, 'T': 1, 'G': 2, 'C': 3}
+    ref_indices = np.array([nuc_to_idx.get(c.upper(), -1) for c in reference])
+    seq_matrix = np.array([[nuc_to_idx.get(c.upper(), -1) for c in seq] for seq in alignment])
+    counts = np.zeros((seq_len, 4), dtype=int)
+    for idx in range(4):
+        counts[:, idx] = np.sum(seq_matrix == idx, axis=0)
+    totals = counts.sum(axis=1, keepdims=True)
+    totals = np.where(totals == 0, 1, totals)
+    ratios = counts / totals
+    ref_ratios = ratios[np.arange(seq_len), ref_indices]
+    P = 1.0 - ref_ratios
+    E = np.zeros(seq_len)
+    for nuc_idx in range(4):
+        mask = (nuc_idx != ref_indices) & (ratios[:, nuc_idx] > 0) & (P > 0)
+        cond_prob = np.where(mask, ratios[:, nuc_idx] / np.where(P > 0, P, 1), 0)
+        E += np.where(mask, cond_prob * np.log2(np.where(cond_prob > 0, cond_prob, 1)), 0)
+    H = np.log2(P * np.abs(E) * 100 + 1)
+    return H.tolist()

@@ -2,6 +2,7 @@ import numpy as np
 from tools.mutclust.hscore.core import (
     compute_nucleotide_ratios, compute_mutation_ratio,
     compute_mutation_entropy, compute_hscore, compute_hscores_from_counts,
+    compute_hscores_from_alignment,
 )
 
 def test_nucleotide_ratios():
@@ -46,3 +47,16 @@ def test_full_pipeline():
     hscores = compute_hscores_from_counts(counts_per_position, refs)
     assert len(hscores) == 3
     assert hscores[2] > hscores[1]
+
+def test_hscores_from_alignment_vectorized():
+    """Vectorized version must produce identical results to loop version."""
+    np.random.seed(42)
+    ref = ''.join(np.random.choice(['A','T','G','C'], 100))
+    alignment = [''.join(np.random.choice(['A','T','G','C'], 100)) for _ in range(50)]
+    result = compute_hscores_from_alignment(alignment, ref)
+    assert len(result) == 100
+    assert all(h >= 0 for h in result)
+    # Regression check against known baseline values from loop implementation
+    assert abs(result[0] - 6.757423120470906) < 1e-10
+    assert abs(result[1] - 6.917880736553019) < 1e-10
+    assert abs(sum(result) - 687.1194993711896) < 1e-6
