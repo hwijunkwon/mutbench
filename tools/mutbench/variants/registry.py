@@ -92,7 +92,12 @@ def detect_v2b(hscores, **params):
     minpts = params.get('minpts', 5)
     clusters = mutclust(hscores, gamma, d, minpts)
     result = _clusters_to_dicts(clusters)
-    # dN/dS annotation done as post-processing in evaluation layer
+    reference_seq = params.get('reference_seq')
+    mutations = params.get('mutations')
+    if reference_seq and mutations:
+        from tools.mutclust.dnds_annotation.core import annotate_clusters
+        annotated = annotate_clusters(result, reference_seq, mutations)
+        result = [c for c in annotated if c.get('dnds', 0) > 1.0]
     return result
 
 @register('v2c-full')
@@ -102,3 +107,46 @@ def detect_v2c(hscores, **params):
     minpts = params.get('minpts', 5)
     clusters = mutclust(hscores, gamma, d, minpts)
     return _clusters_to_dicts(clusters)
+
+@register('v3-hdbscan')
+def detect_v3_hdbscan(hscores, **params):
+    """HDBSCAN-based automatic hotspot detection. No gamma/d/minpts needed."""
+    from sklearn.cluster import HDBSCAN
+    hscores = np.asarray(hscores, dtype=float)
+
+    nonzero_idx = np.where(hscores > 0)[0]
+    if len(nonzero_idx) < 2:
+        return []
+
+    X = np.column_stack([
+        nonzero_idx.astype(float),
+        hscores[nonzero_idx],
+    ])
+
+    pos_range = nonzero_idx[-1] - nonzero_idx[0] if len(nonzero_idx) > 1 else 1
+    X[:, 0] = X[:, 0] / max(pos_range, 1) * np.max(hscores[nonzero_idx])
+
+    min_cluster_size = params.get('min_cluster_size', 5)
+    min_samples = params.get('min_samples', 3)
+
+    clusterer = HDBSCAN(
+        min_cluster_size=min_cluster_size,
+        min_samples=min_samples,
+        metric='euclidean',
+    )
+    labels = clusterer.fit_predict(X)
+
+    clusters = []
+    for label in set(labels):
+        if label == -1:
+            continue
+        mask = labels == label
+        positions = sorted(nonzero_idx[mask].tolist())
+        if positions:
+            clusters.append({
+                'start': positions[0],
+                'end': positions[-1],
+                'positions': positions,
+            })
+
+    return sorted(clusters, key=lambda c: c['start'])

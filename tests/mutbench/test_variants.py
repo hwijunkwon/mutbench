@@ -32,3 +32,15 @@ def test_v2a_detects_more_than_v1():
     v1_positions = sum(len(r['positions']) for r in v1_results)
     v2a_positions = sum(len(r['positions']) for r in v2a_results)
     assert v2a_positions >= v1_positions
+
+def test_v2b_filters_by_dnds():
+    """v2b should return fewer or equal clusters compared to v2a (filters neutral)."""
+    np.random.seed(42)
+    hscores = np.zeros(500)
+    hscores[100:130] = np.random.uniform(0.1, 0.5, 30)
+    hscores[115] = 1.0
+    v2a = get_variant('v2a-bugfix')(hscores, gamma=10, d=3, minpts=5)
+    v2b = get_variant('v2b-bugfix+dnds')(hscores, gamma=10, d=3, minpts=5,
+                                          reference_seq='A' * 500,
+                                          mutations={115: 'T', 116: 'T'})
+    assert len(v2b) <= len(v2a)
