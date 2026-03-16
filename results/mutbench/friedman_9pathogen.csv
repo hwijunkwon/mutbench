@@ -1,0 +1,2 @@
+n_treatments,n_blocks,chi2,p_value,kendall_W,unique_best_combos,mean_jaccard_top5,note
+369,9,603.81,3.5567286384813254e-125,0.182308,9,0.0216,"k=369 treatments, n=9 blocks. Power severely limited. Non-significance does not imply equivalence."

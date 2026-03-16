@@ -44,6 +44,7 @@ Phylogenetic non-independence & High & PoC simulation ($\rho=-0.876$) & TreeTime
 Synthetic--real performance gap & Medium & Dual benchmark design & Adaptive reference sequences \\
 Position-level exact matching & Medium & Enrichment ratio as complement & Region-overlap metrics \\
 RNA viruses only (9 pathogens) & Low & Covers major RNA families & DNA virus extension \\
+GISAID sampling bias & Medium & Weekly temporal stratification & Geographic stratification \\
 \bottomrule
 \end{tabular}
 }
@@ -111,7 +112,7 @@ Scaling to 20+ pathogens, introducing top-$k$ ensemble strategies, and transitio
 The proof-of-concept results reported in Section~\ref{sec:phylo_simulation} establish that homoplasy-based scoring captures qualitatively different evolutionary signals from frequency-based H-scores: $\rho = -0.876$ in coalescent simulation, AUC~$= 1.000$ for TreeTime ML ancestral reconstruction ($N = 2{,}000$), and $\rho = -0.107$ on real GISAID sequences ($N = 500$).
 A concrete integration pathway would replace H-score with homoplasy count---the number of independent mutational origins inferred by ancestral reconstruction---as the input to scoring formulas, requiring TreeTime~\cite{sagulenko2018treetime} ancestral reconstruction as a preprocessing step for each pathogen.
 The primary computational bottleneck is TreeTime's $O(N \log N)$ scaling with sequence count, but recent ultrafast alternatives such as UShER~\cite{turakhia2020ultrafast} enable processing of millions of sequences, making this integration feasible at GISAID scale.
-Phylogenetic correction would primarily affect pathogens with strong founder effects (e.g., SARS-CoV-2 D614G, which ranks 2nd by H-score but 1,134th by homoplasy), potentially changing the optimal scoring--detection combinations for those pathogens and improving the overall oracle MCC.
+Phylogenetic correction would primarily affect pathogens with strong founder effects (e.g., SARS-CoV-2 D614G, which ranks 2nd by H-score but 1,134th by homoplasy), potentially changing the best-performing scoring--detection combinations for those pathogens and improving the overall oracle MCC.
 Temporal stratification, which normalizes sequence proportions across time periods, would complement phylogenetic correction by mitigating sequencing bias independently of tree topology.
 
 \subsection{DNA Virus Expansion}

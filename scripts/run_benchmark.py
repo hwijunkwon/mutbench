@@ -35,9 +35,13 @@ SPIKE_GENE_END = 25384
 
 # Known functional sites (AA positions in Spike)
 KNOWN_FUNCTIONAL_SITES = {
-    'RBD': set(range(319, 542)),
-    'furin_cleavage': set(range(681, 686)),
+    'RBD': set(range(319, 542)),             # includes RBM (438-506)
+    'NTD_supersite': set(range(14, 21)) | set(range(140, 159)) | set(range(245, 265)),
+    'furin_cleavage': set(range(681, 686)),   # S1/S2 cleavage site
+    'S2_cleavage': set(range(815, 817)),      # S2' cleavage site
     'fusion_peptide': set(range(816, 834)),
+    'HR1': set(range(912, 985)),              # Heptad repeat 1
+    'HR2': set(range(1163, 1214)),            # Heptad repeat 2
 }
 
 
@@ -72,10 +76,26 @@ def generate_synthetic_hscores(genome_length=29903, seed=42):
     furin_end = min(SPIKE_GENE_START + 685 * 3, genome_length)
     hscores[furin_start:furin_end] = rng.uniform(0.1, 0.5, furin_end - furin_start)
 
-    # NTD region
-    ntd_start = SPIKE_GENE_START + (14 - 1) * 3
-    ntd_end = min(SPIKE_GENE_START + 265 * 3, genome_length)
-    hscores[ntd_start:ntd_end] = rng.uniform(0.03, 0.15, ntd_end - ntd_start)
+    # NTD antigenic supersite regions
+    for aa_start, aa_end in [(14, 20), (140, 158), (245, 264)]:
+        s = SPIKE_GENE_START + (aa_start - 1) * 3
+        e = min(SPIKE_GENE_START + aa_end * 3, genome_length)
+        hscores[s:e] = rng.uniform(0.05, 0.2, e - s)
+
+    # S2' cleavage site
+    s2_start = SPIKE_GENE_START + (815 - 1) * 3
+    s2_end = min(SPIKE_GENE_START + 816 * 3, genome_length)
+    hscores[s2_start:s2_end] = rng.uniform(0.1, 0.4, s2_end - s2_start)
+
+    # HR1 (conserved, lower scores — purifying selection)
+    hr1_start = SPIKE_GENE_START + (912 - 1) * 3
+    hr1_end = min(SPIKE_GENE_START + 984 * 3, genome_length)
+    hscores[hr1_start:hr1_end] = rng.uniform(0.03, 0.08, hr1_end - hr1_start)
+
+    # HR2 (conserved, lower scores — purifying selection)
+    hr2_start = SPIKE_GENE_START + (1163 - 1) * 3
+    hr2_end = min(SPIKE_GENE_START + 1213 * 3, genome_length)
+    hscores[hr2_start:hr2_end] = rng.uniform(0.03, 0.08, hr2_end - hr2_start)
 
     return hscores
 
@@ -150,7 +170,7 @@ def compute_extended_metrics(method_df, hscores, gt_positions, genome_length):
             continue
 
         stability = compute_stability(
-            hscores, detect_fn, n_iter=20, subsample_frac=0.8, seed=42,
+            hscores, detect_fn, n_iter=100, subsample_frac=0.8, seed=42,
         )
         hs = hotspot_score(
             recall_known=row['recall'],
@@ -189,15 +209,11 @@ def main():
             return
         results, hscores, gt_positions, genome_length = result
     else:
-        # Synthetic mode -- existing logic
-        hscores = load_hscores(HSCORES_PATH)
-        if hscores is not None:
-            genome_length = len(hscores)
-            print(f"Loaded real H-scores: {genome_length} positions")
-        else:
-            genome_length = 29903
-            hscores = generate_synthetic_hscores(genome_length, seed=config.seed)
-            print(f"Using synthetic H-scores: {genome_length} positions")
+        # Synthetic mode -- always use full genome-length synthetic H-scores
+        # so that ground truth positions (Spike gene at 21563+) are in range.
+        genome_length = 29903
+        hscores = generate_synthetic_hscores(genome_length, seed=config.seed)
+        print(f"Using synthetic H-scores: {genome_length} positions")
 
         gt_positions = build_ground_truth(genome_length)
         print(f"Ground truth: {len(gt_positions)} functional nucleotide positions")

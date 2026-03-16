@@ -1,0 +1,10 @@
+held_out,best_train_combo,train_mean_mcc,test_mcc,oracle_mcc,oracle_combo,gap,generalization_ratio,combo_match
+Dengue,"E_only + SWAN(w=10,k=1.5)",0.3108,0.0,0.2563,E*rare + FreqThresh(p=80),0.2563,0.0,False
+H3N2,"E_only + SWAN(w=10,k=1.5)",0.3108,0.0,0.5488,E_only + SlidingTest(p=0.05),0.5488,0.0,False
+HCV,"E_only + SWAN(w=10,k=1.5)",0.3108,0.0,0.4425,"E_only + CUSUM(d=0.5,h=5.0)",0.4425,0.0,False
+HIV-1,"E_only + SWAN(w=10,k=1.5)",0.3108,0.0,0.1816,E*rare + SlidingTest(p=0.01),0.1816,0.0,False
+Influenza_B,"E_only + SWAN(w=10,k=1.5)",0.3108,0.0,0.3612,H-score + Wavelet(t=2.0),0.3612,0.0,False
+MERS,"E_only + SWAN(w=10,k=1.5)",0.3108,0.0,0.0879,rank(P*E) + SlidingTest(p=0.05),0.0879,0.0,False
+Norovirus,P*E + Wavelet(t=1.5),0.1158,0.1924,0.438,P*E*rare + GradPeak(p=0.5),0.2456,0.4393,False
+RSV,"E_only + SWAN(w=10,k=1.5)",0.3108,0.0,0.2494,P*E + FreqThresh(p=95),0.2494,0.0,False
+SARS-CoV-2,"E_only + SWAN(w=10,k=1.5)",0.3108,0.0,0.1184,"E*rare + CUSUM(d=0.5,h=4.0)",0.1184,0.0,False

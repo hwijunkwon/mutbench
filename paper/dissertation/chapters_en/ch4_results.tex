@@ -692,8 +692,9 @@ Mean             &           & 0.062 & 0.742 &       & +0.680 \\
 
 Two findings emerge from Table~\ref{tab:phylo_sensitivity}.
 First, all seven detectors achieve substantially higher MCC under homoplasy scoring (mean 0.742) than under any H-score formula (mean 0.062), confirming that founder-effect contamination is the dominant source of error for frequency-based scoring in SARS-CoV-2.
-Second, the Spearman rank correlation between method rankings under the two scoring systems is $\rho = -0.334$ ($p = 0.465$), indicating that method rankings are \textbf{not preserved}: simple threshold-based detectors (FreqThresh, LocalContrast) that performed poorly under H-score become the best performers under homoplasy scoring, while AdaptiveKnee---the top H-score detector---drops to fifth place.
+Second, the Spearman rank correlation between method rankings under the two scoring systems is $\rho = -0.334$ ($p = 0.465$), indicating that method rankings appear to differ, though the correlation is not statistically significant given the small number of methods ($n=7$): simple threshold-based detectors (FreqThresh, LocalContrast) that performed poorly under H-score become the best performers under homoplasy scoring, while AdaptiveKnee---the top H-score detector---drops to fifth place.
 This demonstrates that method selection recommendations derived from H-score benchmarks do not transfer directly to phylogenetically corrected inputs, further motivating the pathogen-adaptive approach proposed in Section~\ref{subsec:pahd_prototype}.
+Consequently, the qualitative conclusion of the 9-pathogen benchmark---that the best-performing method differs across pathogens---is expected to hold regardless of the scoring system, but the specific quantitative rankings (e.g., which combination is best for each pathogen) are conditional on H-score-based scoring and may change under phylogenetically corrected inputs.
 
 \section{9-Pathogen Benchmark Results}
 \label{sec:9pathogen_results}
@@ -918,13 +919,14 @@ The primary advantage of the PAHD Family-first strategy is \textbf{breadth of po
 The \textbf{median MCC} confirms this pattern: PAHD achieves a median of 0.014 compared to the naive median of 0.000, reflecting that 8 out of 9 pathogens receive zero MCC under the naive approach.
 The median is the appropriate central tendency measure here because the naive mean MCC (0.021) is inflated by a single Norovirus outlier (MCC $= 0.192$), where naive happens to select a reasonable combination; excluding this outlier, the naive mean drops to $-0.003$.
 The PAHD mean MCC of 0.005, while numerically lower than the naive mean, reflects a more balanced distribution across pathogens.
+The PAHD mean MCC of 0.005 is within 1.3 standard deviations of the random baseline (mean 0.001, SD 0.003), indicating that overall mean performance remains near-random level; the primary value of the PAHD prototype lies not in mean MCC improvement but in distributing positive transfer across 5 of 9 pathogens rather than concentrating it on a single case.
 For H3N2, PAHD achieves MCC = 0.207 (38\% of oracle), and for Norovirus, 0.217 (49\% of oracle), demonstrating that the two-stage family prediction captures meaningful pathogen similarity.
 
 When evaluated using a top-$k$ hit criterion at the detection family level, the PAHD Family-first strategy achieves a family top-3 hit rate of 5/9, meaning that in 5 out of 9 pathogens the predicted detection family falls within the three highest-performing families for that pathogen. At the exact combination level, the top-10 hit rate is 1/9 (H3N2, rank 8 of 369), confirming that while exact combination prediction remains difficult with only 9 pathogens, the predicted detection family often falls within the competitive neighborhood of the oracle.
 
 Two limitations are apparent.
 First, a 9-pathogen knowledge base is insufficient for profile-space generalization.
-The two largest negative MCC cases---HCV ($-$0.291) and Influenza~B ($-$0.190)---represent pathogens with unique mutation characteristics that lack similar neighbors in the 9-pathogen profile space: HCV's hypervariable regions and Influenza~B's distinct reassortment patterns have no analogue among the other 7 pathogens, causing the Family-first strategy to transfer an unsuitable detection family.
+The two largest negative MCC cases---HCV ($-$0.291) and Influenza~B ($-$0.190)---represent pathogens with unique mutation characteristics that lack similar neighbors in the 9-pathogen profile space: HCV's hypervariable regions and Influenza~B's Yamagata/Victoria dual-lineage structure has no analogue among the other 7 pathogens, causing the Family-first strategy to transfer an unsuitable detection family.
 These failures define the boundary conditions for profile-based prediction and motivate expanding the knowledge base to include additional Flaviviridae and Orthomyxoviridae members.
 Second, the exact combination match rate remains 0/9, confirming that predicting a single best combination is overly ambitious; adaptive filtering from a top-$k$ candidate pool is a more realistic strategy.
 
