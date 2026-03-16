@@ -1,0 +1,6 @@
+Level,Match_Rate,Mean_MCC,Median_MCC,vs_Oracle_pct
+Oracle (exact combo),9/9,0.2982,0.2563,100.0
+PAHD Detection Family (1-NN),0/9,0.1439,0.1417,49.2
+PAHD Scoring Formula (1-NN),0/9,0.1721,0.1379,54.5
+"PAHD Exact Combo (1-NN, v2)",0/9,-0.0161,-0.0178,-9.8
+Naive (global best),-,0.0342,0.0,8.2

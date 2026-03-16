@@ -936,6 +936,13 @@ This trade-off reflects the v2 profile's improved similarity structure: by corre
 
 When evaluated using a top-$k$ hit criterion at the detection family level, the PAHD Family-first strategy achieves a family top-3 hit rate of 5/9, meaning that in 5 out of 9 pathogens the predicted detection family falls within the three highest-performing families for that pathogen. At the exact combination level, the top-10 hit rate is 1/9 (H3N2, rank 8 of 369), confirming that while exact combination prediction remains difficult with only 9 pathogens, the predicted detection family often falls within the competitive neighborhood of the oracle.
 
+To further address the ill-posedness of predicting from 351 exact combinations with only 9 training instances, PAHD was additionally evaluated at coarser prediction granularities using the v2 profile similarity matrix with 1-NN LOPO.
+At the \textbf{detection family level} (15 families), the 1-NN strategy achieved a family match rate of 0/9---each pathogen's oracle-best family is unique, and the 1-NN neighbor never shares the same best family.
+However, the mean composite MCC when using the best combination \emph{within} the predicted family was 0.144 (median 0.142), recovering 49.2\% of oracle performance.
+At the \textbf{scoring formula level} (9 formulas), the match rate was likewise 0/9, but the mean MCC was 0.172 (median 0.138), recovering 54.5\% of oracle performance.
+Both coarser-granularity predictions substantially outperform the exact combination prediction (mean MCC $= -0.016$, $-9.8$\% of oracle) and the naive global-best baseline (mean MCC $= 0.034$, 8.2\% of oracle).
+The key insight is that even when the \emph{label} prediction (which family or scoring) fails due to insufficient $n$, the \emph{performance} achieved by applying the predicted category remains competitive: restricting the search space to a single predicted family or scoring formula already captures roughly half of the oracle MCC, compared to near-zero under naive approaches.
+
 Two limitations are apparent.
 First, a 9-pathogen knowledge base is insufficient for profile-space generalization.
 In v1, the two largest negative MCC cases---HCV ($-$0.291) and Influenza~B ($-$0.190)---resulted from these pathogens lacking similar neighbors in the profile space.
