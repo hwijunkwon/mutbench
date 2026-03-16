@@ -1,0 +1,150 @@
+% Chapter 6: Conclusion
+\chapter{결론}
+\label{ch:conclusion}
+
+본 장에서는 MutBench의 학술적 기여를 요약하고, 한계점을 분석하며, 향후 연구 방향을 제시한다.
+
+\section{연구 기여 요약}
+\label{sec:contribution_summary}
+
+본 학위논문은 바이러스 변이 hotspot 검출을 위한 체계적 벤치마킹 프레임워크인 MutBench를 제시하였다.
+MutBench의 학술적 기여는 다음 두 가지로 요약된다.
+
+\textbf{기여 1. MutBench 벤치마크 프레임워크.}
+MutBench는 바이러스 변이 hotspot 검출 분야에 최초의 체계적 벤치마킹 프레임워크를 도입하였다.
+수렴 진화 위치를 양성 기준(Layer~A), 정제 선택 위치를 음성 기준(Layer~B), DMS 실험 데이터를 기능적 적합도 기준(Layer~C)으로 활용하는 3계층 ground truth 체계를 정의하여, 기존의 자기 참조적 검증을 정량적이고 재현 가능한 비교로 대체하였다.
+정확도(recall, precision)와 신뢰성(stability)을 동시에 평가하는 hotspot-score 복합 지표를 도입하고, 2단계 실험 설계를 통해 합성 데이터의 통제된 환경(1단계)과 9종 RNA 바이러스 대규모 비교(2단계)를 결합하여, 무작위 기준선 대비 통계적으로 유의한 탐지 성능을 확인하였다(상세 통계는 제~\ref{ch:results}장 참조).
+
+\textbf{기여 2. 병원체 적응적 방법 선택 필요성의 통계적 입증.}
+9종 RNA 바이러스에 대한 대규모 벤치마크 결과를 통계적으로 분석한 결과, 단일 최적 방법이라는 전제가 성립하지 않음을 네 가지 독립적 증거로 확립하였다.
+첫째, ANOVA에서 방법 계열과 병원체 간 상호작용이 최대 분산 원천이었다.
+둘째, 9개 병원체 모두 고유한 최적 scoring--detection 조합을 보였다(9/9 고유 최적 조합).
+셋째, Friedman 검정은 방법 간 성능 순위가 병원체에 따라 체계적으로 달라짐을 확인하였다.
+넷째, Leave-One-Pathogen-Out(LOPO) 교차 검증에서 0/9 일치로, 훈련 병원체에서 선택한 최적 조합이 새로운 병원체에 일반화되지 않았다.
+이 결과는 병원체 적응적 방법 선택의 통계적 근거를 제공한다.
+벤치마크 발견의 개념 증명 응용으로서, PAHD 프로토타입(제~\ref{subsec:pahd_prototype}절)은 게놈 프로파일 유사도가 탐지 패밀리 선호도를 부분적으로 예측할 수 있음을 보여주었다(5/9 양성 MCC, 패밀리 top-3 적중률 5/9, 중위수 MCC $= 0.014$, naive 중위수 $= 0.000$ 대비). 이는 벤치마크 결과가 실용적 방법 선택을 안내할 수 있음을 보여준다(상세 통계는 제~\ref{ch:results}장 참조).
+
+MutBench의 체계적 벤치마킹 철학은 선행 연구인 MOSD~\cite{han2025mosd}에서 확립된 평가 원리를 바이러스 유전체학으로 확장한 것이다.
+
+\section{한계점}
+\label{sec:limitations}
+
+\begin{table}[htbp]
+\centering
+\caption{MutBench 한계점 요약 및 완화 현황}
+\label{tab:limitations_summary}
+\small
+\adjustbox{max width=\textwidth}{
+\begin{tabular}{llll}
+\toprule
+\textbf{한계점} & \textbf{심각도} & \textbf{현재 완화} & \textbf{향후 연구} \\
+\midrule
+Ground truth가 문헌에 한정 & 높음 & DMS 검증 포함 3계층 GT & 추가 병원체 확대 \\
+DMS 데이터 4/9 병원체만 확보 & 중간 & 나머지 5종 Layer A+B 사용 & 신규 DMS 실험 \\
+계통발생 비독립성 & 높음 & PoC 시뮬레이션 ($\rho=-0.876$) & TreeTime 파이프라인 통합 \\
+합성--실제 데이터 성능 격차 & 중간 & 이중 벤치마크 설계 & 적응적 참조 서열 \\
+위치 수준 정확 매칭 & 중간 & 농축비 보완 & 영역 중첩 지표 \\
+RNA 바이러스만 (9종) & 낮음 & 주요 RNA 과 포괄 & DNA 바이러스 확장 \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+\subsection{Ground truth 한계}
+
+MutBench의 3계층 ground truth는 현재 SARS-CoV-2에 한정되어 정의되어 있다.
+Layer~C(DMS 기능적 적합도)는 Dadonaite 등~\cite{dadonaite2023dms}의 전체 Spike DMS 데이터에 기반하므로, DMS 데이터가 확보되지 않은 병원체에는 Layer~A(수렴 진화)와 Layer~B(정제 선택)만 적용 가능하다.
+또한 DMS 데이터 해석 시 기능적으로 중요한 위치를 정의하는 임계값(예: fitness effect $\leq -0.5$)의 선택이 ground truth의 구성에 직접 영향을 미치므로, 해당 임계값에 대한 민감도가 존재한다.
+DMS는 유사바이러스 시스템을 사용한 시험관 내(in vitro) 분자 적합도를 측정하므로, 생체 내(in vivo) 적합도를 완전히 포착하지 못할 수 있다.
+
+\subsection{계통발생 비독립성}
+
+H-score는 변이 빈도에 기반하므로, 계통발생학적 구조에 의한 교란에 취약하다.
+D614G와 같은 고빈도 변이는 독립적인 양성 선택이 아닌 단일 창시자 효과(founder effect)에서 기인할 수 있으며($\rho = -0.876$, H-score와 독립적 변이 발생 횟수 간 Spearman 상관), GISAID의 시퀀싱 편향(특정 국가 및 시기의 과대 대표)은 변이 빈도 분포를 왜곡한다.
+MutBench는 합성 H-score와 DMS 기반 ground truth를 사용함으로써 이 문제를 부분적으로 완화하나, 실제 데이터에의 적용을 위해서는 계통발생학적 보정이 필수적이다.
+
+\subsection{범위 한계}
+
+9종 RNA 바이러스(SARS-CoV-2, Influenza A/B, HIV-1, RSV, Dengue, HCV, MERS-CoV, Norovirus)에 대한 평가를 수행하였으나, DNA 바이러스(HPV, HBV 등)의 상이한 변이 메커니즘에 대한 검증은 아직 수행되지 않았다.
+또한 MutBench의 현재 구현은 점 변이(point mutation)만을 대상으로 하며, 삽입/결실(indel)은 배제되어 있다.
+단백질 언어 모델(ESM-2 등)을 활용한 위치별 적합도 예측의 통합 역시 향후 과제로 남아 있다.
+
+\subsection{합성 데이터와 실제 데이터 간의 격차}
+
+1단계 합성 벤치마크에서의 성능(hotspot-score 0.778)과 GISAID 실제 데이터에서의 성능 간에는 격차가 존재한다.
+실제 H-score의 희소 분포(29,903개 위치 중 342개만 비영)는 합성 벤치마크의 연속적 배경 잡음과 질적으로 상이하다.
+다만 모든 방법의 농축비가 7배 이상을 유지하여, 탐지의 생물학적 타당성은 데이터 유형에 관계없이 보존되었다.
+
+\subsection{위치 수준 평가의 한계}
+
+MutBench의 precision과 recall은 정확한 뉴클레오티드 위치 수준에서 계산되므로, ground truth에서 단 한 위치만 벗어난 검출도 위양성(false positive)으로 분류된다.
+윈도우 기반 또는 영역 중첩 지표가 검출의 실용적 유용성을 보다 관대하게 반영할 수 있다.
+
+\section{향후 연구 방향}
+\label{sec:future_work}
+
+\begin{table}[htbp]
+\centering
+\caption{우선순위별 향후 연구 로드맵}
+\label{tab:future_roadmap}
+\small
+\adjustbox{max width=\textwidth}{
+\begin{tabular}{llll}
+\toprule
+\textbf{우선순위} & \textbf{연구 방향} & \textbf{선결 조건} & \textbf{기대 영향} \\
+\midrule
+1 (최고) & 계통발생 보정 통합 & TreeTime 파이프라인 & Founder effect 편향 해소 \\
+2 & PAHD 구현 & 보정된 벤치마크 데이터 & 적응적 방법 선택 \\
+3 & DNA 바이러스 확장 & 신규 ground truth 구축 & 적용 범위 확대 \\
+4 & 실시간 감시 통합 & 점진적 H-score 업데이트 & 공중보건 실용성 \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+\subsection{PAHD: 벤치마크 응용에서 완전한 구현으로}
+
+제~\ref{subsec:pahd_prototype}절에서 제시한 PAHD 프로토타입은 벤치마크 결과의 개념 증명 응용으로 기능하며, MutBench의 통계적 발견(기여 2)이 실용적 방법 선택 전략으로 전환될 수 있음을 보여준다.
+Family-first 전략은 5/9 양성 MCC, 패밀리 top-3 적중률 5/9, 중위수 MCC $= 0.014$(naive 중위수 $= 0.000$ 대비)를 달성하여, 게놈 프로파일 유사도가 9개 병원체만으로도 의미 있는 탐지 패밀리 선호도를 포착함을 확인하였다.
+그러나 정확한 조합 top-10 적중률은 1/9에 불과하였고, 정확 일치율은 0/9로 유지되어, 9개 병원체로는 신뢰할 수 있는 단일 조합 예측에 불충분함을 확인하였다.
+병원체 수를 20개 이상으로 확대하고, 상위 $k$개 앙상블 전략을 도입하며, 메타학습 회귀 모델~\cite{rice1976algorithm,smith2021algorithm}로 전환하는 것이 완전한 PAHD 구현을 위한 구체적 후속 단계이다.
+
+\subsection{계통발생학적 보정 통합}
+
+제~\ref{sec:phylo_simulation}절에서 보고된 개념 증명 결과는 homoplasy 기반 스코어링이 빈도 기반 H-score와 질적으로 다른 진화적 신호를 포착함을 확립하였다: coalescent 시뮬레이션에서 $\rho = -0.876$, TreeTime ML 조상 재구성($N = 2{,}000$)에서 AUC $= 1.000$, 실제 GISAID 서열($N = 500$)에서 $\rho = -0.107$.
+구체적인 통합 경로로서, H-score를 조상 재구성에 의해 추론된 독립적 변이 발생 횟수인 homoplasy count로 대체하여 스코어링 공식의 입력으로 사용하며, 이를 위해 각 병원체에 대해 TreeTime~\cite{sagulenko2018treetime} 조상 재구성을 전처리 단계로 수행해야 한다.
+주요 계산 병목은 TreeTime의 서열 수에 대한 $O(N \log N)$ 스케일링이나, UShER~\cite{turakhia2020ultrafast} 등 최신 초고속 대안은 수백만 서열 처리를 가능케 하여 GISAID 규모에서의 통합이 실현 가능하다.
+계통발생학적 보정은 주로 강한 창시자 효과를 가진 병원체에 영향을 미칠 것이며(예: SARS-CoV-2 D614G, H-score 순위 2위이나 homoplasy 순위 1,134위), 해당 병원체의 최적 스코어링--탐지 조합을 변경하고 전체 oracle MCC를 개선할 가능성이 있다.
+시기별 서열 비율을 정규화하는 시간적 층화(temporal stratification)는 트리 위상과 독립적으로 시퀀싱 편향을 완화하여 계통발생학적 보정을 보완할 것이다.
+
+\subsection{DNA 바이러스 확장}
+
+HPV, HBV 등 DNA 바이러스로의 확장은 MutBench 프레임워크의 일반화 범위를 검증하는 핵심 과제이다.
+DNA 바이러스는 RNA 바이러스에 비해 낮은 변이율과 상이한 변이 메커니즘(예: APOBEC3 매개 탈아미노)을 가지므로, 현재의 스코어링 및 탐지 방법이 동일하게 적용 가능한지 검증이 필요하다.
+
+\subsection{Indel 및 단백질 언어 모델 통합}
+
+현재 배제된 삽입/결실(indel)을 H-score 프레임워크에 통합하기 위한 gap 처리 전략의 개발이 필요하다.
+또한 단백질 언어 모델(ESM-2/ESM-3)의 로그 우도비를 위치별 적합도 점수로 활용하여, H-score의 해석 가능성과 딥러닝의 패턴 학습 능력을 결합하는 다중 스케일 점수 체계가 구상된다.
+
+\subsection{실시간 감시 체계 연동}
+
+장기적으로는 MutBench에서 검증된 최적 탐지 방법을 실시간 유전체 감시 파이프라인에 통합하는 것이 목표이다.
+이는 스트리밍 시퀀싱 데이터에 대한 점진적 H-score 업데이트, 신규 변이체 출현 시 자동 경고, 하수 감시 데이터와의 통합을 포함한다.
+MutBench의 stability 지표는 이러한 실시간 응용에서 검출 결과의 신뢰성을 보장하는 데 핵심적인 역할을 한다.
+
+\section{맺음말}
+\label{sec:final_conclusion}
+
+COVID-19 팬데믹은 바이러스 변이 핫스팟 탐지가 단순한 학술적 작업이 아니라 공중보건의 필수 과제임을 드러내었다.
+본 학위논문은 바이러스 변이 hotspot 검출을 위한 최초의 체계적 벤치마킹 프레임워크인 MutBench를 제시하고, 9종 RNA 바이러스에 대한 대규모 벤치마크 평가(총 3,321개 평가, 통계 검정에는 비영 MCC 2,544개 사용)를 통해 단일 최적 방법이 존재하지 않음을 통계적으로 입증하였다.
+MutBench 이전에는, 핫스팟 탐지 방법을 적용하는 연구자가 방법 선택에 대한 정량적 근거를 가지고 있지 않았다; MutBench는 표준화된 ground truth, 복합 평가 지표, 교차 병원체 통계적 증거를 통해 이 근거를 제공한다.
+이 결과는 병원체 특성에 기반한 적응적 방법 선택이 필수적임을 확립하며; PAHD 프로토타입은 이 발견의 개념 증명 응용이며, 그 완전한 구현은 핵심 향후 연구 방향으로 남아 있다.
+탐지 방법 성능이 방법 자체가 아닌 방법--병원체 상호작용($\omega^2 = 0.285$)에 의해 지배된다는 발견은 바이러스 유전체학을 넘어 더 넓은 함의를 가진다: 이질적인 입력 분포에 걸쳐 알고리즘이 적용되는 모든 도메인에서, 숨겨진 상호작용 효과를 노출하고 원칙적인 알고리즘 선택을 안내하기 위한 유사한 체계적 벤치마킹이 유익할 수 있다.
+MutBench에서 확립한 3계층 ground truth, hotspot-score 복합 지표, 그리고 대규모 벤치마크 결과는 바이러스 유전체 감시와 변이체 대응 연구의 정량적 기반을 제공한다.
+
+\section*{코드 및 데이터 가용성}
+
+MutBench 프레임워크의 소스 코드, 벤치마크 스크립트, 9종 병원체별 ground truth 정의, 그리고 모든 실험 결과의 재현에 필요한 설정 파일은 GitHub 저장소(\url{https://github.com/hwijun/mutbench})에서 공개될 예정이다.
+모든 저장소는 학위논문 심사 완료 후 공개된다.
+병원체 서열 데이터는 NCBI GenBank에서 수집하였으며, SARS-CoV-2 DMS 데이터는 Dadonaite 등~\cite{dadonaite2023dms}에서 제공된 원본 데이터를 사용하였다.

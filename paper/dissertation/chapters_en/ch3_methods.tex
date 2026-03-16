@@ -1,0 +1,602 @@
+% Chapter 3: MutBench — Methodology
+\chapter{MutBench: Methodology}
+\label{ch:mutbench}
+
+This chapter presents the methodology of MutBench, a benchmark framework for the systematic evaluation of viral mutation hotspot detection methods.
+
+%% ============================================================
+\section{Research Motivation and Design Objectives}
+\label{sec:mutbench_motivation}
+
+As discussed in Chapter~\ref{ch:background}, the absence of a systematic evaluation framework for viral mutation hotspot detection---and the limitations of MutClust's self-referential bootstrap validation---served as the direct motivation for developing MutBench.
+
+MutBench transfers the systematic benchmark methodology of MOSD to the domain of viral genome analysis, with the following key methodological features:
+(1)~definition of the hotspot-score composite evaluation metric (Equation~\ref{eq:hotspot_score});
+(2)~systematic comparison of five MutClust variants and two baseline methods (Frequency Baseline, Sliding Window);
+(3)~introduction of experimental ground truth based on deep mutational scanning (DMS);
+(4)~non-synthetic validation using real GISAID H-scores;
+(5)~multi-faceted evaluation against the three-layer ground truth framework: functional regions, DMS fitness, and convergent evolution.
+
+\begin{equation}
+\text{hotspot-score} = \frac{\text{recall} + \text{precision} + \text{stability}}{3}
+\label{eq:hotspot_score}
+\end{equation}
+
+\section{Related Methods}
+\label{sec:mutbench_related}
+
+Mutation hotspot detection aims to identify genomic regions with significantly elevated mutation rates.
+For cancer somatic mutations, methods such as MutSigCV~\cite{lawrence2013mutsigcv} (gene-level background modeling), OncodriveCLUST~\cite{tamborero2013oncodriveclust} (positional clustering bias), HotMAPS~\cite{tokheim2016hotmaps} (3D structure-based spatial hotspots), and MutSpot~\cite{munoz2020mutspot} (epigenome-integrated random forest) have been developed; however, systematic benchmarking specialized for viral genomes was absent.
+Cancer genomics tools (MutSigCV, OncodriveCLUST) target somatic mutations in tumors, a fundamentally different problem, and are therefore not included as baselines.
+
+In MutBench, in addition to MutClust variants, two baseline methods are included---frequency-based thresholding (marking positions as hotspots when mutation frequency exceeds the median + $k \times \text{MAD}$) and sliding window (thresholding the mean mutation frequency within a fixed-size window)---to verify whether MutClust's adaptive density estimation provides substantive improvement over simple approaches.
+Furthermore, the benchmark guidelines of neutral evaluation, multiple metrics, and controlled experimental design established by Weber et al.~\cite{weber2019benchmarking}---with Boulesteix et al.~\cite{boulesteix2017towards} further emphasizing the importance of neutral comparison studies conducted by researchers without a stake in the compared methods---as well as the experimental ground truth provided by DMS experiments~\cite{fowler2014dms,starr2020dms,dadonaite2023dms}, serve as the methodological foundation of MutBench.
+
+%% ============================================================
+\section{Methodology}
+\label{sec:mutbench_methods}
+
+\subsection{MutBench Framework Architecture}
+
+MutBench follows a systematic benchmark philosophy adapted for viral mutation hotspot detection.
+All analyses use the SARS-CoV-2 reference genome (Wuhan-Hu-1, GenBank: NC\_045512.2), with the Spike gene located at nucleotide positions 21,563--25,384.
+The framework is organized into three components.
+
+\begin{figure}[htbp]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tikzpicture}[
+    node distance=1.2cm,
+    box/.style={rectangle, draw, rounded corners, minimum width=3.5cm, minimum height=0.8cm, align=center, font=\small},
+    arrow/.style={->, thick, >=stealth},
+    label/.style={font=\footnotesize\itshape, text=gray}
+]
+% Input
+\node[box, fill=blue!10] (input) {MSA Sequences\\(9 pathogens)};
+
+% Scoring
+\node[box, fill=green!10, below=of input] (scoring) {Scoring Formulas\\(9 methods)};
+
+% Detection
+\node[box, fill=orange!10, below=of scoring] (detection) {Detection Methods\\(41 methods, 15 families)};
+
+% Ground Truth
+\node[box, fill=red!10, right=2.5cm of scoring] (gt) {3-Layer Ground Truth\\A: Convergent / B: Constrained / C: DMS};
+
+% Evaluation
+\node[box, fill=purple!10, below=of detection] (eval) {Evaluation\\(MCC, hotspot-score)};
+
+% Statistical Analysis
+\node[box, fill=yellow!10, below=of eval] (stats) {Statistical Analysis\\(ANOVA, Friedman, LOPO)};
+
+% Arrows
+\draw[arrow] (input) -- (scoring);
+\draw[arrow] (scoring) -- (detection);
+\draw[arrow] (detection) -- (eval);
+\draw[arrow] (gt) -- (eval);
+\draw[arrow] (eval) -- (stats);
+
+% Stage labels
+\node[label, left=0.3cm of scoring] {Stage 1: SARS-CoV-2};
+\node[label, left=0.3cm of stats] {Stage 2: 9 pathogens};
+
+\end{tikzpicture}
+}% end resizebox
+\caption{Overview of the MutBench benchmark framework pipeline. Input sequences are processed through scoring formulas and detection methods, evaluated against a 3-layer ground truth, and analyzed using multiple statistical tests.}
+\label{fig:mutbench_pipeline}
+\end{figure}
+
+\subsubsection{Component 1: Ground Truth Generation}
+
+Ground truth is generated from two sources.
+
+\textbf{Synthetic data (controlled signal recovery test).}
+The synthetic benchmark was designed as a controlled signal recovery test that evaluates how accurately each detection method recovers artificially inserted signals at known positions.
+Synthetic H-scores are generated mimicking SARS-CoV-2 patterns, with hotspot regions inserted at known functional sites.
+High H-scores (0.8--1.2) are assigned to Core Candidate Mutation (CCM) seed positions (AA 484, 501, 417, 452---the four Spike positions most frequently mutated in major SARS-CoV-2 variants), moderate scores (0.05--0.3) to surrounding functional regions, and low noise (0.0--0.02) to background positions.
+Since the ground truth of synthetic data is known by design, this test evaluates each method's signal recovery capability but does not directly measure actual biological hotspot detection performance.
+Therefore, DMS-based validation (Section~\ref{subsec:dms_ground_truth}) and convergent evolution evaluation (Section~\ref{sec:multi_gt}) provide independent biological validation, confirming whether the conclusions from the synthetic benchmark hold on real data.
+
+\textbf{DMS-based functional sites}: From cell entry fitness measurements in the full-length Spike protein DMS experiment~\cite{dadonaite2023dms}, amino acid positions in the top 20th percentile of mean absolute fitness effect are classified as functional sites.
+
+The annotated functional regions used as ground truth are presented in Table~\ref{tab:ground_truth}, with region boundaries based on the cryo-EM structure of the prefusion Spike trimer~\cite{wrapp2020cryo} and the NTD antigenic supersite mapping by McCallum et al.~\cite{mccallum2021ntd}.
+
+\begin{table}[htbp]
+\centering
+\caption{Functional regions of the Spike protein (ground truth)}
+\label{tab:ground_truth}
+\adjustbox{max width=\textwidth}{
+\begin{tabular}{llr}
+\toprule
+\textbf{Functional Region} & \textbf{Amino Acid (AA) Positions} & \textbf{Nucleotide Count} \\
+\midrule
+Receptor Binding Domain (RBD) & AA 319--541 & 669 \\
+NTD Antigenic Supersite & AA 14--20, 140--158, 245--264 & 138 \\
+Furin Cleavage Site (S1/S2) & AA 681--685 & 15 \\
+S2' Cleavage Site & AA 815--816 & 6 \\
+Fusion Peptide & AA 816--833 & 54$^*$ \\
+Heptad Repeat 1 (HR1) & AA 912--984 & 219 \\
+Heptad Repeat 2 (HR2) & AA 1,163--1,213 & 153 \\
+\midrule
+\textbf{Total (deduplicated)} & & \textbf{1,251}$^\dagger$ \\
+\bottomrule
+\end{tabular}
+}
+\begin{minipage}{\textwidth}
+\smallskip
+\footnotesize $^*$Overlaps with the S2' cleavage site at AA 816 (3 nucleotides shared).
+$^\dagger$The sum of individual regions is 1,254 nt; after removing the 3 nucleotide (nt) overlap at the S2'/fusion peptide boundary (AA 816), 1,251 unique nucleotide positions constitute the ground truth.
+\end{minipage}
+\end{table}
+
+The genome-wide distribution of these functional regions is visualized in Figure~\ref{fig:mutbench_hotspot_map}.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{genome_hotspot_map.png}
+\caption{Genome-wide hotspot map of the SARS-CoV-2 Spike protein. The seven annotated functional regions used as ground truth (RBD, NTD antigenic supersite, furin cleavage site, S2' cleavage site, fusion peptide, HR1, HR2) are mapped to nucleotide coordinates, encompassing 1,251 unique Spike nucleotide positions.}
+\label{fig:mutbench_hotspot_map}
+\end{figure}
+
+\subsubsection{Component 2: Detection Methods}
+
+Five MutClust variants and two baseline methods are comparatively evaluated.
+The characteristics of each variant are summarized in Table~\ref{tab:variants}.
+
+\begin{table}[htbp]
+\centering
+\caption{Detection methods evaluated in MutBench}
+\label{tab:variants}
+\footnotesize
+\adjustbox{max width=\textwidth}{
+\begin{tabular}{lp{2.5cm}p{8cm}}
+\toprule
+\textbf{Method} & \textbf{Code Name} & \textbf{Key Characteristic} \\
+\midrule
+MutClust-Original & v1-original & Original expand\_cluster (cumulative decay bug) \\
+MutClust-Fixed & v2a-bugfix & Corrected single-step decay formula \\
+MutClust-dNdS & v2b-bugfix+dnds & Fixed + dN/dS positive selection filter \\
+MutClust-Hybrid & v2c-full & CCM seeds + HDBSCAN boundaries + dN/dS \\
+HDBSCAN-Auto & v3-hdbscan & Pure HDBSCAN automatic clustering \\
+\midrule
+Frequency Baseline & --- & Top 10th percentile H-score threshold + gap-based grouping \\
+Sliding Window & --- & 20-position moving average + 10th percentile threshold \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+\subsubsection{Component 3: Evaluation Metrics}
+
+Position-level precision, recall, F1, enrichment ratio, subsampling stability, and the hotspot-score newly defined in this study are used as evaluation metrics.
+
+\subsection{Five MutClust Variants}
+\label{subsec:variants}
+
+\subsubsection{H-score Computation}
+\label{subsec:mutbench_hscore}
+
+MutClust computes an H-score for each genomic position:
+\begin{equation}
+H_i = \log_2(P_i \times E_i \times 100 + 1)
+\label{eq:mutbench_hscore}
+\end{equation}
+where $P_i$ is the sum of mutation proportions at position $i$ and $E_i$ is the Shannon entropy of mutation types.
+Shannon entropy is defined as follows:
+\begin{equation}
+E_i = -\sum_{j=1}^{k} p_{ij} \log_2 p_{ij}
+\label{eq:shannon_entropy}
+\end{equation}
+where $p_{ij}$ is the relative frequency of mutation type $j$ at position $i$ and $k$ is the number of observed mutation types.
+The H-score combines mutation frequency (how often a position mutates) and mutation diversity (how many substitution types occur).
+
+Positions satisfying the CCM (Core Candidate Mutation) criteria---H-score above a threshold, sufficient neighbor density, and minimum point count---are selected as seeds.
+The expand\_cluster function extends each seed bidirectionally using dependency-based decay:
+\begin{equation}
+D_\epsilon(t) = D_\epsilon^{\text{CCM}} - \frac{t}{d}
+\label{eq:expand_cluster}
+\end{equation}
+where $D_\epsilon^{\text{CCM}} = \lceil \gamma \times H_{\text{seed}} \rceil$ is the initial dependency range of the seed, $t$ is the distance from the seed, and $d$ is the decay factor.
+
+\subsubsection{Bug Fix (MutClust-Fixed)}
+\label{subsec:improvements}
+
+The expand\_cluster function of MutClust-Original contained a bug in which the dependency range was subtracted cumulatively at each step rather than computed directly from the seed, causing accelerated range contraction and a loss of 71--95\% of the theoretical detection range.
+MutClust-Fixed corrects this by computing the dependency range directly from the seed ($D_\epsilon(t) = D_\epsilon^{\text{CCM}} - t/d$), which slightly increased detected positions in the synthetic benchmark (641 vs. 637) and yielded clusters extending to their theoretically predicted boundaries.
+
+\subsubsection{dN/dS Selection Filter (MutClust-dNdS)}
+
+MutClust-dNdS adds post-detection filtering based on the ratio of nonsynonymous to synonymous mutations (dN/dS).
+
+\textbf{dN/dS computation method.}
+For each detected cluster, nucleotide positions within the cluster are mapped to the codon structure of the Wuhan-Hu-1 reference sequence (NC\_045512.2).
+Classification of nonsynonymous and synonymous substitutions follows the simple counting method of Nei--Gojobori~\cite{nei1986simple}: observed mutations at each codon position are compared to the reference codon, with mutations causing amino acid changes classified as nonsynonymous substitutions and those preserving the same amino acid classified as synonymous substitutions.
+The dN/dS ratio is computed as $\text{dN/dS} = (n_d / N_d) / (n_s / N_s)$, where $n_d$ and $n_s$ are the observed numbers of nonsynonymous and synonymous substitutions, and $N_d$ and $N_s$ are the numbers of possible nonsynonymous and synonymous sites.
+In short clusters (fewer than 10 codons), the number of synonymous substitutions may be zero, rendering dN/dS undefined; in such cases, the cluster is conservatively excluded.
+
+Only clusters under positive selection (dN/dS $> 1.0$) are retained, while clusters under neutral evolution or purifying selection (dN/dS $\leq 1.0$) are removed.
+
+\textbf{Nucleotide vs. amino acid level.}
+The evaluation in this study is performed at the nucleotide (nt) level.
+The Spike gene (nt 21,563--25,384) comprises 3,822 nucleotides (1,273 amino acids + stop codon), and H-scores are computed per nt position.
+Since ground truth functional regions are defined at the amino acid level (e.g., RBD = AA 319--541), each AA position is expanded to its corresponding 3 codon positions to construct nt-level ground truth for evaluation.
+The nt-level evaluation was chosen for two reasons: (1) the H-score independently captures mutation frequency even at the third codon position (wobble position), and (2) a consistent coordinate system is maintained in anticipation of future extension to non-coding regions (5$'$/3$'$-UTR).
+
+\textbf{Insertion/deletion (indel) handling.}
+The H-score computation in MutClust targets only single nucleotide substitutions; insertions and deletions are currently not handled.
+This means that biologically important indels such as ins214EPE (Alpha/BA.1), $\Delta$69--70 (Alpha), and $\Delta$Y144 (Alpha) are not reflected in the H-score.
+Future work should integrate indel frequencies as a separate dimension or assign weights to positions where indels occur.
+
+Purifying selection (dN/dS $< 1$) also indicates biologically important functionally constrained regions---for example, the fusion machinery (HR1/HR2) and essential structural domains.
+Therefore, the dN/dS $> 1.0$ filter sacrifices recall of these conserved functional regions in exchange for improved precision in identifying sites under active positive selection, such as immune evasion and receptor adaptation.
+
+\textbf{Jukes-Cantor correction validation.}
+Jukes-Cantor correction was verified to produce no threshold classification changes across all 38 clusters (Spearman $\rho = 0.996$ for 31 non-saturated clusters); therefore, the uncorrected Nei--Gojobori method is retained.
+
+\subsubsection{HDBSCAN Hybrid (MutClust-Hybrid)}
+
+MutClust-Hybrid combines MutClust's domain-specific CCM seed detection with HDBSCAN's~\cite{campello2013hdbscan} automatic cluster boundary determination:
+
+\begin{enumerate}
+\item \textbf{Seed identification}: MutClust's \texttt{is\_ccm()} function is used to preserve domain knowledge regarding mutation hotspot characteristics.
+\item \textbf{Candidate collection}: All positions with non-zero H-scores within the dependency range of each CCM seed are collected.
+\item \textbf{HDBSCAN clustering}: Candidate positions are clustered by HDBSCAN in a two-dimensional feature space consisting of (i) genomic position min-max normalized to the $[0, H_{\max}]$ range and (ii) H-score magnitude. This normalization assigns equal weight to spatial proximity and score similarity.
+\item \textbf{dN/dS filtering}: The same positive selection signal filter as MutClust-dNdS is applied.
+\end{enumerate}
+
+This hybrid approach retains MutClust's biological prior knowledge (CCM criteria) while leveraging HDBSCAN's data-driven boundary detection.
+
+\textbf{Computational complexity.}
+The overall complexity of MutClust-Hybrid decomposes into three stages:
+(1)~H-score computation: $O(NM)$ for $N$ sequences and $M$ positions;
+(2)~CCM seed identification and candidate collection: linear scan after H-score sorting $O(M \log M)$;
+(3)~HDBSCAN clustering: $O(k^2)$ for $k$ candidate positions around CCM seeds (minimum spanning tree construction).
+In practice, $k \ll M$ (in the synthetic benchmark, $k \approx 800$, $M = 3{,}822$), so the overall complexity is dominated by $O(NM + M \log M)$, with H-score computation as the bottleneck.
+For $N = 10{,}000$ sequences and $M = 3{,}822$ positions, the total pipeline execution time is approximately 2 seconds (single core), making it practical even for real-time surveillance settings.
+
+\subsubsection{Pure HDBSCAN (HDBSCAN-Auto)}
+
+HDBSCAN-Auto completely bypasses MutClust and applies HDBSCAN directly to positions above an adaptive threshold (median of non-zero H-scores).
+It uses the same two-dimensional feature space (min-max normalized position, H-score) and requires no manually specified domain parameters, enabling application to any viral genome without prior tuning.
+
+\subsection{Hotspot-score Composite Metric}
+\label{subsec:hotspot_score}
+
+The hotspot-score, one of the key methodological features of this study, is a composite evaluation metric that integrates three complementary perspectives (Equation~\ref{eq:hotspot_score}):
+
+\begin{itemize}
+\item \textbf{Recall}: The proportion of known functional positions captured within detected hotspot regions. It evaluates biological relevance---does the method find what is important?
+\item \textbf{Precision}: The proportion of detected positions that overlap with ground truth. It evaluates specificity---does the method avoid false positives?
+\item \textbf{Stability}: The mean Jaccard similarity between the full-data detection and 100 subsampling runs (80\% position retention, position-level zeroing). It evaluates reproducibility---does the method produce consistent results under data perturbation?
+\end{itemize}
+
+The three components receive equal weights. In viral surveillance applications, a method with high accuracy but instability under data perturbation is less practical than a method with moderate accuracy and high reproducibility; including stability as an equal component reflects this requirement.
+
+\noindent The reason for separating recall and precision and combining them with stability, rather than using the F1 score, is that F1 collapses recall and precision into a single value, thereby obscuring their interaction with stability.
+For example, HDBSCAN-Auto has a low F1 (0.146) but high recall (0.944) and stability (0.788).
+Under an F1 + stability structure, this method would be undervalued, whereas under the (recall + precision + stability)/3 structure, the high recall and stability are appropriately reflected.
+
+\subsection{DMS-based Benchmark}
+\label{subsec:dms_ground_truth}
+
+The DMS fitness data are derived from the full-length Spike protein characterization experiment by Dadonaite et al.~\cite{dadonaite2023dms}.
+Pseudovirus cell entry fitness measurements are used, as this is the most directly relevant phenotype capturing the overall functional impact of mutations on viral entry.
+Amino acid positions in the top 20th percentile of mean absolute fitness effect are selected as functional sites and mapped to nucleotide coordinates through codon-aware coordinate transformation:
+\begin{equation}
+\text{nuc\_positions} = \{g_{\text{start}} + (p_{\text{aa}} - 1) \times 3 + k : k \in \{0, 1, 2\}\}
+\label{eq:coordinate_transform}
+\end{equation}
+where $g_{\text{start}} = 21{,}563$ is the start position of the Spike gene in the Wuhan-Hu-1 reference genome.
+
+This provides an experimental ground truth independent of the detection methods under evaluation, thereby avoiding the circularity of using bootstrap p-values for validation.
+
+\subsection{Alternative Scoring Methods for Multiple Ground Truths}
+\label{subsec:alternative_scoring}
+
+As H-score saturation was identified in the temporal validation (Section~\ref{sec:temporal}), the following alternative scoring methods were designed to perform complementary evaluation against various ground truth definitions.
+These methods are not hotspot ``detection'' methods but rather ``scoring'' approaches that assign a score to each genomic position; top positions are selected via thresholding and compared against multiple ground truths.
+
+\textbf{Original H-score}: Uses MutClust's original H-score formula (Equation~\ref{eq:mutbench_hscore}) as-is.
+
+\textbf{Saturated H-score}: H-score computed through contemporary consensus sequence alignment on 2024--2025 data, reflecting within-population variation rather than comparison against the reference sequence (Wuhan-Hu-1).
+
+\textbf{CH-score (Consensus-based H-score)}: An H-score variant that removes reference sequence dependency by computing mutation frequency relative to the current consensus sequence:
+\begin{equation}
+\text{CH}_i = \log_2(P_i^{\text{consensus}} \times E_i \times 100 + 1)
+\end{equation}
+where $P_i^{\text{consensus}}$ is the non-consensus amino acid frequency relative to the consensus sequence.
+
+\textbf{E-score (Entropy-only score)}: Uses Shannon entropy alone, removing the frequency term ($P_i$) and scoring positions solely by diversity:
+\begin{equation}
+\text{E-score}_i = -\sum_{a} f_{a,i} \log_2 f_{a,i}
+\end{equation}
+
+\textbf{TC-freq (Temporal Contrast frequency)}: Measures the rate of change in mutation frequency between two time periods:
+\begin{equation}
+\text{TC-freq}_i = \frac{|\text{freq}_{t_2}(i) - \text{freq}_{t_1}(i)|}{\text{freq}_{t_1}(i) + \epsilon}
+\end{equation}
+where $\text{freq}_{t}(i)$ is the non-reference amino acid frequency at position $i$ in time period $t$, and $\epsilon = 10^{-6}$ is a constant to prevent division by zero.
+
+\textbf{TC-freq-v2}: A variant of TC-freq with added absolute frequency weighting, defined as $\text{TC-freq-v2}_i = \text{TC-freq}_i \times \text{freq}_{t_2}(i)$.
+
+\textbf{TC-freq-v3}: A variant using quarterly time windows, taking the maximum frequency change across each quarter rather than the full annual comparison.
+
+\textbf{dN/dS-weighted CH}: A variant that applies position-level dN/dS ratios as weights to the CH-score.
+
+For each scoring method, thresholds at the top 5\%, 10\%, 20\%, and median are applied to generate sets of ``detected'' positions, and F1, enrichment ratio, and Cohen's $d$ effect size are computed for each ground truth.
+
+\subsection{Hotspot-score Weight Sensitivity Analysis}
+\label{subsec:weight_sensitivity_methods}
+
+To verify the robustness of assigning equal weights ($1/3$) to the three components of the hotspot-score, a generalized weighted hotspot-score is defined:
+\begin{equation}
+\text{hotspot-score}_w = w_r \cdot \text{recall} + w_p \cdot \text{precision} + w_s \cdot \text{stability}
+\label{eq:weighted_hotspot_score}
+\end{equation}
+where $w_r + w_p + w_s = 1$ and each weight lies in the range $[0.05, 0.95]$.
+Rankings of the five methods are computed across a total of 171 weight combinations to analyze the proportion of weight space in which MutClust-Hybrid maintains first place (rank robustness).
+Additionally, rankings are separately presented for seven application scenarios, including early warning (recall-emphasis), vaccine design (precision-emphasis), and monitoring (stability-emphasis).
+
+\subsection{Statistical Validation Methods}
+\label{subsec:statistical_methods}
+
+The following three methods are applied to assess the statistical robustness of the benchmark results.
+
+\textbf{Bootstrap confidence intervals}: Region-level bootstrap is performed using the seven functional regions as units.
+In each iteration, seven regions are sampled with replacement to construct a bootstrap ground truth, and the detection results from the full data are re-evaluated against this bootstrap ground truth.
+This design captures the uncertainty in ground truth definition---variation in evaluation depending on which functional regions are included---and avoids the effective size reduction bias that occurs with individual position resampling.
+
+\textbf{Permutation test}: Two permutation approaches are employed.
+(1)~\textit{Random label shuffling}: Through 1,000 random permutations of ground truth labels, it is tested whether the observed metrics significantly exceed random expectation.
+(2)~\textit{Circular permutation}: The H-score vector is rotated by a random offset $k$ ($H_i \rightarrow H_{(i+k) \bmod N}$), hotspots are re-detected from the rotated scores, and evaluated against the original ground truth.
+This approach preserves the spatial autocorrelation structure (cluster pattern) of H-scores while randomizing only the relationship with genomic positions, generating a more conservative null distribution than random label shuffling.
+The p-value is calculated as $count / n_{\text{perm}}$ (the proportion of null distribution values that equal or exceed the observed value).
+
+\textbf{Pairwise comparison}: A paired bootstrap design that evaluates two methods simultaneously on the same bootstrap resample, testing the statistical significance of hotspot-score differences between methods.
+
+\section{9-Pathogen Extended Benchmark}
+\label{sec:9pathogen_benchmark}
+
+To verify the generalizability of the synthetic benchmark on SARS-CoV-2 alone (Section~\ref{sec:variant_comparison}) and to answer the core question ``Does the best-performing detection method vary across pathogens?'', a large-scale benchmark extended to nine RNA viruses was designed.
+
+The five MutClust variants from Stage 1 (Original, Fixed, dNdS, Hybrid, HDBSCAN-Auto) require synthetic H-scores as input and are therefore excluded from Stage 2.
+MutClust-Original is included in the MutClust-Orig family by extracting only its core logic (CCM seed + adaptive DBSCAN), the HDBSCAN boundary determination of MutClust-Hybrid is represented by the ScoreDBSCAN family, and the dN/dS filter is reflected as a separate post-processing step.
+
+\subsection{Target Pathogens and Data}
+\label{subsec:9pathogen_data}
+
+Nine pathogens are targeted: SARS-CoV-2, Influenza A H3N2 (H3N2), Norovirus, HIV-1, Dengue, RSV (Respiratory Syncytial Virus), Influenza B, MERS-CoV (MERS), and HCV (Hepatitis C Virus).
+FASTA sequences for each pathogen were collected from NCBI GenBank by querying each target protein name (e.g., ``SARS-CoV-2 spike glycoprotein'') with filters for complete coding sequences, excluding partial sequences and laboratory-derived constructs. No date range restriction was applied; all available sequences as of December 2024 were downloaded. Sequences with $>$5\% ambiguous bases (N) were removed, and identical sequences were deduplicated (the ``Unique seq.'' column in Table~\ref{tab:pathogen_data} reflects post-deduplication counts). Multiple sequence alignment (MSA) was performed for each surface protein (SARS-CoV-2: Spike, H3N2: HA, HIV-1: Env gp120, etc.) using MAFFT v7.505~\cite{katoh2013mafft} with the \texttt{--auto} mode, followed by computation of per-position mutation frequency and entropy.
+The \texttt{--auto} mode automatically selects among FFT-NS-2, L-INS-i, and G-INS-i based on the number and length of input sequences~\cite{katoh2013mafft}.
+At the sequence scales used in this study (1,311--5,325 sequences, Table~\ref{tab:pathogen_data}), FFT-NS-2 is typically selected, but the alignment algorithm may differ across pathogens, and the effect of this difference on alignment quality---and consequently on per-position mutation frequency computation---was not controlled in this study.
+When alignment lengths differed across sequences, all sequences were truncated to the minimum sequence length within the MSA to ensure consistency in per-position comparisons.
+Ground truth positions exceeding the alignment length are thereby excluded from evaluation (the position counts in Table~\ref{tab:gt_positions} are effective values after this truncation).
+Table~\ref{tab:pathogen_data} summarizes the characteristics of each pathogen's sequence dataset.
+
+\begin{table}[htbp]
+\centering
+\caption{Sequence dataset characteristics for 9 pathogens}
+\label{tab:pathogen_data}
+\footnotesize
+\adjustbox{max width=\textwidth}{
+\begin{tabular}{lllrrr}
+\toprule
+\textbf{Pathogen} & \textbf{Surface protein} & \textbf{Reference accession} & \textbf{Sequences} & \textbf{Unique seq.} & \textbf{Align. len. (AA)} \\
+\midrule
+SARS-CoV-2 & Spike & NC\_045512.2 (Wuhan-Hu-1) & 4,982 & 753 & 1,259 \\
+H3N2 & HA & CY045572 (A/Brisbane/10/2007) & 2,644 & 2,562 & 543 \\
+Norovirus & VP1 & KC576909 (GII.4 Sydney) & 1,500 & 791 & 536 \\
+HIV-1 & Env gp120 & K03455 (HXB2) & 3,000 & 2,256 & 450 \\
+Dengue & E protein & NC\_001474.2 (DENV-2) & 2,000 & 796 & 490 \\
+RSV & F protein & KT992094 (RSV-A) & 5,070 & 4,779 & 550 \\
+Influenza B & HA & CY018765 (B/Florida/4/2006) & 5,325 & 5,019 & 560 \\
+MERS & Spike & NC\_019843.3 (MERS-CoV) & 1,311 & 530 & 1,330 \\
+HCV & E2 & NC\_004102.1 (HCV-1a) & 1,362 & 1,067 & 340 \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+\subsection{Scoring Formulas}
+\label{subsec:9pathogen_scoring}
+
+Nine scoring formulas are defined to assign scores to each genomic position.
+Here, $P_i$ denotes the mutation frequency at position $i$, $E_i$ the Shannon entropy, and $\text{rare}_i$ the rare variant frequency (the proportion of variants with frequency below 5\% among all variants).
+
+\begin{enumerate}
+\item \textbf{E*rare}: $S_i = E_i \times \text{rare}_i$. The product of entropy and rare variant frequency, emphasizing positions with high diversity and abundant rare variants.
+\item \textbf{P*E*rare}: $S_i = P_i \times E_i \times \text{rare}_i$. Combines mutation frequency, entropy, and rare variants.
+\item \textbf{minority\_E}: $S_i = f_{2\text{nd},i} \times E_i$. The product of the second most frequent allele frequency ($f_{2\text{nd}}$) and entropy.
+\item \textbf{P*minority\_E}: $S_i = P_i \times f_{2\text{nd},i} \times E_i$.
+\item \textbf{P*E}: $S_i = P_i \times E_i$. The simple product of frequency and entropy.
+\item \textbf{H-score}: $S_i = \log_2(P_i \times E_i \times 100 + 1)$. The original MutClust formula (Equation~\ref{eq:mutbench_hscore}).
+\item \textbf{E\_only}: $S_i = E_i$. Uses Shannon entropy alone.
+\item \textbf{P*E\textsuperscript{2}}: $S_i = P_i \times E_i^2$. Applies quadratic weighting to entropy.
+\item \textbf{rank(P*E)}: $S_i = \text{rank}(P_i \times E_i) / N$. A nonparametric score normalizing the rank of P*E.
+\end{enumerate}
+
+\subsection{Detection Method Families}
+\label{subsec:9pathogen_detection}
+
+A total of 41 detection methods belonging to 15 algorithm families are evaluated.
+Each detection method identifies hotspot regions from the per-position score profile assigned by a scoring formula.
+
+\begin{table}[htbp]
+\centering
+\caption{41 detection methods evaluated in the 9-pathogen benchmark (15 families)}
+\label{tab:detection_families}
+\small
+\adjustbox{max width=\textwidth}{
+\begin{tabular}{llr}
+\toprule
+\textbf{Family} & \textbf{Method description} & \textbf{Variants} \\
+\midrule
+Wavelet & Multi-resolution peak detection via wavelet transform & 3 \\
+KDE & Hotspot detection via kernel density estimation & 3 \\
+SlidingTest & Sliding window statistical test & 2 \\
+GradPeak & Gradient peak detection on score profile & 2 \\
+LocalContrast & Local contrast (local--global ratio) based detection & 3 \\
+CUSUM & Cumulative sum change-point detection & 3 \\
+AdaptiveKnee & Adaptive curvature-based threshold & 1 \\
+ScoreDBSCAN & Score-based density-space clustering & 2 \\
+Spectral & Spectral analysis-based periodic pattern detection & 2 \\
+Bayes & Bayesian change-point detection & 2 \\
+\midrule
+Ensemble & Majority vote ensemble & 2 \\
+AdaptWin & Adaptive window size detection & 2 \\
+FreqThresh & Frequency percentile threshold (top-$k$\%) & 4 \\
+SWAN & Sliding window adaptive normalization & 9 \\
+MutClust-Orig & MutClust original algorithm & 1 \\
+\midrule
+\textbf{Total} & & \textbf{41} \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+\noindent The 15 families are grouped into five categories below; each family is summarized in Table~\ref{tab:detection_families}.
+
+\textbf{Threshold-based} (FreqThresh, AdaptiveKnee, AdaptWin).
+These methods select hotspots by applying a score cutoff: FreqThresh uses a fixed percentile threshold (top $k$\%), AdaptiveKnee automatically determines the threshold via knee-point detection on the sorted score curve, and AdaptWin extends seed positions above a percentile threshold bidirectionally to adjacent high-scoring positions.
+
+\textbf{Signal processing} (Wavelet, Spectral, CUSUM).
+Transform-based methods that convert the score profile into an alternative representation to identify anomalous regions: Wavelet applies continuous wavelet transform with a Mexican hat kernel across multiple scales, Spectral uses FFT-based high-pass filtering to isolate local deviations, and CUSUM applies cumulative sum control charts to detect change points in the $z$-normalized profile.
+
+\textbf{Density and clustering} (KDE, ScoreDBSCAN).
+KDE applies Gaussian kernel density estimation to the score-weighted position profile and thresholds by percentile. ScoreDBSCAN maps positions to a 2D (coordinate, score) space and applies DBSCAN clustering with rescaled axes.
+
+\textbf{Statistical and model-based} (SlidingTest, LocalContrast, GradPeak, Bayes, SWAN).
+These methods apply statistical tests to identify positions or windows significantly deviating from the background: SlidingTest and SWAN use sliding-window $z$-tests against the global mean, LocalContrast computes local $z$-scores, GradPeak detects prominence-filtered peaks on smoothed profiles, and Bayes computes posterior hotspot probabilities from a prior and normalized scores.
+
+\textbf{Ensemble and legacy} (Ensemble, MutClust-Orig).
+Ensemble combines four simple sub-detectors via majority voting. MutClust-Orig applies the original MutClust logic (CCM seed + adaptive DBSCAN) to MSA-based score profiles.
+
+\subsection{3-Layer Ground Truth Framework}
+\label{subsec:3layer_gt}
+
+To mitigate single ground truth bias, a 3-layer ground truth framework based on three independent lines of evidence was constructed.
+
+\subsubsection{Layer A: Adaptive Positive Selection}
+
+Convergent evolution positions---positions where mutations recurrently arose in multiple independent lineages---are classified as hotspots under positive selection.
+These positions are used as \textbf{True Positives}, evaluating whether detection methods correctly identify them as hotspots.
+
+\textbf{Identification criteria.}
+For each pathogen, Layer~A positions were compiled from published studies that identified convergent evolution sites (Table~\ref{tab:gt_positions}, rightmost column).
+The inclusion criterion was that the position must exhibit recurrent nonsynonymous mutations arising independently in $\geq$3 phylogenetically distinct lineages, as documented in the cited studies.
+For example, SARS-CoV-2 Layer~A positions (e.g., E484, N501, L452, K417) were identified by Carabelli et al.~\cite{carabelli2023convergent} through phylogenetic analysis showing independent emergence across Alpha, Beta, Gamma, Delta, and Omicron lineages.
+For HCV, the hypervariable regions HVR1 and HVR2 were used, as these regions exhibit diversifying selection across independent infections.
+No computational tool was applied to identify new convergent evolution positions; all positions were taken directly from the cited literature.
+
+\subsubsection{Layer B: Constrained Purifying Selection}
+
+Structurally and functionally essential sites under purifying selection are identified as true negatives.
+These positions exhibit low mutation rates due to loss-of-function consequences and are used as \textbf{True Negatives}.
+When detection methods incorrectly identify these positions as hotspots, they are counted as false positives, and the constrained false positive rate (constrained FPR) is computed.
+
+\textbf{Identification criteria.}
+Layer~B positions were identified based on two types of evidence from the cited literature: (1)~structural essentiality---positions within domains whose disruption abolishes protein function (e.g., fusion peptide, HR1/HR2 heptad repeats, structural disulfide-bonding cysteine residues), as determined by published mutagenesis or structural studies; and (2)~evolutionary conservation---positions exhibiting dN/dS $< 0.5$ across diverse viral isolates, indicating strong purifying selection against amino acid changes.
+For SARS-CoV-2, the 154 Layer~B positions include the HR1 (AA 912--984) and HR2 (AA 1,163--1,213) heptad repeats and structural cysteine residues, identified from the cryo-EM structure~\cite{wrapp2020cryo} and conservation analysis.
+As with Layer~A, no de novo computational identification was performed; all positions were curated from published sources.
+
+\subsubsection{Layer C: DMS Experimental Validation}
+
+For four pathogens with available Deep Mutational Scanning (DMS) experimental data---SARS-CoV-2~\cite{dadonaite2023dms}, HIV-1, H3N2, and RSV---experimentally measured fitness effects are used as ground truth.
+Positions in the top 20th percentile of mean absolute fitness effect from DMS data are classified as functionally important positions, and the DMS F1 score is computed against detection results.
+
+\textbf{Layer A/B overlap handling.}
+In RSV (positions 148, 152) and Influenza B (positions 141, 194), overlapping positions exist between Layer A and Layer B.
+This occurs because these residues are simultaneously under immune evasion pressure (positive selection) and structural constraints (purifying selection), representing dual-selection sites.
+In MCC evaluation, these positions are prioritized as Layer A (positive) and excluded from the Layer B (negative) set.
+Therefore, the effective Layer B for RSV is 16 (18 $-$ 2), and for Influenza B is 8 (10 $-$ 2) positions.
+
+Table~\ref{tab:gt_positions} summarizes the amino acid position counts and sources for each pathogen's 3-layer ground truth.
+
+\begin{table}[htbp]
+\centering
+\caption{3-layer ground truth position counts per pathogen (amino acid level, 0-based)}
+\label{tab:gt_positions}
+\small
+\adjustbox{max width=\textwidth}{
+\begin{tabular}{llrrrl}
+\toprule
+\textbf{Pathogen} & \textbf{Surface protein} & \textbf{Layer A} & \textbf{Layer B} & \textbf{Layer C} & \textbf{Layer A source} \\
+\midrule
+SARS-CoV-2 & Spike & 25 & 154 & 252 & \cite{cao2023ba286,carabelli2023convergent} \\
+H3N2 & HA & 25 & 10 & 102 & \cite{koel2013substitutions} \\
+Norovirus & VP1 & 15 & 229 & --- & \cite{lindesmith2012,lindesmith2013} \\
+HIV-1 & Env gp120 & 23 & 23 & 100 & \cite{moore2015williamson} \\
+Dengue & E protein & 24 & 24 & --- & \cite{twiddy2002dengue,holmes2003dengue} \\
+RSV & F protein & 20 & 18 & 101 & \cite{mas2018rsv,sullender2000rsv} \\
+Influenza B & HA & 17 & 10 & --- & \cite{ni2013influenzab,wang2008influenzab} \\
+MERS & Spike & 9 & 110 & --- & \cite{kim2016mers,tang2014mers} \\
+HCV & E2 & 54 & 0$^\ddagger$ & --- & HVR1/HVR2 hypervariable regions \\
+\bottomrule
+\end{tabular}
+}
+\begin{minipage}{\textwidth}
+\smallskip
+\footnotesize Layer C (DMS) sources: SARS-CoV-2~\cite{dadonaite2023dms}, H3N2~\cite{lee2018h3n2dms}, HIV-1~\cite{haddox2018hiv1dms}, RSV~\cite{simonich2025rsvdms}.
+``---'' indicates that no DMS data is available for that pathogen.
+$^\ddagger$The CD81 binding site residues of HCV (AA 418--535) exceed the alignment length (340 AA) and are not evaluated in this benchmark, resulting in effective Layer B = 0.
+\end{minipage}
+\end{table}
+
+\subsection{Evaluation Metrics}
+\label{subsec:9pathogen_metrics}
+
+The following evaluation metrics are used in the 9-pathogen benchmark.
+
+\begin{itemize}
+\item \textbf{MCC (Matthews Correlation Coefficient)}: The primary evaluation metric that integrates precision, recall, and specificity for imbalanced binary classification. Ranges from $[-1, 1]$, where 0 indicates random prediction.
+The confusion matrix is constructed using only Layer A (positive selection positions) as positive labels: TP = detected positions belonging to Layer A, FP = detected positions not belonging to Layer A, FN = undetected positions belonging to Layer A, TN = undetected positions not belonging to Layer A.
+Layer B (constrained regions) is not included in MCC computation and is evaluated separately via constrained FPR. The majority of genomic positions belonging to neither Layer A nor B are classified as FP or TN depending on detection status.
+\item \textbf{F1}: The harmonic mean of precision and recall.
+\item \textbf{Precision}: The proportion of true positives among detected positions.
+\item \textbf{Recall}: The proportion of true positives detected among all true positives.
+\item \textbf{Enrichment ratio}: The ratio of positive density within detected regions to overall positive density.
+\item \textbf{Constrained FPR}: The false positive rate in Layer B constrained regions.
+\item \textbf{DMS F1}: F1 score against Layer C DMS ground truth (computed only for 4 pathogens).
+\end{itemize}
+
+MCC is formally defined as:
+\begin{equation}
+\text{MCC} = \frac{TP \times TN - FP \times FN}{\sqrt{(TP+FP)(TP+FN)(TN+FP)(TN+FN)}}
+\label{eq:mcc}
+\end{equation}
+where $TP$, $TN$, $FP$, and $FN$ denote true positives, true negatives, false positives, and false negatives, respectively.
+MCC ranges from $-1$ (complete disagreement) through $0$ (random prediction) to $+1$ (perfect prediction), and unlike F1, it utilizes all four cells of the confusion matrix, making it robust to class imbalance.
+When any factor in the denominator is zero (e.g., no positive predictions), MCC is conventionally defined as 0.
+MCC was selected as the primary metric because in hotspot detection, where positive positions (convergent evolution sites) constitute a minority of the genome, it provides a more balanced evaluation than F1 for imbalanced classification problems. Chicco and Jurman~\cite{chicco2020mcc} systematically demonstrated that MCC provides more informative evaluation than F1 and accuracy in imbalanced binary classification.
+The stability component used in Stage 1 is excluded from Stage 2 because it is an internal consistency metric independent of external ground truth, and cross-pathogen comparability of Bernoulli masking effects has not been validated given the wide variation in sequence length and MSA size across the 9 pathogens.
+
+\subsection{Statistical Analysis Design}
+\label{subsec:9pathogen_statistics}
+
+\subsubsection{Three-way ANOVA ($\omega^2$)}
+
+A three-way ANOVA is performed with scoring formula (9 levels), detection family (15 levels), and pathogen (9 levels) as factors.
+Bias-corrected $\omega^2$ (omega-squared) is used as the effect size measure, which avoids the upward bias of $\eta^2$ with sample size. Following Cohen's effect size benchmarks~\cite{cohen1988statistical}, $\omega^2$ values are interpreted as small (0.01), medium (0.06), and large ($\geq 0.14$):
+\begin{equation}
+\omega^2 = \frac{SS_{\text{effect}} - df_{\text{effect}} \times MS_{\text{error}}}{SS_{\text{total}} + MS_{\text{error}}}
+\label{eq:omega_squared}
+\end{equation}
+where $SS_{\text{effect}}$ is the sum of squares for the factor of interest, $df_{\text{effect}}$ its degrees of freedom, $MS_{\text{error}}$ the mean square of the residual error, and $SS_{\text{total}}$ the total sum of squares.
+The $\omega^2$ values of main effects and two-way interactions are compared to identify the primary sources of performance variation.
+
+\subsubsection{LOPO Cross-Validation (Leave-One-Pathogen-Out)}
+
+The best-performing combination (scoring $\times$ detection) is selected from 8 of 9 pathogens, applied to the held-out pathogen, and generalization performance is evaluated.
+Through 9 iterations, the concordance rate between training-best and test-best (oracle) combinations and the performance gap are computed.
+
+\subsubsection{Friedman Test}
+
+A nonparametric repeated-measures test using 9 pathogens as blocks, testing whether statistically significant performance differences exist among the top $k$ combinations.
+
+\subsubsection{Pathogen-level BCa Bootstrap Confidence Intervals}
+
+Bias-corrected and accelerated (BCa) bootstrap confidence intervals are computed for MCC values across 9 pathogens to quantify the performance variability of the best-performing combination across pathogens.
+
+\subsubsection{Subsample Robustness Analysis}
+
+Random subsamples at 25\%, 50\%, 75\%, and 100\% of MSA sequences are drawn, and the benchmark is repeated to verify MCC stability as a function of sample size.

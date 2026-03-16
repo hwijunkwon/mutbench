@@ -1,0 +1,174 @@
+% Chapter 5: Discussion
+\chapter{Discussion}
+\label{ch:discussion}
+
+This chapter interprets the results from Chapter~\ref{ch:results} and discusses the methodological implications, limitations, and future research directions of MutBench.
+MutBench inherits the systematic benchmark philosophy from prior MOSD work, transferring composite metric design and single-factor isolation principles to viral genomics; the finding that study design factors dominate algorithm selection is consistent with findings in the viral hotspot detection context.
+
+%% ============================================================
+\section{Methodological Validity of MutBench}
+
+%% ============================================================
+\subsection{Impact of Feature Space Normalization}
+\label{sec:normalization}
+
+Benchmarking across four normalization schemes (raw H-score, min-max, z-score, rank transformation) showed that method rankings were consistent under raw and min-max normalization, but diverged under z-score and rank transformations.
+Under z-score normalization, MutClust-Original's F1 surged to 0.975 because the transformation shifts background noise to the negative domain and concentrates functional regions in the positive domain, effectively ``pre-solving'' the ideal signal-to-noise structure of the synthetic data.
+This advantage is not guaranteed in real GISAID data, which is sparse and discrete.
+Therefore, min-max normalization is the safe default that yields consistent rankings across both synthetic and real data.
+Beyond normalization choices, the statistical uncertainty of the benchmark results themselves must be quantified.
+
+%% ============================================================
+\subsection{Interpretation of Bootstrap Confidence Intervals}
+\label{sec:bootstrap_interpretation}
+
+The wide 95\% confidence intervals observed in region-level BCa bootstrap (e.g., MutClust-Hybrid [0.323, 0.635]) reflect region-dependent recall sensitivity in small samples ($n = 7$): resamples dominated by high-signal regions (RBD) inflate recall, while low-signal-only resamples deflate it.
+Nevertheless, pairwise bootstrap comparisons show that differences between methods are significant ($p < 0.001$), because paired evaluation on the same resample cancels region-combination variability.
+Future work should expand the effective sample size by including additional protein domains (e.g., ORF1ab, N protein).
+Having established statistical robustness, the next critical question is whether synthetic benchmark conclusions transfer to real data.
+
+%% ============================================================
+\subsection{Performance Gap Between Synthetic and Real Data}
+\label{sec:synthetic_real_gap}
+
+The real GISAID 2020--2021 H-score benchmark (Section~\ref{sec:real_gisaid_benchmark}) demonstrated that unconditional extrapolation of synthetic conclusions is not possible.
+The core cause is the qualitative difference in H-score distributions: synthetic data has continuous background noise across 29,903 positions, whereas real data has only 342 non-zero positions.
+Density-based clustering has limited cluster formation under such extremely sparse distributions (HDBSCAN-Auto fails to form clusters), and MutClust-Hybrid's advantage in the synthetic benchmark (hotspot-score 0.778 vs. 0.646) disappears under sparse distributions, with the two methods' performance converging (0.383 vs. 0.386).
+
+Crucially, however, even on real GISAID data the enrichment ratios remain 6.9--8.0-fold above the random baseline, demonstrating that the biological signal captured by top-performing methods is preserved despite the substantial MCC/F1 drop.
+The synthetic benchmark retains value precisely because it was designed as a controlled signal-recovery test: its purpose is not to predict absolute real-world performance, but to reveal relative method strengths under conditions where confounders (sparsity, founder effects, sampling bias) are held constant.
+Furthermore, the dual-benchmark design---synthetic and real evaluated together---is itself a methodological contribution: it quantifies the gap between theoretical detection capacity and practical performance, information that is unavailable from either benchmark alone.
+Therefore, MutBench recommends evaluating both what methods ``can do'' (synthetic) and what they ``actually do'' (real), treating the measured gap as a calibration factor rather than a limitation.
+
+%% ============================================================
+\subsection{Circularity Verification of Synthetic Data Design}
+\label{sec:circularity}
+
+Blind analysis confirmed that method rankings are not circularity artifacts: removing CCM seed peaks from the synthetic data preserved the F1 ranking of all seven methods (Spearman $\rho = 0.821$, $p = 0.023$), with MutClust-Hybrid maintaining first place in both settings.
+With synthetic benchmark validity confirmed, the temporal limitations of the underlying H-score metric warrant examination.
+
+%% ============================================================
+\section{Limitations of H-score-Based Detection}
+
+%% ============================================================
+\subsection{H-score Saturation and the Need for Adaptive Reference Sequences}
+\label{sec:hscore_saturation}
+
+The H-score saturation phenomenon observed in temporal validation (Section~\ref{sec:temporal}) reveals a fundamental limitation of reference-based metrics: in 2024--2025 data, all 1,273 Spike positions have non-zero H-scores with a standard deviation of only 0.098, resulting in loss of discriminatory power.
+TC-freq achieved the highest enrichment ratio (3.43-fold) on convergent evolution ground truth, suggesting that temporal contrast scoring is a viable direction; the appropriate temporal resolution remains a future challenge.
+The saturation phenomenon motivates evaluation against multiple independent ground truth definitions.
+
+%% ============================================================
+\subsection{Complementary Evaluation Perspectives}
+\label{sec:complementary_gt}
+
+In the multiple ground truth evaluation (Section~\ref{sec:multi_gt}), the Jaccard similarity between DMS-escape and convergent evolution positions was only 0.006, confirming that the two measures capture fundamentally different aspects of variation.
+Using only a single ground truth risks overestimating methods that align with a specific biological dimension, and MutBench's multi-ground-truth approach mitigates this.
+The result that the best method varies depending on the ground truth suggests that the ``best hotspot detection method'' is context-dependent: for immune evasion studies, methods best suited for the convergent evolution criterion are preferred, while for molecular function studies, methods best suited for the DMS criterion are preferred.
+MutBench systematically guides such context-dependent method selection.
+The ground-truth-dependent method rankings observed within SARS-CoV-2 foreshadow the pathogen-dependent rankings revealed in the 9-pathogen benchmark.
+
+%% ============================================================
+\section{Cross-Pathogen Generalization and PAHD}
+
+%% ============================================================
+\subsection{Implications of Cross-Pathogen Generalization}
+\label{sec:cross_pathogen_implications}
+
+As detailed in Chapter~\ref{ch:results}, the 9-pathogen benchmark demonstrated that no universally best-performing method exists, with all pathogens exhibiting unique best-performing combinations and substantial interaction effects. This finding has important implications in the context of real-time pathogen surveillance systems such as Nextstrain~\cite{nextstrain2018hadfield}: when a new pathogen or variant emerges, applying a previously optimized combination is inadequate, and adaptive method selection based on pathogen characteristics is required.
+The underlying cause is that pathogen-specific genomic characteristics---entropy distribution, proportion of conserved regions, and density of positively selected sites---create fundamentally different signal landscapes for detection methods.
+For example, pathogens with high overall mutation rates (e.g., H3N2, where all positions have nonzero H-scores) neutralize the advantage of threshold-based seed detection, while pathogens with compact genomes and few convergent evolution sites (e.g., MERS) favor methods that can detect weak signals in sparse data.
+The proof-of-concept simulation further revealed that frequency-based scoring conflates founder effects with positive selection ($\rho = -0.876$), adding another pathogen-dependent dimension: the degree of founder-effect contamination varies with each pathogen's transmission history.
+Based on these findings, PAHD (Pathogen-Adaptive Hotspot Detection) is proposed as a conceptual framework for pathogen-specific method selection, formalizable within Rice's algorithm selection problem~\cite{rice1976algorithm}, a framework that has since been extended to automated algorithm selection~\cite{smith2021algorithm} and AutoML~\cite{kotthoff2016algorithm}.
+Concretely, MutBench's results instantiate Rice's framework as follows: the \textit{problem space} $\mathcal{P}$ consists of pathogens characterized by genomic profiles (alignment length, diversity ratio, ground truth density, etc.); the \textit{algorithm space} $\mathcal{A}$ comprises 369 scoring--detection combinations (9 $\times$ 41); and the \textit{performance space} $\mathcal{Y}$ is MCC evaluated against the 3-layer ground truth. The interaction dominance ($\omega^2 = 0.285$) empirically confirms that the mapping $f: \mathcal{P} \to \mathcal{A}$ is non-trivial---a domain-specific instantiation of the No Free Lunch theorem~\cite{wolpert1997nfl}, which states that no single algorithm can outperform all others across all possible problem distributions. The PAHD prototype's 5/9 positive MCC result demonstrates that even a simple nearest-neighbor approach in the profile space $\mathcal{P}$ partially recovers this mapping, motivating more sophisticated meta-learning approaches.
+
+The concrete implementation of PAHD is proposed as future work in Chapter~\ref{ch:conclusion}.
+The demonstrated necessity of pathogen-adaptive selection raises the question of how to interpret the absolute performance levels achieved.
+
+%% ============================================================
+\subsection{Interpretation of the Oracle MCC Ceiling (0.298)}
+\label{sec:oracle_mcc_ceiling}
+
+The mean oracle MCC across 9 pathogens is 0.298 (range: 0.088--0.549), which may appear low but is explained by three structural factors.
+First, \textbf{position-level exact matching} imposes a strict criterion where a detection off by even one position counts as a false positive.
+Second, \textbf{extreme class imbalance} (positive rates mostly below 10\%) constrains the achievable MCC---under a 5\% positive rate, 90\% recall and 30\% precision yield a theoretical MCC of only 0.49.
+Third, \textbf{ground truth stringency} penalizes methods that detect genuine but unannotated hotspots, as only literature-confirmed convergent evolution sites are treated as positives.
+
+Despite these constraints, the oracle MCC of 0.298 is unambiguously non-random: the random baseline (10,000 permutations) has a mean of 0.001 (SD = 0.003), placing the oracle approximately 99 standard deviations above chance.
+For context, similar position-level evaluation metrics in other bioinformatics benchmarks yield comparable ranges: transcription factor binding site prediction achieves F1 of 0.3--0.5 at single-nucleotide resolution~\cite{weirauch2013evaluation}, and early CASP protein structure prediction achieved GDT-TS scores below 0.3 for difficult targets.
+The oracle MCC of 0.298 is thus consistent with the inherent difficulty of position-level biological prediction tasks.
+Pathogens with well-characterized ground truth achieve substantially higher values.
+Despite these ceiling effects, the benchmark results have practical implications for public health surveillance.
+
+%% ============================================================
+\section{Practical Implications and Fundamental Limitations}
+
+%% ============================================================
+\subsection{Practical Considerations for Public Health Surveillance}
+\label{sec:practical_surveillance}
+
+Considering SARS-CoV-2's generation time (approximately 5 days) and sequence submission delay (median approximately 14 days), a minimum 4-week window is required for real-time TC-freq alerts.
+HDBSCAN-Auto (high recall) is suitable for early warning, while MutClust-Hybrid (balanced performance) is suitable for vaccine candidate selection; in retrospective analysis, MutClust-Hybrid detected key VOC positions 3--6 weeks earlier than MutClust-Fixed, though this estimate requires real-data validation.
+
+A two-stage detection pipeline---first-stage broad screening with HDBSCAN-Auto followed by second-stage high-precision confirmation with MutClust-Hybrid (Table~\ref{tab:twostep_pipeline})---maintained precision (0.968) while improving stability to 0.740, achieving the highest hotspot-score (0.784).
+This two-stage approach is recommended for vaccine design applications where downstream experimental costs demand robust hotspot selection, whereas single-method approaches suffice for routine surveillance (MutClust-Hybrid) or early warning (HDBSCAN-Auto).
+However, in real GISAID 2020--2021 data, HDBSCAN-Auto failed to form clusters due to the sparsity of non-zero positions (342), so the benefits of the two-stage pipeline were not realized.
+A fundamental methodological limitation that affects all frequency-based approaches is phylogenetic non-independence.
+
+%% ============================================================
+\subsection{Phylogenetic Non-Independence and Scalability Limits}
+\label{sec:phylo_limits}
+
+All detection methods in this study implicitly assume independence between sequences; however, SARS-CoV-2 sequences are phylogenetically structured, and frequency-based approaches cannot distinguish positive selection from founder effects (e.g., D614G;~\cite{korber2020tracking}).
+The dN/dS filter partially addresses this but is itself susceptible to phylogenetic bias.
+
+Proof-of-concept simulations (Section~\ref{subsec:phylo_correction_poc}) demonstrated that Fitch parsimony-based homoplasy scores correctly rank convergent mutations above founder mutations, and extended TreeTime ML validation (Section~\ref{subsec:treetime_ml_validation}) confirmed equivalent accuracy (AUC = 1.000).
+Validation on real GISAID sequences (Section~\ref{subsec:treetime_gisaid_validation}) showed that H-score and homoplasy score capture fundamentally different signals ($\rho = -0.107$, $p = 1.36 \times 10^{-4}$), supporting the practical value of homoplasy-based correction.
+The homoplasy-based scoring sensitivity analysis (Section~\ref{subsec:homoplasy_sensitivity}) confirmed that the MutBench detection framework functions with phylogenetically corrected input, achieving substantially higher MCC (mean 0.742 vs.\ 0.062), but that method rankings change ($\rho = -0.334$, $p = 0.465$), reinforcing the need for pathogen-adaptive method selection that accounts for the scoring system used.
+Full integration of phylogenetic correction into the pipeline remains a key future extension (Chapter~\ref{ch:conclusion}).
+
+%% ============================================================
+\subsection{Representativeness and Sampling Bias of GISAID Data}
+
+Systematic biases exist in the GISAID~\cite{shu2017gisaid}-based input data.
+\textbf{Geographic bias}: High-income countries contribute over 80\% of total sequences~\cite{chen2022gisaid}, leading to underrepresentation of unique variants from Africa/South Asia; weekly stratification corrects only for temporal imbalance.
+\textbf{Temporal bias}: Sequence accumulation differs substantially between the early pandemic and Omicron periods, and within-week representativeness is not guaranteed.
+\textbf{Founder effect}: ``Hitchhiker'' mutations accompanying lineage expansion (e.g., JN.1;~\cite{kaku2024virological}) cannot be distinguished from positively selected positions by frequency-based approaches alone.
+
+\subsection{Scope Justification: 9 RNA Viruses}
+
+The 9 pathogens were selected to systematically cover 6 major RNA virus families (Coronaviridae, Orthomyxoviridae, Retroviridae, Pneumoviridae, Flaviviridae, Caliciviridae), representing the primary taxonomic diversity of RNA viruses with pandemic potential.
+This scope limitation to RNA viruses is an intentional design decision: H-score-based scoring requires sufficient mutation density, which RNA viruses provide due to their high mutation rates ($10^{-3}$--$10^{-5}$ substitutions/site/year), whereas DNA viruses ($10^{-7}$--$10^{-9}$) would require fundamentally different scoring approaches.
+Despite the small sample size ($n=9$), the Friedman test achieved $p=0.0015$, indicating that the effect size is large enough to be detected even with limited pathogens.
+
+%% ============================================================
+\section{Summary}
+\label{sec:mutbench_summary}
+
+\begin{table}[htbp]
+\centering
+\caption{Summary of key findings from MutBench}
+\label{tab:key_findings}
+\small
+\adjustbox{max width=\textwidth}{
+\begin{tabular}{lll}
+\toprule
+\textbf{Finding} & \textbf{Evidence} & \textbf{Implication} \\
+\midrule
+Detection strategy dominates performance & F1 range 0.146--0.785 (5.4$\times$) & Method choice matters more than tuning \\
+No universal best method & 9/9 unique combos, LOPO 0/9 & Pathogen-adaptive selection needed \\
+Method$\times$pathogen interaction largest & $\omega^2=0.285$ (28.5\% variance) & Best method depends on pathogen \\
+H-score saturates over time & All 1,273 positions nonzero by 2024 & Fixed-reference metrics have shelf life \\
+Founder effect contaminates H-score & $\rho=-0.876$ (H-score vs origins) & Phylogenetic correction essential \\
+Ground truths are complementary & Jaccard(DMS, convergent)=0.006 & Multi-GT evaluation necessary \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+The discussion reveals three overarching insights.
+First, MutBench demonstrates that detection strategy selection dominates performance variation, with the hotspot-score composite metric confirming MutClust-Hybrid's advantage through combined domain knowledge and data-driven clustering.
+Second, the 9-pathogen benchmark provides robust statistical evidence that no universally best-performing method exists, motivating pathogen-adaptive detection strategies as formalized in the PAHD framework.
+Third, the identified limitations---H-score saturation, phylogenetic non-independence, and GISAID sampling bias---define concrete directions for future work while not undermining the core conclusions, which are supported by bootstrap, permutation, and cross-validation analyses.
+
+The following chapter formalizes these findings as two research contributions and discusses their limitations and future extensions.

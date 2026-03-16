@@ -1,0 +1,163 @@
+%% thesis_en.tex — Kyungpook National University Ph.D. Thesis (English Version)
+%% XeLaTeX environment
+%% Compile: xelatex thesis_en && bibtex thesis_en && xelatex thesis_en && xelatex thesis_en
+
+\documentclass[11pt]{knuthesis_en}
+
+%% ============================================================
+%% Packages
+%% ============================================================
+
+%% Math
+\usepackage{amsmath,amssymb,mathrsfs}
+
+%% Graphics
+\usepackage{graphicx}
+\graphicspath{{figures/}{../mutbench/}{../../results/mutbench/}{../../docs/figures/}}
+
+%% Tables
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{adjustbox}
+
+%% Algorithms
+\usepackage[ruled,vlined,linesnumbered]{algorithm2e}
+
+%% Code
+\usepackage{listings}
+\lstset{
+  basicstyle=\ttfamily\small,
+  breaklines=true,
+  frame=single,
+  numbers=left,
+  numberstyle=\tiny,
+}
+
+%% Bibliography (natbib + bibtex)
+\usepackage[numbers,sort&compress]{natbib}
+\bibliographystyle{unsrtnat}
+
+%% Hyperlinks
+\usepackage[pdfencoding=auto,colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\usepackage{bookmark}
+
+%% TikZ
+\usepackage{tikz}
+\usetikzlibrary{positioning, arrows.meta}
+
+%% Misc
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{subcaption}
+\usepackage{url}
+
+%% ============================================================
+%% Line spacing (1.85)
+%% ============================================================
+\setstretch{1.85}
+
+%% ============================================================
+%% Font settings (English only)
+%% ============================================================
+\usepackage{fontspec}
+\setmainfont{TeX Gyre Termes}
+\newfontfamily\koreanfont{Noto Serif CJK KR}[Script=CJK]
+
+%% ============================================================
+%% Author information
+%% ============================================================
+\title{Systematic Benchmarking and Adaptive Clustering Frameworks\\for Multi-Scale Genomic Data Analysis}
+\author{Hwijun Kwon}
+\advisor{Inuk Jung}
+\major{School of Computer Science and Engineering}
+\degreedate{2026}{8}
+
+%% Korean metadata (for 국문초록)
+\ktitle{다중 스케일 게놈 데이터 분석을 위한\\체계적 벤치마킹 및 적응적 클러스터링 프레임워크}
+\kauthor{권휘준}
+\kadvisor{정인욱}
+\kmajor{컴퓨터학부}
+
+%% Committee (to be updated)
+\committeechairman{TBD}
+\committeememberA{TBD}
+\committeememberB{TBD}
+\committeememberC{TBD}
+\committeememberD{TBD}
+
+%% ============================================================
+%% Document
+%% ============================================================
+\begin{document}
+
+%% ----------------------------------------------------------
+%% Front Matter
+%% ----------------------------------------------------------
+\pagenumbering{roman}
+
+%% Cover page
+\makecoverpage
+
+%% Inner title page
+\makeinnertitle
+
+%% Approval page
+\makeapprovalpage
+
+%% Acknowledgments
+\makeacknowledgments{%
+  \input{front_en/acknowledgments}
+}
+
+%% Abstract
+\makeengabstract{%
+  \input{front_en/abstract}
+}
+
+%% Table of Contents
+\setcounter{page}{1}
+\tableofcontents
+\clearpage
+
+%% List of Tables
+\listoftables
+\clearpage
+
+%% List of Figures
+\listoffigures
+\clearpage
+
+%% ----------------------------------------------------------
+%% Main Matter
+%% ----------------------------------------------------------
+\pagenumbering{arabic}
+\setstretch{1.85}
+
+\input{chapters_en/ch1_introduction}
+
+\input{chapters_en/ch2_background}
+
+\input{chapters_en/ch3_methods}
+
+\input{chapters_en/ch4_results}
+
+\input{chapters_en/ch5_discussion}
+
+\input{chapters_en/ch6_conclusion}
+
+%% ----------------------------------------------------------
+%% Back Matter
+%% ----------------------------------------------------------
+
+%% Bibliography
+\bibliography{references}
+
+%% Korean Abstract (국문초록) — required by KNU for English-language dissertations
+\makekorabstract{%
+  \input{front/abstract_kr}
+}
+
+\end{document}

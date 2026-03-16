@@ -1,0 +1,10 @@
+pathogen,predicted_combo,predicted_family,oracle_family,test_mcc,oracle_mcc,predicted_rank,total_combos,percentile,in_top5,in_top10,family_in_top3,family_in_top5
+Dengue,H-score + Wavelet(t=1.5),Wavelet,FreqThresh,-0.0123,0.2563,87,369,76.4,False,False,True,True
+H3N2,H-score + Wavelet(t=1.5),Wavelet,SlidingTest,0.2073,0.5488,8,369,97.8,False,True,True,True
+HCV,E_only + SlidingTest(p=0.05),SlidingTest,CUSUM,-0.2905,0.4425,364,369,1.4,False,False,False,False
+HIV-1,H-score + Wavelet(t=1.5),Wavelet,SlidingTest,0.0138,0.1816,251,369,32.0,False,False,True,True
+Influenza_B,E_only + SlidingTest(p=0.05),SlidingTest,Wavelet,-0.1902,0.3612,366,369,0.8,False,False,True,True
+MERS,P*E*rare + AdaptiveKnee,AdaptiveKnee,SlidingTest,-0.0123,0.0879,108,369,70.7,False,False,False,False
+Norovirus,E*rare + Wavelet(t=1.0),Wavelet,GradPeak,0.2168,0.438,15,369,95.9,False,False,True,True
+RSV,minority_E + SlidingTest(p=0.01),SlidingTest,FreqThresh,0.069,0.2494,327,369,11.4,False,False,False,False
+SARS-CoV-2,P*E*rare + GradPeak(p=0.5),GradPeak,CUSUM,0.0446,0.1184,263,369,28.7,False,False,False,False

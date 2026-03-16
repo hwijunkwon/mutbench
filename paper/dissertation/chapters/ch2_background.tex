@@ -1,0 +1,179 @@
+% Chapter 2: Background and Prior Work (Unified)
+% Combines: literature review + MOSD summary + MutClust summary
+\chapter{배경 및 선행 연구}
+\label{ch:background}
+
+본 장에서는 본 학위논문의 핵심 연구인 MutBench를 이해하기 위한 배경을 네 개의 절로 구성하여 제시한다.
+
+먼저, 다중오믹스 통합 분석(Section~\ref{sec:bg_moi})과 바이러스 변이 핫스팟 탐지(Section~\ref{sec:bg_hotspot})에 관한 선행 연구를 고찰한다.
+이 두 분야는 본 학위논문의 핵심 연구(MutBench)와 선행 연구(MOSD, MutClust)가 다루는 핵심 영역이며, 공통적으로 클러스터링 기반 방법에 의존하면서도 체계적 벤치마킹이 부족하다는 문제를 공유한다.
+
+이어서, 본 학위논문의 선행 연구로서 출판된 두 논문---MOSD (Section~\ref{sec:mosd_summary})와 MutClust (Section~\ref{sec:mutclust_summary})---를 요약한다.
+MOSD는 다중오믹스 통합을 위한 체계적 벤치마킹 방법론을 확립하였고, MutClust는 바이러스 변이 핫스팟 탐지를 위한 적응형 알고리즘을 개발하였다.
+본 장에서는 이 두 연구의 성과와 한계를 모두 제시하여, MutBench 개발의 동기와 방법론적 기반을 명확히 한다.
+
+
+%% ===================================================================
+%%  SECTION 1: 다중오믹스 통합 분석
+%% ===================================================================
+\section{다중오믹스 통합 분석}
+\label{sec:bg_moi}
+
+\label{subsec:bg_moi_methods}
+\label{subsec:bg_benchmarking}
+
+Multi-Omics Integration (MOI)은 유전자 발현, DNA 메틸화, 복제수 변이 등 다층적 생물학적 데이터를 결합하여 복잡한 질병의 분자적 특성을 포괄적으로 규명하기 위한 접근법이다.
+그래프 기반(SNF~\cite{wang2014snf}, NEMO~\cite{rappoport2018nemo}), 행렬 분해 기반(MOFA~\cite{argelaguet2018mofa}, iClusterPlus~\cite{shen2013iclusterplus}), 합의 기반(COCA~\cite{hoadley2014coca}, PINSPlus~\cite{nguyen2017pinsplus}) 등 다양한 MOI 방법이 개발되었으나, 어떤 조건에서 어떤 방법이 최적인지에 대한 근본적 질문이 남아 있었으며, 기존 벤치마크 연구들~\cite{chauvel2020sample, rappoport2018benchmark, pierrejean2020feature, tini2019multi, duan2021evaluation}은 각각 1--3개의 요인만을 독립적으로 조사하여 통합적 가이드라인을 제공하지 못하였다.
+저자는 이 공백을 해결하기 위해 MOSD 프레임워크~\cite{han2025mosd}를 개발하여, 10개 TCGA 암종에 걸쳐 10개 MOI 방법에 대한 9개 요인의 영향을 체계적으로 평가하였다.
+MOSD는 두 가지 핵심 설계 원칙을 도입하였다: 세 가지 상보적 클러스터링 지표를 동등 가중치로 결합한 복합 평가 지표(cluster-score)와, 평가 대상 요인만 변동시키고 나머지를 통제하는 단일 요인 분리 설계이다.
+Weber et al.~\cite{weber2019benchmarking}은 엄격한 벤치마킹에 중립적 평가, 다중 지표, 통제된 실험 설계, 재현성이 필요함을 제시하였으며, MOSD는 이러한 원칙을 MOI에 구현하였다. 이와 동일한 설계 원칙이 바이러스 핫스팟 탐지를 위한 MutBench로 이전되며, 이는 Section~\ref{sec:mosd_summary}에서 상술한다.
+
+
+%% ===================================================================
+%%  SECTION 2: 바이러스 변이 핫스팟 탐지
+%% ===================================================================
+\section{바이러스 변이 핫스팟 탐지}
+\label{sec:bg_hotspot}
+
+\subsection{변이 핫스팟 탐지 방법론}
+\label{subsec:bg_hotspot_methods}
+
+변이 핫스팟은 유전체 내에서 변이가 비균일적으로 집중되는 영역으로, 구조적 또는 면역학적 선택압 하에 있는 기능적으로 중요한 부위를 반영할 가능성이 높다.
+바이러스 유전체에서 핫스팟을 식별하는 것은 변이체 출현 예측, 백신 표적 선정, 치료제 개발에 핵심적이다.
+기존의 핫스팟 탐지 접근법은 빈도 기반, 엔트로피 기반, 밀도 기반 방법으로 분류할 수 있다.
+
+\textbf{빈도 기반 접근법}은 아미노산 또는 뉴클레오타이드 수준에서 변이 빈도를 계산하고, 높은 빈도를 보이는 위치를 핫스팟으로 지정한다.
+직관적이고 구현이 용이하지만, 두 가지 근본적 한계를 지닌다.
+첫째, \textbf{계통 편향(lineage bias)}: 특정 계통이 데이터베이스에서 과대 대표될 경우 해당 계통의 정의 변이가 불균형적으로 높은 빈도 점수를 받는다.
+D614G와 같이 거의 모든 현대 SARS-CoV-2 서열에서 관찰되는 변이는 실제 적응도 이점을 반영하지만, 근고정(near-fixation) 속도는 초기 팬데믹의 창시자 효과에 의해 증폭되어, 빈도 데이터만으로는 선택과 유전적 부동의 상대적 기여를 구분하기 어렵다.
+둘째, \textbf{희귀 변이의 간과}: 낮은 빈도로 발생하지만 다양한 형태로 나타나는 변이---면역 회피 또는 바이러스 적응을 시사할 수 있는---가 체계적으로 간과된다.
+
+\textbf{엔트로피 기반 접근법}은 Shannon entropy를 사용하여 주어진 위치에서 뉴클레오타이드 다양성을 측정한다.
+Mullick et al.~\cite{mullick2021entropy}은 Shannon entropy와 K-means clustering을 결합하여 SARS-CoV-2 Spike 단백질의 핫스팟을 탐지하였다.
+그러나 기존의 뉴클레오타이드 엔트로피는 변이 발생 여부와 관계없이 모든 뉴클레오타이드의 분포를 반영하므로, 변이 발생을 조건으로 한 실효적 다양성을 포착하지 못한다.
+또한 K-means clustering은 클러스터 수를 사전에 지정해야 하며 밀도 구조를 고려하지 않는다.
+
+\textbf{암 유전체학 방법.}
+암 유전체학에서는 체세포 변이의 핫스팟을 탐지하기 위한 다양한 방법이 개발되었다.
+MutSigCV~\cite{lawrence2013mutsigcv}는 배경 변이율을 모델링하여 과도한 변이를 보이는 유전자를 식별하나, 유전자 수준의 해상도에서 작동한다.
+OncodriveCLUST~\cite{tamborero2013oncodriveclust}는 변이의 위치적 클러스터링 편향을 무작위 기대값과 비교한다.
+HotMAPS~\cite{tokheim2016hotmaps}는 변이를 3D 단백질 구조에 매핑하여 공간적 핫스팟을 탐지하나, 단백질 구조 데이터가 필요하며 코딩 영역에 제한된다.
+MutSpot~\cite{munoz2020mutspot}은 후성유전체적 특성을 활용하는 random forest 모델로 변이 밀도를 예측한다.
+이러한 암 유전체학 방법들은 바이러스 유전체에 직접 적용하기 어렵다: 바이러스 유전체는 암 유전체보다 1,000배 이상 작으며, 변이 밀도 패턴, 선택압의 유형, 진화 동역학이 근본적으로 다르다.
+
+\subsection{밀도 기반 클러스터링}
+\label{subsec:bg_density_clustering}
+
+DBSCAN~\cite{ester1996dbscan}은 고밀도 영역을 클러스터로 정의하고 저밀도 영역을 노이즈로 분류하는 대표적인 밀도 기반 클러스터링 알고리즘이다.
+두 가지 핵심 파라미터---epsilon(탐색 반경)과 MinPts(최소 포인트 수)---를 사용하여 밀도 조건을 정의한다.
+그러나 DBSCAN은 \textbf{고정된 전역 epsilon}을 사용하므로, 밀도 변동이 큰 데이터에서는 적절한 클러스터를 형성할 수 없다.
+이 문제는 바이러스 유전체에서 극단적인 형태로 나타난다:
+SARS-CoV-2 유전체에 직접 적용하면 데이터의 99.76\%가 단일 거대 클러스터에 속하는 총 4개의 클러스터만 형성되어, 생물학적으로 의미 있는 핫스팟 구별이 불가능해진다~\cite{youn2025mutclust}.
+
+HDBSCAN~\cite{campello2013hdbscan}은 DBSCAN의 고정 epsilon이라는 근본적 한계를 해결한다.
+다양한 epsilon 값에 걸쳐 DBSCAN 결과를 계층적으로 탐색하여 밀도 변동에 적응적으로 클러스터를 추출한다.
+단일 파라미터인 min\_cluster\_size로 작동하며, epsilon의 명시적 지정이 필요하지 않다.
+임의 형태의 클러스터를 탐지할 수 있고, 노이즈 포인트를 자동으로 식별하며, 클러스터 소속의 확률적 해석을 제공한다.
+
+OPTICS (Ordering Points To Identify the Clustering Structure)~\cite{ankerst1999optics}는 도달 가능성 플롯(reachability plot)을 생성하여 모든 밀도 수준의 클러스터링 구조를 동시에 드러냄으로써 DBSCAN의 한계를 해결한다.
+밀도 계층으로부터 평탄 클러스터를 자동 추출하는 HDBSCAN과 달리, OPTICS는 클러스터 추출을 위해 후처리(예: $\xi$-steepness 방법)가 필요하여 자동화된 파이프라인에서의 활용이 제한적이다.
+
+빈도 기반 변이 분석의 중요한 한계는 \textbf{계통발생학적 비독립성(phylogenetic non-independence)}이다: 근연 서열에서 관찰되는 변이는 독립적 사건이 아니다~\cite{felsenstein1985phylogenies}.
+TreeTime~\cite{sagulenko2018treetime}은 계통수 상에서 조상 서열을 재구성하여 독립적 변이 발생을 계수하며,
+BEAST~\cite{suchard2018beast}는 진화 과정을 직접 모델링하는 베이지안 프레임워크를 제공하고,
+HyPhy~\cite{kosakovsky2020hyphy}는 개별 코돈에서 선택압을 검정할 때 계통발생 구조를 고려한다.
+이러한 계통발생 인식 방법들은 밀도 기반 핫스팟 탐지와 상호 보완적이나, 고품질 계통수를 필요로 하며 밀집 표본 데이터셋에서는 신뢰성이 제한적이다~\cite{turakhia2020ultrafast}.
+
+\textbf{Deep Mutational Scanning (DMS)}은 단백질 내 가능한 모든 단일 아미노산 치환의 기능적 효과를 체계적으로 측정하는 실험 기법이다~\cite{fowler2014dms}.
+SARS-CoV-2의 경우 Starr et al.~\cite{starr2020dms}이 수용체 결합 도메인(RBD)에서 ACE2 결합 친화도와 발현을 측정하였고, Dadonaite et al.~\cite{dadonaite2023dms}이 전체 길이 Spike 단백질에서 슈도바이러스 세포 진입 적응도를 측정하였다.
+Bloom and Neher~\cite{bloom2023fitness}는 모든 SARS-CoV-2 단백질에 걸친 DMS 적응도 효과의 통합 분석을 제공하였다.
+DMS 데이터는 핫스팟 벤치마킹을 위한 자연스러운 ground truth를 제공한다: 변이가 큰 적응도 효과를 보이는 위치는 탐지 방법이 식별해야 하는 생물학적 기능 부위에 해당한다.
+이는 다중오믹스 벤치마킹에서 분자적으로 정의된 암 아형을 ground truth로 사용하는 원칙과 유사하다.
+
+바이러스 유전체학에서 핫스팟 탐지 방법의 벤치마킹이 부재한 현황은 암 유전체학과 대조적이다.
+암 유전체학에서는 Bailey et al.~\cite{bailey2018comprehensive}의 포괄적 드라이버 유전자 분석이 표준 벤치마크로 기능하며, 다수의 탐지 방법이 동일한 데이터셋과 ground truth에 대해 체계적으로 비교되어 왔다.
+바이러스 유전체에 대해서는 그러한 벤치마크가 존재하지 않으며, MutClust를 포함한 방법들은 자기 참조적 통계 검정에만 의존한다.
+이 공백이 본 학위논문의 핵심 연구인 MutBench (Chapter~\ref{ch:mutbench})의 근본적 동기이다.
+
+
+
+%% ===================================================================
+%%  SECTION 3: MOSD 요약
+%% ===================================================================
+\section{MOSD: 다중오믹스 연구 설계 프레임워크}
+\label{sec:mosd_summary}
+
+\textit{본 절은 BMC Genomics (2025) 26:769~\cite{han2025mosd}에 출판된 논문의 요약이다.}
+
+\label{subsec:mosd_bg}
+\label{subsec:mosd_methods_summary}
+\label{subsec:mosd_results_summary}
+\label{subsec:mosd_implications}
+
+MOSD (Multi-Omics Study Design)~\cite{han2025mosd}는 10개 TCGA 암종에 걸쳐 10개 MOI 방법에 대한 9개 요인의 영향을 체계적으로 평가한 최초의 포괄적 벤치마킹 프레임워크이다.
+핵심 기여는 세 가지이다:
+(1)~세 가지 상보적 클러스터링 지표(ARI, NMI, F-measure)를 동등 가중치로 결합한 \textbf{복합 cluster-score};
+(2)~평가 대상 요인만 변동시키고 나머지를 통제하는 \textbf{단일 요인 분리 설계};
+(3)~\textbf{연구 설계가 알고리즘 선택보다 중요하다}는 핵심 발견---어떤 단일 방법도 모든 조건에서 우위를 보이지 않아, 방법 선택이 본질적으로 맥락 의존적임을 확인하였다.
+
+본 학위논문에서 MOSD의 주된 기여는 \textbf{복합 지표 설계 원칙}이다: cluster-score의 상보적 지표 동등 가중 결합이 MutBench의 hotspot-score $= (\text{recall} + \text{precision} + \text{stability}) / 3$으로 직접 이전된다.
+MOSD의 단일 요인 분리 설계 역시 MutBench의 파라미터 민감도 분석에 적용된다.
+평가 요인을 체계적으로 통제하고 다중 지표로 평가해야 한다는 프레임워크 수준의 원칙이 MutBench의 설계를 직접적으로 형성한다.
+
+
+%% ===================================================================
+%%  SECTION 4: MutClust 요약
+%% ===================================================================
+\section{MutClust: 적응형 밀도 기반 핫스팟 탐지}
+\label{sec:mutclust_summary}
+
+\textit{본 절은 BioData Mining (2025) 18:61~\cite{youn2025mutclust}에 출판된 논문의 요약이다.}
+
+\subsection{H-score와 적응형 DBSCAN}
+\label{subsec:mutclust_hscore}
+
+MutClust는 바이러스 유전체의 변이 핫스팟 탐지를 위해 설계된 최초의 밀도 기반 알고리즘이다.
+핵심 혁신은 새로운 변이 중요도 지표인 H-score와, 이에 기반한 적응형 DBSCAN 프레임워크이다.
+
+\textbf{H-score}는 변이 빈도와 변이 엔트로피(변이 발생을 조건으로 한 다양성)의 곱에 로그 변환을 적용하여 두 가지 상보적 신호를 동시에 포착하며, 높은 빈도이지만 낮은 다양성의 계통 정의 변이와, 낮은 빈도이지만 허위적으로 높은 다양성의 노이즈 위치라는 두 유형의 위양성을 억제한다.
+
+H-score에 기반한 \textbf{적응형 DBSCAN}은 DBSCAN의 고정된 전역 epsilon을 각 위치의 H-score에 비례하는 이웃 반경으로 대체하여, 생물학적으로 중요한 영역에는 넓은 탐색 반경을, 그 외 영역에는 좁은 반경을 할당한다.
+알고리즘은 먼저 개별 H-score, 이웃 평균, 이웃 합, 최소 포인트 수에 대한 임계 조건을 충족하는 Core Candidate Mutation (CCM)을 식별한 후, 각 CCM으로부터 축소되는 반경으로 양방향 클러스터 확장을 수행한다.
+핵심 파라미터($\gamma=10$, $d=3$, MinPts$=5$)는 224,318개 SARS-CoV-2 서열로부터 경험적으로 결정되었으며, 전체 시간 복잡도는 $O(N + M \log M)$으로 $N$은 유전체 길이, $M$은 변이 위치 수이다.
+
+\subsection{SARS-CoV-2 핫스팟 탐지 결과}
+\label{subsec:mutclust_results_summary}
+
+224,318개 GISAID SARS-CoV-2 서열을 우한-Hu-1 참조 유전체(NC\_045512.2, 29,903 bp)에 정렬하여 분석한 결과, MutClust는 \textbf{477개}의 변이 핫스팟을 탐지하였으며, 이는 DBSCAN으로 얻은 4개 클러스터와 질적으로 완전히 다른 수준의 해상도이다.
+검증을 위해 조사한 10개 알려진 기능적 변이 중 D614G, E484K, N501Y, L452R 등 9개가 핫스팟에 포함되었으며, Spike 단백질 영역에서 가장 높은 핫스팟 밀도가 관찰되었다.
+인플루엔자에 대한 검증(276,910개 서열, 3개 아형)에서도 D222G(H1N1), E627K(H3N2), K338R(B-Victoria) 등 임상적으로 중요한 변이가 핫스팟으로 성공적으로 탐지되어 일반화 가능성이 확인되었다.
+특히 H3N2의 경우, Smith et al.~\cite{smith2004antigenic}이 항원 지도작성(antigenic cartography)을 통해 HA 단백질의 소수 치환이 항원 변화를 주도함을 밝힌 바 있어, 이러한 핵심 위치의 정확한 탐지가 중요하다.
+그러나 인플루엔자 유전체는 SARS-CoV-2의 약 10분의 1 크기이므로, 최적 성능을 위해서는 유전체 특성에 맞춘 파라미터 재조정이 필요할 수 있다.
+
+\subsection{한계점과 MutBench 개발 동기}
+\label{subsec:mutclust_limitations}
+
+MutClust의 성과에도 불구하고, 세 가지 근본적 한계가 MutBench 개발의 직접적 동기가 된다.
+
+\textbf{첫째, 구현 수준의 문제이다.}
+클러스터 확장 함수의 diminishing 공식에 존재하는 버그로 인해 선형이 아닌 누적적 반경 감쇠가 발생하여 클러스터 확장이 조기에 종료되며, 특정 경계 조건에서는 감쇠 방향이 역전되는 현상이 나타난다.
+
+\textbf{둘째, 하드코딩된 파라미터이다.}
+$\gamma=10$, $d=3$, CCM 임계값(0.03, 0.01, 0.05)은 224,318개 SARS-CoV-2 서열에 맞춰 경험적으로 설정된 값이다.
+서열 수나 유전체 크기가 달라지면 이 값들이 부적절해질 수 있으나, 파라미터 변동에 따른 탐지 결과의 민감도가 체계적으로 분석된 적이 없다.
+인플루엔자 검증에서 동일 파라미터의 적용이 성공적이었지만, 인플루엔자 유전체는 SARS-CoV-2의 약 10분의 1 크기($\sim$2,300 bp/분절 대 $\sim$30,000 bp)이므로 최적 성능을 위한 파라미터 재조정의 필요성이 불확실한 채로 남아 있다.
+
+\textbf{셋째, 체계적 벤치마킹의 부재이다.}
+MutClust의 핫스팟 탐지 성능은 알려진 기능적 변이와의 정성적 비교에만 의존하며, 독립적 ground truth에 기반한 정량적 평가(정밀도, 재현율, 안정성)가 수행되지 않았다.
+암 유전체학에서는 Bailey et al.~\cite{bailey2018comprehensive}의 포괄적 드라이버 유전자 분석과 같이 핫스팟 탐지 방법의 체계적 비교 연구가 수행되었으나, 바이러스 유전체에 대해서는 그러한 벤치마크가 존재하지 않는다.
+MutClust를 포함한 바이러스 핫스팟 탐지 방법들은 자기 참조적 통계 검정(bootstrap)에만 의존하며, 표준화된 평가 지표의 부재로 인해 서로 다른 방법의 결과를 공정하게 비교하는 것이 불가능하다.
+
+추가적으로, H-score가 뉴클레오타이드 수준에서 산출되므로 동의 변이와 비동의 변이를 구분하지 않으며, dN/dS 비율과 같은 선택압 지표와의 통합이 필요하다.
+계통발생학적 비독립성---변이 빈도가 독립적 양성 선택이 아닌 단일 창시자 효과의 결과일 수 있음---도 보정되지 않는다.
+
+\vspace{1em}
+
+이러한 한계의 핵심은 MutClust가 ``새로운 탐지 방법''을 제시하면서도 ``그 방법의 성능을 정량적으로 평가할 프레임워크''를 함께 제시하지 못했다는 점이다.
+이는 Section~\ref{subsec:bg_benchmarking}에서 고찰한 벤치마킹 원칙---중립적 평가, 다중 지표, 통제된 실험 설계---의 부재에 해당한다.
+
+Chapter~\ref{ch:mutbench}의 MutBench는 구현 개선, 독립적 ground truth 구축, 복합 평가 체계, 파라미터 민감도 분석을 통해 이 세 가지 한계를 체계적으로 해결한다.

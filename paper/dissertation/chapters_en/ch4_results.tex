@@ -1,0 +1,1042 @@
+% Chapter 4: Experimental Results
+\chapter{Experimental Results}
+\label{ch:results}
+
+This chapter reports the experimental results of the MutBench framework presented in Chapter~\ref{ch:mutbench}.
+Stage~1 (Sections~\ref{sec:variant_comparison}--\ref{sec:phylo_simulation}) conducts in-depth analysis on SARS-CoV-2, comparing five MutClust variants and two baseline methods through synthetic benchmark, sensitivity analysis, temporal generalization, multi-ground truth evaluation, and additional validation experiments.
+Stage~2 (Section~\ref{subsec:9pathogen_scale} onwards) extends the evaluation to 9 RNA viruses with 9 scoring methods $\times$ 41 detection methods, establishing the statistical evidence for pathogen-adaptive method selection.
+
+%% ============================================================
+\section{Synthetic Benchmark: Variant Comparison}
+\label{sec:variant_comparison}
+
+Using synthetic H-scores, the methods were compared across 7 functional regions (1,251 unique ground truth nucleotide positions) on a SARS-CoV-2-like genome (29,903 positions).
+As described in Chapter~\ref{ch:mutbench}, this synthetic benchmark serves as a controlled signal recovery test that evaluates the ability to recover signals inserted at known positions.
+The results are presented in Table~\ref{tab:method_comparison}.
+
+\begin{table}[htbp]
+\centering
+\caption{Method comparison on synthetic SARS-CoV-2 data (29,903 positions, 1,251 ground truth functional nucleotide positions)}
+\label{tab:method_comparison}
+\adjustbox{max width=\textwidth}{
+\begin{tabular}{lrrrrrr}
+\toprule
+\textbf{Method} & \textbf{Precision} & \textbf{Recall} & \textbf{F1} & \textbf{Enrichment} & \textbf{Detections} & \textbf{Clusters} \\
+\midrule
+MutClust-Original & 0.991 & 0.504 & 0.668 & 23.68 & 637 & 31 \\
+MutClust-Fixed & 0.988 & 0.506 & 0.669 & 23.60 & 641 & 30 \\
+MutClust-dNdS$^\dagger$ & 0.988 & 0.506 & 0.669 & 23.60 & 641 & 30 \\
+MutClust-Hybrid & 0.968 & 0.659 & 0.785 & 23.15 & 852 & 8 \\
+HDBSCAN-Auto & 0.079 & 0.944 & 0.146 & 1.89 & 14,916 & 21 \\
+\midrule
+Frequency baseline & 0.404 & 0.965 & 0.569 & 9.65 & 2,991 & 1,587 \\
+Sliding window & 0.157 & 0.974 & 0.270 & 3.75 & 7,773 & 214 \\
+\bottomrule
+\end{tabular}
+}
+\begin{minipage}{\textwidth}
+\smallskip
+\footnotesize $^\dagger$Since no reference sequence is provided for dN/dS calculation in synthetic data, this yields identical results to MutClust-Fixed. All metrics are computed from full-precision values and rounded to three decimal places for display; recomputation from the displayed values may differ by $\pm$0.001.
+\end{minipage}
+\end{table}
+
+The results reveal a clear precision--recall trade-off among detection strategies.
+MutClust variants using CCM-based seed detection (Original, Fixed, dNdS) achieve near-perfect precision ($> 0.98$) but moderate recall (0.50--0.51), reflecting that CCM detection primarily identifies high-signal hotspot regions (RBD, furin cleavage) while missing low-signal functional sites (NTD supersite, HR1/HR2).
+The bug fix expanded the detected positions by 4 while maintaining precision (641 vs. 637).
+
+MutClust-Hybrid achieved the highest F1 (0.785) by combining CCM seed detection with HDBSCAN boundary determination.
+Its precision (0.968) approached that of CCM-only variants while recall (0.659) was substantially improved, capturing additional functional regions including parts of the NTD supersite through HDBSCAN's broader boundary estimation.
+
+HDBSCAN-Auto achieved the highest recall (0.944) but exhibited low precision (0.079), detecting 14,916 positions---approximately half the genome---in 21 clusters.
+This shows that without CCM seed detection constraining the candidate space, HDBSCAN captures considerable background noise along with actual functional sites.
+This demonstrates that domain-specific prior knowledge substantially improves detection specificity.
+
+\textbf{External baseline comparison.}
+The frequency baseline (detecting positions exceeding an H-score threshold) and sliding window (average H-score threshold within fixed-size windows) both achieved high recall (0.965, 0.974) but low precision (0.404, 0.157).
+The F1 scores of these baselines (0.569, 0.270) were lower than all MutClust variants (0.668--0.785), with the F1 gap relative to MutClust-Hybrid ranging from 0.216 to 0.515.
+The frequency baseline, lacking the ability to adaptively determine cluster sizes, detected 2,991 positions as 1,587 independent ``clusters,'' while the sliding window over-detected 7,773 positions due to the constraint of fixed window sizes.
+These results confirm that MutClust's CCM-based adaptive density estimation provides substantial performance improvement over simple threshold- and window-based approaches.
+
+Extended evaluation metrics including hotspot-score are presented in Table~\ref{tab:hotspot_scores}.
+
+\begin{table}[htbp]
+\centering
+\caption{Hotspot-score analysis (100 subsamplings, 80\% position retention)}
+\label{tab:hotspot_scores}
+\adjustbox{max width=\textwidth}{
+\begin{tabular}{lrrrr}
+\toprule
+\textbf{Method} & \textbf{Precision} & \textbf{Recall} & \textbf{Stability} & \textbf{Hotspot-score} \\
+\midrule
+MutClust-Original & 0.991 & 0.504 & 0.418 & 0.638 \\
+MutClust-Fixed & 0.988 & 0.506 & 0.445 & 0.646 \\
+MutClust-dNdS & 0.988 & 0.506 & 0.445 & 0.646 \\
+\textbf{MutClust-Hybrid} & \textbf{0.968} & \textbf{0.659} & \textbf{0.706} & \textbf{0.778} \\
+HDBSCAN-Auto & 0.079 & 0.944 & 0.788 & 0.604 \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+The hotspot-score reveals evaluation dimensions that F1 alone cannot capture, identifying \textbf{MutClust-Hybrid as the best-performing method} (hotspot-score 0.778).
+MutClust-Hybrid's superiority stems from strong performance across all three dimensions: near-perfect precision (0.968), improved recall (0.659), and high stability (0.706).
+By retaining CCM seed detection while using HDBSCAN for boundary determination, it captures functional regions missed by pure CCM detection (e.g., low-signal NTD supersite positions) while preserving the specificity advantage of domain-specific prior knowledge.
+
+HDBSCAN-Auto achieved the highest individual stability (0.788) and recall (0.944) but recorded the lowest hotspot-score (0.604) among MutClust variants due to its low precision (0.079).
+This well illustrates the value of composite metrics: evaluating HDBSCAN-Auto solely by recall would rank it as the best method, while evaluating solely by precision would entirely reject it.
+The hotspot-score provides a balanced evaluation that correctly identifies the hybrid approach as the best balance (Figure~\ref{fig:mutbench_method_comparison}).
+
+\textbf{Two-stage pipeline validation.}
+To combine the high recall of HDBSCAN-Auto with the high precision of MutClust-Hybrid, a two-stage detection pipeline was additionally validated.
+The intersection of positions detected by HDBSCAN-Auto (14,916 positions) and MutClust-Hybrid (852 positions) yielded 831 positions in 6 clusters, maintaining precision of 0.968 while improving stability to 0.740, achieving the highest hotspot-score (0.784), with F1 (0.772) approaching that of MutClust-Hybrid alone (0.785) (Table~\ref{tab:twostep_pipeline}).
+In contrast, the union (14,964 positions) achieved the highest recall (0.970) and stability (0.794) but suffered a sharp drop in precision to 0.081.
+These results demonstrate that the complementarity of the two methods is most effectively realized through the intersection strategy, providing a basis for strategy selection according to application context (discussed in detail in Chapter~\ref{ch:discussion}).
+
+\begin{table}[htbp]
+\centering
+\caption{Two-stage pipeline validation results (synthetic data, 29,903 positions, 1,251 ground truth positions)}
+\label{tab:twostep_pipeline}
+\small
+\adjustbox{max width=\textwidth}{
+\begin{tabular}{lrrrrrr}
+\toprule
+\textbf{Approach} & \textbf{Precision} & \textbf{Recall} & \textbf{F1} & \textbf{Detections} & \textbf{Stability} & \textbf{HS} \\
+\midrule
+HDBSCAN-Auto (standalone) & 0.079 & 0.944 & 0.146 & 14,916 & 0.788 & 0.604 \\
+MutClust-Hybrid (standalone) & 0.968 & 0.659 & 0.785 & 852 & 0.706 & 0.778 \\
+\midrule
+\textbf{Two-stage intersection} & \textbf{0.968} & 0.643 & 0.772 & 831 & \textbf{0.740} & \textbf{0.784} \\
+\bottomrule
+\end{tabular}
+}
+\begin{minipage}{\textwidth}
+\smallskip
+\footnotesize HS = hotspot-score. Intersection: Only 6 clusters (831 positions) from MutClust-Hybrid that overlap with HDBSCAN-Auto detection regions are selected. 6 out of 8 MutClust-Hybrid clusters (75\%) overlap with HDBSCAN-Auto. Stability is estimated as the geometric mean of the two methods' unrounded bootstrap stability values.
+\end{minipage}
+\end{table}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.9\textwidth]{new_methodology_comparison.png}
+\caption{Method comparison on synthetic SARS-CoV-2 data. MutClust-Hybrid achieves the best balance of precision and recall (F1 = 0.785), while CCM-only variants show high precision but moderate recall, and HDBSCAN-Auto shows high recall but very low precision.}
+\label{fig:mutbench_method_comparison}
+\end{figure}
+
+%% ============================================================
+\section{Statistical Validation}
+\label{sec:statistical_validation}
+
+To evaluate the statistical robustness of the benchmark results, bootstrap confidence interval estimation, permutation tests (random label shuffling + circular permutation), pairwise comparison tests, and Fisher's exact test were performed.
+All bootstrap confidence intervals reported in this section were estimated using the bias-corrected and accelerated (BCa) method~\cite{efron1987better} to correct for bias and asymmetry in small samples ($n = 7$).
+
+\textbf{Permutation test.}
+In random label shuffling (1,000 iterations), precision and recall of all methods were significant at $p < 0.001$.
+In circular permutation tests (200 iterations), the observed F1 of all 5 methods substantially exceeded the null distribution:
+MutClust-Hybrid (F1 = 0.785, null mean = 0.023, $z$ = 9.97, $p < 0.005$),
+MutClust-Original/Fixed (F1 = 0.669, null mean = 0.018, $z$ = 9.25, $p < 0.005$),
+HDBSCAN-Auto (F1 = 0.146, null mean = 0.076, $z$ = 11.31, $p < 0.005$).
+The significance of all methods even under circular permutation, which preserves the spatial autocorrelation of H-scores, confirms that the spatial overlap between detected hotspots and functional regions is a genuine biological signal rather than a byproduct of H-score cluster structure.
+
+\textbf{Hotspot-score null distribution.}
+To validate the statistical significance of the composite hotspot-score metric itself, the null distribution of hotspot-scores was estimated through circular permutation (200 iterations).
+The observed hotspot-scores of all 5 methods significantly exceeded the null distribution:
+MutClust-Hybrid (HS = 0.778, null mean = 0.251, $z$ = 9.97, $p < 0.005$),
+MutClust-Fixed (HS = 0.646, null mean = 0.162, $z$ = 9.25, $p < 0.005$),
+MutClust-Original (HS = 0.638, null mean = 0.153, $z$ = 9.25, $p < 0.005$),
+HDBSCAN-Auto (HS = 0.604, null mean = 0.441, $z$ = 11.31, $p < 0.005$).
+These results confirm that among the three components of the hotspot-score (recall, precision, stability), recall and precision---which depend on spatial overlap---cannot be achieved at the observed levels under random placement, demonstrating that the observed values of the composite metric are not attributable to chance.
+
+\textbf{Fisher's exact test.}
+The statistical significance of enrichment ratios reported in the multi-ground truth evaluation (Section~\ref{sec:multi_gt}) was validated using Fisher's exact test.
+After applying Benjamini-Hochberg FDR correction ($q < 0.05$) to 128 comparisons, 3 comparisons were significant:
+functional region enrichment of TC-freq-v2 (1.16-fold, $p_{\text{adj}}$ = 0.002),
+functional region enrichment of TC-freq-v3 (1.59-fold, $p_{\text{adj}}$ = 0.023),
+convergent evolution enrichment of CH-score (1.70-fold, $p_{\text{adj}}$ = 0.023).
+Additionally, 2 comparisons were significant at $q < 0.10$ (CH-score convergent evolution top10pct, E-score convergent evolution top20pct).
+The enrichment of TC-freq-v3 in the strict convergent evolution subset (3.43-fold, $p$ = 0.013, $p_{\text{adj}}$ = 0.161) and the convergent evolution enrichment of saturated H-score (1.85-fold, $p$ = 0.048, $p_{\text{adj}}$ = 0.269) did not reach significance after BH FDR correction; however, the enrichment trend at convergent evolution positions was consistently observed across multiple approaches (CH-score, E-score, TC-freq-v3).
+
+\textbf{BCa bootstrap confidence intervals.}
+With a small sample of $n = 7$ functional regions, percentile confidence intervals may not adequately reflect bias and asymmetry.
+To correct for this, bias-corrected and accelerated (BCa) bootstrap confidence intervals were applied.
+The BCa method adjusts confidence interval percentiles using the bias correction factor $z_0$ (median bias of the bootstrap distribution) and the acceleration factor $a$ (skewness correction based on jackknife)~\cite{efron1987better}.
+By resampling the 7 functional regions with replacement (1,000 iterations) and computing region-level recall, precision, and stability, the BCa 95\% confidence intervals for hotspot-score are presented in Table~\ref{tab:bootstrap_ci}.
+
+\begin{table}[htbp]
+\centering
+\caption{Region-level BCa bootstrap 95\% confidence intervals for hotspot-score (1,000 resamplings of 7 functional regions, bias-corrected and accelerated)}
+\label{tab:bootstrap_ci}
+\adjustbox{max width=\textwidth}{
+\begin{tabular}{lrrrcc}
+\toprule
+\textbf{Method} & \textbf{HS$_{\text{region}}$} & \textbf{BCa lower} & \textbf{BCa upper} & \textbf{$z_0$} & \textbf{$a$} \\
+\midrule
+\textbf{MutClust-Hybrid} & \textbf{0.476} & \textbf{0.323} & \textbf{0.635} & $-$0.090 & 0.010 \\
+HDBSCAN-Auto & 0.468 & 0.339 & 0.567 & $-$0.003 & $-$0.025 \\
+MutClust-Fixed & 0.311 & 0.196 & 0.534 & 0.030 & 0.070 \\
+MutClust-Original & 0.302 & 0.187 & 0.505 & $-$0.015 & 0.070 \\
+\bottomrule
+\end{tabular}
+}
+\begin{minipage}{\textwidth}
+\smallskip
+\footnotesize HS$_{\text{region}}$: Mean of hotspot-scores across 7 regions. Unlike the aggregate hotspot-score (Table~\ref{tab:hotspot_scores}), the region-level mean assigns equal weight to high-signal and low-signal regions, resulting in lower absolute values.
+\end{minipage}
+\end{table}
+
+The region-level BCa bootstrap quantifies the uncertainty in ground truth definition by resampling the 7 functional regions---that is, ``how evaluation results vary depending on which functional regions are included.''
+The positive acceleration factor ($a = 0.070$) for CCM-based methods (MutClust-Original, Fixed) indicates that the region-level score distribution is right-skewed, reflecting score variation depending on whether RBD (a high-signal region) is included.
+In contrast, the narrow interval (0.339--0.567) and near-zero acceleration factor ($a = -0.025$) of HDBSCAN-Auto show that its broad detection range is less sensitive to changes in region composition and has a symmetric distribution.
+The BCa interval for MutClust-Hybrid (0.323--0.635) has a slightly lower lower bound and slightly lower upper bound compared to the percentile interval (0.332--0.651), demonstrating the effect of bias correction.
+In all methods, the point estimates fall within the 95\% BCa CI, confirming the statistical validity of the bootstrap design.
+
+\textbf{Power analysis.}
+The statistical power for detecting differences between methods with an effective sample size of $n = 7$ functional regions was evaluated post hoc.
+In a paired design with significance level $\alpha = 0.05$ and $n = 7$, power of 0.80 is achieved at an effect size of Cohen's $d \geq 1.4$.
+The effect size computed by dividing the observed hotspot-score difference between MutClust-Hybrid and MutClust-Fixed (0.778 -- 0.646 = 0.132) by the bootstrap standard error is $d \approx 2.1$, confirming that this pairwise comparison has sufficient power.
+However, the small difference between MutClust-Fixed and MutClust-Original (0.646 -- 0.638 = 0.008, $d \approx 0.15$) has extremely low detection power at $n = 7$, requiring caution in claiming equivalence of these two methods.
+
+\textbf{Hotspot-score weight sensitivity.}
+To verify the robustness of the equal weight ($1/3$) setting for hotspot-score, method rankings were analyzed across 171 weight combinations ($w_r + w_p + w_s = 1$, step size 0.05) (Table~\ref{tab:weight_sensitivity}).
+MutClust-Hybrid maintained first rank in \textbf{71.9\%} (123/171) of the entire weight space, while HDBSCAN-Auto ranked first in 28.1\% (48/171).
+Rank switching occurred only in extreme recall-oriented regions where recall weight $\geq 0.60$ and precision weight $\leq 0.20$.
+
+\begin{table}[htbp]
+\centering
+\caption{Hotspot-score weight sensitivity analysis: method rankings across 7 application scenarios}
+\label{tab:weight_sensitivity}
+\footnotesize
+\adjustbox{max width=\textwidth}{
+\begin{tabular}{lccccc}
+\toprule
+\textbf{Scenario} & \textbf{$(w_r, w_p, w_s)$} & \textbf{Rank 1} & \textbf{Rank 1 score} & \textbf{Rank 2} & \textbf{Rank 2 score} \\
+\midrule
+Equal weights (default) & (1/3, 1/3, 1/3) & Hybrid & 0.778 & Fixed & 0.646 \\
+Recall-oriented & (0.50, 0.25, 0.25) & Hybrid & 0.748 & HDBSCAN & 0.689 \\
+Precision-oriented & (0.25, 0.50, 0.25) & Hybrid & 0.826 & Fixed & 0.732 \\
+Stability-oriented & (0.25, 0.25, 0.50) & Hybrid & 0.760 & HDBSCAN & 0.650 \\
+\midrule
+\textbf{Early warning (surveillance)} & (0.60, 0.20, 0.20) & \textbf{HDBSCAN} & 0.740 & Hybrid & 0.731 \\
+Vaccine design & (0.20, 0.60, 0.20) & Hybrid & 0.854 & Fixed & 0.784 \\
+Monitoring & (0.20, 0.20, 0.60) & Hybrid & 0.749 & HDBSCAN & 0.678 \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+These results have two important implications.
+First, MutClust-Hybrid's first-place ranking is robust to weight selection, confirming that the equal weight setting is not an artificial result of a particular weight bias.
+Second, for early warning purposes (recall $\geq 0.60$), HDBSCAN-Auto may be more suitable, demonstrating that the MutBench framework is a tool that \textbf{supports method selection according to application context} rather than designating a single ``optimal'' method.
+
+Pairwise comparisons confirmed that MutClust-Hybrid achieved significantly higher hotspot-scores than all other methods (all comparisons $p < 0.001$, score difference range: 0.132 relative to MutClust-Fixed to 0.174 relative to HDBSCAN-Auto).
+These results establish that the performance rankings in Table~\ref{tab:hotspot_scores} are robust to ground truth sampling uncertainty and are not attributable to chance.
+
+%% ============================================================
+\section{Sensitivity Analysis}
+\label{sec:sensitivity_analysis}
+
+\subsection{Sample Size Sensitivity}
+
+To determine the minimum number of input sequences required for stable hotspot detection, MutClust-Hybrid was evaluated across sample sizes ranging from 100 to 10,000 sequences (5 replicates per size).
+
+H-score rank correlation (Spearman $\rho$) between subsamples and the full dataset exceeded 0.997 at $n = 1{,}000$ and reached 1.000 at $n = 10{,}000$.
+Hotspot-score stabilized at approximately 0.62 by $n = 1{,}000$, with minimal inter-replicate variance (standard deviation $< 0.015$).
+Even at the smallest sample size ($n = 100$), hotspot-score remained above 0.52 with Spearman $\rho > 0.94$, indicating that the rank order of mutation intensity is preserved even in limited datasets (Figure~\ref{fig:sample_size_convergence}).
+
+These results suggest that approximately 1,000 sequences are sufficient for stable detection results, and the 10,000 sequences in the benchmark dataset provide considerable margin above this threshold.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.8\textwidth]{sample_size_convergence.png}
+\caption{Sample size convergence of hotspot metrics. Stable detection performance (Hotspot-score $\approx$ 0.62) is achieved starting at approximately 1,000 sequences.}
+\label{fig:sample_size_convergence}
+\end{figure}
+
+\subsection{Parameter Sensitivity}
+
+The sensitivity of detection performance to MutClust parameters is visualized in Figure~\ref{fig:mutbench_sensitivity}.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.9\textwidth]{sensitivity_heatmap.png}
+\caption{MutClust parameter sensitivity heatmap. Full-factorial grid search over 64 parameter combinations ($\gamma \times d \times$ MinPts) shows that F1 performance is most sensitive to $\gamma$ (epsilon scaling factor), followed by $d$ (decay factor), with minimal influence of MinPts.}
+\label{fig:mutbench_sensitivity}
+\end{figure}
+
+In the HDBSCAN parameter sensitivity analysis, F1 varied by less than 0.005 across all 16 combinations, with the number of detected positions consistently maintained at approximately 14,900 (Table~\ref{tab:hdbscan_sensitivity}).
+This parameter insensitivity is a key advantage of density-based approaches and provides justification for MutClust-Hybrid's use of HDBSCAN for boundary determination.
+
+\begin{table}[htbp]
+\centering
+\caption{HDBSCAN parameter sensitivity analysis}
+\label{tab:hdbscan_sensitivity}
+\adjustbox{max width=\textwidth}{
+\begin{tabular}{rrrrrr}
+\toprule
+\textbf{min\_cluster\_size} & \textbf{min\_samples} & \textbf{Precision} & \textbf{Recall} & \textbf{F1} & \textbf{Detections} \\
+\midrule
+3 & 2 & 0.083 & 0.869 & 0.152 & 13,054 \\
+5 & 3 & 0.079 & 0.944 & 0.146 & 14,916 \\
+10 & 5 & 0.079 & 0.943 & 0.146 & 14,908 \\
+15 & 7 & 0.078 & 0.937 & 0.143 & 14,898 \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+\subsection{dN/dS Threshold Sensitivity}
+
+To systematically evaluate the impact of dN/dS filter threshold selection on hotspot detection performance, MutClust-dNdS and MutClust-Hybrid were applied to the synthetic benchmark at 6 thresholds (0.5, 0.8, 1.0, 1.5, 2.0, 3.0).
+At each threshold, clusters were first detected without the dN/dS filter, then dN/dS annotations were applied post hoc and clusters below the threshold were removed.
+
+\begin{table}[htbp]
+\centering
+\caption{Hotspot detection performance variation by dN/dS threshold (synthetic data, 333 positions with non-zero synthetic H-scores)}
+\label{tab:dnds_threshold}
+\small
+\adjustbox{max width=\textwidth}{
+\begin{tabular}{llrrrrrr}
+\toprule
+\textbf{Method} & \textbf{Threshold} & \textbf{Precision} & \textbf{Recall} & \textbf{F1} & \textbf{Retained} & \textbf{Excluded} & \textbf{HS} \\
+\midrule
+\multirow{7}{*}{MutClust-dNdS}
+& None & 0.988 & 0.506 & 0.669 & 30 & 0 & --- \\
+& 0.5 & 0.985 & 0.414 & 0.583 & 22 & 8 & 0.580 \\
+& 0.8 & 0.981 & 0.334 & 0.499 & 20 & 10 & 0.533 \\
+& \textbf{1.0} & 0.976 & 0.261 & 0.412 & 17 & 13 & 0.502 \\
+& 1.5 & 0.961 & 0.159 & 0.273 & 14 & 16 & 0.461 \\
+& 2.0 & 0.952 & 0.112 & 0.200 & 11 & 19 & 0.429 \\
+& 3.0 & 0.976 & 0.065 & 0.121 & 8 & 22 & 0.410 \\
+\midrule
+\multirow{7}{*}{MutClust-Hybrid}
+& None & 0.968 & 0.659 & 0.785 & 8 & 0 & --- \\
+& 0.5 & 0.982 & 0.658 & 0.788 & 6 & 2 & 0.775 \\
+& 0.8 & 0.982 & 0.658 & 0.788 & 6 & 2 & 0.770 \\
+& \textbf{1.0} & 0.986 & 0.636 & 0.774 & 4 & 4 & 0.729 \\
+& 1.5 & 0.973 & 0.057 & 0.107 & 2 & 6 & 0.453 \\
+& 2.0 & 1.000 & 0.012 & 0.024 & 1 & 7 & 0.418 \\
+& 3.0 & 0.000 & 0.000 & 0.000 & 0 & 8 & 0.000 \\
+\bottomrule
+\end{tabular}
+}
+\begin{minipage}{\textwidth}
+\smallskip
+\footnotesize Retained/Excluded: Number of clusters retained/removed after applying the dN/dS threshold. HS: hotspot-score. The default threshold ($> 1.0$) is shown in bold.
+\end{minipage}
+\end{table}
+
+As shown in Table~\ref{tab:dnds_threshold}, both methods exhibit monotonically decreasing recall with increasing threshold, while precision remains relatively stable.
+MutClust-Hybrid is more sensitive to threshold changes because it has only 8 total clusters, with performance dropping sharply between thresholds 1.0 and 1.5 (F1: 0.774 $\to$ 0.107).
+MutClust-Hybrid's performance is stable in the threshold range of 0.5--1.0 (F1: 0.774--0.788), and the default threshold $> 1.0$ (neutral evolution expectation) is appropriate as a biologically interpretable criterion.
+However, both methods show sharp performance degradation at thresholds $> 1.5$, requiring caution when applying stringent positive selection criteria.
+
+%% ============================================================
+\section{Temporal Generalization (GISAID 2024--2025)}
+\label{sec:temporal}
+
+To evaluate whether MutBench results generalize to temporally distinct data, 9,957 full-length SARS-CoV-2 genome sequences (host: human) collected from January 2024 to December 2025 from GISAID were analyzed, with weekly subsampling for temporal representativeness.
+
+The temporal validation revealed a critical phenomenon: \textbf{H-score saturation}.
+The original 2020--2021 dataset produced nonzero H-scores at 114 positions (standard deviation = 1.88), whereas the 2024--2025 dataset produced nonzero H-scores at all 1,273 Spike positions (mean = 8.47, standard deviation = 0.098).
+This nearly uniform distribution eliminates the discriminative power of H-scores, as there is virtually no contrast between positions.
+
+Consequently, all methods exhibited a precision of approximately 0.33, nearly identical to the ground truth base rate (1,251 / 3,819 = 0.328, where 3,819 = 1,273 coding AA $\times$ 3 nt, excluding the stop codon).
+MutClust-Fixed and MutClust-dNdS detected all 3,819 positions as a single cluster (precision = 0.328, recall = 1.0), while MutClust-Hybrid maintained some selectivity (3,225 positions, 377 clusters) but showed similar results without meaningful improvement in precision (Table~\ref{tab:temporal}).
+
+\begin{table}[htbp]
+\centering
+\caption{Temporal validation results using GISAID 2024--2025 data}
+\label{tab:temporal}
+\adjustbox{max width=\textwidth}{
+\begin{tabular}{lrrrr}
+\toprule
+\textbf{Method} & \textbf{Precision} & \textbf{Recall} & \textbf{Detections} & \textbf{Clusters} \\
+\midrule
+MutClust-Fixed & 0.328 & 1.000 & 3,819 & 1 \\
+MutClust-dNdS & 0.328 & 1.000 & 3,819 & 1 \\
+MutClust-Hybrid & $\sim$0.33 & $\sim$1.0 & 3,225 & 377 \\
+\bottomrule
+\end{tabular}
+}
+\begin{minipage}{\textwidth}
+\smallskip
+\footnotesize Nonzero H-scores were observed at all 1,273 Spike positions, eliminating discriminative power. Precision converges to the ground truth base rate ($\sim$0.33).
+\end{minipage}
+\end{table}
+
+This H-score saturation is a biological reality rather than a methodological artifact: Omicron-era lineages (BA.2.86, JN.1, KP.2, XEC) have accumulated extensive mutations relative to the Wuhan-Hu-1 reference, rendering position-level mutation frequencies uninformative.
+This finding validates the critical limitation that H-scores computed against a fixed ancestral reference lose discriminative power as the viral population diverges from that reference.
+
+%% ============================================================
+\section{Multi-Ground Truth Evaluation}
+\label{sec:multi_gt}
+
+No single ground truth can capture all dimensions of mutational importance.
+To address this, detection methods were evaluated against three complementary ground truths, each measuring a different biological phenomenon:
+
+\begin{itemize}
+\item \textbf{Functional regions} (439 AA positions, 34.5\% of Spike; this AA-level union of domain annotations includes broader boundary definitions than the nucleotide-level ground truth (1,251 nt, 417 AA after deduplication) used in the synthetic benchmark): Known domain annotations (RBD, NTD supersite, furin cleavage, fusion peptide, HR1, HR2).
+\item \textbf{DMS-escape} (252 positions, 19.8\%): Experimentally measured single-mutation cell entry fitness effects~\cite{dadonaite2023dms} (top 20th percentile).
+\item \textbf{Convergent evolution} (97 positions, 7.6\%): Literature-based sites under recurrent positive selection across independent SARS-CoV-2 lineages~\cite{cao2023ba286,carabelli2023convergent}. These include RBD immune evasion positions, ACE2 binding enhancement mutations, furin cleavage site adaptations, and S2 convergent substitutions (this expanded set includes all literature-reported convergent evolution positions, compared to the stricter 25-position Layer~A set used in the 9-pathogen benchmark).
+\end{itemize}
+
+The three ground truths are largely non-overlapping: the Jaccard similarity between DMS-escape and convergent evolution positions is 0.006, indicating near-complete independence.
+This confirms that population frequency, experimental fitness, and evolutionary convergence capture fundamentally different aspects of mutational importance.
+
+Critically, the best-performing method differed depending on the ground truth (Table~\ref{tab:multi_gt}).
+
+\begin{table}[htbp]
+\centering
+\caption{Method comparison across multiple ground truths}
+\label{tab:multi_gt}
+\adjustbox{max width=\textwidth}{
+\begin{tabular}{llrrr}
+\toprule
+\textbf{Ground Truth} & \textbf{Best method} & \textbf{F1} & \textbf{Enrichment} & \textbf{Positions} \\
+\midrule
+Functional regions (439) & TC-freq-v2 & 0.474 & --- & 439 \\
+DMS-escape (252) & Saturated H-score & 0.315 & --- & 252 \\
+Convergent evolution (97) & CH-score & 0.188 & 1.70$\times$ & 97 \\
+Convergent evolution-strict$^*$ & TC-freq-v3 & 0.108 & 3.43$\times$ & --- \\
+\bottomrule
+\end{tabular}
+}
+\begin{minipage}{\textwidth}
+\smallskip
+\footnotesize $^*$Includes only strict convergent evolution sites confirmed from multiple sources. Jaccard(DMS, convergent evolution) = 0.006, confirming independence of the three ground truths.
+\end{minipage}
+\end{table}
+
+For functional regions, TC-freq-v2 achieved the highest F1 (0.474); for DMS-escape, saturated H-score showed the best performance (F1 = 0.315); and for convergent evolution, CH-score achieved the highest F1 (0.188, enrichment ratio 1.70-fold).
+For the strict convergent evolution subset (multi-source positions only), TC-freq-v3 achieved the highest enrichment ratio (3.43-fold, F1 = 0.108).
+
+These differing rankings demonstrate that no single detection method is dominant across all biological dimensions of hotspot importance.
+This multi-ground truth analysis provides a critical methodological insight: population frequency and experimental fitness are complementary rather than redundant measures of mutational importance.
+Benchmarking frameworks that rely on a single ground truth risk systematic bias toward methods optimized for that specific biological dimension, potentially penalizing methods that capture orthogonal aspects of functional importance (Figure~\ref{fig:multi_ground_truth}; Figure~\ref{fig:dms_evaluation}).
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.95\textwidth]{multi_ground_truth_figure.png}
+\caption{Detection performance across multiple biological ground truths. The best performing method differs fundamentally depending on whether the target is functional regions, experimental DMS fitness, or convergent evolution sites.}
+\label{fig:multi_ground_truth}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.9\textwidth]{dms_evaluation_comparison.png}
+\caption{Detailed performance comparison for Deep Mutational Scanning (DMS) escape evaluation. Saturated H-score exhibits the highest F1 in predicting experimentally measured single-mutation fitness effects.}
+\label{fig:dms_evaluation}
+\end{figure}
+
+\section{Real GISAID 2020--2021 H-score Benchmark}
+\label{sec:real_gisaid_benchmark}
+
+To address circularity concerns with synthetic data, a benchmark was conducted using the actual GISAID 2020--2021 H-score data used in the MutClust paper~\cite{youn2025mutclust} as input.
+This data consists of H-scores calculated for each of 1,273 Spike amino acid positions from SARS-CoV-2 sequences collected from January 2020 to December 2021, representing actual observed data rather than synthetic generation.
+After mapping to the nucleotide level, only 342 of 29,903 genome positions (1.14\%) had nonzero H-scores, exhibiting a sparse distribution qualitatively different from the uniform background noise of synthetic data.
+
+The results are presented in Table~\ref{tab:real_gisaid}.
+
+\begin{table}[htbp]
+\centering
+\caption{Method comparison on real GISAID 2020--2021 H-score data (342 nonzero positions, 1,251 ground truth nucleotide positions)}
+\label{tab:real_gisaid}
+\small
+\adjustbox{max width=\textwidth}{
+\begin{tabular}{lrrrrrr}
+\toprule
+\textbf{Method} & \textbf{Precision} & \textbf{Recall} & \textbf{F1} & \textbf{Enrichment} & \textbf{Stability} & \textbf{Hotspot-score} \\
+\midrule
+MutClust-Original & 0.333 & 0.012 & 0.023 & 7.97 & 0.372 & 0.239 \\
+MutClust-Fixed & 0.295 & 0.079 & 0.125 & 7.04 & 0.784 & 0.386 \\
+MutClust-dNdS & 0.295 & 0.079 & 0.125 & 7.04 & 0.784 & 0.386 \\
+MutClust-Hybrid & 0.305 & 0.077 & 0.123 & 7.28 & 0.766 & 0.383 \\
+HDBSCAN-Auto & --- & --- & --- & --- & --- & --- \\
+\midrule
+Frequency baseline & 0.289 & 0.079 & 0.124 & 6.92 & --- & --- \\
+\textbf{Sliding window} & \textbf{0.323} & \textbf{0.600} & \textbf{0.420} & \textbf{7.73} & --- & --- \\
+\bottomrule
+\end{tabular}
+}
+\begin{minipage}{\textwidth}
+\smallskip
+\footnotesize HDBSCAN-Auto failed to form clusters due to insufficient nonzero positions (342). The sliding window achieved the highest F1 (0.420) through its wide detection window (20 positions).
+\end{minipage}
+\end{table}
+
+Three key differences from the synthetic benchmark were observed.
+
+\textbf{First, substantial decline in absolute performance.}
+The F1 of all MutClust variants dropped by 0.54--0.66 compared to the synthetic benchmark (e.g., MutClust-Hybrid: 0.785 $\to$ 0.123).
+This is attributable to the sparsity of real data: many of the 1,251 ground truth positions (conserved regions such as HR1, HR2) have H-score = 0, and positions with H-score of 0 cannot be detected by any density-based method.
+This result honestly reveals that the synthetic benchmark overestimates actual performance and confirms the methodological limitation that density-based hotspot detection can only detect ``functional sites that mutate'' and is inherently unable to detect ``conserved functional sites.''
+
+\textbf{Second, shift in method rankings.}
+While MutClust-Hybrid had the highest hotspot-score (0.778) on synthetic data, it performed nearly identically to MutClust-Fixed (0.386) on real data (0.383).
+The advantage of HDBSCAN boundary determination manifests in continuous H-score distributions (synthetic data) but is dominated by CCM seed detection in discrete and sparse distributions (real data).
+The sliding window achieving the highest F1 (0.420) indicates that a wide detection window is advantageous for encompassing adjacent functional regions in sparse data.
+
+\textbf{Third, consistently significant enrichment ratios.}
+Although absolute F1 values are low, the enrichment ratios of all methods are consistently high at 6.9--8.0-fold (relative to random expectation), confirming that detected positions are significantly enriched in functional regions in both synthetic and real data.
+This indicates that the biological validity of H-score-based detection is maintained regardless of data type.
+
+These results reinforce a core methodological lesson of MutBench: the relative superiority of methods depends on the H-score distribution characteristics of the input data---continuous vs. sparse, uniform background vs. discrete background---and conclusions from synthetic benchmarks should not be unconditionally extrapolated to real data.
+
+\section{Comparison with External Independent Methods}
+\label{sec:external_comparison}
+
+To complement the internal comparison among MutClust variants, two independent clustering-based methods---OPTICS and kernel density estimation (KDE)---were evaluated on the same synthetic benchmark.
+OPTICS is a density-based clustering approach similar to DBSCAN, but automatically extracts variable-density clusters through reachability distance (min\_samples=5, $\xi$=0.05).
+KDE is a nonparametric approach that detects peaks above the 90th percentile of the H-score kernel density function and then expands adjacent positions into clusters.
+
+\begin{table}[htbp]
+\centering
+\caption{Benchmark results including external independent methods. Synthetic H-score data, 7 Spike functional region ground truth.}
+\label{tab:external_methods}
+\small
+\adjustbox{max width=\textwidth}{
+\begin{tabular}{lcccccc}
+\toprule
+Method & Precision & Recall & F1 & Stability & Hotspot-score \\
+\midrule
+MutClust-Hybrid & 0.968 & 0.659 & 0.785 & 0.706 & \textbf{0.778} \\
+MutClust-Original & 0.991 & 0.504 & 0.668 & 0.418 & 0.638 \\
+MutClust-Fixed & 0.988 & 0.506 & 0.669 & 0.445 & 0.646 \\
+MutClust-dNdS & 0.988 & 0.506 & 0.669 & 0.445 & 0.646 \\
+HDBSCAN-Auto & 0.079 & 0.944 & 0.146 & 0.788 & 0.604 \\
+KDE & \textbf{1.000} & 0.049 & 0.093 & 0.622 & 0.557 \\
+OPTICS & 0.087 & 0.546 & 0.150 & 0.473 & 0.369 \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+As shown in Table~\ref{tab:external_methods}, MutClust-Hybrid achieved the highest hotspot-score (0.778) even in the comparison including external independent methods.
+KDE showed perfect precision (1.000) but was extremely conservative, detecting only 61 positions (recall 0.049), while OPTICS detected 7,847 positions in 997 clusters but with precision of only 0.087.
+These results independently confirm that the combination of domain-specific prior knowledge (CCM seeds) and data-driven boundary determination (HDBSCAN) is superior to general-purpose clustering methods.
+
+\textbf{OPTICS/KDE parameter sensitivity.}
+To rule out the influence of parameter settings on external method results, parameter sensitivity analyses were performed on synthetic data for OPTICS (min\_samples $\in \{2, 3, 5, 10, 20, 50\}$, $\xi \in \{0.01, 0.03, 0.05, 0.1, 0.2\}$) and KDE (bandwidth $\in \{1, 3, 5, 10, 20, 50\}$, threshold percentile $\in \{70, 80, 85, 90, 95, 99\}$).
+Parameter sensitivity analysis across 30 OPTICS and 36 KDE configurations confirmed that MutClust-Hybrid's superiority is attributable to the structural advantage of domain-specific seed detection rather than unfavorable parameter settings.
+Even at OPTICS's best parameters (min\_samples=20, $\xi$=0.10, F1=0.707), precision (0.563) remained substantially below MutClust-Hybrid (0.968).
+KDE failed to perform effective detection across all tested configurations on both synthetic and real data.
+
+Having established the relative performance of detection methods, the following sections examine structural limitations of the H-score metric itself.
+
+\section{Indel Exclusion Impact Analysis}
+\label{sec:indel_impact}
+
+H-score is a fixed-coordinate metric that measures point mutation frequency at each position relative to a reference sequence and therefore cannot capture insertions or deletions (indels).
+Analysis of 9,957 GISAID 2024--2025 Spike sequences revealed that 99.8\% carry at least one functional indel (e.g., del69-70, Y144del, del156-157), yet all indel positions have H-score = 0.000, confirming complete exclusion from H-score-based detection.
+Among approximately 35 major Spike functional variants, at least 5 (approximately 14\%) are indels.
+
+To quantify the detection impact, an extended ground truth was constructed by adding 5 indel positions (27 nt) to the 1,251 nt ground truth.
+A synthetic experiment comparing the original H-score with an augmented H-score (functional signals injected at indel positions) showed that the F1 impact for MutClust-Hybrid was negligible ($\Delta$F1 = $-$0.002), because the 27 additional positions constitute only 2.1\% of the extended ground truth.
+While the quantitative impact on F1 is small, indel exclusion represents a structural limitation of the fixed-coordinate framework, as biologically important structural variants are systematically invisible to the scoring function.
+The implications for the MutBench framework are discussed in Chapter~\ref{ch:conclusion}.
+
+\section{Cross-Pathogen Validation: Influenza A H3N2 HA}
+\label{sec:influenza_validation}
+
+To evaluate the cross-pathogen generalizability of MutBench, the same benchmark pipeline was applied to the hemagglutinin (HA) gene of Influenza A H3N2.
+A total of 1,967 human-derived H3N2 HA protein sequences (540--580 AA) were collected from the NCBI Influenza Virus Resource, and H-scores were calculated from position-wise mutation frequency and Shannon entropy relative to the consensus sequence.
+
+As ground truth, the 5 antigenic sites (antigenic sites A--E) of H3N2 HA were used (Table~\ref{tab:influenza})~\cite{wiley1981structural,wilson1990structural}, which are established functional regions defined by decades of serological and structural studies (101 AA positions, 303 nucleotide positions). Smith et al.~\cite{smith2004antigenic} demonstrated through antigenic cartography that a small number of substitutions at these sites drive major antigenic transitions in H3N2 evolution.
+
+\begin{table}[htbp]
+\centering
+\caption{Influenza A H3N2 HA cross-pathogen benchmark results (1,967 sequences, 5 antigenic site ground truth)}
+\label{tab:influenza}
+\small
+\adjustbox{max width=\textwidth}{
+\begin{tabular}{lrrrrrr}
+\toprule
+\textbf{Method} & \textbf{Precision} & \textbf{Recall} & \textbf{F1} & \textbf{Enrichment} & \textbf{Stability} & \textbf{Hotspot-score} \\
+\midrule
+MutClust-Original & 0.182 & 1.000 & 0.309 & 1.02 & 0.535 & 0.572 \\
+\textbf{MutClust-Fixed} & \textbf{0.183} & \textbf{1.000} & \textbf{0.309} & \textbf{1.02} & \textbf{0.799} & \textbf{0.661} \\
+MutClust-Hybrid & 0.178 & 0.812 & 0.292 & 1.00 & 0.742 & 0.577 \\
+HDBSCAN-Auto & 0.155 & 0.366 & 0.218 & 0.87 & 0.750 & 0.424 \\
+KDE & 0.410 & 0.083 & 0.138 & 2.30 & 0.605 & 0.366 \\
+\midrule
+Frequency baseline & 0.421 & 0.238 & 0.304 & 2.36 & --- & --- \\
+\textbf{Sliding window} & \textbf{0.402} & \textbf{0.462} & \textbf{0.430} & \textbf{2.25} & --- & --- \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+The H3N2 results show three key differences from SARS-CoV-2.
+
+\textbf{First, reversal of method rankings.}
+MutClust-Hybrid, which was the top performer on the SARS-CoV-2 synthetic benchmark (hotspot-score 0.778), was outperformed by MutClust-Fixed (0.661) on H3N2 (0.577).
+This is attributable to the H-score distribution characteristics of the HA gene: all 566 HA positions (full protein length; the trimmed MSA alignment of 543 AA in Table~\ref{tab:pathogen_data} excludes gap-only columns) have nonzero H-scores (mean 1.233), causing CCM seeds to select nearly all positions as candidates, with HDBSCAN boundary determination providing no additional discriminative power.
+This result reconfirms at the cross-pathogen level the lesson from the real GISAID benchmark (Section~\ref{sec:real_gisaid_benchmark}) that ``the best-performing method depends on the H-score distribution of the input data.''
+
+\textbf{Second, substantial decrease in enrichment ratios.}
+Enrichment ratios decreased from 1.9--23.7-fold for SARS-CoV-2 to 0.87--2.36-fold for H3N2.
+This is because the short gene length of HA (1,698 nt vs. 3,822 nt) combined with its high overall mutation rate (all positions nonzero) weakens the mutation frequency contrast between antigenic and non-antigenic sites.
+Although HA antigenic sites are under positive selection, non-antigenic sites also accumulate substantial variation through genetic drift, attenuating the signal against background.
+
+\textbf{Third, superior performance of the sliding window.}
+By F1, the sliding window (0.430) outperformed all density-based methods (0.138--0.309).
+This suggests that the fixed window size of the sliding window is well suited to the HA antigenic sites, which are relatively small and compact regions (mean 20 AA).
+In contrast, the functional regions of SARS-CoV-2 Spike include large and heterogeneous structures such as the RBD (223 AA), where adaptive clustering is advantageous.
+
+This cross-pathogen validation demonstrates two core values of the MutBench framework:
+(1)~the same benchmark pipeline can be applied to different pathogens without code modification, and
+(2)~pathogen-dependent method rankings are an important insight that cannot be discovered without systematic comparison.
+
+\subsection{Cross-Pathogen Comparison}
+
+Table~\ref{tab:cross_pathogen} comprehensively compares method rankings across SARS-CoV-2 and H3N2.
+
+\begin{table}[htbp]
+\centering
+\caption{Two-pathogen cross-comparison: pathogen dependence of the best-performing method}
+\label{tab:cross_pathogen}
+\small
+\adjustbox{max width=\textwidth}{
+\begin{tabular}{llrr}
+\toprule
+& & \multicolumn{2}{c}{\textbf{Hotspot-score}} \\
+\cmidrule(lr){3-4}
+\textbf{Method} & \textbf{Type} & \textbf{SARS-CoV-2} & \textbf{H3N2} \\
+\midrule
+MutClust-Original & CCM & 0.638 & 0.572 \\
+MutClust-Fixed & CCM & 0.646 & \textbf{0.661} \\
+MutClust-Hybrid & CCM+HDBSCAN & \textbf{0.778} & 0.577 \\
+HDBSCAN-Auto & Density-based & 0.604 & 0.424 \\
+\bottomrule
+\end{tabular}
+}
+\begin{minipage}{\textwidth}
+\smallskip
+\footnotesize The highest hotspot-score for each pathogen is shown in \textbf{bold}. The best-performing method differs between the two pathogens. The H3N2 benchmark used H-scores based on real sequences collected from NCBI.
+\end{minipage}
+\end{table}
+
+The best-performing method differs between the two pathogens---MutClust-Hybrid (0.778) for SARS-CoV-2 and MutClust-Fixed (0.661) for H3N2.
+This result confirms the core lesson of MutBench---``no universal best method exists, and method selection depends on input data characteristics (gene length, H-score distribution, signal-to-background contrast)''---in an independent pathogen.
+
+From a biological perspective, this pattern is clearly interpretable: (1) when heterogeneous functional regions are distributed across a long gene (Spike, 3,822 nt), the adaptive hybrid approach (MutClust-Hybrid) is advantageous, and (2) for a short gene where all positions show high mutation rates (HA, 1,698 nt), stable CCM detection (MutClust-Fixed) is superior.
+This suggests that the shape of the H-score distribution (continuous vs. sparse) and gene length are key factors determining the best-performing detection strategy.
+
+\section{3D Structure Analysis}
+\label{sec:structure_analysis}
+
+To validate the structural plausibility of linear sequence-based hotspot detection, the 3D spatial distribution of detected hotspot positions was analyzed using C$\alpha$ coordinates from PDB 6VSB (Spike protein prefusion structure, Wrapp et al. 2020).
+The proportion of hotspot position pairs within 8\,\AA\ contact distance was 5.80\%, showing a \textbf{5.92-fold higher spatial contact enrichment} compared to random position pairs (0.98\%) ($z$ = 13.34, based on 1,000 random permutation tests).
+This quantitatively demonstrates that hotspots detected from linear sequences are also spatially clustered in 3D structure, supporting the biological validity of the detection results.
+
+\section{Phylogenetic Non-Independence Simulation}
+\label{sec:phylo_simulation}
+
+To quantitatively evaluate whether H-scores can be biased by phylogenetic structure, coalescent-based simulations were performed.
+
+\subsection{Proof of Concept}
+\label{subsec:phylo_correction_poc}
+
+In a coalescent simulation (100 replicates, $N = 500$), a single-origin ``founder mutation'' (frequency 90\%, D614G-like) and a ``convergent mutation'' arising independently 15 times (E484K-like) were placed alongside 50 neutral mutations on single branches.
+H-score ranked the founder mutation above convergent mutations in 100\% of replicates, whereas Fitch parsimony-based homoplasy counts correctly ranked convergent mutations at the top in 100\%.
+The Spearman rank correlation between H-score and number of independent origins was $\rho = -0.876$ ($p = 1.28 \times 10^{-64}$), quantitatively demonstrating that \textbf{frequency-based scores systematically conflate founder effects with positive selection}.
+
+In the MutBench ground truth, D614G (position 614) is deliberately excluded from Layer~A (convergent evolution) and Layer~B (purifying selection), because it reached fixation via a single founder event~\cite{korber2020tracking} rather than through recurrent independent emergence.
+These results provide a conceptual demonstration that phylogeny-based independent origin count estimation can effectively correct the founder effect bias.
+However, this simulation assumes ideal conditions ($N = 500$, fully resolved tree); at GISAID scale ($> 16$M sequences), polytomies, computational cost, and recombination events introduce additional challenges.
+
+\subsection{TreeTime ML Ancestral Reconstruction Validation}
+\label{subsec:treetime_ml_validation}
+
+An extended validation using TreeTime~\cite{sagulenko2018treetime} ML-based ancestral reconstruction ($N = 2{,}000$, 50 replicates) confirmed that both Fitch parsimony and TreeTime-ML achieved AUC = 1.000 for discriminating convergent from non-convergent mutations, while H-score achieved AUC = 0.000.
+The 100\% discrimination accuracy was maintained when scaling from $N = 500$ to $N = 2{,}000$.
+
+\subsection{TreeTime Ancestral Reconstruction Validation on Real GISAID Sequences}
+\label{subsec:treetime_gisaid_validation}
+
+To validate beyond synthetic simulations, 500 GISAID sequences (2024--2025) were analyzed with TreeTime ML ancestral reconstruction.
+The Spearman rank correlation across 1,273 Spike positions was $\rho = -0.107$ ($p = 1.36 \times 10^{-4}$), revealing a \textbf{weak negative correlation} between H-score and homoplasy score.
+This demonstrates that the two scoring systems capture fundamentally different evolutionary signals: H-score reflects frequency relative to the reference, while homoplasy reflects independent recurrent occurrence.
+Key positions illustrate the divergence: P681 ranks 2nd by H-score but 1,134th by homoplasy (founder effect), while L452 and K417 have H-score = 0 but homoplasy of 91 (convergent evolution).
+These results confirm that the founder effect bias of H-score predicted in simulations is observed in real GISAID sequences.
+
+\subsection{Homoplasy-Based Scoring Sensitivity Analysis}
+\label{subsec:homoplasy_sensitivity}
+
+To verify that the MutBench detection framework functions with phylogenetically corrected input, a sensitivity analysis was conducted using simulated homoplasy counts as an alternative scoring formula for SARS-CoV-2.
+Homoplasy scores were assigned to 1,259 Spike positions based on the convergent-vs-founder relationship established above: Layer~A convergent evolution sites received high homoplasy values (15--50), founder-effect positions (D614G, P681H) received low values (1--2), and background positions received sparse low values (0--3).
+Seven detection methods from five algorithm families were then applied to the homoplasy score array, and MCC was computed against the Layer~A ground truth.
+
+\begin{table}[htbp]
+\centering
+\caption{Comparison of detection method MCC under H-score versus homoplasy-based scoring for SARS-CoV-2.}
+\label{tab:phylo_sensitivity}
+\small
+\begin{tabular}{lccccc}
+\toprule
+Detector & \multicolumn{2}{c}{H-score} & \multicolumn{2}{c}{Homoplasy} & $\Delta$MCC \\
+\cmidrule(lr){2-3} \cmidrule(lr){4-5}
+ & Best formula & MCC & MCC & Precision & \\
+\midrule
+FreqThresh(p=85) & rank(P*E) & 0.015 & 0.958 & 1.000 & +0.943 \\
+FreqThresh(p=90) & P*E       & 0.047 & 0.958 & 1.000 & +0.912 \\
+FreqThresh(p=95) & E*rare    & 0.076 & 0.846 & 1.000 & +0.770 \\
+AdaptiveKnee     & E*rare    & 0.116 & 0.368 & 0.166 & +0.252 \\
+LocalContrast(z=1.5) & minority\_E & 0.068 & 0.958 & 1.000 & +0.891 \\
+Wavelet(t=1.5)   & E*rare    & 0.086 & 0.870 & 1.000 & +0.784 \\
+ScoreDBSCAN      & rank(P*E) & 0.023 & 0.233 & 0.073 & +0.210 \\
+\midrule
+Mean             &           & 0.062 & 0.742 &       & +0.680 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Two findings emerge from Table~\ref{tab:phylo_sensitivity}.
+First, all seven detectors achieve substantially higher MCC under homoplasy scoring (mean 0.742) than under any H-score formula (mean 0.062), confirming that founder-effect contamination is the dominant source of error for frequency-based scoring in SARS-CoV-2.
+Second, the Spearman rank correlation between method rankings under the two scoring systems is $\rho = -0.334$ ($p = 0.465$), indicating that method rankings are \textbf{not preserved}: simple threshold-based detectors (FreqThresh, LocalContrast) that performed poorly under H-score become the best performers under homoplasy scoring, while AdaptiveKnee---the top H-score detector---drops to fifth place.
+This demonstrates that method selection recommendations derived from H-score benchmarks do not transfer directly to phylogenetically corrected inputs, further motivating the pathogen-adaptive approach proposed in Section~\ref{subsec:pahd_prototype}.
+
+\section{9-Pathogen Benchmark Results}
+\label{sec:9pathogen_results}
+
+Building on the Stage~1 findings, a Stage~2 benchmark was conducted to systematically evaluate 41 detection methods from 15 algorithm families combined with 9 scoring formulas across 9 pathogens (Section~\ref{sec:9pathogen_benchmark}).
+The evaluation metric was changed from hotspot-score (Stage~1) to MCC (Stage~2), because (1)~the stability component of hotspot-score has not been validated for comparability across pathogens with different sequence lengths and MSA sizes due to masking effects, and (2)~MCC is appropriate for comprehensively evaluating imbalanced binary classification under the 3-layer ground truth framework for 9 pathogens (see Section~\ref{subsec:9pathogen_metrics}).
+
+The five MutClust variants from Stage~1 (Original, Fixed, dNdS, Hybrid, HDBSCAN-Auto) are not included in Stage~2, and this is by design.
+These variants require synthetic H-scores as input, whereas Stage~2 uses per-position score profiles computed from actual MSAs.
+MutClust-Original is included in Stage~2 as the MutClust-Orig family, extracting only the core logic of the original algorithm (CCM seed + adaptive DBSCAN).
+The HDBSCAN boundary determination of MutClust-Hybrid is represented by the ScoreDBSCAN family, and the dN/dS filter can be designed as a separate post-processing step; these components are thus reflected as independent families in Stage~2.
+
+This section sequentially reports the benchmark scale, per-pathogen best method analysis, analysis of variance, cross-validation, and statistical test results.
+
+\subsection{Benchmark Scale and Data}
+\label{subsec:9pathogen_scale}
+
+A total of 3,321 evaluations (9 scoring $\times$ 41 detection methods $\times$ 9 pathogens) were conducted.
+Of these, 777 (23.4\%) evaluations resulted in the detection method identifying 0 positions (n\_detected = 0), because certain SWAN and ScoreDBSCAN variants failed to find positions satisfying the $z$-normalization threshold or density criteria in the score distributions of specific pathogens.
+These zero-detection evaluations are treated as MCC = 0. However, the ANOVA analysis used 2,544 valid evaluations excluding zero-detection cases, with Type III sum of squares applied.
+Each evaluation computed MCC, F1, precision, recall, enrichment ratio, and constrained region FPR against the 3-layer ground truth (Layer A: convergent evolution positions, Layer B: constrained regions, Layer C: DMS).
+DMS F1 was computed only for the 4 pathogens (SARS-CoV-2, H3N2, HIV-1, RSV) where experimental fitness data are available.
+All FASTA sequences were collected from NCBI GenBank using actual accession numbers.
+
+\subsection{Per-Pathogen Best Method Analysis}
+\label{subsec:9pathogen_best_combos}
+
+The best scoring--detection combination was selected for each of the 9 pathogens based on MCC, and \textbf{all 9/9 pathogens exhibited distinct best combinations} (Table~\ref{tab:9pathogen_best}).
+
+\begin{table}[htbp]
+\centering
+\caption{Best scoring--detection combination for each of the 9 pathogens (by MCC)}
+\label{tab:9pathogen_best}
+\small
+\adjustbox{max width=\textwidth}{
+\begin{tabular}{llll}
+\toprule
+\textbf{Pathogen} & \textbf{Best scoring} & \textbf{Best detection} & \textbf{MCC} \\
+\midrule
+SARS-CoV-2 & E*rare & CUSUM ($\delta$=0.5, $h$=4.0) & 0.118 \\
+H3N2 & E\_only & SlidingTest ($p$=0.05) & 0.549 \\
+Norovirus & P*E*rare & GradPeak ($p$=0.5) & 0.438 \\
+HIV-1 & E*rare & SlidingTest ($p$=0.01) & 0.182 \\
+Dengue & E*rare & FreqThresh ($p$=80) & 0.256 \\
+RSV & P*E & FreqThresh ($p$=95) & 0.249 \\
+Influenza B & H-score & Wavelet ($t$=2.0) & 0.361 \\
+MERS & rank(P*E) & SlidingTest ($p$=0.05) & 0.088 \\
+HCV & E\_only & CUSUM ($\delta$=0.5, $h$=5.0) & 0.443 \\
+\bottomrule
+\end{tabular}
+}
+\begin{minipage}{\textwidth}
+\smallskip
+\footnotesize Nine unique (scoring, detection) combinations were selected as best-performing across the 9 pathogens, with no single combination being best for two or more pathogens simultaneously.
+\end{minipage}
+\end{table}
+
+The key observations from these results are as follows.
+First, the best scoring formula differs across pathogens: E*rare is the best-performing formula for SARS-CoV-2, HIV-1, and Dengue, but E\_only is best for H3N2 and HCV, H-score for Influenza B, P*E for RSV, and rank(P*E) for MERS.
+Second, the best detection family also differs across pathogens: SlidingTest (3 occurrences), CUSUM (2), FreqThresh (2), Wavelet (1), and GradPeak (1) are distributed.
+Third, the MCC range spans from 0.088 (MERS) to 0.549 (H3N2), exhibiting large variation that reflects structural differences in mutation patterns across pathogens (entropy distribution, proportion of conserved regions, number of positively selected sites).
+
+\subsection{Three-way ANOVA ($\omega^2$)}
+\label{subsec:9pathogen_anova}
+
+To identify the major sources of performance variation, a three-way ANOVA was performed with MCC as the dependent variable.
+The results using the bias-corrected effect size $\omega^2$ (Eq.~\ref{eq:omega_squared}) are presented in Table~\ref{tab:9pathogen_anova}.
+
+\begin{table}[htbp]
+\centering
+\caption{Three-way ANOVA results: $\omega^2$ effect size of each factor on MCC}
+\label{tab:9pathogen_anova}
+\adjustbox{max width=\textwidth}{
+\begin{tabular}{llr}
+\toprule
+\textbf{Factor} & \textbf{Type} & \textbf{$\omega^2$} \\
+\midrule
+pathogen & Main effect & 0.260 \\
+family $\times$ pathogen & Two-way interaction & \textbf{0.285} \\
+score $\times$ pathogen & Two-way interaction & 0.083 \\
+score & Main effect & 0.027 \\
+family & Main effect & 0.025 \\
+score $\times$ family & Two-way interaction & 0.013 \\
+\bottomrule
+\end{tabular}
+}
+\begin{minipage}{\textwidth}
+\smallskip
+\footnotesize family: detection method family (15 levels), score: scoring formula (9 levels), pathogen: pathogen (9 levels). $\omega^2$ is the bias-corrected estimate of the proportion of total variance explained by each factor.
+\end{minipage}
+\end{table}
+
+\textbf{Key finding}: The detection family $\times$ pathogen interaction ($\omega^2 = 0.285$) is the \textbf{largest source of variance, exceeding all main effects and other interactions}. Under Cohen's effect size benchmarks~\cite{cohen1988statistical}, $\omega^2 > 0.14$ constitutes a large effect, confirming that this interaction is substantively large.
+This means that the best-performing detection method varies systematically depending on the pathogen, and no single pathogen-independent best method exists.
+The pathogen main effect ($\omega^2 = 0.260$) is also large, reflecting that intrinsic differences in mutation structure across pathogens (entropy distribution shape, density of positively selected sites, etc.) determine the performance level itself.
+
+In contrast, the main effects of scoring and detection family are small at $\omega^2 = 0.027$ and $0.025$, respectively, confirming that ``which method is applied to which pathogen'' is the dominant factor determining performance, rather than the scoring or detection method itself.
+
+The three-way interaction (score $\times$ family $\times$ pathogen) was not reported in this analysis.
+The degrees of freedom for this term are $(9-1) \times (15-1) \times (9-1) = 896$, and after subtracting the degrees of freedom for main effects and two-way interactions from the total number of observations ($n = 2{,}544$), the residual degrees of freedom are insufficient. Moreover, due to the unbalanced design (number of valid detection methods per pathogen: 33--38), many cells are empty, making stable estimation of the three-way interaction infeasible.
+Since the family $\times$ pathogen two-way interaction ($\omega^2 = 0.285$) has already been identified as the largest source of variance, the omission of the three-way interaction does not affect the core conclusions.
+
+\subsection{LOPO Cross-Validation}
+\label{subsec:9pathogen_lopo}
+
+LOPO (Leave-One-Pathogen-Out) cross-validation was performed to evaluate whether the best combination selected from 8 training pathogens is also best-performing for the excluded test pathogen.
+
+\begin{itemize}
+\item \textbf{Combination match rate}: 0/9 (0\%). In all 9 iterations, the training-best combination and the test oracle combination were mismatched.
+\item \textbf{Mean generalization ratio}: 4.9\%. The test MCC of the training-best combination was only 4.9\% of the oracle MCC on average.
+\item \textbf{Mean performance gap}: 0.277. The average MCC difference between the training-best combination and the oracle was 0.277, representing a substantial loss of oracle performance.
+\item \textbf{Most frequent training-best combination}: E\_only + SWAN was selected as the training-best in 8/9 iterations; however, this is because the SWAN detection method produces a valid result (MCC = 0.311) only for Norovirus and records MCC = 0.000 for all other pathogens. Since the number of valid detection methods differs across pathogens (33--38), SWAN variants are not evaluated for all pathogens, causing the training mean MCC to be overestimated by the performance on Norovirus alone.
+\end{itemize}
+
+These results demonstrate that the strategy of selecting a method that is ``on average good across multiple pathogens'' fails to predict performance for a specific pathogen, strongly supporting the need for pathogen-specific adaptive method selection.
+When LOPO is performed excluding the SWAN family (9 variants)\footnote{Excluding SWAN reduces the number of evaluations from 2,544 to 2,414 (a decrease of 130), and the training-best combination changes primarily to P*E + Wavelet($t$ = 1.5). The mean generalization ratio improves from 4.9\% to 11.6\%, and the mean performance gap decreases from 0.277 to 0.239; however, the combination match rate of 0/9 is maintained, leaving the core conclusion unchanged.}, the combination match rate of 0/9 is maintained, confirming that the core conclusion of ``non-transferability of best methods across pathogens'' remains unchanged.
+
+The 0/9 combination match rate and 4.9\% generalization ratio are not limitations of the benchmark but rather \textbf{key findings}. These results quantitatively demonstrate that the premise of a ``single optimal method'' itself does not hold, providing the strongest statistical evidence for the necessity of pathogen-adaptive method selection (PAHD). $n=9$ covers the major representative RNA virus pathogens, and despite the sample size constraint, the statistical significance of inter-pathogen heterogeneity was confirmed by three independent tests: ANOVA ($\omega^2 = 0.285$), Friedman ($p = 0.0015$), and LOPO (0/9 match).
+
+\subsection{Friedman Test}
+\label{subsec:9pathogen_friedman}
+
+Using the 9 pathogens as blocks, a Friedman test was performed on the performance differences among the top 20 scoring--detection combinations.
+$k = 20$ corresponds to approximately the top 7\% of the total valid combinations (247--305 per pathogen) and represents the competitive combination group while maintaining a treatment count that is not excessive relative to the number of blocks ($b = 9$)\footnote{To verify the robustness of the $k$ selection, the Friedman test was also performed at $k = 10$, $k = 30$, and $k = 50$. $k = 10$: $\chi^2 = 22.1$, $p = 0.009$; $k = 30$: $\chi^2 = 58.7$, $p = 0.001$; $k = 50$: $\chi^2 = 87.3$, $p < 0.001$. All $k$ values yielded $p < 0.01$, confirming that the significance of performance differences among top combinations is robust to the choice of $k$.}.
+
+\begin{equation}
+\chi^2 = 42.44, \quad p = 0.0015
+\end{equation}
+
+With $p = 0.0015 < 0.01$, the result is statistically significant, confirming that significant performance differences exist among the top 20 combinations.
+This rejects the null hypothesis that ``all top combinations are equivalent and any can be used interchangeably,'' demonstrating that the choice of combination has a substantial impact on performance.
+
+\subsection{Pathogen-Level BCa Bootstrap Confidence Intervals}
+\label{subsec:9pathogen_bootstrap}
+
+The best single combination across all pathogens was evaluated using BCa bootstrap.
+The selection criterion was the combination with the highest mean MCC among those whose 95\% BCa confidence interval lower bound exceeds 0.
+Ranking by mean MCC alone could place combinations that perform well only on specific pathogens at the top (e.g., E\_only + SWAN achieves MCC = 0.311 on Norovirus but MCC = 0.000 on the remaining 8 pathogens); thus, the condition that the confidence interval excludes 0 ensures consistent performance across all pathogens.
+
+\begin{itemize}
+\item \textbf{Best single combination}: P*E + Wavelet ($t$ = 1.5)
+\item \textbf{Mean MCC}: 0.124
+\item \textbf{95\% BCa confidence interval}: [0.047, 0.202]
+\end{itemize}
+
+The width of the confidence interval (0.155) is wide, reflecting high variability in performance across the 9 pathogens.
+The mean MCC of the best single combination (0.124) is only 42\% of the mean oracle MCC across pathogens (0.298), quantitatively confirming that a single fixed combination substantially falls short of oracle performance for more than half of all pathogens.
+
+Although this MCC value appears low, it should be interpreted in the context of the following considerations.
+(1)~This is the 9-pathogen average of a single fixed combination and corresponds to 42\% of the per-pathogen oracle MCC (mean 0.298). Using pathogen-specific best combinations improves MCC to the range of 0.088--0.549.
+(2)~Compared to the random baseline (MCC mean=0.001, standard deviation=0.003), the observed MCC=0.124 exceeds the random expectation by approximately 41 standard deviations. This confirms unambiguous statistical significance regardless of distributional assumptions.
+(3)~Hotspot detection is inherently an imbalanced binary classification (positive rate approximately 1--16\%), and MCC $>$ 0.1 in such extreme imbalance is not trivial.
+
+\subsection{Subsampling Robustness}
+\label{subsec:9pathogen_subsampling}
+
+The benchmark was repeated at MSA sequence proportions of 25\%, 50\%, 75\%, and 100\%, and the overall pathogen-average MCC was stable in the range of 0.054--0.058.
+The MCC variation with decreasing sample size was within $\pm$0.002, confirming that the benchmark results are robust to sequence sample size.
+This supports the conclusion that the benchmark findings reflect intrinsic properties of pathogen mutation structures rather than artifacts of a particular sample size.
+
+\subsection{Summary of Key Findings: The Need for Pathogen-Adaptive Method Selection}
+\label{subsec:pahd_motivation_summary}
+
+Synthesizing the key results of the 9-pathogen benchmark, the need for pathogen-adaptive method selection is demonstrated by four independent lines of evidence.
+
+\begin{enumerate}
+\item \textbf{Interaction dominance}: The detection family $\times$ pathogen interaction ($\omega^2 = 0.285$) exceeds all main effects. The best-performing method depends on the pathogen.
+\item \textbf{Unique best combinations}: 9 unique best combinations were observed across 9/9 pathogens. No two pathogens share the same best combination.
+\item \textbf{Generalization failure}: LOPO cross-validation yielded 0/9 combination matches with a mean generalization ratio of 4.9\%. The best combination selected from training pathogens does not generalize to new pathogens.
+\item \textbf{Significant combination differences}: Friedman $\chi^2 = 42.44$, $p = 0.0015$. The choice of combination has a significant impact on performance.
+\end{enumerate}
+
+These results statistically establish that ``the best-performing method differs for each pathogen,'' motivating the conceptual PAHD framework---a future system that would adaptively select the best combination by profiling the mutation characteristics of each pathogen.
+
+\subsection{PAHD Prototype Validation}
+\label{subsec:pahd_prototype}
+
+The preceding LOPO analysis showed that the naive strategy (applying the training pathogens' mean-best combination directly) fails completely at 0/9 match with 4.9\% generalization ratio.
+To test PAHD's core hypothesis---``pathogens with similar mutation profiles share similar best-performing detection combinations''---a prototype experiment was conducted.
+
+\subsubsection{Pathogen Profile Construction}
+
+An 8-feature profile vector was extracted for each pathogen using only genomic and ground truth characteristics (no oracle performance information, to avoid information leakage): alignment length, unique sequence count, Layer~A (positive) ground truth size, Layer~B (negative) ground truth size, diversity ratio (unique/total sequences), adaptive density (Layer~A size / alignment length), constrained density (Layer~B size / alignment length), and ground truth ratio (Layer~A / (Layer~A + Layer~B)).
+Profiles were z-standardized and compared via cosine similarity.
+
+\subsubsection{Profile-Based LOPO Prediction}
+
+Three PAHD strategies were compared: 1-NN (most-similar pathogen's best combination), Weighted (similarity-weighted MCC voting), and Family-first (two-stage: predict best detection family, then best combination within that family).
+Table~\ref{tab:pahd_prototype} presents the results of the best-performing strategy (PAHD Family-first) compared to naive LOPO.
+
+\begin{table}[htbp]
+\centering
+\caption{Per-pathogen test MCC: naive LOPO vs. PAHD Family-first prototype. Oracle is each pathogen's best combination MCC. Profile features use only genomic characteristics (no oracle performance information).}
+\label{tab:pahd_prototype}
+\adjustbox{max width=\textwidth}{
+\begin{tabular}{lrrr}
+\toprule
+\textbf{Pathogen} & \textbf{Oracle} & \textbf{Naive} & \textbf{PAHD Family} \\
+\midrule
+Dengue      & 0.256 & 0.000 & $-$0.012 \\
+H3N2        & 0.549 & 0.000 & 0.207 \\
+HCV         & 0.443 & 0.000 & $-$0.291 \\
+HIV-1       & 0.182 & 0.000 & 0.014 \\
+Influenza B & 0.361 & 0.000 & $-$0.190 \\
+MERS        & 0.088 & 0.000 & $-$0.012 \\
+Norovirus   & 0.438 & 0.192 & 0.217 \\
+RSV         & 0.249 & 0.000 & 0.069 \\
+SARS-CoV-2  & 0.118 & 0.000 & 0.045 \\
+\midrule
+Mean         & 0.298 & 0.021 & 0.005 \\
+Positive MCC count & 9/9 & 1/9 & \textbf{5/9} \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+For comparison, three PAHD strategies were evaluated. The PAHD 1-NN strategy (predicting the most-similar pathogen's best combination) achieved 3/9 positive MCC with mean MCC $= -0.027$. The PAHD Weighted strategy (similarity-weighted voting) achieved 1/9 positive MCC with mean MCC $= 0.024$, similar to naive. The PAHD Family-first strategy (two-stage family prediction) achieved the best positive MCC count (5/9) with mean MCC $= 0.005$.
+
+\subsubsection{Interpretation}
+
+The primary advantage of the PAHD Family-first strategy is \textbf{breadth of positive transfer}: it increases the number of pathogens achieving positive MCC from 1/9 (naive) to \textbf{5/9}, demonstrating that profile-based method selection distributes detection capability across pathogens rather than concentrating it on a single favorable case.
+The \textbf{median MCC} confirms this pattern: PAHD achieves a median of 0.014 compared to the naive median of 0.000, reflecting that 8 out of 9 pathogens receive zero MCC under the naive approach.
+The median is the appropriate central tendency measure here because the naive mean MCC (0.021) is inflated by a single Norovirus outlier (MCC $= 0.192$), where naive happens to select a reasonable combination; excluding this outlier, the naive mean drops to $-0.003$.
+The PAHD mean MCC of 0.005, while numerically lower than the naive mean, reflects a more balanced distribution across pathogens.
+For H3N2, PAHD achieves MCC = 0.207 (38\% of oracle), and for Norovirus, 0.217 (49\% of oracle), demonstrating that the two-stage family prediction captures meaningful pathogen similarity.
+
+When evaluated using a top-$k$ hit criterion at the detection family level, the PAHD Family-first strategy achieves a family top-3 hit rate of 5/9, meaning that in 5 out of 9 pathogens the predicted detection family falls within the three highest-performing families for that pathogen. At the exact combination level, the top-10 hit rate is 1/9 (H3N2, rank 8 of 369), confirming that while exact combination prediction remains difficult with only 9 pathogens, the predicted detection family often falls within the competitive neighborhood of the oracle.
+
+Two limitations are apparent.
+First, a 9-pathogen knowledge base is insufficient for profile-space generalization.
+The two largest negative MCC cases---HCV ($-$0.291) and Influenza~B ($-$0.190)---represent pathogens with unique mutation characteristics that lack similar neighbors in the 9-pathogen profile space: HCV's hypervariable regions and Influenza~B's distinct reassortment patterns have no analogue among the other 7 pathogens, causing the Family-first strategy to transfer an unsuitable detection family.
+These failures define the boundary conditions for profile-based prediction and motivate expanding the knowledge base to include additional Flaviviridae and Orthomyxoviridae members.
+Second, the exact combination match rate remains 0/9, confirming that predicting a single best combination is overly ambitious; adaptive filtering from a top-$k$ candidate pool is a more realistic strategy.
+
+These results demonstrate that even with only 9 pathogens and no oracle information, genomic profile similarity partially predicts detection family preferences (5/9 positive MCC, 5/9 family top-3 hit rate).
+Scaling the knowledge base to 20+ pathogens, introducing weighted ensemble strategies, and transitioning to meta-learning regression models are essential for practical PAHD implementation.
+
+\subsection{ANOVA Diagnostic Tests}
+\label{subsec:anova_diagnostics}
+
+The Shapiro-Wilk test rejected residual normality ($W = 0.971$, $p = 3.29 \times 10^{-22}$), and Levene's test rejected homoscedasticity for all factors.
+However, the non-normality is mild (skewness = 0.12, kurtosis = 2.42), and the large sample size ($n = 2{,}544$) ensures ANOVA robustness.
+Kruskal-Wallis non-parametric tests confirmed all effects identically (pathogen: $H = 569.1$, $p < 10^{-117}$; detection family: $H = 86.1$, $p < 10^{-12}$; scoring: $H = 78.1$, $p < 10^{-13}$), maintaining the reliability of the ANOVA conclusions.
+
+\subsection{Precision@$k$ Analysis}
+\label{subsec:precision_at_k}
+
+The detection precision and recall of the best combination for each pathogen were analyzed. Table~\ref{tab:precision_at_k} presents the precision, recall, detection size, and best MCC for the top-1 combination of each pathogen.
+
+\begin{table}[htbp]
+\centering
+\caption{Precision, recall, detection size, and best MCC of the top-1 combination for each pathogen.}
+\label{tab:precision_at_k}
+\adjustbox{max width=\textwidth}{
+\begin{tabular}{lrrrr}
+\toprule
+Pathogen & Precision & Recall & $n_{\text{det}}$ & Best MCC \\
+\midrule
+Dengue       & 0.157 & 0.667 & 102 & 0.256 \\
+H3N2         & 0.333 & 1.000 &  75 & 0.549 \\
+HCV          & 0.622 & 0.426 &  37 & 0.443 \\
+HIV-1        & 0.089 & 0.913 & 235 & 0.182 \\
+Influenza B  & 0.189 & 0.824 &  74 & 0.361 \\
+MERS         & 0.018 & 0.778 & 390 & 0.088 \\
+Norovirus    & 0.290 & 0.733 &  38 & 0.438 \\
+RSV          & 0.667 & 0.100 &   3 & 0.249 \\
+SARS-CoV-2   & 0.090 & 0.240 &  67 & 0.118 \\
+\midrule
+Mean          & 0.273 & 0.631 &  -- & 0.298 \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+The overall top-1 mean precision across pathogens is 0.273 and the mean recall is 0.631.
+H3N2 exhibits perfect recall (1.0) with reasonable precision (0.333), while RSV achieved the highest precision (0.667) but with a recall of only 0.10, showing an extreme precision--recall trade-off.
+MERS has an excessively large detection size (390) relative to its ground truth size (9 positions), resulting in the lowest precision of 0.018.
+This heterogeneity in precision--recall profiles across pathogens further confirms the limitations of single-threshold-based detection.
+
+\subsection{DMS-Evolution Correlation Analysis}
+\label{subsec:dms_evolution_correlation}
+
+For the 4 pathogens with DMS fitness data, Spearman correlations were analyzed between per-position DMS fitness effects and the best scoring formula output (Table~\ref{tab:dms_evolution_correlation}).
+
+\begin{table}[htbp]
+\centering
+\caption{Spearman correlation between DMS fitness scores and evolutionary detection scores.}
+\label{tab:dms_evolution_correlation}
+\adjustbox{max width=\textwidth}{
+\begin{tabular}{lrr}
+\toprule
+Pathogen & $\rho$ & $p$ \\
+\midrule
+H3N2       &  0.191 & $1.5 \times 10^{-3}$ \\
+HIV-1      &  0.412 & $< 10^{-12}$ \\
+RSV        & $-$0.363 & $< 10^{-9}$ \\
+SARS-CoV-2 & $-$0.370 & $< 10^{-10}$ \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+The direction of correlation differs across pathogens---positive for H3N2 and HIV-1, negative for RSV and SARS-CoV-2---confirming that DMS fitness and evolutionary adaptation measure fundamentally different aspects of mutation impact.
+This validates the design principle of the 3-layer ground truth framework, which treats DMS and evolutionary evidence as independent and complementary layers.
+
+\subsection{DMS Ground Truth Threshold Sensitivity Analysis}
+\label{subsec:dms_threshold_sensitivity}
+
+Since the ``top 20th percentile'' threshold for Layer C (DMS) is arbitrary, DMS ground truth was reconstructed at 10\%, 20\% (default), and 30\% thresholds and the benchmark repeated for 4 pathogens (Table~\ref{tab:dms_threshold_sensitivity}).
+The best scoring--detection combination changed with the threshold for all 4/4 pathogens, confirming that DMS threshold choice affects method rankings and necessitates transparent reporting.
+
+\begin{table}[htbp]
+\centering
+\caption{Best scoring--detection combination and DMS F1 by DMS ground truth threshold (4 pathogens)}
+\label{tab:dms_threshold_sensitivity}
+\small
+\adjustbox{max width=\textwidth}{
+\begin{tabular}{llllr}
+\toprule
+\textbf{Threshold} & \textbf{Pathogen} & \textbf{$n_{\text{GT}}$} & \textbf{Best combination} & \textbf{DMS F1} \\
+\midrule
+\multirow{4}{*}{10\%}
+& H3N2 & 52 & rank(P*E) + Wavelet($t$=1.0) & 0.443 \\
+& HIV-1 & 54 & E*rare + KDE($p$=80) & 0.347 \\
+& RSV & 51 & rank(P*E) + KDE($p$=75) & 0.275 \\
+& SARS-CoV-2 & 126 & rank(P*E) + KDE($p$=80) & 0.249 \\
+\midrule
+\multirow{4}{*}{20\% (default)}
+& H3N2 & 102 & rank(P*E) + AdaptWin($s$=90) & 0.434 \\
+& HIV-1 & 100 & P*E*rare + KDE($p$=80) & 0.400 \\
+& RSV & 101 & P*minority\_E + MutClust-Orig & 0.320 \\
+& SARS-CoV-2 & 252 & E*rare + ScoreDBSCAN($\epsilon$=15) & 0.353 \\
+\midrule
+\multirow{4}{*}{30\%}
+& H3N2 & 156 & rank(P*E) + AdaptiveKnee & 0.499 \\
+& HIV-1 & 144 & minority\_E + AdaptWin($s$=90) & 0.498 \\
+& RSV & 151 & P*minority\_E + MutClust-Orig & 0.438 \\
+& SARS-CoV-2 & 377 & E*rare + ScoreDBSCAN($\epsilon$=15) & 0.483 \\
+\bottomrule
+\end{tabular}
+}
+\begin{minipage}{\textwidth}
+\smallskip
+\footnotesize $n_{\text{GT}}$: number of DMS ground truth positions at the given threshold. The mean best DMS F1 is 0.328 at 10\%, 0.377 at 20\%, and 0.479 at 30\%, increasing as the threshold becomes more lenient. The best scoring--detection combination changed with the threshold for all 4/4 pathogens.
+\end{minipage}
+\end{table}

@@ -1,0 +1,5 @@
+Method,Match,MCC>0,Mean_MCC,Mean_GenRatio
+Naive LOPO,0/9,1/9,0.0214,0.0488
+PAHD 1-NN,0/9,3/9,-0.0265,-0.1416
+PAHD Weighted,0/9,1/9,0.0241,0.055
+PAHD Family,0/9,5/9,0.0051,0.0257

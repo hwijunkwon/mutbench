@@ -1,0 +1,573 @@
+% Chapter 3: MutBench — 방법론
+\chapter{MutBench: 방법론}
+\label{ch:mutbench}
+
+본 장에서는 바이러스 변이 핫스팟 탐지 방법의 체계적 평가를 위한 벤치마킹 프레임워크인 MutBench의 방법론을 제시한다.
+
+%% ============================================================
+\section{연구 동기와 기여}
+\label{sec:mutbench_motivation}
+
+제~\ref{ch:background}장에서 논의한 바와 같이, 바이러스 변이 핫스팟 탐지 분야의 체계적 평가 프레임워크 부재와 MutClust의 자기 참조적 부트스트랩 검증의 한계가 MutBench 개발의 직접적 동기가 되었다.
+
+MutBench는 MOSD의 체계적 벤치마킹 방법론을 바이러스 게놈 분석 영역으로 이전하며, 핵심 기여는 다음과 같다:
+(1)~hotspot-score 복합 평가 지표의 정의(식~\ref{eq:hotspot_score});
+(2)~5가지 MutClust 변이체와 2가지 기준선 방법(빈도 역치, 슬라이딩 윈도우)의 체계적 비교 및 외부 독립 방법---OPTICS(밀도 기반 클러스터링으로 도달 가능성 거리를 통해 가변 밀도 클러스터를 자동 추출)와 KDE(커널 밀도 추정 기반 피크 탐지)---과의 추가 검증;
+(3)~심층 돌연변이 스캐닝(DMS) 기반 실험적 ground truth의 도입;
+(4)~실제 GISAID H-score를 이용한 비합성 검증;
+(5)~기능 영역, DMS fitness, 수렴 진화에 기반한 3계층 ground truth 프레임워크에 대한 다중 평가.
+
+\begin{equation}
+\text{hotspot-score} = \frac{\text{recall} + \text{precision} + \text{stability}}{3}
+\label{eq:hotspot_score}
+\end{equation}
+
+\noindent 이 식은 1단계 벤치마크(SARS-CoV-2 깊이 우선 분석)에서 적용된다. 2단계(9-병원체 확장)에서는 MCC를 주요 평가 지표로 사용하며, 그 사유는 제~\ref{subsec:9pathogen_metrics}절에서 기술한다.
+
+\section{관련 방법론}
+\label{sec:mutbench_related}
+
+변이 핫스팟 탐지는 돌연변이율이 유의하게 높은 게놈 영역을 식별하는 것을 목표로 한다.
+암 체세포 돌연변이에 대해서는 MutSigCV~\cite{lawrence2013mutsigcv}(유전자 수준 배경 모델링), OncodriveCLUST~\cite{tamborero2013oncodriveclust}(위치적 클러스터링 편향), HotMAPS~\cite{tokheim2016hotmaps}(3D 구조 기반 공간 핫스팟), MutSpot~\cite{munoz2020mutspot}(후생유전체 통합 랜덤 포레스트) 등이 개발되었으나, 바이러스 게놈에 특화된 체계적 벤치마킹은 부재하였다.
+
+MutBench에서는 MutClust 변이체 외에 두 가지 기준선 방법---빈도 기반 역치(변이 빈도가 중앙값 + $k \times \text{MAD}$ 초과 시 핫스팟 표시)와 슬라이딩 윈도우(고정 크기 창의 평균 변이 빈도 역치)---을 포함하여, MutClust의 적응형 밀도 추정이 단순 접근법 대비 실질적 개선을 제공하는지 검증한다.
+또한 Weber 등~\cite{weber2019benchmarking}이 확립한 중립적 평가, 다중 지표, 통제된 실험 설계의 벤치마킹 가이드라인과---Boulesteix 등~\cite{boulesteix2017towards}이 강조한 바와 같이, 비교 대상 방법에 이해관계가 없는 연구자에 의한 중립적 비교 연구의 중요성을 포함하여---, DMS 실험~\cite{fowler2014dms,starr2020dms,dadonaite2023dms}이 제공하는 실험적 ground truth를 MutBench의 방법론적 기반으로 활용한다.
+
+%% ============================================================
+\section{방법론}
+\label{sec:mutbench_methods}
+
+\subsection{MutBench 프레임워크 구조}
+
+MutBench는 2단계 구조의 체계적 벤치마킹 프레임워크이다.
+\textbf{1단계}(제~\ref{sec:variant_comparison}--\ref{sec:phylo_simulation}절)는 SARS-CoV-2 Spike에 대한 깊이 우선 분석으로, 5개 MutClust 변이체의 구조적 차이가 탐지 성능에 미치는 영향을 정밀 비교한다.
+\textbf{2단계}(제~\ref{sec:9pathogen_benchmark}절)는 9종 RNA 바이러스에 대한 너비 우선 분석으로, 15개 알고리즘 패밀리의 41개 탐지 방법과 9가지 스코어링 공식을 교차 평가한다.
+모든 1단계 분석은 SARS-CoV-2 참조 게놈(Wuhan-Hu-1, GenBank: NC\_045512.2)을 사용하며, Spike 유전자는 뉴클레오티드 위치 21,563--25,384에 위치한다.
+프레임워크는 세 구성요소로 구성된다.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[
+    node distance=1.2cm,
+    box/.style={rectangle, draw, rounded corners, minimum width=3.5cm, minimum height=0.8cm, align=center, font=\small},
+    arrow/.style={->, thick, >=stealth},
+    label/.style={font=\footnotesize\itshape, text=gray}
+]
+% Input
+\node[box, fill=blue!10] (input) {MSA Sequences\\(9 pathogens)};
+
+% Scoring
+\node[box, fill=green!10, below=of input] (scoring) {Scoring Formulas\\(9 methods)};
+
+% Detection
+\node[box, fill=orange!10, below=of scoring] (detection) {Detection Methods\\(41 methods, 15 families)};
+
+% Ground Truth
+\node[box, fill=red!10, right=2.5cm of scoring] (gt) {3-Layer Ground Truth\\A: Convergent / B: Constrained / C: DMS};
+
+% Evaluation
+\node[box, fill=purple!10, below=of detection] (eval) {Evaluation\\(MCC, hotspot-score)};
+
+% Statistical Analysis
+\node[box, fill=yellow!10, below=of eval] (stats) {Statistical Analysis\\(ANOVA, Friedman, LOPO)};
+
+% Arrows
+\draw[arrow] (input) -- (scoring);
+\draw[arrow] (scoring) -- (detection);
+\draw[arrow] (detection) -- (eval);
+\draw[arrow] (gt) -- (eval);
+\draw[arrow] (eval) -- (stats);
+
+% Stage labels
+\node[label, left=0.3cm of scoring] {Stage 1: SARS-CoV-2};
+\node[label, left=0.3cm of stats] {Stage 2: 9 pathogens};
+
+\end{tikzpicture}
+\caption{MutBench 벤치마크 프레임워크 파이프라인 개요. 입력 서열이 스코어링 공식과 탐지 방법을 거쳐 처리되고, 3계층 ground truth에 대해 평가된 후, 다중 통계 검정으로 분석된다.}
+\label{fig:mutbench_pipeline}
+\end{figure}
+
+\subsubsection{구성요소 1: Ground Truth 생성}
+
+두 가지 출처에서 ground truth를 생성한다.
+
+\textbf{합성 데이터 (통제된 신호 복원 검정).}
+합성 벤치마크는 알려진 위치에 인위적으로 삽입된 신호를 각 탐지 방법이 얼마나 정확하게 복원하는지를 평가하는 통제된 신호 복원 검정(controlled signal recovery test)으로 설계되었다.
+SARS-CoV-2 패턴을 모방하여 합성 H-score를 생성하고, 알려진 기능 부위에 핫스팟 영역을 삽입한다.
+Core Candidate Mutation (CCM) 시드 위치(AA 484, 501, 417, 452---SARS-CoV-2 주요 변이체에서 가장 빈번하게 돌연변이하는 4개의 Spike 위치)에 높은 H-score(0.8--1.2)를, 주변 기능 영역에 중간 점수(0.05--0.3)를, 배경 위치에 낮은 잡음(0.0--0.02)을 할당한다.
+합성 데이터의 ground truth는 설계에 의해 알려져 있으므로, 이 검정은 각 방법의 신호 복원 능력을 평가하되 실제 생물학적 핫스팟 탐지 성능을 직접 측정하지는 않는다.
+따라서 DMS 기반 검증(제~\ref{subsec:dms_ground_truth}절)과 수렴 진화 평가(제~\ref{sec:multi_gt}절)가 독립적인 생물학적 검증을 제공하여, 합성 벤치마크의 결론이 실제 데이터에서도 유효한지를 확인한다.
+
+\textbf{DMS 기반 기능 부위}: Spike 단백질 DMS 실험~\cite{dadonaite2023dms}의 세포 진입 fitness 측정에서, 평균 절대 fitness 효과의 상위 20백분위에 해당하는 아미노산 위치를 기능 부위로 분류한다.
+
+Ground truth로 사용된 주석된 기능 영역은 표~\ref{tab:ground_truth}에 제시하였으며, 영역 경계는 prefusion Spike 삼량체의 cryo-EM 구조~\cite{wrapp2020cryo}와 McCallum 등~\cite{mccallum2021ntd}의 NTD 항원 초과부위 매핑에 기반한다.
+
+\begin{table}[htbp]
+\centering
+\caption{Spike 단백질의 기능 영역 (ground truth)}
+\label{tab:ground_truth}
+\begin{tabular}{llr}
+\toprule
+\textbf{기능 영역} & \textbf{아미노산 위치} & \textbf{뉴클레오티드 수} \\
+\midrule
+수용체 결합 도메인 (RBD) & AA 319--541 & 669 \\
+NTD 항원 초과부위 & AA 14--20, 140--158, 245--264 & 138 \\
+퓨린 절단 부위 (S1/S2) & AA 681--685 & 15 \\
+S2' 절단 부위 & AA 815--816 & 6 \\
+융합 펩타이드 & AA 816--833 & 54$^*$ \\
+헵타드 반복 1 (HR1) & AA 912--984 & 219 \\
+헵타드 반복 2 (HR2) & AA 1,163--1,213 & 153 \\
+\midrule
+\textbf{합계 (중복 제거)} & & \textbf{1,251}$^\dagger$ \\
+\bottomrule
+\end{tabular}
+\begin{minipage}{\textwidth}
+\smallskip
+\footnotesize $^*$S2' 절단 부위와 AA 816에서 중복 (3개 뉴클레오티드 공유).
+$^\dagger$개별 영역의 합은 1,254 nt이며, S2'/융합 펩타이드 경계(AA 816)에서 3 nt 중복 제거 후 1,251개의 고유 뉴클레오티드 위치가 ground truth를 구성한다.
+\end{minipage}
+\end{table}
+
+이들 기능 영역의 게놈 전체 분포는 그림~\ref{fig:mutbench_hotspot_map}에 시각화하였다.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{genome_hotspot_map.png}
+\caption{SARS-CoV-2 Spike 단백질의 게놈 전체 핫스팟 맵. Ground truth로 사용된 7개의 주석된 기능 영역(RBD, NTD 항원 초과부위, 퓨린 절단 부위, S2' 절단 부위, 융합 펩타이드, HR1, HR2)이 뉴클레오티드 좌표에 매핑되어 있으며, 1,251개의 고유 Spike 뉴클레오티드 위치를 포함한다.}
+\label{fig:mutbench_hotspot_map}
+\end{figure}
+
+\subsubsection{구성요소 2: 탐지 방법}
+
+5가지 MutClust 변이체와 2가지 기준선 방법을 비교 평가한다.
+각 변이체의 특성은 표~\ref{tab:variants}에 요약하였다.
+
+\begin{table}[htbp]
+\centering
+\caption{MutBench에서 평가된 탐지 방법}
+\label{tab:variants}
+\begin{tabular}{lll}
+\toprule
+\textbf{방법} & \textbf{코드명} & \textbf{핵심 특성} \\
+\midrule
+MutClust-Original & v1-original & 원본 expand\_cluster (누적 감쇠 버그) \\
+MutClust-Fixed & v2a-bugfix & 수정된 단일 단계 감쇠 공식 \\
+MutClust-dNdS & v2b-bugfix+dnds & Fixed + dN/dS 양성 선택 필터 \\
+MutClust-Hybrid & v2c-full & CCM 시드 + HDBSCAN 경계 + dN/dS \\
+HDBSCAN-Auto & v3-hdbscan & 순수 HDBSCAN 자동 클러스터링 \\
+\midrule
+빈도 기준선 & --- & 상위 10백분위 H-score 역치 + 갭 기반 그룹화 \\
+슬라이딩 윈도우 & --- & 20위치 이동 평균 + 10백분위 역치 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsubsection{구성요소 3: 평가 지표}
+
+위치 수준의 정밀도(precision), 재현율(recall), F1, 농축비(enrichment ratio), 부분추출 안정성(subsampling stability), 그리고 본 연구에서 새로 정의한 hotspot-score를 평가 지표로 사용한다.
+
+\subsection{5가지 MutClust 변이체}
+\label{subsec:variants}
+
+\subsubsection{H-score 계산}
+\label{subsec:mutbench_hscore}
+
+MutClust는 각 게놈 위치에 대해 H-score를 계산한다:
+\begin{equation}
+H_i = \log_2(P_i \times E_i \times 100 + 1)
+\label{eq:mutbench_hscore}
+\end{equation}
+여기서 $P_i$는 위치 $i$에서의 변이 비율의 합이고, $E_i$는 변이 유형의 Shannon 엔트로피이다.
+Shannon 엔트로피는 다음과 같이 정의된다:
+\begin{equation}
+E_i = -\sum_{j=1}^{k} p_{ij} \log_2 p_{ij}
+\label{eq:shannon_entropy}
+\end{equation}
+여기서 $p_{ij}$는 위치 $i$에서 변이 유형 $j$의 상대 빈도이고, $k$는 관찰된 변이 유형의 수이다.
+H-score는 변이 빈도(해당 위치가 얼마나 자주 변이하는가)와 변이 다양성(얼마나 많은 치환 유형이 발생하는가)을 결합한다.
+
+CCM(Core Candidate Mutation) 기준---H-score 역치 이상, 충분한 이웃 밀도, 최소 포인트 수---을 만족하는 위치가 시드로 선정된다.
+expand\_cluster 함수는 의존성 기반 감쇠를 사용하여 각 시드를 양방향으로 확장한다:
+\begin{equation}
+D_\epsilon(t) = D_\epsilon^{\text{CCM}} - \frac{t}{d}
+\label{eq:expand_cluster}
+\end{equation}
+여기서 $D_\epsilon^{\text{CCM}} = \lceil \gamma \times H_{\text{seed}} \rceil$은 시드의 초기 의존성 범위, $t$는 시드로부터의 거리, $d$는 감쇠 인자이다.
+
+\subsubsection{버그 수정 (MutClust-Fixed)}
+\label{subsec:improvements}
+
+MutClust-Original의 expand\_cluster 함수에는 의존성 범위가 각 단계에서 누적적으로 차감되는 버그가 포함되어 있었으며, 이로 인해 가속되는 범위 축소가 발생하여 이론적 탐지 범위의 71--95\%가 손실되었다.
+MutClust-Fixed는 시드의 의존성 범위로부터 직접 계산($D_\epsilon(t) = D_\epsilon^{\text{CCM}} - t/d$)하여 이를 수정하였으며, 합성 벤치마크에서 탐지 위치가 소폭 증가하고(641 vs. 637) 클러스터가 이론적 경계까지 확장되었다.
+
+\subsubsection{dN/dS 선택 필터 (MutClust-dNdS)}
+
+MutClust-dNdS는 비동의 대 동의 돌연변이 비율(dN/dS)을 기반으로 탐지 후 필터링을 추가한다.
+
+\textbf{dN/dS 계산 방법.}
+각 탐지된 클러스터에 대해, 클러스터 내 뉴클레오티드 위치를 Wuhan-Hu-1 참조 서열(NC\_045512.2)의 코돈 구조에 매핑한다.
+비동의(nonsynonymous) 및 동의(synonymous) 치환의 분류는 Nei--Gojobori 방법~\cite{nei1986simple}의 단순 계수 방식을 따른다: 각 코돈 위치에서 관찰된 변이를 참조 코돈과 비교하여, 아미노산 변화를 초래하는 변이를 비동의 치환으로, 동일 아미노산을 유지하는 변이를 동의 치환으로 분류한다.
+dN/dS 비율은 $\text{dN/dS} = (n_d / N_d) / (n_s / N_s)$로 계산되며, 여기서 $n_d$와 $n_s$는 관찰된 비동의·동의 치환 수, $N_d$와 $N_s$는 가능한 비동의·동의 부위 수이다.
+짧은 클러스터(10개 미만 코돈)에서는 동의 치환 수가 0이 될 수 있어 dN/dS가 정의되지 않으며, 이 경우 해당 클러스터는 보수적으로 제외된다.
+
+양성 선택(dN/dS $> 1.0$) 하의 클러스터만 유지하고, 중립 진화 또는 정화 선택(dN/dS $\leq 1.0$) 하의 클러스터는 제거한다.
+
+\textbf{뉴클레오티드 대 아미노산 수준.}
+본 연구의 평가는 뉴클레오티드(nt) 수준에서 수행된다.
+Spike 유전자(nt 21,563--25,384)는 3,822 뉴클레오티드(1,273 아미노산 + 종결 코돈)를 포함하며, H-score는 nt 위치별로 계산된다.
+ground truth 기능 영역은 아미노산 수준에서 정의되므로(예: RBD = AA 319--541), 평가 시 각 AA 위치를 대응하는 3개 코돈 위치로 확장하여 nt 수준의 ground truth를 구성한다.
+nt 수준 평가를 선택한 이유는 두 가지이다: (1) H-score가 코돈의 세 번째 위치(wobble position)에서도 변이 빈도를 독립적으로 포착하며, (2) 향후 비코딩 영역(5$'$/3$'$-UTR)으로의 확장을 고려하여 일관된 좌표 체계를 유지한다.
+
+\textbf{삽입/결실(Indel) 처리.}
+MutClust의 H-score 계산은 단일 뉴클레오티드 치환만을 대상으로 하며, 삽입 및 결실은 현재 처리되지 않는다.
+이는 ins214EPE(Alpha/BA.1), $\Delta$69--70(Alpha), $\Delta$Y144(Alpha) 등 생물학적으로 중요한 indel이 H-score에 반영되지 않음을 의미한다.
+향후 연구에서는 indel 빈도를 별도의 차원으로 통합하거나, indel 발생 위치에 가중치를 부여하는 확장이 필요하다.
+
+정화 선택(dN/dS $< 1$) 또한 기능적으로 구속된 영역---예를 들어 융합 기구(HR1/HR2)와 필수 구조 도메인---을 나타내므로 생물학적으로 중요하다.
+따라서 dN/dS $> 1.0$ 필터는 이러한 보존된 기능 영역의 재현율을 희생하는 대신, 면역 회피 및 수용체 적응과 같은 능동적 양성 선택 하의 부위 식별 정밀도를 향상시킨다.
+
+\textbf{Jukes-Cantor 보정 검증.}
+Jukes-Cantor 보정은 전체 38개 클러스터에서 역치 분류 변경을 유발하지 않음이 확인되었으며(31개 비포화 클러스터에서 Spearman $\rho = 0.996$), 따라서 비보정 Nei--Gojobori 방법을 유지한다.
+
+\subsubsection{HDBSCAN 하이브리드 (MutClust-Hybrid)}
+
+MutClust-Hybrid는 MutClust의 도메인 특이적 CCM 시드 탐지와 HDBSCAN~\cite{campello2013hdbscan}의 자동 클러스터 경계 결정을 결합한다:
+
+\begin{enumerate}
+\item \textbf{시드 식별}: MutClust의 \texttt{is\_ccm()} 함수를 사용하여 변이 핫스팟 특성에 관한 도메인 지식을 보존한다.
+\item \textbf{후보 수집}: 각 CCM 시드의 의존성 범위 내에서 비영(非零) H-score를 가진 모든 위치를 수집한다.
+\item \textbf{HDBSCAN 클러스터링}: 후보 위치를 (i) $[0, H_{\max}]$ 범위로 min-max 정규화된 게놈 위치와 (ii) H-score 크기로 구성된 2차원 특성 공간에서 HDBSCAN으로 클러스터링한다. 이 정규화는 공간적 근접성과 점수 유사성에 동일한 가중치를 부여한다.
+\item \textbf{dN/dS 필터링}: MutClust-dNdS와 동일한 양성 선택 신호 필터를 적용한다.
+\end{enumerate}
+
+이 하이브리드 접근법은 MutClust의 생물학적 사전 지식(CCM 기준)을 유지하면서 HDBSCAN의 데이터 기반 경계 탐지를 활용한다.
+
+\textbf{계산 복잡도.}
+MutClust-Hybrid의 전체 복잡도는 세 단계로 분해된다:
+(1)~H-score 계산: $N$개 서열의 $M$개 위치에 대해 $O(NM)$;
+(2)~CCM 시드 식별 및 후보 수집: H-score 정렬 $O(M \log M)$ 후 선형 스캔;
+(3)~HDBSCAN 클러스터링: CCM 시드 주변의 $k$개 후보 위치에 대해 $O(k^2)$ (최소 신장 트리 구성).
+실제로 $k \ll M$이며 (합성 벤치마크에서 $k \approx 800$, $M = 3{,}822$), 따라서 전체 복잡도는 $O(NM + M \log M)$에 지배되어 H-score 계산이 병목이다.
+$N = 10{,}000$ 서열, $M = 3{,}822$ 위치에서 전체 파이프라인 실행 시간은 약 2초(단일 코어)로, 실시간 감시 환경에서도 실용적이다.
+
+\subsubsection{순수 HDBSCAN (HDBSCAN-Auto)}
+
+HDBSCAN-Auto는 MutClust를 완전히 우회하여, 적응형 역치(비영 H-score의 중앙값) 이상의 위치에 HDBSCAN을 직접 적용한다.
+동일한 2차원 특성 공간(min-max 정규화 위치, H-score)을 사용하며, 수동으로 지정된 도메인 파라미터가 필요하지 않아 사전 조정 없이 모든 바이러스 게놈에 적용할 수 있다.
+
+\subsection{Hotspot-score 복합 지표}
+\label{subsec:hotspot_score}
+
+본 연구의 핵심 기여 중 하나인 hotspot-score는 세 가지 상보적 관점을 통합하는 복합 평가 지표이다(식~\ref{eq:hotspot_score}):
+
+\begin{itemize}
+\item \textbf{재현율(Recall)}: 탐지된 핫스팟 영역 내에 포착된 알려진 기능 위치의 비율. 생물학적 관련성을 평가한다---방법이 중요한 것을 찾아내는가?
+\item \textbf{정밀도(Precision)}: ground truth와 중첩되는 탐지 위치의 비율. 특이도를 평가한다---방법이 위양성을 피하는가?
+\item \textbf{안정성(Stability)}: 전체 데이터에 대한 탐지 결과와 100회 부분추출 실행 결과 간의 평균 Jaccard 유사도($J = |A \cap B| / |A \cup B|$). 각 반복에서 모든 게놈 위치에 대해 독립적으로 80\% 확률의 베르누이 마스크를 생성하고, 탈락한 위치(약 20\%)의 H-score를 0으로 설정한다(영점화). 게놈 좌표 체계는 유지되며, 영점화된 위치는 무신호 위치로 처리된다. 영점화된 H-score에 대해 동일한 탐지 방법을 재실행하고, 전체 데이터 탐지 결과와의 Jaccard 유사도를 산출한다. 재현성을 평가한다---데이터 교란 하에서 방법이 일관된 결과를 산출하는가?
+\end{itemize}
+
+세 구성 요소는 동일한 가중치를 받는다. 바이러스 감시 응용에서 높은 정확도이지만 데이터 교란에 불안정한 방법은 중간 정확도와 높은 재현성을 가진 방법보다 실용성이 낮으며, 안정성을 동일 구성 요소로 포함하는 것은 이 요구사항을 반영한다.
+
+\noindent F1 점수 대신 재현율과 정밀도를 분리하여 안정성과 결합한 이유는, F1이 재현율·정밀도를 단일 값으로 축약함으로써 안정성과의 상호작용을 불투명하게 만들기 때문이다.
+예를 들어, HDBSCAN-Auto의 F1(0.146)은 낮지만 재현율(0.944)과 안정성(0.788)은 높다.
+F1 + 안정성 구조에서는 이 방법이 과소평가되지만, (재현율 + 정밀도 + 안정성)/3 구조에서는 높은 재현율과 안정성이 적절히 반영된다.
+
+\subsection{DMS 기반 벤치마크}
+\label{subsec:dms_ground_truth}
+
+DMS fitness 데이터는 Dadonaite 등~\cite{dadonaite2023dms}의 전장 Spike 단백질 특성화 실험에서 유래한다.
+유사바이러스 세포 진입 fitness 측정을 사용하며, 이는 돌연변이가 바이러스 진입에 미치는 전반적 기능적 영향을 포착하는 가장 직접적으로 관련된 표현형이다.
+평균 절대 fitness 효과의 상위 20백분위에 해당하는 아미노산 위치를 기능 부위로 선정하고, 코돈 인식 좌표 변환을 통해 뉴클레오티드 좌표로 매핑한다:
+\begin{equation}
+\text{nuc\_positions} = \{g_{\text{start}} + (p_{\text{aa}} - 1) \times 3 + k : k \in \{0, 1, 2\}\}
+\label{eq:coordinate_transform}
+\end{equation}
+여기서 $g_{\text{start}} = 21{,}563$은 Wuhan-Hu-1 참조 게놈에서 Spike 유전자의 시작 위치이다.
+
+이는 평가 대상 탐지 방법과 독립적인 실험적 ground truth를 제공하여, 부트스트랩 p-값을 검증에 사용하는 순환성을 회피한다.
+
+\subsection{다중 Ground Truth를 위한 대안적 스코어링 방법}
+\label{subsec:alternative_scoring}
+
+시간적 검증(제~\ref{sec:temporal}절)에서 H-score 포화가 확인됨에 따라, 다양한 ground truth 정의에 대한 상보적 평가를 수행하기 위해 다음의 대안적 스코어링 방법을 설계하였다.
+이 방법들은 핫스팟 ``탐지'' 방법이 아니라 각 게놈 위치에 점수를 부여하는 ``스코어링'' 접근법으로, 역치 기반으로 상위 위치를 선별하여 다중 ground truth와 비교한다.
+
+\textbf{Original H-score}: MutClust의 원래 H-score 공식(식~\ref{eq:mutbench_hscore})을 그대로 사용한다.
+
+\textbf{Saturated H-score}: 2024--2025 데이터에서 동시대 합의서열 정렬을 통해 계산된 H-score로, 참조 서열(Wuhan-Hu-1) 대비가 아닌 현재 집단 내 변이를 반영한다.
+
+\textbf{CH-score (Consensus-based H-score)}: 현재 합의서열 대비 변이 빈도를 계산하여, 참조 서열 의존성을 제거한 H-score 변형이다:
+\begin{equation}
+\text{CH}_i = \log_2(P_i^{\text{consensus}} \times E_i \times 100 + 1)
+\end{equation}
+여기서 $P_i^{\text{consensus}}$는 합의서열 대비 비합의 아미노산 빈도이다.
+
+\textbf{E-score (Entropy-only score)}: Shannon 엔트로피만을 사용하여, 빈도 항($P_i$)을 제거하고 위치별 다양성만으로 점수를 부여한다:
+\begin{equation}
+\text{E-score}_i = -\sum_{a} f_{a,i} \log_2 f_{a,i}
+\end{equation}
+
+\textbf{TC-freq (Temporal Contrast frequency)}: 두 시간대 간 변이 빈도의 변화율을 측정한다:
+\begin{equation}
+\text{TC-freq}_i = \frac{|\text{freq}_{t_2}(i) - \text{freq}_{t_1}(i)|}{\text{freq}_{t_1}(i) + \epsilon}
+\end{equation}
+여기서 $\text{freq}_{t}(i)$는 시간대 $t$에서 위치 $i$의 비참조 아미노산 빈도이며, $\epsilon = 10^{-6}$은 영 나눗셈 방지 상수이다.
+
+\textbf{TC-freq-v2}: TC-freq에 절대 빈도 가중치를 추가한 변형으로, $\text{TC-freq-v2}_i = \text{TC-freq}_i \times \text{freq}_{t_2}(i)$이다.
+
+\textbf{TC-freq-v3}: 분기별(quarterly) 시간 윈도우를 사용하는 변형으로, 연간 전체 비교 대신 각 분기 간 빈도 변화의 최대값을 취한다.
+
+\textbf{dN/dS-weighted CH}: CH-score에 위치별 dN/dS 비율을 가중치로 적용한 변형이다.
+
+각 스코어링 방법에 대해 상위 5\%, 10\%, 20\% 및 중위수 기반 역치를 적용하여 ``탐지된'' 위치 집합을 생성하고, 각 ground truth에 대한 F1, 농축비(enrichment ratio), Cohen's $d$ 효과 크기를 산출한다.
+
+\subsection{Hotspot-score 가중치 민감도 분석}
+\label{subsec:weight_sensitivity_methods}
+
+Hotspot-score의 세 구성 요소에 동일 가중치($1/3$)를 부여하는 것의 강건성을 검증하기 위해, 일반화된 가중 hotspot-score를 정의한다:
+\begin{equation}
+\text{hotspot-score}_w = w_r \cdot \text{recall} + w_p \cdot \text{precision} + w_s \cdot \text{stability}
+\label{eq:weighted_hotspot_score}
+\end{equation}
+여기서 $w_r + w_p + w_s = 1$이며 각 가중치는 $[0.05, 0.95]$ 범위이다.
+총 171개의 가중치 조합에 대해 5가지 방법의 순위를 계산하여, MutClust-Hybrid가 1위를 유지하는 가중치 공간의 비율(순위 강건성, rank robustness)을 분석한다.
+또한 조기경보(recall 중시), 백신 설계(precision 중시), 모니터링(stability 중시) 등 7개 응용 시나리오에 대한 순위를 별도로 제시한다.
+
+\subsection{통계적 검증 방법}
+\label{subsec:statistical_methods}
+
+벤치마크 결과의 통계적 견고성을 평가하기 위해 다음 세 가지 방법을 적용한다.
+
+\textbf{부트스트랩 신뢰 구간}: 7개 기능 영역을 단위로 한 영역 수준 부트스트랩(region-level bootstrap)을 수행한다.
+각 반복에서 7개 영역을 복원추출하여 부트스트랩 ground truth를 구성하고, 전체 데이터에서의 탐지 결과를 이 부트스트랩 ground truth에 대해 재평가한다.
+이 설계는 ground truth 정의의 불확실성---어떤 기능 영역을 포함하느냐에 따른 평가 변동---을 포착하며, 개별 위치 리샘플링에서 발생하는 유효 크기 축소 편향을 회피한다.
+
+\textbf{순열 검정(Permutation test)}: 두 가지 순열 접근법을 사용한다.
+(1)~\textit{무작위 레이블 섞기}: 1,000회의 ground truth 레이블 무작위 순열을 통해 관찰된 지표가 무작위 기대를 유의하게 초과하는지 검정한다.
+(2)~\textit{순환 순열(Circular permutation)}: H-score 벡터를 무작위 오프셋 $k$만큼 회전시켜($H_i \rightarrow H_{(i+k) \bmod N}$), 회전된 점수에서 핫스팟을 재탐지하고 원래 ground truth에 대해 평가한다.
+이 접근법은 H-score의 공간적 자기상관 구조(클러스터 패턴)를 보존하면서 게놈 위치와의 관계만 무작위화하여, 무작위 레이블 섞기보다 보수적인 귀무 분포를 생성한다.
+p-값은 $count / n_{\text{perm}}$ (귀무 분포에서 관측값 이상인 비율)으로 산출한다.
+
+\textbf{쌍별 비교}: 동일 부트스트랩 리샘플에서 두 방법을 동시에 평가하는 paired bootstrap 설계로, 방법 간 hotspot-score 차이의 통계적 유의성을 검정한다.
+
+%% ============================================================
+\section{9-병원체 확장 벤치마크}
+\label{sec:9pathogen_benchmark}
+
+SARS-CoV-2 단일 병원체에 대한 합성 벤치마크(제~\ref{sec:variant_comparison}절)의 일반화 가능성을 검증하고, ``최적 탐지 방법이 병원체마다 다른가?''라는 핵심 질문에 답하기 위해, 9종의 RNA 바이러스로 확장된 대규모 벤치마크를 설계하였다.
+
+1단계의 5개 MutClust 변이체(Original, Fixed, dNdS, Hybrid, HDBSCAN-Auto)는 합성 H-score를 입력으로 요구하므로 2단계에 포함되지 않는다.
+MutClust-Original은 MutClust-Orig 패밀리로서 핵심 로직(CCM 시드 + 적응형 DBSCAN)만을 추출하여 포함하였고, MutClust-Hybrid의 HDBSCAN 경계 결정은 ScoreDBSCAN 패밀리에 의해, dN/dS 필터는 별도의 후처리 단계로 분리 반영되었다.
+
+\subsection{대상 병원체 및 데이터}
+\label{subsec:9pathogen_data}
+
+9종의 병원체를 대상으로 한다: SARS-CoV-2, Influenza A H3N2 (H3N2), Norovirus, HIV-1, Dengue, RSV (Respiratory Syncytial Virus), Influenza B, MERS-CoV (MERS), HCV (Hepatitis C Virus).
+각 병원체의 FASTA 서열은 NCBI GenBank에서 실제 accession을 통해 수집하였으며, 각 표면 단백질(SARS-CoV-2: Spike, H3N2: HA, HIV-1: Env gp120 등)에 대해 MAFFT v7.505~\cite{katoh2013mafft}의 \texttt{--auto} 모드로 MSA(다중서열정렬)를 수행한 후 위치별 변이 빈도와 엔트로피를 산출하였다.
+\texttt{--auto} 모드는 입력 서열 수와 길이에 따라 FFT-NS-2, L-INS-i, G-INS-i 중 적합한 알고리즘을 자동 선택한다~\cite{katoh2013mafft}.
+본 연구에서 사용된 서열 규모(1,311--5,325개, 표~\ref{tab:pathogen_data})에서는 대부분 FFT-NS-2가 선택되나, 병원체별로 선택된 정렬 알고리즘이 상이할 수 있으며, 이 차이가 정렬 품질---따라서 위치별 변이 빈도 산출---에 미치는 영향은 본 연구에서 통제하지 않았다.
+정렬 길이가 서열 간에 상이한 경우, MSA 내 최소 서열 길이로 모든 서열을 절단(truncation)하여 위치별 비교의 일관성을 확보하였다.
+이로 인해 ground truth 위치 중 정렬 길이를 초과하는 위치는 평가에서 제외된다(표~\ref{tab:gt_positions}의 위치 수는 이 절단 이후의 유효 값이다).
+표~\ref{tab:pathogen_data}에 각 병원체별 서열 데이터셋의 특성을 요약하였다.
+
+\begin{table}[htbp]
+\centering
+\caption{9종 병원체별 서열 데이터셋 특성}
+\label{tab:pathogen_data}
+\begin{tabular}{llrrr}
+\toprule
+\textbf{병원체} & \textbf{표면 단백질} & \textbf{서열 수} & \textbf{고유 서열 수} & \textbf{정렬 길이 (AA)} \\
+\midrule
+SARS-CoV-2 & Spike & 4,982 & 753 & 1,259 \\
+H3N2 & HA & 2,644 & 2,562 & 543 \\
+Norovirus & VP1 & 1,500 & 791 & 536 \\
+HIV-1 & Env gp120 & 3,000 & 2,256 & 450 \\
+Dengue & E protein & 2,000 & 796 & 490 \\
+RSV & F protein & 5,070 & 4,779 & 550 \\
+Influenza B & HA & 5,325 & 5,019 & 560 \\
+MERS & Spike & 1,311 & 530 & 1,330 \\
+HCV & E2 & 1,362 & 1,067 & 340 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{스코어링 공식}
+\label{subsec:9pathogen_scoring}
+
+각 게놈 위치에 점수를 부여하는 9가지 스코어링 공식을 정의한다.
+여기서 $P_i$는 위치 $i$의 변이 비율, $E_i$는 Shannon 엔트로피, $\text{rare}_i$는 희귀 변이 빈도(전체 변이 중 빈도 5\% 미만인 변이의 비율)이다.
+
+\begin{enumerate}
+\item \textbf{E*rare}: $S_i = E_i \times \text{rare}_i$. 엔트로피와 희귀 변이 빈도의 곱으로, 다양성이 높으면서 희귀 변이가 풍부한 위치를 강조한다.
+\item \textbf{P*E*rare}: $S_i = P_i \times E_i \times \text{rare}_i$. 변이 빈도, 엔트로피, 희귀 변이를 모두 결합한다.
+\item \textbf{minority\_E}: $S_i = f_{2\text{nd},i} \times E_i$. 두 번째로 빈번한 대립유전자 빈도($f_{2\text{nd}}$)와 엔트로피의 곱이다.
+\item \textbf{P*minority\_E}: $S_i = P_i \times f_{2\text{nd},i} \times E_i$.
+\item \textbf{P*E}: $S_i = P_i \times E_i$. 빈도와 엔트로피의 단순 곱이다.
+\item \textbf{H-score}: $S_i = \log_2(P_i \times E_i \times 100 + 1)$. MutClust 원본 공식(식~\ref{eq:mutbench_hscore}).
+\item \textbf{E\_only}: $S_i = E_i$. Shannon 엔트로피만 사용한다.
+\item \textbf{P*E\textsuperscript{2}}: $S_i = P_i \times E_i^2$. 엔트로피에 이차 가중치를 부여한다.
+\item \textbf{rank(P*E)}: $S_i = \text{rank}(P_i \times E_i) / N$. P*E의 순위를 정규화한 비모수적 점수이다.
+\end{enumerate}
+
+\subsection{탐지 방법 패밀리}
+\label{subsec:9pathogen_detection}
+
+15개 알고리즘 패밀리에 속하는 총 41개 탐지 방법을 평가한다.
+각 탐지 방법은 스코어링 공식이 부여한 위치별 점수 프로파일로부터 핫스팟 영역을 식별한다.
+
+\begin{table}[htbp]
+\centering
+\caption{9-병원체 벤치마크에서 평가된 41개 탐지 방법 (15개 패밀리)}
+\label{tab:detection_families}
+\small
+\begin{tabular}{llr}
+\toprule
+\textbf{패밀리} & \textbf{방법 설명} & \textbf{변이체 수} \\
+\midrule
+Wavelet & 웨이블릿 변환 기반 다중해상도 피크 탐지 & 3 \\
+KDE & 커널 밀도 추정 기반 핫스팟 탐지 & 3 \\
+SlidingTest & 슬라이딩 윈도우 통계 검정 & 2 \\
+GradPeak & 점수 프로파일의 기울기 피크 탐지 & 2 \\
+LocalContrast & 국소 대비(local--global 비율) 기반 탐지 & 3 \\
+CUSUM & 누적합 변화점 탐지 & 3 \\
+AdaptiveKnee & 적응형 곡률 기반 역치 & 1 \\
+ScoreDBSCAN & 점수 기반 밀도 공간 클러스터링 & 2 \\
+Spectral & 스펙트럼 분석 기반 주기적 패턴 탐지 & 2 \\
+Bayes & 베이지안 변화점 탐지 & 2 \\
+\midrule
+Ensemble & 다수결 앙상블 & 2 \\
+AdaptWin & 적응형 윈도우 크기 탐지 & 2 \\
+FreqThresh & 빈도 백분위 역치 (top-$k$\%) & 4 \\
+SWAN & 슬라이딩 윈도우 적응형 정규화 & 9 \\
+MutClust-Orig & MutClust 원본 알고리즘 & 1 \\
+\midrule
+\textbf{합계} & & \textbf{41} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\noindent 15개 패밀리는 아래 5개 범주로 분류된다. 세부 파라미터 설정은 표~\ref{tab:detection_families}에 기재하였다.
+
+\textbf{역치 기반} (FreqThresh, AdaptiveKnee, AdaptWin).
+점수 절단값을 적용하여 핫스팟을 선정한다: FreqThresh는 고정 백분위 역치(상위 $k$\%)를 사용하고, AdaptiveKnee는 정렬된 점수 곡선에서 knee point를 자동 탐지하며, AdaptWin은 백분위 역치 이상의 시드 위치를 양방향으로 확장한다.
+
+\textbf{신호 처리} (Wavelet, Spectral, CUSUM).
+점수 프로파일을 변환하여 이상 영역을 식별하는 방법이다: Wavelet은 Mexican hat 커널로 다중 스케일 연속 웨이블릿 변환을, Spectral은 FFT 기반 고역 통과 필터링으로 국소 편차 분리를, CUSUM은 $z$-정규화 프로파일에 누적합 제어 차트를 적용한다.
+
+\textbf{밀도 및 클러스터링} (KDE, ScoreDBSCAN).
+KDE는 점수 가중 위치 프로파일에 Gaussian 커널 밀도 추정을 적용하여 백분위로 역치화한다. ScoreDBSCAN은 위치를 (좌표, 점수) 2차원 공간에 매핑하고 축 재조정 후 DBSCAN 클러스터링을 적용한다.
+
+\textbf{통계 및 모델 기반} (SlidingTest, LocalContrast, GradPeak, Bayes, SWAN).
+배경으로부터 유의하게 이탈하는 위치 또는 윈도우를 식별하는 통계적 방법이다: SlidingTest와 SWAN은 슬라이딩 윈도우 $z$-검정을, LocalContrast는 국소 $z$-점수를, GradPeak는 평활화 프로파일에서 현저도 필터링 피크 탐지를, Bayes는 사전확률과 정규화 점수로부터 사후 핫스팟 확률을 산출한다.
+
+\textbf{앙상블 및 레거시} (Ensemble, MutClust-Orig).
+Ensemble은 4개의 간이 하위 탐지기를 다수결 투표로 결합한다. MutClust-Orig는 원본 MutClust 로직(CCM 시드 + 적응형 DBSCAN)을 MSA 기반 점수 프로파일에 적용한다.
+
+\subsection{3계층 Ground Truth 프레임워크}
+\label{subsec:3layer_gt}
+
+단일 ground truth의 편향을 완화하기 위해, 세 가지 독립적 근거에 기반한 3계층 ground truth 프레임워크를 구축하였다.
+
+\subsubsection{Layer A: 적응적 양성 선택 (Adaptive)}
+
+수렴 진화(convergent evolution) 위치, 즉 여러 독립 계통에서 반복적으로 발생한 변이 위치를 양성 선택 하의 핫스팟으로 분류한다.
+이 위치들은 \textbf{True Positive}로 사용되며, 탐지 방법이 이 위치들을 핫스팟으로 올바르게 식별하는지를 평가한다.
+각 병원체에 대해 문헌 기반 수렴 진화 위치 목록을 구축하였다.
+
+\subsubsection{Layer B: 구속적 정화 선택 (Constrained)}
+
+정화 선택(purifying selection) 하의 구조적·기능적 필수 부위---융합 펩타이드, HR1/HR2 헵타드 반복, 구조적 시스테인 잔기 등---를 식별한다.
+이 위치들은 변이가 기능 상실을 초래하므로 변이율이 낮으며, \textbf{True Negative}로 사용된다.
+탐지 방법이 이 위치들을 핫스팟으로 잘못 식별하면 위양성(false positive)으로 간주하여, 구속 영역 위양성률(constrained FPR)을 산출한다.
+
+\subsubsection{Layer C: DMS 실험적 검증}
+
+심층 돌연변이 스캐닝(Deep Mutational Scanning) 실험 데이터가 이용 가능한 4종의 병원체---SARS-CoV-2~\cite{dadonaite2023dms}, HIV-1, H3N2, RSV---에 대해 실험적으로 측정된 fitness 효과를 ground truth로 사용한다.
+DMS 데이터에서 평균 절대 fitness 효과의 상위 20백분위에 해당하는 위치를 기능적으로 중요한 위치로 분류하고, 탐지 결과와의 DMS F1 점수를 산출한다.
+
+\textbf{Layer A/B 중복 처리.}
+RSV(positions 148, 152)와 Influenza B(positions 141, 194)에서 Layer A와 Layer B가 중복되는 위치가 존재한다.
+이는 해당 잔기가 면역 회피 압력(양성 선택)과 구조적 제약(정화 선택) 하에 동시에 놓인 이중 선택압 부위이기 때문이다.
+MCC 평가에서 이 위치들은 Layer A(양성)로 우선 분류하며, Layer B(음성) 집합에서는 제외한다.
+따라서 RSV의 유효 Layer B는 16개(18 $-$ 2), Influenza B의 유효 Layer B는 8개(10 $-$ 2) 위치이다.
+
+표~\ref{tab:gt_positions}에 각 병원체별 3계층 ground truth의 아미노산 위치 수와 출처를 요약하였다.
+
+\begin{table}[htbp]
+\centering
+\caption{병원체별 3계층 ground truth 위치 수 (아미노산 수준, 0-based)}
+\label{tab:gt_positions}
+\small
+\begin{tabular}{llrrrl}
+\toprule
+\textbf{병원체} & \textbf{표면 단백질} & \textbf{Layer A} & \textbf{Layer B} & \textbf{Layer C} & \textbf{Layer A 출처} \\
+\midrule
+SARS-CoV-2 & Spike & 25 & 154 & 252 & \cite{cao2023ba286,carabelli2023convergent} \\
+H3N2 & HA & 25 & 10 & 102 & \cite{koel2013substitutions} \\
+Norovirus & VP1 & 15 & 229 & --- & \cite{lindesmith2012,lindesmith2013} \\
+HIV-1 & Env gp120 & 23 & 23 & 100 & \cite{moore2015williamson} \\
+Dengue & E protein & 24 & 24 & --- & \cite{twiddy2002dengue,holmes2003dengue} \\
+RSV & F protein & 20 & 18 & 101 & \cite{mas2018rsv,sullender2000rsv} \\
+Influenza B & HA & 17 & 10 & --- & \cite{ni2013influenzab,wang2008influenzab} \\
+MERS & Spike & 9 & 110 & --- & \cite{kim2016mers,tang2014mers} \\
+HCV & E2 & 54 & 0$^\ddagger$ & --- & HVR1/HVR2 초가변 영역 \\
+\bottomrule
+\end{tabular}
+\begin{minipage}{\textwidth}
+\smallskip
+\footnotesize Layer C (DMS) 출처: SARS-CoV-2~\cite{dadonaite2023dms}, H3N2~\cite{lee2018h3n2dms}, HIV-1~\cite{haddox2018hiv1dms}, RSV~\cite{simonich2025rsvdms}.
+``---''는 해당 병원체에 대해 이용 가능한 DMS 데이터가 없음을 의미한다.
+$^\ddagger$HCV의 CD81 결합 부위 잔기(AA 418--535)는 정렬 길이(340 AA)를 초과하여 본 벤치마크에서 평가되지 않으므로 유효 Layer B = 0이다.
+\end{minipage}
+\end{table}
+
+\subsection{평가 지표}
+\label{subsec:9pathogen_metrics}
+
+9-병원체 벤치마크에서는 다음의 평가 지표를 사용한다.
+
+\begin{itemize}
+\item \textbf{MCC (Matthews Correlation Coefficient)}: 불균형 이진 분류에서 정밀도·재현율·특이도를 종합하는 주요 평가 지표. $[-1, 1]$ 범위이며, 0은 무작위 예측을 의미한다.
+혼동행렬은 Layer A(양성 선택 위치)만을 양성 레이블로 사용하여 구성된다: TP = 탐지되었으며 Layer A에 속하는 위치, FP = 탐지되었으나 Layer A에 속하지 않는 위치, FN = 탐지되지 않았으나 Layer A에 속하는 위치, TN = 탐지되지 않았으며 Layer A에도 속하지 않는 위치.
+Layer B(구속 영역)는 MCC 계산에 포함되지 않으며 별도의 constrained FPR로 평가된다. Layer A에도 B에도 속하지 않는 다수의 게놈 위치는 탐지 여부에 따라 FP 또는 TN으로 분류된다.
+\item \textbf{F1}: 정밀도와 재현율의 조화 평균.
+\item \textbf{정밀도(Precision)}: 탐지된 위치 중 실제 양성의 비율.
+\item \textbf{재현율(Recall)}: 실제 양성 중 탐지된 비율.
+\item \textbf{농축비(Enrichment ratio)}: 탐지 영역 내 양성 밀도 대비 전체 양성 밀도의 비율.
+\item \textbf{구속 영역 FPR (Constrained FPR)}: Layer B 구속 영역에서의 위양성률.
+\item \textbf{DMS F1}: Layer C DMS ground truth에 대한 F1 점수 (4종 병원체에서만 산출).
+\item \textbf{복합 점수(Composite score)}: 상기 지표들의 가중 결합.
+\end{itemize}
+
+MCC를 주요 지표로 선택한 이유는, 핫스팟 탐지에서 양성 위치(수렴 진화 부위)가 전체 게놈의 소수를 차지하는 불균형 분류 문제에서 F1보다 균형 잡힌 평가를 제공하기 때문이다. Chicco and Jurman~\cite{chicco2020mcc}은 불균형 이진 분류에서 MCC가 F1 및 정확도보다 유의미한 평가를 제공함을 체계적으로 입증하였다.
+1단계에서 사용된 안정성 구성 요소는 외부 ground truth와 독립적인 내부 일관성 지표이며, 9종 병원체 간 서열 길이 및 MSA 크기의 차이에 따른 Bernoulli 마스킹 효과의 병원체 간 비교 가능성이 검증되지 않아 2단계에서는 제외하였다.
+
+\subsection{통계 분석 설계}
+\label{subsec:9pathogen_statistics}
+
+\subsubsection{Three-way ANOVA ($\omega^2$)}
+
+스코어링 공식(9수준), 탐지 패밀리(15수준), 병원체(9수준)의 세 요인에 대한 삼원분산분석(three-way ANOVA)을 수행한다.
+효과 크기로 편향 보정된 $\omega^2$ (omega-squared)를 사용하며, 이는 $\eta^2$가 표본 크기에 따라 상향 편향되는 문제를 회피한다. $\omega^2$ 값은 Cohen의 효과 크기 기준~\cite{cohen1988statistical}에 따라 0.01(소), 0.06(중), 0.14 이상(대)으로 해석된다:
+\begin{equation}
+\omega^2 = \frac{SS_{\text{effect}} - df_{\text{effect}} \times MS_{\text{error}}}{SS_{\text{total}} + MS_{\text{error}}}
+\label{eq:omega_squared}
+\end{equation}
+주효과(main effect)와 이원 상호작용(two-way interaction)의 $\omega^2$를 비교하여, 성능 변동의 주요 원천을 식별한다.
+
+\subsubsection{LOPO 교차 검증 (Leave-One-Pathogen-Out)}
+
+9종 병원체 중 1종을 제외한 8종에서 최적 조합(스코어링 $\times$ 탐지)을 선정하고, 제외된 병원체에 적용하여 일반화 성능을 평가한다.
+9회 반복하여 훈련 최적 조합과 테스트 최적 조합(oracle)의 일치율 및 성능 격차를 산출한다.
+
+\subsubsection{Friedman 검정}
+
+9개 병원체를 블록으로 사용하는 비모수적 반복측정 검정으로, 상위 $k$개 조합 간에 통계적으로 유의한 성능 차이가 존재하는지를 검정한다.
+
+\subsubsection{병원체 수준 BCa 부트스트랩 신뢰 구간}
+
+9개 병원체의 MCC 값에 대해 편향 보정 가속(BCa, bias-corrected and accelerated) 부트스트랩 신뢰 구간을 산출하여, 최적 조합의 병원체 간 성능 변동성을 정량화한다.
+
+\subsubsection{하위표본 강건성 분석}
+
+MSA 서열의 25\%, 50\%, 75\%, 100\% 비율로 무작위 하위표본을 추출하여 벤치마크를 반복 수행하고, 표본 크기에 따른 MCC 안정성을 검증한다.

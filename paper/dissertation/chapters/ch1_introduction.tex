@@ -1,0 +1,78 @@
+% Chapter 1: Introduction
+\chapter{서론}
+\label{ch:introduction}
+
+\section{연구 배경}
+\label{sec:intro_background}
+
+2019년 말 출현한 SARS-CoV-2는 전 세계적으로 7억 건 이상의 확진 사례를 발생시키며, 바이러스 유전체 분석의 중요성을 재확인시켰다~\cite{harvey2021tracking}.
+바이러스는 복제 과정에서 지속적으로 변이를 축적하며, 특정 유전체 위치에 변이가 집중되는 현상을 hotspot이라 한다.
+Hotspot은 전파력 증가, 면역 회피(immune evasion, 기존 면역 반응을 피하는 능력), 약물 저항성 등 바이러스의 주요 표현형 변화와 직접 관련되므로, 이를 정확히 검출하는 것은 백신 설계, 항바이러스제 개발, 실시간 유전체 감시의 핵심 과제이다~\cite{youn2025mutclust,nextstrain2018hadfield,rambaut2020pangolin}.
+
+그러나 현재까지 바이러스 변이 hotspot 검출 방법들의 성능을 체계적으로 비교·평가한 벤치마킹 프레임워크는 존재하지 않는다.
+암 유전체학에서 부분적인 벤치마킹 노력이 있었음에도~\cite{bailey2018comprehensive}, 바이러스 유전체학 영역에서는 대규모 서열 데이터베이스와 실시간 추적 인프라가 구축되어 있음에도 불구하고~\cite{nextstrain2018hadfield} 표준화된 평가 체계가 부재하다.
+본 연구자의 선행 연구인 다중 오믹스 벤치마킹(MOSD~\cite{han2025mosd})과 적응적 hotspot 검출(MutClust~\cite{youn2025mutclust})을 통해 체계적 프레임워크 없이는 검출 방법 간 공정한 비교가 불가능함이 드러났으며, 이것이 본 연구의 동기가 되었다.
+
+
+\section{연구 동기 및 문제 정의}
+\label{sec:intro_motivation}
+
+바이러스 변이 hotspot 검출의 체계적 평가가 부재함으로 인해, 다음과 같은 세 가지 구체적 문제가 발생한다.
+
+첫째, \textbf{표준화된 평가 프레임워크의 부재}이다.
+MutClust를 포함한 기존 hotspot 검출 방법들은 각자의 데이터셋과 평가 기준을 사용하여 성능을 보고하므로, 방법 간 공정한 비교가 불가능하다.
+MutClust의 유일한 검증 수단인 bootstrap 검정은 검출된 클러스터의 통계적 유의성만을 확인하는 자기 참조적 방법으로, 해당 클러스터가 생물학적으로 의미 있는 기능적 영역에 대응하는지는 검증할 수 없다.
+
+둘째, \textbf{독립적 ground truth에 기반한 검증의 부재}이다.
+Hotspot 검출 결과를 객관적으로 평가하려면 알고리즘과 독립적인 정답 기준이 필요하나, 바이러스 유전체학에서 이러한 ground truth 체계가 정의된 사례가 없다.
+수렴 진화(convergent evolution, 독립적 계통에서 동일 위치에 반복적으로 발생하는 변이) 위치, 정제 선택(purifying selection, 해로운 변이를 제거하는 자연선택) 위치, Deep Mutational Scanning(DMS, 단백질의 모든 가능한 단일 아미노산 변이의 기능적 영향을 실험적으로 측정하는 기술) 데이터 등 활용 가능한 독립적 증거원이 존재함에도 체계적으로 통합되지 않았다.
+
+셋째, \textbf{최적 방법의 병원체 의존성에 대한 경험적 증거의 부재}이다.
+기존 방법들은 단일 병원체에 맞추어 조정된 매개변수를 사용하며, 그 일반화 가능성이 통계적으로 확립되지 않았다.
+병원체별 유전체 특성(길이, 변이율, 재조합 빈도 등)의 차이가 최적 검출 전략에 체계적 영향을 미치는지는 검증되지 않았다.
+
+
+\section{연구 목적}
+\label{sec:intro_objectives}
+
+위의 문제를 해결하기 위하여, 본 연구는 다음 두 가지 목표를 설정한다.
+
+\begin{enumerate}[label=\textbf{목표 \arabic*.}]
+  \item \textbf{바이러스 변이 hotspot 검출을 위한 체계적 벤치마크 프레임워크(MutBench)의 구축}: 3계층 ground truth(수렴 진화 기반 양성, 정제 선택 기반 음성, DMS 기능적 적합도), hotspot-score $= (\text{recall} + \text{precision} + \text{stability}) / 3$ (여기서 stability는 부분추출 반복 시 탐지 결과의 재현성을 측정한다) 복합 평가 지표, 2단계 실험 설계(1단계: SARS-CoV-2 심층 분석, 2단계: 9종 RNA 바이러스 $\times$ 9가지 스코어링 $\times$ 41개 탐지 방법, 총 3,321개 평가)를 포함하는 벤치마크 프레임워크를 구축한다.
+
+  \item \textbf{병원체 적응적 방법 선택의 필요성에 대한 경험적 입증}: 대규모 벤치마크 결과에 대한 통계 분석(ANOVA, Friedman 검정, LOPO 교차 검증)을 통해, 단일 최적 방법이라는 전제가 병원체 전반에 걸쳐 성립하지 않음을 경험적으로 확립하고, PAHD 개념적 프레임워크를 향후 연구 방향으로 제시한다.
+\end{enumerate}
+
+
+\section{연구 기여}
+\label{sec:intro_contributions}
+
+본 연구의 학술적 기여는 다음과 같다.
+
+\textbf{기여 1. MutBench 벤치마크 프레임워크.}
+MutBench는 바이러스 변이 hotspot 검출을 위한 최초의 체계적 벤치마킹 프레임워크이다.
+수렴 진화 위치를 양성 기준(Layer~A), 정제 선택 위치를 음성 기준(Layer~B), DMS 실험 데이터를 기능적 적합도 기준(Layer~C)으로 활용하는 3계층 ground truth 체계를 정의하였다.
+정확도(recall, precision)와 신뢰성(stability)을 동시에 평가하는 hotspot-score 복합 지표를 도입하고, SARS-CoV-2 심층 분석과 9종 병원체 대규모 비교를 결합하는 2단계 실험 설계를 제시하였다.
+
+\textbf{기여 2. 병원체 적응적 방법 선택 필요성의 통계적 입증.}
+9종 RNA 바이러스에 대한 평가 결과, 9개 병원체 모두 상이한 최적 조합을 보이며(LOPO 교차 검증 0/9 일치), 방법 계열과 병원체 간 상호작용이 ANOVA에서 최대 분산 원천이었다.
+Friedman 검정은 방법 간 성능 순위가 병원체에 따라 체계적으로 달라짐을 확인하였다.
+이 결과는 단일 최적 방법이라는 전제가 성립하지 않음을 확립하며, PAHD 개념적 프레임워크를 향후 연구 방향으로 제시한다(상세 통계는 제~\ref{ch:results}장 참조).
+
+
+\section{논문 구성}
+\label{sec:intro_organization}
+
+본 학위논문은 6개의 장으로 구성된다.
+
+\textbf{제~\ref{ch:background}장, 배경 및 선행 연구}에서는 바이러스 변이 hotspot 검출에 관한 기존 문헌을 조사하고, 선행 연구인 MOSD~\cite{han2025mosd}와 MutClust~\cite{youn2025mutclust}의 핵심 방법론 및 MutBench 개발의 동기가 된 한계점을 요약한다.
+
+\textbf{제~\ref{ch:mutbench}장, MutBench 방법론}에서는 본 학위논문의 핵심 기여인 MutBench 벤치마킹 프레임워크의 방법론을 상세히 기술한다.
+3계층 ground truth 정의, 검출 방법 구성, hotspot-score 복합 평가 지표, 통계적 검증 체계를 제시한다.
+
+\textbf{제~\ref{ch:results}장, 실험 결과}에서는 2단계 벤치마크의 실험 결과를 보고한다.
+1단계 SARS-CoV-2 심층 분석(합성 벤치마크, GISAID H-score 벤치마크, DMS 검증, 매개변수 민감도)과 2단계 9종 병원체 대규모 비교(ANOVA, Friedman 검정, LOPO 교차 검증)의 결과를 제시한다.
+
+\textbf{제~\ref{ch:discussion}장, 논의}에서는 실험 결과의 종합적 해석, MutBench의 방법론적 함의, 한계점, 그리고 PAHD 개념적 프레임워크의 향후 방향을 논의한다.
+
+\textbf{제~\ref{ch:conclusion}장, 결론}에서는 연구의 기여를 요약하고, 한계점을 분석하며, 향후 연구 방향을 제시한다.

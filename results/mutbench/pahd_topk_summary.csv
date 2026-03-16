@@ -1,0 +1,11 @@
+metric,value
+top5_hits,0.0
+top10_hits,1.0
+n_pathogens,9.0
+mean_test_mcc,0.0051
+median_test_mcc,0.0138
+naive_mean_mcc,0.0214
+naive_median_mcc,0.0
+family_top3_hits,5.0
+family_top5_hits,5.0
+median_percentile,32.0

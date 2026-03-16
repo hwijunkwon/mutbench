@@ -1,0 +1,85 @@
+% Chapter 1: Introduction
+\chapter{Introduction}
+\label{ch:introduction}
+
+\section{Research Background}
+\label{sec:intro_background}
+
+SARS-CoV-2, which emerged in late 2019, caused more than 700 million confirmed cases worldwide, reaffirming the critical importance of viral genome analysis~\cite{harvey2021tracking}.
+Viruses continuously accumulate mutations during replication, and the phenomenon whereby mutations concentrate at specific genomic positions is termed a hotspot.
+Because hotspots are directly associated with major phenotypic changes in viruses---including increased transmissibility, immune evasion (the ability to escape pre-existing immune responses), and drug resistance---accurately detecting them is a core task in vaccine design, antiviral drug development, and real-time genomic surveillance~\cite{youn2025mutclust}.
+
+Accurately identifying mutation hotspots enables three critical applications: (1) early warning of emerging variants with altered transmissibility or immune evasion potential, (2) rational vaccine design targeting conserved versus variable epitopes, and (3) antiviral drug development prioritizing structurally constrained regions.
+The emergence of SARS-CoV-2 variants of concern (Alpha, Beta, Delta, Omicron) demonstrated that mutations at specific Spike protein positions (e.g., N501Y, E484K, L452R) recurrently drive phenotypic change, underscoring the practical importance of systematic hotspot identification~\cite{harvey2021tracking}.
+
+However, no benchmark framework has yet been established to systematically compare and evaluate the performance of viral mutation hotspot detection methods.
+No standardized evaluation framework exists in viral genomics, despite partial benchmarking efforts in cancer genomics~\cite{bailey2018comprehensive}.
+The present author's prior work on multi-omics benchmarking (MOSD~\cite{han2025mosd}) and adaptive hotspot detection (MutClust~\cite{youn2025mutclust}) revealed that fair comparison among detection methods was impossible without a systematic framework, motivating this research.
+
+Current viral genomics platforms such as Nextstrain~\cite{nextstrain2018hadfield} and PANGO lineage classification~\cite{rambaut2020pangolin} monitor variant emergence but do not provide systematic evaluation of hotspot detection methods.
+The absence of standardized benchmarks means that method developers cannot objectively compare their approaches, and end users cannot make informed choices about which method to deploy for a given pathogen.
+
+
+\section{Research Motivation and Problem Definition}
+\label{sec:intro_motivation}
+
+The absence of systematic evaluation for viral mutation hotspot detection gives rise to the following three specific problems.
+
+First, there is a \textbf{lack of a standardized evaluation framework}.
+Existing hotspot detection methods, including MutClust, report their performance using their own datasets and evaluation criteria, making fair comparison among methods impossible.
+The bootstrap test, MutClust's sole validation method, is a self-referential approach that can only confirm the statistical significance of detected clusters; it cannot verify whether those clusters correspond to biologically meaningful functional regions.
+
+Second, there is an \textbf{absence of validation based on independent ground truth}.
+Objectively evaluating hotspot detection results requires a ground-truth standard that is independent of the algorithm, yet no such ground truth framework has been defined in viral genomics.
+Although independently obtainable evidence sources exist---such as convergent evolution sites (mutations that arise repeatedly at the same position across independent lineages), sites under purifying selection (natural selection that removes deleterious mutations), and Deep Mutational Scanning (DMS; a technique that experimentally measures the functional impact of every possible single amino-acid substitution in a protein) data---they have not been systematically integrated.
+
+Third, there is a \textbf{lack of statistical evidence on the pathogen-dependence of best-performing methods}.
+Existing methods use parameters tuned for a single pathogen, and their generalizability has not been statistically established.
+Whether differences in pathogen-specific genomic characteristics (genome length, mutation rate, recombination frequency, etc.) systematically affect the best-performing detection strategy has not been verified.
+This is a specific instance of the algorithm selection problem~\cite{rice1976algorithm}: given a pathogen with particular genomic characteristics, which detection method should be applied? Without systematic cross-pathogen evaluation, this question cannot be answered.
+
+
+\section{Research Objectives}
+\label{sec:intro_objectives}
+
+To address the problems above, this study establishes the following two objectives.
+
+\begin{enumerate}[label=\textbf{Objective \arabic*.}]
+  \item \textbf{Construction of a systematic benchmark framework for viral mutation hotspot detection (MutBench)}: Build a benchmark framework comprising a three-layer ground truth (convergent-evolution-based positives, purifying-selection-based negatives, and DMS-based functional fitness), the composite evaluation metric hotspot-score $= (\text{recall} + \text{precision} + \text{stability}) / 3$ (where stability measures the reproducibility of detection results under subsampling), and a two-stage experimental design (Stage~1: in-depth analysis of SARS-CoV-2; Stage~2: 9 RNA viruses $\times$ 9 scoring methods $\times$ 41 detection methods, totaling 3,321 evaluations).
+
+  \item \textbf{Statistical demonstration of the necessity of pathogen-adaptive method selection}: Through statistical analyses (ANOVA, Friedman test, LOPO cross-validation) of the large-scale benchmark results, statistically establish that the premise of a single best-performing method does not hold across pathogens, motivating the PAHD conceptual framework as a future research direction.
+\end{enumerate}
+
+
+\section{Research Contributions}
+\label{sec:intro_contributions}
+
+The research contributions of this study are as follows.
+
+\textbf{Contribution 1. The MutBench Benchmark Framework.}
+MutBench is the first systematic benchmark framework for viral mutation hotspot detection.
+It defines a three-layer ground truth framework that uses convergent evolution sites as the positive criterion (Layer~A), purifying selection sites as the negative criterion (Layer~B), and DMS experimental data as the functional fitness criterion (Layer~C).
+It introduces the hotspot-score, a composite metric that simultaneously evaluates accuracy (recall, precision) and reliability (stability), and presents a two-stage experimental design combining in-depth SARS-CoV-2 analysis with a large-scale comparison across nine pathogens.
+
+\textbf{Contribution 2. Statistical demonstration of the necessity of pathogen-adaptive method selection.}
+Across nine RNA viruses, all nine pathogens exhibited different best-performing combinations (LOPO cross-validation: 0/9 matches), and the interaction between method family and pathogen was the largest source of variance in ANOVA.
+The Friedman test confirmed that performance rankings among methods vary systematically across pathogens.
+These results statistically establish that the premise of a single best-performing method does not hold, motivating the PAHD conceptual framework as a future research direction (see Chapter~\ref{ch:results} for detailed statistics).
+
+
+\section{Dissertation Organization}
+\label{sec:intro_organization}
+
+This dissertation comprises six chapters.
+
+\textbf{Chapter~\ref{ch:background}, Background and Prior Work} surveys the existing literature on viral mutation hotspot detection and summarizes the core methodologies and limitations of the prior studies MOSD~\cite{han2025mosd} and MutClust~\cite{youn2025mutclust} that motivated the development of MutBench.
+
+\textbf{Chapter~\ref{ch:mutbench}, MutBench Methodology} describes in detail the methodology of the MutBench benchmark framework, the core contribution of this dissertation.
+It presents the three-layer ground truth definition, the configuration of detection methods, the hotspot-score composite evaluation metric, and the statistical validation framework.
+
+\textbf{Chapter~\ref{ch:results}, Experimental Results} reports the experimental results of the two-stage benchmark.
+Stage~1 covers in-depth SARS-CoV-2 analysis (synthetic benchmark, GISAID H-score benchmark, DMS validation, and parameter sensitivity), and Stage~2 covers the large-scale comparison across nine pathogens (ANOVA, Friedman test, and LOPO cross-validation).
+
+\textbf{Chapter~\ref{ch:discussion}, Discussion} provides a comprehensive interpretation of the experimental results, discusses the methodological implications of MutBench, its limitations, and the future direction of the PAHD conceptual framework.
+
+\textbf{Chapter~\ref{ch:conclusion}, Conclusion} summarizes the contributions of this research, analyzes its limitations, and presents future research directions.
