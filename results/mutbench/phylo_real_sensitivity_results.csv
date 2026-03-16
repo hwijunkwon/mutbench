@@ -1,0 +1,12 @@
+scoring,detector,n_detected,mcc,precision,recall,f1
+TreeTime-Homoplasy,FreqThresh(p=80),83,-0.0144,0.012,0.04,0.0185
+TreeTime-Homoplasy,FreqThresh(p=85),76,-0.0357,0.0,0.0,0.0
+TreeTime-Homoplasy,FreqThresh(p=90),51,-0.0289,0.0,0.0,0.0
+TreeTime-Homoplasy,FreqThresh(p=95),14,-0.0149,0.0,0.0,0.0
+TreeTime-Homoplasy,AdaptiveKnee,67,-0.0334,0.0,0.0,0.0
+TreeTime-Homoplasy,LocalContrast(z=1.5),64,-0.0326,0.0,0.0,0.0
+TreeTime-Homoplasy,LocalContrast(z=2.0),62,-0.032,0.0,0.0,0.0
+TreeTime-Homoplasy,Wavelet-like(z=1.5),16,-0.016,0.0,0.0,0.0
+TreeTime-Homoplasy,Wavelet-like(z=2.0),11,-0.0132,0.0,0.0,0.0
+TreeTime-Homoplasy,ScoreDBSCAN(eps=8),515,0.0333,0.0252,0.52,0.0481
+TreeTime-Homoplasy,ScoreDBSCAN(eps=10),516,0.0331,0.0252,0.52,0.0481

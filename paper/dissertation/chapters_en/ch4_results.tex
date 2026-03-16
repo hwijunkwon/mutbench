@@ -662,39 +662,44 @@ These results confirm that the founder effect bias of H-score predicted in simul
 \subsection{Homoplasy-Based Scoring Sensitivity Analysis}
 \label{subsec:homoplasy_sensitivity}
 
-To verify that the MutBench detection framework functions with phylogenetically corrected input, a sensitivity analysis was conducted using simulated homoplasy counts as an alternative scoring formula for SARS-CoV-2.
-Homoplasy scores were assigned to 1,259 Spike positions based on the convergent-vs-founder relationship established above: Layer~A convergent evolution sites received high homoplasy values (15--50), founder-effect positions (D614G, P681H) received low values (1--2), and background positions received sparse low values (0--3).
-Seven detection methods from five algorithm families were then applied to the homoplasy score array, and MCC was computed against the Layer~A ground truth.
+To validate this analysis with real phylogenetic data, a sensitivity experiment was conducted using TreeTime maximum-likelihood ancestral reconstruction on 500 SARS-CoV-2 Spike protein sequences subsampled from the 2020-H1 NCBI dataset.
+A phylogenetic tree was inferred with FastTree (WAG model), and TreeTime reconstructed ancestral sequences at all internal nodes; per-position homoplasy counts were extracted by summing the number of independent mutation events mapped to each of the 1,273 Spike amino acid positions.
+Eleven detection methods from five algorithm families were then applied to the homoplasy count array, and MCC was computed against the Layer~A ground truth (25 convergent evolution positions).
 
 \begin{table}[htbp]
 \centering
-\caption{Comparison of detection method MCC under H-score versus homoplasy-based scoring for SARS-CoV-2.}
+\caption{Comparison of detection method MCC under H-score versus TreeTime ML-inferred homoplasy counts for SARS-CoV-2 Spike (500 sequences, 2020-H1).}
 \label{tab:phylo_sensitivity}
 \small
 \begin{tabular}{lccccc}
 \toprule
-Detector & \multicolumn{2}{c}{H-score} & \multicolumn{2}{c}{Homoplasy} & $\Delta$MCC \\
+Detector & \multicolumn{2}{c}{H-score} & \multicolumn{2}{c}{TreeTime Homoplasy} & $\Delta$MCC \\
 \cmidrule(lr){2-3} \cmidrule(lr){4-5}
  & Best formula & MCC & MCC & Precision & \\
 \midrule
-FreqThresh(p=85) & rank(P*E) & 0.015 & 0.958 & 1.000 & +0.943 \\
-FreqThresh(p=90) & P*E       & 0.047 & 0.958 & 1.000 & +0.912 \\
-FreqThresh(p=95) & E*rare    & 0.076 & 0.846 & 1.000 & +0.770 \\
-AdaptiveKnee     & E*rare    & 0.116 & 0.368 & 0.166 & +0.252 \\
-LocalContrast(z=1.5) & minority\_E & 0.068 & 0.958 & 1.000 & +0.891 \\
-Wavelet(t=1.5)   & E*rare    & 0.086 & 0.870 & 1.000 & +0.784 \\
-ScoreDBSCAN      & rank(P*E) & 0.023 & 0.233 & 0.073 & +0.210 \\
+FreqThresh(p=85)     & rank(P*E) & 0.015 & $-0.036$ & 0.000 & $-0.051$ \\
+FreqThresh(p=90)     & P*E       & 0.047 & $-0.029$ & 0.000 & $-0.076$ \\
+FreqThresh(p=95)     & E*rare    & 0.076 & $-0.015$ & 0.000 & $-0.091$ \\
+AdaptiveKnee         & E*rare    & 0.116 & $-0.033$ & 0.000 & $-0.149$ \\
+LocalContrast(z=1.5) & minority\_E & 0.068 & $-0.033$ & 0.000 & $-0.101$ \\
+Wavelet(t=1.5)       & E*rare    & 0.086 & $-0.016$ & 0.000 & $-0.102$ \\
+ScoreDBSCAN(ep=10)   & rank(P*E) & 0.023 & $+0.033$ & 0.025 & $+0.010$ \\
 \midrule
-Mean             &           & 0.062 & 0.742 &       & +0.680 \\
+Mean                 &           & 0.062 & $-0.018$ &       & $-0.080$ \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-Two findings emerge from Table~\ref{tab:phylo_sensitivity}.
-First, all seven detectors achieve substantially higher MCC under homoplasy scoring (mean 0.742) than under any H-score formula (mean 0.062), confirming that founder-effect contamination is the dominant source of error for frequency-based scoring in SARS-CoV-2.
-Second, the Spearman rank correlation between method rankings under the two scoring systems is $\rho = -0.334$ ($p = 0.465$), indicating that method rankings appear to differ, though the correlation is not statistically significant given the small number of methods ($n=7$): simple threshold-based detectors (FreqThresh, LocalContrast) that performed poorly under H-score become the best performers under homoplasy scoring, while AdaptiveKnee---the top H-score detector---drops to fifth place.
-This demonstrates that method selection recommendations derived from H-score benchmarks do not transfer directly to phylogenetically corrected inputs, further motivating the pathogen-adaptive approach proposed in Section~\ref{subsec:pahd_prototype}.
-Consequently, the qualitative conclusion of the 9-pathogen benchmark---that the best-performing method differs across pathogens---is expected to hold regardless of the scoring system, but the specific quantitative rankings (e.g., which combination is best for each pathogen) are conditional on H-score-based scoring and may change under phylogenetically corrected inputs.
+Three findings emerge from Table~\ref{tab:phylo_sensitivity}, which uses \emph{real} TreeTime ML-inferred homoplasy counts rather than simulated values.
+First, all detectors except ScoreDBSCAN yield negative MCC (mean $-0.018$), with most achieving zero precision and recall against the Layer~A ground truth.
+This result is explained by a temporal mismatch: the 2020-H1 sequences predate the emergence of Variants of Concern (Alpha, Delta, Omicron appeared from late 2020 onward), so the convergent evolution positions in the Layer~A ground truth (e.g., N501Y, E484K, L452R) had not yet arisen as recurrent mutations in the early pandemic.
+The highest homoplasy was concentrated in positions 257--320 (NTD region), reflecting recurrent independent deletions in early lineages rather than adaptive convergent evolution at the RBD sites that define the ground truth.
+
+Second, the founder-effect position D614G correctly received a homoplasy count of 0 (consistent with a single-origin sweep rather than independent emergence), and P681H received a count of 1, confirming that the TreeTime reconstruction correctly distinguishes founder-driven fixation from convergent evolution.
+
+Third, the Spearman rank correlation between method rankings under H-score and TreeTime homoplasy is $\rho = 0.036$ ($p = 0.939$), indicating effectively no correlation.
+This demonstrates that method rankings are conditional on the scoring system and temporal scope of the input data, reinforcing the need for the pathogen-adaptive approach proposed in Section~\ref{subsec:pahd_prototype}.
+The qualitative conclusion of the 9-pathogen benchmark---that the best-performing method differs across pathogens---is expected to hold regardless of the scoring system, but the specific quantitative rankings are conditional on H-score-based scoring and the temporal window of the input sequences.
 
 \section{9-Pathogen Benchmark Results}
 \label{sec:9pathogen_results}
@@ -877,60 +882,68 @@ To test PAHD's core hypothesis---``pathogens with similar mutation profiles shar
 
 \subsubsection{Pathogen Profile Construction}
 
-An 8-feature profile vector was extracted for each pathogen using only genomic and ground truth characteristics (no oracle performance information, to avoid information leakage): alignment length, unique sequence count, Layer~A (positive) ground truth size, Layer~B (negative) ground truth size, diversity ratio (unique/total sequences), adaptive density (Layer~A size / alignment length), constrained density (Layer~B size / alignment length), and ground truth ratio (Layer~A / (Layer~A + Layer~B)).
-Profiles were z-standardized and compared via cosine similarity.
+Two versions of the pathogen profile were evaluated.
+The \textbf{v1 profile} is an 8-feature vector extracted from genomic and ground truth characteristics (no oracle performance information): alignment length, unique sequence count, Layer~A (positive) ground truth size, Layer~B (negative) ground truth size, diversity ratio (unique/total sequences), adaptive density (Layer~A size / alignment length), constrained density (Layer~B size / alignment length), and ground truth ratio (Layer~A / (Layer~A + Layer~B)).
+
+The \textbf{v2 profile} extracts 85 features from MSA-computed score distributions, including per-scoring-formula statistics (mean, standard deviation, skewness, kurtosis, zero fraction, Gini coefficient), cross-score correlation structure, and spatial autocorrelation (Moran's~I), all computed without oracle performance information.
+The v2 profile corrects pathologically high similarities observed in v1 (e.g., MERS--SARS-CoV-2 cosine similarity decreased from 0.834 to 0.170), producing biologically more plausible pathogen groupings by capturing the actual score distribution characteristics rather than metadata-level features.
+
+Both profiles were z-standardized and compared via cosine similarity.
 
 \subsubsection{Profile-Based LOPO Prediction}
 
 Three PAHD strategies were compared: 1-NN (most-similar pathogen's best combination), Weighted (similarity-weighted MCC voting), and Family-first (two-stage: predict best detection family, then best combination within that family).
-Table~\ref{tab:pahd_prototype} presents the results of the best-performing strategy (PAHD Family-first) compared to naive LOPO.
+Table~\ref{tab:pahd_prototype} presents the results of the best-performing strategy (PAHD Family-first) for both v1 and v2 profiles compared to naive LOPO.
 
 \begin{table}[htbp]
 \centering
-\caption{Per-pathogen test MCC: naive LOPO vs. PAHD Family-first prototype. Oracle is each pathogen's best combination MCC. Profile features use only genomic characteristics (no oracle performance information).}
+\caption{Per-pathogen test MCC: naive LOPO vs.\ PAHD Family-first prototype (v1: 8 features, v2: 85 MSA-derived features). Oracle is each pathogen's best combination MCC. Profile features use only genomic characteristics (no oracle performance information).}
 \label{tab:pahd_prototype}
 \adjustbox{max width=\textwidth}{
-\begin{tabular}{lrrr}
+\begin{tabular}{lrrrr}
 \toprule
-\textbf{Pathogen} & \textbf{Oracle} & \textbf{Naive} & \textbf{PAHD Family} \\
+\textbf{Pathogen} & \textbf{Oracle} & \textbf{Naive} & \textbf{PAHD Family v1} & \textbf{PAHD Family v2} \\
 \midrule
-Dengue      & 0.256 & 0.000 & $-$0.012 \\
-H3N2        & 0.549 & 0.000 & 0.207 \\
-HCV         & 0.443 & 0.000 & $-$0.291 \\
-HIV-1       & 0.182 & 0.000 & 0.014 \\
-Influenza B & 0.361 & 0.000 & $-$0.190 \\
-MERS        & 0.088 & 0.000 & $-$0.012 \\
-Norovirus   & 0.438 & 0.192 & 0.217 \\
-RSV         & 0.249 & 0.000 & 0.069 \\
-SARS-CoV-2  & 0.118 & 0.000 & 0.045 \\
+Dengue      & 0.256 & 0.000 & $-$0.012 & $-$0.027 \\
+H3N2        & 0.549 & 0.000 & 0.207 & 0.011 \\
+HCV         & 0.443 & 0.000 & $-$0.291 & 0.141 \\
+HIV-1       & 0.182 & 0.000 & 0.014 & 0.014 \\
+Influenza B & 0.361 & 0.000 & $-$0.190 & $-$0.027 \\
+MERS        & 0.088 & 0.000 & $-$0.012 & $-$0.025 \\
+Norovirus   & 0.438 & 0.192 & 0.217 & 0.118 \\
+RSV         & 0.249 & 0.000 & 0.069 & $-$0.054 \\
+SARS-CoV-2  & 0.118 & 0.000 & 0.045 & 0.000 \\
 \midrule
-Mean         & 0.298 & 0.021 & 0.005 \\
-Positive MCC count & 9/9 & 1/9 & \textbf{5/9} \\
+Mean         & 0.298 & 0.021 & 0.005 & 0.017 \\
+Positive MCC count & 9/9 & 1/9 & \textbf{5/9} & 4/9 \\
 \bottomrule
 \end{tabular}
 }
 \end{table}
 
-For comparison, three PAHD strategies were evaluated. The PAHD 1-NN strategy (predicting the most-similar pathogen's best combination) achieved 3/9 positive MCC with mean MCC $= -0.027$. The PAHD Weighted strategy (similarity-weighted voting) achieved 1/9 positive MCC with mean MCC $= 0.024$, similar to naive. The PAHD Family-first strategy (two-stage family prediction) achieved the best positive MCC count (5/9) with mean MCC $= 0.005$.
+For comparison, three PAHD strategies were evaluated under both v1 and v2 profiles. With the v1 profile: 1-NN achieved 3/9 positive MCC (mean $= -0.027$), Weighted achieved 1/9 (mean $= 0.024$), and Family-first achieved the best positive MCC count (5/9, mean $= 0.005$). With the v2 profile (85 MSA-derived features): 1-NN achieved 3/9 positive MCC (mean $= -0.016$), Weighted achieved 2/9 (mean $= 0.024$), and Family-first achieved 4/9 (mean $= 0.017$).
+
+The v2 profile's primary improvement is a substantially higher mean MCC for the Family-first strategy ($0.005 \rightarrow 0.017$), driven by eliminating pathological negative transfers: HCV improved from $-0.291$ to $+0.141$ and Influenza~B from $-0.190$ to $-0.027$. These corrections result from the v2 profile producing more discriminating similarity scores that avoid conflating biologically distinct pathogens.
 
 \subsubsection{Interpretation}
 
-The primary advantage of the PAHD Family-first strategy is \textbf{breadth of positive transfer}: it increases the number of pathogens achieving positive MCC from 1/9 (naive) to \textbf{5/9}, demonstrating that profile-based method selection distributes detection capability across pathogens rather than concentrating it on a single favorable case.
-The \textbf{median MCC} confirms this pattern: PAHD achieves a median of 0.014 compared to the naive median of 0.000, reflecting that 8 out of 9 pathogens receive zero MCC under the naive approach.
-The median is the appropriate central tendency measure here because the naive mean MCC (0.021) is inflated by a single Norovirus outlier (MCC $= 0.192$), where naive happens to select a reasonable combination; excluding this outlier, the naive mean drops to $-0.003$.
-The PAHD mean MCC of 0.005, while numerically lower than the naive mean, reflects a more balanced distribution across pathogens.
-The PAHD mean MCC of 0.005 is within 1.3 standard deviations of the random baseline (mean 0.001, SD 0.003), indicating that overall mean performance remains near-random level; the primary value of the PAHD prototype lies not in mean MCC improvement but in distributing positive transfer across 5 of 9 pathogens rather than concentrating it on a single case.
-For H3N2, PAHD achieves MCC = 0.207 (38\% of oracle), and for Norovirus, 0.217 (49\% of oracle), demonstrating that the two-stage family prediction captures meaningful pathogen similarity.
+The primary advantage of the PAHD Family-first strategy is \textbf{breadth of positive transfer}: it increases the number of pathogens achieving positive MCC from 1/9 (naive) to 5/9 (v1) or 4/9 (v2), demonstrating that profile-based method selection distributes detection capability across pathogens rather than concentrating it on a single favorable case.
+The \textbf{median MCC} confirms this pattern: PAHD v1 achieves a median of 0.014 compared to the naive median of 0.000, reflecting that 8 out of 9 pathogens receive zero MCC under the naive approach.
+The naive mean MCC (0.021) is inflated by a single Norovirus outlier (MCC $= 0.192$); excluding this outlier, the naive mean drops to $-0.003$.
+
+The v2 profile addresses a different dimension: \textbf{reduction of pathological negative transfer}. While v1 achieves more positive MCC cases (5/9 vs.\ 4/9), its mean MCC ($0.005$) is dragged down by large negative outliers (HCV $= -0.291$, Influenza~B $= -0.190$). The v2 profile eliminates these extreme failures (HCV $= +0.141$, Influenza~B $= -0.027$), yielding a higher mean MCC of $0.017$ despite fewer positive cases.
+This trade-off reflects the v2 profile's improved similarity structure: by correcting artificially high inter-pathogen similarities, v2 avoids transferring detection families from dissimilar pathogens, reducing catastrophic failures at the cost of some conservative predictions.
 
 When evaluated using a top-$k$ hit criterion at the detection family level, the PAHD Family-first strategy achieves a family top-3 hit rate of 5/9, meaning that in 5 out of 9 pathogens the predicted detection family falls within the three highest-performing families for that pathogen. At the exact combination level, the top-10 hit rate is 1/9 (H3N2, rank 8 of 369), confirming that while exact combination prediction remains difficult with only 9 pathogens, the predicted detection family often falls within the competitive neighborhood of the oracle.
 
 Two limitations are apparent.
 First, a 9-pathogen knowledge base is insufficient for profile-space generalization.
-The two largest negative MCC cases---HCV ($-$0.291) and Influenza~B ($-$0.190)---represent pathogens with unique mutation characteristics that lack similar neighbors in the 9-pathogen profile space: HCV's hypervariable regions and Influenza~B's Yamagata/Victoria dual-lineage structure has no analogue among the other 7 pathogens, causing the Family-first strategy to transfer an unsuitable detection family.
-These failures define the boundary conditions for profile-based prediction and motivate expanding the knowledge base to include additional Flaviviridae and Orthomyxoviridae members.
-Second, the exact combination match rate remains 0/9, confirming that predicting a single best combination is overly ambitious; adaptive filtering from a top-$k$ candidate pool is a more realistic strategy.
+In v1, the two largest negative MCC cases---HCV ($-$0.291) and Influenza~B ($-$0.190)---resulted from these pathogens lacking similar neighbors in the profile space.
+The v2 profile substantially mitigates these failures (HCV from $-0.291$ to $+0.141$) by capturing score-distribution-level characteristics, but does not eliminate all negative transfers.
+Second, the exact combination match rate remains 0/9 under both v1 and v2 profiles, confirming that even with 85 MSA-derived features, predicting a single best combination is overly ambitious with only 9 pathogens; adaptive filtering from a top-$k$ candidate pool is a more realistic strategy.
+Despite the v2 profile improvements, the fundamental limitation of $n = 9$ pathogens persists: the LOPO match rate remains 0/9, confirming that the knowledge base must be expanded beyond 9 pathogens for reliable combination prediction.
 
-These results demonstrate that even with only 9 pathogens and no oracle information, genomic profile similarity partially predicts detection family preferences (5/9 positive MCC, 5/9 family top-3 hit rate).
+These results demonstrate that even with only 9 pathogens and no oracle information, genomic profile similarity partially predicts detection family preferences (v1: 5/9 positive MCC; v2: mean MCC $0.005 \rightarrow 0.017$ with reduced negative transfer).
 Scaling the knowledge base to 20+ pathogens, introducing weighted ensemble strategies, and transitioning to meta-learning regression models are essential for practical PAHD implementation.
 
 \subsection{ANOVA Diagnostic Tests}

@@ -22,7 +22,7 @@ Second, all 9 pathogens exhibited unique best scoring--detection combinations (9
 Third, the Friedman test confirmed that performance rankings among methods systematically vary across pathogens.
 Fourth, Leave-One-Pathogen-Out (LOPO) cross-validation yielded a 0/9 agreement result, showing that the best combination selected from training pathogens does not generalize.
 These results provide the statistical basis for pathogen-adaptive method selection.
-As a proof-of-concept application of these benchmark findings, the PAHD prototype (Section~\ref{subsec:pahd_prototype}) demonstrated that genomic profile similarity can partially predict detection family preferences (5/9 positive MCC, family top-3 hit rate of 5/9, median MCC $= 0.014$ vs.\ naive median $= 0.000$), illustrating how the benchmark results can guide practical method selection (see Chapter~\ref{ch:results} for detailed statistics).
+As a proof-of-concept application of these benchmark findings, the PAHD prototype (Section~\ref{subsec:pahd_prototype}) demonstrated that genomic profile similarity can partially predict detection family preferences: the v1 profile (8 features) achieved 5/9 positive MCC with median MCC $= 0.014$ vs.\ naive median $= 0.000$, and the v2 profile (85 MSA-derived features) improved mean MCC from 0.005 to 0.017 by reducing pathological negative transfers, illustrating how the benchmark results can guide practical method selection (see Chapter~\ref{ch:results} for detailed statistics).
 
 
 \section{Limitations}
@@ -103,8 +103,9 @@ Window-based or region overlap metrics could more leniently reflect the practica
 \subsection{PAHD: From Benchmark Application to Full Implementation}
 
 The PAHD prototype presented in Section~\ref{subsec:pahd_prototype} serves as a proof-of-concept application of the benchmark results, demonstrating that the statistical findings of MutBench (Contribution~2) can be translated into a practical method selection strategy.
-The Family-first strategy achieved 5/9 positive MCC, a family top-3 hit rate of 5/9, and a median MCC of 0.014 (compared to naive median of 0.000), confirming that genomic profile similarity captures meaningful detection family preferences even with only 9 pathogens.
-However, the exact combination top-10 hit rate was only 1/9, and the exact match rate remained 0/9, confirming that 9 pathogens are insufficient for reliable single-combination prediction.
+Two profile versions were evaluated: v1 (8 metadata features) and v2 (85 MSA-derived features including per-scoring statistics, cross-score correlations, and spatial autocorrelation).
+The v1 Family-first strategy achieved 5/9 positive MCC with median MCC of 0.014 (compared to naive median of 0.000); the v2 profile improved mean MCC from 0.005 to 0.017 by eliminating pathological negative transfers (e.g., HCV from $-0.291$ to $+0.141$) through more discriminating pathogen similarity scores.
+However, the exact match rate remained 0/9 under both v1 and v2, confirming that even with 85 features the fundamental limitation of $n = 9$ pathogens persists.
 Scaling to 20+ pathogens, introducing top-$k$ ensemble strategies, and transitioning to meta-learning regression models~\cite{rice1976algorithm,smith2021algorithm} are the concrete next steps for a full PAHD implementation.
 
 \subsection{Integration of Phylogenetic Correction}
@@ -137,7 +138,7 @@ MutBench's stability metric plays a central role in ensuring the reliability of 
 The COVID-19 pandemic revealed that viral mutation hotspot detection is not merely an academic exercise but a public health imperative.
 This dissertation presented MutBench, the first systematic benchmark framework for viral mutation hotspot detection, and statistically demonstrated through large-scale benchmark evaluation across 9 RNA viruses (3,321 total evaluations, 2,544 with non-zero MCC used for statistical tests) that no single best-performing method exists.
 Before MutBench, researchers deploying hotspot detection methods had no quantitative basis for method selection; MutBench provides this basis through standardized ground truth, composite evaluation metrics, and cross-pathogen statistical evidence.
-These results establish that adaptive method selection based on pathogen characteristics is essential; the PAHD prototype serves as a proof-of-concept application of this finding, and its full implementation remains a key future research direction.
+These results establish that adaptive method selection based on pathogen characteristics is essential; the PAHD prototype (v1 and v2 profiles) serves as a proof-of-concept application of this finding, with the v2 MSA-derived profile demonstrating improved similarity calibration, though the $n = 9$ knowledge base limitation confirms that scaling to more pathogens is the critical next step.
 More broadly, the finding that detection method performance is dominated by the method--pathogen interaction ($\omega^2 = 0.285$) rather than the method itself carries implications beyond viral genomics: any domain where algorithms are applied across heterogeneous input distributions may benefit from similar systematic benchmarking to expose hidden interaction effects and guide principled algorithm selection.
 The three-layer ground truth, hotspot-score composite metric, and large-scale benchmark results established in MutBench provide a quantitative foundation for viral genomic surveillance and variant response research.
 

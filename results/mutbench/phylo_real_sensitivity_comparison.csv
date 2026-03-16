@@ -1,0 +1,8 @@
+detector,hscore_best_scoring,hscore_mcc,treetime_homoplasy_mcc,delta_mcc
+FreqThresh(p=85),rank(P*E),0.0152,-0.0357,-0.0509
+FreqThresh(p=90),P*E,0.0469,-0.0289,-0.0758
+FreqThresh(p=95),E*rare,0.0758,-0.0149,-0.0907
+AdaptiveKnee,E*rare,0.1155,-0.0334,-0.1489
+LocalContrast(z=1.5),minority_E,0.0679,-0.0326,-0.1005
+Wavelet-like(z=1.5),E*rare,0.0861,-0.016,-0.1021
+ScoreDBSCAN(eps=10),rank(P*E),0.0231,0.0331,0.01

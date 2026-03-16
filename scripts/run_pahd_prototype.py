@@ -1,24 +1,51 @@
 #!/usr/bin/env python3
 """
-PAHD (Pathogen-Adaptive Hotspot Detection) Prototype
-=====================================================
-Proof-of-concept: profile-based LOPO prediction.
+PAHD (Pathogen-Adaptive Hotspot Detection) Prototype v2
+========================================================
+Improved feature extraction: MSA-derived score distribution statistics
+instead of static metadata only.
 
-Three strategies compared:
+Strategies compared:
 1. Naive LOPO: single best combo across all training pathogens
 2. PAHD 1-NN: use most-similar pathogen's best combo
 3. PAHD Weighted: similarity-weighted MCC voting across all training pathogens
 4. PAHD Family-first: predict best family, then best combo within family
+
+v2 improvements:
+- Score distribution statistics (mean, std, skewness, kurtosis) per scoring formula
+- Zero-score proportion per scoring formula
+- Gini coefficient of score distributions
+- Spatial autocorrelation (Moran's I) of scores
+- Entropy-function divergence metrics
+- All computed from FASTA/MSA data — NO oracle MCC leakage
 """
 
 import pandas as pd
 import numpy as np
+from scipy import stats as sp_stats
 from sklearn.preprocessing import StandardScaler
 from sklearn.metrics.pairwise import cosine_similarity
+from pathlib import Path
 import os
+import sys
+
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 RESULTS_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)),
                            '..', 'results', 'mutbench')
+DATA_DIR = Path(__file__).parent.parent / 'data'
+
+PATHOGENS_FASTA = {
+    'SARS-CoV-2': DATA_DIR / 'ncbi_temporal' / 'spike_2020_H1.fasta',
+    'H3N2': DATA_DIR / 'influenza' / 'h3n2_ha_sequences.fasta',
+    'Norovirus': DATA_DIR / 'norovirus' / 'norovirus_vp1_sequences.fasta',
+    'HIV-1': DATA_DIR / 'cross_pathogen' / 'hiv1_gp120_sequences.fasta',
+    'Dengue': DATA_DIR / 'dengue' / 'dengue_e_sequences.fasta',
+    'RSV': DATA_DIR / 'rsv' / 'rsv_f_sequences.fasta',
+    'Influenza_B': DATA_DIR / 'influenza' / 'influenza_b_ha_sequences.fasta',
+    'MERS': DATA_DIR / 'mers' / 'mers_spike_sequences.fasta',
+    'HCV': DATA_DIR / 'hcv' / 'hcv_e2_sequences.fasta',
+}
 
 
 def load_multilayer_results():
@@ -26,9 +53,204 @@ def load_multilayer_results():
     return pd.read_csv(path)
 
 
+def _gini(arr):
+    """Gini coefficient of a 1D array (0=perfect equality, 1=max inequality)."""
+    arr = np.sort(np.abs(arr))
+    n = len(arr)
+    if n == 0 or arr.sum() == 0:
+        return 0.0
+    index = np.arange(1, n + 1)
+    return (2 * np.sum(index * arr) - (n + 1) * np.sum(arr)) / (n * np.sum(arr))
+
+
+def _morans_i(arr, lag=1):
+    """Spatial autocorrelation (Moran's I) for a 1D array with ring adjacency."""
+    n = len(arr)
+    if n < 3:
+        return 0.0
+    mean = arr.mean()
+    diffs = arr - mean
+    var = np.sum(diffs ** 2)
+    if var == 0:
+        return 0.0
+    # ring adjacency: each position connected to +-lag neighbors
+    cross = 0.0
+    w_total = 0
+    for i in range(n):
+        for d in range(1, lag + 1):
+            j = (i + d) % n
+            cross += diffs[i] * diffs[j]
+            w_total += 1
+            j = (i - d) % n
+            cross += diffs[i] * diffs[j]
+            w_total += 1
+    return (n / w_total) * (cross / var)
+
+
+def _run_length_stat(arr, threshold_pct=90):
+    """Mean and max run length of positions above threshold percentile."""
+    if len(arr) == 0 or np.all(arr == 0):
+        return 0.0, 0
+    thresh = np.percentile(arr[arr > 0], threshold_pct) if np.any(arr > 0) else 0
+    above = arr > thresh
+    runs = []
+    current = 0
+    for v in above:
+        if v:
+            current += 1
+        else:
+            if current > 0:
+                runs.append(current)
+            current = 0
+    if current > 0:
+        runs.append(current)
+    if not runs:
+        return 0.0, 0
+    return np.mean(runs), max(runs)
+
+
+def extract_pathogen_profiles_v2(df):
+    """
+    Extract rich feature vectors per pathogen from MSA-derived score distributions.
+
+    Feature categories (NO oracle MCC leakage):
+    1. Basic metadata (4): seq_length, n_unique, diversity_ratio, log_n_seq
+    2. GT characteristics (4): gt sizes, densities, ratio
+    3. Per-score distribution stats (9 scores x 6 stats = 54):
+       mean, std, skewness, kurtosis, zero_frac, gini
+    4. Aggregated score landscape (6): cross-score correlation structure
+    5. Spatial features (3): Moran's I for top-3 scores
+    6. Detection landscape (4): mean/std of n_detected across combos
+    """
+    from scripts.run_extended_benchmark import (
+        load_fasta, compute_features, compute_scores,
+    )
+
+    score_names = [
+        'E*rare', 'P*E*rare', 'minority_E', 'P*minority_E',
+        'P*E', 'H-score', 'E_only', 'P*E^2', 'rank(P*E)',
+    ]
+
+    profiles = {}
+    for pathogen, grp in df.groupby('pathogen'):
+        row0 = grp.iloc[0]
+        n_seq = row0['n_sequences']
+        n_uniq = row0['n_unique']
+        seq_len = row0['seq_length']
+        gt_a = row0['gt_adaptive_size']
+        gt_b = row0['gt_constrained_size']
+
+        features = {}
+
+        # --- Category 1: Basic metadata ---
+        features['log_seq_length'] = np.log1p(seq_len)
+        features['log_n_unique'] = np.log1p(n_uniq)
+        features['diversity_ratio'] = n_uniq / n_seq if n_seq > 0 else 0
+        features['log_n_seq'] = np.log1p(n_seq)
+
+        # --- Category 2: GT characteristics ---
+        features['adaptive_density'] = gt_a / seq_len if seq_len > 0 else 0
+        features['constrained_density'] = gt_b / seq_len if seq_len > 0 else 0
+        features['gt_ratio'] = gt_a / (gt_a + gt_b) if (gt_a + gt_b) > 0 else 0
+        features['log_gt_total'] = np.log1p(gt_a + gt_b)
+
+        # --- Category 3-5: MSA-derived score distributions ---
+        fasta_path = PATHOGENS_FASTA.get(pathogen)
+        score_arrays = {}
+        if fasta_path and fasta_path.exists():
+            sequences = load_fasta(str(fasta_path))
+            min_len = min(len(s) for s in sequences)
+            sequences = [s[:min_len] for s in sequences]
+            raw_features = compute_features(sequences)
+            all_scores = compute_scores(raw_features)
+
+            # Raw features stats (P and E are the most fundamental)
+            P = raw_features['P']
+            E = raw_features['E']
+            features['P_mean'] = P.mean()
+            features['P_std'] = P.std()
+            features['P_zero_frac'] = (P == 0).mean()
+            features['E_mean'] = E.mean()
+            features['E_std'] = E.std()
+            features['E_zero_frac'] = (E == 0).mean()
+            features['PE_correlation'] = np.corrcoef(P, E)[0, 1] if P.std() > 0 and E.std() > 0 else 0
+
+            for sname in score_names:
+                s_arr = all_scores[sname]
+                score_arrays[sname] = s_arr
+                prefix = sname.replace('*', 'x').replace('(', '').replace(')', '').replace('^', 'p')
+
+                nz = s_arr[s_arr != 0]
+                features[f'{prefix}_mean'] = s_arr.mean()
+                features[f'{prefix}_std'] = s_arr.std()
+                features[f'{prefix}_zero_frac'] = (s_arr == 0).mean()
+                features[f'{prefix}_gini'] = _gini(s_arr)
+
+                if len(nz) > 4:
+                    features[f'{prefix}_skew'] = float(sp_stats.skew(nz))
+                    features[f'{prefix}_kurtosis'] = float(sp_stats.kurtosis(nz))
+                else:
+                    features[f'{prefix}_skew'] = 0.0
+                    features[f'{prefix}_kurtosis'] = 0.0
+
+            # --- Category 4: Cross-score correlation structure ---
+            # How correlated are different scoring formulas? (captures entropy-function divergence)
+            score_matrix = np.column_stack([all_scores[s] for s in score_names])
+            corr = np.corrcoef(score_matrix.T)
+            corr_vals = corr[np.triu_indices_from(corr, k=1)]
+            features['cross_score_corr_mean'] = corr_vals.mean()
+            features['cross_score_corr_std'] = corr_vals.std()
+            features['cross_score_corr_min'] = corr_vals.min()
+
+            # --- Category 5: Spatial autocorrelation ---
+            # Top-3 important scores: E*rare, P*E, H-score
+            for sname in ['E*rare', 'P*E', 'H-score']:
+                prefix = sname.replace('*', 'x').replace('(', '').replace(')', '').replace('^', 'p')
+                s_arr = all_scores[sname]
+                features[f'{prefix}_moran_i'] = _morans_i(s_arr, lag=3)
+                mean_rl, max_rl = _run_length_stat(s_arr, threshold_pct=90)
+                features[f'{prefix}_mean_runlen'] = mean_rl
+                features[f'{prefix}_max_runlen'] = max_rl / seq_len if seq_len > 0 else 0
+        else:
+            # Fallback: use benchmark CSV stats if FASTA unavailable
+            print(f"  [WARN] FASTA not found for {pathogen}, using fallback features")
+            features['P_mean'] = 0
+            features['P_std'] = 0
+            features['P_zero_frac'] = 0
+            features['E_mean'] = 0
+            features['E_std'] = 0
+            features['E_zero_frac'] = 0
+            features['PE_correlation'] = 0
+            for sname in score_names:
+                prefix = sname.replace('*', 'x').replace('(', '').replace(')', '').replace('^', 'p')
+                for suffix in ['_mean', '_std', '_zero_frac', '_gini', '_skew', '_kurtosis']:
+                    features[f'{prefix}{suffix}'] = 0
+            features['cross_score_corr_mean'] = 0
+            features['cross_score_corr_std'] = 0
+            features['cross_score_corr_min'] = 0
+            for sname in ['E*rare', 'P*E', 'H-score']:
+                prefix = sname.replace('*', 'x').replace('(', '').replace(')', '').replace('^', 'p')
+                features[f'{prefix}_moran_i'] = 0
+                features[f'{prefix}_mean_runlen'] = 0
+                features[f'{prefix}_max_runlen'] = 0
+
+        # --- Category 6: Detection landscape (from benchmark CSV, not oracle) ---
+        # n_detected distribution reflects scoring characteristics, not GT performance
+        nd = grp['n_detected']
+        features['det_mean_ratio'] = nd.mean() / seq_len if seq_len > 0 else 0
+        features['det_std_ratio'] = nd.std() / seq_len if seq_len > 0 else 0
+        features['det_cv'] = nd.std() / nd.mean() if nd.mean() > 0 else 0
+        # How many combos detect very few positions (< 5% of seq)?
+        features['det_sparse_frac'] = (nd < 0.05 * seq_len).mean()
+
+        profiles[pathogen] = features
+
+    return pd.DataFrame(profiles).T
+
+
 def extract_pathogen_profiles(df):
     """
-    Extract a feature vector per pathogen from the benchmark results.
+    Original 8-feature profile (kept for comparison).
     """
     profiles = {}
     for pathogen, grp in df.groupby('pathogen'):
@@ -39,10 +261,6 @@ def extract_pathogen_profiles(df):
         gt_a = row0['gt_adaptive_size']
         gt_b = row0['gt_constrained_size']
 
-        # per-family performance distribution (captures method landscape)
-        family_mccs = grp.groupby('family')['mcc_adaptive'].mean()
-
-        # Only genome/GT characteristics — NO oracle performance info to avoid leakage
         profiles[pathogen] = {
             'seq_length': seq_len,
             'n_unique': n_uniq,
@@ -262,71 +480,12 @@ def pahd_1nn_lopo(df, sim_df, pathogens):
     return pd.DataFrame(results)
 
 
-def main():
-    print("=" * 70)
-    print("PAHD Prototype — Profile-Based LOPO Prediction")
-    print("=" * 70)
-
-    df = load_multilayer_results()
-    pathogens = sorted(df['pathogen'].unique())
-    print(f"\nPathogens ({len(pathogens)}): {', '.join(pathogens)}")
-    print(f"Total evaluations: {len(df)}")
-
-    # Profiles
-    profiles = extract_pathogen_profiles(df)
-    print(f"\nPathogen profiles ({profiles.shape[1]} features):")
-    print(profiles.round(4).to_string())
-
-    # Similarity
-    sim_df = compute_similarity(profiles)
-    print("\nCosine similarity matrix:")
-    print(sim_df.round(3).to_string())
-
-    # Oracle
-    print("\n--- Oracle Best Combos ---")
-    for p in pathogens:
-        combo, mcc = get_best_combo(df, p)
-        print(f"  {p:15s}: {combo:45s} MCC={mcc:.4f}")
-
-    # ===== Methods =====
-    # 1. Naive
+def _run_lopo_suite(df, sim_df, pathogens, label=""):
+    """Run all 4 LOPO methods and return summary dict."""
     naive_res = naive_lopo(df, pathogens)
-    print("\n--- Naive LOPO ---")
-    for _, r in naive_res.iterrows():
-        print(f"  {r['held_out']:15s} → {r['predicted_combo']:45s} "
-              f"MCC={r['test_mcc']:.4f}  oracle={r['oracle_mcc']:.4f}  "
-              f"ratio={r['gen_ratio']:.4f}  match={r['combo_match']}")
-
-    # 2. PAHD 1-NN
     nn_res = pahd_1nn_lopo(df, sim_df, pathogens)
-    print("\n--- PAHD 1-NN ---")
-    for _, r in nn_res.iterrows():
-        print(f"  {r['held_out']:15s} → {r['predicted_combo']:45s} "
-              f"MCC={r['test_mcc']:.4f}  oracle={r['oracle_mcc']:.4f}  "
-              f"ratio={r['gen_ratio']:.4f}  (similar={r['most_similar']}, "
-              f"sim={r['similarity']:.3f})")
-
-    # 3. PAHD Weighted
     wt_res = pahd_weighted_lopo(df, sim_df, pathogens)
-    print("\n--- PAHD Weighted ---")
-    for _, r in wt_res.iterrows():
-        print(f"  {r['held_out']:15s} → {r['predicted_combo']:45s} "
-              f"MCC={r['test_mcc']:.4f}  oracle={r['oracle_mcc']:.4f}  "
-              f"ratio={r['gen_ratio']:.4f}  match={r['combo_match']}")
-
-    # 4. PAHD Family-first
     fam_res = pahd_family_lopo(df, sim_df, pathogens)
-    print("\n--- PAHD Family-First ---")
-    for _, r in fam_res.iterrows():
-        print(f"  {r['held_out']:15s} → [{r['predicted_family']:12s}] "
-              f"{r['predicted_combo']:40s} "
-              f"MCC={r['test_mcc']:.4f}  oracle={r['oracle_mcc']:.4f}  "
-              f"ratio={r['gen_ratio']:.4f}  match={r['combo_match']}")
-
-    # Summary
-    print("\n" + "=" * 70)
-    print("SUMMARY")
-    print("=" * 70)
 
     methods = {
         'Naive LOPO': naive_res,
@@ -341,56 +500,119 @@ def main():
         mean_mcc = res['test_mcc'].mean()
         mean_gr = res['gen_ratio'].mean()
         positive_count = (res['test_mcc'] > 0).sum()
+        median_mcc = res['test_mcc'].median()
         rows.append({
-            'Method': name,
+            'Method': f"{label}{name}" if label else name,
             'Match': f"{matches}/9",
             'MCC>0': f"{positive_count}/9",
             'Mean_MCC': round(mean_mcc, 4),
+            'Median_MCC': round(median_mcc, 4),
             'Mean_GenRatio': round(mean_gr, 4),
         })
 
-    summary = pd.DataFrame(rows)
-    print(summary.to_string(index=False))
+    return methods, pd.DataFrame(rows), naive_res, nn_res, wt_res, fam_res
 
-    # Improvement analysis
-    naive_mcc = naive_res['test_mcc'].mean()
-    for name, res in methods.items():
-        if name == 'Naive LOPO':
-            continue
-        m = res['test_mcc'].mean()
-        diff = m - naive_mcc
-        print(f"\n{name} vs Naive: MCC diff = {diff:+.4f}")
 
-    # Per-pathogen comparison table
-    print("\n--- Per-Pathogen MCC Comparison ---")
+def main():
+    print("=" * 70)
+    print("PAHD Prototype v2 — Improved MSA-Derived Features")
+    print("=" * 70)
+
+    df = load_multilayer_results()
+    pathogens = sorted(df['pathogen'].unique())
+    print(f"\nPathogens ({len(pathogens)}): {', '.join(pathogens)}")
+    print(f"Total evaluations: {len(df)}")
+
+    # Oracle
+    print("\n--- Oracle Best Combos ---")
+    for p in pathogens:
+        combo, mcc = get_best_combo(df, p)
+        print(f"  {p:15s}: {combo:45s} MCC={mcc:.4f}")
+
+    # ===== v1: Original 8-feature profiles =====
+    print("\n" + "=" * 70)
+    print("v1: Original 8-feature profiles")
+    print("=" * 70)
+
+    profiles_v1 = extract_pathogen_profiles(df)
+    sim_v1 = compute_similarity(profiles_v1)
+    print(f"Features ({profiles_v1.shape[1]}): {list(profiles_v1.columns)}")
+
+    v1_methods, v1_summary, *_ = _run_lopo_suite(df, sim_v1, pathogens, "v1:")
+    print(v1_summary.to_string(index=False))
+
+    # ===== v2: Rich MSA-derived profiles =====
+    print("\n" + "=" * 70)
+    print("v2: Rich MSA-derived profiles")
+    print("=" * 70)
+
+    profiles_v2 = extract_pathogen_profiles_v2(df)
+    print(f"Features ({profiles_v2.shape[1]}): {list(profiles_v2.columns[:10])}... "
+          f"(+{profiles_v2.shape[1]-10} more)")
+
+    sim_v2 = compute_similarity(profiles_v2)
+    print("\nv2 Cosine similarity matrix:")
+    print(sim_v2.round(3).to_string())
+
+    v2_methods, v2_summary, naive_res, nn_res, wt_res, fam_res = \
+        _run_lopo_suite(df, sim_v2, pathogens, "v2:")
+    print(v2_summary.to_string(index=False))
+
+    # ===== Head-to-head comparison =====
+    print("\n" + "=" * 70)
+    print("HEAD-TO-HEAD: v1 vs v2")
+    print("=" * 70)
+
+    combined_summary = pd.concat([v1_summary, v2_summary], ignore_index=True)
+    print(combined_summary.to_string(index=False))
+
+    # Per-pathogen comparison
+    print("\n--- Per-Pathogen MCC Comparison (v2) ---")
     comp = pd.DataFrame({
         'Pathogen': pathogens,
         'Oracle': [get_best_combo(df, p)[1] for p in pathogens],
     })
-    for name, res in methods.items():
+    for name, res in v2_methods.items():
         comp[name] = res.set_index('held_out').loc[pathogens, 'test_mcc'].values
     print(comp.round(4).to_string(index=False))
 
-    # Which PAHD method gets closest to oracle for each pathogen?
-    print("\n--- Best PAHD method per pathogen ---")
+    # Best PAHD method per pathogen
+    print("\n--- Best PAHD method per pathogen (v2) ---")
     for p in pathogens:
         oracle_mcc = get_best_combo(df, p)[1]
-        best_method = 'Naive LOPO'
-        best_mcc = naive_res[naive_res['held_out'] == p]['test_mcc'].values[0]
-        for name, res in methods.items():
+        best_method = None
+        best_mcc = -999
+        for name, res in v2_methods.items():
             mcc = res[res['held_out'] == p]['test_mcc'].values[0]
             if mcc > best_mcc:
                 best_mcc = mcc
                 best_method = name
+        ratio = best_mcc / oracle_mcc if oracle_mcc > 0 else 0
         print(f"  {p:15s}: {best_method:15s} MCC={best_mcc:.4f} "
-              f"(oracle={oracle_mcc:.4f}, ratio={best_mcc/oracle_mcc:.2f})")
+              f"(oracle={oracle_mcc:.4f}, ratio={ratio:.2f})")
+
+    # Similarity comparison: which pathogens become more/less similar?
+    print("\n--- Similarity Changes (v2 - v1) ---")
+    diff = sim_v2 - sim_v1
+    for i, p1 in enumerate(pathogens):
+        for j, p2 in enumerate(pathogens):
+            if i < j:
+                d = diff.loc[p1, p2]
+                if abs(d) > 0.2:
+                    print(f"  {p1:15s} - {p2:15s}: {sim_v1.loc[p1,p2]:+.3f} -> "
+                          f"{sim_v2.loc[p1,p2]:+.3f} (delta={d:+.3f})")
 
     # Save
-    combined = pd.concat([naive_res, nn_res, wt_res, fam_res], ignore_index=True)
-    combined.to_csv(os.path.join(RESULTS_DIR, 'pahd_prototype_results.csv'), index=False)
-    summary.to_csv(os.path.join(RESULTS_DIR, 'pahd_prototype_summary.csv'), index=False)
-    sim_df.to_csv(os.path.join(RESULTS_DIR, 'pahd_pathogen_similarity.csv'))
-    profiles.to_csv(os.path.join(RESULTS_DIR, 'pahd_pathogen_profiles.csv'))
+    all_v2 = pd.concat([
+        naive_res.assign(profile_version='v2'),
+        nn_res.assign(profile_version='v2'),
+        wt_res.assign(profile_version='v2'),
+        fam_res.assign(profile_version='v2'),
+    ], ignore_index=True)
+    all_v2.to_csv(os.path.join(RESULTS_DIR, 'pahd_prototype_results.csv'), index=False)
+    combined_summary.to_csv(os.path.join(RESULTS_DIR, 'pahd_prototype_summary.csv'), index=False)
+    sim_v2.to_csv(os.path.join(RESULTS_DIR, 'pahd_pathogen_similarity.csv'))
+    profiles_v2.to_csv(os.path.join(RESULTS_DIR, 'pahd_pathogen_profiles.csv'))
     comp.to_csv(os.path.join(RESULTS_DIR, 'pahd_comparison_table.csv'), index=False)
     print(f"\nResults saved to {RESULTS_DIR}/pahd_*.csv")
 

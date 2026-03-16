@@ -1,0 +1,136 @@
+
+0.00	-TreeAnc: set-up
+
+0.14	-WARNING: character J is unknown. Treating it as missing information
+read alignment from file /proj/paper/data/ncbi_temporal/spike_500_subsample.fasta with 500 sequences of length 1273
+read tree from file /proj/paper/data/ncbi_temporal/spike_500_clean.nwk with 500 leaves
+
+inferring ancestral sequences...
+...done.
+
+The TOTAL tree length is 4.162e-02 and 2891 mutations were observed.
+Of these 2891 mutations,
+	 - 206 occur 1 times
+	 - 88 occur 2 times
+	 - 46 occur 3 times
+	 - 6 occur 4 times
+	 - 6 occur 5 times
+	 - 69 occur 6 times
+	 - 5 occur 7 times
+	 - 6 occur 8 times
+	 - 1 occur 10 times
+	 - 1 occur 11 times
+	 - 1 occur 15 times
+	 - 1 occur 16 times
+	 - 1 occur 19 times
+	 - 1 occur 22 times
+	 - 1 occur 23 times
+	 - 4 occur 25 times
+	 - 7 occur 26 times
+	 - 11 occur 27 times
+	 - 7 occur 28 times
+	 - 5 occur 29 times
+	 - 12 occur 30 times
+	 - 3 occur 31 times
+	 - 2 occur 32 times
+	 - 5 occur 33 times
+	 - 3 occur 34 times
+
+The TERMINAL branch length is 3.247e-02 and 2881 mutations were observed.
+Of these 2881 mutations,
+	 - 200 occur 1 times
+	 - 86 occur 2 times
+	 - 46 occur 3 times
+	 - 6 occur 4 times
+	 - 6 occur 5 times
+	 - 69 occur 6 times
+	 - 5 occur 7 times
+	 - 6 occur 8 times
+	 - 1 occur 10 times
+	 - 1 occur 11 times
+	 - 1 occur 15 times
+	 - 1 occur 16 times
+	 - 1 occur 19 times
+	 - 1 occur 22 times
+	 - 1 occur 23 times
+	 - 4 occur 25 times
+	 - 7 occur 26 times
+	 - 11 occur 27 times
+	 - 7 occur 28 times
+	 - 5 occur 29 times
+	 - 12 occur 30 times
+	 - 3 occur 31 times
+	 - 2 occur 32 times
+	 - 5 occur 33 times
+	 - 3 occur 34 times
+
+Of the 1273 positions in the genome,
+	 - 765 were hit 0 times (expected 131.38)
+	 - 181 were hit 1 times (expected 298.37)
+	 - 89 were hit 2 times (expected 338.80)
+	 - 49 were hit 3 times (expected 256.48)
+	 - 8 were hit 4 times (expected 145.62)
+	 - 6 were hit 5 times (expected 66.14)
+	 - 67 were hit 6 times (expected 25.03)
+	 - 6 were hit 7 times (expected 8.12)
+	 - 7 were hit 8 times (expected 2.31)
+	 - 1 were hit 10 times (expected 0.13)
+	 - 1 were hit 11 times (expected 0.03)
+	 - 2 were hit 16 times (expected 0.00)
+	 - 1 were hit 19 times (expected 0.00)
+	 - 1 were hit 22 times (expected 0.00)
+	 - 1 were hit 23 times (expected 0.00)
+	 - 4 were hit 25 times (expected 0.00)
+	 - 7 were hit 26 times (expected 0.00)
+	 - 10 were hit 27 times (expected 0.00)
+	 - 7 were hit 28 times (expected 0.00)
+	 - 6 were hit 29 times (expected 0.00)
+	 - 12 were hit 30 times (expected 0.00)
+	 - 3 were hit 31 times (expected 0.00)
+	 - 2 were hit 32 times (expected 0.00)
+	 - 5 were hit 33 times (expected 0.00)
+	 - 3 were hit 34 times (expected 0.00)
+
+log-likelihood difference to Poisson distribution with same mean: -3.389e+03
+
+
+The ten most homoplasic mutations are:
+	mut	multiplicity
+	G261X	34
+	A262X	34
+	Y266X	34
+	A260X	33
+	A263X	33
+	A264X	33
+	Y265X	33
+	V267X	33
+	G268X	32
+	Y269X	32
+
+
+The ten most homoplasic mutation on terminal branches are:
+	mut	multiplicity
+	G261X	34
+	A262X	34
+	Y266X	34
+	A260X	33
+	A263X	33
+	A264X	33
+	Y265X	33
+	V267X	33
+	G268X	32
+	Y269X	32
+
+
+Taxons that carry positions that mutated elsewhere in the tree:
+	taxon name	#of homoplasic mutations
+	QKG88226.1	172
+	QKM76330.1	152
+	QKR84517.1	144
+	QKR86869.1	137
+	QKR87205.1	134
+	QKR87181.1	133
+	QKM76858.1	82
+	QKW89635.1	71
+	QKW88891.1	71
+	QKW88963.1	71
