@@ -915,21 +915,9 @@ These results statistically establish that ``the best-performing method differs 
 
 The preceding LOPO analysis showed that the naive strategy (applying the training pathogens' mean-best combination directly) fails completely at 0/9 match with 4.9\% generalization ratio.
 To test PAHD's core hypothesis---``pathogens with similar mutation profiles share similar best-performing detection combinations''---a prototype experiment was conducted.
-
-\subsubsection{Pathogen Profile Construction}
-
-Two versions of the pathogen profile were evaluated.
-The \textbf{v1 profile} is an 8-feature vector extracted from genomic and ground truth characteristics (no oracle performance information): alignment length, unique sequence count, Layer~A (positive) ground truth size, Layer~B (negative) ground truth size, diversity ratio (unique/total sequences), adaptive density (Layer~A size / alignment length), constrained density (Layer~B size / alignment length), and ground truth ratio (Layer~A / (Layer~A + Layer~B)).
-
-The \textbf{v2 profile} extracts 85 features from MSA-computed score distributions, including per-scoring-formula statistics (mean, standard deviation, skewness, kurtosis, zero fraction, Gini coefficient), cross-score correlation structure, and spatial autocorrelation (Moran's~I), all computed without oracle performance information.
-The v2 profile corrects pathologically high similarities observed in v1 (e.g., MERS--SARS-CoV-2 cosine similarity decreased from 0.834 to 0.170), producing biologically more plausible pathogen groupings by capturing the actual score distribution characteristics rather than metadata-level features.
-
-Both profiles were z-standardized and compared via cosine similarity.
-
-\subsubsection{Profile-Based LOPO Prediction}
-
-Three PAHD strategies were compared: 1-NN (most-similar pathogen's best combination), Weighted (similarity-weighted MCC voting), and Family-first (two-stage: predict best detection family, then best combination within that family).
-Table~\ref{tab:pahd_prototype} presents the results of the best-performing strategy (PAHD Family-first) for both v1 and v2 profiles compared to naive LOPO.
+Two versions of the pathogen profile were evaluated: a \textbf{v1 profile} (8-feature vector from genomic and ground truth characteristics: alignment length, unique sequence count, Layer~A/B sizes, diversity ratio, adaptive/constrained density, ground truth ratio) and a \textbf{v2 profile} (85 MSA-derived features including per-scoring-formula statistics, cross-score correlations, and spatial autocorrelation). Both profiles were z-standardized and compared via cosine similarity; the v2 profile corrects pathologically high similarities observed in v1 (e.g., MERS--SARS-CoV-2 cosine similarity decreased from 0.834 to 0.170).
+Among three strategies tested (1-NN, Weighted, Family-first), the Family-first strategy (two-stage: predict best detection family, then best combination within that family) performed best.
+Table~\ref{tab:pahd_prototype} presents the results of PAHD Family-first for both v1 and v2 profiles compared to naive LOPO.
 
 \begin{table}[htbp]
 \centering
@@ -957,37 +945,14 @@ Positive MCC count & 9/9 & 1/9 & \textbf{5/9} & 4/9 \\
 }
 \end{table}
 
-For comparison, three PAHD strategies were evaluated under both v1 and v2 profiles. With the v1 profile: 1-NN achieved 3/9 positive MCC (mean $= -0.027$), Weighted achieved 1/9 (mean $= 0.024$), and Family-first achieved the best positive MCC count (5/9, mean $= 0.005$). With the v2 profile (85 MSA-derived features): 1-NN achieved 3/9 positive MCC (mean $= -0.016$), Weighted achieved 2/9 (mean $= 0.024$), and Family-first achieved 4/9 (mean $= 0.017$).
+The v1 Family-first strategy achieved 5/9 positive MCC (mean $= 0.005$, median $= 0.014$) compared to the naive baseline (1/9 positive, mean $= 0.021$ inflated by a single Norovirus outlier).
+The v2 profile improved mean MCC to 0.017 by eliminating pathological negative transfers (HCV from $-0.291$ to $+0.141$, Influenza~B from $-0.190$ to $-0.027$), though with fewer positive cases (4/9).
 
-The v2 profile's primary improvement is a substantially higher mean MCC for the Family-first strategy ($0.005 \rightarrow 0.017$), driven by eliminating pathological negative transfers: HCV improved from $-0.291$ to $+0.141$ and Influenza~B from $-0.190$ to $-0.027$. These corrections result from the v2 profile producing more discriminating similarity scores that avoid conflating biologically distinct pathogens.
+When evaluated at coarser prediction granularities, even failed label predictions yield competitive performance: detection family-level prediction (15 families) recovered 48.3\% of oracle performance (mean MCC $= 0.144$), and scoring-level prediction (9 formulas) recovered 57.7\% (mean MCC $= 0.172$), compared to 1.7\% for exact combination prediction (v1 Family-first mean MCC $= 0.005$).
+This supports the viability of a hierarchical prediction approach as the knowledge base expands.
 
-\subsubsection{Interpretation}
-
-The primary advantage of the PAHD Family-first strategy is \textbf{breadth of positive transfer}: it increases the number of pathogens achieving positive MCC from 1/9 (naive) to 5/9 (v1) or 4/9 (v2), demonstrating that profile-based method selection distributes detection capability across pathogens rather than concentrating it on a single favorable case.
-The \textbf{median MCC} confirms this pattern: PAHD v1 achieves a median of 0.014 compared to the naive median of 0.000, reflecting that 8 out of 9 pathogens receive zero MCC under the naive approach.
-The naive mean MCC (0.021) is inflated by a single Norovirus outlier (MCC $= 0.192$); excluding this outlier, the naive mean drops to $-0.003$.
-
-The v2 profile addresses a different dimension: \textbf{reduction of pathological negative transfer}. While v1 achieves more positive MCC cases (5/9 vs.\ 4/9), its mean MCC ($0.005$) is dragged down by large negative outliers (HCV $= -0.291$, Influenza~B $= -0.190$). The v2 profile eliminates these extreme failures (HCV $= +0.141$, Influenza~B $= -0.027$), yielding a higher mean MCC of $0.017$ despite fewer positive cases.
-This trade-off reflects the v2 profile's improved similarity structure: by correcting artificially high inter-pathogen similarities, v2 avoids transferring detection families from dissimilar pathogens, reducing catastrophic failures at the cost of some conservative predictions.
-
-When evaluated using a top-$k$ hit criterion at the detection family level, the PAHD Family-first strategy achieves a family top-3 hit rate of 5/9, meaning that in 5 out of 9 pathogens the predicted detection family falls within the three highest-performing families for that pathogen. At the exact combination level, the top-10 hit rate is 1/9 (H3N2, rank 8 of 369), confirming that while exact combination prediction remains difficult with only 9 pathogens, the predicted detection family often falls within the competitive neighborhood of the oracle.
-
-To further address the ill-posedness of predicting from 369 exact combinations with only 9 training instances, PAHD was additionally evaluated at coarser prediction granularities using the v2 profile similarity matrix with 1-NN LOPO.
-At the \textbf{detection family level} (15 families), the 1-NN strategy achieved a family match rate of 0/9---each pathogen's oracle-best family is unique, and the 1-NN neighbor never shares the same best family.
-However, the mean composite MCC when using the best combination \emph{within} the predicted family was 0.144 (median 0.142), recovering 48.3\% of oracle performance.
-At the \textbf{scoring formula level} (9 formulas), the match rate was likewise 0/9, but the mean MCC was 0.172 (median 0.138), recovering 57.7\% of oracle performance.
-Both coarser-granularity predictions substantially outperform the exact combination prediction (mean MCC $= -0.016$, $-9.8$\% of oracle) and the naive global-best baseline (mean MCC $= 0.034$, 8.2\% of oracle).
-The key insight is that even when the \emph{label} prediction (which family or scoring) fails due to insufficient $n$, the \emph{performance} achieved by applying the predicted category remains competitive: restricting the search space to a single predicted family or scoring formula already captures roughly half of the oracle MCC, compared to near-zero under naive approaches.
-
-Two limitations are apparent.
-First, a 9-pathogen knowledge base is insufficient for profile-space generalization.
-In v1, the two largest negative MCC cases---HCV ($-$0.291) and Influenza~B ($-$0.190)---resulted from these pathogens lacking similar neighbors in the profile space.
-The v2 profile substantially mitigates these failures (HCV from $-0.291$ to $+0.141$) by capturing score-distribution-level characteristics, but does not eliminate all negative transfers.
-Second, the exact combination match rate remains 0/9 under both v1 and v2 profiles, confirming that even with 85 MSA-derived features, predicting a single best combination is overly ambitious with only 9 pathogens; adaptive filtering from a top-$k$ candidate pool is a more realistic strategy.
-Despite the v2 profile improvements, the fundamental limitation of $n = 9$ pathogens persists: the LOPO match rate remains 0/9, confirming that the knowledge base must be expanded beyond 9 pathogens for reliable combination prediction.
-
-These results demonstrate that even with only 9 pathogens and no oracle information, genomic profile similarity partially predicts detection family preferences (v1: 5/9 positive MCC; v2: mean MCC $0.005 \rightarrow 0.017$ with reduced negative transfer).
-Scaling the knowledge base to 20+ pathogens, introducing weighted ensemble strategies, and transitioning to meta-learning regression models are essential for practical PAHD implementation.
+The exact combination match rate remains 0/9 under both profiles, confirming that the $n = 9$ knowledge base is insufficient for reliable combination prediction; HCV and Influenza~B failures in v1 resulted from lacking similar neighbors in the profile space.
+Scaling to 20+ pathogens, introducing top-$k$ ensemble strategies, and transitioning to meta-learning regression models are the concrete next steps.
 
 \subsection{ANOVA Diagnostic Tests}
 \label{subsec:anova_diagnostics}

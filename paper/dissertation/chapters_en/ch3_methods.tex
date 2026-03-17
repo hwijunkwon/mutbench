@@ -361,8 +361,10 @@ The p-value is calculated as $count / n_{\text{perm}}$ (the proportion of null d
 
 To verify the generalizability of the synthetic benchmark on SARS-CoV-2 alone (Section~\ref{sec:variant_comparison}) and to answer the core question ``Does the best-performing detection method vary across pathogens?'', a large-scale benchmark extended to nine RNA viruses was designed.
 
-The five MutClust variants from Stage 1 (Original, Fixed, dNdS, Hybrid, HDBSCAN-Auto) require synthetic H-scores as input and are therefore excluded from Stage 2.
-MutClust-Original is included in the MutClust-Orig family by extracting only its core logic (CCM seed + adaptive DBSCAN), the HDBSCAN boundary determination of MutClust-Hybrid is represented by the ScoreDBSCAN family, and the dN/dS filter is reflected as a separate post-processing step.
+Stage~1 evaluates 5 MutClust variants and 2 baselines using synthetic H-scores on a single pathogen (SARS-CoV-2).
+Stage~2 uses real MSA-derived scores computed from NCBI sequences, making the 5 MutClust variants inapplicable because they require synthetic H-scores as input.
+Instead, 41 detection methods from 15 algorithm families are applied to the per-position score profiles produced by 9 scoring formulas.
+The core algorithmic components of Stage~1 methods are preserved: MutClust-Original's CCM seed detection with adaptive DBSCAN is included in the MutClust-Orig family, HDBSCAN boundary determination from MutClust-Hybrid is represented by the ScoreDBSCAN family, and the dN/dS filter is reflected as a separate post-processing step.
 
 \subsection{Target Pathogens and Data}
 \label{subsec:9pathogen_data}

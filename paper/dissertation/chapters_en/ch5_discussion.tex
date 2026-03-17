@@ -73,6 +73,7 @@ The proof-of-concept simulation further revealed that frequency-based scoring co
 Based on these findings, PAHD (Pathogen-Adaptive Hotspot Detection) is proposed as a conceptual framework for pathogen-specific method selection, formalizable within Rice's algorithm selection problem~\cite{rice1976algorithm}, a framework that has since been extended to automated algorithm selection~\cite{smith2021algorithm} and AutoML~\cite{kotthoff2016algorithm}.
 Concretely, MutBench's results instantiate Rice's framework as follows: the \textit{problem space} $\mathcal{P}$ consists of pathogens characterized by genomic profiles (alignment length, diversity ratio, ground truth density, etc.); the \textit{algorithm space} $\mathcal{A}$ comprises 369 scoring--detection combinations (9 $\times$ 41); and the \textit{performance space} $\mathcal{Y}$ is MCC evaluated against the 3-layer ground truth. The interaction dominance ($\omega^2 = 0.285$) statistically demonstrates that the mapping $f: \mathcal{P} \to \mathcal{A}$ is non-trivial---a finding consistent with the intuition of the No Free Lunch theorem~\cite{wolpert1997nfl}, which states that no single algorithm can outperform all others across all possible problem distributions. The PAHD prototype's 5/9 positive MCC result demonstrates that even a simple nearest-neighbor approach in the profile space $\mathcal{P}$ partially recovers this mapping, motivating more sophisticated meta-learning approaches.
 
+The PAHD prototype results (Section~\ref{subsec:pahd_prototype}) demonstrate that coarser prediction granularity recovers up to 57.7\% of oracle performance, though the $n = 9$ limitation persists.
 The ESM-2 cross-paradigm validation (Section~\ref{subsec:esm_validation}) further reinforces this finding: ESM-LLR ranked 1st for SARS-CoV-2 and MERS but last for Norovirus and HIV-1, confirming that no single scoring paradigm---whether MSA-based or protein language model-based---dominates across all pathogens.
 The concrete implementation of PAHD is proposed as future work in Chapter~\ref{ch:conclusion}.
 The demonstrated necessity of pathogen-adaptive selection raises the question of how to interpret the absolute performance levels achieved.
@@ -116,10 +117,7 @@ The dN/dS filter partially addresses this but is itself susceptible to phylogene
 
 Proof-of-concept simulations (Section~\ref{subsec:phylo_correction_poc}) demonstrated that Fitch parsimony-based homoplasy scores correctly rank convergent mutations above founder mutations, and extended TreeTime ML validation (Section~\ref{subsec:treetime_ml_validation}) confirmed equivalent accuracy (AUC = 1.000).
 Validation on real GISAID sequences (Section~\ref{subsec:treetime_gisaid_validation}) showed that H-score and homoplasy score capture fundamentally different signals ($\rho = -0.107$, $p = 1.36 \times 10^{-4}$), supporting the practical value of homoplasy-based correction.
-The homoplasy-based scoring sensitivity analysis (Section~\ref{subsec:homoplasy_sensitivity}) revealed a temporal mismatch: the 2020-H1 GISAID sequences predate the emergence of VOC convergent evolution, so homoplasy counts are near-zero at Layer~A ground truth sites.
-Consequently, homoplasy-based scoring achieved a mean MCC of $-0.018$ (vs.\ $0.062$ for H-score), and method ranking correlation between the two scoring systems was negligible ($\rho = 0.036$, $p = 0.939$).
-D614G was confirmed as a founder effect (homoplasy = 0), consistent with its phylogenetic origin.
-This temporal mismatch demonstrates that phylogenetic correction requires temporally aligned sequence data---homoplasy scoring on early-pandemic sequences cannot recover convergent evolution signals that had not yet emerged.
+The homoplasy sensitivity analysis (Section~\ref{subsec:homoplasy_sensitivity}) revealed a temporal mismatch between the 2020-H1 sequence data and the Layer~A convergent evolution ground truth, confirming that phylogenetic correction requires temporally aligned data.
 Full integration of phylogenetic correction with temporally appropriate sequence sampling remains a key future extension (Chapter~\ref{ch:conclusion}).
 
 %% ============================================================
@@ -150,7 +148,7 @@ Despite the small sample size ($n=9$), the Friedman test achieved $p=0.0015$, in
 \toprule
 \textbf{Finding} & \textbf{Evidence} & \textbf{Implication} \\
 \midrule
-Detection strategy dominates performance & F1 range 0.146--0.785 (5.4$\times$) & Method choice matters more than tuning \\
+Detection strategy dominates performance & F1 range 0.146--0.785 (5.4$\times$, Stage~1) & Method choice matters more than tuning \\
 No universal best method & 9/9 unique combos, LOPO 0/9 & Pathogen-adaptive selection needed \\
 Method$\times$pathogen interaction largest & $\omega^2=0.285$ (28.5\% variance) & Best method depends on pathogen \\
 H-score saturates over time & All 1,273 positions nonzero by 2024 & Fixed-reference metrics have shelf life \\

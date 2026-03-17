@@ -5,7 +5,7 @@
 \contentsline {table}{\numberline {3.1}{\ignorespaces Functional regions of the Spike protein (ground truth)\relax }}{25}{table.caption.9}%
 \contentsline {table}{\numberline {3.2}{\ignorespaces Detection methods evaluated in MutBench\relax }}{26}{table.caption.12}%
 \contentsline {table}{\numberline {3.3}{\ignorespaces Sequence dataset characteristics for 9 pathogens\relax }}{40}{table.caption.19}%
-\contentsline {table}{\numberline {3.4}{\ignorespaces 41 detection methods evaluated in the 9-pathogen benchmark (15 families)\relax }}{41}{table.caption.20}%
+\contentsline {table}{\numberline {3.4}{\ignorespaces 41 detection methods evaluated in the 9-pathogen benchmark (15 families)\relax }}{42}{table.caption.20}%
 \contentsline {table}{\numberline {3.5}{\ignorespaces 3-layer ground truth position counts per pathogen (amino acid level, 0-based)\relax }}{46}{table.caption.24}%
 \addvspace {10\p@ }
 \contentsline {table}{\numberline {4.1}{\ignorespaces Method comparison on synthetic SARS-CoV-2 data (29,903 positions, 1,251 ground truth functional nucleotide positions)\relax }}{52}{table.caption.30}%
@@ -25,12 +25,12 @@
 \contentsline {table}{\numberline {4.15}{\ignorespaces Best scoring--detection combination for each of the 9 pathogens (by MCC)\relax }}{86}{table.caption.49}%
 \contentsline {table}{\numberline {4.16}{\ignorespaces Three-way ANOVA results: $\omega ^2$ effect size of each factor on MCC\relax }}{87}{table.caption.50}%
 \contentsline {table}{\numberline {4.17}{\ignorespaces Best MCC (Layer A, adaptive ground truth) for ESM-LLR versus the best existing scoring formula per pathogen. ESM rank indicates the position of ESM-LLR among 10 total scoring methods (9 existing + ESM-LLR) when each is paired with its best-performing detector.\relax }}{94}{table.caption.51}%
-\contentsline {table}{\numberline {4.18}{\ignorespaces Per-pathogen test MCC: naive LOPO vs.\ PAHD Family-first prototype (v1: 8 features, v2: 85 MSA-derived features). Oracle is each pathogen's best combination MCC. Profile features use only genomic characteristics (no oracle performance information).\relax }}{98}{table.caption.54}%
-\contentsline {table}{\numberline {4.19}{\ignorespaces Precision, recall, detection size, and best MCC of the top-1 combination for each pathogen.\relax }}{103}{table.caption.56}%
-\contentsline {table}{\numberline {4.20}{\ignorespaces Spearman correlation between DMS fitness scores and evolutionary detection scores.\relax }}{104}{table.caption.57}%
-\contentsline {table}{\numberline {4.21}{\ignorespaces Best scoring--detection combination and DMS F1 by DMS ground truth threshold (4 pathogens)\relax }}{105}{table.caption.58}%
+\contentsline {table}{\numberline {4.18}{\ignorespaces Per-pathogen test MCC: naive LOPO vs.\ PAHD Family-first prototype (v1: 8 features, v2: 85 MSA-derived features). Oracle is each pathogen's best combination MCC. Profile features use only genomic characteristics (no oracle performance information).\relax }}{98}{table.caption.52}%
+\contentsline {table}{\numberline {4.19}{\ignorespaces Precision, recall, detection size, and best MCC of the top-1 combination for each pathogen.\relax }}{99}{table.caption.53}%
+\contentsline {table}{\numberline {4.20}{\ignorespaces Spearman correlation between DMS fitness scores and evolutionary detection scores.\relax }}{100}{table.caption.54}%
+\contentsline {table}{\numberline {4.21}{\ignorespaces Best scoring--detection combination and DMS F1 by DMS ground truth threshold (4 pathogens)\relax }}{101}{table.caption.55}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {5.1}{\ignorespaces Summary of key findings from MutBench\relax }}{116}{table.caption.59}%
+\contentsline {table}{\numberline {5.1}{\ignorespaces Summary of key findings from MutBench\relax }}{112}{table.caption.56}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {6.1}{\ignorespaces Summary of MutBench limitations and mitigation status\relax }}{120}{table.caption.60}%
-\contentsline {table}{\numberline {6.2}{\ignorespaces Prioritized future research roadmap\relax }}{122}{table.caption.61}%
+\contentsline {table}{\numberline {6.1}{\ignorespaces Summary of MutBench limitations and mitigation status\relax }}{116}{table.caption.57}%
+\contentsline {table}{\numberline {6.2}{\ignorespaces Prioritized future research roadmap\relax }}{118}{table.caption.58}%
