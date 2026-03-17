@@ -16,7 +16,7 @@ import os
 BASE = "/proj/paper"
 OUT = os.path.join(BASE, "paper/ppt/MutBench_Defense_v4.pptx")
 LOGO = os.path.join(BASE, "docs/presentation/knu_symbol_white.png")
-LOGO_EMBLEM = os.path.join(BASE, "docs/presentation/knu_emblem_official.jpg")
+LOGO_EMBLEM = os.path.join(BASE, "docs/presentation/knu_symbol_t.png")
 FIG_DISS = os.path.join(BASE, "paper/dissertation/figures")
 FIG_MAIN = os.path.join(BASE, "paper/figure")
 
@@ -239,7 +239,7 @@ for i, (num, title, desc, slides, color) in enumerate(toc_items):
                 title, size=17, bold=True, color=DARK_NAVY)
     # description + slide range
     add_textbox(s, Inches(2.000), cy + Inches(0.430), Inches(8.000), Inches(0.350),
-                f"{desc}    ({slides})", size=11, color=DARK_GRAY)
+                f"{desc}    ({slides})", size=13, color=DARK_GRAY)
 
 
 # ── SLIDE 3: Prior Work — paper cards with figures ──────────────
@@ -258,7 +258,7 @@ add_textbox(s, Inches(0.900), Inches(2.150), Inches(5.300), Inches(1.200),
             "  Benchmarked 11 multi-omics integration methods\n"
             "  across 6 evaluation metrics for cancer subtyping\n\n"
             "  Key finding: No single method dominates\n"
-            "  across all cancer datasets", size=11, color=DARK_GRAY)
+            "  across all cancer datasets", size=13, color=DARK_GRAY)
 # MOSD figure from dissertation
 add_figure(s, os.path.join(FIG_DISS, "hotspot_score_comparison.png"),
            Inches(1.000), Inches(3.500), Inches(4.800), Inches(3.000))
@@ -274,7 +274,7 @@ add_textbox(s, Inches(7.200), Inches(2.150), Inches(5.300), Inches(1.200),
             "  H-score based mutation hotspot detection\n"
             "  with network propagation & bootstrap\n\n"
             "  Limitation: H-score founder bias (rho = -0.876)\n"
-            "  Single-pathogen evaluation is insufficient", size=11, color=DARK_GRAY)
+            "  Single-pathogen evaluation is insufficient", size=13, color=DARK_GRAY)
 # MutClust figure from dissertation
 add_figure(s, os.path.join(FIG_DISS, "method_comparison.png"),
            Inches(7.300), Inches(3.500), Inches(4.800), Inches(3.000))
@@ -300,15 +300,15 @@ terms = [
     ("Amino Acid", "Protein building blocks.\n3 nucleotides = 1 codon = 1 AA.", "[Amino acid image]"),
 ]
 for i, (term, desc, ph_label) in enumerate(terms):
-    cy = Inches(3.700) + i * Inches(0.900)
+    cy = Inches(3.600) + i * Inches(0.800)
     # term card
-    card = add_card(s, Inches(0.600), cy, Inches(5.200), Inches(0.800), border=MID_GRAY)
-    add_textbox(s, Inches(0.800), cy + Inches(0.050), Inches(1.400), Inches(0.300),
+    card = add_card(s, Inches(0.600), cy, Inches(5.200), Inches(0.750), border=MID_GRAY)
+    add_textbox(s, Inches(0.800), cy + Inches(0.030), Inches(1.400), Inches(0.300),
                 term, size=12, bold=True, color=SEC_FRAME)
-    add_textbox(s, Inches(0.800), cy + Inches(0.350), Inches(3.800), Inches(0.400),
-                desc, size=9, color=DARK_GRAY)
+    add_textbox(s, Inches(0.800), cy + Inches(0.310), Inches(3.800), Inches(0.400),
+                desc, size=11, color=DARK_GRAY)
     # small placeholder next to each term
-    add_placeholder(s, Inches(4.700), cy + Inches(0.050), Inches(1.000), Inches(0.700), ph_label)
+    add_placeholder(s, Inches(4.700), cy + Inches(0.030), Inches(1.000), Inches(0.680), ph_label)
 
 # Right side: DNA, RNA, Protein individual placeholders
 cd_items = [
@@ -318,7 +318,7 @@ cd_items = [
 ]
 for i, (label, clr, ph_label) in enumerate(cd_items):
     cx = Inches(6.200) + i * Inches(2.400)
-    cy = Inches(3.700)
+    cy = Inches(3.600)
     box = add_rounded_rect(s, cx, cy, Inches(2.100), Inches(0.550), fill=clr)
     set_text(box, label, size=13, bold=True, color=WHITE, align=PP_ALIGN.CENTER,
              anchor=MSO_ANCHOR.MIDDLE)
@@ -329,7 +329,7 @@ for i, (label, clr, ph_label) in enumerate(cd_items):
                     "\u2192", size=20, bold=True, color=GRAY, align=PP_ALIGN.CENTER)
 
 # note at bottom
-note = add_card(s, Inches(6.200), Inches(6.100), Inches(6.300), Inches(0.700),
+note = add_card(s, Inches(6.200), Inches(5.900), Inches(6.300), Inches(0.700),
                 fill=RGBColor(0xFF, 0xF3, 0xE0), border=ORANGE)
 set_text(note, "RNA viruses use RNA (not DNA) as their genome.\nHigher mutation rate due to error-prone RNA polymerase.",
          size=11, color=DARK_GRAY, align=PP_ALIGN.CENTER, anchor=MSO_ANCHOR.MIDDLE)
@@ -356,7 +356,7 @@ for i, (name, desc, clr) in enumerate(mut_types):
     add_textbox(s, Inches(0.700), cy + Inches(0.100), Inches(1.800), Inches(0.300),
                 name, size=12, bold=True, color=clr)
     add_textbox(s, Inches(0.700), cy + Inches(0.420), Inches(1.800), Inches(0.550),
-                desc, size=9, color=DARK_GRAY)
+                desc, size=11, color=DARK_GRAY)
 
 # Bottom: Effects on protein (compact row)
 add_textbox(s, Inches(0.600), Inches(5.300), Inches(3.000), Inches(0.350),
@@ -375,7 +375,7 @@ for i, (name, desc, clr) in enumerate(effects):
     add_textbox(s, cx + Inches(0.200), cy + Inches(0.050), Inches(2.300), Inches(0.300),
                 name, size=11, bold=True, color=clr)
     add_textbox(s, cx + Inches(0.200), cy + Inches(0.380), Inches(2.300), Inches(0.350),
-                desc, size=9, color=DARK_GRAY)
+                desc, size=11, color=DARK_GRAY)
 
 # Link to hotspots
 link_box = add_card(s, Inches(9.000), Inches(5.300), Inches(3.900), Inches(1.250),
@@ -437,16 +437,39 @@ for i, (ttl, desc, clr) in enumerate(flow_boxes):
     bx = start_x + i * (box_w + gap)
     by = Inches(1.300)
     box = add_rounded_rect(s, bx, by, box_w, box_h, fill=clr)
-    set_text(box, f"{ttl}\n\n{desc}", size=11, bold=False, color=WHITE,
-             align=PP_ALIGN.CENTER, anchor=MSO_ANCHOR.MIDDLE)
-    # Bold the title line via overlay
-    add_textbox(s, bx, by + Inches(0.100), box_w, Inches(0.350),
-                ttl, size=13, bold=True, color=WHITE, align=PP_ALIGN.CENTER)
+    # Use multiformat to bold the title and keep desc normal
+    tf = box.text_frame
+    tf.word_wrap = True
+    tf.auto_size = None
+    tf.vertical_anchor = MSO_ANCHOR.MIDDLE
+    p0 = tf.paragraphs[0]
+    p0.alignment = PP_ALIGN.CENTER
+    run0 = p0.add_run()
+    run0.text = ttl
+    run0.font.size = Pt(13)
+    run0.font.bold = True
+    run0.font.color.rgb = WHITE
+    run0.font.name = "Calibri"
+    # blank line
+    p1 = tf.add_paragraph()
+    p1.alignment = PP_ALIGN.CENTER
+    p1.space_before = Pt(2)
+    p1.space_after = Pt(0)
+    # desc lines
+    for dline in desc.split("\n"):
+        pd = tf.add_paragraph()
+        pd.alignment = PP_ALIGN.CENTER
+        rd = pd.add_run()
+        rd.text = dline
+        rd.font.size = Pt(11)
+        rd.font.bold = False
+        rd.font.color.rgb = WHITE
+        rd.font.name = "Calibri"
     # arrow between boxes
     if i < len(flow_boxes) - 1:
         ax = bx + box_w
         add_textbox(s, ax, by + Inches(0.400), arrow_w, Inches(0.500),
-                    "\u2192", size=24, bold=True, color=DARK_GRAY, align=PP_ALIGN.CENTER)
+                    "\u2192", size=18, bold=True, color=DARK_GRAY, align=PP_ALIGN.CENTER)
 
 # Below the flow: summary arrow pointing to PAHD
 # Arrow line
@@ -516,7 +539,7 @@ for i, (ttl, desc) in enumerate(topics):
     add_textbox(s, Inches(6.900), cy + Inches(0.050), Inches(2.000), Inches(0.300),
                 ttl, size=12, bold=True, color=DARK_NAVY)
     add_textbox(s, Inches(6.900), cy + Inches(0.350), Inches(5.500), Inches(0.500),
-                desc, size=9, color=DARK_GRAY)
+                desc, size=11, color=DARK_GRAY)
 
 # bottom note
 note = add_card(s, Inches(0.600), Inches(5.950), Inches(12.100), Inches(0.700),
@@ -605,7 +628,7 @@ for r, (name, genome, protein, feature) in enumerate(pathogens):
 # bottom note
 add_textbox(s, Inches(0.600), Inches(6.950), Inches(12.100), Inches(0.300),
             "* All RNA viruses with publicly available sequence data from NCBI/GISAID",
-            size=9, color=GRAY, align=PP_ALIGN.CENTER)
+            size=10, color=GRAY, align=PP_ALIGN.CENTER)
 
 
 # ── SLIDE 11: MutBench Pipeline ─────────────────────────────────
@@ -657,9 +680,9 @@ for i, (name, desc) in enumerate(scoring_items):
     cx = Inches(0.500) + col * Inches(2.000)
     cy = Inches(3.150) + row * Inches(0.550)
     add_textbox(s, cx, cy, Inches(1.900), Inches(0.280),
-                f"  {name}", size=9, bold=True, color=SEC_FRAME)
+                f"  {name}", size=10, bold=True, color=SEC_FRAME)
     add_textbox(s, cx, cy + Inches(0.250), Inches(1.900), Inches(0.250),
-                f"    {desc}", size=8, color=GRAY)
+                f"    {desc}", size=10, color=GRAY)
 
 # Lower right: Detection Families table
 add_rect(s, Inches(6.700), Inches(2.600), Inches(6.000), Inches(0.450), fill=GREEN)
@@ -686,12 +709,12 @@ for i, (name, desc) in enumerate(detect_items):
     cx = Inches(6.800) + col * Inches(2.000)
     cy = Inches(3.150) + row * Inches(0.550)
     add_textbox(s, cx, cy, Inches(1.900), Inches(0.280),
-                f"  {name}", size=9, bold=True, color=GREEN)
+                f"  {name}", size=10, bold=True, color=GREEN)
     add_textbox(s, cx, cy + Inches(0.250), Inches(1.900), Inches(0.250),
-                f"    {desc}", size=8, color=GRAY)
+                f"    {desc}", size=10, color=GRAY)
 
 # total count
-add_textbox(s, Inches(3.500), Inches(5.500), Inches(6.300), Inches(0.400),
+add_textbox(s, Inches(3.500), Inches(5.800), Inches(6.300), Inches(0.400),
             "Total: 9 x 39 = 351 unique scoring-detection combinations per pathogen",
             size=12, bold=True, color=DARK_NAVY, align=PP_ALIGN.CENTER)
 
@@ -724,10 +747,10 @@ for i, (name, formula, desc) in enumerate(scoring_detail):
     # formula box
     fbox = add_rect(s, cx + Inches(0.200), cy + Inches(0.500), Inches(3.500), Inches(0.400),
                     fill=RGBColor(0xF0, 0xF4, 0xF8), border=MID_GRAY)
-    set_text(fbox, formula, size=9, color=DARK_NAVY, align=PP_ALIGN.CENTER,
+    set_text(fbox, formula, size=10, color=DARK_NAVY, align=PP_ALIGN.CENTER,
              anchor=MSO_ANCHOR.MIDDLE)
     add_textbox(s, cx + Inches(0.200), cy + Inches(1.000), Inches(3.500), Inches(0.600),
-                desc, size=9, color=DARK_GRAY)
+                desc, size=10, color=DARK_GRAY)
 
 
 # ── SLIDE 13: 3-Layer Ground Truth ──────────────────────────────
@@ -743,9 +766,15 @@ layers = [
     ("Layer 2: Constrained", "Intersection of top-K positions across\nmultiple scoring methods. Reduces\nsingle-method bias."),
     ("Layer 3: DMS-based", "Deep mutational scanning data from\nexperimental fitness measurements.\nGold-standard biological validation."),
 ]
+layer_fills = [
+    RGBColor(0xE8, 0xF5, 0xE9),  # Layer 1 Adaptive: light green
+    RGBColor(0xE3, 0xF2, 0xFD),  # Layer 2 Constrained: light blue
+    RGBColor(0xFF, 0xF3, 0xE0),  # Layer 3 DMS: light orange
+]
 for i, (ttl, desc) in enumerate(layers):
     cy = Inches(1.200) + i * Inches(1.900)
-    card = add_card(s, Inches(8.200), cy, Inches(4.500), Inches(1.650), border=MID_GRAY)
+    card = add_card(s, Inches(8.200), cy, Inches(4.500), Inches(1.650),
+                    fill=layer_fills[i], border=MID_GRAY)
     add_textbox(s, Inches(8.400), cy + Inches(0.100), Inches(4.100), Inches(0.400),
                 ttl, size=13, bold=True, color=SEC_FRAME)
     add_textbox(s, Inches(8.400), cy + Inches(0.550), Inches(4.100), Inches(1.000),
@@ -797,7 +826,7 @@ for i, item in enumerate(why_items):
     cy = Inches(3.350) + i * Inches(0.900)
     card = add_card(s, Inches(3.500), cy, Inches(3.300), Inches(0.800), border=MID_GRAY)
     add_textbox(s, Inches(3.650), cy + Inches(0.080), Inches(3.000), Inches(0.650),
-                item, size=9, color=DARK_GRAY)
+                item, size=10, color=DARK_GRAY)
 
 # MCC vs F1 figure on right
 add_figure(s, os.path.join(FIG_MAIN, "mcc_vs_f1_fairness.png"),
@@ -947,10 +976,10 @@ for i, (aspect, syn, real) in enumerate(comp_rows):
     cy = Inches(2.000) + i * Inches(0.900)
     # aspect label
     add_textbox(s, Inches(0.600), cy, Inches(2.200), Inches(0.350),
-                aspect, size=11, bold=True, color=DARK_NAVY)
+                aspect, size=12, bold=True, color=DARK_NAVY)
     # Synthetic
     card_l = add_card(s, Inches(2.900), cy, Inches(3.200), Inches(0.750), border=MID_GRAY)
-    set_text(card_l, syn, size=11, color=DARK_GRAY, align=PP_ALIGN.CENTER,
+    set_text(card_l, syn, size=12, color=DARK_GRAY, align=PP_ALIGN.CENTER,
              anchor=MSO_ANCHOR.MIDDLE)
     # vs label
     add_textbox(s, Inches(6.100), cy, Inches(0.400), Inches(0.750),
@@ -959,11 +988,11 @@ for i, (aspect, syn, real) in enumerate(comp_rows):
     # Real
     card_r = add_card(s, Inches(6.500), cy, Inches(6.200), Inches(0.750),
                       fill=RGBColor(0xFF, 0xF3, 0xE0), border=ORANGE)
-    set_text(card_r, real, size=11, bold=True, color=DARK_GRAY, align=PP_ALIGN.CENTER,
+    set_text(card_r, real, size=12, bold=True, color=DARK_GRAY, align=PP_ALIGN.CENTER,
              anchor=MSO_ANCHOR.MIDDLE)
 
 # Conclusion
-msg = add_card(s, Inches(1.500), Inches(6.600), Inches(10.300), Inches(0.600),
+msg = add_card(s, Inches(1.500), Inches(6.300), Inches(10.300), Inches(0.600),
                fill=RGBColor(0xFF, 0xEB, 0xEE), border=RED_ACCENT)
 set_text(msg, "Ranking reversals between synthetic and real data demonstrate the need for real-pathogen benchmarking",
          size=12, bold=True, color=RED_ACCENT, align=PP_ALIGN.CENTER, anchor=MSO_ANCHOR.MIDDLE)
@@ -1003,7 +1032,7 @@ bignums = [
     ("4", "Statistical Tests", "Two-way ANOVA\nPermutation test\nFriedman test\nLOPO cross-validation"),
 ]
 for i, (num, label, desc) in enumerate(bignums):
-    cx = Inches(0.600) + i * Inches(4.200)
+    cx = Inches(0.465) + i * Inches(4.250)
     cy = Inches(1.500)
     card = add_card(s, cx, cy, Inches(3.900), Inches(4.800), border=MID_GRAY)
     add_textbox(s, cx, cy + Inches(0.300), Inches(3.900), Inches(1.200),
@@ -1025,7 +1054,7 @@ add_figure(s, os.path.join(FIG_MAIN, "variance_decomposition.png"),
 # omega-squared cards
 anova_cards = [
     ("Detection", "~35%", "Largest effect:\nchoice of detection\nmethod matters most"),
-    ("Interaction", "28.5%", "Scoring x Pathogen\ninteraction is strong:\nno universal best"),
+    ("Interaction", "28.5%", "Detection Family × Pathogen\ninteraction is strong:\nno universal best"),
     ("Scoring", "~8.3%", "Scoring method\ncontributes less than\ndetection or interaction"),
 ]
 for i, (ttl, val, desc) in enumerate(anova_cards):
@@ -1037,7 +1066,7 @@ for i, (ttl, val, desc) in enumerate(anova_cards):
     add_textbox(s, Inches(8.200), cy + Inches(0.500), Inches(1.500), Inches(0.800),
                 val, size=28, bold=True, color=SEC_STAGE2)
     add_textbox(s, Inches(9.900), cy + Inches(0.200), Inches(2.600), Inches(1.200),
-                desc, size=11, color=DARK_GRAY)
+                desc, size=12, color=DARK_GRAY)
 
 
 # ── SLIDE 22: Per-Pathogen Best ──────────────────────────────────
@@ -1059,7 +1088,7 @@ add_textbox(s, Inches(9.100), Inches(3.800), Inches(3.600), Inches(2.800),
             "High entropy-function divergence\n(Norovirus r=0.39 vs\nSARS-CoV-2 r=0.03)\n\n"
             "H-score founder bias\n(rho = -0.876)\n\n"
             "E-R correlation:\nrho=0.517, p=0.154 (n.s.)",
-            size=11, color=DARK_GRAY)
+            size=12, color=DARK_GRAY)
 
 
 # ── SLIDE 23: Friedman + LOPO ────────────────────────────────────
@@ -1164,7 +1193,7 @@ set_text(central, "No single scoring + detection combination works best for all 
 
 # 4 evidence cards
 evidence = [
-    ("ANOVA Interaction", "omega-sq = 0.285", "Scoring x Pathogen interaction\nexplains 28.5% of variance", SEC_STAGE2),
+    ("ANOVA Interaction", "omega-sq = 0.285", "Detection Family × Pathogen\ninteraction explains 28.5% of variance", SEC_STAGE2),
     ("Unique Best Combos", "9 / 9", "Every pathogen has a different\noptimal method pair", GREEN),
     ("Friedman Test", "p = 0.0015", "Rankings differ significantly\nacross pathogens", PURPLE),
     ("LOPO CV", "0 / 9 correct", "Majority voting fails completely\nfor unseen pathogens", RED_ACCENT),
@@ -1181,7 +1210,7 @@ for i, (ttl, val, desc, clr) in enumerate(evidence):
     add_textbox(s, cx + Inches(0.250), cy + Inches(0.500), Inches(5.300), Inches(0.600),
                 val, size=28, bold=True, color=DARK_NAVY)
     add_textbox(s, cx + Inches(0.250), cy + Inches(1.150), Inches(5.300), Inches(0.700),
-                desc, size=11, color=DARK_GRAY)
+                desc, size=12, color=DARK_GRAY)
 
 
 # ── SLIDE 26: PAHD ──────────────────────────────────────────────
@@ -1226,11 +1255,16 @@ for i, (name, val, color) in enumerate(bars):
     cy = Inches(4.200) + i * Inches(0.470)
     add_textbox(s, Inches(7.200), cy, Inches(1.800), Inches(0.250),
                 name, size=10, bold=True, color=color)
-    bar_w = float(val) / 0.4 * 4.5
+    bar_w = min(float(val) / 0.4 * 3.5, 3.5)
     add_rect(s, Inches(9.100), cy, Inches(bar_w), Inches(0.250), fill=color)
-    add_textbox(s, Inches(9.100) + Inches(bar_w) + Inches(0.100), cy,
-                Inches(0.800), Inches(0.250), val, size=9, bold=True, color=color,
-                anchor=MSO_ANCHOR.MIDDLE)
+    if bar_w >= 0.8:
+        add_textbox(s, Inches(9.100) + Inches(bar_w) - Inches(0.700), cy,
+                    Inches(0.650), Inches(0.250), val, size=11, bold=True, color=WHITE,
+                    anchor=MSO_ANCHOR.MIDDLE, align=PP_ALIGN.RIGHT)
+    else:
+        add_textbox(s, Inches(9.100) + Inches(bar_w) + Inches(0.050), cy,
+                    Inches(0.650), Inches(0.250), val, size=11, bold=True, color=color,
+                    anchor=MSO_ANCHOR.MIDDLE)
 
 
 # ── SLIDE 27: Phylo + Region-overlap ────────────────────────────
@@ -1301,11 +1335,16 @@ for i, (name, val, color) in enumerate(bars):
     cy = Inches(1.800) + i * Inches(1.000)
     add_textbox(s, Inches(8.500), cy, Inches(2.500), Inches(0.350),
                 name, size=12, bold=True, color=color)
-    bar_w = float(val) / 0.4 * 4.0
+    bar_w = min(float(val) / 0.4 * 3.5, 3.5)
     add_rect(s, Inches(8.500), cy + Inches(0.380), Inches(bar_w), Inches(0.350), fill=color)
-    add_textbox(s, Inches(8.500) + Inches(bar_w) + Inches(0.100), cy + Inches(0.380),
-                Inches(1.000), Inches(0.350), val, size=11, bold=True, color=color,
-                anchor=MSO_ANCHOR.MIDDLE)
+    if bar_w >= 0.8:
+        add_textbox(s, Inches(8.500) + Inches(bar_w) - Inches(0.700), cy + Inches(0.380),
+                    Inches(0.650), Inches(0.350), val, size=11, bold=True, color=WHITE,
+                    anchor=MSO_ANCHOR.MIDDLE, align=PP_ALIGN.RIGHT)
+    else:
+        add_textbox(s, Inches(8.500) + Inches(bar_w) + Inches(0.050), cy + Inches(0.380),
+                    Inches(0.650), Inches(0.350), val, size=11, bold=True, color=color,
+                    anchor=MSO_ANCHOR.MIDDLE)
 
 
 # ── SLIDE 29: Research Contributions (MOVED after results) ──────
@@ -1346,7 +1385,7 @@ for i, (ttl, desc, ref, clr) in enumerate(contribs):
                 desc, size=12, color=DARK_GRAY)
     # slide reference
     add_textbox(s, cx + Inches(0.250), cy + Inches(1.950), Inches(5.300), Inches(0.300),
-                ref, size=9, color=GRAY)
+                ref, size=10, color=GRAY)
 
 
 # ── SLIDE 30: Discussion ────────────────────────────────────────
@@ -1410,7 +1449,7 @@ for ci, (ttl, color, items) in enumerate(col_data):
         card = add_card(s, cx, iy, Inches(6.000), Inches(1.050), border=MID_GRAY)
         add_accent_bar(s, cx, iy, Inches(0.060), Inches(1.050), color)
         add_textbox(s, cx + Inches(0.200), iy + Inches(0.100), Inches(5.600), Inches(0.850),
-                    item, size=11, color=DARK_GRAY)
+                    item, size=12, color=DARK_GRAY)
 
 
 # ── SLIDE 32: Key Takeaway ──────────────────────────────────────
