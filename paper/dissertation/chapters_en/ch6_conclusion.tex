@@ -102,13 +102,8 @@ Window-based or region overlap metrics could more leniently reflect the practica
 
 \subsection{PAHD: From Benchmark Application to Full Implementation}
 
-The PAHD prototype presented in Section~\ref{subsec:pahd_prototype} serves as a proof-of-concept application of the benchmark results, demonstrating that the statistical findings of MutBench (Contribution~2) can be translated into a practical method selection strategy.
-Two profile versions were evaluated: v1 (8 metadata features) and v2 (85 MSA-derived features including per-scoring statistics, cross-score correlations, and spatial autocorrelation).
-The v1 Family-first strategy achieved 5/9 positive MCC with median MCC of 0.014 (compared to naive median of 0.000); the v2 profile improved mean MCC from 0.005 to 0.017 by eliminating pathological negative transfers (e.g., HCV from $-0.291$ to $+0.141$) through more discriminating pathogen similarity scores.
-However, the exact match rate remained 0/9 under both v1 and v2, confirming that even with 85 features the fundamental limitation of $n = 9$ pathogens persists.
-When evaluated at coarser prediction granularities---detection family (15 families) and scoring formula (9 formulas)---the match rate remained 0/9, but the achieved MCC improved substantially: family-level prediction recovered 48.3\% of oracle performance (mean MCC $= 0.144$), and scoring-level prediction recovered 57.7\% (mean MCC $= 0.172$), compared to 1.7\% for exact combination prediction.
-This demonstrates that even failed label predictions at coarser granularities yield competitive detection performance, supporting the viability of a hierarchical prediction approach as the knowledge base expands.
-Scaling to 20+ pathogens, introducing top-$k$ ensemble strategies, and transitioning to meta-learning regression models~\cite{rice1976algorithm,smith2021algorithm} are the concrete next steps for a full PAHD implementation.
+The PAHD prototype (Section~\ref{subsec:pahd_prototype}) demonstrated that coarser-granularity prediction (detection family or scoring formula) can recover up to 57.7\% of oracle performance even when exact combination matching fails at 0/9, confirming the viability of a hierarchical prediction approach.
+The critical bottleneck is the $n = 9$ knowledge base: scaling to 20+ pathogens, introducing top-$k$ ensemble strategies, and transitioning to meta-learning regression models~\cite{rice1976algorithm,smith2021algorithm} are the concrete next steps for a full PAHD implementation.
 
 \subsection{Integration of Phylogenetic Correction}
 

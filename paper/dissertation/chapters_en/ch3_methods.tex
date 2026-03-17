@@ -565,6 +565,10 @@ Layer B (constrained regions) is not included in MCC computation and is evaluate
 \end{itemize}
 
 While Stage~1 uses hotspot-score (which includes stability) for in-depth single-pathogen analysis, Stage~2 adopts MCC as the primary metric because stability has not been validated for cross-pathogen comparability and MCC provides a balanced evaluation for the extreme class imbalance present in multi-pathogen evaluation.
+This design decision is motivated by three considerations.
+First, the stability component measures bootstrap reproducibility under position-level subsampling, but the subsampling behavior differs fundamentally across pathogens with different alignment lengths (340--1,330 AA) and MSA sizes (530--5,019 unique sequences), making cross-pathogen stability values non-comparable.
+Second, MCC utilizes all four cells of the confusion matrix (TP, TN, FP, FN), providing a balanced evaluation under the extreme class imbalance inherent in hotspot detection (positive rates 1--16\% across the 9 pathogens).
+Third, separating the evaluation metric between stages allows Stage~1 to assess detection \textit{reliability} (via stability) and Stage~2 to assess detection \textit{accuracy} (via MCC), each optimized for its analytical purpose.
 MCC is formally defined as:
 \begin{equation}
 \text{MCC} = \frac{TP \times TN - FP \times FN}{\sqrt{(TP+FP)(TP+FN)(TN+FP)(TN+FN)}}

@@ -91,6 +91,41 @@ Third, \textbf{ground truth stringency} penalizes methods that detect genuine bu
 Despite these constraints, the oracle MCC of 0.298 is unambiguously non-random: the random baseline (10,000 permutations) has a mean of 0.001 (SD = 0.003), placing the oracle approximately 99 standard deviations above chance.
 For context, similar position-level evaluation metrics in other bioinformatics benchmarks yield comparable ranges: transcription factor binding site prediction achieves F1 of 0.3--0.5 at single-nucleotide resolution~\cite{weirauch2013evaluation}, and early CASP protein structure prediction achieved GDT-TS scores below 0.3 for difficult targets~\cite{moult2014casp} (though GDT-TS measures structural similarity rather than binary classification, the comparison illustrates that low absolute scores are common in position-level biological prediction).
 The oracle MCC of 0.298 is thus consistent with the inherent difficulty of position-level biological prediction tasks.
+
+To quantify the impact of position-exact evaluation, a region-overlap analysis was conducted using $\pm5$ and $\pm10$ position windows (Table~\ref{tab:region_overlap_mcc}).
+Under region-overlap evaluation, a detected position counts as a true positive if any ground truth position lies within the specified window, and a ground truth position counts as recalled if any detection lies within the window.
+The $\pm5$ window corresponds approximately to a single protein secondary structure element or antigenic epitope ({$\sim$}15 residues), providing a biologically meaningful proximity criterion. This analysis serves as a sensitivity check on the strictness of position-exact evaluation, not as a replacement: position-exact MCC remains the primary metric because it is parameter-free and ensures full reproducibility, following the precedent of ENCODE ChIP-seq benchmarks which use summit-level evaluation as primary and peak-overlap as supplementary.
+Under $\pm10$ window evaluation, the mean oracle MCC increased from 0.289 to 0.712, a 146\% improvement.
+Notably, H3N2 achieved MCC = 0.964 under $\pm10$ (vs. 0.521 exact), confirming that detected hotspots are spatially proximate to known antigenic drift sites even when not exactly overlapping.
+This quantifies the conservativeness of position-exact evaluation: the large improvement under relaxed windows indicates that many detections fall within biologically relevant proximity of ground truth positions, rather than being scattered randomly across the genome.
+
+\begin{table}[htbp]
+\centering
+\caption{Region-overlap MCC analysis for oracle combinations under three evaluation modes}
+\label{tab:region_overlap_mcc}
+\small
+\begin{tabular}{lccc}
+\toprule
+\textbf{Pathogen} & \textbf{Exact} & \textbf{$\pm$5 window} & \textbf{$\pm$10 window} \\
+\midrule
+SARS-CoV-2    & 0.227 & 0.712 & 0.861 \\
+H3N2          & 0.521 & 0.851 & 0.964 \\
+Norovirus     & 0.355 & 0.925 & 0.925 \\
+HIV-1         & 0.301 & 0.736 & 0.789 \\
+Dengue        & 0.274 & 0.741 & 0.919 \\
+RSV           & 0.150 & 0.164 & 0.164 \\
+Influenza B   & 0.195 & 0.558 & 0.594 \\
+MERS          & 0.071 & 0.263 & 0.295 \\
+HCV           & 0.510 & 0.793 & 0.894 \\
+\midrule
+\textbf{Mean} & \textbf{0.289} & \textbf{0.638} & \textbf{0.712} \\
+\bottomrule
+\end{tabular}
+
+\vspace{1mm}
+{\footnotesize $^\dagger$The position-exact MCC (0.289) differs slightly from the benchmark-reported oracle (0.298) due to minor code version differences in detection method implementations; the relative improvement from position-exact to region-overlap is the primary finding of this analysis.}
+\end{table}
+
 Pathogens with well-characterized ground truth achieve substantially higher values.
 Despite these ceiling effects, the benchmark results have practical implications for public health surveillance.
 
