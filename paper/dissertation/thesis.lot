@@ -1,0 +1,41 @@
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {2.1}{\ignorespaces 기존 다중오믹스 벤치마크 연구의 요인 분석 범위 비교. \textbf {X}: 주요 요인으로 체계적 분석, \textbf {O}: 부분적 분석, \textbf {S}: 시뮬레이션/간접 분석, 공란: 미분석.\relax }}{10}{table.caption.6}%
+\contentsline {table}{\numberline {2.2}{\ignorespaces DBSCAN과 MutClust의 비교\relax }}{21}{table.caption.7}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {3.1}{\ignorespaces Spike 단백질의 기능 영역 (ground truth)\relax }}{32}{table.caption.9}%
+\contentsline {table}{\numberline {3.2}{\ignorespaces MutBench에서 평가된 탐지 방법\relax }}{32}{table.caption.12}%
+\contentsline {table}{\numberline {3.3}{\ignorespaces 9종 병원체별 서열 데이터셋 특성\relax }}{47}{table.caption.19}%
+\contentsline {table}{\numberline {3.4}{\ignorespaces 9-병원체 벤치마크에서 평가된 41개 탐지 방법 (15개 패밀리)\relax }}{49}{table.caption.20}%
+\contentsline {table}{\numberline {3.5}{\ignorespaces 병원체별 3계층 ground truth 위치 수 (아미노산 수준, 0-based)\relax }}{54}{table.caption.24}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {4.1}{\ignorespaces 합성 SARS-CoV-2 데이터에 대한 방법 비교 (29,903 위치, 1,251개 ground truth 기능 뉴클레오티드 위치)\relax }}{59}{table.caption.30}%
+\contentsline {table}{\numberline {4.2}{\ignorespaces Hotspot-score 분석 (100회 부분추출, 80\% 위치 유지)\relax }}{61}{table.caption.31}%
+\contentsline {table}{\numberline {4.3}{\ignorespaces Hotspot-score의 영역 수준 BCa 부트스트랩 95\% 신뢰 구간 (7개 기능 영역의 1,000회 리샘플링, bias-corrected and accelerated)\relax }}{65}{table.caption.33}%
+\contentsline {table}{\numberline {4.4}{\ignorespaces Hotspot-score 가중치 민감도 분석: 7가지 응용 시나리오에서의 방법 순위\relax }}{66}{table.caption.34}%
+\contentsline {table}{\numberline {4.5}{\ignorespaces HDBSCAN 파라미터 민감도 분석\relax }}{70}{table.caption.36}%
+\contentsline {table}{\numberline {4.6}{\ignorespaces dN/dS 역치에 따른 핫스팟 탐지 성능 변화 (합성 데이터, 333개 합성 변이)\relax }}{71}{table.caption.37}%
+\contentsline {table}{\numberline {4.7}{\ignorespaces 짧은 클러스터($<$10 코돈) 편향 분석 (dN/dS $> 1.0$ 역치)\relax }}{72}{table.caption.38}%
+\contentsline {table}{\numberline {4.8}{\ignorespaces GISAID 2024--2025 데이터를 이용한 시간적 검증 결과\relax }}{73}{table.caption.39}%
+\contentsline {table}{\numberline {4.9}{\ignorespaces 다중 ground truth에 대한 방법 비교\relax }}{75}{table.caption.40}%
+\contentsline {table}{\numberline {4.10}{\ignorespaces 실제 GISAID 2020--2021 H-score 데이터에 대한 방법 비교 (342개 비영 위치, 1,251개 ground truth 뉴클레오티드 위치)\relax }}{76}{table.caption.41}%
+\contentsline {table}{\numberline {4.11}{\ignorespaces 외부 독립 방법을 포함한 벤치마크 결과. 합성 H-score 데이터, 7개 Spike 기능 영역 ground truth 사용.\relax }}{78}{table.caption.42}%
+\contentsline {table}{\numberline {4.12}{\ignorespaces Glycosylation 부위 회피율 분석. 22개 N-glycosylation 부위(66개 뉴클레오티드)에 대한 각 방법의 보존 영역 특이도.\relax }}{81}{table.caption.43}%
+\contentsline {table}{\numberline {4.13}{\ignorespaces Influenza A H3N2 HA 교차 병원체 벤치마크 결과 (1,967개 서열, 5개 항원 부위 ground truth)\relax }}{82}{table.caption.44}%
+\contentsline {table}{\numberline {4.14}{\ignorespaces 2-병원체 교차 비교: 최우수 방법의 병원체 의존성\relax }}{84}{table.caption.46}%
+\contentsline {table}{\numberline {4.15}{\ignorespaces 대안적 입력 신호에 대한 MutClust 변이체 비교 (합성 데이터, 7개 Spike 기능 영역 ground truth)\relax }}{86}{table.caption.47}%
+\contentsline {table}{\numberline {4.16}{\ignorespaces 빈도 기반 점수(H-score)와 동형질변이 기반 점수(homoplasy)의 변이 유형별 비교 (100회 반복, $N$ = 500).\relax }}{89}{table.caption.48}%
+\contentsline {table}{\numberline {4.17}{\ignorespaces 세 가지 점수 체계의 수렴 변이 판별 성능 비교 (50회 반복, $N$ = 2,000).\relax }}{91}{table.caption.49}%
+\contentsline {table}{\numberline {4.18}{\ignorespaces 실제 GISAID 서열 기반 TreeTime homoplasy 점수와 H-score의 핵심 위치 비교 ($N$ = 500, 2024--2025).\relax }}{93}{table.caption.50}%
+\contentsline {table}{\numberline {4.19}{\ignorespaces VOC 탐지 시점 분석 결과 (시뮬레이션 기반).\relax }}{95}{table.caption.51}%
+\contentsline {table}{\numberline {4.20}{\ignorespaces 회고적 탐지 분석: 실제 GISAID H-score 축적에 따른 핵심 VOC 위치 최초 탐지 시점\relax }}{96}{table.caption.52}%
+\contentsline {table}{\numberline {4.21}{\ignorespaces 9종 병원체별 최적 스코어링--탐지 조합 (MCC 기준)\relax }}{101}{table.caption.53}%
+\contentsline {table}{\numberline {4.22}{\ignorespaces 삼원분산분석 결과: MCC에 대한 각 요인의 $\omega ^2$ 효과 크기\relax }}{102}{table.caption.54}%
+\contentsline {table}{\numberline {4.23}{\ignorespaces 병원체별 최적 조합(top-1)의 정밀도, 재현율, 탐지 크기 및 최고 MCC.\relax }}{110}{table.caption.58}%
+\contentsline {table}{\numberline {4.24}{\ignorespaces DMS 적합도 점수와 진화적 탐지 점수 간 Spearman 상관.\relax }}{111}{table.caption.60}%
+\contentsline {table}{\numberline {4.25}{\ignorespaces DMS ground truth 역치에 따른 최적 스코어링--탐지 조합과 DMS F1 (4종 병원체)\relax }}{112}{table.caption.61}%
+\contentsline {table}{\numberline {4.26}{\ignorespaces GISAID 2024--2025 서열에서의 Spike 기능적 indel 빈도 ($N = 8{,}720$)\relax }}{113}{table.caption.62}%
+\contentsline {table}{\numberline {4.27}{\ignorespaces Indel 배제의 탐지 영향: 원래 vs. augmented H-score (확장 ground truth 기준)\relax }}{114}{table.caption.63}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {5.1}{\ignorespaces 2단계 파이프라인 검증 결과 (합성 데이터, 29,903 위치, 1,251개 ground truth 위치)\relax }}{124}{table.caption.64}%
+\addvspace {10\p@ }

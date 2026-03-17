@@ -1,0 +1,140 @@
+\contentsline {chapter}{감사의 글}{v}{section*.1}%
+\contentsline {chapter}{초록}{vi}{section*.2}%
+\contentsline {chapter}{\numberline {1}서론}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}연구 배경}{1}{section.1.1}%
+\contentsline {section}{\numberline {1.2}연구 동기 및 문제 정의}{2}{section.1.2}%
+\contentsline {section}{\numberline {1.3}연구 목적}{3}{section.1.3}%
+\contentsline {section}{\numberline {1.4}연구 기여}{4}{section.1.4}%
+\contentsline {section}{\numberline {1.5}논문 구성}{5}{section.1.5}%
+\contentsline {chapter}{\numberline {2}배경 및 선행 연구}{6}{chapter.2}%
+\contentsline {section}{\numberline {2.1}다중오믹스 통합 분석}{7}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}다중오믹스 통합 방법론}{7}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}벤치마킹 프레임워크}{8}{subsection.2.1.2}%
+\contentsline {section}{\numberline {2.2}바이러스 변이 핫스팟 탐지}{10}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}변이 핫스팟 탐지 방법론}{10}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}밀도 기반 클러스터링}{12}{subsection.2.2.2}%
+\contentsline {section}{\numberline {2.3}MOSD: 다중오믹스 연구 설계 프레임워크}{14}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}연구 배경 및 동기}{14}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}방법론}{15}{subsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.3.3}주요 결과}{16}{subsection.2.3.3}%
+\contentsline {subsection}{\numberline {2.3.4}본 연구에의 시사점}{18}{subsection.2.3.4}%
+\contentsline {section}{\numberline {2.4}MutClust: 적응형 밀도 기반 핫스팟 탐지}{19}{section.2.4}%
+\contentsline {subsection}{\numberline {2.4.1}H-score와 적응형 DBSCAN}{19}{subsection.2.4.1}%
+\contentsline {subsection}{\numberline {2.4.2}SARS-CoV-2 핫스팟 탐지 결과}{22}{subsection.2.4.2}%
+\contentsline {subsection}{\numberline {2.4.3}한계점과 MutBench 개발 동기}{24}{subsection.2.4.3}%
+\contentsline {chapter}{\numberline {3}MutBench: 방법론}{28}{chapter.3}%
+\contentsline {section}{\numberline {3.1}연구 동기와 기여}{28}{section.3.1}%
+\contentsline {section}{\numberline {3.2}관련 방법론}{29}{section.3.2}%
+\contentsline {section}{\numberline {3.3}방법론}{30}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}MutBench 프레임워크 구조}{30}{subsection.3.3.1}%
+\contentsline {subsubsection}{계층 1: Ground Truth 생성}{31}{section*.8}%
+\contentsline {subsubsection}{계층 2: 탐지 방법}{32}{section*.11}%
+\contentsline {subsubsection}{계층 3: 평가 지표}{33}{section*.13}%
+\contentsline {subsection}{\numberline {3.3.2}5가지 MutClust 변이체}{33}{subsection.3.3.2}%
+\contentsline {subsubsection}{H-score 계산}{33}{section*.14}%
+\contentsline {subsubsection}{버그 수정 (MutClust-Fixed)}{34}{section*.15}%
+\contentsline {subsubsection}{dN/dS 선택 필터 (MutClust-dNdS)}{35}{section*.16}%
+\contentsline {subsubsection}{HDBSCAN 하이브리드 (MutClust-Hybrid)}{37}{section*.17}%
+\contentsline {subsubsection}{순수 HDBSCAN (HDBSCAN-Auto)}{39}{section*.18}%
+\contentsline {subsection}{\numberline {3.3.3}Hotspot-score 복합 지표}{39}{subsection.3.3.3}%
+\contentsline {subsection}{\numberline {3.3.4}DMS 기반 벤치마크}{41}{subsection.3.3.4}%
+\contentsline {subsection}{\numberline {3.3.5}다중 Ground Truth를 위한 대안적 스코어링 방법}{42}{subsection.3.3.5}%
+\contentsline {subsection}{\numberline {3.3.6}Hotspot-score 가중치 민감도 분석}{44}{subsection.3.3.6}%
+\contentsline {subsection}{\numberline {3.3.7}통계적 검증 방법}{44}{subsection.3.3.7}%
+\contentsline {section}{\numberline {3.4}9-병원체 확장 벤치마크}{45}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}대상 병원체 및 데이터}{46}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.2}스코어링 공식}{47}{subsection.3.4.2}%
+\contentsline {subsection}{\numberline {3.4.3}탐지 방법 패밀리}{48}{subsection.3.4.3}%
+\contentsline {subsection}{\numberline {3.4.4}3계층 Ground Truth 프레임워크}{52}{subsection.3.4.4}%
+\contentsline {subsubsection}{Layer A: 적응적 양성 선택 (Adaptive)}{52}{section*.21}%
+\contentsline {subsubsection}{Layer B: 구속적 정화 선택 (Constrained)}{52}{section*.22}%
+\contentsline {subsubsection}{Layer C: DMS 실험적 검증}{53}{section*.23}%
+\contentsline {subsection}{\numberline {3.4.5}평가 지표}{53}{subsection.3.4.5}%
+\contentsline {subsection}{\numberline {3.4.6}통계 분석 설계}{56}{subsection.3.4.6}%
+\contentsline {subsubsection}{Three-way ANOVA ($\omega ^2$)}{56}{section*.25}%
+\contentsline {subsubsection}{LOPO 교차 검증 (Leave-One-Pathogen-Out)}{56}{section*.26}%
+\contentsline {subsubsection}{Friedman 검정}{56}{section*.27}%
+\contentsline {subsubsection}{병원체 수준 BCa 부트스트랩 신뢰 구간}{57}{section*.28}%
+\contentsline {subsubsection}{하위표본 강건성 분석}{57}{section*.29}%
+\contentsline {chapter}{\numberline {4}실험 결과}{58}{chapter.4}%
+\contentsline {section}{\numberline {4.1}합성 벤치마크: 변이체 비교}{59}{section.4.1}%
+\contentsline {section}{\numberline {4.2}통계적 검증}{62}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}합성 데이터 설계의 순환성 검증}{67}{subsection.4.2.1}%
+\contentsline {section}{\numberline {4.3}민감도 분석}{68}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}샘플 크기 민감도}{68}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}파라미터 민감도}{69}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.3.3}dN/dS 역치 민감도}{70}{subsection.4.3.3}%
+\contentsline {section}{\numberline {4.4}시간적 일반화 (GISAID 2024--2025)}{73}{section.4.4}%
+\contentsline {section}{\numberline {4.5}다중 Ground Truth 평가}{74}{section.4.5}%
+\contentsline {section}{\numberline {4.6}실제 GISAID 2020--2021 H-score 벤치마크}{76}{section.4.6}%
+\contentsline {section}{\numberline {4.7}외부 독립 방법과의 비교}{78}{section.4.7}%
+\contentsline {section}{\numberline {4.8}보존 영역 특이도: Glycosylation 부위 분석}{80}{section.4.8}%
+\contentsline {section}{\numberline {4.9}교차 병원체 검증: Influenza A H3N2 HA}{82}{section.4.9}%
+\contentsline {subsubsection}{교차 병원체 비교}{84}{section*.45}%
+\contentsline {section}{\numberline {4.10}대안적 입력 신호 평가: TC-freq와 CH-score}{85}{section.4.10}%
+\contentsline {section}{\numberline {4.11}3D 구조 분석}{88}{section.4.11}%
+\contentsline {section}{\numberline {4.12}계통발생 비독립성 시뮬레이션}{88}{section.4.12}%
+\contentsline {subsection}{\numberline {4.12.1}계통발생 보정의 개념 증명}{89}{subsection.4.12.1}%
+\contentsline {subsection}{\numberline {4.12.2}TreeTime ML 조상 재구성 검증}{91}{subsection.4.12.2}%
+\contentsline {subsection}{\numberline {4.12.3}실제 GISAID 서열에서의 TreeTime 조상 재구성 검증}{92}{subsection.4.12.3}%
+\contentsline {section}{\numberline {4.13}VOC 탐지 시점 분석 (개념 증명)}{94}{section.4.13}%
+\contentsline {section}{\numberline {4.14}회고적 탐지 분석: 실제 H-score 축적에 따른 핵심 위치 탐지}{95}{section.4.14}%
+\contentsline {subsection}{\numberline {4.14.1}방법론}{95}{subsection.4.14.1}%
+\contentsline {subsection}{\numberline {4.14.2}결과}{96}{subsection.4.14.2}%
+\contentsline {subsection}{\numberline {4.14.3}분석}{97}{subsection.4.14.3}%
+\contentsline {subsection}{\numberline {4.14.4}1단계 종합 요약}{98}{subsection.4.14.4}%
+\contentsline {subsection}{\numberline {4.14.5}1단계에서 2단계로의 전환}{99}{subsection.4.14.5}%
+\contentsline {section}{\numberline {4.15}9-병원체 벤치마크 결과}{100}{section.4.15}%
+\contentsline {subsection}{\numberline {4.15.1}벤치마크 규모 및 데이터}{100}{subsection.4.15.1}%
+\contentsline {subsection}{\numberline {4.15.2}병원체별 최적 방법 분석}{101}{subsection.4.15.2}%
+\contentsline {subsection}{\numberline {4.15.3}삼원분산분석 (Three-way ANOVA, $\omega ^2$)}{102}{subsection.4.15.3}%
+\contentsline {subsection}{\numberline {4.15.4}LOPO 교차 검증}{103}{subsection.4.15.4}%
+\contentsline {subsection}{\numberline {4.15.5}Friedman 검정}{105}{subsection.4.15.5}%
+\contentsline {subsection}{\numberline {4.15.6}병원체 수준 BCa 부트스트랩 신뢰 구간}{105}{subsection.4.15.6}%
+\contentsline {subsection}{\numberline {4.15.7}하위표본 강건성}{107}{subsection.4.15.7}%
+\contentsline {subsection}{\numberline {4.15.8}핵심 발견 요약: 병원체 적응적 방법 선택의 필요성}{107}{subsection.4.15.8}%
+\contentsline {subsection}{\numberline {4.15.9}ANOVA 진단 검정}{108}{subsection.4.15.9}%
+\contentsline {paragraph}{정규성 검정.}{108}{section*.55}%
+\contentsline {paragraph}{등분산성 검정.}{108}{section*.56}%
+\contentsline {paragraph}{비모수 확인 검정.}{108}{section*.57}%
+\contentsline {subsection}{\numberline {4.15.10}Precision@$k$ 분석}{109}{subsection.4.15.10}%
+\contentsline {paragraph}{구속 영역 위양성률.}{110}{section*.59}%
+\contentsline {subsection}{\numberline {4.15.11}DMS-진화 상관 분석}{111}{subsection.4.15.11}%
+\contentsline {subsection}{\numberline {4.15.12}DMS Ground Truth 역치 민감도 분석}{112}{subsection.4.15.12}%
+\contentsline {section}{\numberline {4.16}삽입-결실 변이(Indel) 배제의 영향 분석}{113}{section.4.16}%
+\contentsline {chapter}{\numberline {5}논의}{116}{chapter.5}%
+\contentsline {section}{\numberline {5.1}다중오믹스 벤치마킹과 바이러스 게놈학의 연결}{116}{section.5.1}%
+\contentsline {section}{\numberline {5.2}도메인 정보와 자동화의 균형}{117}{section.5.2}%
+\contentsline {section}{\numberline {5.3}특성 공간 정규화의 영향}{118}{section.5.3}%
+\contentsline {section}{\numberline {5.4}부트스트랩 신뢰 구간의 해석}{119}{section.5.4}%
+\contentsline {section}{\numberline {5.5}합성 데이터와 실제 데이터 간의 성능 격차}{119}{section.5.5}%
+\contentsline {section}{\numberline {5.6}H-score 포화와 적응적 참조 서열의 필요성}{120}{section.5.6}%
+\contentsline {section}{\numberline {5.7}상보적 평가 관점}{121}{section.5.7}%
+\contentsline {section}{\numberline {5.8}교차 병원체 일반화의 함의}{121}{section.5.8}%
+\contentsline {section}{\numberline {5.9}구속 영역 위양성률의 함의}{122}{section.5.9}%
+\contentsline {section}{\numberline {5.10}공중보건 감시에서의 실용적 고려}{123}{section.5.10}%
+\contentsline {section}{\numberline {5.11}계통발생 비독립성과 Founder Effect}{125}{section.5.11}%
+\contentsline {section}{\numberline {5.12}DMS 실험 데이터의 한계}{128}{section.5.12}%
+\contentsline {section}{\numberline {5.13}GISAID 데이터의 대표성과 표본 편향}{129}{section.5.13}%
+\contentsline {section}{\numberline {5.14}선형 서열 기반 평가의 구조적 한계}{129}{section.5.14}%
+\contentsline {section}{\numberline {5.15}삽입-결실 변이(Indel)의 배제와 한계}{130}{section.5.15}%
+\contentsline {section}{\numberline {5.16}사전훈련 단백질 언어 모델(PLM) 기반 접근법의 한계}{131}{section.5.16}%
+\contentsline {section}{\numberline {5.17}재조합(Recombination)의 한계}{132}{section.5.17}%
+\contentsline {section}{\numberline {5.18}RNA 바이러스 한정의 일반화 한계}{132}{section.5.18}%
+\contentsline {section}{\numberline {5.19}소결}{133}{section.5.19}%
+\contentsline {chapter}{\numberline {6}결론}{135}{chapter.6}%
+\contentsline {section}{\numberline {6.1}연구 기여 요약}{135}{section.6.1}%
+\contentsline {section}{\numberline {6.2}한계점}{137}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Ground truth 한계}{137}{subsection.6.2.1}%
+\contentsline {subsection}{\numberline {6.2.2}계통발생 비독립성}{137}{subsection.6.2.2}%
+\contentsline {subsection}{\numberline {6.2.3}범위 한계}{138}{subsection.6.2.3}%
+\contentsline {subsection}{\numberline {6.2.4}합성 데이터와 실제 데이터 간의 격차}{138}{subsection.6.2.4}%
+\contentsline {subsection}{\numberline {6.2.5}위치 수준 평가의 한계}{139}{subsection.6.2.5}%
+\contentsline {section}{\numberline {6.3}향후 연구 방향}{139}{section.6.3}%
+\contentsline {subsection}{\numberline {6.3.1}PAHD 구현}{139}{subsection.6.3.1}%
+\contentsline {subsection}{\numberline {6.3.2}계통발생학적 보정 통합}{139}{subsection.6.3.2}%
+\contentsline {subsection}{\numberline {6.3.3}DNA 바이러스 확장}{140}{subsection.6.3.3}%
+\contentsline {subsection}{\numberline {6.3.4}Indel 및 단백질 언어 모델 통합}{140}{subsection.6.3.4}%
+\contentsline {subsection}{\numberline {6.3.5}실시간 감시 체계 연동}{140}{subsection.6.3.5}%
+\contentsline {section}{\numberline {6.4}맺음말}{141}{section.6.4}%
+\contentsline {chapter}{Abstract}{157}{section*.67}%

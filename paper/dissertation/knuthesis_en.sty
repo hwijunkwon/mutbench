@@ -1,0 +1,186 @@
+%% knuthesis_en.sty — Kyungpook National University Ph.D. Thesis Style (English)
+%% Based on seonho/KNU-Thesis template (MIT License)
+%% English-only version (no kotex dependency)
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{knuthesis_en}[2026/03/12 KNU Thesis Style (English)]
+
+\RequirePackage{ifthen}
+\RequirePackage{geometry}
+
+%% memoir class compatibility
+\@ifclassloaded{memoir}{%
+  \DisemulatePackage{setspace}%
+}{}
+\RequirePackage{setspace}
+
+%% ============================================================
+%% Metadata commands
+%% ============================================================
+\newcommand{\@ktitle}{}
+\newcommand{\ktitle}[1]{\renewcommand{\@ktitle}{#1}}
+
+\newcommand{\@kauthor}{}
+\newcommand{\kauthor}[1]{\renewcommand{\@kauthor}{#1}}
+
+\newcommand{\@advisor}{}
+\newcommand{\advisor}[1]{\renewcommand{\@advisor}{#1}}
+
+\newcommand{\@kadvisor}{}
+\newcommand{\kadvisor}[1]{\renewcommand{\@kadvisor}{#1}}
+
+\newcommand{\@major}{}
+\newcommand{\major}[1]{\renewcommand{\@major}{#1}}
+
+\newcommand{\@kmajor}{}
+\newcommand{\kmajor}[1]{\renewcommand{\@kmajor}{#1}}
+
+\newcommand{\@degreeyear}{}
+\newcommand{\@degreemonth}{}
+\newcommand{\degreedate}[2]{%
+  \renewcommand{\@degreeyear}{#1}%
+  \renewcommand{\@degreemonth}{#2}%
+}
+
+%% Committee members
+\newcommand{\@committeechairman}{}
+\newcommand{\committeechairman}[1]{\renewcommand{\@committeechairman}{#1}}
+
+\newcommand{\@committeememberA}{}
+\newcommand{\committeememberA}[1]{\renewcommand{\@committeememberA}{#1}}
+
+\newcommand{\@committeememberB}{}
+\newcommand{\committeememberB}[1]{\renewcommand{\@committeememberB}{#1}}
+
+\newcommand{\@committeememberC}{}
+\newcommand{\committeememberC}[1]{\renewcommand{\@committeememberC}{#1}}
+
+\newcommand{\@committeememberD}{}
+\newcommand{\committeememberD}[1]{\renewcommand{\@committeememberD}{#1}}
+
+%% ============================================================
+%% Cover page
+%% ============================================================
+\newcommand{\makecoverpage}{%
+  \thispagestyle{empty}
+  \newgeometry{left=2cm,top=2.5cm,right=2cm,bottom=1.5cm}
+  \setstretch{1.3}
+  \begin{center}
+    {\fontsize{11pt}{13pt}\selectfont \textbf{Thesis for the Degree of Ph.D.}}\\
+    \vspace{3cm}
+    {\fontsize{21pt}{25pt}\selectfont \textbf{\@title}}\\
+    \vspace{4cm}
+    {\fontsize{12pt}{14pt}\selectfont \textbf{The Graduate School}}\\[0.3cm]
+    {\fontsize{12pt}{14pt}\selectfont \textbf{Kyungpook National University}}\\[0.3cm]
+    {\fontsize{12pt}{14pt}\selectfont \textbf{\@major}}\\
+    \vspace{2cm}
+    {\fontsize{14pt}{17pt}\selectfont \textbf{\@author}}\\
+    \vspace{\fill}
+    {\fontsize{12pt}{14pt}\selectfont \textbf{August \@degreeyear}}\\
+    \vspace{1cm}
+    {\fontsize{16pt}{19pt}\selectfont \textbf{Kyungpook National University}}\\
+  \end{center}
+  \restoregeometry
+  \clearpage
+}
+
+%% ============================================================
+%% Inner title page
+%% ============================================================
+\newcommand{\makeinnertitle}{%
+  \thispagestyle{empty}
+  \newgeometry{left=2cm,top=2.5cm,right=2cm,bottom=1.5cm}
+  \setstretch{1.3}
+  \begin{center}
+    {\fontsize{21pt}{25pt}\selectfont \textbf{\@title}}\\
+    \vspace{3cm}
+    {\fontsize{12pt}{14pt}\selectfont
+      Advisor: Professor \@advisor}\\
+    \vspace{2cm}
+    {\fontsize{12pt}{14pt}\selectfont
+      Submitted as a Doctoral Dissertation}\\
+    \vspace{2cm}
+    {\fontsize{12pt}{14pt}\selectfont August \@degreeyear}\\
+    \vspace{2cm}
+    {\fontsize{14pt}{17pt}\selectfont \textbf{The Graduate School}}\\[0.3cm]
+    {\fontsize{14pt}{17pt}\selectfont \textbf{Kyungpook National University}}\\[0.3cm]
+    {\fontsize{12pt}{14pt}\selectfont \@major}\\
+    \vspace{1.5cm}
+    {\fontsize{14pt}{17pt}\selectfont \textbf{\@author}}\\
+  \end{center}
+  \restoregeometry
+  \clearpage
+}
+
+%% ============================================================
+%% Approval page
+%% ============================================================
+\newcommand{\makeapprovalpage}{%
+  \thispagestyle{empty}
+  \newgeometry{left=2cm,top=2.5cm,right=2cm,bottom=1.5cm}
+  \setstretch{1.3}
+  \begin{center}
+    {\fontsize{14pt}{17pt}\selectfont \textbf{Approved as a Doctoral Dissertation}}\\[0.5cm]
+    {\fontsize{14pt}{17pt}\selectfont \textbf{for \@author}}\\
+    \vspace{2cm}
+    {\fontsize{18pt}{22pt}\selectfont \textbf{\@title}}\\
+    \vspace{3cm}
+    {\fontsize{12pt}{14pt}\selectfont
+      \begin{tabular}{r@{\hspace{1cm}}l}
+        Committee Chair & \underline{\hspace{5cm}} \\[1cm]
+        Committee Member & \underline{\hspace{5cm}} \\[1cm]
+        Committee Member & \underline{\hspace{5cm}} \\[1cm]
+        Committee Member & \underline{\hspace{5cm}} \\[1cm]
+        Committee Member & \underline{\hspace{5cm}} \\
+      \end{tabular}
+    }\\
+    \vspace{\fill}
+    {\fontsize{12pt}{14pt}\selectfont August \@degreeyear}\\[0.5cm]
+    {\fontsize{14pt}{17pt}\selectfont \textbf{The Graduate School, Kyungpook National University}}\\
+  \end{center}
+  \restoregeometry
+  \clearpage
+}
+
+%% ============================================================
+%% Abstract page
+%% ============================================================
+\newcommand{\makeengabstract}[1]{%
+  \clearpage
+  \phantomsection
+  \addcontentsline{toc}{chapter}{Abstract}
+  \thispagestyle{empty}
+  \begin{center}
+    \setstretch{1.5}
+    {\fontsize{14pt}{17pt}\selectfont \textbf{\@title}}\\
+    \vspace{1cm}
+    {\fontsize{11pt}{13pt}\selectfont \textbf{\@author}}\\
+    \vspace{0.5cm}
+    {\fontsize{10pt}{12pt}\selectfont \@major\\The Graduate School\\Kyungpook National University\\(Supervised by Professor \@advisor)}\\
+  \end{center}
+  \vspace{1.5cm}
+  \setstretch{1.6}
+  {\fontsize{14pt}{17pt}\selectfont \textbf{Abstract}}\\[0.5cm]
+  {\fontsize{11pt}{17pt}\selectfont #1}
+  \clearpage
+}
+
+%% ============================================================
+%% Acknowledgments page
+%% ============================================================
+\newcommand{\makeacknowledgments}[1]{%
+  \clearpage
+  \phantomsection
+  \addcontentsline{toc}{chapter}{Acknowledgments}
+  \thispagestyle{empty}
+  \vspace*{2cm}
+  \begin{center}
+    {\fontsize{16pt}{19pt}\selectfont \textbf{Acknowledgments}}\\
+  \end{center}
+  \vspace{1.5cm}
+  \setstretch{1.6}
+  {\fontsize{11pt}{17pt}\selectfont #1}
+  \clearpage
+}
+
+\endinput

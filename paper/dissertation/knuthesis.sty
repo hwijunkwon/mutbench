@@ -1,0 +1,212 @@
+%% knuthesis.sty — 경북대학교 박사학위논문 스타일
+%% Based on seonho/KNU-Thesis template (MIT License)
+%% Adapted for XeLaTeX + kotex environment
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{knuthesis}[2026/03/07 KNU Thesis Style]
+
+\RequirePackage{ifthen}
+\RequirePackage{geometry}
+\RequirePackage{kotex}
+
+%% memoir class compatibility
+\@ifclassloaded{memoir}{%
+  \DisemulatePackage{setspace}%
+}{}
+\RequirePackage{setspace}
+
+%% ============================================================
+%% Metadata commands (English and Korean)
+%% ============================================================
+\newcommand{\@ktitle}{}
+\newcommand{\ktitle}[1]{\renewcommand{\@ktitle}{#1}}
+
+\newcommand{\@kauthor}{}
+\newcommand{\kauthor}[1]{\renewcommand{\@kauthor}{#1}}
+
+\newcommand{\@advisor}{}
+\newcommand{\advisor}[1]{\renewcommand{\@advisor}{#1}}
+
+\newcommand{\@kadvisor}{}
+\newcommand{\kadvisor}[1]{\renewcommand{\@kadvisor}{#1}}
+
+\newcommand{\@major}{}
+\newcommand{\major}[1]{\renewcommand{\@major}{#1}}
+
+\newcommand{\@kmajor}{}
+\newcommand{\kmajor}[1]{\renewcommand{\@kmajor}{#1}}
+
+\newcommand{\@degreeyear}{}
+\newcommand{\@degreemonth}{}
+\newcommand{\degreedate}[2]{%
+  \renewcommand{\@degreeyear}{#1}%
+  \renewcommand{\@degreemonth}{#2}%
+}
+
+%% Committee members
+\newcommand{\@committeechairman}{}
+\newcommand{\committeechairman}[1]{\renewcommand{\@committeechairman}{#1}}
+
+\newcommand{\@committeememberA}{}
+\newcommand{\committeememberA}[1]{\renewcommand{\@committeememberA}{#1}}
+
+\newcommand{\@committeememberB}{}
+\newcommand{\committeememberB}[1]{\renewcommand{\@committeememberB}{#1}}
+
+\newcommand{\@committeememberC}{}
+\newcommand{\committeememberC}[1]{\renewcommand{\@committeememberC}{#1}}
+
+\newcommand{\@committeememberD}{}
+\newcommand{\committeememberD}[1]{\renewcommand{\@committeememberD}{#1}}
+
+%% ============================================================
+%% Cover page (겉표지/속표지)
+%% ============================================================
+\renewcommand{\maketitle}{%
+  \thispagestyle{empty}
+  \newgeometry{left=2cm,top=2.5cm,right=2cm,bottom=1.5cm}
+  \setstretch{1.3}
+  \begin{center}
+    {\fontsize{11pt}{13pt}\selectfont \textbf{博士學位論文}}\\[0.5cm]
+    {\fontsize{11pt}{13pt}\selectfont \textbf{Thesis for the Degree of Ph.D.}}\\
+    \vspace{2cm}
+    {\fontsize{21pt}{25pt}\selectfont \textbf{\@ktitle}}\\
+    \vspace{1cm}
+    {\fontsize{14pt}{17pt}\selectfont \textbf{\@title}}\\
+    \vspace{3cm}
+    {\fontsize{12pt}{14pt}\selectfont \textbf{경북대학교 대학원}}\\[0.3cm]
+    {\fontsize{12pt}{14pt}\selectfont \textbf{\@kmajor}}\\
+    \vspace{2cm}
+    {\fontsize{14pt}{17pt}\selectfont \textbf{\@kauthor}}\\
+    \vspace{\fill}
+    {\fontsize{12pt}{14pt}\selectfont \textbf{\@degreeyear 년 \@degreemonth 월}}\\
+    \vspace{1cm}
+    {\fontsize{16pt}{19pt}\selectfont \textbf{경북대학교 대학원}}\\
+  \end{center}
+  \restoregeometry
+  \clearpage
+}
+
+%% ============================================================
+%% Inner title page (속표지)
+%% ============================================================
+\newcommand{\makeinnertitle}{%
+  \thispagestyle{empty}
+  \newgeometry{left=2cm,top=2.5cm,right=2cm,bottom=1.5cm}
+  \setstretch{1.3}
+  \begin{center}
+    {\fontsize{21pt}{25pt}\selectfont \textbf{\@ktitle}}\\
+    \vspace{1cm}
+    {\fontsize{14pt}{17pt}\selectfont \textbf{\@title}}\\
+    \vspace{3cm}
+    {\fontsize{12pt}{14pt}\selectfont
+      지도교수\quad \@kadvisor}\\
+    \vspace{2cm}
+    {\fontsize{12pt}{14pt}\selectfont
+      이 논문을 공학 박사학위 논문으로 제출함}\\
+    \vspace{2cm}
+    {\fontsize{12pt}{14pt}\selectfont \@degreeyear 년 \@degreemonth 월}\\
+    \vspace{2cm}
+    {\fontsize{14pt}{17pt}\selectfont \textbf{경북대학교 대학원}}\\[0.3cm]
+    {\fontsize{12pt}{14pt}\selectfont \@kmajor}\\
+    \vspace{1.5cm}
+    {\fontsize{14pt}{17pt}\selectfont \textbf{\@kauthor}}\\
+  \end{center}
+  \restoregeometry
+  \clearpage
+}
+
+%% ============================================================
+%% Approval page (인준지)
+%% ============================================================
+\newcommand{\makeapproval}{%
+  \thispagestyle{empty}
+  \newgeometry{left=2cm,top=2.5cm,right=2cm,bottom=1.5cm}
+  \setstretch{1.3}
+  \begin{center}
+    {\fontsize{14pt}{17pt}\selectfont \textbf{\@kauthor}의 공학 박사학위 논문을 인준함}\\
+    \vspace{3cm}
+    {\fontsize{21pt}{25pt}\selectfont \textbf{\@ktitle}}\\
+    \vspace{3cm}
+    {\fontsize{12pt}{14pt}\selectfont
+      \begin{tabular}{r@{\hspace{1cm}}l}
+        심사위원장 & \underline{\hspace{4cm}} \quad (인) \\[1cm]
+        심사위원   & \underline{\hspace{4cm}} \quad (인) \\[1cm]
+        심사위원   & \underline{\hspace{4cm}} \quad (인) \\[1cm]
+        심사위원   & \underline{\hspace{4cm}} \quad (인) \\[1cm]
+        심사위원   & \underline{\hspace{4cm}} \quad (인) \\
+      \end{tabular}
+    }\\
+    \vspace{\fill}
+    {\fontsize{12pt}{14pt}\selectfont \@degreeyear 년 \@degreemonth 월}\\[0.5cm]
+    {\fontsize{14pt}{17pt}\selectfont \textbf{경북대학교 대학원}}\\
+  \end{center}
+  \restoregeometry
+  \clearpage
+}
+
+%% ============================================================
+%% Korean abstract page (한글 초록)
+%% ============================================================
+\newcommand{\makekorabstract}[1]{%
+  \clearpage
+  \phantomsection
+  \addcontentsline{toc}{chapter}{초록}
+  \thispagestyle{empty}
+  \begin{center}
+    \setstretch{1.5}
+    {\fontsize{14pt}{17pt}\selectfont \textsf{\textbf{\@ktitle}}}\\
+    \vspace{1cm}
+    {\fontsize{11pt}{13pt}\selectfont \textsf{\textbf{\@kauthor}}}\\
+    \vspace{0.5cm}
+    {\fontsize{10pt}{12pt}\selectfont 경북대학교 대학원 \@kmajor\\(지도교수 \@kadvisor)}\\
+  \end{center}
+  \vspace{1.5cm}
+  \setstretch{1.6}
+  {\fontsize{14pt}{17pt}\selectfont \textbf{(초\hspace{1em}록)}}\\[0.5cm]
+  {\fontsize{11pt}{17pt}\selectfont #1}
+  \clearpage
+}
+
+%% ============================================================
+%% English abstract page (영문 초록)
+%% ============================================================
+\newcommand{\makeengabstract}[1]{%
+  \clearpage
+  \phantomsection
+  \addcontentsline{toc}{chapter}{Abstract}
+  \thispagestyle{empty}
+  \begin{center}
+    \setstretch{1.5}
+    {\fontsize{14pt}{17pt}\selectfont \textbf{\@title}}\\
+    \vspace{1cm}
+    {\fontsize{11pt}{13pt}\selectfont \textbf{\@author}}\\
+    \vspace{0.5cm}
+    {\fontsize{10pt}{12pt}\selectfont \@major\\The Graduate School\\Kyungpook National University\\(Supervised by Professor \@advisor)}\\
+  \end{center}
+  \vspace{1.5cm}
+  \setstretch{1.6}
+  {\fontsize{14pt}{17pt}\selectfont \textbf{Abstract}}\\[0.5cm]
+  {\fontsize{11pt}{17pt}\selectfont #1}
+  \clearpage
+}
+
+%% ============================================================
+%% Acknowledgments page (감사의 글)
+%% ============================================================
+\newcommand{\makeacknowledgments}[1]{%
+  \clearpage
+  \phantomsection
+  \addcontentsline{toc}{chapter}{감사의 글}
+  \thispagestyle{empty}
+  \vspace*{2cm}
+  \begin{center}
+    {\fontsize{16pt}{19pt}\selectfont \textbf{감사의 글}}\\
+  \end{center}
+  \vspace{1.5cm}
+  \setstretch{1.6}
+  {\fontsize{11pt}{17pt}\selectfont #1}
+  \clearpage
+}
+
+\endinput

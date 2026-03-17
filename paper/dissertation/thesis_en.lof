@@ -1,0 +1,13 @@
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Overview of the MutBench benchmark framework pipeline. Input multiple sequence alignment (MSA) data are processed through scoring formulas and detection methods, evaluated against a 3-layer ground truth, and analyzed using multiple statistical tests.\relax }}{23}{figure.caption.7}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Genome-wide hotspot map of the SARS-CoV-2 Spike protein. The seven annotated functional regions used as ground truth (RBD, NTD antigenic supersite, furin cleavage site, S2' cleavage site, fusion peptide, HR1, HR2) are mapped to nucleotide coordinates, encompassing 1,251 unique Spike nucleotide positions.\relax }}{26}{figure.caption.10}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Method comparison on synthetic SARS-CoV-2 data. MutClust-Hybrid achieves the best balance of precision and recall (F1 = 0.785), while CCM-only variants show high precision but moderate recall, and HDBSCAN-Auto shows high recall but very low precision.\relax }}{56}{figure.caption.33}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Sample size convergence of hotspot metrics. Stable detection performance (Hotspot-score $\approx $ 0.62) is achieved starting at approximately 1,000 sequences.\relax }}{63}{figure.caption.36}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces MutClust parameter sensitivity heatmap. Full-factorial grid search over 64 parameter combinations ($\gamma \times d \times $ MinPts) shows that F1 performance is most sensitive to $\gamma $ (epsilon scaling factor), followed by $d$ (decay factor), with minimal influence of MinPts.\relax }}{63}{figure.caption.37}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Detection performance across multiple biological ground truths. The best performing method differs fundamentally depending on whether the target is functional regions, experimental DMS fitness, or convergent evolution sites.\relax }}{69}{figure.caption.42}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Detailed performance comparison for Deep Mutational Scanning (DMS) escape evaluation. Saturated H-score exhibits the highest F1 in predicting experimentally measured single-mutation fitness effects.\relax }}{70}{figure.caption.43}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }

@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "webmcp": {
+      "command": "npx",
+      "args": ["-y", "@mcp-b/chrome-devtools-mcp@latest", "--executablePath", "/usr/bin/google-chrome-stable", "--headless", "--isolated", "--no-autoConnect", "--viewport", "1280x720", "--chromeArg", "--no-sandbox", "--chromeArg", "--disable-gpu"],
+      "env": {
+        "CHROME_PATH": "/usr/bin/google-chrome-stable",
+        "PUPPETEER_EXECUTABLE_PATH": "/usr/bin/google-chrome-stable"
+      }
+    }
+  }
+}
