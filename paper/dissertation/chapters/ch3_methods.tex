@@ -28,7 +28,7 @@ MutBench는 MOSD의 체계적 벤치마킹 방법론을 바이러스 게놈 분�
 \label{sec:mutbench_related}
 
 변이 핫스팟 탐지는 돌연변이율이 유의하게 높은 게놈 영역을 식별하는 것을 목표로 한다.
-암 체세포 돌연변이에 대해서는 MutSigCV~\cite{lawrence2013mutsigcv}(유전자 수준 배경 모델링), OncodriveCLUST~\cite{tamborero2013oncodriveclust}(위치적 클러스터링 편향), HotMAPS~\cite{tokheim2016hotmaps}(3D 구조 기반 공간 핫스팟), MutSpot~\cite{munoz2020mutspot}(후생유전체 통합 랜덤 포레스트) 등이 개발되었으나, 바이러스 게놈에 특화된 체계적 벤치마킹은 부재하였다.
+제~\ref{ch:background}장에서 검토한 바와 같이, 암 유전체학 도구는 유전자 수준 해상도에서 작동하며 게놈 크기와 변이 역학의 근본적 차이로 인해 바이러스 핫스팟 탐지에 적용할 수 없다.
 
 MutBench에서는 MutClust 변이체 외에 두 가지 기준선 방법---빈도 기반 역치(변이 빈도가 중앙값 + $k \times \text{MAD}$ 초과 시 핫스팟 표시)와 슬라이딩 윈도우(고정 크기 창의 평균 변이 빈도 역치)---을 포함하여, MutClust의 적응형 밀도 추정이 단순 접근법 대비 실질적 개선을 제공하는지 검증한다.
 또한 Weber 등~\cite{weber2019benchmarking}이 확립한 중립적 평가, 다중 지표, 통제된 실험 설계의 벤치마킹 가이드라인과---Boulesteix 등~\cite{boulesteix2017towards}이 강조한 바와 같이, 비교 대상 방법에 이해관계가 없는 연구자에 의한 중립적 비교 연구의 중요성을 포함하여---, DMS 실험~\cite{fowler2014dms,starr2020dms,dadonaite2023dms}이 제공하는 실험적 ground truth를 MutBench의 방법론적 기반으로 활용한다.
@@ -539,6 +539,7 @@ Layer B(구속 영역)는 MCC 계산에 포함되지 않으며 별도의 constra
 \item \textbf{복합 점수(Composite score)}: 상기 지표들의 가중 결합.
 \end{itemize}
 
+Stage~1에서는 안정성을 포함하는 hotspot-score를 사용하지만, Stage~2에서는 안정성의 교차 병원체 비교 가능성이 검증되지 않았고 MCC가 극단적 클래스 불균형에 더 적합하므로 MCC를 주 평가 지표로 채택한다.
 MCC를 주요 지표로 선택한 이유는, 핫스팟 탐지에서 양성 위치(수렴 진화 부위)가 전체 게놈의 소수를 차지하는 불균형 분류 문제에서 F1보다 균형 잡힌 평가를 제공하기 때문이다. Chicco and Jurman~\cite{chicco2020mcc}은 불균형 이진 분류에서 MCC가 F1 및 정확도보다 유의미한 평가를 제공함을 체계적으로 입증하였다.
 1단계에서 사용된 안정성 구성 요소는 외부 ground truth와 독립적인 내부 일관성 지표이며, 9종 병원체 간 서열 길이 및 MSA 크기의 차이에 따른 Bernoulli 마스킹 효과의 병원체 간 비교 가능성이 검증되지 않아 2단계에서는 제외하였다.
 
