@@ -26,8 +26,7 @@ MutBench transfers the systematic benchmark methodology of MOSD to the domain of
 \label{sec:mutbench_related}
 
 Mutation hotspot detection aims to identify genomic regions with significantly elevated mutation rates.
-For cancer somatic mutations, methods such as MutSigCV~\cite{lawrence2013mutsigcv} (gene-level background modeling), OncodriveCLUST~\cite{tamborero2013oncodriveclust} (positional clustering bias), HotMAPS~\cite{tokheim2016hotmaps} (3D structure-based spatial hotspots), and MutSpot~\cite{munoz2020mutspot} (epigenome-integrated random forest) have been developed; however, systematic benchmarking specialized for viral genomes was absent.
-Cancer genomics tools (MutSigCV, OncodriveCLUST) target somatic mutations in tumors, a fundamentally different problem, and are therefore not included as baselines.
+As reviewed in Chapter~\ref{ch:background}, cancer genomics tools operate at gene-level resolution and are not applicable to viral hotspot detection due to fundamental differences in genome size and mutation dynamics.
 
 In MutBench, in addition to MutClust variants, two baseline methods are included---frequency-based thresholding and sliding window---to verify whether MutClust's adaptive density estimation provides substantive improvement over simple approaches. Frequency-based thresholding is a general category of methods that mark positions as hotspots when mutation frequency exceeds a threshold; the specific Frequency Baseline implementation in this study uses the top 10th percentile H-score threshold with gap-based grouping (Table~\ref{tab:variants}). The sliding window baseline thresholds the mean mutation frequency within a fixed-size window.
 Furthermore, the benchmark guidelines of neutral evaluation, multiple metrics, and controlled experimental design established by Weber et al.~\cite{weber2019benchmarking}---with Boulesteix et al.~\cite{boulesteix2017towards} further emphasizing the importance of neutral comparison studies conducted by researchers without a stake in the compared methods---as well as the experimental ground truth provided by DMS experiments~\cite{fowler2014dms,starr2020dms,dadonaite2023dms}, serve as the methodological foundation of MutBench.
@@ -565,6 +564,7 @@ Layer B (constrained regions) is not included in MCC computation and is evaluate
 \item \textbf{DMS F1}: F1 score against Layer C DMS ground truth (computed only for 4 pathogens).
 \end{itemize}
 
+While Stage~1 uses hotspot-score (which includes stability) for in-depth single-pathogen analysis, Stage~2 adopts MCC as the primary metric because stability has not been validated for cross-pathogen comparability and MCC provides a balanced evaluation for the extreme class imbalance present in multi-pathogen evaluation.
 MCC is formally defined as:
 \begin{equation}
 \text{MCC} = \frac{TP \times TN - FP \times FN}{\sqrt{(TP+FP)(TP+FN)(TN+FP)(TN+FN)}}

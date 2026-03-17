@@ -3,7 +3,7 @@
 \label{ch:discussion}
 
 This chapter interprets the results from Chapter~\ref{ch:results} and discusses the methodological implications, limitations, and future research directions of MutBench.
-MutBench inherits the systematic benchmark philosophy from prior MOSD work, transferring composite metric design and single-factor isolation principles to viral genomics; the finding that study design factors dominate algorithm selection is consistent with findings in the viral hotspot detection context.
+As established in Chapter~\ref{ch:background}, MutBench transfers the composite metric design and single-factor isolation principles from MOSD to viral genomics.
 
 %% ============================================================
 \section{Methodological Validity of MutBench}
@@ -36,6 +36,7 @@ Therefore, MutBench recommends evaluating both what methods ``can do'' (syntheti
 
 The synthetic benchmark's ground truth is defined independently of the detection methods (DMS experimental data and convergent evolution literature), ensuring no circularity between evaluation and detection.
 Min-max normalization was used as the default throughout MutBench; z-score and rank transformations were not evaluated as they can introduce artifacts in sparse data distributions.
+The biological validity of detected hotspots was further supported by 3D structural analysis (Section~\ref{sec:structure_analysis}), which showed 5.92-fold spatial contact enrichment, and by the consistent superiority of domain-specific methods (MutClust variants) over general-purpose alternatives (OPTICS, KDE) in Section~\ref{sec:external_comparison}.
 With benchmark validity established, the temporal limitations of the underlying H-score metric warrant examination.
 
 %% ============================================================
@@ -164,4 +165,5 @@ First, MutBench demonstrates that detection strategy selection dominates perform
 Second, the 9-pathogen benchmark provides robust statistical evidence that no universally best-performing method exists, motivating pathogen-adaptive detection strategies as formalized in the PAHD framework.
 Third, the identified limitations---H-score saturation, phylogenetic non-independence, and GISAID sampling bias---define concrete directions for future work while not undermining the core conclusions, which are supported by bootstrap, permutation, and cross-validation analyses.
 
+More broadly, the dominance of method--pathogen interaction effects over method main effects suggests that similar systematic benchmarking may benefit other domains where algorithms are applied across heterogeneous input distributions.
 The following chapter formalizes these findings as two research contributions and discusses their limitations and future extensions.
