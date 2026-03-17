@@ -172,4 +172,25 @@ MutClust를 포함한 바이러스 핫스팟 탐지 방법들은 자기 참조�
 이러한 한계의 핵심은 MutClust가 ``새로운 탐지 방법''을 제시하면서도 ``그 방법의 성능을 정량적으로 평가할 프레임워크''를 함께 제시하지 못했다는 점이다.
 이는 Section~\ref{subsec:bg_benchmarking}에서 고찰한 벤치마킹 원칙---중립적 평가, 다중 지표, 통제된 실험 설계---의 부재에 해당한다.
 
+\begin{table}[htbp]
+\centering
+\caption{MutBench와 기존 접근법 비교}
+\label{tab:approach_comparison}
+\small
+\adjustbox{max width=\textwidth}{
+\begin{tabular}{lcccc}
+\toprule
+\textbf{특성} & \textbf{MutClust} & \textbf{Bailey et al.} & \textbf{MOSD} & \textbf{MutBench} \\
+\midrule
+도메인 & 바이러스 & 암 & 다중오믹스 & 바이러스 \\
+독립적 ground truth & 없음 & 있음 & 있음 & 있음 (3-layer) \\
+복합 지표 & 없음 & 없음 & cluster-score & hotspot-score \\
+다중 병원체 비교 & 부분적 (2) & N/A & N/A & 있음 (9) \\
+통계적 방법 선택 & 없음 & 없음 & ANOVA & ANOVA+Friedman+LOPO \\
+비교 방법 수 & 1 & 26 & 10 & 41 \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
 Chapter~\ref{ch:mutbench}의 MutBench는 구현 개선, 독립적 ground truth 구축, 복합 평가 체계, 파라미터 민감도 분석을 통해 이 세 가지 한계를 체계적으로 해결한다.
