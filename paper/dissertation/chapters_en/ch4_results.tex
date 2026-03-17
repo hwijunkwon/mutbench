@@ -52,9 +52,7 @@ This shows that without CCM seed detection constraining the candidate space, HDB
 This demonstrates that domain-specific prior knowledge substantially improves detection specificity.
 
 \textbf{External baseline comparison.}
-The frequency baseline (detecting positions exceeding an H-score threshold) and sliding window (average H-score threshold within fixed-size windows) both achieved high recall (0.965, 0.974) but low precision (0.404, 0.157).
-The F1 scores of these baselines (0.569, 0.270) were lower than all MutClust variants (0.668--0.785), with the F1 gap relative to MutClust-Hybrid ranging from 0.216 to 0.515.
-The frequency baseline, lacking the ability to adaptively determine cluster sizes, detected 2,991 positions as 1,587 independent ``clusters,'' while the sliding window over-detected 7,773 positions due to the constraint of fixed window sizes.
+Both baselines achieved high recall (0.965, 0.974) but low precision (0.404, 0.157), with F1 scores (0.569, 0.270) below all MutClust variants (0.668--0.785).
 These results confirm that MutClust's CCM-based adaptive density estimation provides substantial performance improvement over simple threshold- and window-based approaches.
 
 Extended evaluation metrics including hotspot-score are presented in Table~\ref{tab:hotspot_scores}.
@@ -78,13 +76,8 @@ HDBSCAN-Auto & 0.079 & 0.944 & 0.788 & 0.604 \\
 }
 \end{table}
 
-The hotspot-score reveals evaluation dimensions that F1 alone cannot capture, identifying \textbf{MutClust-Hybrid as the best-performing method} (hotspot-score 0.778).
-MutClust-Hybrid's superiority stems from strong performance across all three dimensions: near-perfect precision (0.968), improved recall (0.659), and high stability (0.706).
-By retaining CCM seed detection while using HDBSCAN for boundary determination, it captures functional regions missed by pure CCM detection (e.g., low-signal NTD supersite positions) while preserving the specificity advantage of domain-specific prior knowledge.
-
-HDBSCAN-Auto achieved the highest individual stability (0.788) and recall (0.944) but recorded the lowest hotspot-score (0.604) among MutClust variants due to its low precision (0.079).
-This well illustrates the value of composite metrics: evaluating HDBSCAN-Auto solely by recall would rank it as the best method, while evaluating solely by precision would entirely reject it.
-The hotspot-score provides a balanced evaluation that correctly identifies the hybrid approach as the best balance (Figure~\ref{fig:mutbench_method_comparison}).
+The hotspot-score identifies \textbf{MutClust-Hybrid as the best-performing method} (0.778), combining near-perfect precision (0.968), improved recall (0.659), and high stability (0.706) by retaining CCM seeds while using HDBSCAN for boundary determination.
+HDBSCAN-Auto achieved high recall (0.944) and stability (0.788) but the lowest hotspot-score (0.604) due to low precision (0.079), illustrating the value of composite metrics over single-metric evaluation (Figure~\ref{fig:mutbench_method_comparison}).
 
 \textbf{Two-stage pipeline validation.}
 To combine the high recall of HDBSCAN-Auto with the high precision of MutClust-Hybrid, a two-stage detection pipeline was additionally validated.
@@ -184,11 +177,8 @@ MutClust-Original & 0.302 & 0.187 & 0.505 & $-$0.015 & 0.070 \\
 \end{minipage}
 \end{table}
 
-The region-level BCa bootstrap quantifies the uncertainty in ground truth definition by resampling the 7 functional regions---that is, ``how evaluation results vary depending on which functional regions are included.''
-The positive acceleration factor ($a = 0.070$) for CCM-based methods (MutClust-Original, Fixed) indicates that the region-level score distribution is right-skewed, reflecting score variation depending on whether RBD (a high-signal region) is included.
-In contrast, the narrow interval (0.339--0.567) and near-zero acceleration factor ($a = -0.025$) of HDBSCAN-Auto show that its broad detection range is less sensitive to changes in region composition and has a symmetric distribution.
-The BCa interval for MutClust-Hybrid (0.323--0.635) has a slightly lower lower bound and slightly lower upper bound compared to the percentile interval (0.332--0.651), demonstrating the effect of bias correction.
-In all methods, the point estimates fall within the 95\% BCa CI, confirming the statistical validity of the bootstrap design.
+The region-level BCa bootstrap quantifies uncertainty in ground truth definition by resampling the 7 functional regions.
+CCM-based methods show right-skewed distributions ($a = 0.070$) driven by RBD inclusion, while HDBSCAN-Auto's broad detection yields a narrower, symmetric interval (0.339--0.567); all point estimates fall within the 95\% BCa CI, confirming statistical validity.
 
 \textbf{Power analysis.}
 The statistical power for detecting differences between methods with an effective sample size of $n = 7$ functional regions was evaluated post hoc.
@@ -619,9 +609,6 @@ HDBSCAN-Auto & Density-based & 0.604 & 0.424 \\
 The best-performing method differs between the two pathogens---MutClust-Hybrid (0.778) for SARS-CoV-2 and MutClust-Fixed (0.661) for H3N2.
 This result confirms the core lesson of MutBench---``no universal best method exists, and method selection depends on input data characteristics (gene length, H-score distribution, signal-to-background contrast)''---in an independent pathogen.
 
-From a biological perspective, this pattern is clearly interpretable: (1) when heterogeneous functional regions are distributed across a long gene (Spike, 3,822 nt), the adaptive hybrid approach (MutClust-Hybrid) is advantageous, and (2) for a short gene where all positions show high mutation rates (HA, 1,698 nt), stable CCM detection (MutClust-Fixed) is superior.
-This suggests that the shape of the H-score distribution (continuous vs. sparse) and gene length are key factors determining the best-performing detection strategy.
-
 \section{3D Structure Analysis}
 \label{sec:structure_analysis}
 
@@ -710,12 +697,7 @@ The qualitative conclusion of the 9-pathogen benchmark---that the best-performin
 \label{sec:9pathogen_results}
 
 Building on the Stage~1 findings, a Stage~2 benchmark was conducted to systematically evaluate 41 detection methods from 15 algorithm families combined with 9 scoring formulas across 9 pathogens (Section~\ref{sec:9pathogen_benchmark}).
-The evaluation metric was changed from hotspot-score (Stage~1) to MCC (Stage~2), because (1)~the stability component of hotspot-score has not been validated for comparability across pathogens with different sequence lengths and MSA sizes due to masking effects, and (2)~MCC is appropriate for comprehensively evaluating imbalanced binary classification under the 3-layer ground truth framework for 9 pathogens (see Section~\ref{subsec:9pathogen_metrics}).
-
-The five MutClust variants from Stage~1 (Original, Fixed, dNdS, Hybrid, HDBSCAN-Auto) are not included in Stage~2, and this is by design.
-These variants require synthetic H-scores as input, whereas Stage~2 uses per-position score profiles computed from actual MSAs.
-MutClust-Original is included in Stage~2 as the MutClust-Orig family, extracting only the core logic of the original algorithm (CCM seed + adaptive DBSCAN).
-The HDBSCAN boundary determination of MutClust-Hybrid is represented by the ScoreDBSCAN family, and the dN/dS filter can be designed as a separate post-processing step; these components are thus reflected as independent families in Stage~2.
+Stage~2 uses MCC instead of hotspot-score and applies 41 detection methods from 15 algorithm families to real MSA-derived scores, as detailed in Section~\ref{sec:9pathogen_benchmark}.
 
 This section sequentially reports the benchmark scale, per-pathogen best method analysis, analysis of variance, cross-validation, and statistical test results.
 
@@ -816,7 +798,7 @@ LOPO (Leave-One-Pathogen-Out) cross-validation was performed to evaluate whether
 \item \textbf{Combination match rate}: 0/9 (0\%). In all 9 iterations, the training-best combination and the test oracle combination were mismatched.
 \item \textbf{Mean generalization ratio}: 4.9\%. The test MCC of the training-best combination was only 4.9\% of the oracle MCC on average.
 \item \textbf{Mean performance gap}: 0.277. The average MCC difference between the training-best combination and the oracle was 0.277, representing a substantial loss of oracle performance.
-\item \textbf{Most frequent training-best combination}: E\_only + SWAN was selected as the training-best in 8/9 iterations; however, this is because the SWAN detection method produces a valid result (MCC = 0.311) only for Norovirus and records MCC = 0.000 for all other pathogens. Since the number of valid detection methods differs across pathogens (33--38), SWAN variants are not evaluated for all pathogens, causing the training mean MCC to be overestimated by the performance on Norovirus alone.
+\item \textbf{Most frequent training-best combination}: E\_only + SWAN was selected in 8/9 iterations, an artifact of SWAN producing valid results only for Norovirus (MCC = 0.311) and MCC = 0.000 elsewhere.
 \end{itemize}
 
 These results demonstrate that the strategy of selecting a method that is ``on average good across multiple pathogens'' fails to predict performance for a specific pathogen, strongly supporting the need for pathogen-specific adaptive method selection.

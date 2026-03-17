@@ -8,14 +8,7 @@ This chapter presents the methodology of MutBench, a benchmark framework for the
 \section{Research Motivation and Design Objectives}
 \label{sec:mutbench_motivation}
 
-As discussed in Chapter~\ref{ch:background}, the absence of a systematic evaluation framework for viral mutation hotspot detection---and the limitations of MutClust's self-referential bootstrap validation---served as the direct motivation for developing MutBench.
-
-MutBench transfers the systematic benchmark methodology of MOSD to the domain of viral genome analysis, with the following key methodological features:
-(1)~definition of the hotspot-score composite evaluation metric (Equation~\ref{eq:hotspot_score});
-(2)~systematic comparison of five MutClust variants and two baseline methods (Frequency Baseline, Sliding Window);
-(3)~introduction of experimental ground truth based on deep mutational scanning (DMS);
-(4)~non-synthetic validation using real GISAID H-scores;
-(5)~multi-faceted evaluation against the three-layer ground truth framework: functional regions, DMS fitness, and convergent evolution.
+As discussed in Chapter~\ref{ch:background}, the limitations of MutClust's self-referential validation motivated MutBench, whose methodology is detailed below.
 
 \begin{equation}
 \text{hotspot-score} = \frac{\text{recall} + \text{precision} + \text{stability}}{3}
@@ -25,11 +18,7 @@ MutBench transfers the systematic benchmark methodology of MOSD to the domain of
 \section{Related Methods}
 \label{sec:mutbench_related}
 
-Mutation hotspot detection aims to identify genomic regions with significantly elevated mutation rates.
-As reviewed in Chapter~\ref{ch:background}, cancer genomics tools operate at gene-level resolution and are not applicable to viral hotspot detection due to fundamental differences in genome size and mutation dynamics.
-
-In MutBench, in addition to MutClust variants, two baseline methods are included---frequency-based thresholding and sliding window---to verify whether MutClust's adaptive density estimation provides substantive improvement over simple approaches. Frequency-based thresholding is a general category of methods that mark positions as hotspots when mutation frequency exceeds a threshold; the specific Frequency Baseline implementation in this study uses the top 10th percentile H-score threshold with gap-based grouping (Table~\ref{tab:variants}). The sliding window baseline thresholds the mean mutation frequency within a fixed-size window.
-Furthermore, the benchmark guidelines of neutral evaluation, multiple metrics, and controlled experimental design established by Weber et al.~\cite{weber2019benchmarking}---with Boulesteix et al.~\cite{boulesteix2017towards} further emphasizing the importance of neutral comparison studies conducted by researchers without a stake in the compared methods---as well as the experimental ground truth provided by DMS experiments~\cite{fowler2014dms,starr2020dms,dadonaite2023dms}, serve as the methodological foundation of MutBench.
+The benchmark includes two baseline methods (frequency thresholding, sliding window) alongside MutClust variants (Table~\ref{tab:variants}), following the neutral evaluation principles of Weber et al.~\cite{weber2019benchmarking} and Boulesteix et al.~\cite{boulesteix2017towards}.
 
 %% ============================================================
 \section{Methodology}
@@ -209,12 +198,9 @@ MutClust-Fixed corrects this by computing the dependency range directly from the
 MutClust-dNdS adds post-detection filtering based on the ratio of nonsynonymous to synonymous mutations (dN/dS).
 
 \textbf{dN/dS computation method.}
-For each detected cluster, nucleotide positions within the cluster are mapped to the codon structure of the Wuhan-Hu-1 reference sequence (NC\_045512.2).
-Classification of nonsynonymous and synonymous substitutions follows the simple counting method of Nei--Gojobori~\cite{nei1986simple}: observed mutations at each codon position are compared to the reference codon, with mutations causing amino acid changes classified as nonsynonymous substitutions and those preserving the same amino acid classified as synonymous substitutions.
-The dN/dS ratio is computed as $\text{dN/dS} = (n_d / N_d) / (n_s / N_s)$, where $n_d$ and $n_s$ are the observed numbers of nonsynonymous and synonymous substitutions, and $N_d$ and $N_s$ are the numbers of possible nonsynonymous and synonymous sites.
-In short clusters (fewer than 10 codons), the number of synonymous substitutions may be zero, rendering dN/dS undefined; in such cases, the cluster is conservatively excluded.
-
-Only clusters under positive selection (dN/dS $> 1.0$) are retained, while clusters under neutral evolution or purifying selection (dN/dS $\leq 1.0$) are removed.
+The dN/dS ratio is computed per cluster using the Nei--Gojobori simple counting method~\cite{nei1986simple}.
+Only clusters under positive selection (dN/dS $> 1.0$) are retained; clusters under neutral or purifying selection are removed.
+In short clusters (fewer than 10 codons) where synonymous substitutions may be zero, dN/dS is undefined and the cluster is conservatively excluded.
 
 \textbf{Nucleotide vs. amino acid level.}
 The evaluation in this study is performed at the nucleotide (nt) level.
@@ -231,7 +217,7 @@ Purifying selection (dN/dS $< 1$) also indicates biologically important function
 Therefore, the dN/dS $> 1.0$ filter sacrifices recall of these conserved functional regions in exchange for improved precision in identifying sites under active positive selection, such as immune evasion and receptor adaptation.
 
 \textbf{Jukes-Cantor correction validation.}
-Jukes-Cantor correction was verified to produce no threshold classification changes across all 38 clusters from MutClust-dNdS (30 clusters) and MutClust-Hybrid (8 clusters) (Spearman $\rho = 0.996$ for 31 non-saturated clusters); therefore, the uncorrected Nei--Gojobori method is retained.
+Jukes-Cantor correction produced negligible changes ($\rho = 0.996$); the uncorrected method was retained.
 
 \subsubsection{HDBSCAN Hybrid (MutClust-Hybrid)}
 
@@ -553,7 +539,7 @@ Note that Layer~A selection criteria vary across pathogens: SARS-CoV-2 and H3N2 
 The following evaluation metrics are used in the 9-pathogen benchmark.
 
 \begin{itemize}
-\item \textbf{MCC (Matthews Correlation Coefficient)}: The primary evaluation metric that integrates precision, recall, and specificity for imbalanced binary classification. Ranges from $[-1, 1]$, where 0 indicates random prediction.
+\item \textbf{MCC (Matthews Correlation Coefficient)}: The primary evaluation metric (defined formally in Equation~\ref{eq:mcc} below).
 The confusion matrix is constructed using only Layer A (positive selection positions) as positive labels: TP = detected positions belonging to Layer A, FP = detected positions not belonging to Layer A, FN = undetected positions belonging to Layer A, TN = undetected positions not belonging to Layer A.
 Layer B (constrained regions) is not included in MCC computation and is evaluated separately via constrained FPR. The majority of genomic positions belonging to neither Layer A nor B are classified as FP or TN depending on detection status.
 \item \textbf{F1}: The harmonic mean of precision and recall.

@@ -11,9 +11,7 @@ This dissertation presented MutBench, a systematic benchmark framework for viral
 The research contributions of MutBench are summarized in the following two points.
 
 \textbf{Contribution 1. MutBench Benchmark Framework.}
-MutBench introduced the first systematic benchmark framework to the field of viral mutation hotspot detection.
-By defining a three-layer ground truth system---convergent evolution positions as the positive criterion (Layer~A), purifying selection positions as the negative criterion (Layer~B), and DMS experimental data as the functional fitness criterion (Layer~C)---MutBench replaced self-referential validation with quantitative and reproducible comparison.
-The hotspot-score composite metric simultaneously evaluates accuracy (recall, precision) and reliability (stability), and a two-stage experimental design combined the controlled environment of synthetic data (Stage~1) with large-scale comparison across 9 RNA viruses (Stage~2), enabling quantitative comparison across methods and pathogens (see Chapter~\ref{ch:results} for detailed statistics).
+MutBench introduced the first systematic benchmark framework for viral mutation hotspot detection, comprising a three-layer ground truth (Layers A/B/C), the hotspot-score composite metric, and a two-stage experimental design combining synthetic data analysis (Stage~1) with large-scale comparison across 9 RNA viruses (Stage~2; see Chapter~\ref{ch:results} for detailed statistics).
 
 \textbf{Contribution 2. Statistical Demonstration of the Necessity of Pathogen-Adaptive Method Selection.}
 Statistical analysis of the large-scale benchmark results across 9 RNA viruses established, through four independent lines of evidence, that the premise of a single best-performing method does not hold.
@@ -59,9 +57,7 @@ DMS measures in vitro molecular fitness using pseudovirus systems and thus may n
 
 \subsection{Phylogenetic Non-Independence}
 
-Because the H-score is based on mutation frequency, it is susceptible to confounding by phylogenetic structure.
-High-frequency mutations such as D614G may originate from a single founder effect rather than independent positive selection ($\rho = -0.876$, Spearman correlation between H-score and number of independent mutational origins), and sequencing biases in GISAID (over-representation of certain countries and time periods) distort the mutation frequency distribution.
-MutBench partially mitigates this issue by using synthetic H-scores and DMS-based ground truth, but phylogenetic correction is essential for application to real data.
+Frequency-based H-scores are susceptible to phylogenetic confounding ($\rho = -0.876$ between H-score and independent mutational origins; see Section~\ref{sec:phylo_limits} for detailed analysis and mitigation strategies).
 
 \subsection{Scope Limitations}
 
