@@ -140,9 +140,9 @@ def content_slide(prs, title, section_color):
     # title
     add_textbox(slide, Inches(0.600), Inches(0.180), Inches(10.500), Inches(0.550),
                 title, size=24, bold=True, color=WHITE, anchor=MSO_ANCHOR.MIDDLE)
-    # KNU logo top-right
-    if os.path.exists(LOGO):
-        slide.shapes.add_picture(LOGO, Inches(12.230), Inches(0.150),
+    # KNU logo top-right (red emblem only)
+    if os.path.exists(LOGO_EMBLEM):
+        slide.shapes.add_picture(LOGO_EMBLEM, Inches(12.230), Inches(0.150),
                                  Inches(0.550), Inches(0.550))
     # bottom bar
     add_rect(slide, Inches(0), Inches(7.120), SLIDE_W, Inches(0.380), fill=DARK_NAVY)
@@ -153,8 +153,8 @@ def content_slide(prs, title, section_color):
     return slide
 
 def add_page_number(slide, num):
-    add_textbox(slide, Inches(12.500), Inches(7.140), Inches(0.700), Inches(0.340),
-                str(num), size=10, color=WHITE, align=PP_ALIGN.RIGHT,
+    add_textbox(slide, Inches(11.800), Inches(7.140), Inches(1.400), Inches(0.340),
+                f"\u2014\u2014 {num}", size=10, color=WHITE, align=PP_ALIGN.RIGHT,
                 anchor=MSO_ANCHOR.MIDDLE)
 
 def add_card(slide, l, t, w, h, fill=WHITE, border=MID_GRAY):
@@ -195,98 +195,61 @@ slide_num += 1
 s = add_blank(prs)
 # dark top area
 add_rect(s, Inches(0), Inches(0), SLIDE_W, Inches(3.400), fill=DARK_NAVY)
-# KNU logo
-if os.path.exists(LOGO):
-    s.shapes.add_picture(LOGO, Inches(0.600), Inches(0.250), Inches(0.650), Inches(0.650))
-# university + defense
+# KNU emblem (red logo only, one per slide)
+if os.path.exists(LOGO_EMBLEM):
+    s.shapes.add_picture(LOGO_EMBLEM, Inches(0.600), Inches(0.250), Inches(0.650), Inches(0.650))
+# university name (no "PhD Dissertation Defense")
 add_textbox(s, Inches(1.400), Inches(0.300), Inches(8.0), Inches(0.300),
             "Graduate School, Kyungpook National University", size=14, color=WHITE)
-add_textbox(s, Inches(1.400), Inches(0.600), Inches(5.0), Inches(0.300),
-            "PhD Dissertation Defense", size=14, color=WHITE)
 # title
 add_textbox(s, Inches(0.600), Inches(1.400), Inches(12.0), Inches(1.600),
             "MutBench: Systematic Benchmarking Framework\nfor Viral Mutation Hotspot Detection",
             size=34, bold=True, color=WHITE)
-# KNU emblem (below dark area)
-if os.path.exists(LOGO_EMBLEM):
-    s.shapes.add_picture(LOGO_EMBLEM, Inches(0.600), Inches(3.700), Inches(0.700), Inches(0.700))
 # author info (below dark area)
-add_textbox(s, Inches(1.500), Inches(3.800), Inches(11.0), Inches(0.400),
+add_textbox(s, Inches(0.600), Inches(3.800), Inches(11.0), Inches(0.400),
             "Hwijun Kwon  |  Advisor: Prof. Inuk Jung", size=18, bold=True, color=DARK_GRAY)
-add_textbox(s, Inches(1.500), Inches(4.250), Inches(11.0), Inches(0.350),
+add_textbox(s, Inches(0.600), Inches(4.250), Inches(11.0), Inches(0.350),
             "Dept. of Computer Science, KNU  |  March 2026", size=14, color=GRAY)
-
-# Subtitle area — clean keywords
-kw_box = add_card(s, Inches(0.600), Inches(5.100), Inches(12.100), Inches(1.500),
-                  fill=RGBColor(0xF8, 0xF9, 0xFA), border=MID_GRAY)
-add_textbox(s, Inches(0.900), Inches(5.200), Inches(11.500), Inches(1.200),
-            "9 RNA pathogens    |    2,544 evaluations    |    9 scoring x 39 detection methods\n"
-            "3-layer ground truth    |    Two-way ANOVA    |    PAHD adaptive algorithm",
-            size=16, color=DARK_NAVY, align=PP_ALIGN.CENTER, anchor=MSO_ANCHOR.MIDDLE)
 # bottom bar
 add_rect(s, Inches(0), Inches(7.120), SLIDE_W, Inches(0.380), fill=DARK_NAVY)
 
 
-# ── SLIDE 2: Table of Contents — VERTICAL layout ────────────────
+# ── SLIDE 2: Table of Contents — clean vertical list ─────────────
 slide_num += 1
 s = content_slide(prs, "Table of Contents", SEC_INTRO)
 add_page_number(s, slide_num)
 
 toc_items = [
-    ("1", "Introduction", "Prior work, biology background, problem definition", "S3 - S9", SEC_INTRO),
-    ("2", "MutBench Framework", "Pipeline, scoring/detection, 3-layer ground truth, MCC", "S10 - S15", SEC_FRAME),
-    ("3", "Stage 1: 4-Pathogen", "Method comparison, sensitivity, synthetic vs real gap", "S16 - S19", SEC_STAGE1),
-    ("4", "Stage 2: 9-Pathogen", "ANOVA, per-pathogen best, Friedman, LOPO, ESM-2", "S20 - S25", SEC_STAGE2),
-    ("5", "Extensions & PAHD", "PAHD algorithm, phylogenetic correction, baselines", "S26 - S28", SEC_EXT),
-    ("6", "Conclusion", "Contributions, discussion, limitations, future work", "S29 - S33", SEC_CONCL),
+    ("1", "Introduction", "Prior work, biology background, problem definition", "S3 \u2013 S9", SEC_INTRO),
+    ("2", "MutBench Framework", "Pipeline, scoring/detection, 3-layer ground truth, MCC", "S10 \u2013 S15", SEC_FRAME),
+    ("3", "Stage 1: 4-Pathogen", "Method comparison, sensitivity, synthetic vs real gap", "S16 \u2013 S19", SEC_STAGE1),
+    ("4", "Stage 2: 9-Pathogen", "ANOVA, per-pathogen best, Friedman, LOPO, ESM-2", "S20 \u2013 S25", SEC_STAGE2),
+    ("5", "Extensions & PAHD", "PAHD algorithm, phylogenetic correction, baselines", "S26 \u2013 S28", SEC_EXT),
+    ("6", "Conclusion", "Contributions, discussion, limitations, future work", "S29 \u2013 S33", SEC_CONCL),
 ]
 for i, (num, title, desc, slides, color) in enumerate(toc_items):
-    cy = Inches(1.100) + i * Inches(0.950)
-    # color bar on left
-    add_rect(s, Inches(0.600), cy, Inches(0.120), Inches(0.800), fill=color)
-    # number circle
-    badge = add_rounded_rect(s, Inches(0.900), cy + Inches(0.100), Inches(0.550), Inches(0.550),
+    cy = Inches(1.200) + i * Inches(0.950)
+    # number badge
+    badge = add_rounded_rect(s, Inches(1.200), cy + Inches(0.050), Inches(0.550), Inches(0.550),
                               fill=color)
     set_text(badge, num, size=18, bold=True, color=WHITE, align=PP_ALIGN.CENTER,
              anchor=MSO_ANCHOR.MIDDLE)
     # title
-    add_textbox(s, Inches(1.650), cy + Inches(0.050), Inches(4.000), Inches(0.400),
-                title, size=17, bold=True, color=color)
-    # description
-    add_textbox(s, Inches(1.650), cy + Inches(0.450), Inches(5.000), Inches(0.350),
-                desc, size=11, color=DARK_GRAY)
-    # slide range
-    add_textbox(s, Inches(6.800), cy + Inches(0.200), Inches(1.200), Inches(0.400),
-                slides, size=10, color=GRAY, anchor=MSO_ANCHOR.MIDDLE)
-
-# Right side: simple flow diagram
-add_textbox(s, Inches(8.500), Inches(1.100), Inches(4.200), Inches(0.400),
-            "Research Flow", size=16, bold=True, color=DARK_NAVY, align=PP_ALIGN.CENTER)
-flow_items = [
-    ("Problem", "H-score bias\nSingle-pathogen limit", SEC_INTRO),
-    ("Framework", "MutBench pipeline\n9 scoring x 39 detection", SEC_FRAME),
-    ("Validation", "Stage 1 + Stage 2\n2,544 evaluations", SEC_STAGE1),
-    ("Finding", "No universal best\nomega-sq = 0.285", SEC_STAGE2),
-    ("Solution", "PAHD adaptive\nmethod selection", SEC_EXT),
-]
-for i, (ttl, desc, color) in enumerate(flow_items):
-    cy = Inches(1.650) + i * Inches(1.050)
-    box = add_rounded_rect(s, Inches(8.700), cy, Inches(3.800), Inches(0.850), fill=color)
-    set_text(box, f"{ttl}: {desc}", size=10, bold=False, color=WHITE,
-             align=PP_ALIGN.CENTER, anchor=MSO_ANCHOR.MIDDLE)
-    if i < len(flow_items) - 1:
-        add_textbox(s, Inches(10.200), cy + Inches(0.800), Inches(0.800), Inches(0.300),
-                    "v", size=14, bold=True, color=GRAY, align=PP_ALIGN.CENTER)
+    add_textbox(s, Inches(2.000), cy + Inches(0.020), Inches(5.500), Inches(0.400),
+                title, size=17, bold=True, color=DARK_NAVY)
+    # description + slide range
+    add_textbox(s, Inches(2.000), cy + Inches(0.430), Inches(8.000), Inches(0.350),
+                f"{desc}    ({slides})", size=11, color=DARK_GRAY)
 
 
-# ── SLIDE 3: Prior Work — paper cards ──────────────────────────
+# ── SLIDE 3: Prior Work — paper cards with figures ──────────────
 slide_num += 1
 s = content_slide(prs, "Prior Work: MOSD & MutClust", SEC_INTRO)
 add_page_number(s, slide_num)
 
 # MOSD card with accent bar
-c1 = add_card(s, Inches(0.600), Inches(1.200), Inches(5.800), Inches(3.500), border=MID_GRAY)
-add_accent_bar(s, Inches(0.600), Inches(1.200), Inches(0.100), Inches(3.500), TEAL_ACCENT)
+c1 = add_card(s, Inches(0.600), Inches(1.200), Inches(5.800), Inches(5.400), border=MID_GRAY)
+add_accent_bar(s, Inches(0.600), Inches(1.200), Inches(0.100), Inches(5.400), TEAL_ACCENT)
 add_textbox(s, Inches(0.900), Inches(1.300), Inches(5.300), Inches(0.350),
             "Paper 1  |  BMC Genomics 2025 (SCIE)", size=14, bold=True, color=TEAL_ACCENT)
 add_textbox(s, Inches(0.900), Inches(1.700), Inches(5.300), Inches(0.350),
@@ -296,13 +259,13 @@ add_textbox(s, Inches(0.900), Inches(2.150), Inches(5.300), Inches(1.200),
             "  across 6 evaluation metrics for cancer subtyping\n\n"
             "  Key finding: No single method dominates\n"
             "  across all cancer datasets", size=11, color=DARK_GRAY)
-# MOSD placeholder figure
-add_placeholder(s, Inches(1.000), Inches(3.400), Inches(4.800), Inches(1.200),
-                "[Image Placeholder]\nMOSD Key Figure\n(To be inserted)")
+# MOSD figure from dissertation
+add_figure(s, os.path.join(FIG_DISS, "hotspot_score_comparison.png"),
+           Inches(1.000), Inches(3.500), Inches(4.800), Inches(3.000))
 
 # MutClust card with accent bar
-c2 = add_card(s, Inches(6.900), Inches(1.200), Inches(5.800), Inches(3.500), border=MID_GRAY)
-add_accent_bar(s, Inches(6.900), Inches(1.200), Inches(0.100), Inches(3.500), RED_ACCENT)
+c2 = add_card(s, Inches(6.900), Inches(1.200), Inches(5.800), Inches(5.400), border=MID_GRAY)
+add_accent_bar(s, Inches(6.900), Inches(1.200), Inches(0.100), Inches(5.400), RED_ACCENT)
 add_textbox(s, Inches(7.200), Inches(1.300), Inches(5.300), Inches(0.350),
             "Paper 2  |  BioData Mining 2025 (SCIE)", size=14, bold=True, color=RED_ACCENT)
 add_textbox(s, Inches(7.200), Inches(1.700), Inches(5.300), Inches(0.350),
@@ -312,59 +275,61 @@ add_textbox(s, Inches(7.200), Inches(2.150), Inches(5.300), Inches(1.200),
             "  with network propagation & bootstrap\n\n"
             "  Limitation: H-score founder bias (rho = -0.876)\n"
             "  Single-pathogen evaluation is insufficient", size=11, color=DARK_GRAY)
-# MutClust placeholder figure
-add_placeholder(s, Inches(7.300), Inches(3.400), Inches(4.800), Inches(1.200),
-                "[Image Placeholder]\nMutClust Key Figure\n(To be inserted)")
-
-# bridge message
-bridge = add_card(s, Inches(1.500), Inches(5.100), Inches(10.300), Inches(0.800),
-                  fill=DARK_NAVY)
-set_text(bridge, "These gaps motivate MutBench: systematic cross-pathogen benchmarking",
-         size=15, bold=True, color=WHITE, align=PP_ALIGN.CENTER, anchor=MSO_ANCHOR.MIDDLE)
+# MutClust figure from dissertation
+add_figure(s, os.path.join(FIG_DISS, "method_comparison.png"),
+           Inches(7.300), Inches(3.500), Inches(4.800), Inches(3.000))
 
 
 # ── SLIDE 4: Biology — Central Dogma ──────────────────────────
 slide_num += 1
-s = content_slide(prs, "The Central Dogma: DNA -> RNA -> Protein", SEC_INTRO)
+s = content_slide(prs, "The Central Dogma: DNA \u2192 RNA \u2192 Protein", SEC_INTRO)
 add_page_number(s, slide_num)
 
-# Left: key terms
-add_textbox(s, Inches(0.600), Inches(1.200), Inches(5.800), Inches(0.400),
-            "Key Biological Terms", size=16, bold=True, color=DARK_NAVY)
+# Top center: large placeholder for Central Dogma overview diagram
+add_placeholder(s, Inches(3.000), Inches(1.100), Inches(7.300), Inches(2.400),
+                "[Central Dogma overview diagram]\nDNA \u2192 Transcription \u2192 mRNA \u2192 Translation \u2192 Protein")
+
+# Left: key terms with SMALL placeholder boxes next to each
+add_textbox(s, Inches(0.600), Inches(1.200), Inches(2.200), Inches(0.400),
+            "Key Terms", size=16, bold=True, color=DARK_NAVY)
 
 terms = [
-    ("Genome", "The complete genetic information of an organism,\nencoded as a DNA or RNA sequence."),
-    ("Gene", "A segment of the genome that encodes a functional\nprotein or RNA molecule."),
-    ("Nucleotide", "The building blocks of DNA/RNA: Adenine (A),\nThymine (T)/Uracil (U), Guanine (G), Cytosine (C)."),
-    ("Amino Acid", "Building blocks of proteins. A sequence of 3\nnucleotides (codon) specifies one amino acid."),
+    ("Genome", "Complete genetic information,\nencoded as DNA or RNA.", "[DNA double helix image]"),
+    ("Gene", "Segment encoding a functional\nprotein or RNA molecule.", "[Gene segment image]"),
+    ("Nucleotide", "Building blocks: A, T/U, G, C.", "[Nucleotide structure image]"),
+    ("Amino Acid", "Protein building blocks.\n3 nucleotides = 1 codon = 1 AA.", "[Amino acid image]"),
 ]
-for i, (term, desc) in enumerate(terms):
-    cy = Inches(1.750) + i * Inches(1.200)
-    card = add_card(s, Inches(0.600), cy, Inches(5.800), Inches(1.050), border=MID_GRAY)
-    add_textbox(s, Inches(0.800), cy + Inches(0.100), Inches(1.500), Inches(0.350),
-                term, size=13, bold=True, color=SEC_FRAME)
-    add_textbox(s, Inches(0.800), cy + Inches(0.450), Inches(5.400), Inches(0.550),
-                desc, size=10, color=DARK_GRAY)
+for i, (term, desc, ph_label) in enumerate(terms):
+    cy = Inches(3.700) + i * Inches(0.900)
+    # term card
+    card = add_card(s, Inches(0.600), cy, Inches(5.200), Inches(0.800), border=MID_GRAY)
+    add_textbox(s, Inches(0.800), cy + Inches(0.050), Inches(1.400), Inches(0.300),
+                term, size=12, bold=True, color=SEC_FRAME)
+    add_textbox(s, Inches(0.800), cy + Inches(0.350), Inches(3.800), Inches(0.400),
+                desc, size=9, color=DARK_GRAY)
+    # small placeholder next to each term
+    add_placeholder(s, Inches(4.700), cy + Inches(0.050), Inches(1.000), Inches(0.700), ph_label)
 
-# Right: placeholder for DNA structure diagram
-add_placeholder(s, Inches(6.900), Inches(1.200), Inches(5.800), Inches(3.000),
-                "[Image Placeholder]\nDNA Structure Diagram\n(To be inserted)")
-
-# Central dogma flow at bottom right
-add_textbox(s, Inches(6.900), Inches(4.500), Inches(5.800), Inches(0.400),
-            "Central Dogma Flow", size=14, bold=True, color=DARK_NAVY)
-flow_boxes = [("DNA", SEC_FRAME), ("mRNA", ORANGE), ("Protein", PURPLE)]
-for i, (label, clr) in enumerate(flow_boxes):
-    bx = Inches(7.100) + i * Inches(1.900)
-    box = add_rounded_rect(s, bx, Inches(5.000), Inches(1.500), Inches(0.650), fill=clr)
-    set_text(box, label, size=14, bold=True, color=WHITE, align=PP_ALIGN.CENTER,
+# Right side: DNA, RNA, Protein individual placeholders
+cd_items = [
+    ("DNA", SEC_FRAME, "[DNA double helix image]"),
+    ("mRNA", ORANGE, "[mRNA transcription image]"),
+    ("Protein", PURPLE, "[Protein folding image]"),
+]
+for i, (label, clr, ph_label) in enumerate(cd_items):
+    cx = Inches(6.200) + i * Inches(2.400)
+    cy = Inches(3.700)
+    box = add_rounded_rect(s, cx, cy, Inches(2.100), Inches(0.550), fill=clr)
+    set_text(box, label, size=13, bold=True, color=WHITE, align=PP_ALIGN.CENTER,
              anchor=MSO_ANCHOR.MIDDLE)
+    # small placeholder below each term
+    add_placeholder(s, cx + Inches(0.100), cy + Inches(0.650), Inches(1.900), Inches(1.500), ph_label)
     if i < 2:
-        add_textbox(s, bx + Inches(1.500), Inches(5.050), Inches(0.400), Inches(0.550),
-                    ">", size=20, bold=True, color=GRAY, align=PP_ALIGN.CENTER)
+        add_textbox(s, cx + Inches(2.100), cy + Inches(0.050), Inches(0.300), Inches(0.450),
+                    "\u2192", size=20, bold=True, color=GRAY, align=PP_ALIGN.CENTER)
 
 # note at bottom
-note = add_card(s, Inches(6.900), Inches(5.900), Inches(5.800), Inches(0.750),
+note = add_card(s, Inches(6.200), Inches(6.100), Inches(6.300), Inches(0.700),
                 fill=RGBColor(0xFF, 0xF3, 0xE0), border=ORANGE)
 set_text(note, "RNA viruses use RNA (not DNA) as their genome.\nHigher mutation rate due to error-prone RNA polymerase.",
          size=11, color=DARK_GRAY, align=PP_ALIGN.CENTER, anchor=MSO_ANCHOR.MIDDLE)
@@ -375,51 +340,48 @@ slide_num += 1
 s = content_slide(prs, "Mutations & Their Effects", SEC_INTRO)
 add_page_number(s, slide_num)
 
-# Left: Mutation types
-add_textbox(s, Inches(0.600), Inches(1.200), Inches(4.000), Inches(0.400),
-            "Mutation Types", size=16, bold=True, color=DARK_NAVY)
+# Large central placeholder for mutation types diagram
+add_placeholder(s, Inches(2.650), Inches(1.100), Inches(8.000), Inches(4.000),
+                "[Mutation types diagram: substitution, insertion, deletion with DNA sequence examples]")
 
+# Left side: compact mutation type labels
 mut_types = [
-    ("Substitution", "One nucleotide replaced by another\ne.g., A -> G at a specific position", SEC_FRAME),
-    ("Insertion", "Extra nucleotide(s) added into the sequence\nShifts the reading frame downstream", ORANGE),
-    ("Deletion", "Nucleotide(s) removed from the sequence\nCan disrupt protein structure", RED_ACCENT),
+    ("Substitution", "One nucleotide replaced by another", SEC_FRAME),
+    ("Insertion", "Extra nucleotide(s) added, shifts reading frame", ORANGE),
+    ("Deletion", "Nucleotide(s) removed, disrupts structure", RED_ACCENT),
 ]
 for i, (name, desc, clr) in enumerate(mut_types):
-    cy = Inches(1.750) + i * Inches(1.200)
-    card = add_card(s, Inches(0.600), cy, Inches(5.500), Inches(1.050), border=MID_GRAY)
-    add_accent_bar(s, Inches(0.600), cy, Inches(0.080), Inches(1.050), clr)
-    add_textbox(s, Inches(0.900), cy + Inches(0.100), Inches(5.000), Inches(0.300),
-                name, size=13, bold=True, color=clr)
-    add_textbox(s, Inches(0.900), cy + Inches(0.420), Inches(5.000), Inches(0.550),
-                desc, size=10, color=DARK_GRAY)
+    cy = Inches(1.200) + i * Inches(1.300)
+    add_accent_bar(s, Inches(0.500), cy, Inches(0.080), Inches(1.100), clr)
+    add_textbox(s, Inches(0.700), cy + Inches(0.100), Inches(1.800), Inches(0.300),
+                name, size=12, bold=True, color=clr)
+    add_textbox(s, Inches(0.700), cy + Inches(0.420), Inches(1.800), Inches(0.550),
+                desc, size=9, color=DARK_GRAY)
 
-# Right: Effects on protein
-add_textbox(s, Inches(6.500), Inches(1.200), Inches(4.000), Inches(0.400),
-            "Effects on Protein", size=16, bold=True, color=DARK_NAVY)
+# Bottom: Effects on protein (compact row)
+add_textbox(s, Inches(0.600), Inches(5.300), Inches(3.000), Inches(0.350),
+            "Effects on Protein", size=14, bold=True, color=DARK_NAVY)
 
 effects = [
-    ("Silent", "No change in amino acid\n(due to codon redundancy)", GRAY),
-    ("Missense", "Different amino acid produced\nMay alter protein function", BLUE),
-    ("Nonsense", "Premature stop codon created\nTruncated, non-functional protein", RED_ACCENT),
+    ("Silent", "No AA change", GRAY),
+    ("Missense", "Different AA", BLUE),
+    ("Nonsense", "Premature stop", RED_ACCENT),
 ]
 for i, (name, desc, clr) in enumerate(effects):
-    cy = Inches(1.750) + i * Inches(1.200)
-    card = add_card(s, Inches(6.500), cy, Inches(6.200), Inches(1.050), border=MID_GRAY)
-    add_accent_bar(s, Inches(6.500), cy, Inches(0.080), Inches(1.050), clr)
-    add_textbox(s, Inches(6.800), cy + Inches(0.100), Inches(5.700), Inches(0.300),
-                name, size=13, bold=True, color=clr)
-    add_textbox(s, Inches(6.800), cy + Inches(0.420), Inches(5.700), Inches(0.550),
-                desc, size=10, color=DARK_GRAY)
-
-# Placeholder for mutation diagram
-add_placeholder(s, Inches(0.600), Inches(5.200), Inches(5.500), Inches(1.400),
-                "[Image Placeholder]\nMutation Types Diagram\n(To be inserted)")
+    cx = Inches(0.600) + i * Inches(2.900)
+    cy = Inches(5.750)
+    card = add_card(s, cx, cy, Inches(2.700), Inches(0.800), border=MID_GRAY)
+    add_accent_bar(s, cx, cy, Inches(0.060), Inches(0.800), clr)
+    add_textbox(s, cx + Inches(0.200), cy + Inches(0.050), Inches(2.300), Inches(0.300),
+                name, size=11, bold=True, color=clr)
+    add_textbox(s, cx + Inches(0.200), cy + Inches(0.380), Inches(2.300), Inches(0.350),
+                desc, size=9, color=DARK_GRAY)
 
 # Link to hotspots
-link_box = add_card(s, Inches(6.500), Inches(5.200), Inches(6.200), Inches(1.400),
+link_box = add_card(s, Inches(9.000), Inches(5.300), Inches(3.900), Inches(1.250),
                     fill=RGBColor(0xE8, 0xF5, 0xE9), border=GREEN)
-set_text(link_box, "When mutations cluster at specific positions\nacross many independent viral lineages,\nthese positions are called Mutation Hotspots.",
-         size=13, bold=True, color=GREEN, align=PP_ALIGN.CENTER, anchor=MSO_ANCHOR.MIDDLE)
+set_text(link_box, "When mutations cluster at specific\npositions across many lineages,\nthey are called Mutation Hotspots.",
+         size=11, bold=True, color=GREEN, align=PP_ALIGN.CENTER, anchor=MSO_ANCHOR.MIDDLE)
 
 
 # ── SLIDE 6: Viral Evolution & Natural Selection ────────────────
@@ -427,58 +389,95 @@ slide_num += 1
 s = content_slide(prs, "Viral Evolution & Natural Selection", SEC_INTRO)
 add_page_number(s, slide_num)
 
-# Three selection types
+# Three selection types with placeholders next to each
 sel_types = [
     ("Positive Selection", "Mutations that increase viral fitness spread\nthrough the population.\n\n"
      "Examples:\n  Immune evasion mutations\n  Increased transmissibility\n  Drug resistance",
-     GREEN),
+     GREEN, "[Positive selection diagram]"),
     ("Purifying Selection", "Mutations that damage essential functions\nare removed from the population.\n\n"
      "Examples:\n  Disruption of replication machinery\n  Loss of structural integrity\n  Impaired host entry",
-     RED_ACCENT),
+     RED_ACCENT, "[Purifying selection diagram]"),
     ("Convergent Evolution", "The same mutation arises independently\nin different viral lineages.\n\n"
      "Examples:\n  N501Y in multiple SARS-CoV-2 variants\n  E484K across Alpha, Beta, Gamma\n  Strong signal of positive selection",
-     PURPLE),
+     PURPLE, "[Convergent evolution diagram]"),
 ]
-for i, (ttl, desc, clr) in enumerate(sel_types):
+for i, (ttl, desc, clr, ph_label) in enumerate(sel_types):
     cx = Inches(0.500) + i * Inches(4.200)
-    card = add_card(s, cx, Inches(1.200), Inches(3.900), Inches(4.200), border=MID_GRAY)
+    card = add_card(s, cx, Inches(1.200), Inches(3.900), Inches(5.400), border=MID_GRAY)
     add_rect(s, cx, Inches(1.200), Inches(3.900), Inches(0.550), fill=clr)
     add_textbox(s, cx, Inches(1.220), Inches(3.900), Inches(0.510),
                 ttl, size=15, bold=True, color=WHITE, align=PP_ALIGN.CENTER,
                 anchor=MSO_ANCHOR.MIDDLE)
-    add_textbox(s, cx + Inches(0.200), Inches(1.900), Inches(3.500), Inches(3.300),
+    add_textbox(s, cx + Inches(0.200), Inches(1.900), Inches(3.500), Inches(2.600),
                 desc, size=11, color=DARK_GRAY)
-
-# Placeholder for virus evolution diagram
-add_placeholder(s, Inches(0.500), Inches(5.650), Inches(12.300), Inches(1.050),
-                "[Image Placeholder]  Virus Evolution / Phylogenetic Tree Diagram  (To be inserted)")
+    # small placeholder for each concept
+    add_placeholder(s, cx + Inches(0.200), Inches(4.600), Inches(3.500), Inches(1.850), ph_label)
 
 
-# ── SLIDE 7: Research Overview ──────────────────────────────────
+# ── SLIDE 7: Research Overview — real diagram ──────────────────
 slide_num += 1
 s = content_slide(prs, "Research Overview", SEC_INTRO)
 add_page_number(s, slide_num)
 
-# Full-slide flow diagram placeholder
-add_placeholder(s, Inches(0.600), Inches(1.100), Inches(12.100), Inches(3.500),
-                "[Image Placeholder]\nMutBench Research Overview - Full Pipeline Diagram\n"
-                "Problem -> MutBench Framework -> Stage 1 & 2 Results -> PAHD\n(To be inserted)")
+# Horizontal flow with 5 connected boxes
+flow_boxes = [
+    ("Problem", "No benchmark for\nhotspot detection", RED_ACCENT),
+    ("MutBench", "3-Layer GT\n9 Scoring\n39 Detection", BLUE),
+    ("Stage 1", "SARS-CoV-2\ndepth analysis", GREEN),
+    ("Stage 2", "9 pathogens\n2,544 evaluations", ORANGE),
+    ("Finding", "No universal best\n\u03c9\u00b2 = 0.285", PURPLE),
+]
+box_w = Inches(2.200)
+box_h = Inches(1.500)
+start_x = Inches(0.400)
+gap = Inches(0.400)
+arrow_w = Inches(0.400)
+
+for i, (ttl, desc, clr) in enumerate(flow_boxes):
+    bx = start_x + i * (box_w + gap)
+    by = Inches(1.300)
+    box = add_rounded_rect(s, bx, by, box_w, box_h, fill=clr)
+    set_text(box, f"{ttl}\n\n{desc}", size=11, bold=False, color=WHITE,
+             align=PP_ALIGN.CENTER, anchor=MSO_ANCHOR.MIDDLE)
+    # Bold the title line via overlay
+    add_textbox(s, bx, by + Inches(0.100), box_w, Inches(0.350),
+                ttl, size=13, bold=True, color=WHITE, align=PP_ALIGN.CENTER)
+    # arrow between boxes
+    if i < len(flow_boxes) - 1:
+        ax = bx + box_w
+        add_textbox(s, ax, by + Inches(0.400), arrow_w, Inches(0.500),
+                    "\u2192", size=24, bold=True, color=DARK_GRAY, align=PP_ALIGN.CENTER)
+
+# Below the flow: summary arrow pointing to PAHD
+# Arrow line
+arrow_y = Inches(3.100)
+add_rect(s, Inches(2.000), arrow_y, Inches(9.300), Inches(0.040), fill=DARK_NAVY)
+# Down arrow from center
+mid_x = Inches(6.150)
+add_textbox(s, mid_x, arrow_y - Inches(0.100), Inches(1.000), Inches(0.500),
+            "\u25bc", size=20, bold=True, color=DARK_NAVY, align=PP_ALIGN.CENTER)
+
+# PAHD box below
+pahd_box = add_rounded_rect(s, Inches(3.500), Inches(3.400), Inches(6.300), Inches(1.200),
+                             fill=DARK_NAVY)
+set_text(pahd_box, "PAHD: Pathogen-Adaptive Hotspot Detection\nAdaptive method selection based on pathogen profile",
+         size=14, bold=True, color=WHITE, align=PP_ALIGN.CENTER, anchor=MSO_ANCHOR.MIDDLE)
 
 # Key numbers below
 nums = [
     ("9", "RNA Pathogens", SEC_FRAME),
     ("2,544", "Evaluations", SEC_STAGE2),
     ("351", "Method Combos", GREEN),
-    ("3", "Ground Truth Layers", PURPLE),
-    ("0.285", "Interaction omega-sq", RED_ACCENT),
+    ("3", "GT Layers", PURPLE),
+    ("0.285", "Interaction \u03c9\u00b2", RED_ACCENT),
 ]
 for i, (num, label, clr) in enumerate(nums):
     cx = Inches(0.400) + i * Inches(2.560)
-    cy = Inches(4.900)
-    card = add_card(s, cx, cy, Inches(2.350), Inches(1.800), border=MID_GRAY)
-    add_textbox(s, cx, cy + Inches(0.200), Inches(2.350), Inches(0.700),
-                num, size=30, bold=True, color=clr, align=PP_ALIGN.CENTER)
-    add_textbox(s, cx, cy + Inches(1.000), Inches(2.350), Inches(0.600),
+    cy = Inches(5.000)
+    card = add_card(s, cx, cy, Inches(2.350), Inches(1.600), border=MID_GRAY)
+    add_textbox(s, cx, cy + Inches(0.150), Inches(2.350), Inches(0.700),
+                num, size=28, bold=True, color=clr, align=PP_ALIGN.CENTER)
+    add_textbox(s, cx, cy + Inches(0.900), Inches(2.350), Inches(0.500),
                 label, size=11, color=DARK_GRAY, align=PP_ALIGN.CENTER)
 
 
@@ -1449,9 +1448,9 @@ slide_num += 1
 s = add_blank(prs)
 # dark top area
 add_rect(s, Inches(0), Inches(0), SLIDE_W, Inches(3.500), fill=DARK_NAVY)
-# KNU logo
-if os.path.exists(LOGO):
-    s.shapes.add_picture(LOGO, Inches(0.600), Inches(0.300), Inches(0.650), Inches(0.650))
+# KNU logo (red emblem)
+if os.path.exists(LOGO_EMBLEM):
+    s.shapes.add_picture(LOGO_EMBLEM, Inches(0.600), Inches(0.300), Inches(0.650), Inches(0.650))
 add_textbox(s, Inches(0.600), Inches(1.200), Inches(12.0), Inches(1.200),
             "Thank You", size=44, bold=True, color=WHITE, align=PP_ALIGN.CENTER)
 add_textbox(s, Inches(0.600), Inches(2.400), Inches(12.0), Inches(0.600),
