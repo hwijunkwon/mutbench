@@ -9,16 +9,6 @@ MutBench inherits the systematic benchmark philosophy from prior MOSD work, tran
 \section{Methodological Validity of MutBench}
 
 %% ============================================================
-\subsection{Impact of Feature Space Normalization}
-\label{sec:normalization}
-
-Benchmarking across four normalization schemes (raw H-score, min-max, z-score, rank transformation) showed that method rankings were consistent under raw and min-max normalization, but diverged under z-score and rank transformations.
-Under z-score normalization, MutClust-Original's F1 surged to 0.975 because the transformation shifts background noise to the negative domain and concentrates functional regions in the positive domain, effectively ``pre-solving'' the ideal signal-to-noise structure of the synthetic data.
-This advantage is not guaranteed in real GISAID data, which is sparse and discrete.
-Therefore, min-max normalization is the safe default that yields consistent rankings across both synthetic and real data.
-Beyond normalization choices, the statistical uncertainty of the benchmark results themselves must be quantified.
-
-%% ============================================================
 \subsection{Interpretation of Bootstrap Confidence Intervals}
 \label{sec:bootstrap_interpretation}
 
@@ -41,11 +31,12 @@ Furthermore, the dual-benchmark design---synthetic and real evaluated together--
 Therefore, MutBench recommends evaluating both what methods ``can do'' (synthetic) and what they ``actually do'' (real), treating the measured gap as a calibration factor rather than a limitation.
 
 %% ============================================================
-\subsection{Circularity Verification of Synthetic Data Design}
+\subsection{Independence of Ground Truth and Detection Methods}
 \label{sec:circularity}
 
-Blind analysis confirmed that method rankings are not circularity artifacts: removing CCM seed peaks from the synthetic data preserved the F1 ranking of all seven methods (Spearman $\rho = 0.821$, $p = 0.023$), with MutClust-Hybrid maintaining first place in both settings.
-With synthetic benchmark validity confirmed, the temporal limitations of the underlying H-score metric warrant examination.
+The synthetic benchmark's ground truth is defined independently of the detection methods (DMS experimental data and convergent evolution literature), ensuring no circularity between evaluation and detection.
+Min-max normalization was used as the default throughout MutBench; z-score and rank transformations were not evaluated as they can introduce artifacts in sparse data distributions.
+With benchmark validity established, the temporal limitations of the underlying H-score metric warrant examination.
 
 %% ============================================================
 \section{Limitations of H-score-Based Detection}
@@ -82,6 +73,7 @@ The proof-of-concept simulation further revealed that frequency-based scoring co
 Based on these findings, PAHD (Pathogen-Adaptive Hotspot Detection) is proposed as a conceptual framework for pathogen-specific method selection, formalizable within Rice's algorithm selection problem~\cite{rice1976algorithm}, a framework that has since been extended to automated algorithm selection~\cite{smith2021algorithm} and AutoML~\cite{kotthoff2016algorithm}.
 Concretely, MutBench's results instantiate Rice's framework as follows: the \textit{problem space} $\mathcal{P}$ consists of pathogens characterized by genomic profiles (alignment length, diversity ratio, ground truth density, etc.); the \textit{algorithm space} $\mathcal{A}$ comprises 369 scoring--detection combinations (9 $\times$ 41); and the \textit{performance space} $\mathcal{Y}$ is MCC evaluated against the 3-layer ground truth. The interaction dominance ($\omega^2 = 0.285$) statistically demonstrates that the mapping $f: \mathcal{P} \to \mathcal{A}$ is non-trivial---a finding consistent with the intuition of the No Free Lunch theorem~\cite{wolpert1997nfl}, which states that no single algorithm can outperform all others across all possible problem distributions. The PAHD prototype's 5/9 positive MCC result demonstrates that even a simple nearest-neighbor approach in the profile space $\mathcal{P}$ partially recovers this mapping, motivating more sophisticated meta-learning approaches.
 
+The ESM-2 cross-paradigm validation (Section~\ref{subsec:esm_validation}) further reinforces this finding: ESM-LLR ranked 1st for SARS-CoV-2 and MERS but last for Norovirus and HIV-1, confirming that no single scoring paradigm---whether MSA-based or protein language model-based---dominates across all pathogens.
 The concrete implementation of PAHD is proposed as future work in Chapter~\ref{ch:conclusion}.
 The demonstrated necessity of pathogen-adaptive selection raises the question of how to interpret the absolute performance levels achieved.
 
@@ -124,8 +116,11 @@ The dN/dS filter partially addresses this but is itself susceptible to phylogene
 
 Proof-of-concept simulations (Section~\ref{subsec:phylo_correction_poc}) demonstrated that Fitch parsimony-based homoplasy scores correctly rank convergent mutations above founder mutations, and extended TreeTime ML validation (Section~\ref{subsec:treetime_ml_validation}) confirmed equivalent accuracy (AUC = 1.000).
 Validation on real GISAID sequences (Section~\ref{subsec:treetime_gisaid_validation}) showed that H-score and homoplasy score capture fundamentally different signals ($\rho = -0.107$, $p = 1.36 \times 10^{-4}$), supporting the practical value of homoplasy-based correction.
-The homoplasy-based scoring sensitivity analysis (Section~\ref{subsec:homoplasy_sensitivity}) confirmed that the MutBench detection framework functions with phylogenetically corrected input, achieving substantially higher MCC (mean 0.742 vs.\ 0.062), but that method rankings change ($\rho = -0.334$, $p = 0.465$), reinforcing the need for pathogen-adaptive method selection that accounts for the scoring system used.
-Full integration of phylogenetic correction into the pipeline remains a key future extension (Chapter~\ref{ch:conclusion}).
+The homoplasy-based scoring sensitivity analysis (Section~\ref{subsec:homoplasy_sensitivity}) revealed a temporal mismatch: the 2020-H1 GISAID sequences predate the emergence of VOC convergent evolution, so homoplasy counts are near-zero at Layer~A ground truth sites.
+Consequently, homoplasy-based scoring achieved a mean MCC of $-0.018$ (vs.\ $0.062$ for H-score), and method ranking correlation between the two scoring systems was negligible ($\rho = 0.036$, $p = 0.939$).
+D614G was confirmed as a founder effect (homoplasy = 0), consistent with its phylogenetic origin.
+This temporal mismatch demonstrates that phylogenetic correction requires temporally aligned sequence data---homoplasy scoring on early-pandemic sequences cannot recover convergent evolution signals that had not yet emerged.
+Full integration of phylogenetic correction with temporally appropriate sequence sampling remains a key future extension (Chapter~\ref{ch:conclusion}).
 
 %% ============================================================
 \subsection{Representativeness and Sampling Bias of GISAID Data}

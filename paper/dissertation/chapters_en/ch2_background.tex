@@ -54,7 +54,12 @@ Furthermore, K-means clustering requires the number of clusters to be specified 
 
 \textbf{Cancer genomics methods.}
 In cancer genomics, various methods have been developed to detect somatic mutation hotspots.
-Cancer genomics tools such as MutSigCV~\cite{lawrence2013mutsigcv}, OncodriveCLUST~\cite{tamborero2013oncodriveclust}, HotMAPS~\cite{tokheim2016hotmaps}, and MutSpot~\cite{munoz2020mutspot} target somatic mutations in tumor genomes, which are more than 1,000 times larger than viral genomes and involve fundamentally different mutation dynamics and selective pressures, making direct transfer infeasible.
+Cancer genomics tools such as MutSigCV~\cite{lawrence2013mutsigcv} (gene-level driver detection), OncodriveCLUST~\cite{tamborero2013oncodriveclust}, HotMAPS~\cite{tokheim2016hotmaps}, and MutSpot~\cite{munoz2020mutspot} target somatic mutations in tumor genomes, which are more than 1,000 times larger than viral genomes and involve fundamentally different mutation dynamics and selective pressures, making direct transfer infeasible.
+
+An important limitation of frequency-based mutation analysis is \textbf{phylogenetic non-independence}: mutations observed in closely related sequences are not independent events~\cite{felsenstein1985phylogenies}.
+Phylogeny-aware methods such as TreeTime~\cite{sagulenko2018treetime}, BEAST~\cite{suchard2018beast}, and HyPhy~\cite{kosakovsky2020hyphy} can address this but require high-quality phylogenetic trees and have limited reliability in densely sampled datasets~\cite{turakhia2020ultrafast}.
+
+Simpler approaches to hotspot identification include sliding window methods, which scan fixed-length windows across the genome and flag those exceeding a mutation count threshold, and signal processing techniques such as wavelet transforms, which decompose mutation frequency profiles to identify localized peaks at multiple scales.
 
 \subsection{Density-Based Clustering}
 \label{subsec:bg_density_clustering}
@@ -72,8 +77,8 @@ It can detect clusters of arbitrary shape, automatically identifies noise points
 
 OPTICS~\cite{ankerst1999optics} generates a reachability plot revealing clustering structure at all density levels but requires post-processing for cluster extraction.
 
-An important limitation of frequency-based mutation analysis is \textbf{phylogenetic non-independence}: mutations observed in closely related sequences are not independent events~\cite{felsenstein1985phylogenies}.
-Phylogeny-aware methods such as TreeTime~\cite{sagulenko2018treetime}, BEAST~\cite{suchard2018beast}, and HyPhy~\cite{kosakovsky2020hyphy} can address this but require high-quality phylogenetic trees and have limited reliability in densely sampled datasets~\cite{turakhia2020ultrafast}.
+\subsection{Deep Mutational Scanning as Ground Truth}
+\label{subsec:bg_dms}
 
 \textbf{Deep Mutational Scanning (DMS)} is an experimental technique that systematically measures the functional effects of all possible single amino acid substitutions within a protein~\cite{fowler2014dms}.
 For SARS-CoV-2, Starr et al.~\cite{starr2020dms} measured ACE2 binding affinity and expression in the receptor-binding domain (RBD), and Dadonaite et al.~\cite{dadonaite2023dms} measured pseudovirus cell entry fitness across the full-length Spike protein.
@@ -81,10 +86,9 @@ Bloom and Neher~\cite{bloom2023fitness} provided an integrated analysis of DMS f
 DMS data provides a natural ground truth for hotspot benchmarking: positions where mutations exhibit large fitness effects correspond to biologically functional sites that detection methods should identify.
 
 
-The absence of benchmark studies for hotspot detection methods in viral genomics stands in contrast to cancer genomics.
-In cancer genomics, the comprehensive driver gene analysis by Bailey et al.~\cite{bailey2018comprehensive} serves as a standard benchmark, and numerous detection methods have been systematically compared against the same datasets and ground truth.
-No such benchmark exists for viral genomes, and methods including MutClust rely solely on self-referential statistical tests.
-This gap is the fundamental motivation for MutBench (Chapter~\ref{ch:mutbench}), the core study of this dissertation.
+The absence of benchmark studies for hotspot detection methods in viral genomics stands in contrast to cancer genomics, where the comprehensive driver gene analysis by Bailey et al.~\cite{bailey2018comprehensive} established a standard benchmark with independent ground truth, enabling systematic comparison of 26 detection methods under uniform conditions.
+No analogous benchmark exists for viral genomes: detection methods are evaluated using ad hoc validation against small sets of known functional mutations, without standardized datasets, metrics, or ground truth definitions.
+This field-level gap is the fundamental motivation for MutBench (Chapter~\ref{ch:mutbench}), the core study of this dissertation.
 
 
 
@@ -97,7 +101,7 @@ This gap is the fundamental motivation for MutBench (Chapter~\ref{ch:mutbench}),
 \textit{This section is a summary of the paper published in BMC Genomics (2025) 26:769~\cite{han2025mosd}.}
 
 
-MOSD (Multi-Omics Study Design)~\cite{han2025mosd} is the first comprehensive benchmark framework that systematically evaluates the influence of 9 factors on 10 MOI methods across 10 TCGA cancer types.
+MOSD (Multi-Omics Study Design)~\cite{han2025mosd} is a comprehensive benchmark framework that systematically evaluates the influence of 9 factors on 10 MOI methods across 10 TCGA cancer types.
 Its three core contributions are:
 (1)~a \textbf{composite cluster-score} that combines three complementary clustering metrics (ARI, NMI, F-measure) with equal weights to avoid single-metric bias;
 (2)~a \textbf{single-factor isolation design} in which only the factor under evaluation is varied while all others are held constant;
@@ -149,9 +153,8 @@ These values may become inappropriate when the number of sequences or genome siz
 Although applying the same parameters was successful in influenza validation, influenza genomes are approximately one-tenth the size of SARS-CoV-2 ($\sim$2,300 bp/segment vs. $\sim$30,000 bp), and the necessity of parameter readjustment for best performance remains unresolved.
 
 \textbf{Third, the absence of systematic benchmarking.}
-The hotspot detection performance of MutClust relies solely on qualitative comparison with known functional mutations, and quantitative evaluation (precision, recall, stability) based on independent ground truth has not been conducted.
-In cancer genomics, systematic comparison studies of hotspot detection methods have been performed, such as the comprehensive driver gene analysis by Bailey et al.~\cite{bailey2018comprehensive}, but no such benchmark exists for viral genomes.
-Viral hotspot detection methods, including MutClust, rely solely on self-referential statistical tests (bootstrap), and the absence of standardized evaluation metrics makes fair comparison of results across different methods impossible.
+MutClust's reliance on self-referential bootstrap validation, without independent ground truth or standardized metrics, exemplifies the broader benchmarking gap identified in Section~\ref{sec:bg_hotspot}.
+Quantitative evaluation (precision, recall, stability) based on independent ground truth has not been conducted, and the absence of standardized evaluation metrics makes fair comparison of results across different methods impossible.
 
 Additionally, since H-scores are computed at the nucleotide level, they do not distinguish between synonymous and non-synonymous mutations, necessitating integration with selective pressure indicators such as the dN/dS ratio.
 Phylogenetic non-independence---the possibility that mutation frequency is the result of a single founder effect rather than independent positive selection---is also not corrected for.

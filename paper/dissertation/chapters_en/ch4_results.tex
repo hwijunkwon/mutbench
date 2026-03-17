@@ -133,7 +133,8 @@ All bootstrap confidence intervals reported in this section were estimated using
 In random label shuffling (1,000 iterations), precision and recall of all methods were significant at $p < 0.001$.
 In circular permutation tests (200 iterations), the observed F1 of all 5 methods substantially exceeded the null distribution:
 MutClust-Hybrid (F1 = 0.785, null mean = 0.023, $z$ = 9.97, $p < 0.005$),
-MutClust-Original/Fixed (F1 = 0.669, null mean = 0.018, $z$ = 9.25, $p < 0.005$),
+MutClust-Original (F1 = 0.668, null mean = 0.018, $z$ = 9.25, $p < 0.005$),
+MutClust-Fixed (F1 = 0.669, null mean = 0.018, $z$ = 9.25, $p < 0.005$),
 HDBSCAN-Auto (F1 = 0.146, null mean = 0.076, $z$ = 11.31, $p < 0.005$).
 The significance of all methods even under circular permutation, which preserves the spatial autocorrelation of H-scores, confirms that the spatial overlap between detected hotspots and functional regions is a genuine biological signal rather than a byproduct of H-score cluster structure.
 
@@ -262,7 +263,7 @@ The sensitivity of detection performance to MutClust parameters is visualized in
 \label{fig:mutbench_sensitivity}
 \end{figure}
 
-In the HDBSCAN parameter sensitivity analysis, F1 varied by less than 0.005 across all 16 combinations, with the number of detected positions consistently maintained at approximately 14,900 (Table~\ref{tab:hdbscan_sensitivity}).
+In the HDBSCAN parameter sensitivity analysis, F1 varied by less than 0.01 across all 16 combinations, with the number of detected positions consistently maintained at approximately 14,900 (Table~\ref{tab:hdbscan_sensitivity}).
 This parameter insensitivity is a key advantage of density-based approaches and provides justification for MutClust-Hybrid's use of HDBSCAN for boundary determination.
 
 \begin{table}[htbp]
@@ -664,7 +665,7 @@ These results confirm that the founder effect bias of H-score predicted in simul
 
 To validate this analysis with real phylogenetic data, a sensitivity experiment was conducted using TreeTime maximum-likelihood ancestral reconstruction on 500 SARS-CoV-2 Spike protein sequences subsampled from the 2020-H1 NCBI dataset.
 A phylogenetic tree was inferred with FastTree (WAG model), and TreeTime reconstructed ancestral sequences at all internal nodes; per-position homoplasy counts were extracted by summing the number of independent mutation events mapped to each of the 1,273 Spike amino acid positions.
-Eleven detection methods from five algorithm families were then applied to the homoplasy count array, and MCC was computed against the Layer~A ground truth (25 convergent evolution positions).
+Seven detection methods from five algorithm families were then applied to the homoplasy count array, and MCC was computed against the Layer~A ground truth (25 convergent evolution positions).
 
 \begin{table}[htbp]
 \centering
@@ -817,7 +818,7 @@ LOPO (Leave-One-Pathogen-Out) cross-validation was performed to evaluate whether
 These results demonstrate that the strategy of selecting a method that is ``on average good across multiple pathogens'' fails to predict performance for a specific pathogen, strongly supporting the need for pathogen-specific adaptive method selection.
 When LOPO is performed excluding the SWAN family (9 variants)\footnote{Excluding SWAN reduces the number of evaluations from 2,544 to 2,414 (a decrease of 130), and the training-best combination changes primarily to P*E + Wavelet($t$ = 1.5). The mean generalization ratio improves from 4.9\% to 11.6\%, and the mean performance gap decreases from 0.277 to 0.239; however, the combination match rate of 0/9 is maintained, leaving the core conclusion unchanged.}, the combination match rate of 0/9 is maintained, confirming that the core conclusion of ``non-transferability of best methods across pathogens'' remains unchanged.
 
-The 0/9 combination match rate and 4.9\% generalization ratio are not limitations of the benchmark but rather \textbf{key findings}. These results quantitatively demonstrate that the premise of a ``single optimal method'' itself does not hold, providing the strongest statistical evidence for the necessity of pathogen-adaptive method selection (PAHD). $n=9$ covers the major representative RNA virus pathogens, and despite the sample size constraint, the statistical significance of inter-pathogen heterogeneity was confirmed by three independent tests: ANOVA ($\omega^2 = 0.285$), Friedman ($p = 0.0015$), and LOPO (0/9 match).
+The 0/9 combination match rate and 4.9\% generalization ratio are not limitations of the benchmark but rather \textbf{key findings}. These results quantitatively demonstrate that the premise of a ``single optimal method'' itself does not hold, providing the strongest statistical evidence for the necessity of pathogen-adaptive method selection (PAHD). $n=9$ covers the major representative RNA virus pathogens, and despite the sample size constraint, the statistical significance of inter-pathogen heterogeneity was confirmed by four independent lines of evidence: ANOVA interaction dominance ($\omega^2 = 0.285$), unique best combinations (9/9), Friedman test ($p = 0.0015$), and LOPO cross-validation (0/9 match).
 
 \subsection{Friedman Test}
 \label{subsec:9pathogen_friedman}
@@ -865,11 +866,11 @@ This supports the conclusion that the benchmark findings reflect intrinsic prope
 
 To test whether the benchmark findings generalize beyond MSA-derived scoring formulas, an independent scoring paradigm was evaluated: the ESM-2 protein language model (650M parameters; Lin et al., 2023). ESM-2 computes per-position log-likelihood ratios (ESM-LLR) from a single consensus sequence using learned evolutionary representations, requiring no multiple sequence alignment. This provides orthogonal validation of the benchmark framework because the scoring signal originates from a fundamentally different methodology---a deep neural network trained on millions of protein families---rather than from the same MSA used by the nine existing scoring formulas.
 
-ESM-LLR was computed for all nine pathogens using wild-type marginal scoring: a single forward pass through the model yields $\text{ESM-LLR}[i] = -\log P(a_i \mid \text{context})$, where $a_i$ is the consensus amino acid at position $i$. For proteins exceeding the 1,022-token context window (SARS-CoV-2 Spike: 1,259 AA; MERS Spike: 1,330 AA), a sliding window with 256-residue overlap was applied and scores were averaged in overlap regions. The resulting ESM-LLR arrays were evaluated through the same 39 detection methods used in the main benchmark.
+ESM-LLR was computed for all nine pathogens using wild-type marginal scoring: a single forward pass through the model yields $\text{ESM-LLR}[i] = -\log P(a_i \mid \text{context})$, where $a_i$ is the consensus amino acid at position $i$. For proteins exceeding the 1,022-token context window (SARS-CoV-2 Spike: 1,259 AA after MSA trimming; MERS Spike: 1,330 AA), a sliding window with 256-residue overlap was applied and scores were averaged in overlap regions. The resulting ESM-LLR arrays were evaluated through the same 41 detection methods used in the main benchmark.
 
 \begin{table}[htbp]
 \centering
-\caption{Best MCC (Layer A, adaptive ground truth) for ESM-LLR versus the best existing scoring formula per pathogen. ESM rank indicates the position of ESM-LLR among 10 total scoring methods (9 existing + ESM-LLR) when each is paired with its optimal detector.}
+\caption{Best MCC (Layer A, adaptive ground truth) for ESM-LLR versus the best existing scoring formula per pathogen. ESM rank indicates the position of ESM-LLR among 10 total scoring methods (9 existing + ESM-LLR) when each is paired with its best-performing detector.}
 \label{tab:esm_comparison}
 \small
 \begin{tabular}{lccccl}
@@ -882,7 +883,7 @@ Norovirus & 0.176 & 0.438 & $-$0.262 & 10/10 & P*E*rare \\
 HIV-1 & 0.096 & 0.182 & $-$0.085 & 10/10 & E*rare \\
 Dengue & 0.127 & 0.256 & $-$0.129 & 9/10 & E*rare \\
 RSV & 0.196 & 0.249 & $-$0.053 & 5/10 & P*E \\
-Influenza\_B & 0.354 & 0.361 & $-$0.008 & 2/10 & H-score \\
+Influenza~B & 0.354 & 0.361 & $-$0.008 & 2/10 & H-score \\
 MERS & 0.143 & 0.088 & +0.055 & 1/10 & rank(P*E) \\
 HCV & 0.123 & 0.443 & $-$0.319 & 8/10 & E\_only \\
 \midrule
@@ -971,10 +972,10 @@ This trade-off reflects the v2 profile's improved similarity structure: by corre
 
 When evaluated using a top-$k$ hit criterion at the detection family level, the PAHD Family-first strategy achieves a family top-3 hit rate of 5/9, meaning that in 5 out of 9 pathogens the predicted detection family falls within the three highest-performing families for that pathogen. At the exact combination level, the top-10 hit rate is 1/9 (H3N2, rank 8 of 369), confirming that while exact combination prediction remains difficult with only 9 pathogens, the predicted detection family often falls within the competitive neighborhood of the oracle.
 
-To further address the ill-posedness of predicting from 351 exact combinations with only 9 training instances, PAHD was additionally evaluated at coarser prediction granularities using the v2 profile similarity matrix with 1-NN LOPO.
+To further address the ill-posedness of predicting from 369 exact combinations with only 9 training instances, PAHD was additionally evaluated at coarser prediction granularities using the v2 profile similarity matrix with 1-NN LOPO.
 At the \textbf{detection family level} (15 families), the 1-NN strategy achieved a family match rate of 0/9---each pathogen's oracle-best family is unique, and the 1-NN neighbor never shares the same best family.
-However, the mean composite MCC when using the best combination \emph{within} the predicted family was 0.144 (median 0.142), recovering 49.2\% of oracle performance.
-At the \textbf{scoring formula level} (9 formulas), the match rate was likewise 0/9, but the mean MCC was 0.172 (median 0.138), recovering 54.5\% of oracle performance.
+However, the mean composite MCC when using the best combination \emph{within} the predicted family was 0.144 (median 0.142), recovering 48.3\% of oracle performance.
+At the \textbf{scoring formula level} (9 formulas), the match rate was likewise 0/9, but the mean MCC was 0.172 (median 0.138), recovering 57.7\% of oracle performance.
 Both coarser-granularity predictions substantially outperform the exact combination prediction (mean MCC $= -0.016$, $-9.8$\% of oracle) and the naive global-best baseline (mean MCC $= 0.034$, 8.2\% of oracle).
 The key insight is that even when the \emph{label} prediction (which family or scoring) fails due to insufficient $n$, the \emph{performance} achieved by applying the predicted category remains competitive: restricting the search space to a single predicted family or scoring formula already captures roughly half of the oracle MCC, compared to near-zero under naive approaches.
 

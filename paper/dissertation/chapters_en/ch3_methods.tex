@@ -29,7 +29,7 @@ Mutation hotspot detection aims to identify genomic regions with significantly e
 For cancer somatic mutations, methods such as MutSigCV~\cite{lawrence2013mutsigcv} (gene-level background modeling), OncodriveCLUST~\cite{tamborero2013oncodriveclust} (positional clustering bias), HotMAPS~\cite{tokheim2016hotmaps} (3D structure-based spatial hotspots), and MutSpot~\cite{munoz2020mutspot} (epigenome-integrated random forest) have been developed; however, systematic benchmarking specialized for viral genomes was absent.
 Cancer genomics tools (MutSigCV, OncodriveCLUST) target somatic mutations in tumors, a fundamentally different problem, and are therefore not included as baselines.
 
-In MutBench, in addition to MutClust variants, two baseline methods are included---frequency-based thresholding (marking positions as hotspots when mutation frequency exceeds the median + $k \times \text{MAD}$) and sliding window (thresholding the mean mutation frequency within a fixed-size window)---to verify whether MutClust's adaptive density estimation provides substantive improvement over simple approaches.
+In MutBench, in addition to MutClust variants, two baseline methods are included---frequency-based thresholding and sliding window---to verify whether MutClust's adaptive density estimation provides substantive improvement over simple approaches. Frequency-based thresholding is a general category of methods that mark positions as hotspots when mutation frequency exceeds a threshold; the specific Frequency Baseline implementation in this study uses the top 10th percentile H-score threshold with gap-based grouping (Table~\ref{tab:variants}). The sliding window baseline thresholds the mean mutation frequency within a fixed-size window.
 Furthermore, the benchmark guidelines of neutral evaluation, multiple metrics, and controlled experimental design established by Weber et al.~\cite{weber2019benchmarking}---with Boulesteix et al.~\cite{boulesteix2017towards} further emphasizing the importance of neutral comparison studies conducted by researchers without a stake in the compared methods---as well as the experimental ground truth provided by DMS experiments~\cite{fowler2014dms,starr2020dms,dadonaite2023dms}, serve as the methodological foundation of MutBench.
 
 %% ============================================================
@@ -94,6 +94,7 @@ Ground truth is generated from two sources.
 The synthetic benchmark was designed as a controlled signal recovery test that evaluates how accurately each detection method recovers artificially inserted signals at known positions.
 Synthetic H-scores are generated mimicking SARS-CoV-2 patterns, with hotspot regions inserted at known functional sites.
 High H-scores (0.8--1.2) are assigned to Core Candidate Mutation (CCM) seed positions (AA 484, 501, 417, 452---the four Spike positions most frequently mutated in major SARS-CoV-2 variants), moderate scores (0.05--0.3) to surrounding functional regions, and low noise (0.0--0.02) to background positions.
+Scores within each category are drawn from uniform distributions: $\mathcal{U}(0.8, 1.2)$ for seed positions, $\mathcal{U}(0.05, 0.3)$ for surrounding functional regions (defined as positions within 50 positions of each seed), and $\mathcal{U}(0.0, 0.02)$ for background. A single synthetic genome of 29,903 positions is generated per trial.
 Since the ground truth of synthetic data is known by design, this test evaluates each method's signal recovery capability but does not directly measure actual biological hotspot detection performance.
 Therefore, DMS-based validation (Section~\ref{subsec:dms_ground_truth}) and convergent evolution evaluation (Section~\ref{sec:multi_gt}) provide independent biological validation, confirming whether the conclusions from the synthetic benchmark hold on real data.
 
@@ -231,7 +232,7 @@ Purifying selection (dN/dS $< 1$) also indicates biologically important function
 Therefore, the dN/dS $> 1.0$ filter sacrifices recall of these conserved functional regions in exchange for improved precision in identifying sites under active positive selection, such as immune evasion and receptor adaptation.
 
 \textbf{Jukes-Cantor correction validation.}
-Jukes-Cantor correction was verified to produce no threshold classification changes across all 38 clusters (Spearman $\rho = 0.996$ for 31 non-saturated clusters); therefore, the uncorrected Nei--Gojobori method is retained.
+Jukes-Cantor correction was verified to produce no threshold classification changes across all 38 clusters from MutClust-dNdS (30 clusters) and MutClust-Hybrid (8 clusters) (Spearman $\rho = 0.996$ for 31 non-saturated clusters); therefore, the uncorrected Nei--Gojobori method is retained.
 
 \subsubsection{HDBSCAN Hybrid (MutClust-Hybrid)}
 
@@ -258,6 +259,7 @@ For $N = 10{,}000$ sequences and $M = 3{,}822$ positions, the total pipeline exe
 
 HDBSCAN-Auto completely bypasses MutClust and applies HDBSCAN directly to positions above an adaptive threshold (median of non-zero H-scores).
 It uses the same two-dimensional feature space (min-max normalized position, H-score) and requires no manually specified domain parameters, enabling application to any viral genome without prior tuning.
+HDBSCAN-Auto uses min\_cluster\_size $= 5$ and min\_samples $= 3$ as default parameters.
 
 \subsection{Hotspot-score Composite Metric}
 \label{subsec:hotspot_score}
@@ -539,6 +541,8 @@ HCV & E2 & 54 & 0$^\ddagger$ & --- & HVR1/HVR2 hypervariable regions \\
 \footnotesize Layer C (DMS) sources: SARS-CoV-2~\cite{dadonaite2023dms}, H3N2~\cite{lee2018h3n2dms}, HIV-1~\cite{haddox2018hiv1dms}, RSV~\cite{simonich2025rsvdms}.
 ``---'' indicates that no DMS data is available for that pathogen.
 $^\ddagger$The CD81 binding site residues of HCV (AA 418--535) exceed the alignment length (340 AA) and are not evaluated in this benchmark, resulting in effective Layer B = 0.
+
+Note that Layer~A selection criteria vary across pathogens: SARS-CoV-2 and H3N2 use phylogenetically confirmed convergent evolution sites, Norovirus uses epochal variant positions, HCV uses hypervariable regions (HVR1/HVR2), and the remaining pathogens use literature-reported immune evasion positions. This heterogeneity is a limitation of the current ground truth construction (discussed in Chapter~\ref{ch:discussion}).
 \end{minipage}
 \end{table}
 

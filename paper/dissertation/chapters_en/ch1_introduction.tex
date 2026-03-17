@@ -12,9 +12,8 @@ Because hotspots are directly associated with major phenotypic changes in viruse
 Accurately identifying mutation hotspots enables three critical applications: (1) early warning of emerging variants with altered transmissibility or immune evasion potential, (2) rational vaccine design targeting conserved versus variable epitopes, and (3) antiviral drug development prioritizing structurally constrained regions.
 The emergence of SARS-CoV-2 variants of concern (Alpha, Beta, Delta, Omicron) demonstrated that mutations at specific Spike protein positions (e.g., N501Y, E484K, L452R) recurrently drive phenotypic change, underscoring the practical importance of systematic hotspot identification~\cite{harvey2021tracking}.
 
-However, no benchmark framework has yet been established to systematically compare and evaluate the performance of viral mutation hotspot detection methods.
-No standardized evaluation framework exists in viral genomics, despite partial benchmark studies in cancer genomics~\cite{bailey2018comprehensive}.
-The present author's prior work on multi-omics benchmarking (MOSD~\cite{han2025mosd}) and adaptive hotspot detection (MutClust~\cite{youn2025mutclust}) revealed that fair comparison among detection methods was impossible without a systematic framework, motivating this research.
+However, no systematic benchmark framework has been established to compare and evaluate viral mutation hotspot detection methods. Formally, given a multiple sequence alignment (MSA) of viral protein sequences, the detection task identifies a subset of genomic positions with statistically elevated mutation rates; yet no standardized ground truth, composite evaluation metric, or cross-pathogen validation methodology exists, despite partial benchmark studies in cancer genomics~\cite{bailey2018comprehensive}.
+The present author previously developed a systematic benchmark framework for multi-omics integration (MOSD~\cite{han2025mosd}) and an adaptive hotspot detection algorithm (MutClust~\cite{youn2025mutclust}); the experience of developing MutClust without a quantitative evaluation framework directly motivated this research.
 
 Current viral genomics platforms such as Nextstrain~\cite{nextstrain2018hadfield} and PANGO lineage classification~\cite{rambaut2020pangolin} monitor variant emergence but do not provide systematic evaluation of hotspot detection methods.
 The absence of standardized benchmarks means that method developers cannot objectively compare their approaches, and end users cannot make informed choices about which method to deploy for a given pathogen.
@@ -45,9 +44,9 @@ This is a specific instance of the algorithm selection problem~\cite{rice1976alg
 To address the problems above, this study establishes the following two objectives.
 
 \begin{enumerate}[label=\textbf{Objective \arabic*.}]
-  \item \textbf{Construction of a systematic benchmark framework for viral mutation hotspot detection (MutBench)}: Build a benchmark framework comprising a three-layer ground truth (convergent-evolution-based positives, purifying-selection-based negatives, and DMS-based functional fitness), the composite evaluation metric hotspot-score $= (\text{recall} + \text{precision} + \text{stability}) / 3$ (where stability measures the reproducibility of detection results under subsampling), and a two-stage experimental design (Stage~1: in-depth analysis of SARS-CoV-2; Stage~2: 9 RNA viruses $\times$ 9 scoring methods $\times$ 41 detection methods, totaling 3,321 evaluations).
+  \item \textbf{Construction of a systematic benchmark framework for viral mutation hotspot detection (MutBench)}: Build a benchmark framework comprising a three-layer ground truth (convergent-evolution-based positives, purifying-selection-based negatives, and DMS-based functional fitness), the composite evaluation metric hotspot-score $= (\text{recall} + \text{precision} + \text{stability}) / 3$ (where stability measures the reproducibility of detection results under subsampling), and a two-stage experimental design (Stage~1: in-depth analysis of SARS-CoV-2 (synthetic benchmark, GISAID validation, temporal generalization, and parameter sensitivity); Stage~2: 9 RNA viruses $\times$ 9 scoring methods $\times$ 41 detection methods, totaling 3,321 evaluations).
 
-  \item \textbf{Statistical demonstration of the necessity of pathogen-adaptive method selection}: Through statistical analyses (ANOVA, Friedman test, LOPO cross-validation) of the large-scale benchmark results, statistically establish that the premise of a single best-performing method does not hold across pathogens, motivating the PAHD conceptual framework as a future research direction.
+  \item \textbf{Statistical demonstration of the necessity of pathogen-adaptive method selection}: Through statistical analyses (ANOVA, Friedman test, LOPO cross-validation) of the large-scale benchmark results, statistically establish that the premise of a single best-performing method does not hold across pathogens, motivating the PAHD framework, for which a proof-of-concept prototype is presented (see Chapter~\ref{ch:results}).
 \end{enumerate}
 
 
@@ -59,12 +58,12 @@ The research contributions of this study are as follows.
 \textbf{Contribution 1. The MutBench Benchmark Framework.}
 MutBench is the first systematic benchmark framework for viral mutation hotspot detection.
 It defines a three-layer ground truth framework that uses convergent evolution sites as the positive criterion (Layer~A), purifying selection sites as the negative criterion (Layer~B), and DMS experimental data as the functional fitness criterion (Layer~C).
-It introduces the hotspot-score, a composite metric that simultaneously evaluates accuracy (recall, precision) and reliability (stability), and presents a two-stage experimental design combining in-depth SARS-CoV-2 analysis with a large-scale comparison across nine pathogens.
+It introduces the hotspot-score, a composite metric that simultaneously evaluates detection performance (recall, precision) and reliability (stability), and presents a two-stage experimental design combining in-depth SARS-CoV-2 analysis with a large-scale comparison across nine pathogens.
 
 \textbf{Contribution 2. Statistical demonstration of the necessity of pathogen-adaptive method selection.}
 Across nine RNA viruses, all nine pathogens exhibited different best-performing combinations (LOPO cross-validation: 0/9 matches), and the interaction between method family and pathogen was the largest source of variance in ANOVA.
 The Friedman test confirmed that performance rankings among methods vary systematically across pathogens.
-These results statistically establish that the premise of a single best-performing method does not hold, motivating the PAHD conceptual framework as a future research direction (see Chapter~\ref{ch:results} for detailed statistics).
+These results statistically establish that the premise of a single best-performing method does not hold, motivating the PAHD framework, for which a proof-of-concept prototype is presented (see Chapter~\ref{ch:results}).
 
 
 \section{Dissertation Organization}

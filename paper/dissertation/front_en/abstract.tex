@@ -3,7 +3,7 @@ Detecting mutation hotspots in viral genomes is essential for variant surveillan
 Previous studies relied on single pathogens and single detection methods, leaving it unknown which scoring--detection combinations are suitable for which pathogens.
 
 This dissertation presents MutBench, the first systematic benchmark framework for viral mutation hotspot detection.
-MutBench has three core components:
+MutBench comprises three core components:
 (1) a three-layer ground truth system integrating convergent evolution signatures as positive selection markers (Layer~A), conserved structural regions under purifying selection as negative controls (Layer~B), and Deep Mutational Scanning (DMS) experimental fitness data as functional validation (Layer~C);
 (2) a composite evaluation metric defined as $\text{hotspot-score} = (\text{recall} + \text{precision} + \text{stability}) / 3$; and
 (3) a two-stage experimental design in which Stage~1 conducts in-depth analysis on SARS-CoV-2 and Stage~2 performs 3{,}321 evaluations across 9 pathogens (9 scoring $\times$ 41 detection $\times$ 9 pathogens).
@@ -12,8 +12,7 @@ In Stage~1, MutClust-Hybrid achieves the highest hotspot-score (0.778), confirmi
 In the Stage~2 nine-pathogen expansion, the interaction between detection method family and pathogen explains 28.5\% of total performance variance ($\omega^2_{\text{family} \times \text{pathogen}} = 0.285$), confirming this as the largest source of variance. The Friedman test confirms that no single universally best-performing method exists ($\chi^2 = 42.44$, $p = 0.0015$), and Leave-One-Pathogen-Out (LOPO) cross-validation reveals that all nine pathogens require different best-performing scoring--detection combinations (generalization success rate 0/9).
 
 These results provide statistical demonstration that best-performing detection strategies differ across pathogens, necessitating pathogen-adaptive approaches rather than a single fixed method.
-Based on these findings, we present the conceptual design of Pathogen-Adaptive Hotspot Detection (PAHD), a framework that selects detection strategies based on pathogen profiles.
-The benchmark methodology in this work extends systematic experimental design experience from prior multi-omics integration research (MOSD) to viral genomics.
+Based on these findings, we present a proof-of-concept design and prototype of Pathogen-Adaptive Hotspot Detection (PAHD), a framework that selects detection strategies based on pathogen genomic profiles.
 
 \vspace{1em}
 \noindent\textbf{Keywords}: mutation hotspot detection, benchmark framework, viral genomics, composite evaluation metric, adaptive detection, SARS-CoV-2, Deep Mutational Scanning, PAHD
