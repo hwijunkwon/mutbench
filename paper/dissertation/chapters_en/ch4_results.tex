@@ -860,6 +860,41 @@ The benchmark was repeated at MSA sequence proportions of 25\%, 50\%, 75\%, and 
 The MCC variation with decreasing sample size was within $\pm$0.002, confirming that the benchmark results are robust to sequence sample size.
 This supports the conclusion that the benchmark findings reflect intrinsic properties of pathogen mutation structures rather than artifacts of a particular sample size.
 
+\subsection{Cross-Paradigm Validation: Protein Language Model Scoring}
+\label{subsec:esm_validation}
+
+To test whether the benchmark findings generalize beyond MSA-derived scoring formulas, an independent scoring paradigm was evaluated: the ESM-2 protein language model (650M parameters; Lin et al., 2023). ESM-2 computes per-position log-likelihood ratios (ESM-LLR) from a single consensus sequence using learned evolutionary representations, requiring no multiple sequence alignment. This provides orthogonal validation of the benchmark framework because the scoring signal originates from a fundamentally different methodology---a deep neural network trained on millions of protein families---rather than from the same MSA used by the nine existing scoring formulas.
+
+ESM-LLR was computed for all nine pathogens using wild-type marginal scoring: a single forward pass through the model yields $\text{ESM-LLR}[i] = -\log P(a_i \mid \text{context})$, where $a_i$ is the consensus amino acid at position $i$. For proteins exceeding the 1,022-token context window (SARS-CoV-2 Spike: 1,259 AA; MERS Spike: 1,330 AA), a sliding window with 256-residue overlap was applied and scores were averaged in overlap regions. The resulting ESM-LLR arrays were evaluated through the same 39 detection methods used in the main benchmark.
+
+\begin{table}[htbp]
+\centering
+\caption{Best MCC (Layer A, adaptive ground truth) for ESM-LLR versus the best existing scoring formula per pathogen. ESM rank indicates the position of ESM-LLR among 10 total scoring methods (9 existing + ESM-LLR) when each is paired with its optimal detector.}
+\label{tab:esm_comparison}
+\small
+\begin{tabular}{lccccl}
+\toprule
+Pathogen & ESM-LLR & Existing Best & $\Delta$ & ESM Rank & Best Existing Score \\
+\midrule
+SARS-CoV-2 & 0.168 & 0.118 & +0.049 & 1/10 & E*rare \\
+H3N2 & 0.360 & 0.549 & $-$0.189 & 5/10 & E\_only \\
+Norovirus & 0.176 & 0.438 & $-$0.262 & 10/10 & P*E*rare \\
+HIV-1 & 0.096 & 0.182 & $-$0.085 & 10/10 & E*rare \\
+Dengue & 0.127 & 0.256 & $-$0.129 & 9/10 & E*rare \\
+RSV & 0.196 & 0.249 & $-$0.053 & 5/10 & P*E \\
+Influenza\_B & 0.354 & 0.361 & $-$0.008 & 2/10 & H-score \\
+MERS & 0.143 & 0.088 & +0.055 & 1/10 & rank(P*E) \\
+HCV & 0.123 & 0.443 & $-$0.319 & 8/10 & E\_only \\
+\midrule
+Mean & 0.194 & 0.298 & $-$0.105 & 5.7/10 & --- \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Table~\ref{tab:esm_comparison} shows that ESM-LLR ranks first for two pathogens (SARS-CoV-2 and MERS) but performs poorly for others (last for Norovirus and HIV-1). The overall mean best MCC of ESM-LLR (0.194) is lower than the mean of existing scoring methods (0.298), indicating that MSA-derived scoring formulas generally provide more effective hotspot signals when sufficient sequence diversity is available. However, the pathogen-dependent rank variation (1st to 10th) reinforces the central finding of this benchmark: no single scoring paradigm dominates across all pathogens.
+
+Spearman correlation between ESM-LLR and MSA-based scores varied substantially across pathogens. Norovirus showed strong positive correlation ($\rho = 0.63$ with E*rare, $p < 10^{-60}$), indicating that ESM-2's learned representations capture similar evolutionary signals as entropy-based scoring for this pathogen. In contrast, HIV-1 showed moderate negative correlation ($\rho = -0.35$, $p < 10^{-14}$), and Influenza~B showed near-zero correlation ($\rho = -0.04$, $p = 0.34$). For H3N2, ESM-LLR correlated positively with DMS fitness data ($\rho = 0.47$, $p < 10^{-30}$), suggesting that the protein language model captures experimentally measurable mutational tolerance. These results confirm that ESM-LLR provides a genuinely independent scoring signal for most pathogens, validating its use as a cross-paradigm check on the benchmark framework.
+
 \subsection{Summary of Key Findings: The Need for Pathogen-Adaptive Method Selection}
 \label{subsec:pahd_motivation_summary}
 
