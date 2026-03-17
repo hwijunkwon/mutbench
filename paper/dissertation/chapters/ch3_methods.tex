@@ -8,14 +8,7 @@
 \section{연구 동기와 기여}
 \label{sec:mutbench_motivation}
 
-제~\ref{ch:background}장에서 논의한 바와 같이, 바이러스 변이 핫스팟 탐지 분야의 체계적 평가 프레임워크 부재와 MutClust의 자기 참조적 부트스트랩 검증의 한계가 MutBench 개발의 직접적 동기가 되었다.
-
-MutBench는 MOSD의 체계적 벤치마킹 방법론을 바이러스 게놈 분석 영역으로 이전하며, 핵심 기여는 다음과 같다:
-(1)~hotspot-score 복합 평가 지표의 정의(식~\ref{eq:hotspot_score});
-(2)~5가지 MutClust 변이체와 2가지 기준선 방법(빈도 역치, 슬라이딩 윈도우)의 체계적 비교 및 외부 독립 방법---OPTICS(밀도 기반 클러스터링으로 도달 가능성 거리를 통해 가변 밀도 클러스터를 자동 추출)와 KDE(커널 밀도 추정 기반 피크 탐지)---과의 추가 검증;
-(3)~심층 돌연변이 스캐닝(DMS) 기반 실험적 ground truth의 도입;
-(4)~실제 GISAID H-score를 이용한 비합성 검증;
-(5)~기능 영역, DMS fitness, 수렴 진화에 기반한 3계층 ground truth 프레임워크에 대한 다중 평가.
+제~\ref{ch:background}장에서 논의한 바와 같이, MutClust의 자기참조적 검증 한계가 MutBench 개발의 동기이며, 그 방법론을 아래에 상술한다.
 
 \begin{equation}
 \text{hotspot-score} = \frac{\text{recall} + \text{precision} + \text{stability}}{3}
@@ -27,11 +20,7 @@ MutBench는 MOSD의 체계적 벤치마킹 방법론을 바이러스 게놈 분�
 \section{관련 방법론}
 \label{sec:mutbench_related}
 
-변이 핫스팟 탐지는 돌연변이율이 유의하게 높은 게놈 영역을 식별하는 것을 목표로 한다.
-제~\ref{ch:background}장에서 검토한 바와 같이, 암 유전체학 도구는 유전자 수준 해상도에서 작동하며 게놈 크기와 변이 역학의 근본적 차이로 인해 바이러스 핫스팟 탐지에 적용할 수 없다.
-
-MutBench에서는 MutClust 변이체 외에 두 가지 기준선 방법---빈도 기반 역치(변이 빈도가 중앙값 + $k \times \text{MAD}$ 초과 시 핫스팟 표시)와 슬라이딩 윈도우(고정 크기 창의 평균 변이 빈도 역치)---을 포함하여, MutClust의 적응형 밀도 추정이 단순 접근법 대비 실질적 개선을 제공하는지 검증한다.
-또한 Weber 등~\cite{weber2019benchmarking}이 확립한 중립적 평가, 다중 지표, 통제된 실험 설계의 벤치마킹 가이드라인과---Boulesteix 등~\cite{boulesteix2017towards}이 강조한 바와 같이, 비교 대상 방법에 이해관계가 없는 연구자에 의한 중립적 비교 연구의 중요성을 포함하여---, DMS 실험~\cite{fowler2014dms,starr2020dms,dadonaite2023dms}이 제공하는 실험적 ground truth를 MutBench의 방법론적 기반으로 활용한다.
+벤치마크에는 MutClust 변이체와 함께 두 가지 기준선 방법(빈도 역치, 슬라이딩 윈도우)이 포함되며(표~\ref{tab:variants}), Weber 등~\cite{weber2019benchmarking}과 Boulesteix 등~\cite{boulesteix2017towards}의 중립적 평가 원칙을 따른다.
 
 %% ============================================================
 \section{방법론}
@@ -205,12 +194,9 @@ MutClust-Fixed는 시드의 의존성 범위로부터 직접 계산($D_\epsilon(
 MutClust-dNdS는 비동의 대 동의 돌연변이 비율(dN/dS)을 기반으로 탐지 후 필터링을 추가한다.
 
 \textbf{dN/dS 계산 방법.}
-각 탐지된 클러스터에 대해, 클러스터 내 뉴클레오티드 위치를 Wuhan-Hu-1 참조 서열(NC\_045512.2)의 코돈 구조에 매핑한다.
-비동의(nonsynonymous) 및 동의(synonymous) 치환의 분류는 Nei--Gojobori 방법~\cite{nei1986simple}의 단순 계수 방식을 따른다: 각 코돈 위치에서 관찰된 변이를 참조 코돈과 비교하여, 아미노산 변화를 초래하는 변이를 비동의 치환으로, 동일 아미노산을 유지하는 변이를 동의 치환으로 분류한다.
-dN/dS 비율은 $\text{dN/dS} = (n_d / N_d) / (n_s / N_s)$로 계산되며, 여기서 $n_d$와 $n_s$는 관찰된 비동의·동의 치환 수, $N_d$와 $N_s$는 가능한 비동의·동의 부위 수이다.
-짧은 클러스터(10개 미만 코돈)에서는 동의 치환 수가 0이 될 수 있어 dN/dS가 정의되지 않으며, 이 경우 해당 클러스터는 보수적으로 제외된다.
-
-양성 선택(dN/dS $> 1.0$) 하의 클러스터만 유지하고, 중립 진화 또는 정화 선택(dN/dS $\leq 1.0$) 하의 클러스터는 제거한다.
+dN/dS 비율은 Nei--Gojobori 단순 계수 방법~\cite{nei1986simple}을 사용하여 클러스터별로 계산한다.
+양성 선택(dN/dS $> 1.0$) 하의 클러스터만 유지하고, 중립 진화 또는 정화 선택 하의 클러스터는 제거한다.
+짧은 클러스터(10개 미만 코돈)에서 dN/dS가 정의되지 않는 경우 해당 클러스터는 보수적으로 제외한다.
 
 \textbf{뉴클레오티드 대 아미노산 수준.}
 본 연구의 평가는 뉴클레오티드(nt) 수준에서 수행된다.
@@ -227,7 +213,7 @@ MutClust의 H-score 계산은 단일 뉴클레오티드 치환만을 대상으�
 따라서 dN/dS $> 1.0$ 필터는 이러한 보존된 기능 영역의 재현율을 희생하는 대신, 면역 회피 및 수용체 적응과 같은 능동적 양성 선택 하의 부위 식별 정밀도를 향상시킨다.
 
 \textbf{Jukes-Cantor 보정 검증.}
-Jukes-Cantor 보정은 전체 38개 클러스터에서 역치 분류 변경을 유발하지 않음이 확인되었으며(31개 비포화 클러스터에서 Spearman $\rho = 0.996$), 따라서 비보정 Nei--Gojobori 방법을 유지한다.
+Jukes-Cantor 보정은 무시할 수 있는 변화만을 산출하여($\rho = 0.996$), 비보정 방법을 유지한다.
 
 \subsubsection{HDBSCAN 하이브리드 (MutClust-Hybrid)}
 
