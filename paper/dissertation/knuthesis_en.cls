@@ -167,8 +167,8 @@
 %% Dot leaders spacing (tighter dots)
 \renewcommand{\cftdotsep}{2}
 
-%% TOC depth: show only up to subsection (no subsubsection in TOC)
-\setcounter{tocdepth}{2}
+%% TOC depth: show only chapter and section (no subsection in TOC)
+\setcounter{tocdepth}{1}
 
 %% ============================================================
 %% Metadata commands

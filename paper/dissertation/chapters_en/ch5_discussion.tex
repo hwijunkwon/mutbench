@@ -43,7 +43,7 @@ With benchmark validity established, the temporal limitations of the underlying 
 \section{Limitations of H-score-Based Detection}
 
 %% ============================================================
-\subsection{H-score Saturation and the Need for Adaptive Reference Sequences}
+\subsection{Limitations of Fixed-Reference Scoring}
 \label{sec:hscore_saturation}
 
 The H-score saturation phenomenon observed in temporal validation (Section~\ref{sec:temporal}) reveals a fundamental limitation of reference-based metrics: in 2024--2025 data, all 1,273 Spike positions have non-zero H-scores with a standard deviation of only 0.098, resulting in loss of discriminatory power.
@@ -80,7 +80,7 @@ The concrete implementation of PAHD is proposed as future work in Chapter~\ref{c
 The demonstrated necessity of pathogen-adaptive selection raises the question of how to interpret the absolute performance levels achieved.
 
 %% ============================================================
-\subsection{Interpretation of the Oracle MCC Ceiling (0.298)}
+\subsection{Upper Bound of Detection Performance}
 \label{sec:oracle_mcc_ceiling}
 
 The mean oracle MCC across 9 pathogens is 0.298 (range: 0.088--0.549), which may appear low but is explained by three structural factors.

@@ -5,7 +5,7 @@
 This chapter presents the methodology of MutBench, a benchmark framework for the systematic evaluation of viral mutation hotspot detection methods.
 The overall pipeline processes multiple sequence alignment (MSA) data from 9 RNA viruses through 9 scoring formulas and 41 detection methods, evaluating results against a 3-layer ground truth system using the hotspot-score composite metric and Matthews Correlation Coefficient (MCC).
 The evaluation follows a two-stage design: Stage~1 conducts in-depth analysis on SARS-CoV-2 to validate the framework components, and Stage~2 extends the evaluation to all 9 pathogens for large-scale cross-pathogen comparison.
-Section~\ref{sec:mutbench_materials} describes the materials (target pathogens, ground truth framework, and DMS data), and Section~\ref{sec:mutbench_methods} presents the methods (framework architecture, scoring and detection algorithms, evaluation metrics, and statistical analysis design).
+Section~\ref{sec:mutbench_materials} describes the materials (target pathogens, ground truth framework, and DMS data), Sections~\ref{sec:mutbench_methods}--3.4 present the methods (framework architecture, scoring and detection algorithms, evaluation metrics, and statistical analysis design).
 \label{sec:9pathogen_benchmark}
 
 %% ============================================================
@@ -175,7 +175,7 @@ where $g_{\text{start}} = 21{,}563$ is the start position of the Spike gene in t
 This provides an experimental ground truth independent of the detection methods under evaluation, thereby avoiding the circularity of using bootstrap p-values for validation.
 
 %% ============================================================
-\section{Method}
+\section{Benchmark Framework Design}
 \label{sec:mutbench_methods}
 
 \subsection{MutBench Framework Architecture}
@@ -402,6 +402,31 @@ HDBSCAN-Auto completely bypasses MutClust and applies HDBSCAN directly to positi
 It uses the same two-dimensional feature space (min-max normalized position, H-score) and requires no manually specified domain parameters, enabling application to any viral genome without prior tuning.
 HDBSCAN-Auto uses min\_cluster\_size $= 5$ and min\_samples $= 3$ as default parameters.
 
+\subsection{Combined Evaluation Metric (Hotspot-score)}
+\label{subsec:hotspot_score}
+
+The hotspot-score, one of the key methodological features of this study, is a composite evaluation metric that integrates three complementary perspectives:
+
+\begin{equation}
+\text{hotspot-score} = \frac{\text{recall} + \text{precision} + \text{stability}}{3}
+\label{eq:hotspot_score}
+\end{equation}
+
+\begin{itemize}
+\item \textbf{Recall}: The proportion of known functional positions captured within detected hotspot regions. It evaluates biological relevance---does the method find what is important?
+\item \textbf{Precision}: The proportion of detected positions that overlap with ground truth. It evaluates specificity---does the method avoid false positives?
+\item \textbf{Stability}: The mean Jaccard similarity between the full-data detection and 100 subsampling runs (80\% position retention, position-level zeroing). It evaluates reproducibility---does the method produce consistent results under data perturbation?
+\end{itemize}
+
+The three components receive equal weights. In viral surveillance applications, a method with high accuracy but instability under data perturbation is less practical than a method with moderate accuracy and high reproducibility; including stability as an equal component reflects this requirement.
+
+\noindent The reason for separating recall and precision and combining them with stability, rather than using the F1 score, is that F1 collapses recall and precision into a single value, thereby obscuring their interaction with stability.
+For example, HDBSCAN-Auto has a low F1 (0.146) but high recall (0.944) and stability (0.788).
+Under an F1 + stability structure, this method would be undervalued, whereas under the (recall + precision + stability)/3 structure, the high recall and stability are appropriately reflected.
+
+%% ============================================================
+\section{Scoring and Detection Methods}
+
 \subsection{Scoring Formulas}
 \label{subsec:9pathogen_scoring}
 
@@ -419,6 +444,41 @@ Here, $P_i$ denotes the mutation frequency at position $i$, $E_i$ the Shannon en
 \item \textbf{P*E\textsuperscript{2}}: $S_i = P_i \times E_i^2$. Applies quadratic weighting to entropy.
 \item \textbf{rank(P*E)}: $S_i = \text{rank}(P_i \times E_i) / N$. A nonparametric score normalizing the rank of P*E.
 \end{enumerate}
+
+\subsection{Scoring Variants for Multi-Source Ground Truth}
+\label{subsec:alternative_scoring}
+
+As H-score saturation was identified in the temporal validation (Section~\ref{sec:temporal}), the following alternative scoring methods were designed to perform complementary evaluation against various ground truth definitions.
+These methods are not hotspot ``detection'' methods but rather ``scoring'' approaches that assign a score to each genomic position; top positions are selected via thresholding and compared against multiple ground truths.
+
+\textbf{Original H-score}: Uses MutClust's original H-score formula (Equation~\ref{eq:mutbench_hscore}) as-is.
+
+\textbf{Saturated H-score}: H-score computed through contemporary consensus sequence alignment on 2024--2025 data, reflecting within-population variation rather than comparison against the reference sequence (Wuhan-Hu-1).
+
+\textbf{CH-score (Consensus-based H-score)}: An H-score variant that removes reference sequence dependency by computing mutation frequency relative to the current consensus sequence:
+\begin{equation}
+\text{CH}_i = \log_2(P_i^{\text{consensus}} \times E_i \times 100 + 1)
+\end{equation}
+where $P_i^{\text{consensus}}$ is the non-consensus amino acid frequency relative to the consensus sequence.
+
+\textbf{E-score (Entropy-only score)}: Uses Shannon entropy alone, removing the frequency term ($P_i$) and scoring positions solely by diversity:
+\begin{equation}
+\text{E-score}_i = -\sum_{a} f_{a,i} \log_2 f_{a,i}
+\end{equation}
+
+\textbf{TC-freq (Temporal Contrast frequency)}: Measures the rate of change in mutation frequency between two time periods:
+\begin{equation}
+\text{TC-freq}_i = \frac{|\text{freq}_{t_2}(i) - \text{freq}_{t_1}(i)|}{\text{freq}_{t_1}(i) + \epsilon}
+\end{equation}
+where $\text{freq}_{t}(i)$ is the non-reference amino acid frequency at position $i$ in time period $t$, and $\epsilon = 10^{-6}$ is a constant to prevent division by zero.
+
+\textbf{TC-freq-v2}: A variant of TC-freq with added absolute frequency weighting, defined as $\text{TC-freq-v2}_i = \text{TC-freq}_i \times \text{freq}_{t_2}(i)$.
+
+\textbf{TC-freq-v3}: A variant using quarterly time windows, taking the maximum frequency change across each quarter rather than the full annual comparison.
+
+\textbf{dN/dS-weighted CH}: A variant that applies position-level dN/dS ratios as weights to the CH-score.
+
+For each scoring method, thresholds at the top 5\%, 10\%, 20\%, and median are applied to generate sets of ``detected'' positions, and F1, enrichment ratio, and Cohen's $d$ effect size are computed for each ground truth.
 
 \subsection{Detection Method Families}
 \label{subsec:9pathogen_detection}
@@ -476,62 +536,8 @@ These methods apply statistical tests to identify positions or windows significa
 \textbf{Ensemble and legacy} (Ensemble, MutClust-Orig).
 Ensemble combines four simple sub-detectors via majority voting. MutClust-Orig applies the original MutClust logic (CCM seed + adaptive DBSCAN) to MSA-based score profiles.
 
-\subsection{Hotspot-score Composite Metric}
-\label{subsec:hotspot_score}
-
-The hotspot-score, one of the key methodological features of this study, is a composite evaluation metric that integrates three complementary perspectives:
-
-\begin{equation}
-\text{hotspot-score} = \frac{\text{recall} + \text{precision} + \text{stability}}{3}
-\label{eq:hotspot_score}
-\end{equation}
-
-\begin{itemize}
-\item \textbf{Recall}: The proportion of known functional positions captured within detected hotspot regions. It evaluates biological relevance---does the method find what is important?
-\item \textbf{Precision}: The proportion of detected positions that overlap with ground truth. It evaluates specificity---does the method avoid false positives?
-\item \textbf{Stability}: The mean Jaccard similarity between the full-data detection and 100 subsampling runs (80\% position retention, position-level zeroing). It evaluates reproducibility---does the method produce consistent results under data perturbation?
-\end{itemize}
-
-The three components receive equal weights. In viral surveillance applications, a method with high accuracy but instability under data perturbation is less practical than a method with moderate accuracy and high reproducibility; including stability as an equal component reflects this requirement.
-
-\noindent The reason for separating recall and precision and combining them with stability, rather than using the F1 score, is that F1 collapses recall and precision into a single value, thereby obscuring their interaction with stability.
-For example, HDBSCAN-Auto has a low F1 (0.146) but high recall (0.944) and stability (0.788).
-Under an F1 + stability structure, this method would be undervalued, whereas under the (recall + precision + stability)/3 structure, the high recall and stability are appropriately reflected.
-
-\subsection{Alternative Scoring Methods for Multiple Ground Truths}
-\label{subsec:alternative_scoring}
-
-As H-score saturation was identified in the temporal validation (Section~\ref{sec:temporal}), the following alternative scoring methods were designed to perform complementary evaluation against various ground truth definitions.
-These methods are not hotspot ``detection'' methods but rather ``scoring'' approaches that assign a score to each genomic position; top positions are selected via thresholding and compared against multiple ground truths.
-
-\textbf{Original H-score}: Uses MutClust's original H-score formula (Equation~\ref{eq:mutbench_hscore}) as-is.
-
-\textbf{Saturated H-score}: H-score computed through contemporary consensus sequence alignment on 2024--2025 data, reflecting within-population variation rather than comparison against the reference sequence (Wuhan-Hu-1).
-
-\textbf{CH-score (Consensus-based H-score)}: An H-score variant that removes reference sequence dependency by computing mutation frequency relative to the current consensus sequence:
-\begin{equation}
-\text{CH}_i = \log_2(P_i^{\text{consensus}} \times E_i \times 100 + 1)
-\end{equation}
-where $P_i^{\text{consensus}}$ is the non-consensus amino acid frequency relative to the consensus sequence.
-
-\textbf{E-score (Entropy-only score)}: Uses Shannon entropy alone, removing the frequency term ($P_i$) and scoring positions solely by diversity:
-\begin{equation}
-\text{E-score}_i = -\sum_{a} f_{a,i} \log_2 f_{a,i}
-\end{equation}
-
-\textbf{TC-freq (Temporal Contrast frequency)}: Measures the rate of change in mutation frequency between two time periods:
-\begin{equation}
-\text{TC-freq}_i = \frac{|\text{freq}_{t_2}(i) - \text{freq}_{t_1}(i)|}{\text{freq}_{t_1}(i) + \epsilon}
-\end{equation}
-where $\text{freq}_{t}(i)$ is the non-reference amino acid frequency at position $i$ in time period $t$, and $\epsilon = 10^{-6}$ is a constant to prevent division by zero.
-
-\textbf{TC-freq-v2}: A variant of TC-freq with added absolute frequency weighting, defined as $\text{TC-freq-v2}_i = \text{TC-freq}_i \times \text{freq}_{t_2}(i)$.
-
-\textbf{TC-freq-v3}: A variant using quarterly time windows, taking the maximum frequency change across each quarter rather than the full annual comparison.
-
-\textbf{dN/dS-weighted CH}: A variant that applies position-level dN/dS ratios as weights to the CH-score.
-
-For each scoring method, thresholds at the top 5\%, 10\%, 20\%, and median are applied to generate sets of ``detected'' positions, and F1, enrichment ratio, and Cohen's $d$ effect size are computed for each ground truth.
+%% ============================================================
+\section{Evaluation and Statistical Design}
 
 \subsection{Evaluation Metrics}
 \label{subsec:9pathogen_metrics}
@@ -597,9 +603,8 @@ Bias-corrected and accelerated (BCa) bootstrap confidence intervals are computed
 
 Random subsamples at 25\%, 50\%, 75\%, and 100\% of MSA sequences are drawn, and the benchmark is repeated to verify MCC stability as a function of sample size.
 
-\subsection{Weight Sensitivity Analysis}
+\textbf{Weight Sensitivity Analysis.}
 \label{subsec:weight_sensitivity_methods}
-
 To verify the robustness of assigning equal weights ($1/3$) to the three components of the hotspot-score, a generalized weighted hotspot-score is defined:
 \begin{equation}
 \text{hotspot-score}_w = w_r \cdot \text{recall} + w_p \cdot \text{precision} + w_s \cdot \text{stability}
@@ -609,19 +614,18 @@ where $w_r + w_p + w_s = 1$ and each weight lies in the range $[0.05, 0.95]$.
 Rankings of the five methods are computed across a total of 171 weight combinations to analyze the proportion of weight space in which MutClust-Hybrid maintains first place (rank robustness).
 Additionally, rankings are separately presented for seven application scenarios, including early warning (recall-emphasis), vaccine design (precision-emphasis), and monitoring (stability-emphasis).
 
-\subsection{Statistical Validation Methods}
+\textbf{Statistical Validation Methods.}
 \label{subsec:statistical_methods}
-
 The following three methods are applied to assess the statistical robustness of the benchmark results.
 
-\textbf{Bootstrap confidence intervals}: Region-level bootstrap is performed using the seven functional regions as units.
+\textit{Bootstrap confidence intervals}: Region-level bootstrap is performed using the seven functional regions as units.
 In each iteration, seven regions are sampled with replacement to construct a bootstrap ground truth, and the detection results from the full data are re-evaluated against this bootstrap ground truth.
 This design captures the uncertainty in ground truth definition---variation in evaluation depending on which functional regions are included---and avoids the effective size reduction bias that occurs with individual position resampling.
 
-\textbf{Permutation test}: Two permutation approaches are employed.
-(1)~\textit{Random label shuffling}: Through 1,000 random permutations of ground truth labels, it is tested whether the observed metrics significantly exceed random expectation.
-(2)~\textit{Circular permutation}: The H-score vector is rotated by a random offset $k$ ($H_i \rightarrow H_{(i+k) \bmod N}$), hotspots are re-detected from the rotated scores, and evaluated against the original ground truth.
+\textit{Permutation test}: Two permutation approaches are employed.
+(1)~Random label shuffling: Through 1,000 random permutations of ground truth labels, it is tested whether the observed metrics significantly exceed random expectation.
+(2)~Circular permutation: The H-score vector is rotated by a random offset $k$ ($H_i \rightarrow H_{(i+k) \bmod N}$), hotspots are re-detected from the rotated scores, and evaluated against the original ground truth.
 This approach preserves the spatial autocorrelation structure (cluster pattern) of H-scores while randomizing only the relationship with genomic positions, generating a more conservative null distribution than random label shuffling.
 The p-value is calculated as $count / n_{\text{perm}}$ (the proportion of null distribution values that equal or exceed the observed value).
 
-\textbf{Pairwise comparison}: A paired bootstrap design that evaluates two methods simultaneously on the same bootstrap resample, testing the statistical significance of hotspot-score differences between methods.
+\textit{Pairwise comparison}: A paired bootstrap design that evaluates two methods simultaneously on the same bootstrap resample, testing the statistical significance of hotspot-score differences between methods.
