@@ -338,18 +338,8 @@
   \clearpage
   \phantomsection
   \addcontentsline{toc}{chapter}{Abstract}
-  \thispagestyle{plain}
-  \begin{center}
-    \setstretch{1.5}
-    {\fontsize{14pt}{17pt}\selectfont \textbf{\@title}}\\
-    \vspace{1cm}
-    {\fontsize{11pt}{13pt}\selectfont \textbf{\@author}}\\
-    \vspace{0.5cm}
-    {\fontsize{10pt}{12pt}\selectfont \@major\\The Graduate School\\Kyungpook National University\\(Supervised by Professor \@advisor)}\\
-  \end{center}
-  \vspace{1.5cm}
+  \chapter*{Abstract}
   \setstretch{1.6}
-  {\fontsize{20pt}{24pt}\selectfont \textbf{Abstract}}\\[0.5cm]
   {\fontsize{11pt}{17pt}\selectfont #1}
   \clearpage
 }
