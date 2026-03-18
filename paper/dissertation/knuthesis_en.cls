@@ -291,22 +291,14 @@
     %% Date
     {\fontsize{11pt}{14pt}\selectfont August \@degreeyear}\\
     \vspace{1.2cm}
-    %% Committee signatures — Chairman centered, underlines right of it
-  \end{center}
-  \vspace{0.5cm}
-  \noindent\hfil
-  {\fontsize{11pt}{14pt}\selectfont
-    \makebox[0pt][c]{%
-      \begin{tabular}{@{}r@{\hspace{0.2cm}}l@{\hspace{0.3cm}}c@{}}
-        Chairman & \underline{\hspace{4.5cm}} & \circledin \\[0.7cm]
-        \phantom{Chairman} & \underline{\hspace{4.5cm}} & \circledin \\[0.7cm]
-        \phantom{Chairman} & \underline{\hspace{4.5cm}} & \circledin \\[0.7cm]
-        \phantom{Chairman} & \underline{\hspace{4.5cm}} & \circledin \\[0.7cm]
-        \phantom{Chairman} & \underline{\hspace{4.5cm}} & \circledin \\
-      \end{tabular}%
-    }%
-  }\hfil
-  \begin{center}
+    %% Committee signatures — all lines use same makebox for alignment
+    {\fontsize{11pt}{14pt}\selectfont
+      \makebox[2cm][r]{Chairman}\hspace{0.2cm}\underline{\hspace{4.5cm}}\hspace{0.3cm}\circledin\\[0.7cm]
+      \makebox[2cm][r]{}\hspace{0.2cm}\underline{\hspace{4.5cm}}\hspace{0.3cm}\circledin\\[0.7cm]
+      \makebox[2cm][r]{}\hspace{0.2cm}\underline{\hspace{4.5cm}}\hspace{0.3cm}\circledin\\[0.7cm]
+      \makebox[2cm][r]{}\hspace{0.2cm}\underline{\hspace{4.5cm}}\hspace{0.3cm}\circledin\\[0.7cm]
+      \makebox[2cm][r]{}\hspace{0.2cm}\underline{\hspace{4.5cm}}\hspace{0.3cm}\circledin\\
+    }
     \vfill
     %% Institution
     {\fontsize{14pt}{17pt}\selectfont \textbf{The Graduate School Council}}\\[0.3cm]
