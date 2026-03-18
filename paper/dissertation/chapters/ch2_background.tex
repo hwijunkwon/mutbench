@@ -1,29 +1,13 @@
-% Chapter 2: Background and Prior Work (Unified)
-% Combines: literature review + MOSD summary + MutClust summary
+% Chapter 2: Related Research
+% Viral mutation hotspot detection + MutClust summary
 \chapter{관련 연구}
 \label{ch:background}
 
-본 장에서는 다중오믹스 통합(제~\ref{sec:bg_moi}절)과 바이러스 변이 핫스팟 탐지(제~\ref{sec:bg_hotspot}절)의 선행 연구를 검토하고, MutBench의 동기가 된 두 선행 연구---MOSD(제~\ref{sec:mosd_summary}절)와 MutClust(제~\ref{sec:mutclust_summary}절)---를 요약한다.
+본 장에서는 바이러스 변이 핫스팟 탐지(제~\ref{sec:bg_hotspot}절)의 선행 연구를 검토하고, MutBench의 직접적 동기가 된 선행 연구인 MutClust(제~\ref{sec:mutclust_summary}절)를 요약한다.
 
 
 %% ===================================================================
-%%  SECTION 1: 다중오믹스 통합 분석
-%% ===================================================================
-\section{다중오믹스 통합 분석}
-\label{sec:bg_moi}
-
-\label{subsec:bg_moi_methods}
-\label{subsec:bg_benchmarking}
-
-Multi-Omics Integration (MOI)은 유전자 발현, DNA 메틸화, 복제수 변이 등 다층적 생물학적 데이터를 결합하여 복잡한 질병의 분자적 특성을 포괄적으로 규명하기 위한 접근법이다.
-그래프 기반(SNF~\cite{wang2014snf}, NEMO~\cite{rappoport2018nemo}), 행렬 분해 기반(MOFA~\cite{argelaguet2018mofa}, iClusterPlus~\cite{shen2013iclusterplus}), 합의 기반(COCA~\cite{hoadley2014coca}, PINSPlus~\cite{nguyen2017pinsplus}) 등 다양한 MOI 방법이 개발되었으나, 어떤 조건에서 어떤 방법이 최적인지에 대한 근본적 질문이 남아 있었으며, 기존 벤치마크 연구들~\cite{chauvel2020sample, rappoport2018benchmark, pierrejean2020feature, tini2019multi, duan2021evaluation}은 각각 1--3개의 요인만을 독립적으로 조사하여 통합적 가이드라인을 제공하지 못하였다.
-저자는 이 공백을 해결하기 위해 MOSD 프레임워크~\cite{han2025mosd}를 개발하여, 10개 TCGA 암종에 걸쳐 10개 MOI 방법에 대한 9개 요인의 영향을 체계적으로 평가하였다.
-MOSD는 두 가지 핵심 설계 원칙을 도입하였다: 세 가지 상보적 클러스터링 지표를 동등 가중치로 결합한 복합 평가 지표(cluster-score)와, 평가 대상 요인만 변동시키고 나머지를 통제하는 단일 요인 분리 설계이다.
-Weber et al.~\cite{weber2019benchmarking}은 엄격한 벤치마킹에 중립적 평가, 다중 지표, 통제된 실험 설계, 재현성이 필요함을 제시하였으며, MOSD는 이러한 원칙을 MOI에 구현하였다. 이와 동일한 설계 원칙이 바이러스 핫스팟 탐지를 위한 MutBench로 이전되며, 이는 Section~\ref{sec:mosd_summary}에서 상술한다.
-
-
-%% ===================================================================
-%%  SECTION 2: 바이러스 변이 핫스팟 탐지
+%%  SECTION 1: 바이러스 변이 핫스팟 탐지
 %% ===================================================================
 \section{바이러스 변이 핫스팟 탐지}
 \label{sec:bg_hotspot}
@@ -87,31 +71,7 @@ DMS 데이터는 핫스팟 벤치마킹을 위한 자연스러운 ground truth�
 
 
 %% ===================================================================
-%%  SECTION 3: MOSD 요약
-%% ===================================================================
-\section{MOSD: 다중오믹스 연구 설계 프레임워크}
-\label{sec:mosd_summary}
-
-\textit{본 절은 BMC Genomics (2025) 26:769~\cite{han2025mosd}에 출판된 논문의 요약이다.}
-
-\label{subsec:mosd_bg}
-\label{subsec:mosd_methods_summary}
-\label{subsec:mosd_results_summary}
-\label{subsec:mosd_implications}
-
-MOSD (Multi-Omics Study Design)~\cite{han2025mosd}는 10개 TCGA 암종에 걸쳐 10개 MOI 방법에 대한 9개 요인의 영향을 체계적으로 평가한 포괄적 벤치마킹 프레임워크이다.
-핵심 기여는 세 가지이다:
-(1)~세 가지 상보적 클러스터링 지표(ARI, NMI, F-measure)를 동등 가중치로 결합한 \textbf{복합 cluster-score};
-(2)~평가 대상 요인만 변동시키고 나머지를 통제하는 \textbf{단일 요인 분리 설계};
-(3)~\textbf{연구 설계가 알고리즘 선택보다 중요하다}는 핵심 발견---어떤 단일 방법도 모든 조건에서 우위를 보이지 않아, 방법 선택이 본질적으로 맥락 의존적임을 확인하였다.
-
-본 학위논문에서 MOSD의 주된 기여는 \textbf{복합 지표 설계 원칙}이다: cluster-score의 상보적 지표 동등 가중 결합이 MutBench의 hotspot-score $= (\text{recall} + \text{precision} + \text{stability}) / 3$으로 직접 이전된다.
-MOSD의 단일 요인 분리 설계 역시 MutBench의 파라미터 민감도 분석에 적용된다.
-평가 요인을 체계적으로 통제하고 다중 지표로 평가해야 한다는 프레임워크 수준의 원칙이 MutBench의 설계를 직접적으로 형성한다.
-
-
-%% ===================================================================
-%%  SECTION 4: MutClust 요약
+%%  SECTION 2: MutClust 요약
 %% ===================================================================
 \section{MutClust: 적응형 밀도 기반 핫스팟 탐지}
 \label{sec:mutclust_summary}
@@ -163,7 +123,7 @@ MutClust를 포함한 바이러스 핫스팟 탐지 방법들은 자기 참조�
 \vspace{1em}
 
 이러한 한계의 핵심은 MutClust가 ``새로운 탐지 방법''을 제시하면서도 ``그 방법의 성능을 정량적으로 평가할 프레임워크''를 함께 제시하지 못했다는 점이다.
-이는 Section~\ref{subsec:bg_benchmarking}에서 고찰한 벤치마킹 원칙---중립적 평가, 다중 지표, 통제된 실험 설계---의 부재에 해당한다.
+이는 암 유전체학~\cite{bailey2018comprehensive} 및 다중오믹스 평가~\cite{weber2019benchmarking}에서 확립된 벤치마킹 원칙---중립적 평가, 다중 지표, 통제된 실험 설계---의 부재에 해당한다.
 
 \begin{table}[htbp]
 \centering

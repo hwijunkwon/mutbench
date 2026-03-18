@@ -6,9 +6,15 @@
 1단계(제~\ref{sec:variant_comparison}--\ref{sec:phylo_simulation}절)는 SARS-CoV-2에 대한 심층 분석으로, 5가지 MutClust 변이체와 2가지 기준선 방법을 합성 벤치마크, 민감도 분석, 시간적 일반화, 다중 ground truth 평가, 추가 검증 실험을 통해 비교한다.
 2단계(제~\ref{subsec:9pathogen_scale}절 이후)는 9종 RNA 바이러스에 대해 9가지 스코어링 $\times$ 41개 탐지 방법으로 확장하여, 병원체 적응적 방법 선택의 통계적 근거를 확립한다.
 
+
 %% ============================================================
-\section{합성 벤치마크: 변이체 비교}
+\section{단일 병원체 벤치마크: SARS-CoV-2}
+\label{sec:single_pathogen_benchmark}
+
+%% ------------------------------------------------------------
+\subsection{합성 데이터에 대한 변이체 비교}
 \label{sec:variant_comparison}
+
 
 합성 H-score를 사용하여 SARS-CoV-2 유사 게놈(29,903 위치)에서 7개 기능 영역(1,251개 고유 ground truth 뉴클레오티드 위치)을 대상으로 방법을 비교하였다.
 제~\ref{ch:mutbench}장에서 기술한 바와 같이, 이 합성 벤치마크는 통제된 신호 복원 검정으로서 알려진 위치에 삽입된 신호의 복원 능력을 평가한다.
@@ -88,9 +94,158 @@ HDBSCAN-Auto가 탐지한 14,916개 위치와 MutClust-Hybrid가 탐지한 852�
 \label{fig:mutbench_method_comparison}
 \end{figure}
 
+
+%% ------------------------------------------------------------
+\subsection{다중 Ground Truth 평가}
+\label{sec:multi_gt}
+
+
+단일 ground truth로는 변이의 중요성의 모든 차원을 포착할 수 없다.
+이를 해결하기 위해, 각각 서로 다른 생물학적 현상을 측정하는 세 가지 상보적 ground truth에 대해 탐지 방법을 평가하였다:
+
+\begin{itemize}
+\item \textbf{기능 영역}(439개 아미노산 위치, Spike 1,273 AA의 34.5\%): 알려진 도메인 주석(RBD, NTD 초과부위, 퓨린 절단, 융합 펩타이드, HR1, HR2)\footnote{본 분석에서 사용된 439 AA는 도메인 주석의 아미노산 수준 합집합으로, 합성 벤치마크에서 사용된 뉴클레오티드 수준 ground truth(1,251 nt, 중첩 제거 후 417 AA)보다 넓은 영역 경계 정의를 포함한다.}.
+\item \textbf{DMS-escape}(252개 위치, 19.8\%): 실험적으로 측정된 단일 돌연변이 세포 진입 fitness 효과~\cite{dadonaite2023dms}(상위 20백분위).
+\item \textbf{수렴 진화}(97개 위치, 7.6\%): 독립적 SARS-CoV-2 계통에서 반복적 양성 선택을 받은 문헌 기반 부위~\cite{cao2023ba286,carabelli2023convergent}. RBD 면역 회피 위치, ACE2 결합 강화 돌연변이, 퓨린 절단 부위 적응, S2 수렴 치환을 포함한다(이 확장 집합은 문헌에서 보고된 모든 수렴 진화 위치를 포함하며, 9-병원체 벤치마크에서 사용된 엄격한 25개 위치 Layer~A 집합과 구분된다).
+\end{itemize}
+
+세 ground truth는 대체로 비중첩적이다: DMS-escape와 수렴 진화 위치 간의 Jaccard 유사도는 0.006으로, 거의 완전한 독립성을 나타낸다.
+이는 집단 빈도, 실험적 fitness, 진화적 수렴이 변이 중요성의 근본적으로 다른 측면을 포착함을 확인한다.
+
+결정적으로, 최우수 방법은 ground truth에 따라 달랐다(표~\ref{tab:multi_gt}).
+
+\begin{table}[htbp]
+\centering
+\caption{다중 ground truth에 대한 방법 비교}
+\label{tab:multi_gt}
+\begin{tabular}{llrrr}
+\toprule
+\textbf{Ground Truth} & \textbf{최우수 방법} & \textbf{F1} & \textbf{농축비} & \textbf{위치 수} \\
+\midrule
+기능 영역 (439) & TC-freq-v2 & 0.474 & --- & 439 \\
+DMS-escape (252) & Saturated H-score & 0.315 & --- & 252 \\
+수렴 진화 (97) & CH-score & 0.188 & 1.70$\times$ & 97 \\
+수렴 진화-엄격$^*$ & TC-freq-v3 & 0.108 & 3.43$\times$ & --- \\
+\bottomrule
+\end{tabular}
+\begin{minipage}{\textwidth}
+\smallskip
+\footnotesize $^*$다중 출처에서 확인된 엄격한 수렴 진화 부위만 포함. Jaccard(DMS, 수렴 진화) = 0.006으로 세 ground truth의 독립성이 확인된다.
+\end{minipage}
+\end{table}
+
+기능 영역에서는 TC-freq-v2가 최고 F1(0.474)을 달성하였고, DMS-escape에서는 포화 H-score가 최고 성능(F1 = 0.315)을 보였으며, 수렴 진화에서는 CH-score가 최고 F1(0.188, 농축비 1.70배)을 달성하였다.
+엄격한 수렴 진화 부분집합(다중 출처 위치만)에서는 TC-freq-v3가 최고 농축비(3.43배, F1 = 0.108)를 달성하였다.
+
+이러한 상이한 순위는 어떤 단일 탐지 방법도 핫스팟 중요성의 모든 생물학적 차원에서 지배적이지 않음을 입증한다.
+이 다중 ground truth 분석은 핵심적인 방법론적 통찰을 제공한다: 집단 빈도와 실험적 fitness는 변이 중요성의 상보적이지 중복적이지 않은 측정이다.
+단일 ground truth에 의존하는 벤치마킹 프레임워크는 해당 특정 생물학적 차원에 최적화된 방법에 대한 체계적 편향의 위험을 감수하면서, 기능적 중요성의 직교적 측면을 포착하는 방법을 불이익으로 처리할 수 있다.
+
+
+%% ------------------------------------------------------------
+\subsection{실제 GISAID 2020--2021 H-score 벤치마크}
+\label{sec:real_gisaid_benchmark}
+
+
+합성 데이터의 순환성 우려를 해소하기 위해, MutClust 논문~\cite{youn2025mutclust}에서 사용된 실제 GISAID 2020--2021 H-score 데이터를 입력으로 사용한 벤치마크를 수행하였다.
+이 데이터는 2020년 1월부터 2021년 12월까지 수집된 SARS-CoV-2 서열에서 계산된 1,273개 Spike 아미노산 위치별 H-score이며, 합성 생성이 아닌 실제 관측 데이터이다.
+뉴클레오티드 수준으로 매핑한 결과, 29,903개 게놈 위치 중 342개(1.14\%)만이 비영 H-score를 가져, 합성 데이터의 균일한 배경 잡음과 질적으로 다른 희소(sparse) 분포를 나타낸다.
+
+결과는 표~\ref{tab:real_gisaid}에 제시하였다.
+
+\begin{table}[htbp]
+\centering
+\caption{실제 GISAID 2020--2021 H-score 데이터에 대한 방법 비교 (342개 비영 위치, 1,251개 ground truth 뉴클레오티드 위치)}
+\label{tab:real_gisaid}
+\begin{tabular}{lrrrrrr}
+\toprule
+\textbf{방법} & \textbf{정밀도} & \textbf{재현율} & \textbf{F1} & \textbf{농축비} & \textbf{안정성} & \textbf{Hotspot-score} \\
+\midrule
+MutClust-Original & 0.333 & 0.012 & 0.023 & 7.97 & 0.372 & 0.239 \\
+MutClust-Fixed & 0.295 & 0.079 & 0.125 & 7.04 & 0.784 & 0.386 \\
+MutClust-dNdS & 0.295 & 0.079 & 0.125 & 7.04 & 0.784 & 0.386 \\
+MutClust-Hybrid & 0.305 & 0.077 & 0.123 & 7.28 & 0.766 & 0.383 \\
+HDBSCAN-Auto & --- & --- & --- & --- & --- & --- \\
+\midrule
+빈도 기준선 & 0.289 & 0.079 & 0.124 & 6.92 & --- & --- \\
+\textbf{슬라이딩 윈도우} & \textbf{0.323} & \textbf{0.600} & \textbf{0.420} & \textbf{7.73} & --- & --- \\
+\bottomrule
+\end{tabular}
+\begin{minipage}{\textwidth}
+\smallskip
+\footnotesize HDBSCAN-Auto는 비영 위치 수(342개)가 불충분하여 클러스터를 형성하지 못하였다. 슬라이딩 윈도우가 넓은 탐지 창(20위치)을 통해 최고 F1(0.420)을 달성하였다.
+\end{minipage}
+\end{table}
+
+합성 벤치마크와 비교하여 세 가지 핵심 차이가 관찰된다.
+
+\textbf{첫째, 절대 성능의 현저한 하락.}
+모든 MutClust 변이체의 F1이 합성 대비 0.54--0.66 하락하였다(예: MutClust-Hybrid: 0.785 $\to$ 0.123).
+이는 실제 데이터의 희소성에 기인한다: ground truth 1,251개 위치 중 상당수(HR1, HR2 등 보존 영역)는 H-score = 0이며, H-score가 0인 위치는 어떤 밀도 기반 방법으로도 탐지할 수 없다.
+이 결과는 합성 벤치마크가 실제 성능을 과대추정함을 정직하게 드러내며, 밀도 기반 핫스팟 탐지가 ``변이하는 기능 부위''만 탐지 가능하고 ``보존된 기능 부위''는 원리적으로 탐지 불가능하다는 방법론적 한계를 확인한다.
+
+\textbf{둘째, 방법 순위의 변화.}
+합성 데이터에서 MutClust-Hybrid가 최고 hotspot-score(0.778)였으나, 실제 데이터에서는 MutClust-Fixed(0.386)와 거의 동일한 성능을 보였다(0.383).
+HDBSCAN 경계 결정의 이점은 연속적 H-score 분포(합성 데이터)에서 발현되지만, 이산적이고 희소한 분포(실제 데이터)에서는 CCM 시드 탐지가 경계 결정보다 지배적이다.
+슬라이딩 윈도우가 최고 F1(0.420)을 달성한 것은 넓은 탐지 창이 희소 데이터에서 인접 기능 영역을 포괄하기 유리함을 나타낸다.
+
+\textbf{셋째, 농축비의 일관적 유의성.}
+절대 F1은 낮지만, 모든 방법의 농축비가 6.9--8.0배로 일관되게 높아(무작위 기대 대비), 탐지된 위치가 기능 영역에 유의하게 농축됨은 합성·실제 데이터 모두에서 확인된다.
+이는 H-score 기반 탐지의 생물학적 타당성이 데이터 유형에 관계없이 유지됨을 의미한다.
+
+이 결과는 MutBench의 핵심 방법론적 교훈을 강화한다: 방법의 상대적 우위는 입력 데이터의 H-score 분포 특성---연속적 vs. 희소적, 균일 배경 vs. 이산적 배경---에 따라 달라지며, 합성 벤치마크의 결론을 실제 데이터에 무조건 외삽해서는 안 된다.
+
+
+%% ------------------------------------------------------------
+\subsection{외부 독립 방법과의 비교}
+\label{sec:external_comparison}
+
+
+MutClust 변이체 간의 내부 비교를 보완하기 위해, 두 가지 독립적인 클러스터링 기반 방법---OPTICS와 커널 밀도 추정(KDE)---을 동일한 합성 벤치마크에서 평가하였다.
+OPTICS는 DBSCAN과 유사한 밀도 기반 클러스터링이나, 도달 가능성 거리(reachability distance)를 통해 가변 밀도 클러스터를 자동으로 추출한다(min\_samples=5, $\xi$=0.05).
+KDE는 H-score의 커널 밀도 함수에서 90번째 백분위수 이상의 피크를 탐지한 후 인접 위치를 클러스터로 확장하는 비모수적 접근법이다.
+
+\begin{table}[htbp]
+\centering
+\caption{외부 독립 방법을 포함한 벤치마크 결과. 합성 H-score 데이터, 7개 Spike 기능 영역 ground truth 사용.}
+\label{tab:external_methods}
+\small
+\begin{tabular}{lcccccc}
+\toprule
+방법 & 정밀도 & 재현율 & F1 & 안정성 & Hotspot-score \\
+\midrule
+MutClust-Hybrid & 0.968 & 0.659 & 0.785 & 0.706 & \textbf{0.778} \\
+MutClust-Original & 0.991 & 0.504 & 0.668 & 0.418 & 0.638 \\
+MutClust-Fixed & 0.988 & 0.506 & 0.669 & 0.445 & 0.646 \\
+MutClust-dNdS & 0.988 & 0.506 & 0.669 & 0.445 & 0.646 \\
+HDBSCAN-Auto & 0.079 & 0.944 & 0.146 & 0.788 & 0.604 \\
+KDE & \textbf{1.000} & 0.049 & 0.093 & 0.622 & 0.557 \\
+OPTICS & 0.087 & 0.546 & 0.150 & 0.473 & 0.369 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+표~\ref{tab:external_methods}에 나타난 바와 같이, MutClust-Hybrid는 외부 독립 방법을 포함한 비교에서도 가장 높은 hotspot-score(0.778)를 달성하였다.
+KDE는 완벽한 정밀도(1.000)를 보였으나 극단적으로 보수적이어서 61개 위치만을 탐지하였으며(재현율 0.049), OPTICS는 997개 클러스터에 7,847개 위치를 탐지하였으나 정밀도가 0.087에 불과하였다.
+이 결과는 도메인 특화 사전 지식(CCM 시드)과 데이터 기반 경계 결정(HDBSCAN)의 결합이 범용 클러스터링 방법보다 우월함을 독립적으로 확인한다.
+
+\textbf{OPTICS/KDE 파라미터 민감도.}
+외부 방법의 파라미터 설정이 결과에 미치는 영향을 배제하기 위해, 합성 데이터에서 OPTICS(min\_samples $\in \{2, 3, 5, 10, 20, 50\}$, $\xi \in \{0.01, 0.03, 0.05, 0.1, 0.2\}$)와 KDE(bandwidth $\in \{1, 3, 5, 10, 20, 50\}$, 역치 백분위 $\in \{70, 80, 85, 90, 95, 99\}$)의 파라미터 민감도 분석을 수행하였다.
+OPTICS는 30개 조합에서 F1이 0.022--0.707 범위로 넓은 파라미터 의존성을 보였다.
+최적 파라미터(min\_samples=20, $\xi$=0.10)에서 OPTICS는 F1=0.707(정밀도 0.563, 재현율 0.949)을 달성하였으나, 이는 MutClust-Hybrid(F1=0.785, 정밀도 0.968)에 비해 F1이 0.078 낮고 정밀도가 0.405 낮아, CCM 시드 기반 특이성의 이점이 확인된다.
+KDE는 36개 조합 전체에서 F1=0.000으로, bandwidth와 역치 백분위에 관계없이 유효한 탐지를 수행하지 못하였다.
+실제 GISAID 데이터에서는 비영 위치의 희소성(342개)으로 인해 OPTICS가 3개 위치만을 탐지하였고 KDE는 유효한 클러스터를 형성하지 못하여, 희소 분포에서의 범용 클러스터링 방법의 추가적 한계가 확인되었다.
+이 결과는 MutClust-Hybrid의 우위가 특정 파라미터 설정에 대한 OPTICS/KDE의 불리한 비교가 아닌, 도메인 특이적 시드 탐지의 구조적 이점에 기인함을 확인한다.
+
+
 %% ============================================================
-\section{통계적 검증}
+\section{견고성 및 민감도 검증}
+\label{sec:robustness_validation}
+
+%% ------------------------------------------------------------
+\subsection{통계적 검증}
 \label{sec:statistical_validation}
+
 
 벤치마크 결과의 통계적 견고성을 평가하기 위해 부트스트랩 신뢰 구간 추정, 순열 검정(무작위 레이블 섞기 + 순환 순열), 쌍별 비교 검정, Fisher's exact test를 수행하였다.
 본 절에서 보고하는 모든 부트스트랩 신뢰 구간은 소표본($n = 7$)에서의 편향과 비대칭을 보정하기 위해 bias-corrected and accelerated (BCa) 방법~\cite{efron1987better}을 사용하여 추정하였다.
@@ -194,7 +349,7 @@ Stability 중시 & (0.25, 0.25, 0.50) & Hybrid & 0.760 & HDBSCAN & 0.650 \\
 쌍별 비교는 MutClust-Hybrid가 모든 다른 방법에 대해 유의하게 높은 hotspot-score를 달성함을 확인하였다(모든 비교에서 $p < 0.001$, 점수 차이 범위: MutClust-Fixed 대비 0.130에서 슬라이딩 윈도우 기준선 대비 0.811). 7개 방법의 쌍별 비교는 $\binom{7}{2} = 21$회의 다중 검정을 수반하며, Bonferroni 보정 후 유의 수준은 $\alpha_{\text{adj}} = 0.05 / 21 = 0.0024$이다. 모든 쌍별 $p < 0.001 < \alpha_{\text{adj}}$이므로 다중 비교 보정 후에도 결론이 유지된다.
 이 결과는 표~\ref{tab:hotspot_scores}의 성능 순위가 ground truth 표본 추출 불확실성에 대해 견고하며 우연에 기인하지 않음을 확립한다.
 
-\subsection{합성 데이터 설계의 순환성 검증}
+\subsubsection{합성 데이터 설계의 순환성 검증}
 \label{subsec:circularity_validation}
 
 합성 벤치마크의 H-score 생성 과정에서 CCM 시드 위치(AA 484, 501, 417, 452)에 0.8--1.2 범위의 극단적 피크를 명시적으로 삽입하였으므로, CCM 기반 방법이 이 위치를 시드로 선택하여 부당한 이점을 얻을 가능성이 있다.
@@ -208,11 +363,13 @@ HDBSCAN-Auto와 OPTICS는 비CCM 방법으로서 순위 변동이 관찰되었�
 이 결과는 CCM 시드의 역할이 클러스터 ``시작점'' 제공에 한정되며, 최종 성능은 주변 영역의 밀도 구조에 의해 결정됨을 시사한다.
 따라서 합성 벤치마크의 주요 결론---MutClust-Hybrid의 우위와 방법 간 성능 계층 구조---은 CCM 시드 순환성에 의한 인공물이 아니다.
 
-%% ============================================================
-\section{민감도 분석}
+
+%% ------------------------------------------------------------
+\subsection{민감도 분석}
 \label{sec:sensitivity_analysis}
 
-\subsection{샘플 크기 민감도}
+
+\subsubsection{샘플 크기 민감도}
 
 안정적인 핫스팟 탐지에 필요한 최소 입력 서열 수를 결정하기 위해, MutClust-Hybrid를 100에서 10,000 서열 범위의 샘플 크기에서 평가하였다(크기당 5회 반복).
 
@@ -222,7 +379,7 @@ Hotspot-score는 $n = 1{,}000$까지 약 0.62에서 안정화되었으며, 반�
 
 이 결과는 약 1,000개의 서열이 안정적인 탐지 결과에 충분하며, 본 벤치마크 데이터셋의 10,000개 서열은 이 역치를 상당히 초과하는 여유를 제공함을 시사한다.
 
-\subsection{파라미터 민감도}
+\subsubsection{파라미터 민감도}
 
 샘플 크기에 대한 수렴 특성은 그림~\ref{fig:mutbench_sensitivity}에 시각화하였다.
 
@@ -252,7 +409,7 @@ HDBSCAN 파라미터 민감도 분석에서는 16개 조합 전체에서 F1 변�
 \end{tabular}
 \end{table}
 
-\subsection{dN/dS 역치 민감도}
+\subsubsection{dN/dS 역치 민감도}
 
 dN/dS 필터의 역치 선택이 핫스팟 탐지 성능에 미치는 영향을 체계적으로 평가하기 위해, 6개의 역치(0.5, 0.8, 1.0, 1.5, 2.0, 3.0)에서 MutClust-dNdS와 MutClust-Hybrid를 합성 벤치마크에 적용하였다.
 각 역치에서 dN/dS 필터 없이 클러스터를 탐지한 후, 사후적으로 dN/dS 주석을 적용하고 역치 이하의 클러스터를 제거하는 방식으로 분석하였다.
@@ -297,9 +454,11 @@ MutClust-Hybrid는 전체 클러스터 수가 8개로 적기 때문에 역치 �
 역치 0.5--1.0 범위에서 MutClust-Hybrid의 성능이 안정적이며(F1: 0.774--0.788), 기본 역치 $> 1.0$(중립 진화 기대치)은 생물학적으로 해석 가능한 기준으로서 적절하다.
 그러나 역치 $> 1.5$ 이상에서는 두 방법 모두 급격한 성능 저하를 보이므로, 엄격한 양성 선택 기준을 적용할 때는 주의가 필요하다.
 
-%% ============================================================
-\section{시간적 일반화 (GISAID 2024--2025)}
+
+%% ------------------------------------------------------------
+\subsection{시간적 일반화 (GISAID 2024--2025)}
 \label{sec:temporal}
+
 
 MutBench 결과가 시간적으로 상이한 데이터에 대해 일반화되는지 평가하기 위해, 2024년 1월부터 2025년 12월까지 수집된 9,957개의 GISAID 전장 SARS-CoV-2 게놈 서열(숙주: 인간)을 분석하였으며, 시간적 대표성을 위해 주별로 부분추출하였다.
 
@@ -332,143 +491,28 @@ MutClust-Hybrid & $\sim$0.33 & $\sim$1.0 & 3,225 & 377 \\
 이 H-score 포화는 방법론적 인공물이 아닌 생물학적 현실이다: Omicron 시대 계통(BA.2.86, JN.1, KP.2, XEC)은 Wuhan-Hu-1 참조에 대해 광범위한 돌연변이를 축적하여, 위치 수준의 변이 빈도를 비정보적으로 만든다.
 이 발견은 고정된 조상 참조에 대해 계산된 H-score가 바이러스 집단이 해당 참조로부터 분기함에 따라 판별력을 잃는다는 핵심 한계를 검증한다.
 
+
+%% ------------------------------------------------------------
+\subsection{삽입-결실 변이(Indel) 배제의 영향 분석}
+\label{sec:indel_analysis}
+
+
+H-score는 참조 서열 대비 각 고정 좌표의 점 변이 빈도를 측정하는 고정 좌표 기반 지표이므로, 삽입(insertion) 및 결실(deletion) 변이는 구조적으로 포착할 수 없다.
+GISAID 2024--2025 Spike 서열 9,957개를 분석한 결과, 99.8\%가 최소 1개의 기능적 indel(예: del69-70, Y144del, del156-157)을 보유하며, 모든 indel 위치의 H-score는 정확히 0.000으로 H-score 기반 탐지에서 완전히 배제된다.
+약 35개의 주요 Spike 기능적 변이 중 최소 5개(약 14\%)가 indel이다.
+
+탐지 영향을 정량화하기 위해, 1,251 nt ground truth에 5개 indel 위치(27 nt)를 추가한 확장 ground truth를 구성하였다.
+원래 H-score와 augmented H-score(indel 위치에 기능적 신호 주입)를 비교한 합성 실험에서 MutClust-Hybrid의 F1 영향은 $\Delta$F1 = $-$0.002로 미미하였는데, 이는 27개 추가 위치가 확장 ground truth의 2.1\%에 불과하기 때문이다.
+F1에 대한 정량적 영향은 작지만, 생물학적으로 중요한 구조적 변이가 스코어링 함수에서 체계적으로 보이지 않는다는 점에서 고정 좌표 프레임워크의 구조적 한계를 나타낸다.
+
 %% ============================================================
-\section{다중 Ground Truth 평가}
-\label{sec:multi_gt}
+\section{교차 병원체 및 구조적 검증}
+\label{sec:cross_pathogen_structural}
 
-단일 ground truth로는 변이의 중요성의 모든 차원을 포착할 수 없다.
-이를 해결하기 위해, 각각 서로 다른 생물학적 현상을 측정하는 세 가지 상보적 ground truth에 대해 탐지 방법을 평가하였다:
-
-\begin{itemize}
-\item \textbf{기능 영역}(439개 아미노산 위치, Spike 1,273 AA의 34.5\%): 알려진 도메인 주석(RBD, NTD 초과부위, 퓨린 절단, 융합 펩타이드, HR1, HR2)\footnote{본 분석에서 사용된 439 AA는 도메인 주석의 아미노산 수준 합집합으로, 합성 벤치마크에서 사용된 뉴클레오티드 수준 ground truth(1,251 nt, 중첩 제거 후 417 AA)보다 넓은 영역 경계 정의를 포함한다.}.
-\item \textbf{DMS-escape}(252개 위치, 19.8\%): 실험적으로 측정된 단일 돌연변이 세포 진입 fitness 효과~\cite{dadonaite2023dms}(상위 20백분위).
-\item \textbf{수렴 진화}(97개 위치, 7.6\%): 독립적 SARS-CoV-2 계통에서 반복적 양성 선택을 받은 문헌 기반 부위~\cite{cao2023ba286,carabelli2023convergent}. RBD 면역 회피 위치, ACE2 결합 강화 돌연변이, 퓨린 절단 부위 적응, S2 수렴 치환을 포함한다(이 확장 집합은 문헌에서 보고된 모든 수렴 진화 위치를 포함하며, 9-병원체 벤치마크에서 사용된 엄격한 25개 위치 Layer~A 집합과 구분된다).
-\end{itemize}
-
-세 ground truth는 대체로 비중첩적이다: DMS-escape와 수렴 진화 위치 간의 Jaccard 유사도는 0.006으로, 거의 완전한 독립성을 나타낸다.
-이는 집단 빈도, 실험적 fitness, 진화적 수렴이 변이 중요성의 근본적으로 다른 측면을 포착함을 확인한다.
-
-결정적으로, 최우수 방법은 ground truth에 따라 달랐다(표~\ref{tab:multi_gt}).
-
-\begin{table}[htbp]
-\centering
-\caption{다중 ground truth에 대한 방법 비교}
-\label{tab:multi_gt}
-\begin{tabular}{llrrr}
-\toprule
-\textbf{Ground Truth} & \textbf{최우수 방법} & \textbf{F1} & \textbf{농축비} & \textbf{위치 수} \\
-\midrule
-기능 영역 (439) & TC-freq-v2 & 0.474 & --- & 439 \\
-DMS-escape (252) & Saturated H-score & 0.315 & --- & 252 \\
-수렴 진화 (97) & CH-score & 0.188 & 1.70$\times$ & 97 \\
-수렴 진화-엄격$^*$ & TC-freq-v3 & 0.108 & 3.43$\times$ & --- \\
-\bottomrule
-\end{tabular}
-\begin{minipage}{\textwidth}
-\smallskip
-\footnotesize $^*$다중 출처에서 확인된 엄격한 수렴 진화 부위만 포함. Jaccard(DMS, 수렴 진화) = 0.006으로 세 ground truth의 독립성이 확인된다.
-\end{minipage}
-\end{table}
-
-기능 영역에서는 TC-freq-v2가 최고 F1(0.474)을 달성하였고, DMS-escape에서는 포화 H-score가 최고 성능(F1 = 0.315)을 보였으며, 수렴 진화에서는 CH-score가 최고 F1(0.188, 농축비 1.70배)을 달성하였다.
-엄격한 수렴 진화 부분집합(다중 출처 위치만)에서는 TC-freq-v3가 최고 농축비(3.43배, F1 = 0.108)를 달성하였다.
-
-이러한 상이한 순위는 어떤 단일 탐지 방법도 핫스팟 중요성의 모든 생물학적 차원에서 지배적이지 않음을 입증한다.
-이 다중 ground truth 분석은 핵심적인 방법론적 통찰을 제공한다: 집단 빈도와 실험적 fitness는 변이 중요성의 상보적이지 중복적이지 않은 측정이다.
-단일 ground truth에 의존하는 벤치마킹 프레임워크는 해당 특정 생물학적 차원에 최적화된 방법에 대한 체계적 편향의 위험을 감수하면서, 기능적 중요성의 직교적 측면을 포착하는 방법을 불이익으로 처리할 수 있다.
-
-\section{실제 GISAID 2020--2021 H-score 벤치마크}
-\label{sec:real_gisaid_benchmark}
-
-합성 데이터의 순환성 우려를 해소하기 위해, MutClust 논문~\cite{youn2025mutclust}에서 사용된 실제 GISAID 2020--2021 H-score 데이터를 입력으로 사용한 벤치마크를 수행하였다.
-이 데이터는 2020년 1월부터 2021년 12월까지 수집된 SARS-CoV-2 서열에서 계산된 1,273개 Spike 아미노산 위치별 H-score이며, 합성 생성이 아닌 실제 관측 데이터이다.
-뉴클레오티드 수준으로 매핑한 결과, 29,903개 게놈 위치 중 342개(1.14\%)만이 비영 H-score를 가져, 합성 데이터의 균일한 배경 잡음과 질적으로 다른 희소(sparse) 분포를 나타낸다.
-
-결과는 표~\ref{tab:real_gisaid}에 제시하였다.
-
-\begin{table}[htbp]
-\centering
-\caption{실제 GISAID 2020--2021 H-score 데이터에 대한 방법 비교 (342개 비영 위치, 1,251개 ground truth 뉴클레오티드 위치)}
-\label{tab:real_gisaid}
-\begin{tabular}{lrrrrrr}
-\toprule
-\textbf{방법} & \textbf{정밀도} & \textbf{재현율} & \textbf{F1} & \textbf{농축비} & \textbf{안정성} & \textbf{Hotspot-score} \\
-\midrule
-MutClust-Original & 0.333 & 0.012 & 0.023 & 7.97 & 0.372 & 0.239 \\
-MutClust-Fixed & 0.295 & 0.079 & 0.125 & 7.04 & 0.784 & 0.386 \\
-MutClust-dNdS & 0.295 & 0.079 & 0.125 & 7.04 & 0.784 & 0.386 \\
-MutClust-Hybrid & 0.305 & 0.077 & 0.123 & 7.28 & 0.766 & 0.383 \\
-HDBSCAN-Auto & --- & --- & --- & --- & --- & --- \\
-\midrule
-빈도 기준선 & 0.289 & 0.079 & 0.124 & 6.92 & --- & --- \\
-\textbf{슬라이딩 윈도우} & \textbf{0.323} & \textbf{0.600} & \textbf{0.420} & \textbf{7.73} & --- & --- \\
-\bottomrule
-\end{tabular}
-\begin{minipage}{\textwidth}
-\smallskip
-\footnotesize HDBSCAN-Auto는 비영 위치 수(342개)가 불충분하여 클러스터를 형성하지 못하였다. 슬라이딩 윈도우가 넓은 탐지 창(20위치)을 통해 최고 F1(0.420)을 달성하였다.
-\end{minipage}
-\end{table}
-
-합성 벤치마크와 비교하여 세 가지 핵심 차이가 관찰된다.
-
-\textbf{첫째, 절대 성능의 현저한 하락.}
-모든 MutClust 변이체의 F1이 합성 대비 0.54--0.66 하락하였다(예: MutClust-Hybrid: 0.785 $\to$ 0.123).
-이는 실제 데이터의 희소성에 기인한다: ground truth 1,251개 위치 중 상당수(HR1, HR2 등 보존 영역)는 H-score = 0이며, H-score가 0인 위치는 어떤 밀도 기반 방법으로도 탐지할 수 없다.
-이 결과는 합성 벤치마크가 실제 성능을 과대추정함을 정직하게 드러내며, 밀도 기반 핫스팟 탐지가 ``변이하는 기능 부위''만 탐지 가능하고 ``보존된 기능 부위''는 원리적으로 탐지 불가능하다는 방법론적 한계를 확인한다.
-
-\textbf{둘째, 방법 순위의 변화.}
-합성 데이터에서 MutClust-Hybrid가 최고 hotspot-score(0.778)였으나, 실제 데이터에서는 MutClust-Fixed(0.386)와 거의 동일한 성능을 보였다(0.383).
-HDBSCAN 경계 결정의 이점은 연속적 H-score 분포(합성 데이터)에서 발현되지만, 이산적이고 희소한 분포(실제 데이터)에서는 CCM 시드 탐지가 경계 결정보다 지배적이다.
-슬라이딩 윈도우가 최고 F1(0.420)을 달성한 것은 넓은 탐지 창이 희소 데이터에서 인접 기능 영역을 포괄하기 유리함을 나타낸다.
-
-\textbf{셋째, 농축비의 일관적 유의성.}
-절대 F1은 낮지만, 모든 방법의 농축비가 6.9--8.0배로 일관되게 높아(무작위 기대 대비), 탐지된 위치가 기능 영역에 유의하게 농축됨은 합성·실제 데이터 모두에서 확인된다.
-이는 H-score 기반 탐지의 생물학적 타당성이 데이터 유형에 관계없이 유지됨을 의미한다.
-
-이 결과는 MutBench의 핵심 방법론적 교훈을 강화한다: 방법의 상대적 우위는 입력 데이터의 H-score 분포 특성---연속적 vs. 희소적, 균일 배경 vs. 이산적 배경---에 따라 달라지며, 합성 벤치마크의 결론을 실제 데이터에 무조건 외삽해서는 안 된다.
-
-\section{외부 독립 방법과의 비교}
-\label{sec:external_comparison}
-
-MutClust 변이체 간의 내부 비교를 보완하기 위해, 두 가지 독립적인 클러스터링 기반 방법---OPTICS와 커널 밀도 추정(KDE)---을 동일한 합성 벤치마크에서 평가하였다.
-OPTICS는 DBSCAN과 유사한 밀도 기반 클러스터링이나, 도달 가능성 거리(reachability distance)를 통해 가변 밀도 클러스터를 자동으로 추출한다(min\_samples=5, $\xi$=0.05).
-KDE는 H-score의 커널 밀도 함수에서 90번째 백분위수 이상의 피크를 탐지한 후 인접 위치를 클러스터로 확장하는 비모수적 접근법이다.
-
-\begin{table}[htbp]
-\centering
-\caption{외부 독립 방법을 포함한 벤치마크 결과. 합성 H-score 데이터, 7개 Spike 기능 영역 ground truth 사용.}
-\label{tab:external_methods}
-\small
-\begin{tabular}{lcccccc}
-\toprule
-방법 & 정밀도 & 재현율 & F1 & 안정성 & Hotspot-score \\
-\midrule
-MutClust-Hybrid & 0.968 & 0.659 & 0.785 & 0.706 & \textbf{0.778} \\
-MutClust-Original & 0.991 & 0.504 & 0.668 & 0.418 & 0.638 \\
-MutClust-Fixed & 0.988 & 0.506 & 0.669 & 0.445 & 0.646 \\
-MutClust-dNdS & 0.988 & 0.506 & 0.669 & 0.445 & 0.646 \\
-HDBSCAN-Auto & 0.079 & 0.944 & 0.146 & 0.788 & 0.604 \\
-KDE & \textbf{1.000} & 0.049 & 0.093 & 0.622 & 0.557 \\
-OPTICS & 0.087 & 0.546 & 0.150 & 0.473 & 0.369 \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-표~\ref{tab:external_methods}에 나타난 바와 같이, MutClust-Hybrid는 외부 독립 방법을 포함한 비교에서도 가장 높은 hotspot-score(0.778)를 달성하였다.
-KDE는 완벽한 정밀도(1.000)를 보였으나 극단적으로 보수적이어서 61개 위치만을 탐지하였으며(재현율 0.049), OPTICS는 997개 클러스터에 7,847개 위치를 탐지하였으나 정밀도가 0.087에 불과하였다.
-이 결과는 도메인 특화 사전 지식(CCM 시드)과 데이터 기반 경계 결정(HDBSCAN)의 결합이 범용 클러스터링 방법보다 우월함을 독립적으로 확인한다.
-
-\textbf{OPTICS/KDE 파라미터 민감도.}
-외부 방법의 파라미터 설정이 결과에 미치는 영향을 배제하기 위해, 합성 데이터에서 OPTICS(min\_samples $\in \{2, 3, 5, 10, 20, 50\}$, $\xi \in \{0.01, 0.03, 0.05, 0.1, 0.2\}$)와 KDE(bandwidth $\in \{1, 3, 5, 10, 20, 50\}$, 역치 백분위 $\in \{70, 80, 85, 90, 95, 99\}$)의 파라미터 민감도 분석을 수행하였다.
-OPTICS는 30개 조합에서 F1이 0.022--0.707 범위로 넓은 파라미터 의존성을 보였다.
-최적 파라미터(min\_samples=20, $\xi$=0.10)에서 OPTICS는 F1=0.707(정밀도 0.563, 재현율 0.949)을 달성하였으나, 이는 MutClust-Hybrid(F1=0.785, 정밀도 0.968)에 비해 F1이 0.078 낮고 정밀도가 0.405 낮아, CCM 시드 기반 특이성의 이점이 확인된다.
-KDE는 36개 조합 전체에서 F1=0.000으로, bandwidth와 역치 백분위에 관계없이 유효한 탐지를 수행하지 못하였다.
-실제 GISAID 데이터에서는 비영 위치의 희소성(342개)으로 인해 OPTICS가 3개 위치만을 탐지하였고 KDE는 유효한 클러스터를 형성하지 못하여, 희소 분포에서의 범용 클러스터링 방법의 추가적 한계가 확인되었다.
-이 결과는 MutClust-Hybrid의 우위가 특정 파라미터 설정에 대한 OPTICS/KDE의 불리한 비교가 아닌, 도메인 특이적 시드 탐지의 구조적 이점에 기인함을 확인한다.
-
-\section{교차 병원체 검증: Influenza A H3N2 HA}
+%% ------------------------------------------------------------
+\subsection{Influenza A H3N2 교차 검증}
 \label{sec:influenza_validation}
+
 
 MutBench의 교차 병원체 일반화 가능성을 평가하기 위해, Influenza A H3N2의 헤마글루티닌(HA) 유전자에 동일한 벤치마크 파이프라인을 적용하였다.
 NCBI Influenza Virus Resource에서 1,967개의 인간 유래 H3N2 HA 단백질 서열(540--580 AA)을 수집하고, 합의 서열 대비 위치별 변이 빈도와 Shannon 엔트로피로부터 H-score를 계산하였다.
@@ -549,19 +593,25 @@ HDBSCAN-Auto & 밀도 기반 & 0.604 & 0.424 \\
 생물학적 관점에서 이 패턴은 명확하게 해석된다: (1)~긴 유전자(Spike, 3,822 nt)에서 이질적 기능 영역이 분포할 때 적응형 하이브리드 접근(MutClust-Hybrid)이 유리하고, (2)~모든 위치가 높은 변이율을 보이는 짧은 유전자(HA, 1,698 nt)에서는 안정적 CCM 탐지(MutClust-Fixed)가 우수하다.
 이는 H-score 분포의 형태(연속적 vs. 희소)와 유전자 길이가 최적 탐지 전략을 결정하는 핵심 요인임을 시사한다.
 
-\section{3D 구조 분석}
+
+%% ------------------------------------------------------------
+\subsection{3D 구조 분석}
 \label{sec:structure_analysis}
+
 
 선형 서열 기반 핫스팟 탐지의 구조적 타당성을 검증하기 위해, PDB 6VSB (Spike 단백질 prefusion 구조, Wrapp et al. 2020)의 C$\alpha$ 좌표를 이용하여 탐지된 핫스팟 위치의 3D 공간적 분포를 분석하였다.
 핫스팟 위치 쌍의 8\,\AA\ 이내 접촉 비율은 5.80\%로, 무작위 위치 쌍(0.98\%)에 비해 \textbf{5.92배 높은 공간적 접촉 농축}을 보였다($z$ = 13.34, 1,000회 무작위 순열 검정 기준).
 이는 선형 서열에서 탐지된 핫스팟이 3D 구조에서도 공간적으로 클러스터링됨을 정량적으로 입증하며, 탐지 결과의 생물학적 타당성을 뒷받침한다.
 
-\section{계통발생 비독립성 시뮬레이션}
+
+%% ------------------------------------------------------------
+\subsection{계통발생 비독립성 시뮬레이션}
 \label{sec:phylo_simulation}
+
 
 H-score가 계통발생적 구조에 의해 편향될 수 있는지를 정량적으로 평가하기 위해, 합체 과정 기반 시뮬레이션을 수행하였다.
 
-\subsection{계통발생 보정의 개념 증명}
+\subsubsection{계통발생 보정의 개념 증명}
 \label{subsec:phylo_correction_poc}
 
 합체 시뮬레이션(100회 반복, $N = 500$)에서 단일 기원의 ``창시자 변이''(빈도 90\%, D614G 유사)와 15회 독립 발생하는 ``수렴 변이''(E484K 유사), 50개의 중립 변이를 배치하였다.
@@ -572,13 +622,13 @@ MutBench ground truth에서 D614G(위치 614)는 단일 창시자 이벤트~\cit
 이 결과는 계통발생 기반 독립 발생 횟수 추정이 빈도 기반 접근법의 창시자 효과 편향을 효과적으로 보정할 수 있음을 개념적으로 입증한다.
 다만, 본 시뮬레이션은 이상적 조건($N = 500$, 완전 해결 계통수)이며, GISAID 규모($> 16$M 서열)에서는 polytomies, 계산 비용, 재조합 등의 추가적 도전이 존재한다.
 
-\subsection{TreeTime ML 조상 재구성 검증}
+\subsubsection{TreeTime ML 조상 재구성 검증}
 \label{subsec:treetime_ml_validation}
 
 TreeTime~\cite{sagulenko2018treetime}의 ML 기반 조상 재구성을 통합한 확장 검증($N = 2{,}000$, 50회 반복)에서, Fitch 절약법과 TreeTime-ML 모두 수렴 변이 대 비수렴 변이 판별에서 AUC = 1.000을 달성한 반면, H-score는 AUC = 0.000을 기록하였다.
 $N = 500$에서 $N = 2{,}000$으로 스케일을 확장하여도 100\% 판별 정확도가 유지되었다.
 
-\subsection{실제 GISAID 서열에서의 TreeTime 조상 재구성 검증}
+\subsubsection{실제 GISAID 서열에서의 TreeTime 조상 재구성 검증}
 \label{subsec:treetime_gisaid_validation}
 
 합성 시뮬레이션을 넘어 실제 데이터에서 검증하기 위해, 500개 GISAID 서열(2024--2025)에 TreeTime ML 조상 재구성을 적용하였다.
@@ -587,7 +637,7 @@ $N = 500$에서 $N = 2{,}000$으로 스케일을 확장하여도 100\% 판별 �
 핵심 위치에서 이 괴리가 명확하다: P681은 H-score 순위 2위이나 homoplasy 순위 1,134위(founder effect)이며, L452와 K417은 H-score = 0이나 homoplasy 91회(수렴 진화)를 보인다.
 이 결과는 시뮬레이션에서 예측한 H-score의 founder effect 편향이 실제 GISAID 서열에서도 경험적으로 확인됨을 보여준다.
 
-\subsection{Homoplasy 기반 스코어링 민감도 분석}
+\subsubsection{Homoplasy 기반 스코어링 민감도 분석}
 \label{subsec:homoplasy_sensitivity}
 
 이 분석을 실제 계통발생 데이터로 검증하기 위해, 2020-H1 NCBI 데이터셋에서 서브샘플링한 500개 SARS-CoV-2 Spike 단백질 서열에 대해 TreeTime 최대우도 조상 재구성을 사용한 민감도 실험을 수행하였다.
@@ -633,14 +683,20 @@ ScoreDBSCAN(ep=10)   & rank(P*E) & 0.023 & $+0.033$ & 0.025 & $+0.010$ \\
 \noindent\rule{\textwidth}{0.4pt}
 \vspace{0.5em}
 
-\section{9-병원체 벤치마크 결과}
+
+%% ============================================================
+\section{9-병원체 대규모 벤치마크}
 \label{sec:9pathogen_results}
+
 
 제~\ref{sec:9pathogen_benchmark}절에서 제시한 9-병원체 확장 벤치마크를 적용하여, 9가지 스코어링 공식과 41개 탐지 방법의 조합을 9종 병원체에 걸쳐 체계적으로 평가하였다.
 본 절에서는 벤치마크 규모, 병원체별 최적 방법 분석, 분산분석, 교차 검증, 통계 검정 결과를 순차적으로 보고한다.
 
+
+%% ------------------------------------------------------------
 \subsection{벤치마크 규모 및 데이터}
 \label{subsec:9pathogen_scale}
+
 
 총 3,321개의 평가(9개 스코어링 $\times$ 41개 탐지 방법 $\times$ 9개 병원체)를 수행하였다.
 이 중 777개(23.4\%)의 평가에서 탐지 방법이 0개의 위치를 탐지하였으며(n\_detected = 0), 이는 SWAN 및 ScoreDBSCAN 일부 변이체가 특정 병원체의 점수 분포에서 $z$-정규화 역치 또는 밀도 기준을 충족하는 위치를 찾지 못하기 때문이다.
@@ -649,8 +705,11 @@ ScoreDBSCAN(ep=10)   & rank(P*E) & 0.023 & $+0.033$ & 0.025 & $+0.010$ \\
 DMS F1은 실험적 fitness 데이터가 이용 가능한 4종 병원체(SARS-CoV-2, H3N2, HIV-1, RSV)에서만 산출되었다.
 모든 FASTA 서열은 NCBI GenBank에서 실제 accession을 통해 수집하였다.
 
+
+%% ------------------------------------------------------------
 \subsection{병원체별 최적 방법 분석}
 \label{subsec:9pathogen_best_combos}
+
 
 9종 병원체 각각에서 MCC를 기준으로 최적 스코어링--탐지 조합을 선정한 결과, \textbf{9/9 병원체에서 모두 상이한 최적 조합}이 관찰되었다(표~\ref{tab:9pathogen_best}).
 
@@ -685,7 +744,12 @@ HCV & E\_only & CUSUM ($\delta$=0.5, $h$=5.0) & 0.443 \\
 둘째, 최적 탐지 패밀리도 병원체마다 상이하다: SlidingTest(3회), CUSUM(2회), FreqThresh(2회), Wavelet(1회), GradPeak(1회)으로 분산된다.
 셋째, MCC 범위가 0.088(MERS)에서 0.549(H3N2)까지 큰 변동을 보이며, 이는 병원체 간 변이 패턴의 구조적 차이(엔트로피 분포, 보존 영역 비율, 양성 선택 부위 수)를 반영한다.
 
-\subsection{삼원분산분석 (Three-way ANOVA, $\omega^2$)}
+
+%% ------------------------------------------------------------
+\subsection{통계 분석}
+\label{subsec:9pathogen_statistical}
+
+\textbf{삼원분산분석 (Three-way ANOVA, $\omega^2$).}
 \label{subsec:9pathogen_anova}
 
 성능 변동의 주요 원천을 식별하기 위해, MCC를 종속변수로 하는 삼원분산분석을 수행하였다.
@@ -723,7 +787,8 @@ score $\times$ family & 이원 상호작용 & 0.013 \\
 이 항의 자유도는 $(9-1) \times (15-1) \times (9-1) = 896$으로, 전체 관측 수($n = 2{,}544$)에서 주효과 및 이원 상호작용의 자유도를 제외하면 잔차 자유도가 불충분하며, 불균형 설계(병원체별 유효 탐지 방법 수: 33--38개)로 인해 다수의 셀이 공백이므로 삼원 상호작용의 안정적 추정이 불가능하다.
 이원 상호작용 중 family $\times$ pathogen($\omega^2 = 0.285$)이 이미 최대 분산 원천으로 확인되었으므로, 삼원 상호작용의 미보고가 핵심 결론에 영향을 미치지 않는다.
 
-\subsection{LOPO 교차 검증}
+
+\textbf{LOPO 교차 검증.}
 \label{subsec:9pathogen_lopo}
 
 8종 훈련 병원체에서 선정된 최적 조합이 제외된 1종 테스트 병원체에서도 최적인지를 LOPO(Leave-One-Pathogen-Out) 교차 검증으로 평가하였다.
@@ -740,7 +805,8 @@ SWAN 패밀리(9개 변이체)를 제외하고 LOPO를 수행하면\footnote{SWA
 
 0/9의 조합 일치율과 4.9\%의 일반화 비율은 벤치마크의 한계가 아니라 \textbf{핵심 발견}이다. 이 결과는 ``단일 최적 방법''이라는 전제 자체가 성립하지 않음을 정량적으로 입증하며, 병원체 적응적 방법 선택(PAHD)의 필요성에 대한 가장 강력한 경험적 근거를 제공한다. $n=9$는 RNA 바이러스의 주요 대표 병원체를 포괄하며, 표본 크기의 제약에도 불구하고 병원체 간 이질성의 통계적 유의성이 ANOVA($\omega^2 = 0.285$), Friedman($p = 0.0015$), LOPO(0/9 일치) 세 가지 독립적 검정에서 모두 확인되었다.
 
-\subsection{Friedman 검정}
+
+\textbf{Friedman 검정.}
 \label{subsec:9pathogen_friedman}
 
 9개 병원체를 블록으로 사용하여, 상위 20개 스코어링--탐지 조합 간 성능 차이에 대한 Friedman 검정을 수행하였다.
@@ -753,7 +819,8 @@ $k = 20$은 전체 유효 조합 수(병원체별 247--305개)의 상위 약 7\%
 $p = 0.0015 < 0.01$로 통계적으로 유의하여, 상위 20개 조합 간에 유의한 성능 차이가 존재함을 확인하였다.
 이는 ``상위 조합들이 모두 동등하므로 아무 조합이나 사용해도 된다''는 귀무 가설을 기각하며, 조합 선택이 성능에 실질적 영향을 미침을 입증한다.
 
-\subsection{병원체 수준 BCa 부트스트랩 신뢰 구간}
+
+\textbf{병원체 수준 BCa 부트스트랩 신뢰 구간.}
 \label{subsec:9pathogen_bootstrap}
 
 전체 병원체에 걸친 최적 단일 조합을 BCa 부트스트랩으로 평가하였다.
@@ -774,14 +841,20 @@ $p = 0.0015 < 0.01$로 통계적으로 유의하여, 상위 20개 조합 간에 
 (2)~무작위 기준선(MCC 평균=0.001, 표준편차=0.003)과 비교하면, 관찰된 MCC=0.124는 무작위 기대를 약 41 표준편차 초과하여, 분포 가정에 관계없이 명백히 통계적으로 유의하다.
 (3)~핫스팟 탐지는 본질적으로 불균형 이진 분류(양성 비율 약 1--16\%)이며, 이러한 극단적 불균형에서 MCC $>$ 0.1은 무의미하지 않다.
 
-\subsection{하위표본 강건성}
+
+\textbf{하위표본 강건성.}
 \label{subsec:9pathogen_subsampling}
 
 MSA 서열의 25\%, 50\%, 75\%, 100\% 비율에서 벤치마크를 반복 수행한 결과, 전체 병원체 평균 MCC는 0.054--0.058 범위에서 안정적이었다.
 표본 크기 감소에 따른 MCC 변동이 $\pm$0.002 이내로, 벤치마크 결과가 서열 표본 크기에 강건함을 확인하였다.
 이는 본 벤치마크의 결론이 특정 표본 크기의 인공물이 아닌 병원체 변이 구조의 본질적 특성을 반영함을 뒷받침한다.
 
-\subsection{교차 패러다임 검증: 단백질 언어 모델 스코어링}
+
+%% ------------------------------------------------------------
+\subsection{보충 분석}
+\label{subsec:9pathogen_supplementary}
+
+\textbf{교차 패러다임 검증: 단백질 언어 모델 스코어링.}
 \label{subsec:esm_validation}
 
 벤치마크 결과가 MSA 기반 스코어링 공식을 넘어 일반화되는지 확인하기 위해, 독립적 스코어링 패러다임인 ESM-2 단백질 언어 모델(650M 파라미터; Lin et al., 2023)을 평가하였다. ESM-2는 단일 합의 서열로부터 학습된 진화적 표현을 사용하여 위치별 로그 우도비(ESM-LLR)를 계산하며, 다중 서열 정렬을 필요로 하지 않는다. 이는 스코어링 신호가 기존 9개 스코어링 공식에 사용되는 동일한 MSA가 아닌 근본적으로 다른 방법론---수백만 개의 단백질 패밀리에 대해 훈련된 심층 신경망---에서 유래하므로, 벤치마크 프레임워크에 대한 직교 검증을 제공한다.
@@ -816,8 +889,119 @@ Table~\ref{tab:esm_comparison}에서 ESM-LLR은 두 병원체(SARS-CoV-2, MERS)�
 
 ESM-LLR과 MSA 기반 스코어 간 Spearman 상관관계는 병원체별로 상당히 달랐다. Norovirus는 강한 양의 상관($\rho = 0.63$, E*rare 대비, $p < 10^{-60}$)을 보여, ESM-2의 학습된 표현이 해당 병원체에서 엔트로피 기반 스코어링과 유사한 진화적 신호를 포착함을 나타냈다. 반면 HIV-1은 중간 정도의 음의 상관($\rho = -0.35$, $p < 10^{-14}$)을, Influenza~B는 거의 무상관($\rho = -0.04$, $p = 0.34$)을 보였다. H3N2에서 ESM-LLR은 DMS 적합도 데이터와 양의 상관($\rho = 0.47$, $p < 10^{-30}$)을 보여, 단백질 언어 모델이 실험적으로 측정 가능한 변이 내성을 포착함을 시사하였다. 이러한 결과는 ESM-LLR이 대부분의 병원체에 대해 진정으로 독립적인 스코어링 신호를 제공함을 확인하며, 벤치마크 프레임워크에 대한 교차 패러다임 검증으로서의 사용을 뒷받침한다.
 
+
+\textbf{ANOVA 진단 검정.}
+\label{subsec:anova_diagnostics}
+
+Shapiro-Wilk 검정에서 잔차의 정규성이 기각되었으나($W = 0.971$, $p = 3.29 \times 10^{-22}$), 왜도 = 0.12, 첨도 = 2.42로 경미한 비정규성이며, Levene 검정에서도 모든 요인의 등분산성이 기각되었다.
+그러나 대표본($n = 2{,}544$)에서 ANOVA는 이러한 위반에 강건하며, Kruskal-Wallis 비모수 검정(병원체: $H = 569.1$, $p < 10^{-117}$; 탐지 패밀리: $H = 86.1$, $p < 10^{-12}$; 스코어링: $H = 78.1$, $p < 10^{-13}$)에서 모든 효과가 동일하게 확인되어 ANOVA 결론의 신뢰성이 유지된다.
+
+
+\textbf{Precision@$k$ 분석.}
+\label{subsec:precision_at_k}
+
+병원체별 최적 조합의 탐지 정밀도와 재현율을 분석하였다. 표~\ref{tab:precision_at_k}은 각 병원체의 최적 조합(top-1) 기준 정밀도, 재현율, 탐지 크기, 최고 MCC를 제시한다.
+
+\begin{table}[htbp]
+\centering
+\caption{병원체별 최적 조합(top-1)의 정밀도, 재현율, 탐지 크기 및 최고 MCC.}
+\label{tab:precision_at_k}
+\begin{tabular}{lrrrr}
+\toprule
+병원체 & Precision & Recall & $n_{\text{det}}$ & Best MCC \\
+\midrule
+Dengue       & 0.157 & 0.667 & 102 & 0.256 \\
+H3N2         & 0.333 & 1.000 &  75 & 0.549 \\
+HCV          & 0.622 & 0.426 &  37 & 0.443 \\
+HIV-1        & 0.089 & 0.913 & 235 & 0.182 \\
+Influenza B  & 0.189 & 0.824 &  74 & 0.361 \\
+MERS         & 0.018 & 0.778 & 390 & 0.088 \\
+Norovirus    & 0.290 & 0.733 &  38 & 0.438 \\
+RSV          & 0.667 & 0.100 &   3 & 0.249 \\
+SARS-CoV-2   & 0.090 & 0.240 &  67 & 0.118 \\
+\midrule
+평균          & 0.273 & 0.631 &  -- & 0.298 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+전체 병원체의 top-1 평균 정밀도는 0.273, 평균 재현율은 0.631이다.
+H3N2는 완전한 재현율(1.0)과 양호한 정밀도(0.333)를 보여 탐지가 가장 용이한 병원체이며, RSV는 가장 높은 정밀도(0.667)를 기록하였으나 재현율이 0.10으로 극단적인 트레이드오프를 나타낸다.
+MERS는 ground truth 크기(9개 위치) 대비 탐지 크기(390개)가 과도하게 커 정밀도가 0.018로 가장 낮다.
+이러한 병원체 간 정밀도--재현율 프로파일의 이질성은 단일 임계값 기반 탐지의 한계를 추가로 확인한다.
+
+
+\textbf{DMS-진화 상관 분석.}
+\label{subsec:dms_evolution_correlation}
+
+DMS 적합도 데이터가 존재하는 4개 병원체에 대해, 위치별 DMS fitness 효과와 최적 스코어링 출력값 간 Spearman 상관을 분석하였다(표~\ref{tab:dms_evolution_correlation}).
+
+\begin{table}[htbp]
+\centering
+\caption{DMS 적합도 점수와 진화적 탐지 점수 간 Spearman 상관.}
+\label{tab:dms_evolution_correlation}
+\begin{tabular}{lrr}
+\toprule
+병원체 & $\rho$ & $p$ \\
+\midrule
+H3N2       &  0.191 & $1.5 \times 10^{-3}$ \\
+HIV-1      &  0.412 & $< 10^{-12}$ \\
+RSV        & $-$0.363 & $< 10^{-9}$ \\
+SARS-CoV-2 & $-$0.370 & $< 10^{-10}$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+상관 방향이 병원체에 따라 상이하다---H3N2와 HIV-1은 양의 상관, RSV와 SARS-CoV-2는 음의 상관---이는 DMS 적합도와 진화적 적응이 변이 영향의 근본적으로 다른 측면을 측정함을 확인한다.
+이 결과는 3-계층 ground truth 프레임워크가 DMS와 진화적 증거를 독립적이고 상호 보완적인 계층으로 처리하는 설계 원칙을 검증한다.
+
+
+\textbf{DMS Ground Truth 역치 민감도 분석.}
+\label{subsec:dms_threshold_sensitivity}
+
+Layer C (DMS)의 ``상위 20백분위'' 역치가 자의적이므로, 10\%, 20\%(기본값), 30\% 역치에서 DMS ground truth를 재구성하고 4종 병원체에서 벤치마크를 반복하였다(표~\ref{tab:dms_threshold_sensitivity}).
+4/4 병원체에서 최적 스코어링--탐지 조합이 역치에 따라 변경되어, DMS 기반 평가에서 역치 선택이 방법 순위에 영향을 미치며 투명한 보고가 필요함을 확인하였다.
+
+\begin{table}[htbp]
+\centering
+\caption{DMS ground truth 역치에 따른 최적 스코어링--탐지 조합과 DMS F1 (4종 병원체)}
+\label{tab:dms_threshold_sensitivity}
+\small
+\begin{tabular}{llllr}
+\toprule
+\textbf{역치} & \textbf{병원체} & \textbf{$n_{\text{GT}}$} & \textbf{최적 조합} & \textbf{DMS F1} \\
+\midrule
+\multirow{4}{*}{10\%}
+& H3N2 & 52 & rank(P*E) + Wavelet($t$=1.0) & 0.443 \\
+& HIV-1 & 54 & E*rare + KDE($p$=80) & 0.347 \\
+& RSV & 51 & rank(P*E) + KDE($p$=75) & 0.275 \\
+& SARS-CoV-2 & 126 & rank(P*E) + KDE($p$=80) & 0.249 \\
+\midrule
+\multirow{4}{*}{20\% (기본)}
+& H3N2 & 102 & rank(P*E) + AdaptWin($s$=90) & 0.434 \\
+& HIV-1 & 100 & P*E*rare + KDE($p$=80) & 0.400 \\
+& RSV & 101 & P*minority\_E + MutClust-Orig & 0.320 \\
+& SARS-CoV-2 & 252 & E*rare + ScoreDBSCAN($\epsilon$=15) & 0.353 \\
+\midrule
+\multirow{4}{*}{30\%}
+& H3N2 & 156 & rank(P*E) + AdaptiveKnee & 0.499 \\
+& HIV-1 & 144 & minority\_E + AdaptWin($s$=90) & 0.498 \\
+& RSV & 151 & P*minority\_E + MutClust-Orig & 0.438 \\
+& SARS-CoV-2 & 377 & E*rare + ScoreDBSCAN($\epsilon$=15) & 0.483 \\
+\bottomrule
+\end{tabular}
+\begin{minipage}{\textwidth}
+\smallskip
+\footnotesize $n_{\text{GT}}$: 해당 역치에서의 DMS ground truth 위치 수. 평균 최고 DMS F1은 10\%: 0.328, 20\%: 0.377, 30\%: 0.479로 역치가 느슨할수록 증가한다. 4/4 병원체에서 최적 스코어링--탐지 조합이 역치에 따라 변경되었다.
+\end{minipage}
+\end{table}
+
+
+
+%% ------------------------------------------------------------
 \subsection{핵심 발견 요약: 병원체 적응적 방법 선택의 필요성}
 \label{subsec:pahd_motivation_summary}
+
 
 9-병원체 벤치마크의 핵심 결과를 종합하면, 병원체 적응적 방법 선택의 필요성이 네 가지 독립적 증거에 의해 입증된다.
 
@@ -830,8 +1014,11 @@ ESM-LLR과 MSA 기반 스코어 간 Spearman 상관관계는 병원체별로 상
 
 이러한 결과는 ``병원체마다 최적 방법이 다르다''는 경험적 사실을 통계적으로 확립하며, 병원체의 변이 특성을 사전에 프로파일링하여 최적 조합을 적응적으로 선택하는 PAHD 프레임워크의 동기를 제공한다.
 
+
+%% ------------------------------------------------------------
 \subsection{PAHD 프로토타입 검증}
 \label{subsec:pahd_prototype}
+
 
 앞선 LOPO 분석에서 naive 전략(훈련 병원체의 평균 최적 조합을 그대로 적용)이 0/9 일치, 평균 일반화 비율 4.9\%로 완전히 실패하였다.
 이에 PAHD의 핵심 가설---``변이 프로파일이 유사한 병원체는 유사한 최적 탐지 조합을 가진다''---을 검증하기 위한 프로토타입 실험을 수행하였다.
@@ -909,118 +1096,3 @@ v2 프로파일의 개선에도 불구하고, $n = 9$ 병원체의 근본적 한
 이러한 결과는 9개 병원체와 oracle 정보 없이도 게놈 프로파일 유사도가 탐지 패밀리 선호도를 부분적으로 예측할 수 있음(v1: 5/9 양성 MCC; v2: 평균 MCC $0.005 \rightarrow 0.017$, 음의 전이 감소)을 보여준다.
 Knowledge base의 규모 확대(20개 이상), 가중 앙상블 전략 도입, 메타학습 회귀 모델~\cite{rice1976algorithm,kerschke2019algorithm}로의 전환이 실용적 PAHD 구현에 필수적이다.
 
-\subsection{ANOVA 진단 검정}
-\label{subsec:anova_diagnostics}
-
-Shapiro-Wilk 검정에서 잔차의 정규성이 기각되었으나($W = 0.971$, $p = 3.29 \times 10^{-22}$), 왜도 = 0.12, 첨도 = 2.42로 경미한 비정규성이며, Levene 검정에서도 모든 요인의 등분산성이 기각되었다.
-그러나 대표본($n = 2{,}544$)에서 ANOVA는 이러한 위반에 강건하며, Kruskal-Wallis 비모수 검정(병원체: $H = 569.1$, $p < 10^{-117}$; 탐지 패밀리: $H = 86.1$, $p < 10^{-12}$; 스코어링: $H = 78.1$, $p < 10^{-13}$)에서 모든 효과가 동일하게 확인되어 ANOVA 결론의 신뢰성이 유지된다.
-
-\subsection{Precision@$k$ 분석}
-\label{subsec:precision_at_k}
-
-병원체별 최적 조합의 탐지 정밀도와 재현율을 분석하였다. 표~\ref{tab:precision_at_k}은 각 병원체의 최적 조합(top-1) 기준 정밀도, 재현율, 탐지 크기, 최고 MCC를 제시한다.
-
-\begin{table}[htbp]
-\centering
-\caption{병원체별 최적 조합(top-1)의 정밀도, 재현율, 탐지 크기 및 최고 MCC.}
-\label{tab:precision_at_k}
-\begin{tabular}{lrrrr}
-\toprule
-병원체 & Precision & Recall & $n_{\text{det}}$ & Best MCC \\
-\midrule
-Dengue       & 0.157 & 0.667 & 102 & 0.256 \\
-H3N2         & 0.333 & 1.000 &  75 & 0.549 \\
-HCV          & 0.622 & 0.426 &  37 & 0.443 \\
-HIV-1        & 0.089 & 0.913 & 235 & 0.182 \\
-Influenza B  & 0.189 & 0.824 &  74 & 0.361 \\
-MERS         & 0.018 & 0.778 & 390 & 0.088 \\
-Norovirus    & 0.290 & 0.733 &  38 & 0.438 \\
-RSV          & 0.667 & 0.100 &   3 & 0.249 \\
-SARS-CoV-2   & 0.090 & 0.240 &  67 & 0.118 \\
-\midrule
-평균          & 0.273 & 0.631 &  -- & 0.298 \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-전체 병원체의 top-1 평균 정밀도는 0.273, 평균 재현율은 0.631이다.
-H3N2는 완전한 재현율(1.0)과 양호한 정밀도(0.333)를 보여 탐지가 가장 용이한 병원체이며, RSV는 가장 높은 정밀도(0.667)를 기록하였으나 재현율이 0.10으로 극단적인 트레이드오프를 나타낸다.
-MERS는 ground truth 크기(9개 위치) 대비 탐지 크기(390개)가 과도하게 커 정밀도가 0.018로 가장 낮다.
-이러한 병원체 간 정밀도--재현율 프로파일의 이질성은 단일 임계값 기반 탐지의 한계를 추가로 확인한다.
-
-\subsection{DMS-진화 상관 분석}
-\label{subsec:dms_evolution_correlation}
-
-DMS 적합도 데이터가 존재하는 4개 병원체에 대해, 위치별 DMS fitness 효과와 최적 스코어링 출력값 간 Spearman 상관을 분석하였다(표~\ref{tab:dms_evolution_correlation}).
-
-\begin{table}[htbp]
-\centering
-\caption{DMS 적합도 점수와 진화적 탐지 점수 간 Spearman 상관.}
-\label{tab:dms_evolution_correlation}
-\begin{tabular}{lrr}
-\toprule
-병원체 & $\rho$ & $p$ \\
-\midrule
-H3N2       &  0.191 & $1.5 \times 10^{-3}$ \\
-HIV-1      &  0.412 & $< 10^{-12}$ \\
-RSV        & $-$0.363 & $< 10^{-9}$ \\
-SARS-CoV-2 & $-$0.370 & $< 10^{-10}$ \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-상관 방향이 병원체에 따라 상이하다---H3N2와 HIV-1은 양의 상관, RSV와 SARS-CoV-2는 음의 상관---이는 DMS 적합도와 진화적 적응이 변이 영향의 근본적으로 다른 측면을 측정함을 확인한다.
-이 결과는 3-계층 ground truth 프레임워크가 DMS와 진화적 증거를 독립적이고 상호 보완적인 계층으로 처리하는 설계 원칙을 검증한다.
-
-\subsection{DMS Ground Truth 역치 민감도 분석}
-\label{subsec:dms_threshold_sensitivity}
-
-Layer C (DMS)의 ``상위 20백분위'' 역치가 자의적이므로, 10\%, 20\%(기본값), 30\% 역치에서 DMS ground truth를 재구성하고 4종 병원체에서 벤치마크를 반복하였다(표~\ref{tab:dms_threshold_sensitivity}).
-4/4 병원체에서 최적 스코어링--탐지 조합이 역치에 따라 변경되어, DMS 기반 평가에서 역치 선택이 방법 순위에 영향을 미치며 투명한 보고가 필요함을 확인하였다.
-
-\begin{table}[htbp]
-\centering
-\caption{DMS ground truth 역치에 따른 최적 스코어링--탐지 조합과 DMS F1 (4종 병원체)}
-\label{tab:dms_threshold_sensitivity}
-\small
-\begin{tabular}{llllr}
-\toprule
-\textbf{역치} & \textbf{병원체} & \textbf{$n_{\text{GT}}$} & \textbf{최적 조합} & \textbf{DMS F1} \\
-\midrule
-\multirow{4}{*}{10\%}
-& H3N2 & 52 & rank(P*E) + Wavelet($t$=1.0) & 0.443 \\
-& HIV-1 & 54 & E*rare + KDE($p$=80) & 0.347 \\
-& RSV & 51 & rank(P*E) + KDE($p$=75) & 0.275 \\
-& SARS-CoV-2 & 126 & rank(P*E) + KDE($p$=80) & 0.249 \\
-\midrule
-\multirow{4}{*}{20\% (기본)}
-& H3N2 & 102 & rank(P*E) + AdaptWin($s$=90) & 0.434 \\
-& HIV-1 & 100 & P*E*rare + KDE($p$=80) & 0.400 \\
-& RSV & 101 & P*minority\_E + MutClust-Orig & 0.320 \\
-& SARS-CoV-2 & 252 & E*rare + ScoreDBSCAN($\epsilon$=15) & 0.353 \\
-\midrule
-\multirow{4}{*}{30\%}
-& H3N2 & 156 & rank(P*E) + AdaptiveKnee & 0.499 \\
-& HIV-1 & 144 & minority\_E + AdaptWin($s$=90) & 0.498 \\
-& RSV & 151 & P*minority\_E + MutClust-Orig & 0.438 \\
-& SARS-CoV-2 & 377 & E*rare + ScoreDBSCAN($\epsilon$=15) & 0.483 \\
-\bottomrule
-\end{tabular}
-\begin{minipage}{\textwidth}
-\smallskip
-\footnotesize $n_{\text{GT}}$: 해당 역치에서의 DMS ground truth 위치 수. 평균 최고 DMS F1은 10\%: 0.328, 20\%: 0.377, 30\%: 0.479로 역치가 느슨할수록 증가한다. 4/4 병원체에서 최적 스코어링--탐지 조합이 역치에 따라 변경되었다.
-\end{minipage}
-\end{table}
-
-
-%% ============================================================
-\section{삽입-결실 변이(Indel) 배제의 영향 분석}
-\label{sec:indel_analysis}
-
-H-score는 참조 서열 대비 각 고정 좌표의 점 변이 빈도를 측정하는 고정 좌표 기반 지표이므로, 삽입(insertion) 및 결실(deletion) 변이는 구조적으로 포착할 수 없다.
-GISAID 2024--2025 Spike 서열 9,957개를 분석한 결과, 99.8\%가 최소 1개의 기능적 indel(예: del69-70, Y144del, del156-157)을 보유하며, 모든 indel 위치의 H-score는 정확히 0.000으로 H-score 기반 탐지에서 완전히 배제된다.
-약 35개의 주요 Spike 기능적 변이 중 최소 5개(약 14\%)가 indel이다.
-
-탐지 영향을 정량화하기 위해, 1,251 nt ground truth에 5개 indel 위치(27 nt)를 추가한 확장 ground truth를 구성하였다.
-원래 H-score와 augmented H-score(indel 위치에 기능적 신호 주입)를 비교한 합성 실험에서 MutClust-Hybrid의 F1 영향은 $\Delta$F1 = $-$0.002로 미미하였는데, 이는 27개 추가 위치가 확장 ground truth의 2.1\%에 불과하기 때문이다.
-F1에 대한 정량적 영향은 작지만, 생물학적으로 중요한 구조적 변이가 스코어링 함수에서 체계적으로 보이지 않는다는 점에서 고정 좌표 프레임워크의 구조적 한계를 나타낸다.
