@@ -292,7 +292,7 @@
     {\fontsize{11pt}{14pt}\selectfont August \@degreeyear}\\
     \vspace{1.2cm}
     %% Committee signatures — underlines aligned in same column
-    {\fontsize{11pt}{14pt}\selectfont
+    \hspace{1.5cm}{\fontsize{11pt}{14pt}\selectfont
       \begin{tabular}{@{}r@{}l@{\hspace{0.4cm}}c@{}}
         Chairman\hspace{0.3cm} & \underline{\hspace{4.5cm}} & \circledin \\[0.7cm]
         \phantom{Chairman\hspace{0.3cm}} & \underline{\hspace{4.5cm}} & \circledin \\[0.7cm]
