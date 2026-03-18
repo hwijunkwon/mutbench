@@ -81,7 +81,7 @@ HDBSCAN-Auto & 0.079 & 0.944 & 0.788 & 0.604 \\
 \end{table}
 
 The hotspot-score identifies \textbf{MutClust-Hybrid as the best-performing method} (0.778), combining near-perfect precision (0.968), improved recall (0.659), and high stability (0.706) by retaining CCM seeds while using HDBSCAN for boundary determination.
-HDBSCAN-Auto achieved high recall (0.944) and stability (0.788) but the lowest hotspot-score (0.604) due to low precision (0.079), illustrating the value of composite metrics over single-metric evaluation (Figure~\ref{fig:mutbench_method_comparison}).
+HDBSCAN-Auto achieved high recall (0.944) and stability (0.788) but the lowest hotspot-score (0.604) due to low precision (0.079), illustrating the value of composite metrics over single-metric evaluation (Figure~\ref{fig:mutbench_method_comparison_top}, Figure~\ref{fig:mutbench_method_comparison_bottom}).
 
 \textbf{Two-stage pipeline validation.}
 To combine the high recall of HDBSCAN-Auto with the high precision of MutClust-Hybrid, a two-stage detection pipeline was additionally validated.
@@ -114,9 +114,16 @@ MutClust-Hybrid (standalone) & 0.968 & 0.659 & 0.785 & 852 & 0.706 & 0.778 \\
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.9\textwidth]{new_methodology_comparison.png}
-\caption{Method comparison on synthetic SARS-CoV-2 data. MutClust-Hybrid achieves the best balance of precision and recall (F1 = 0.785), while CCM-only variants show high precision but moderate recall, and HDBSCAN-Auto shows high recall but very low precision.}
-\label{fig:mutbench_method_comparison}
+\includegraphics[width=\textwidth]{new_methodology_comparison_top.png}
+\caption{Method comparison on synthetic SARS-CoV-2 data (Part 1). (A)~Performance metrics at top-10\% threshold, (B)~Best F1 scores at optimal threshold, (C)~CH-score distribution for functional vs non-functional positions.}
+\label{fig:mutbench_method_comparison_top}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{new_methodology_comparison_bottom.png}
+\caption{Method comparison on synthetic SARS-CoV-2 data (Part 2). (D)~Score profiles along the Spike protein, (E)~H-score saturation problem, (F)~Functional region enrichment in the top-10\% of scored positions.}
+\label{fig:mutbench_method_comparison_bottom}
 \end{figure}
 
 %% ------------------------------------------------------------
@@ -164,20 +171,34 @@ For the strict convergent evolution subset (multi-source positions only), TC-fre
 
 These differing rankings demonstrate that no single detection method is dominant across all biological dimensions of hotspot importance.
 This multi-ground truth analysis provides a critical methodological insight: population frequency and experimental fitness are complementary rather than redundant measures of mutational importance.
-Benchmarking frameworks that rely on a single ground truth risk systematic bias toward methods optimized for that specific biological dimension, potentially penalizing methods that capture orthogonal aspects of functional importance (Figure~\ref{fig:multi_ground_truth}; Figure~\ref{fig:dms_evaluation}).
+Benchmarking frameworks that rely on a single ground truth risk systematic bias toward methods optimized for that specific biological dimension, potentially penalizing methods that capture orthogonal aspects of functional importance (Figure~\ref{fig:multi_ground_truth_top}, Figure~\ref{fig:multi_ground_truth_bottom}; Figure~\ref{fig:dms_evaluation_top}, Figure~\ref{fig:dms_evaluation_bottom}).
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.95\textwidth]{multi_ground_truth_figure.png}
-\caption{Detection performance across multiple biological ground truths. The best performing method differs fundamentally depending on whether the target is functional regions, experimental DMS fitness, or convergent evolution sites.}
-\label{fig:multi_ground_truth}
+\includegraphics[width=\textwidth]{multi_ground_truth_top.png}
+\caption{Detection performance across multiple biological ground truths (Part 1). (A)~Best F1 by approach and ground truth, (B)~Enrichment ratio heatmap.}
+\label{fig:multi_ground_truth_top}
 \end{figure}
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.9\textwidth]{dms_evaluation_comparison.png}
-\caption{Detailed performance comparison for Deep Mutational Scanning (DMS) escape evaluation. Saturated H-score exhibits the highest F1 in predicting experimentally measured single-mutation fitness effects.}
-\label{fig:dms_evaluation}
+\includegraphics[width=\textwidth]{multi_ground_truth_bottom.png}
+\caption{Detection performance across multiple biological ground truths (Part 2). (C)~Ground truth overlap matrix (Jaccard similarity; diagonal shows set sizes), (D)~TC-freq-v3 score distributions for convergent vs non-convergent positions.}
+\label{fig:multi_ground_truth_bottom}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{dms_evaluation_top.png}
+\caption{DMS-based ground truth evaluation (Part 1). (A)~F1 comparison between DMS-escape and functional-region ground truths, (B)~Cohen's d effect size for score separation across ground truths.}
+\label{fig:dms_evaluation_top}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{dms_evaluation_bottom.png}
+\caption{DMS-based ground truth evaluation (Part 2). (C)~Scatter plot of approach scores vs DMS functional importance, (D)~Precision-recall curves for DMS-escape (top 20\%) ground truth.}
+\label{fig:dms_evaluation_bottom}
 \end{figure}
 
 %% ------------------------------------------------------------
