@@ -1,4 +1,4 @@
-\begin{thebibliography}{73}
+\begin{thebibliography}{62}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -61,110 +61,6 @@ John~R. Rice.
   Press, 1976.
 \newblock \doi{10.1016/S0065-2458(08)60520-3}.
 
-\bibitem[Wang et~al.(2014)Wang, Mezlini, Demir, Fiume, Tu, Brudno, Haibe-Kains,
-  and Goldenberg]{wang2014snf}
-Bo~Wang, Aziz~M. Mezlini, Feyyaz Demir, Marc Fiume, Zhuowen Tu, Michael Brudno,
-  Benjamin Haibe-Kains, and Anna Goldenberg.
-\newblock Similarity network fusion for aggregating data types on a genomic
-  scale.
-\newblock \emph{Nature Methods}, 11\penalty0 (3):\penalty0 333--337, 2014.
-\newblock \doi{10.1038/nmeth.2810}.
-
-\bibitem[Rappoport and Shamir(2019)]{rappoport2018nemo}
-Nimrod Rappoport and Ron Shamir.
-\newblock {NEMO}: Cancer subtyping by integration of partial multi-omic data.
-\newblock \emph{Bioinformatics}, 35\penalty0 (18):\penalty0 3348--3356, 2019.
-\newblock \doi{10.1093/bioinformatics/btz058}.
-
-\bibitem[Argelaguet et~al.(2018)Argelaguet, Velten, Arnol,
-  et~al.]{argelaguet2018mofa}
-Ricard Argelaguet, Britta Velten, Damien Arnol, et~al.
-\newblock Multi-omics factor analysis---a framework for unsupervised
-  integration of multi-omics data sets.
-\newblock \emph{Molecular Systems Biology}, 14\penalty0 (6):\penalty0 e8124,
-  2018.
-\newblock \doi{10.15252/msb.20178124}.
-
-\bibitem[Mo et~al.(2013)Mo, Wang, Seshan, Olshen, Schultz, Sander, Powers,
-  Ladanyi, and Shen]{shen2013iclusterplus}
-Qianxing Mo, Sijian Wang, Venkatraman~E. Seshan, Adam~B. Olshen, Nikolaus
-  Schultz, Chris Sander, R.~Scott Powers, Marc Ladanyi, and Ronglai Shen.
-\newblock Pattern discovery and cancer gene identification in integrated cancer
-  genomic data.
-\newblock \emph{Proceedings of the National Academy of Sciences}, 110\penalty0
-  (11):\penalty0 4245--4250, 2013.
-\newblock \doi{10.1073/pnas.1208949110}.
-
-\bibitem[Hoadley et~al.(2014)Hoadley, Yau, Wolf, et~al.]{hoadley2014coca}
-Katherine~A. Hoadley, Christina Yau, Denise~M. Wolf, et~al.
-\newblock Multiplatform analysis of 12 cancer types reveals molecular
-  classification within and across tissues of origin.
-\newblock \emph{Cell}, 158\penalty0 (4):\penalty0 929--944, 2014.
-\newblock \doi{10.1016/j.cell.2014.06.049}.
-
-\bibitem[Nguyen et~al.(2017)Nguyen, Tagett, Diaz, and
-  Draghici]{nguyen2017pinsplus}
-Tin Nguyen, Rebecca Tagett, Diana Diaz, and Sorin Draghici.
-\newblock A novel approach for data integration and disease subtyping.
-\newblock \emph{Genome Research}, 27\penalty0 (12):\penalty0 2025--2039, 2017.
-\newblock \doi{10.1101/gr.215129.116}.
-
-\bibitem[Chauvel et~al.(2020)Chauvel, Novoloaca, Veber, Reynier, Becker, Vie,
-  Bal, and Celton]{chauvel2020sample}
-Camille Chauvel, Andrei Novoloaca, Pierre Veber, Franck Reynier, Jorg Becker,
-  Henri Vie, Gilles Bal, and Mathieu Celton.
-\newblock Evaluation of integrative clustering methods for the analysis of
-  multi-omics data.
-\newblock \emph{Briefings in Bioinformatics}, 21\penalty0 (2):\penalty0
-  541--552, 2020.
-\newblock \doi{10.1093/bib/bbz015}.
-
-\bibitem[Rappoport and Shamir(2018)]{rappoport2018benchmark}
-Nimrod Rappoport and Ron Shamir.
-\newblock Multi-omic and multi-view clustering algorithms: review and cancer
-  benchmark.
-\newblock \emph{Nucleic Acids Research}, 46\penalty0 (20):\penalty0
-  10546--10562, 2018.
-\newblock \doi{10.1093/nar/gky889}.
-
-\bibitem[Pierre-Jean et~al.(2020)Pierre-Jean, Deleuze, {Le Floch}, and
-  Mauger]{pierrejean2020feature}
-Morgane Pierre-Jean, Jean-Fran\c{c}ois Deleuze, Edith {Le Floch}, and Florence
-  Mauger.
-\newblock Clustering and variable selection evaluation of 13 unsupervised
-  methods for multi-omics data integration.
-\newblock \emph{Briefings in Bioinformatics}, 21\penalty0 (6):\penalty0
-  2011--2030, 2020.
-\newblock \doi{10.1093/bib/bbz163}.
-
-\bibitem[Tini et~al.(2019)Tini, Marchetti, Priami, and
-  Scott-Boyer]{tini2019multi}
-Giulia Tini, Luca Marchetti, Corrado Priami, and Marie-Pier Scott-Boyer.
-\newblock Multi-omics integration---a comparison of unsupervised clustering
-  methodologies.
-\newblock \emph{Briefings in Bioinformatics}, 20\penalty0 (4):\penalty0
-  1269--1279, 2019.
-\newblock \doi{10.1093/bib/bbx167}.
-
-\bibitem[Duan et~al.(2021)Duan, Gao, Gao, Hu, Xu, Huang, Song, Wang, Dong,
-  Jiang, Zhang, and Jia]{duan2021evaluation}
-Ran Duan, Lin Gao, Yong Gao, Yuxuan Hu, Han Xu, Mingfeng Huang, Kuo Song,
-  Hongda Wang, Yaqun Dong, Chaoqun Jiang, Congmin Zhang, and Songwei Jia.
-\newblock Evaluation and comparison of multi-omics data integration methods for
-  cancer subtyping.
-\newblock \emph{PLoS Computational Biology}, 17\penalty0 (8):\penalty0
-  e1009224, 2021.
-\newblock \doi{10.1371/journal.pcbi.1009224}.
-
-\bibitem[Weber et~al.(2019)Weber, Saelens, Cannoodt, Soneson, Hapfelmeier,
-  Gardner, Boulesteix, Saeys, and Robinson]{weber2019benchmarking}
-Lukas~M. Weber, Wouter Saelens, Robrecht Cannoodt, Charlotte Soneson, Alexander
-  Hapfelmeier, Paul~P. Gardner, Anne-Laure Boulesteix, Yvan Saeys, and Mark~D.
-  Robinson.
-\newblock Essential guidelines for computational method benchmarking.
-\newblock \emph{Genome Biology}, 20:\penalty0 125, 2019.
-\newblock \doi{10.1186/s13059-019-1738-8}.
-
 \bibitem[Mullick et~al.(2021)Mullick, Magar, Jhunjhunwala, and
   Barati~Farimani]{mullick2021entropy}
 Bhumika Mullick, Rohit Magar, Aditya Jhunjhunwala, and Amir Barati~Farimani.
@@ -205,28 +101,6 @@ Santiago Mu{\~n}oz, Daniel~L. Hartl, Deepak~K. Bhatt, and Tobias Sj\"{o}blom.
   genomes.
 \newblock \emph{npj Genomic Medicine}, 5:\penalty0 22, 2020.
 \newblock \doi{10.1038/s41525-020-0133-5}.
-
-\bibitem[Ester et~al.(1996)Ester, Kriegel, Sander, and Xu]{ester1996dbscan}
-Martin Ester, Hans-Peter Kriegel, J\"{o}rg Sander, and Xiaowei Xu.
-\newblock A density-based algorithm for discovering clusters in large spatial
-  databases with noise.
-\newblock In \emph{Proceedings of the Second International Conference on
-  Knowledge Discovery and Data Mining (KDD-96)}, pages 226--231, 1996.
-
-\bibitem[Campello et~al.(2013)Campello, Moulavi, and
-  Sander]{campello2013hdbscan}
-Ricardo J. G.~B. Campello, Davoud Moulavi, and J\"{o}rg Sander.
-\newblock Density-based clustering based on hierarchical density estimates.
-\newblock In \emph{PAKDD 2013, Part II, LNAI 7819}, pages 160--172, 2013.
-\newblock \doi{10.1007/978-3-642-37456-2_14}.
-
-\bibitem[Ankerst et~al.(1999)Ankerst, Breunig, Kriegel, and
-  Sander]{ankerst1999optics}
-Mihael Ankerst, Markus~M. Breunig, Hans-Peter Kriegel, and J\"{o}rg Sander.
-\newblock {OPTICS}: ordering points to identify the clustering structure.
-\newblock In \emph{Proceedings of the 1999 ACM SIGMOD International Conference
-  on Management of Data}, pages 49--60, 1999.
-\newblock \doi{10.1145/304182.304187}.
 
 \bibitem[Felsenstein(1985)]{felsenstein1985phylogenies}
 Joseph Felsenstein.
@@ -273,6 +147,28 @@ Yatish Turakhia, Bryan Thornlow, Angie~S. Hinrichs, Nicola De~Maio, Landen
 \newblock \emph{Nature Genetics}, 53:\penalty0 809--816, 2021.
 \newblock \doi{10.1038/s41588-021-00862-7}.
 
+\bibitem[Ester et~al.(1996)Ester, Kriegel, Sander, and Xu]{ester1996dbscan}
+Martin Ester, Hans-Peter Kriegel, J\"{o}rg Sander, and Xiaowei Xu.
+\newblock A density-based algorithm for discovering clusters in large spatial
+  databases with noise.
+\newblock In \emph{Proceedings of the Second International Conference on
+  Knowledge Discovery and Data Mining (KDD-96)}, pages 226--231, 1996.
+
+\bibitem[Campello et~al.(2013)Campello, Moulavi, and
+  Sander]{campello2013hdbscan}
+Ricardo J. G.~B. Campello, Davoud Moulavi, and J\"{o}rg Sander.
+\newblock Density-based clustering based on hierarchical density estimates.
+\newblock In \emph{PAKDD 2013, Part II, LNAI 7819}, pages 160--172, 2013.
+\newblock \doi{10.1007/978-3-642-37456-2_14}.
+
+\bibitem[Ankerst et~al.(1999)Ankerst, Breunig, Kriegel, and
+  Sander]{ankerst1999optics}
+Mihael Ankerst, Markus~M. Breunig, Hans-Peter Kriegel, and J\"{o}rg Sander.
+\newblock {OPTICS}: ordering points to identify the clustering structure.
+\newblock In \emph{Proceedings of the 1999 ACM SIGMOD International Conference
+  on Management of Data}, pages 49--60, 1999.
+\newblock \doi{10.1145/304182.304187}.
+
 \bibitem[Fowler and Fields(2014)]{fowler2014dms}
 Douglas~M. Fowler and Stanley Fields.
 \newblock Deep mutational scanning: a new style of protein science.
@@ -307,39 +203,14 @@ Derek~J. Smith, Alan~S. Lapedes, Jan~C. de~Jong, et~al.
 \newblock \emph{Science}, 305:\penalty0 371--376, 2004.
 \newblock \doi{10.1126/science.1097211}.
 
-\bibitem[Boulesteix et~al.(2013)Boulesteix, Lauer, and
-  Eugster]{boulesteix2017towards}
-Anne-Laure Boulesteix, Sabine Lauer, and Manuel~J.A. Eugster.
-\newblock A plea for neutral comparison studies in computational sciences.
-\newblock \emph{PLoS ONE}, 8\penalty0 (4):\penalty0 e61562, 2013.
-\newblock \doi{10.1371/journal.pone.0061562}.
-
-\bibitem[Wrapp et~al.(2020)Wrapp, Wang, Corbett, Goldsmith, Hsieh, Abiona,
-  Graham, and McLellan]{wrapp2020cryo}
-Daniel Wrapp, Nianshuang Wang, Kizzmekia~S. Corbett, Jory~A. Goldsmith,
-  Ching-Lin Hsieh, Olubukola Abiona, Barney~S. Graham, and Jason~S. McLellan.
-\newblock Cryo-{EM} structure of the 2019-n{CoV} spike in the prefusion
-  conformation.
-\newblock \emph{Science}, 367\penalty0 (6483):\penalty0 1260--1263, 2020.
-\newblock \doi{10.1126/science.abb2507}.
-
-\bibitem[McCallum et~al.(2021)McCallum, De~Marco, Lempp, Tortorici, Pinto,
-  Walls, Beltramello, Chen, Liu, Zatta, et~al.]{mccallum2021ntd}
-Matthew McCallum, Anna De~Marco, Florian~A. Lempp, M.~Alejandra Tortorici, Dora
-  Pinto, Alexandra~C. Walls, Martina Beltramello, Alex Chen, Zhuoming Liu,
-  Fabrizia Zatta, et~al.
-\newblock {N}-terminal domain antigenic mapping reveals a site of vulnerability
-  for {SARS-CoV-2}.
-\newblock \emph{Cell}, 184\penalty0 (9):\penalty0 2332--2347, 2021.
-\newblock \doi{10.1016/j.cell.2021.03.028}.
-
-\bibitem[Nei and Gojobori(1986)]{nei1986simple}
-Masatoshi Nei and Takashi Gojobori.
-\newblock Simple methods for estimating the numbers of synonymous and
-  nonsynonymous nucleotide substitutions.
-\newblock \emph{Molecular Biology and Evolution}, 3\penalty0 (5):\penalty0
-  418--426, 1986.
-\newblock \doi{10.1093/oxfordjournals.molbev.a040410}.
+\bibitem[Weber et~al.(2019)Weber, Saelens, Cannoodt, Soneson, Hapfelmeier,
+  Gardner, Boulesteix, Saeys, and Robinson]{weber2019benchmarking}
+Lukas~M. Weber, Wouter Saelens, Robrecht Cannoodt, Charlotte Soneson, Alexander
+  Hapfelmeier, Paul~P. Gardner, Anne-Laure Boulesteix, Yvan Saeys, and Mark~D.
+  Robinson.
+\newblock Essential guidelines for computational method benchmarking.
+\newblock \emph{Genome Biology}, 20:\penalty0 125, 2019.
+\newblock \doi{10.1186/s13059-019-1738-8}.
 
 \bibitem[Katoh and Standley(2013)]{katoh2013mafft}
 Kazutaka Katoh and Daron~M Standley.
@@ -360,6 +231,15 @@ Alessandro~M. Carabelli, Thomas~P. Peacock, Lucy~G. Thorne, William~T. Harvey,
 \newblock \emph{Nature Reviews Microbiology}, 21\penalty0 (3):\penalty0
   162--177, 2023.
 \newblock \doi{10.1038/s41579-022-00841-7}.
+
+\bibitem[Wrapp et~al.(2020)Wrapp, Wang, Corbett, Goldsmith, Hsieh, Abiona,
+  Graham, and McLellan]{wrapp2020cryo}
+Daniel Wrapp, Nianshuang Wang, Kizzmekia~S. Corbett, Jory~A. Goldsmith,
+  Ching-Lin Hsieh, Olubukola Abiona, Barney~S. Graham, and Jason~S. McLellan.
+\newblock Cryo-{EM} structure of the 2019-n{CoV} spike in the prefusion
+  conformation.
+\newblock \emph{Science}, 367\penalty0 (6483):\penalty0 1260--1263, 2020.
+\newblock \doi{10.1126/science.abb2507}.
 
 \bibitem[Cao et~al.(2023)Cao, Jian, Wang, Yu, Song, Yisimayi, Wang, An, Chen,
   Zhang, et~al.]{cao2023ba286}
@@ -486,6 +366,24 @@ Cassandra~A Simonich, Kari Debbink, Katharine~HD Crawford, and Jesse~D Bloom.
 \newblock \emph{bioRxiv}, 2024.
 \newblock Preprint.
 
+\bibitem[McCallum et~al.(2021)McCallum, De~Marco, Lempp, Tortorici, Pinto,
+  Walls, Beltramello, Chen, Liu, Zatta, et~al.]{mccallum2021ntd}
+Matthew McCallum, Anna De~Marco, Florian~A. Lempp, M.~Alejandra Tortorici, Dora
+  Pinto, Alexandra~C. Walls, Martina Beltramello, Alex Chen, Zhuoming Liu,
+  Fabrizia Zatta, et~al.
+\newblock {N}-terminal domain antigenic mapping reveals a site of vulnerability
+  for {SARS-CoV-2}.
+\newblock \emph{Cell}, 184\penalty0 (9):\penalty0 2332--2347, 2021.
+\newblock \doi{10.1016/j.cell.2021.03.028}.
+
+\bibitem[Nei and Gojobori(1986)]{nei1986simple}
+Masatoshi Nei and Takashi Gojobori.
+\newblock Simple methods for estimating the numbers of synonymous and
+  nonsynonymous nucleotide substitutions.
+\newblock \emph{Molecular Biology and Evolution}, 3\penalty0 (5):\penalty0
+  418--426, 1986.
+\newblock \doi{10.1093/oxfordjournals.molbev.a040410}.
+
 \bibitem[Chicco and Jurman(2020)]{chicco2020mcc}
 Davide Chicco and Giuseppe Jurman.
 \newblock The advantages of the {Matthews} correlation coefficient ({MCC}) over
@@ -525,8 +423,15 @@ Bette Korber, Will~M. Fischer, Sandrasegaram Gnanakaran, Hyejin Yoon, James
 \newblock \emph{Cell}, 182\penalty0 (4):\penalty0 812--827, 2020.
 \newblock \doi{10.1016/j.cell.2020.06.043}.
 
+\bibitem[Boulesteix et~al.(2013)Boulesteix, Lauer, and
+  Eugster]{boulesteix2017towards}
+Anne-Laure Boulesteix, Sabine Lauer, and Manuel~J.A. Eugster.
+\newblock A plea for neutral comparison studies in computational sciences.
+\newblock \emph{PLoS ONE}, 8\penalty0 (4):\penalty0 e61562, 2013.
+\newblock \doi{10.1371/journal.pone.0061562}.
+
 \bibitem[Kerschke et~al.(2019)Kerschke, Hoos, Neumann, and
-  Trautmann]{smith2021algorithm}
+  Trautmann]{kerschke2019algorithm}
 Pascal Kerschke, Holger~H. Hoos, Frank Neumann, and Heike Trautmann.
 \newblock Automated algorithm selection: Survey and perspectives.
 \newblock \emph{Evolutionary Computation}, 27\penalty0 (1):\penalty0 3--45,
