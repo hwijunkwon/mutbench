@@ -746,7 +746,6 @@ The qualitative conclusion of the 9-pathogen benchmark---that the best-performin
 \vspace{0.5em}
 
 Building on the Stage~1 findings, a Stage~2 benchmark was conducted to systematically evaluate 41 detection methods from 15 algorithm families combined with 9 scoring formulas across 9 pathogens (Section~\ref{sec:9pathogen_benchmark}).
-Stage~2 uses MCC instead of hotspot-score and applies 41 detection methods from 15 algorithm families to real MSA-derived scores, as detailed in Section~\ref{sec:9pathogen_benchmark}.
 Stage~2 uses MCC rather than hotspot-score because the stability component (Jaccard-based subsampling reproducibility) requires bootstrap validation that has not been cross-validated across all 9 pathogens with their widely varying alignment lengths (340--1,330 AA) and MSA sizes (530--5,019 unique sequences). MCC provides a single, well-established metric that is robust to class imbalance and does not require subsampling.
 
 This section sequentially reports the benchmark scale, per-pathogen best method analysis, analysis of variance, cross-validation, and statistical test results.
@@ -1126,3 +1125,5 @@ A random baseline (1,000 random combination selections per pathogen) yielded mea
 
 The exact combination match rate remains 0/9 under both profiles, confirming that the $n = 9$ knowledge base is insufficient for reliable combination prediction; HCV and Influenza~B failures in v1 resulted from lacking similar neighbors in the profile space.
 Scaling to 20+ pathogens, introducing top-$k$ ensemble strategies, and transitioning to meta-learning regression models are the concrete next steps.
+
+The interpretation of these results---including the methodological validity of the benchmark, the implications of cross-pathogen heterogeneity, and the practical significance for genomic surveillance---is discussed in Chapter~\ref{ch:discussion}.
