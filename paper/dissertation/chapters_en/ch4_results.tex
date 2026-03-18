@@ -641,6 +641,13 @@ HDBSCAN-Auto & Density-based & 0.604 & 0.424 \\
 \end{minipage}
 \end{table}
 
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{cross_pathogen_comparison.png}
+\caption{Cross-pathogen comparison of detection method rankings between SARS-CoV-2 and H3N2. Method rankings differ substantially across pathogens, motivating pathogen-adaptive selection.}
+\label{fig:cross_pathogen_comparison}
+\end{figure}
+
 The best-performing method differs between the two pathogens---MutClust-Hybrid (0.778) for SARS-CoV-2 and MutClust-Fixed (0.661) for H3N2.
 This result confirms the core lesson of MutBench---``no universal best method exists, and method selection depends on input data characteristics (gene length, H-score distribution, signal-to-background contrast)''---in an independent pathogen.
 
@@ -784,6 +791,13 @@ HCV & E\_only & CUSUM ($\delta$=0.5, $h$=5.0) & 0.443 \\
 \end{minipage}
 \end{table}
 
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{scoring_detection_heatmap.png}
+\caption{Scoring--detection performance heatmap across 9 pathogens. Each cell represents mean MCC for a scoring--detection family combination. The heterogeneous pattern confirms that no single combination dominates across all pathogens.}
+\label{fig:scoring_detection_heatmap}
+\end{figure}
+
 The key observations from these results are as follows.
 First, the best scoring formula differs across pathogens: E*rare is the best-performing formula for SARS-CoV-2, HIV-1, and Dengue, but E\_only is best for H3N2 and HCV, H-score for Influenza B, P*E for RSV, and rank(P*E) for MERS.
 Second, the best detection family also differs across pathogens: SlidingTest (3 occurrences), CUSUM (2), FreqThresh (2), Wavelet (1), and GradPeak (1) are distributed.
@@ -821,6 +835,13 @@ score $\times$ family & Two-way interaction & 0.013 \\
 \footnotesize family: detection method family (15 levels), score: scoring formula (9 levels), pathogen: pathogen (9 levels). $\omega^2$ is the bias-corrected estimate of the proportion of total variance explained by each factor.
 \end{minipage}
 \end{table}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{variance_decomposition.png}
+\caption{Variance decomposition of hotspot detection performance. The detection family $\times$ pathogen interaction ($\omega^2 = 0.285$) is the largest source of variance, exceeding all main effects.}
+\label{fig:variance_decomposition}
+\end{figure}
 
 \textbf{Key finding}: The detection family $\times$ pathogen interaction ($\omega^2 = 0.285$) is the \textbf{largest source of variance, exceeding all main effects and other interactions}. Under Cohen's effect size benchmarks~\cite{cohen1988statistical}, $\omega^2 > 0.14$ constitutes a large effect, confirming that this interaction is substantively large.
 This means that the best-performing detection method varies systematically depending on the pathogen, and no single pathogen-independent best method exists.

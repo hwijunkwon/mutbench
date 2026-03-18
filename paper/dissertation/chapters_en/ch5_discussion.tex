@@ -126,6 +126,13 @@ HCV           & 0.510 & 0.793 & 0.894 \\
 {\footnotesize $^\dagger$The position-exact MCC (0.289) differs slightly from the benchmark-reported oracle (0.298) due to minor code version differences in detection method implementations; the relative improvement from position-exact to region-overlap is the primary finding of this analysis.}
 \end{table}
 
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{region_overlap_bar.png}
+\caption{Region-overlap MCC under three evaluation modes (Exact, $\pm$5, $\pm$10 windows) for each pathogen. The consistent improvement from exact to $\pm$10 window evaluation demonstrates that detected hotspots are spatially proximate to ground truth positions across all 9 pathogens.}
+\label{fig:region_overlap_bar}
+\end{figure}
+
 Pathogens with well-characterized ground truth achieve substantially higher values.
 Despite these ceiling effects, the benchmark results have practical implications for public health surveillance.
 

@@ -47,6 +47,50 @@ To address the problems above, this study establishes the following two objectiv
 \end{enumerate}
 
 
+\begin{figure}[htbp]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tikzpicture}[
+    node distance=1.5cm and 2.0cm,
+    box/.style={rectangle, draw, rounded corners, minimum width=3.5cm, minimum height=1.0cm, align=center, font=\small, thick},
+    subbox/.style={rectangle, draw, rounded corners=2pt, minimum width=2.8cm, minimum height=0.6cm, align=center, font=\footnotesize},
+    arrow/.style={->, thick, >=stealth}
+]
+
+% Problem Definition
+\node[box, fill=red!10] (problem) {\textbf{Problem Definition}\\No systematic benchmark\\for viral hotspot detection};
+
+% MutBench Framework
+\node[box, fill=blue!10, right=2.5cm of problem] (mutbench) {\textbf{MutBench Framework}};
+
+% Sub-components of MutBench
+\node[subbox, fill=blue!5, below=0.4cm of mutbench, xshift=-2.5cm] (gt) {3-Layer Ground Truth};
+\node[subbox, fill=blue!5, below=0.4cm of mutbench] (hs) {Hotspot-score Metric};
+\node[subbox, fill=blue!5, below=0.4cm of mutbench, xshift=2.5cm] (design) {2-Stage Design};
+
+% Statistical Validation
+\node[box, fill=green!10, right=2.5cm of mutbench] (stats) {\textbf{Statistical Validation}};
+
+% Sub-components of Stats
+\node[subbox, fill=green!5, below=0.4cm of stats, xshift=-1.8cm] (anova) {ANOVA};
+\node[subbox, fill=green!5, below=0.4cm of stats] (friedman) {Friedman};
+\node[subbox, fill=green!5, below=0.4cm of stats, xshift=1.8cm] (lopo) {LOPO};
+
+% PAHD Prototype
+\node[box, fill=orange!10, right=2.5cm of stats] (pahd) {\textbf{PAHD Prototype}\\Pathogen-adaptive\\method selection};
+
+% Main arrows
+\draw[arrow] (problem) -- (mutbench);
+\draw[arrow] (mutbench) -- (stats);
+\draw[arrow] (stats) -- (pahd);
+
+\end{tikzpicture}
+}% end resizebox
+\caption{Research overview. The study proceeds from problem identification (absence of systematic benchmarks) through framework construction (MutBench), statistical validation of cross-pathogen heterogeneity, to a proof-of-concept PAHD prototype for pathogen-adaptive method selection.}
+\label{fig:research_overview}
+\end{figure}
+
+
 \section{Research Contributions}
 \label{sec:intro_contributions}
 

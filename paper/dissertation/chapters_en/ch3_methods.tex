@@ -51,6 +51,46 @@ HCV & E2 & NC\_004102.1 (HCV-1a) & 1,362 & 1,067 & 340 \\
 \label{subsec:3layer_gt}
 
 To mitigate single ground truth bias, a 3-layer ground truth framework based on three independent sources of biological evidence was constructed.
+Figure~\ref{fig:3layer_gt_concept} illustrates the structure and integration of the three layers.
+
+\begin{figure}[htbp]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tikzpicture}[
+    node distance=1.2cm and 1.8cm,
+    layer/.style={rectangle, draw, rounded corners, minimum width=4.5cm, minimum height=1.2cm, align=center, font=\small, thick},
+    combine/.style={rectangle, draw, rounded corners, minimum width=5.5cm, minimum height=1.0cm, align=center, font=\small, thick},
+    role/.style={font=\footnotesize, align=center},
+    arrow/.style={->, thick, >=stealth}
+]
+
+% Layer A
+\node[layer, fill=blue!15] (layerA) {\textbf{Layer A: Convergent Evolution}\\Positive selection sites\\(True Positives)};
+
+% Layer B
+\node[layer, fill=green!15, right=2.5cm of layerA] (layerB) {\textbf{Layer B: Purifying Selection}\\Constrained functional sites\\(True Negatives)};
+
+% Layer C
+\node[layer, fill=orange!15, right=2.5cm of layerB] (layerC) {\textbf{Layer C: DMS Fitness}\\Experimental functional impact\\(Independent validation)};
+
+% Role labels
+\node[role, below=0.2cm of layerA] (roleA) {Evaluates recall\\(detection sensitivity)};
+\node[role, below=0.2cm of layerB] (roleB) {Evaluates specificity\\(constrained FPR)};
+\node[role, below=0.2cm of layerC] (roleC) {Evaluates biological\\relevance (DMS F1)};
+
+% Integration node
+\node[combine, fill=purple!10, below=2.2cm of layerB] (integrate) {\textbf{Multi-Layer Evaluation}\\MCC (Layer A) + Constrained FPR (Layer B) + DMS F1 (Layer C)};
+
+% Arrows
+\draw[arrow, blue!70] (layerA.south) -- ++(0,-1.2) -| (integrate.north west);
+\draw[arrow, green!60!black] (layerB.south) -- (integrate.north);
+\draw[arrow, orange!70!black] (layerC.south) -- ++(0,-1.2) -| (integrate.north east);
+
+\end{tikzpicture}
+}% end resizebox
+\caption{3-Layer Ground Truth Framework. Layer~A (convergent evolution) defines true positives for MCC computation, Layer~B (purifying selection) defines true negatives for constrained FPR, and Layer~C (DMS fitness) provides independent experimental validation. The three layers capture orthogonal dimensions of mutational importance.}
+\label{fig:3layer_gt_concept}
+\end{figure}
 
 \subsubsection{Layer A: Adaptive Positive Selection}
 
