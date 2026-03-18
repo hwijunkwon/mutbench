@@ -349,7 +349,7 @@
   \end{center}
   \vspace{1.5cm}
   \setstretch{1.6}
-  {\fontsize{14pt}{17pt}\selectfont \textbf{Abstract}}\\[0.5cm]
+  {\fontsize{20pt}{24pt}\selectfont \textbf{Abstract}}\\[0.5cm]
   {\fontsize{11pt}{17pt}\selectfont #1}
   \clearpage
 }
