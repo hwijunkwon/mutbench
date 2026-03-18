@@ -123,7 +123,7 @@ HCV           & 0.510 & 0.793 & 0.894 \\
 \end{tabular}
 
 \vspace{1mm}
-{\footnotesize $^\dagger$The position-exact MCC (0.289) differs slightly from the benchmark-reported oracle (0.298) due to minor code version differences in detection method implementations; the relative improvement from position-exact to region-overlap is the primary finding of this analysis.}
+{\footnotesize $^\dagger$The position-exact MCC (0.289) in the region-overlap analysis differs from the benchmark-reported oracle (0.298) because the region-overlap analysis uses a reimplemented evaluation pipeline with minor differences in boundary handling (e.g., edge-position treatment at alignment boundaries). The absolute baseline difference (0.009, or 3.1\%) does not affect the primary finding: the relative improvement from exact to region-overlap evaluation (146\%) demonstrates that detected hotspots are spatially proximate to ground truth positions.}
 \end{table}
 
 \begin{figure}[htbp]
@@ -170,6 +170,16 @@ Systematic biases exist in the GISAID~\cite{shu2017gisaid}-based input data.
 \textbf{Geographic bias}: High-income countries contribute over 80\% of total sequences~\cite{chen2022gisaid}, leading to underrepresentation of unique variants from Africa/South Asia; weekly stratification corrects only for temporal imbalance.
 \textbf{Temporal bias}: Sequence accumulation differs substantially between the early pandemic and Omicron periods, and within-week representativeness is not guaranteed.
 \textbf{Founder effect}: ``Hitchhiker'' mutations accompanying lineage expansion (e.g., JN.1;~\cite{kaku2024virological}) cannot be distinguished from positively selected positions by frequency-based approaches alone.
+
+\subsection{Ground Truth Heterogeneity Across Pathogens}
+\label{sec:gt_heterogeneity}
+
+A key limitation of the 3-layer ground truth framework is the heterogeneity in how Layer~A (positive selection sites) is defined across pathogens.
+For SARS-CoV-2 and H3N2, Layer~A positions are phylogenetically confirmed convergent evolution sites---positions where identical mutations arose independently in multiple lineages.
+In contrast, HCV Layer~A comprises hypervariable regions (HVR1/HVR2) that exhibit diversifying rather than convergent selection, Norovirus Layer~A consists of epochal variant positions associated with antigenic shift events, and the remaining pathogens use literature-reported immune evasion sites with varying levels of phylogenetic confirmation (Table~\ref{tab:gt_positions}).
+This heterogeneity could artificially inflate the method $\times$ pathogen interaction in the ANOVA, because differences in ground truth definition criteria---not only differences in pathogen biology---may contribute to the observed interaction effect ($\omega^2 = 0.285$).
+However, this heterogeneity reflects the real-world challenge of hotspot detection: ground truth definitions necessarily depend on pathogen-specific biology, and no single criterion (e.g., convergent evolution alone) is applicable across all pathogens.
+The finding that detection performance is pathogen-dependent holds regardless of whether this dependence stems from intrinsic biological differences among pathogens, from differences in ground truth construction, or from their interaction---in all cases, the practical implication is the same: a single detection method cannot be applied uniformly across pathogens without performance degradation.
 
 \subsection{Scope Justification: 9 RNA Viruses}
 

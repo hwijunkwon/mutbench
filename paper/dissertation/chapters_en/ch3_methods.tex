@@ -325,6 +325,8 @@ H_i = \log_2(P_i \times E_i \times 100 + 1)
 \label{eq:mutbench_hscore}
 \end{equation}
 where $P_i$ is the sum of mutation proportions at position $i$ and $E_i$ is the Shannon entropy of mutation types.
+The constant 100 is inherited from the original MutClust formulation~\cite{youn2025mutclust}; its role is to scale the product $P_i \times E_i$ (which ranges from 0 to approximately 0.01 for typical mutation frequencies) into a range where the $\log_2$ transform produces meaningful discrimination between positions.
+Since all methods in the benchmark use the same H-score formula, the constant affects absolute score values but not the relative ranking of positions, which is what detection methods operate on.
 Shannon entropy is defined as follows:
 \begin{equation}
 E_i = -\sum_{j=1}^{k} p_{ij} \log_2 p_{ij}

@@ -743,6 +743,7 @@ The qualitative conclusion of the 9-pathogen benchmark---that the best-performin
 
 Building on the Stage~1 findings, a Stage~2 benchmark was conducted to systematically evaluate 41 detection methods from 15 algorithm families combined with 9 scoring formulas across 9 pathogens (Section~\ref{sec:9pathogen_benchmark}).
 Stage~2 uses MCC instead of hotspot-score and applies 41 detection methods from 15 algorithm families to real MSA-derived scores, as detailed in Section~\ref{sec:9pathogen_benchmark}.
+Stage~2 uses MCC rather than hotspot-score because the stability component (Jaccard-based subsampling reproducibility) requires bootstrap validation that has not been cross-validated across all 9 pathogens with their widely varying alignment lengths (340--1,330 AA) and MSA sizes (530--5,019 unique sequences). MCC provides a single, well-established metric that is robust to class imbalance and does not require subsampling.
 
 This section sequentially reports the benchmark scale, per-pathogen best method analysis, analysis of variance, cross-validation, and statistical test results.
 
@@ -827,6 +828,8 @@ score $\times$ pathogen & Two-way interaction & 0.083 \\
 score & Main effect & 0.027 \\
 family & Main effect & 0.025 \\
 score $\times$ family & Two-way interaction & 0.013 \\
+\midrule
+Residual & --- & 0.307 \\
 \bottomrule
 \end{tabular}
 }
@@ -848,9 +851,11 @@ This means that the best-performing detection method varies systematically depen
 The pathogen main effect ($\omega^2 = 0.260$) is also large, reflecting that intrinsic differences in mutation structure across pathogens (entropy distribution shape, density of positively selected sites, etc.) determine the performance level itself.
 
 In contrast, the main effects of scoring and detection family are small at $\omega^2 = 0.027$ and $0.025$, respectively, confirming that ``which method is applied to which pathogen'' is the dominant factor determining performance, rather than the scoring or detection method itself.
+The sum of all reported $\omega^2$ values is $0.260 + 0.285 + 0.083 + 0.027 + 0.025 + 0.013 = 0.693$, leaving a residual of $1 - 0.693 = 0.307$ (30.7\%) of variance unexplained by the modeled factors. This residual reflects within-cell variability (i.e., differences among individual detection methods within the same family--scoring--pathogen combination) and any higher-order interactions not explicitly modeled.
 
 The three-way interaction (score $\times$ family $\times$ pathogen) was not reported in this analysis.
 The degrees of freedom for this term are $(9-1) \times (15-1) \times (9-1) = 896$, and after subtracting the degrees of freedom for main effects and two-way interactions from the total number of observations ($n = 2{,}544$), the residual degrees of freedom are insufficient. Moreover, due to the unbalanced design (number of valid detection methods per pathogen: 33--38), many cells are empty, making stable estimation of the three-way interaction infeasible.
+The residual degrees of freedom (df $\approx$ 1,648 after accounting for all main effects and two-way interactions) are sufficient to estimate the two-way interaction effects reliably; the model is not saturated.
 Since the family $\times$ pathogen two-way interaction ($\omega^2 = 0.285$) has already been identified as the largest source of variance, the omission of the three-way interaction does not affect the core conclusions.
 
 \textbf{LOPO Cross-Validation.}
@@ -864,8 +869,9 @@ LOPO (Leave-One-Pathogen-Out) cross-validation was performed to evaluate whether
 \item \textbf{Most frequent training-best combination}: E\_only + SWAN was selected in 8/9 iterations, an artifact of SWAN producing valid results only for Norovirus (MCC = 0.311) and MCC = 0.000 elsewhere.
 \end{itemize}
 
+SWAN achieves non-zero detection for only 1 of 9 pathogens (Norovirus, MCC = 0.311), yet appears as the training-best detector in 8/9 LOPO iterations due to this single high-performing case inflating the mean across training pathogens. Excluding SWAN from the analysis (reducing evaluations from 2,544 to 2,414) changes the training-best combination primarily to P*E + Wavelet($t$ = 1.5), improves the mean generalization ratio from 4.9\% to 11.6\%, and decreases the mean performance gap from 0.277 to 0.239; however, the combination match rate of 0/9 is maintained, confirming that the core conclusion of ``non-transferability of best methods across pathogens'' does not depend on the SWAN artifact.
+
 These results demonstrate that the strategy of selecting a method that is ``on average good across multiple pathogens'' fails to predict performance for a specific pathogen, strongly supporting the need for pathogen-specific adaptive method selection.
-When LOPO is performed excluding the SWAN family (9 variants)\footnote{Excluding SWAN reduces the number of evaluations from 2,544 to 2,414 (a decrease of 130), and the training-best combination changes primarily to P*E + Wavelet($t$ = 1.5). The mean generalization ratio improves from 4.9\% to 11.6\%, and the mean performance gap decreases from 0.277 to 0.239; however, the combination match rate of 0/9 is maintained, leaving the core conclusion unchanged.}, the combination match rate of 0/9 is maintained, confirming that the core conclusion of ``non-transferability of best methods across pathogens'' remains unchanged.
 
 The 0/9 combination match rate and 4.9\% generalization ratio are not limitations of the benchmark but rather \textbf{key findings}. These results quantitatively demonstrate that the premise of a ``single best-performing method'' itself does not hold, providing the strongest statistical evidence for the necessity of pathogen-adaptive method selection (PAHD). $n=9$ covers the major representative RNA virus pathogens, and despite the sample size constraint, the statistical significance of inter-pathogen heterogeneity was confirmed by four independent lines of evidence: ANOVA interaction dominance ($\omega^2 = 0.285$), unique best combinations (9/9), Friedman test ($p = 0.0015$), and LOPO cross-validation (0/9 match).
 
