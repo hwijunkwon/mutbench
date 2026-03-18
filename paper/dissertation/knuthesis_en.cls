@@ -291,18 +291,21 @@
     %% Date
     {\fontsize{11pt}{14pt}\selectfont August \@degreeyear}\\
     \vspace{1.2cm}
-    %% Committee signatures
+    %% Committee signatures (centered block)
     {\fontsize{11pt}{14pt}\selectfont
-      \hfill Chairman\hspace{0.3cm}\underline{\hspace{4cm}}\hspace{0.3cm}\circledin\hspace{0.5cm}\par\vspace{0.6cm}
-      \hfill\underline{\hspace{4cm}}\hspace{0.3cm}\circledin\hspace{0.5cm}\par\vspace{0.6cm}
-      \hfill\underline{\hspace{4cm}}\hspace{0.3cm}\circledin\hspace{0.5cm}\par\vspace{0.6cm}
-      \hfill\underline{\hspace{4cm}}\hspace{0.3cm}\circledin\hspace{0.5cm}\par\vspace{0.6cm}
-      \hfill\underline{\hspace{4cm}}\hspace{0.3cm}\circledin\hspace{0.5cm}\par
-    }
-    \vspace{\fill}
+      Chairman\hspace{0.3cm}\underline{\hspace{4cm}}\hspace{0.3cm}\circledin}\\[0.7cm]
+    {\fontsize{11pt}{14pt}\selectfont
+      \underline{\hspace{4cm}}\hspace{0.3cm}\circledin}\\[0.7cm]
+    {\fontsize{11pt}{14pt}\selectfont
+      \underline{\hspace{4cm}}\hspace{0.3cm}\circledin}\\[0.7cm]
+    {\fontsize{11pt}{14pt}\selectfont
+      \underline{\hspace{4cm}}\hspace{0.3cm}\circledin}\\[0.7cm]
+    {\fontsize{11pt}{14pt}\selectfont
+      \underline{\hspace{4cm}}\hspace{0.3cm}\circledin}\\
+    \vfill
     %% Institution
-    {\fontsize{14pt}{17pt}\selectfont \textbf{The Graduate School Council}}\\[0.2cm]
-    {\fontsize{14pt}{17pt}\selectfont \textbf{Kyungpook National University}}\\
+    {\fontsize{14pt}{17pt}\selectfont \textbf{The Graduate School Council}}\\[0.3cm]
+    {\fontsize{14pt}{17pt}\selectfont \textbf{Kyungpook National University}}\\[1cm]
   \end{center}
   \restoregeometry
   \clearpage

@@ -1,8 +1,19 @@
 %% thesis_en.tex — Kyungpook National University Ph.D. Thesis (English Version)
 %% XeLaTeX environment
+%%
+%% Two build modes:
+%%   Digital submission: xelatex "\def\printmode{0}\input{thesis_en}"
+%%   Print version:      xelatex "\def\printmode{1}\input{thesis_en}"
+%%   Default (no flag):  digital submission mode
+%%
 %% Compile: xelatex thesis_en && bibtex thesis_en && xelatex thesis_en && xelatex thesis_en
 
 \documentclass[11pt]{knuthesis_en}
+
+%% Build mode flag (default: digital submission)
+\ifdefined\printmode\else\def\printmode{0}\fi
+\newif\ifprintversion
+\ifnum\printmode=1 \printversiontrue \else \printversionfalse \fi
 
 %% ============================================================
 %% Packages
@@ -101,8 +112,10 @@
 %% Cover page
 \makecoverpage
 
-%% Spine page — not required for digital submission (added only for printed copies)
-%% \makespinepage
+%% Spine page — only for printed copies
+\ifprintversion
+  \makespinepage
+\fi
 
 %% Approval page
 \makeapprovalpage
