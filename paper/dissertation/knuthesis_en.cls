@@ -291,17 +291,16 @@
     %% Date
     {\fontsize{11pt}{14pt}\selectfont August \@degreeyear}\\
     \vspace{1.2cm}
-    %% Committee signatures (centered block)
+    %% Committee signatures — underlines aligned in same column
     {\fontsize{11pt}{14pt}\selectfont
-      Chairman\hspace{0.3cm}\underline{\hspace{4cm}}\hspace{0.3cm}\circledin}\\[0.7cm]
-    {\fontsize{11pt}{14pt}\selectfont
-      \underline{\hspace{4cm}}\hspace{0.3cm}\circledin}\\[0.7cm]
-    {\fontsize{11pt}{14pt}\selectfont
-      \underline{\hspace{4cm}}\hspace{0.3cm}\circledin}\\[0.7cm]
-    {\fontsize{11pt}{14pt}\selectfont
-      \underline{\hspace{4cm}}\hspace{0.3cm}\circledin}\\[0.7cm]
-    {\fontsize{11pt}{14pt}\selectfont
-      \underline{\hspace{4cm}}\hspace{0.3cm}\circledin}\\
+      \begin{tabular}{@{}r@{}l@{\hspace{0.4cm}}c@{}}
+        Chairman\hspace{0.3cm} & \underline{\hspace{4.5cm}} & \circledin \\[0.7cm]
+        \phantom{Chairman\hspace{0.3cm}} & \underline{\hspace{4.5cm}} & \circledin \\[0.7cm]
+        \phantom{Chairman\hspace{0.3cm}} & \underline{\hspace{4.5cm}} & \circledin \\[0.7cm]
+        \phantom{Chairman\hspace{0.3cm}} & \underline{\hspace{4.5cm}} & \circledin \\[0.7cm]
+        \phantom{Chairman\hspace{0.3cm}} & \underline{\hspace{4.5cm}} & \circledin \\
+      \end{tabular}
+    }
     \vfill
     %% Institution
     {\fontsize{14pt}{17pt}\selectfont \textbf{The Graduate School Council}}\\[0.3cm]
