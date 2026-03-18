@@ -296,11 +296,11 @@
   \vspace{0.5cm}
   \begin{flushright}
     {\fontsize{11pt}{14pt}\selectfont
-      Chairman\hspace{0.2cm}\underline{\hspace{4.5cm}}\hspace{0.3cm}\circledin\hspace{2.5cm}\\[0.7cm]
-      \phantom{Chairman}\hspace{0.2cm}\underline{\hspace{4.5cm}}\hspace{0.3cm}\circledin\hspace{2.5cm}\\[0.7cm]
-      \phantom{Chairman}\hspace{0.2cm}\underline{\hspace{4.5cm}}\hspace{0.3cm}\circledin\hspace{2.5cm}\\[0.7cm]
-      \phantom{Chairman}\hspace{0.2cm}\underline{\hspace{4.5cm}}\hspace{0.3cm}\circledin\hspace{2.5cm}\\[0.7cm]
-      \phantom{Chairman}\hspace{0.2cm}\underline{\hspace{4.5cm}}\hspace{0.3cm}\circledin\hspace{2.5cm}\\
+      Chairman\hspace{0.2cm}\underline{\hspace{4.5cm}}\hspace{0.3cm}\circledin\mbox{\hspace{4cm}}\\[0.7cm]
+      \phantom{Chairman}\hspace{0.2cm}\underline{\hspace{4.5cm}}\hspace{0.3cm}\circledin\mbox{\hspace{4cm}}\\[0.7cm]
+      \phantom{Chairman}\hspace{0.2cm}\underline{\hspace{4.5cm}}\hspace{0.3cm}\circledin\mbox{\hspace{4cm}}\\[0.7cm]
+      \phantom{Chairman}\hspace{0.2cm}\underline{\hspace{4.5cm}}\hspace{0.3cm}\circledin\mbox{\hspace{4cm}}\\[0.7cm]
+      \phantom{Chairman}\hspace{0.2cm}\underline{\hspace{4.5cm}}\hspace{0.3cm}\circledin\mbox{\hspace{4cm}}\\
     }
   \end{flushright}
   \begin{center}
