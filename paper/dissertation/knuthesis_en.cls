@@ -262,6 +262,34 @@
 }
 
 %% ============================================================
+%% Inner title page (내표지, print version only)
+%% ============================================================
+\newcommand{\makeinnertitle}{%
+  \thispagestyle{empty}
+  \newgeometry{left=2cm,top=2.5cm,right=2cm,bottom=1.5cm}
+  \setstretch{1.3}
+  \begin{center}
+    {\fontsize{20pt}{24pt}\selectfont \textbf{\@title}}\\
+    \vspace{3cm}
+    {\fontsize{12pt}{14pt}\selectfont
+      Advisor: Professor \@advisor}\\
+    \vspace{2cm}
+    {\fontsize{12pt}{14pt}\selectfont
+      Submitted as a Doctoral Dissertation}\\
+    \vspace{2cm}
+    {\fontsize{12pt}{14pt}\selectfont August \@degreeyear}\\
+    \vspace{2cm}
+    {\fontsize{14pt}{17pt}\selectfont \textbf{The Graduate School}}\\[0.3cm]
+    {\fontsize{14pt}{17pt}\selectfont \textbf{Kyungpook National University}}\\[0.3cm]
+    {\fontsize{12pt}{14pt}\selectfont \@major}\\
+    \vspace{1.5cm}
+    {\fontsize{14pt}{17pt}\selectfont \textbf{\@author}}\\
+  \end{center}
+  \restoregeometry
+  \clearpage
+}
+
+%% ============================================================
 %% Approval page
 %% ============================================================
 \newcommand{\makeapprovalpage}{%

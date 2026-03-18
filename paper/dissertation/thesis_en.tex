@@ -112,12 +112,13 @@
 %% Cover page
 \makecoverpage
 
-%% Spine page — only for printed copies
+%% Print version: spine + inner title page
 \ifprintversion
   \makespinepage
+  \makeinnertitle
 \fi
 
-%% Approval page
+%% Approval page (both versions)
 \makeapprovalpage
 
 %% Table of Contents
