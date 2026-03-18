@@ -86,7 +86,7 @@
 }
 \renewcommand{\@makeschapterhead}[1]{%
   \vspace*{20pt}%
-  {\parindent 0pt \raggedright
+  {\parindent 0pt \centering
     \normalfont\fontsize{20pt}{24pt}\selectfont\bfseries #1\par
     \nobreak
     \vskip 25pt
@@ -107,16 +107,16 @@
 
 %% TOC title: "Contents", centered, 17pt bold
 \renewcommand{\contentsname}{Contents}
-\renewcommand{\cfttoctitlefont}{\hfill\fontsize{17pt}{20pt}\selectfont\bfseries}
-\renewcommand{\cftaftertoctitle}{\hfill}
+\renewcommand{\cfttoctitlefont}{\hfil\fontsize{17pt}{20pt}\selectfont\bfseries}
+\renewcommand{\cftaftertoctitle}{\hfil}
 
 %% LOT title: "List of Tables", centered, 17pt bold
-\renewcommand{\cftlottitlefont}{\hfill\fontsize{17pt}{20pt}\selectfont\bfseries}
-\renewcommand{\cftafterlottitle}{\hfill}
+\renewcommand{\cftlottitlefont}{\hfil\fontsize{17pt}{20pt}\selectfont\bfseries}
+\renewcommand{\cftafterlottitle}{\hfil}
 
 %% LOF title: "List of Figures", centered, 17pt bold
-\renewcommand{\cftloftitlefont}{\hfill\fontsize{17pt}{20pt}\selectfont\bfseries}
-\renewcommand{\cftafterloftitle}{\hfill}
+\renewcommand{\cftloftitlefont}{\hfil\fontsize{17pt}{20pt}\selectfont\bfseries}
+\renewcommand{\cftafterloftitle}{\hfil}
 
 %% Chapter entries in TOC: bold, no "Chapter" prefix, just number + title
 \renewcommand{\cftchapfont}{\bfseries}
@@ -160,6 +160,9 @@
 \setlength{\cftfigindent}{0em}
 \renewcommand{\cftfigleader}{\cftdotfill{\cftdotsep}}
 \setlength{\cftbeforefigskip}{3pt}
+
+%% Bibliography title
+\renewcommand{\bibname}{References}
 
 %% Dot leaders spacing (tighter dots)
 \renewcommand{\cftdotsep}{2}
@@ -221,7 +224,7 @@
   \begin{center}
     {\fontsize{12pt}{14pt}\selectfont Thesis for the Degree of Ph.D.}\\
     \vspace{3cm}
-    {\fontsize{16pt}{20pt}\selectfont \textbf{\@title}}\\
+    {\fontsize{20pt}{24pt}\selectfont \textbf{\@title}}\\
     \vspace{4cm}
     {\fontsize{12pt}{14pt}\selectfont \@major}\\
     {\fontsize{12pt}{14pt}\selectfont The Graduate School}\\

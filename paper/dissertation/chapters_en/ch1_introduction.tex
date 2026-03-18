@@ -68,14 +68,12 @@ These results statistically establish that the premise of a single best-performi
 
 This dissertation comprises six chapters.
 
-\textbf{Chapter~\ref{ch:background}, Background and Prior Work} surveys the existing literature on viral mutation hotspot detection and summarizes the core methodologies and limitations of the prior studies MOSD~\cite{han2025mosd} and MutClust~\cite{youn2025mutclust} that motivated the development of MutBench.
+\textbf{Chapter~\ref{ch:background}, Related Research} reviews the existing literature on viral mutation hotspot detection and summarizes the core methodology and limitations of MutClust~\cite{youn2025mutclust} that motivated the development of MutBench.
 
-\textbf{Chapter~\ref{ch:mutbench}, MutBench Methodology} describes in detail the methodology of the MutBench benchmark framework, the core contribution of this dissertation.
-It presents the three-layer ground truth definition, the configuration of detection methods, the hotspot-score composite evaluation metric, and the statistical validation framework.
+\textbf{Chapter~\ref{ch:mutbench}, Materials and Method} describes in detail the materials and methodology of the MutBench benchmark framework, the core contribution of this dissertation.
+Section~3.1 presents the materials (target pathogens, ground truth framework, and DMS data), and Section~3.2 presents the method (framework architecture, scoring and detection algorithms, evaluation metrics, and statistical design).
 
-\textbf{Chapter~\ref{ch:results}, Experimental Results} reports the experimental results of the two-stage benchmark.
-Stage~1 covers in-depth SARS-CoV-2 analysis (synthetic benchmark, GISAID H-score benchmark, DMS validation, and parameter sensitivity), and Stage~2 covers the large-scale comparison across nine pathogens (ANOVA, Friedman test, and LOPO cross-validation).
-Additional validation experiments include phylogenetic non-independence analysis, cross-paradigm validation using a protein language model (ESM-2), and a PAHD proof-of-concept prototype for pathogen-adaptive method selection.
+\textbf{Chapter~\ref{ch:results}, Experimental Results} reports the experimental results organized into four sections: Single-Pathogen Benchmark (synthetic data comparison, real GISAID validation, DMS evaluation, and temporal generalization on SARS-CoV-2), Robustness Validation (parameter sensitivity, weight sensitivity, and subsampling stability), Cross-Pathogen Validation (3D structural analysis, phylogenetic non-independence analysis, ESM-2 cross-paradigm validation, and multiple ground truth evaluation), and the 9-Pathogen Large-Scale Benchmark (ANOVA, Friedman test, LOPO cross-validation, and PAHD proof-of-concept prototype).
 
 \textbf{Chapter~\ref{ch:discussion}, Discussion} provides a comprehensive interpretation of the experimental results, discusses the methodological implications of MutBench, its limitations, and the future direction of the PAHD conceptual framework.
 
