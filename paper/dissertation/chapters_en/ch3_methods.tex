@@ -5,7 +5,7 @@
 This chapter presents the methodology of MutBench, a benchmark framework for the systematic evaluation of viral mutation hotspot detection methods.
 The overall pipeline processes multiple sequence alignment (MSA) data from 9 RNA viruses through 9 scoring formulas and 41 detection methods, evaluating results against a 3-layer ground truth system using the hotspot-score composite metric and Matthews Correlation Coefficient (MCC).
 The evaluation follows a two-stage design: Stage~1 conducts in-depth analysis on SARS-CoV-2 to validate the framework components, and Stage~2 extends the evaluation to all 9 pathogens for large-scale cross-pathogen comparison.
-Section~\ref{sec:mutbench_materials} describes the materials (target pathogens, ground truth framework, and DMS data), Sections~\ref{sec:mutbench_methods}--3.4 present the methods (framework architecture, scoring and detection algorithms, evaluation metrics, and statistical analysis design).
+Section~\ref{sec:mutbench_materials} describes the materials (target pathogens, ground truth framework, and DMS data), Sections~\ref{sec:mutbench_methods}--\ref{sec:eval_stat_design} present the methods: Section~\ref{sec:mutbench_methods} covers the benchmark framework design including MutClust variants and the hotspot-score metric, Section~\ref{sec:scoring_detection} describes the scoring formulas and detection method families, and Section~\ref{sec:eval_stat_design} details the evaluation metrics and statistical analysis design.
 \label{sec:9pathogen_benchmark}
 
 %% ============================================================
@@ -426,6 +426,7 @@ Under an F1 + stability structure, this method would be undervalued, whereas und
 
 %% ============================================================
 \section{Scoring and Detection Methods}
+\label{sec:scoring_detection}
 
 \subsection{Scoring Formulas}
 \label{subsec:9pathogen_scoring}
@@ -538,6 +539,7 @@ Ensemble combines four simple sub-detectors via majority voting. MutClust-Orig a
 
 %% ============================================================
 \section{Evaluation and Statistical Design}
+\label{sec:eval_stat_design}
 
 \subsection{Evaluation Metrics}
 \label{subsec:9pathogen_metrics}

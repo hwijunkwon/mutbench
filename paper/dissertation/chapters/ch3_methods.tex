@@ -5,7 +5,7 @@
 본 장에서는 바이러스 변이 핫스팟 탐지 방법의 체계적 평가를 위한 벤치마킹 프레임워크인 MutBench의 방법론을 제시한다.
 전체 파이프라인은 9종 RNA 바이러스의 다중서열정렬(MSA) 데이터를 9가지 스코어링 공식과 41개 탐지 방법으로 처리하고, 3계층 ground truth 체계에 대해 hotspot-score 복합 지표와 Matthews Correlation Coefficient (MCC)로 평가한다.
 평가는 2단계 구조를 따른다: 1단계는 SARS-CoV-2에 대한 깊이 우선 분석으로 프레임워크 구성요소를 검증하고, 2단계는 9종 병원체 전체로 확장하여 대규모 교차 병원체 비교를 수행한다.
-제~\ref{sec:mutbench_materials}절에서는 자료(대상 병원체, ground truth 프레임워크, DMS 데이터)를, 제~\ref{sec:mutbench_methods}절에서는 방법(프레임워크 구조, 스코어링 및 탐지 알고리즘, 평가 지표, 통계 분석 설계)을 기술한다.
+제~\ref{sec:mutbench_materials}절에서는 자료(대상 병원체, ground truth 프레임워크, DMS 데이터)를 기술한다. 제~\ref{sec:mutbench_methods}--\ref{sec:eval_stat_design_kr}절에서는 방법을 제시한다: 제~\ref{sec:mutbench_methods}절은 벤치마크 프레임워크 설계(MutClust 변이체 및 hotspot-score 지표 포함)를, 제~\ref{sec:scoring_detection_kr}절은 스코어링 공식 및 탐지 방법 패밀리를, 제~\ref{sec:eval_stat_design_kr}절은 평가 지표 및 통계 분석 설계를 기술한다.
 \label{sec:9pathogen_benchmark}
 
 %% ============================================================
@@ -135,7 +135,7 @@ DMS fitness 데이터는 Dadonaite 등~\cite{dadonaite2023dms}의 전장 Spike �
 이는 평가 대상 탐지 방법과 독립적인 실험적 ground truth를 제공하여, 부트스트랩 p-값을 검증에 사용하는 순환성을 회피한다.
 
 %% ============================================================
-\section{방법}
+\section{벤치마크 프레임워크 설계}
 \label{sec:mutbench_methods}
 
 \subsection{MutBench 프레임워크 구조}
@@ -360,6 +360,32 @@ HDBSCAN-Auto는 MutClust를 완전히 우회하여, 적응형 역치(비영 H-sc
 동일한 2차원 특성 공간(min-max 정규화 위치, H-score)을 사용하며, 수동으로 지정된 도메인 파라미터가 필요하지 않아 사전 조정 없이 모든 바이러스 게놈에 적용할 수 있다.
 HDBSCAN-Auto는 min\_cluster\_size $= 5$, min\_samples $= 3$을 기본 파라미터로 사용한다.
 
+\subsection{Hotspot-score 복합 지표}
+\label{subsec:hotspot_score}
+
+본 연구의 핵심 기여 중 하나인 hotspot-score는 세 가지 상보적 관점을 통합하는 복합 평가 지표이다:
+
+\begin{equation}
+\text{hotspot-score} = \frac{\text{recall} + \text{precision} + \text{stability}}{3}
+\label{eq:hotspot_score}
+\end{equation}
+
+\begin{itemize}
+\item \textbf{재현율(Recall)}: 탐지된 핫스팟 영역 내에 포착된 알려진 기능 위치의 비율. 생물학적 관련성을 평가한다---방법이 중요한 것을 찾아내는가?
+\item \textbf{정밀도(Precision)}: ground truth와 중첩되는 탐지 위치의 비율. 특이도를 평가한다---방법이 위양성을 피하는가?
+\item \textbf{안정성(Stability)}: 전체 데이터에 대한 탐지 결과와 100회 부분추출 실행 결과 간의 평균 Jaccard 유사도($J = |A \cap B| / |A \cup B|$). 각 반복에서 모든 게놈 위치에 대해 독립적으로 80\% 확률의 베르누이 마스크를 생성하고, 탈락한 위치(약 20\%)의 H-score를 0으로 설정한다(영점화). 게놈 좌표 체계는 유지되며, 영점화된 위치는 무신호 위치로 처리된다. 영점화된 H-score에 대해 동일한 탐지 방법을 재실행하고, 전체 데이터 탐지 결과와의 Jaccard 유사도를 산출한다. 재현성을 평가한다---데이터 교란 하에서 방법이 일관된 결과를 산출하는가?
+\end{itemize}
+
+세 구성 요소는 동일한 가중치를 받는다. 바이러스 감시 응용에서 높은 정확도이지만 데이터 교란에 불안정한 방법은 중간 정확도와 높은 재현성을 가진 방법보다 실용성이 낮으며, 안정성을 동일 구성 요소로 포함하는 것은 이 요구사항을 반영한다.
+
+\noindent F1 점수 대신 재현율과 정밀도를 분리하여 안정성과 결합한 이유는, F1이 재현율·정밀도를 단일 값으로 축약함으로써 안정성과의 상호작용을 불투명하게 만들기 때문이다.
+예를 들어, HDBSCAN-Auto의 F1(0.146)은 낮지만 재현율(0.944)과 안정성(0.788)은 높다.
+F1 + 안정성 구조에서는 이 방법이 과소평가되지만, (재현율 + 정밀도 + 안정성)/3 구조에서는 높은 재현율과 안정성이 적절히 반영된다.
+
+%% ============================================================
+\section{점수화 및 탐지 방법}
+\label{sec:scoring_detection_kr}
+
 \subsection{스코어링 공식}
 \label{subsec:9pathogen_scoring}
 
@@ -377,6 +403,41 @@ HDBSCAN-Auto는 min\_cluster\_size $= 5$, min\_samples $= 3$을 기본 파라미
 \item \textbf{P*E\textsuperscript{2}}: $S_i = P_i \times E_i^2$. 엔트로피에 이차 가중치를 부여한다.
 \item \textbf{rank(P*E)}: $S_i = \text{rank}(P_i \times E_i) / N$. P*E의 순위를 정규화한 비모수적 점수이다.
 \end{enumerate}
+
+\subsection{다중 Ground Truth를 위한 대안적 스코어링 방법}
+\label{subsec:alternative_scoring}
+
+시간적 검증(제~\ref{sec:temporal}절)에서 H-score 포화가 확인됨에 따라, 다양한 ground truth 정의에 대한 상보적 평가를 수행하기 위해 다음의 대안적 스코어링 방법을 설계하였다.
+이 방법들은 핫스팟 ``탐지'' 방법이 아니라 각 게놈 위치에 점수를 부여하는 ``스코어링'' 접근법으로, 역치 기반으로 상위 위치를 선별하여 다중 ground truth와 비교한다.
+
+\textbf{Original H-score}: MutClust의 원래 H-score 공식(식~\ref{eq:mutbench_hscore})을 그대로 사용한다.
+
+\textbf{Saturated H-score}: 2024--2025 데이터에서 동시대 합의서열 정렬을 통해 계산된 H-score로, 참조 서열(Wuhan-Hu-1) 대비가 아닌 현재 집단 내 변이를 반영한다.
+
+\textbf{CH-score (Consensus-based H-score)}: 현재 합의서열 대비 변이 빈도를 계산하여, 참조 서열 의존성을 제거한 H-score 변형이다:
+\begin{equation}
+\text{CH}_i = \log_2(P_i^{\text{consensus}} \times E_i \times 100 + 1)
+\end{equation}
+여기서 $P_i^{\text{consensus}}$는 합의서열 대비 비합의 아미노산 빈도이다.
+
+\textbf{E-score (Entropy-only score)}: Shannon 엔트로피만을 사용하여, 빈도 항($P_i$)을 제거하고 위치별 다양성만으로 점수를 부여한다:
+\begin{equation}
+\text{E-score}_i = -\sum_{a} f_{a,i} \log_2 f_{a,i}
+\end{equation}
+
+\textbf{TC-freq (Temporal Contrast frequency)}: 두 시간대 간 변이 빈도의 변화율을 측정한다:
+\begin{equation}
+\text{TC-freq}_i = \frac{|\text{freq}_{t_2}(i) - \text{freq}_{t_1}(i)|}{\text{freq}_{t_1}(i) + \epsilon}
+\end{equation}
+여기서 $\text{freq}_{t}(i)$는 시간대 $t$에서 위치 $i$의 비참조 아미노산 빈도이며, $\epsilon = 10^{-6}$은 영 나눗셈 방지 상수이다.
+
+\textbf{TC-freq-v2}: TC-freq에 절대 빈도 가중치를 추가한 변형으로, $\text{TC-freq-v2}_i = \text{TC-freq}_i \times \text{freq}_{t_2}(i)$이다.
+
+\textbf{TC-freq-v3}: 분기별(quarterly) 시간 윈도우를 사용하는 변형으로, 연간 전체 비교 대신 각 분기 간 빈도 변화의 최대값을 취한다.
+
+\textbf{dN/dS-weighted CH}: CH-score에 위치별 dN/dS 비율을 가중치로 적용한 변형이다.
+
+각 스코어링 방법에 대해 상위 5\%, 10\%, 20\% 및 중위수 기반 역치를 적용하여 ``탐지된'' 위치 집합을 생성하고, 각 ground truth에 대한 F1, 농축비(enrichment ratio), Cohen's $d$ 효과 크기를 산출한다.
 
 \subsection{탐지 방법 패밀리}
 \label{subsec:9pathogen_detection}
@@ -434,62 +495,9 @@ KDE는 점수 가중 위치 프로파일에 Gaussian 커널 밀도 추정을 적
 \textbf{앙상블 및 레거시} (Ensemble, MutClust-Orig).
 Ensemble은 4개의 간이 하위 탐지기를 다수결 투표로 결합한다. MutClust-Orig는 원본 MutClust 로직(CCM 시드 + 적응형 DBSCAN)을 MSA 기반 점수 프로파일에 적용한다.
 
-\subsection{Hotspot-score 복합 지표}
-\label{subsec:hotspot_score}
-
-본 연구의 핵심 기여 중 하나인 hotspot-score는 세 가지 상보적 관점을 통합하는 복합 평가 지표이다:
-
-\begin{equation}
-\text{hotspot-score} = \frac{\text{recall} + \text{precision} + \text{stability}}{3}
-\label{eq:hotspot_score}
-\end{equation}
-
-\begin{itemize}
-\item \textbf{재현율(Recall)}: 탐지된 핫스팟 영역 내에 포착된 알려진 기능 위치의 비율. 생물학적 관련성을 평가한다---방법이 중요한 것을 찾아내는가?
-\item \textbf{정밀도(Precision)}: ground truth와 중첩되는 탐지 위치의 비율. 특이도를 평가한다---방법이 위양성을 피하는가?
-\item \textbf{안정성(Stability)}: 전체 데이터에 대한 탐지 결과와 100회 부분추출 실행 결과 간의 평균 Jaccard 유사도($J = |A \cap B| / |A \cup B|$). 각 반복에서 모든 게놈 위치에 대해 독립적으로 80\% 확률의 베르누이 마스크를 생성하고, 탈락한 위치(약 20\%)의 H-score를 0으로 설정한다(영점화). 게놈 좌표 체계는 유지되며, 영점화된 위치는 무신호 위치로 처리된다. 영점화된 H-score에 대해 동일한 탐지 방법을 재실행하고, 전체 데이터 탐지 결과와의 Jaccard 유사도를 산출한다. 재현성을 평가한다---데이터 교란 하에서 방법이 일관된 결과를 산출하는가?
-\end{itemize}
-
-세 구성 요소는 동일한 가중치를 받는다. 바이러스 감시 응용에서 높은 정확도이지만 데이터 교란에 불안정한 방법은 중간 정확도와 높은 재현성을 가진 방법보다 실용성이 낮으며, 안정성을 동일 구성 요소로 포함하는 것은 이 요구사항을 반영한다.
-
-\noindent F1 점수 대신 재현율과 정밀도를 분리하여 안정성과 결합한 이유는, F1이 재현율·정밀도를 단일 값으로 축약함으로써 안정성과의 상호작용을 불투명하게 만들기 때문이다.
-예를 들어, HDBSCAN-Auto의 F1(0.146)은 낮지만 재현율(0.944)과 안정성(0.788)은 높다.
-F1 + 안정성 구조에서는 이 방법이 과소평가되지만, (재현율 + 정밀도 + 안정성)/3 구조에서는 높은 재현율과 안정성이 적절히 반영된다.
-
-\subsection{다중 Ground Truth를 위한 대안적 스코어링 방법}
-\label{subsec:alternative_scoring}
-
-시간적 검증(제~\ref{sec:temporal}절)에서 H-score 포화가 확인됨에 따라, 다양한 ground truth 정의에 대한 상보적 평가를 수행하기 위해 다음의 대안적 스코어링 방법을 설계하였다.
-이 방법들은 핫스팟 ``탐지'' 방법이 아니라 각 게놈 위치에 점수를 부여하는 ``스코어링'' 접근법으로, 역치 기반으로 상위 위치를 선별하여 다중 ground truth와 비교한다.
-
-\textbf{Original H-score}: MutClust의 원래 H-score 공식(식~\ref{eq:mutbench_hscore})을 그대로 사용한다.
-
-\textbf{Saturated H-score}: 2024--2025 데이터에서 동시대 합의서열 정렬을 통해 계산된 H-score로, 참조 서열(Wuhan-Hu-1) 대비가 아닌 현재 집단 내 변이를 반영한다.
-
-\textbf{CH-score (Consensus-based H-score)}: 현재 합의서열 대비 변이 빈도를 계산하여, 참조 서열 의존성을 제거한 H-score 변형이다:
-\begin{equation}
-\text{CH}_i = \log_2(P_i^{\text{consensus}} \times E_i \times 100 + 1)
-\end{equation}
-여기서 $P_i^{\text{consensus}}$는 합의서열 대비 비합의 아미노산 빈도이다.
-
-\textbf{E-score (Entropy-only score)}: Shannon 엔트로피만을 사용하여, 빈도 항($P_i$)을 제거하고 위치별 다양성만으로 점수를 부여한다:
-\begin{equation}
-\text{E-score}_i = -\sum_{a} f_{a,i} \log_2 f_{a,i}
-\end{equation}
-
-\textbf{TC-freq (Temporal Contrast frequency)}: 두 시간대 간 변이 빈도의 변화율을 측정한다:
-\begin{equation}
-\text{TC-freq}_i = \frac{|\text{freq}_{t_2}(i) - \text{freq}_{t_1}(i)|}{\text{freq}_{t_1}(i) + \epsilon}
-\end{equation}
-여기서 $\text{freq}_{t}(i)$는 시간대 $t$에서 위치 $i$의 비참조 아미노산 빈도이며, $\epsilon = 10^{-6}$은 영 나눗셈 방지 상수이다.
-
-\textbf{TC-freq-v2}: TC-freq에 절대 빈도 가중치를 추가한 변형으로, $\text{TC-freq-v2}_i = \text{TC-freq}_i \times \text{freq}_{t_2}(i)$이다.
-
-\textbf{TC-freq-v3}: 분기별(quarterly) 시간 윈도우를 사용하는 변형으로, 연간 전체 비교 대신 각 분기 간 빈도 변화의 최대값을 취한다.
-
-\textbf{dN/dS-weighted CH}: CH-score에 위치별 dN/dS 비율을 가중치로 적용한 변형이다.
-
-각 스코어링 방법에 대해 상위 5\%, 10\%, 20\% 및 중위수 기반 역치를 적용하여 ``탐지된'' 위치 집합을 생성하고, 각 ground truth에 대한 F1, 농축비(enrichment ratio), Cohen's $d$ 효과 크기를 산출한다.
+%% ============================================================
+\section{평가 및 통계 설계}
+\label{sec:eval_stat_design_kr}
 
 \subsection{평가 지표}
 \label{subsec:9pathogen_metrics}
@@ -554,9 +562,8 @@ MCC를 주요 지표로 선택한 이유는, 핫스팟 탐지에서 양성 위�
 
 MSA 서열의 25\%, 50\%, 75\%, 100\% 비율로 무작위 하위표본을 추출하여 벤치마크를 반복 수행하고, 표본 크기에 따른 MCC 안정성을 검증한다.
 
-\subsection{Hotspot-score 가중치 민감도 분석}
+\textbf{Hotspot-score 가중치 민감도 분석.}
 \label{subsec:weight_sensitivity_methods}
-
 Hotspot-score의 세 구성 요소에 동일 가중치($1/3$)를 부여하는 것의 강건성을 검증하기 위해, 일반화된 가중 hotspot-score를 정의한다:
 \begin{equation}
 \text{hotspot-score}_w = w_r \cdot \text{recall} + w_p \cdot \text{precision} + w_s \cdot \text{stability}
@@ -566,9 +573,8 @@ Hotspot-score의 세 구성 요소에 동일 가중치($1/3$)를 부여하는 �
 총 171개의 가중치 조합에 대해 5가지 방법의 순위를 계산하여, MutClust-Hybrid가 1위를 유지하는 가중치 공간의 비율(순위 강건성, rank robustness)을 분석한다.
 또한 조기경보(recall 중시), 백신 설계(precision 중시), 모니터링(stability 중시) 등 7개 응용 시나리오에 대한 순위를 별도로 제시한다.
 
-\subsection{통계적 검증 방법}
+\textbf{통계적 검증 방법.}
 \label{subsec:statistical_methods}
-
 벤치마크 결과의 통계적 견고성을 평가하기 위해 다음 세 가지 방법을 적용한다.
 
 \textbf{부트스트랩 신뢰 구간}: 7개 기능 영역을 단위로 한 영역 수준 부트스트랩(region-level bootstrap)을 수행한다.
