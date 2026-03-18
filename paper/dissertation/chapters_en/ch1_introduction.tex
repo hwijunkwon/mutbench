@@ -41,7 +41,12 @@ This is a specific instance of the algorithm selection problem~\cite{rice1976alg
 To address the problems above, this study establishes the following two objectives.
 
 \begin{enumerate}[label=\textbf{Objective \arabic*.}]
-  \item \textbf{Construction of a systematic benchmark framework for viral mutation hotspot detection (MutBench)}: Build a benchmark framework comprising a three-layer ground truth (convergent-evolution-based positives, purifying-selection-based negatives, and DMS-based functional fitness), the composite evaluation metric hotspot-score $= (\text{recall} + \text{precision} + \text{stability}) / 3$ (where stability measures the reproducibility of detection results under subsampling), and a two-stage experimental design (Stage~1: in-depth analysis of SARS-CoV-2 (synthetic benchmark, GISAID validation, temporal generalization, and parameter sensitivity); Stage~2: 9 RNA viruses $\times$ 9 scoring methods $\times$ 41 detection methods, totaling 3,321 evaluations).
+  \item \textbf{Construction of a systematic benchmark framework for viral mutation hotspot detection (MutBench)}, comprising:
+  \begin{itemize}
+  \item A three-layer ground truth (convergent evolution positives, purifying selection negatives, DMS fitness validation),
+  \item The hotspot-score composite metric (recall + precision + stability)/3,
+  \item A two-stage experimental design: Stage~1 for in-depth SARS-CoV-2 analysis; Stage~2 for large-scale comparison across 9 RNA viruses (9 scoring $\times$ 41 detection methods, totaling 3,321 evaluations).
+  \end{itemize}
 
   \item \textbf{Statistical demonstration of the necessity of pathogen-adaptive method selection}: Through statistical analyses (ANOVA, Friedman test, LOPO cross-validation) of the large-scale benchmark results, statistically establish that the premise of a single best-performing method does not hold across pathogens, motivating the PAHD framework, for which a proof-of-concept prototype is presented (see Chapter~\ref{ch:results}).
 \end{enumerate}

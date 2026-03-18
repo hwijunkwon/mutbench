@@ -22,7 +22,7 @@ Having established statistical robustness, the next critical question is whether
 \label{sec:synthetic_real_gap}
 
 The real GISAID 2020--2021 H-score benchmark (Section~\ref{sec:real_gisaid_benchmark}) demonstrated that unconditional extrapolation of synthetic conclusions is not possible.
-The core cause is the qualitative difference in H-score distributions: synthetic data has continuous background noise across 29,903 positions, whereas real data has only 342 non-zero positions.
+As shown in Section~\ref{sec:real_gisaid_benchmark}, the sparse distribution of real H-scores (342/29,903 nonzero) fundamentally changes detection dynamics.
 Density-based clustering has limited cluster formation under such extremely sparse distributions (HDBSCAN-Auto fails to form clusters), and MutClust-Hybrid's advantage in the synthetic benchmark (hotspot-score 0.778 vs. 0.646) disappears under sparse distributions, with the two methods' performance converging (0.383 vs. 0.386).
 
 Crucially, however, even on real GISAID data the enrichment ratios remain 6.9--8.0-fold above the random baseline, demonstrating that the biological signal captured by top-performing methods is preserved despite the substantial MCC/F1 drop.
@@ -180,6 +180,7 @@ In contrast, HCV Layer~A comprises hypervariable regions (HVR1/HVR2) that exhibi
 This heterogeneity could artificially inflate the method $\times$ pathogen interaction in the ANOVA, because differences in ground truth definition criteria---not only differences in pathogen biology---may contribute to the observed interaction effect ($\omega^2 = 0.285$).
 However, this heterogeneity reflects the real-world challenge of hotspot detection: ground truth definitions necessarily depend on pathogen-specific biology, and no single criterion (e.g., convergent evolution alone) is applicable across all pathogens.
 The finding that detection performance is pathogen-dependent holds regardless of whether this dependence stems from intrinsic biological differences among pathogens, from differences in ground truth construction, or from their interaction---in all cases, the practical implication is the same: a single detection method cannot be applied uniformly across pathogens without performance degradation.
+Additionally, HCV has an effective Layer~B size of 0 (constrained regions could not be mapped within the alignment length), meaning HCV evaluation relies solely on Layer~A. This asymmetry should be considered when interpreting HCV-specific results.
 
 \subsection{Scope Justification: 9 RNA Viruses}
 

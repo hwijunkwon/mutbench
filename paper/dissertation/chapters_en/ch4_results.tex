@@ -298,6 +298,8 @@ KDE failed to perform effective detection across all tested configurations on bo
 
 Having established the relative performance of detection methods, the following sections examine structural limitations of the H-score metric itself.
 
+\textbf{Stage 1 summary.} MutClust-Hybrid achieves the best hotspot-score (0.778) on synthetic data, but all methods show reduced performance on real GISAID data (F1: 0.785 $\to$ 0.123) due to sparse H-score distributions, while maintaining biological validity (enrichment $>$ 6.9-fold).
+
 %% ============================================================
 \section{Robustness and Sensitivity Validation}
 \label{sec:robustness_validation}
@@ -733,6 +735,8 @@ Third, the Spearman rank correlation between method rankings under H-score and T
 This demonstrates that method rankings are conditional on the scoring system and temporal scope of the input data, reinforcing the need for the pathogen-adaptive approach proposed in Section~\ref{subsec:pahd_prototype}.
 The qualitative conclusion of the 9-pathogen benchmark---that the best-performing method differs across pathogens---is expected to hold regardless of the scoring system, but the specific quantitative rankings are conditional on H-score-based scoring and the temporal window of the input sequences.
 
+\textbf{Cross-pathogen summary.} Method rankings differ between SARS-CoV-2 and H3N2 (MutClust-Fixed outperforms MutClust-Hybrid on H3N2), and phylogenetic non-independence analysis reveals that H-score conflates founder effects with positive selection ($\rho = -0.876$). These findings motivate the large-scale 9-pathogen benchmark.
+
 %% ============================================================
 \section{9-Pathogen Large-Scale Benchmark}
 \label{sec:9pathogen_results}
@@ -795,7 +799,7 @@ HCV & E\_only & CUSUM ($\delta$=0.5, $h$=5.0) & 0.443 \\
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{scoring_detection_heatmap.png}
-\caption{Scoring--detection performance heatmap across 9 pathogens. Each cell represents mean MCC for a scoring--detection family combination. The heterogeneous pattern confirms that no single combination dominates across all pathogens.}
+\caption{Scoring--detection performance heatmap across 9 pathogens. Each cell represents mean MCC for a scoring--detection family combination. The heterogeneous pattern confirms that no single combination dominates across all pathogens. Detailed MCC values for all scoring--detection combinations are available in Table~\ref{tab:9pathogen_best}; the heatmap provides a visual overview of performance patterns.}
 \label{fig:scoring_detection_heatmap}
 \end{figure}
 
@@ -921,6 +925,7 @@ This supports the conclusion that the benchmark findings reflect intrinsic prope
 \label{subsec:esm_validation}
 To test whether the benchmark findings generalize beyond MSA-derived scoring formulas, an independent scoring paradigm was evaluated: the ESM-2 protein language model (650M parameters; Lin et al., 2023). ESM-2 computes per-position log-likelihood ratios (ESM-LLR) from a single consensus sequence using learned evolutionary representations, requiring no multiple sequence alignment. This provides orthogonal validation of the benchmark framework because the scoring signal originates from a fundamentally different methodology---a deep neural network trained on millions of protein families---rather than from the same MSA used by the nine existing scoring formulas.
 
+The 650M-parameter ESM-2 model was selected as it represents the largest single-GPU model in the ESM-2 family, balancing computational feasibility with representation capacity. Larger models (ESM-2 3B) require multi-GPU inference, while smaller models (8M, 35M) may lack sufficient capacity for proteins exceeding 1,000 residues.
 ESM-LLR was computed for all nine pathogens using wild-type marginal scoring: a single forward pass through the model yields $\text{ESM-LLR}[i] = -\log P(a_i \mid \text{context})$, where $a_i$ is the consensus amino acid at position $i$. For proteins exceeding the 1,022-token context window (SARS-CoV-2 Spike: 1,259 AA after MSA trimming; MERS Spike: 1,330 AA), a sliding window with 256-residue overlap was applied and scores were averaged in overlap regions. The resulting ESM-LLR arrays were evaluated through the same 41 detection methods used in the main benchmark.
 
 \begin{table}[htbp]
@@ -1116,6 +1121,8 @@ The v2 profile improved mean MCC to 0.017 by eliminating pathological negative t
 
 When evaluated at coarser prediction granularities, even failed label predictions yield competitive performance: detection family-level prediction (15 families) recovered 48.3\% of oracle performance (mean MCC $= 0.144$), and scoring-level prediction (9 formulas) recovered 57.7\% (mean MCC $= 0.172$), compared to 1.7\% for exact combination prediction (v1 Family-first mean MCC $= 0.005$).
 This supports the viability of a hierarchical prediction approach as the knowledge base expands.
+
+A random baseline (1,000 random combination selections per pathogen) yielded mean MCC = 0.001 (SD = 0.003), confirming that both naive LOPO (0.021) and PAHD Family-first v1 (0.005) exceed chance performance, though the practical significance of these small improvements remains limited at $n = 9$.
 
 The exact combination match rate remains 0/9 under both profiles, confirming that the $n = 9$ knowledge base is insufficient for reliable combination prediction; HCV and Influenza~B failures in v1 resulted from lacking similar neighbors in the profile space.
 Scaling to 20+ pathogens, introducing top-$k$ ensemble strategies, and transitioning to meta-learning regression models are the concrete next steps.
