@@ -41,7 +41,7 @@
 \bibliographystyle{unsrtnat}
 
 %% Hyperlinks
-\usepackage[pdfencoding=auto,colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\usepackage[pdfencoding=auto,colorlinks=true,linkcolor=black,citecolor=black,urlcolor=black]{hyperref}
 \usepackage{bookmark}
 
 %% TikZ
@@ -63,13 +63,13 @@
 %% Font settings (English only)
 %% ============================================================
 \usepackage{fontspec}
-\setmainfont{TeX Gyre Termes}
+\setmainfont{Nimbus Roman}  % Times New Roman equivalent (URW)
 \newfontfamily\koreanfont{Noto Serif CJK KR}[Script=CJK]
 
 %% ============================================================
 %% Author information
 %% ============================================================
-\title{Systematic Benchmarking and Adaptive Clustering Frameworks\\for Multi-Scale Genomic Data Analysis}
+\title{Systematic Benchmarking and Adaptive Clustering\\Frameworks for Multi-Scale Genomic Data Analysis}
 \author{Hwijun Kwon}
 \advisor{Inuk Jung}
 \major{School of Computer Science and Engineering}
@@ -101,34 +101,33 @@
 %% Cover page
 \makecoverpage
 
-%% Inner title page
-\makeinnertitle
+%% Spine page (landscape, for book binding)
+\makespinepage
 
 %% Approval page
 \makeapprovalpage
-
-%% Acknowledgments
-\makeacknowledgments{%
-  \input{front_en/acknowledgments}
-}
-
-%% Abstract
-\makeengabstract{%
-  \input{front_en/abstract}
-}
 
 %% Table of Contents
 \setcounter{page}{1}
 \tableofcontents
 \clearpage
 
-%% List of Tables
+%% List of Tables (added to TOC)
+\phantomsection
+\addcontentsline{toc}{chapter}{List of Tables}
 \listoftables
 \clearpage
 
-%% List of Figures
+%% List of Figures (added to TOC)
+\phantomsection
+\addcontentsline{toc}{chapter}{List of Figures}
 \listoffigures
 \clearpage
+
+%% Abstract
+\makeengabstract{%
+  \input{front_en/abstract}
+}
 
 %% ----------------------------------------------------------
 %% Main Matter
@@ -153,9 +152,11 @@
 %% ----------------------------------------------------------
 
 %% Bibliography
+\phantomsection
+\addcontentsline{toc}{chapter}{References}
 \bibliography{references}
 
-%% Korean Abstract (국문초록) — required by KNU for English-language dissertations
+%% Korean Abstract (국문초록) — at the very end
 \makekorabstract{%
   \input{front/abstract_kr}
 }

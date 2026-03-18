@@ -18,6 +18,17 @@
 %% ============================================================
 \RequirePackage{ifthen}
 \RequirePackage{setspace}
+\RequirePackage{pdflscape}
+\RequirePackage{tikz}
+
+%% Circled Korean 인 (seal mark)
+\newcommand{\circledin}{%
+  \tikz[baseline=(char.base)]{%
+    \node[shape=circle, draw, inner sep=1pt, minimum size=1.2em] (char)
+      {\koreanfont\fontsize{9pt}{9pt}\selectfont 인};%
+  }%
+}
+\RequirePackage[titles]{tocloft}
 
 %% Geometry: custom paper size 19cm x 26cm, 35mm margins
 \RequirePackage[
@@ -30,6 +41,18 @@
   headheight=15mm,
   footskip=15mm
 ]{geometry}
+
+%% ============================================================
+%% Page number style: -- N -- (centered footer, no header)
+%% ============================================================
+\RequirePackage{fancyhdr}
+\fancypagestyle{plain}{%
+  \fancyhf{}%
+  \fancyfoot[C]{-- \thepage\ --}%
+  \renewcommand{\headrulewidth}{0pt}%
+  \renewcommand{\footrulewidth}{0pt}%
+}
+\pagestyle{plain}
 
 %% ============================================================
 %% Chapter/section formatting
@@ -48,27 +71,101 @@
 \renewcommand{\thetable}{\thechapter.\arabic{table}}
 \renewcommand{\theequation}{\thechapter.\arabic{equation}}
 
-%% Chapter title format
+%% Chapter title format (left-aligned, matching reference)
 \makeatletter
 \renewcommand{\@makechapterhead}[1]{%
-  \vspace*{30pt}%
-  {\parindent 0pt \centering
-    \normalfont\LARGE\bfseries
+  \vspace*{20pt}%
+  {\parindent 0pt \raggedright
+    \normalfont\fontsize{20pt}{24pt}\selectfont\bfseries
     \chaptername\ \thechapter\par
-    \vskip 10pt
-    \Huge\bfseries #1\par
+    \vskip 8pt
+    \fontsize{22pt}{26pt}\selectfont\bfseries #1\par
     \nobreak
-    \vskip 30pt
+    \vskip 25pt
   }%
 }
 \renewcommand{\@makeschapterhead}[1]{%
-  \vspace*{30pt}%
-  {\parindent 0pt \centering
-    \normalfont\Huge\bfseries #1\par
+  \vspace*{20pt}%
+  {\parindent 0pt \raggedright
+    \normalfont\fontsize{20pt}{24pt}\selectfont\bfseries #1\par
     \nobreak
-    \vskip 30pt
+    \vskip 25pt
   }%
 }
+
+%% ============================================================
+%% Table of Contents formatting (matching reference dissertation)
+%% ============================================================
+
+%% TOC/LOT/LOF title vertical spacing
+\setlength{\cftbeforetoctitleskip}{0pt}
+\setlength{\cftaftertoctitleskip}{20pt}
+\setlength{\cftbeforelottitleskip}{0pt}
+\setlength{\cftafterlottitleskip}{20pt}
+\setlength{\cftbeforeloftitleskip}{0pt}
+\setlength{\cftafterloftitleskip}{20pt}
+
+%% TOC title: "Contents", centered, 17pt bold
+\renewcommand{\contentsname}{Contents}
+\renewcommand{\cfttoctitlefont}{\hfill\fontsize{17pt}{20pt}\selectfont\bfseries}
+\renewcommand{\cftaftertoctitle}{\hfill}
+
+%% LOT title: "List of Tables", centered, 17pt bold
+\renewcommand{\cftlottitlefont}{\hfill\fontsize{17pt}{20pt}\selectfont\bfseries}
+\renewcommand{\cftafterlottitle}{\hfill}
+
+%% LOF title: "List of Figures", centered, 17pt bold
+\renewcommand{\cftloftitlefont}{\hfill\fontsize{17pt}{20pt}\selectfont\bfseries}
+\renewcommand{\cftafterloftitle}{\hfill}
+
+%% Chapter entries in TOC: bold, no "Chapter" prefix, just number + title
+\renewcommand{\cftchapfont}{\bfseries}
+\renewcommand{\cftchappagefont}{\bfseries}
+\renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftchappresnum}{}
+\renewcommand{\cftchapaftersnum}{\hspace{0.5em}}
+\setlength{\cftchapnumwidth}{1.5em}
+
+%% Section entries: regular weight, indented
+\renewcommand{\cftsecfont}{\normalfont}
+\renewcommand{\cftsecpagefont}{\normalfont}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+\setlength{\cftsecindent}{1.5em}
+\setlength{\cftsecnumwidth}{2.3em}
+
+%% Subsection entries: regular weight, further indented
+\renewcommand{\cftsubsecfont}{\normalfont}
+\renewcommand{\cftsubsecpagefont}{\normalfont}
+\renewcommand{\cftsubsecleader}{\cftdotfill{\cftdotsep}}
+\setlength{\cftsubsecindent}{3.8em}
+\setlength{\cftsubsecnumwidth}{3.2em}
+
+%% Spacing between TOC entries
+\setlength{\cftbeforechapskip}{6pt}
+\setlength{\cftbeforesecskip}{1pt}
+\setlength{\cftbeforesubsecskip}{1pt}
+
+%% LOT entries: no "Table" prefix, just number + caption
+\renewcommand{\cfttabpresnum}{}
+\renewcommand{\cfttabaftersnum}{\hspace{0.5em}}
+\setlength{\cfttabnumwidth}{2.3em}
+\setlength{\cfttabindent}{0em}
+\renewcommand{\cfttableader}{\cftdotfill{\cftdotsep}}
+\setlength{\cftbeforetabskip}{3pt}
+
+%% LOF entries: no "Figure" prefix, just number + caption
+\renewcommand{\cftfigpresnum}{}
+\renewcommand{\cftfigaftersnum}{\hspace{0.5em}}
+\setlength{\cftfignumwidth}{2.3em}
+\setlength{\cftfigindent}{0em}
+\renewcommand{\cftfigleader}{\cftdotfill{\cftdotsep}}
+\setlength{\cftbeforefigskip}{3pt}
+
+%% Dot leaders spacing (tighter dots)
+\renewcommand{\cftdotsep}{2}
+
+%% TOC depth: show only up to subsection (no subsubsection in TOC)
+\setcounter{tocdepth}{2}
 
 %% ============================================================
 %% Metadata commands
@@ -122,18 +219,18 @@
   \newgeometry{left=2cm,top=2.5cm,right=2cm,bottom=1.5cm}
   \setstretch{1.3}
   \begin{center}
-    {\fontsize{11pt}{13pt}\selectfont \textbf{Thesis for the Degree of Ph.D.}}\\
+    {\fontsize{12pt}{14pt}\selectfont Thesis for the Degree of Ph.D.}\\
     \vspace{3cm}
-    {\fontsize{21pt}{25pt}\selectfont \textbf{\@title}}\\
+    {\fontsize{16pt}{20pt}\selectfont \textbf{\@title}}\\
     \vspace{4cm}
-    {\fontsize{12pt}{14pt}\selectfont \textbf{The Graduate School}}\\[0.3cm]
-    {\fontsize{12pt}{14pt}\selectfont \textbf{Kyungpook National University}}\\[0.3cm]
-    {\fontsize{12pt}{14pt}\selectfont \textbf{\@major}}\\
-    \vspace{2cm}
-    {\fontsize{14pt}{17pt}\selectfont \textbf{\@author}}\\
+    {\fontsize{12pt}{14pt}\selectfont \@major}\\
+    {\fontsize{12pt}{14pt}\selectfont The Graduate School}\\
+    \vspace{1.5cm}
+    {\fontsize{14pt}{17pt}\selectfont \@author}\\
     \vspace{\fill}
-    {\fontsize{12pt}{14pt}\selectfont \textbf{August \@degreeyear}}\\
+    {\fontsize{12pt}{14pt}\selectfont August \@degreeyear}\\
     \vspace{1cm}
+    {\fontsize{16pt}{19pt}\selectfont \textbf{The Graduate School}}\\[0.3cm]
     {\fontsize{16pt}{19pt}\selectfont \textbf{Kyungpook National University}}\\
   \end{center}
   \restoregeometry
@@ -141,29 +238,22 @@
 }
 
 %% ============================================================
-%% Inner title page
+%% Spine page (landscape, for book binding)
 %% ============================================================
-\newcommand{\makeinnertitle}{%
+\newcommand{\makespinepage}{%
   \thispagestyle{empty}
-  \newgeometry{left=2cm,top=2.5cm,right=2cm,bottom=1.5cm}
-  \setstretch{1.3}
-  \begin{center}
-    {\fontsize{21pt}{25pt}\selectfont \textbf{\@title}}\\
-    \vspace{3cm}
-    {\fontsize{12pt}{14pt}\selectfont
-      Advisor: Professor \@advisor}\\
-    \vspace{2cm}
-    {\fontsize{12pt}{14pt}\selectfont
-      Submitted as a Doctoral Dissertation}\\
-    \vspace{2cm}
-    {\fontsize{12pt}{14pt}\selectfont August \@degreeyear}\\
-    \vspace{2cm}
-    {\fontsize{14pt}{17pt}\selectfont \textbf{The Graduate School}}\\[0.3cm]
-    {\fontsize{14pt}{17pt}\selectfont \textbf{Kyungpook National University}}\\[0.3cm]
-    {\fontsize{12pt}{14pt}\selectfont \@major}\\
-    \vspace{1.5cm}
-    {\fontsize{14pt}{17pt}\selectfont \textbf{\@author}}\\
-  \end{center}
+  \newgeometry{left=0.5cm,top=0.5cm,right=0.5cm,bottom=0.5cm}
+  \begin{landscape}
+    \vspace*{\fill}
+    \noindent\resizebox{\linewidth}{!}{%
+      \textbf{Systematic Benchmarking and Adaptive Clustering Frameworks for Multi-Scale Genomic Data Analysis%
+        \hspace{2cm}%
+        \@author%
+        \hspace{2cm}%
+        \@degreeyear}%
+    }
+    \vspace*{\fill}
+  \end{landscape}
   \restoregeometry
   \clearpage
 }
@@ -173,26 +263,43 @@
 %% ============================================================
 \newcommand{\makeapprovalpage}{%
   \thispagestyle{empty}
-  \newgeometry{left=2cm,top=2.5cm,right=2cm,bottom=1.5cm}
-  \setstretch{1.3}
+  \newgeometry{left=2cm,top=2.5cm,right=2cm,bottom=2cm}
+  \setstretch{1.0}
   \begin{center}
-    {\fontsize{14pt}{17pt}\selectfont \textbf{Approved as a Doctoral Dissertation}}\\[0.5cm]
-    {\fontsize{14pt}{17pt}\selectfont \textbf{for \@author}}\\
-    \vspace{2cm}
-    {\fontsize{18pt}{22pt}\selectfont \textbf{\@title}}\\
-    \vspace{3cm}
-    {\fontsize{12pt}{14pt}\selectfont
-      \begin{tabular}{r@{\hspace{1cm}}l}
-        Committee Chair & \underline{\hspace{5cm}} \\[1cm]
-        Committee Member & \underline{\hspace{5cm}} \\[1cm]
-        Committee Member & \underline{\hspace{5cm}} \\[1cm]
-        Committee Member & \underline{\hspace{5cm}} \\[1cm]
-        Committee Member & \underline{\hspace{5cm}} \\
-      \end{tabular}
-    }\\
+    %% Title (use parbox to allow natural line wrapping)
+    {\fontsize{16pt}{20pt}\selectfont \textbf{\@title}}\\
+    \vspace{1.2cm}
+    %% Author
+    {\fontsize{14pt}{17pt}\selectfont \@author}\\
+    \vspace{0.8cm}
+    %% Department + Graduate School
+    {\fontsize{11pt}{14pt}\selectfont \@major\\
+    The Graduate School}\\
+    \vspace{0.8cm}
+    %% Supervisor
+    {\fontsize{11pt}{14pt}\selectfont Supervised by Professor \@advisor}\\
+    \vspace{0.8cm}
+    %% Approval text
+    {\fontsize{11pt}{14pt}\selectfont
+      Approved as a qualified thesis of \@author\\
+      for the degree of Ph.D.\\
+      by the Evaluation Committee}\\
+    \vspace{0.8cm}
+    %% Date
+    {\fontsize{11pt}{14pt}\selectfont August \@degreeyear}\\
+    \vspace{1.2cm}
+    %% Committee signatures
+    {\fontsize{11pt}{14pt}\selectfont
+      \hfill Chairman\hspace{0.3cm}\underline{\hspace{4cm}}\hspace{0.3cm}\circledin\hspace{0.5cm}\par\vspace{0.6cm}
+      \hfill\underline{\hspace{4cm}}\hspace{0.3cm}\circledin\hspace{0.5cm}\par\vspace{0.6cm}
+      \hfill\underline{\hspace{4cm}}\hspace{0.3cm}\circledin\hspace{0.5cm}\par\vspace{0.6cm}
+      \hfill\underline{\hspace{4cm}}\hspace{0.3cm}\circledin\hspace{0.5cm}\par\vspace{0.6cm}
+      \hfill\underline{\hspace{4cm}}\hspace{0.3cm}\circledin\hspace{0.5cm}\par
+    }
     \vspace{\fill}
-    {\fontsize{12pt}{14pt}\selectfont August \@degreeyear}\\[0.5cm]
-    {\fontsize{14pt}{17pt}\selectfont \textbf{The Graduate School, Kyungpook National University}}\\
+    %% Institution
+    {\fontsize{14pt}{17pt}\selectfont \textbf{The Graduate School Council}}\\[0.2cm]
+    {\fontsize{14pt}{17pt}\selectfont \textbf{Kyungpook National University}}\\
   \end{center}
   \restoregeometry
   \clearpage
@@ -204,8 +311,8 @@
 \newcommand{\makekorabstract}[1]{%
   \clearpage
   \phantomsection
-  \addcontentsline{toc}{chapter}{국문초록}
-  \thispagestyle{empty}
+  \addcontentsline{toc}{chapter}{Abstract (Korean)}
+  \thispagestyle{plain}
   \begin{center}
     \setstretch{1.5}
     {\koreanfont\fontsize{14pt}{17pt}\selectfont \textbf{\@ktitle}}\\
@@ -228,7 +335,7 @@
   \clearpage
   \phantomsection
   \addcontentsline{toc}{chapter}{Abstract}
-  \thispagestyle{empty}
+  \thispagestyle{plain}
   \begin{center}
     \setstretch{1.5}
     {\fontsize{14pt}{17pt}\selectfont \textbf{\@title}}\\
@@ -245,13 +352,13 @@
 }
 
 %% ============================================================
-%% Acknowledgments page
+%% Acknowledgments page (kept for compatibility but not used)
 %% ============================================================
 \newcommand{\makeacknowledgments}[1]{%
   \clearpage
   \phantomsection
   \addcontentsline{toc}{chapter}{Acknowledgments}
-  \thispagestyle{empty}
+  \thispagestyle{plain}
   \vspace*{2cm}
   \begin{center}
     {\fontsize{16pt}{19pt}\selectfont \textbf{Acknowledgments}}\\

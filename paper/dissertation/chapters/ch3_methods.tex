@@ -1,5 +1,5 @@
 % Chapter 3: MutBench — 방법론
-\chapter{MutBench: 방법론}
+\chapter{연구 자료 및 방법}
 \label{ch:mutbench}
 
 본 장에서는 바이러스 변이 핫스팟 탐지 방법의 체계적 평가를 위한 벤치마킹 프레임워크인 MutBench의 방법론을 제시한다.
@@ -32,7 +32,7 @@ MutBench는 2단계 구조의 체계적 벤치마킹 프레임워크이다.
 \textbf{1단계}(제~\ref{sec:variant_comparison}--\ref{sec:phylo_simulation}절)는 SARS-CoV-2 Spike에 대한 깊이 우선 분석으로, 5개 MutClust 변이체의 구조적 차이가 탐지 성능에 미치는 영향을 정밀 비교한다.
 \textbf{2단계}(제~\ref{sec:9pathogen_benchmark}절)는 9종 RNA 바이러스에 대한 너비 우선 분석으로, 15개 알고리즘 패밀리의 41개 탐지 방법과 9가지 스코어링 공식을 교차 평가한다.
 모든 1단계 분석은 SARS-CoV-2 참조 게놈(Wuhan-Hu-1, GenBank: NC\_045512.2)을 사용하며, Spike 유전자는 뉴클레오티드 위치 21,563--25,384에 위치한다.
-프레임워크는 세 구성요소로 구성된다.
+프레임워크는 세 구성요소로 구성되며, 그림~\ref{fig:mutbench_pipeline}에 전체 파이프라인을 도시하였다.
 
 \begin{figure}[htbp]
 \centering
@@ -452,7 +452,7 @@ Ensemble은 4개의 간이 하위 탐지기를 다수결 투표로 결합한다.
 \subsection{3계층 Ground Truth 프레임워크}
 \label{subsec:3layer_gt}
 
-단일 ground truth의 편향을 완화하기 위해, 세 가지 독립적 근거에 기반한 3계층 ground truth 프레임워크를 구축하였다.
+단일 ground truth의 편향을 완화하기 위해, 세 가지 독립적 생물학적 근거에 기반한 3계층 ground truth 프레임워크를 구축하였다.
 
 \subsubsection{Layer A: 적응적 양성 선택 (Adaptive)}
 

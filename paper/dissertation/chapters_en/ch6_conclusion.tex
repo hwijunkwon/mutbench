@@ -48,28 +48,28 @@ GISAID sampling bias & Medium & Weekly temporal stratification & Geographic stra
 }
 \end{table}
 
-\subsection{Ground Truth Limitations}
+\textbf{Ground Truth Limitations.}
 
 The full three-layer ground truth (Layers A, B, and C) is available only for the four pathogens with DMS data (SARS-CoV-2, H3N2, HIV-1, RSV); the remaining five pathogens are evaluated using only Layers A and B.
 Layer~C (DMS functional fitness) is based on published DMS datasets~\cite{dadonaite2023dms}, and for pathogens without available DMS data, functional fitness validation cannot be performed.
 Furthermore, in interpreting DMS data, the choice of threshold for defining functionally important positions (e.g., fitness effect $\leq -0.5$) directly affects the composition of the ground truth, introducing sensitivity to that threshold.
 DMS measures in vitro molecular fitness using pseudovirus systems and thus may not fully capture in vivo fitness.
 
-\subsection{Phylogenetic Non-Independence}
+\textbf{Phylogenetic Non-Independence.}
 
 Frequency-based H-scores are susceptible to phylogenetic confounding ($\rho = -0.876$ between H-score and independent mutational origins; see Section~\ref{sec:phylo_limits} for detailed analysis and mitigation strategies).
 
-\subsection{Scope Limitations}
+\textbf{Scope Limitations.}
 
 Evaluation was conducted on 9 RNA viruses (SARS-CoV-2, Influenza A/B, HIV-1, RSV, Dengue, HCV, MERS-CoV, Norovirus), but validation on DNA viruses (HPV, HBV, etc.) with distinct mutation mechanisms has not yet been performed.
 Additionally, the current implementation of MutBench targets only point mutations, excluding insertions and deletions (indels).
 Integration of position-specific fitness prediction using protein language models (ESM-2, etc.) also remains a future task.
 
-\subsection{Gap Between Synthetic and Real Data}
+\textbf{Gap Between Synthetic and Real Data.}
 
-A performance gap exists between synthetic and real data due to the sparse distribution of real H-scores (only 342 of 29,903 positions being non-zero), though biological validity is preserved with enrichment ratios above 7-fold (see Chapter~\ref{ch:discussion} for detailed analysis).
+A performance gap exists between synthetic and real data due to the sparse distribution of real H-scores (only 342 of 29,903 positions being non-zero), though biological validity is preserved with enrichment ratios above 6.9-fold (see Chapter~\ref{ch:discussion} for detailed analysis).
 
-\subsection{Limitations of Position-Level Evaluation}
+\textbf{Limitations of Position-Level Evaluation.}
 
 Because MutBench computes precision and recall at the exact nucleotide position level, a detection that is off by even a single position from the ground truth is classified as a false positive.
 Window-based or region overlap metrics could more leniently reflect the practical utility of detection.
@@ -96,12 +96,17 @@ Window-based or region overlap metrics could more leniently reflect the practica
 }
 \end{table}
 
-\subsection{PAHD: From Benchmark Application to Full Implementation}
+\textbf{PAHD: From Benchmark Application to Full Implementation.}
 
-The PAHD prototype (Section~\ref{subsec:pahd_prototype}) demonstrated that coarser-granularity prediction (detection family or scoring formula) can recover up to 57.7\% of oracle performance even when exact combination matching fails at 0/9, confirming the viability of a hierarchical prediction approach.
-The critical bottleneck is the $n = 9$ knowledge base: scaling to 20+ pathogens, introducing top-$k$ ensemble strategies, and transitioning to meta-learning regression models~\cite{rice1976algorithm,smith2021algorithm} are the concrete next steps for a full PAHD implementation.
+The PAHD prototype presented in Section~\ref{subsec:pahd_prototype} functions as a proof-of-concept application of the benchmark results, demonstrating that the statistical findings of MutBench (Contribution~2) can be translated into a practical method selection strategy.
+Two profile versions were evaluated: v1 (8 metadata features) and v2 (85 MSA-derived features including per-scoring statistics, cross-score correlations, and spatial autocorrelation).
+The v1 family-first strategy achieved 5/9 positive MCC with median MCC $= 0.014$ (vs.\ naive median $= 0.000$); the v2 profile eliminated pathological negative transfers through more discriminative pathogen similarity scores (e.g., HCV $-0.291 \rightarrow +0.141$), improving mean MCC from 0.005 to 0.017.
+However, the exact match rate remained 0/9 for both v1 and v2, confirming that the fundamental limitation of an $n = 9$ knowledge base persists even with 85 features.
+When evaluated at coarser prediction granularities---detection family (15 families) and scoring formula (9 formulas)---the match rate was also 0/9, but the achieved MCC improved substantially: family-level prediction recovered 48.3\% of oracle performance (mean MCC $= 0.144$), and scoring-level prediction recovered 57.7\% (mean MCC $= 0.172$), far exceeding exact combination prediction (1.7\% of oracle).
+This demonstrates that even when label prediction fails, coarser-granularity prediction yields competitive detection performance, supporting the viability of a hierarchical prediction approach contingent on knowledge base expansion.
+Scaling to 20+ pathogens, introducing top-$k$ ensemble strategies, and transitioning to meta-learning regression models~\cite{rice1976algorithm,kerschke2019algorithm} are the concrete next steps for a full PAHD implementation.
 
-\subsection{Integration of Phylogenetic Correction}
+\textbf{Integration of Phylogenetic Correction.}
 
 The proof-of-concept results reported in Section~\ref{sec:phylo_simulation} establish that homoplasy-based scoring captures qualitatively different evolutionary signals from frequency-based H-scores: $\rho = -0.876$ in coalescent simulation, AUC~$= 1.000$ for TreeTime ML ancestral reconstruction ($N = 2{,}000$), and $\rho = -0.107$ on real GISAID sequences ($N = 500$).
 A concrete integration pathway would replace H-score with homoplasy count---the number of independent mutational origins inferred by ancestral reconstruction---as the input to scoring formulas, requiring TreeTime~\cite{sagulenko2018treetime} ancestral reconstruction as a preprocessing step for each pathogen.
@@ -109,17 +114,17 @@ The primary computational bottleneck is TreeTime's $O(N \log N)$ scaling with se
 Phylogenetic correction would primarily affect pathogens with strong founder effects (e.g., SARS-CoV-2 D614G, which ranks 2nd by H-score but 1,134th by homoplasy), potentially changing the best-performing scoring--detection combinations for those pathogens and improving the overall oracle MCC.
 Temporal stratification, which normalizes sequence proportions across time periods, would complement phylogenetic correction by mitigating sequencing bias independently of tree topology.
 
-\subsection{DNA Virus Expansion}
+\textbf{DNA Virus Expansion.}
 
 Extension to DNA viruses such as HPV and HBV is a key task for verifying the generalization scope of the MutBench framework.
 Because DNA viruses have lower mutation rates and distinct mutation mechanisms (e.g., APOBEC3-mediated deamination) compared to RNA viruses, it is necessary to verify whether the current scoring and detection methods are equally applicable.
 
-\subsection{Indel and Protein Language Model Integration}
+\textbf{Indel and Protein Language Model Integration.}
 
 Development of gap-handling strategies is needed to integrate insertions and deletions (indels), which are currently excluded, into the H-score framework.
 Additionally, a multi-scale scoring system is envisioned that utilizes log-likelihood ratios from protein language models (ESM-2/ESM-3) as position-specific fitness scores, combining the interpretability of the H-score with the pattern-learning capability of deep learning.
 
-\subsection{Integration with Real-Time Surveillance Systems}
+\textbf{Integration with Real-Time Surveillance Systems.}
 
 In the long term, the goal is to integrate the best-performing detection methods validated in MutBench into real-time genomic surveillance pipelines.
 This includes incremental H-score updates for streaming sequencing data, automatic alerts upon the emergence of novel variants, and integration with wastewater surveillance data.
@@ -129,7 +134,7 @@ MutBench's stability metric plays a central role in ensuring the reliability of 
 \label{sec:final_conclusion}
 
 The COVID-19 pandemic revealed that viral mutation hotspot detection is not merely an academic exercise but a public health imperative.
-This dissertation presented MutBench, the first systematic benchmark framework for viral mutation hotspot detection, and statistically demonstrated through large-scale benchmark evaluation across 9 RNA viruses that no single best-performing method exists.
+This dissertation presented MutBench, the first systematic benchmark framework for viral mutation hotspot detection, and statistically demonstrated through large-scale benchmark evaluation across 9 RNA viruses (3,321 total evaluations; 2,544 with non-zero MCC used for statistical testing) that no single best-performing method exists.
 Before MutBench, researchers deploying hotspot detection methods had no quantitative basis for method selection; MutBench provides this basis through standardized ground truth, composite evaluation metrics, and cross-pathogen statistical evidence.
 These results establish that adaptive method selection based on pathogen characteristics is essential; the PAHD prototype (v1 and v2 profiles) serves as a proof-of-concept application of this finding, with the v2 MSA-derived profile demonstrating improved similarity calibration, though the $n = 9$ knowledge base limitation confirms that scaling to more pathogens is the critical next step.
 More broadly, the finding that detection method performance is dominated by the method--pathogen interaction ($\omega^2 = 0.285$) rather than the method itself carries implications beyond viral genomics: any domain where algorithms are applied across heterogeneous input distributions may benefit from similar systematic benchmarking to expose hidden interaction effects and guide principled algorithm selection.

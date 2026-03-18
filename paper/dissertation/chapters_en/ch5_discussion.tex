@@ -71,7 +71,7 @@ As detailed in Chapter~\ref{ch:results}, the 9-pathogen benchmark demonstrated t
 The underlying cause is that pathogen-specific genomic characteristics---entropy distribution, proportion of conserved regions, and density of positively selected sites---create fundamentally different signal landscapes for detection methods.
 For example, pathogens with high overall mutation rates (e.g., H3N2, where all positions have nonzero H-scores) neutralize the advantage of threshold-based seed detection, while pathogens with compact genomes and few convergent evolution sites (e.g., MERS) favor methods that can detect weak signals in sparse data.
 The proof-of-concept simulation further revealed that frequency-based scoring conflates founder effects with positive selection ($\rho = -0.876$), adding another pathogen-dependent dimension: the degree of founder-effect contamination varies with each pathogen's transmission history.
-Based on these findings, PAHD (Pathogen-Adaptive Hotspot Detection) is proposed as a conceptual framework for pathogen-specific method selection, formalizable within Rice's algorithm selection problem~\cite{rice1976algorithm}, a framework that has since been extended to automated algorithm selection~\cite{smith2021algorithm} and AutoML~\cite{kotthoff2016algorithm}.
+Based on these findings, PAHD (Pathogen-Adaptive Hotspot Detection) is proposed as a conceptual framework for pathogen-specific method selection, formalizable within Rice's algorithm selection problem~\cite{rice1976algorithm}, a framework that has since been extended to automated algorithm selection~\cite{kerschke2019algorithm} and AutoML~\cite{kotthoff2016algorithm}.
 Concretely, MutBench's results instantiate Rice's framework as follows: the \textit{problem space} $\mathcal{P}$ consists of pathogens characterized by genomic profiles (alignment length, diversity ratio, ground truth density, etc.); the \textit{algorithm space} $\mathcal{A}$ comprises 369 scoring--detection combinations (9 $\times$ 41); and the \textit{performance space} $\mathcal{Y}$ is MCC evaluated against the 3-layer ground truth. The interaction dominance ($\omega^2 = 0.285$) statistically demonstrates that the mapping $f: \mathcal{P} \to \mathcal{A}$ is non-trivial---a finding consistent with the intuition of the No Free Lunch theorem~\cite{wolpert1997nfl}, which states that no single algorithm can outperform all others across all possible problem distributions. The PAHD prototype's 5/9 positive MCC result demonstrates that even a simple nearest-neighbor approach in the profile space $\mathcal{P}$ partially recovers this mapping, motivating more sophisticated meta-learning approaches.
 
 The PAHD prototype results (Section~\ref{subsec:pahd_prototype}) demonstrate that coarser prediction granularity recovers up to 57.7\% of oracle performance, though the $n = 9$ limitation persists.
@@ -170,35 +170,3 @@ The 9 pathogens were selected to systematically cover 6 major RNA virus families
 This scope limitation to RNA viruses is an intentional design decision: H-score-based scoring requires sufficient mutation density, which RNA viruses provide due to their high mutation rates ($10^{-3}$--$10^{-5}$ substitutions/site/year), whereas DNA viruses ($10^{-6}$--$10^{-8}$) would require fundamentally different scoring approaches.
 Despite the small sample size ($n=9$), the Friedman test achieved $p=0.0015$, indicating that the effect size is large enough to be detected even with limited pathogens.
 
-%% ============================================================
-\section{Summary}
-\label{sec:mutbench_summary}
-
-\begin{table}[htbp]
-\centering
-\caption{Summary of key findings from MutBench}
-\label{tab:key_findings}
-\small
-\adjustbox{max width=\textwidth}{
-\begin{tabular}{lll}
-\toprule
-\textbf{Finding} & \textbf{Evidence} & \textbf{Implication} \\
-\midrule
-Detection strategy dominates performance & F1 range 0.146--0.785 (5.4$\times$, Stage~1) & Method choice matters more than tuning \\
-No universal best method & 9/9 unique combos, LOPO 0/9 & Pathogen-adaptive selection needed \\
-Method$\times$pathogen interaction largest & $\omega^2=0.285$ (28.5\% variance) & Best method depends on pathogen \\
-H-score saturates over time & All 1,273 positions nonzero by 2024 & Fixed-reference metrics have shelf life \\
-Founder effect contaminates H-score & $\rho=-0.876$ (H-score vs origins) & Phylogenetic correction essential \\
-Ground truths are complementary & Jaccard(DMS, convergent)=0.006 & Multi-GT evaluation necessary \\
-\bottomrule
-\end{tabular}
-}
-\end{table}
-
-The discussion reveals three overarching insights.
-First, MutBench demonstrates that detection strategy selection dominates performance variation, with the hotspot-score composite metric confirming MutClust-Hybrid's advantage through combined domain knowledge and data-driven clustering.
-Second, the 9-pathogen benchmark provides robust statistical evidence that no universally best-performing method exists, motivating pathogen-adaptive detection strategies as formalized in the PAHD framework.
-Third, the identified limitations---H-score saturation, phylogenetic non-independence, and GISAID sampling bias---define concrete directions for future work while not undermining the core conclusions, which are supported by bootstrap, permutation, and cross-validation analyses.
-
-More broadly, the dominance of method--pathogen interaction effects over method main effects suggests that similar systematic benchmarking may benefit other domains where algorithms are applied across heterogeneous input distributions.
-The following chapter formalizes these findings as two research contributions and discusses their limitations and future extensions.

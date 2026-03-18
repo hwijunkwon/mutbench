@@ -1,28 +1,13 @@
-% Chapter 2: Background and Prior Work (Unified)
-% Combines: literature review + MOSD summary + MutClust summary
-\chapter{Background and Prior Work}
+% Chapter 2: Related Research
+% Viral mutation hotspot detection + MutClust summary
+\chapter{Related Research}
 \label{ch:background}
 
-This chapter reviews prior work in multi-omics integration (Section~\ref{sec:bg_moi}) and viral mutation hotspot detection (Section~\ref{sec:bg_hotspot}), then summarizes the two precursor studies---MOSD (Section~\ref{sec:mosd_summary}) and MutClust (Section~\ref{sec:mutclust_summary})---that motivated MutBench.
+This chapter reviews prior work in viral mutation hotspot detection (Section~\ref{sec:bg_hotspot}) and summarizes MutClust (Section~\ref{sec:mutclust_summary}), the precursor study that directly motivated MutBench.
 
 
 %% ===================================================================
-%%  SECTION 1: Multi-Omics Integration
-%% ===================================================================
-\section{Multi-Omics Integration}
-\label{sec:bg_moi}
-
-
-Multi-Omics Integration (MOI) combines multi-layered biological data---such as gene expression, DNA methylation, and copy number variation---to achieve comprehensive molecular characterization of complex diseases.
-Numerous MOI methods have been developed, including graph-based approaches (SNF~\cite{wang2014snf}, NEMO~\cite{rappoport2018nemo}), matrix factorization methods (MOFA~\cite{argelaguet2018mofa}, iClusterPlus~\cite{shen2013iclusterplus}), and consensus-based approaches (COCA~\cite{hoadley2014coca}, PINSPlus~\cite{nguyen2017pinsplus}).
-However, these methods faced the fundamental question of which method performs best under which conditions, and existing benchmark studies~\cite{chauvel2020sample, rappoport2018benchmark, pierrejean2020feature, tini2019multi, duan2021evaluation} each examined only 1--3 factors independently, failing to provide integrated guidelines.
-The author previously developed the MOSD framework~\cite{han2025mosd} to address this gap, systematically evaluating 9 factors across 10 MOI methods and 10 TCGA cancer types.
-MOSD introduced two key design principles: a composite evaluation metric (cluster-score) combining three complementary clustering metrics with equal weights, and a single-factor isolation design that varies only the factor under evaluation while controlling all others.
-Weber et al.~\cite{weber2019benchmarking} established that rigorous benchmarking requires neutral evaluation, multiple metrics, controlled experimental design, and reproducibility; MOSD operationalized these principles for MOI, and these same design principles are transferred to MutBench for viral hotspot detection, as detailed in Section~\ref{sec:mosd_summary}.
-
-
-%% ===================================================================
-%%  SECTION 2: Viral Mutation Hotspot Detection
+%%  SECTION 1: Viral Mutation Hotspot Detection
 %% ===================================================================
 \section{Viral Mutation Hotspot Detection}
 \label{sec:bg_hotspot}
@@ -86,27 +71,7 @@ This field-level gap is the fundamental motivation for MutBench (Chapter~\ref{ch
 
 
 %% ===================================================================
-%%  SECTION 3: MOSD Summary
-%% ===================================================================
-\section{MOSD: Multi-Omics Study Design Framework}
-\label{sec:mosd_summary}
-
-\textit{This section is a summary of the paper published in BMC Genomics (2025) 26:769~\cite{han2025mosd}.}
-
-
-MOSD (Multi-Omics Study Design)~\cite{han2025mosd} is a comprehensive benchmark framework that systematically evaluates the influence of 9 factors on 10 MOI methods across 10 TCGA cancer types.
-Its three core contributions are:
-(1)~a \textbf{composite cluster-score} that combines three complementary clustering metrics (ARI, NMI, F-measure) with equal weights to avoid single-metric bias;
-(2)~a \textbf{single-factor isolation design} in which only the factor under evaluation is varied while all others are held constant;
-and (3)~the central finding that \textbf{study design matters more than algorithm selection}---no single method dominated across all conditions, confirming that method selection is inherently context-dependent.
-
-For this dissertation, MOSD's primary contribution is the \textbf{composite metric design principle}: the cluster-score's equal-weighted combination of complementary metrics is directly transferred to MutBench's hotspot-score $= (\text{recall} + \text{precision} + \text{stability}) / 3$.
-MOSD's single-factor isolation design similarly informs the parameter sensitivity analysis in MutBench.
-The framework-level principle---that evaluation factors must be systematically controlled and assessed through multiple metrics---directly shapes the design of MutBench.
-
-
-%% ===================================================================
-%%  SECTION 4: MutClust Summary
+%%  SECTION 2: MutClust Summary
 %% ===================================================================
 \section{MutClust: Adaptive Density-Based Hotspot Detection}
 \label{sec:mutclust_summary}
@@ -155,7 +120,7 @@ Phylogenetic non-independence---the possibility that mutation frequency is the r
 \vspace{1em}
 
 The core of these limitations is that MutClust proposed a new detection method but failed to simultaneously provide a framework for quantitatively evaluating that method's performance.
-This corresponds to the absence of the benchmark principles reviewed in Section~\ref{sec:bg_moi}---neutral evaluation, multiple metrics, and controlled experimental design.
+This corresponds to the absence of benchmark principles established in cancer genomics~\cite{bailey2018comprehensive} and multi-omics evaluation~\cite{weber2019benchmarking}---neutral evaluation, multiple metrics, and controlled experimental design.
 
 \begin{table}[htbp]
 \centering
@@ -178,4 +143,5 @@ Number of methods compared & 1 & 26 & 10 & 41 \\
 }
 \end{table}
 
+Table~\ref{tab:approach_comparison} summarizes how MutBench compares with existing approaches along key benchmark dimensions.
 Chapter~\ref{ch:mutbench} presents MutBench, which systematically addresses these three limitations through implementation improvements, independent ground truth construction, a composite evaluation framework, and parameter sensitivity analysis.
