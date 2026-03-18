@@ -880,6 +880,7 @@ ESM-LLR was computed for all nine pathogens using wild-type marginal scoring: a 
 \caption{Best MCC (Layer A, adaptive ground truth) for ESM-LLR versus the best existing scoring formula per pathogen. ESM rank indicates the position of ESM-LLR among 10 total scoring methods (9 existing + ESM-LLR) when each is paired with its best-performing detector.}
 \label{tab:esm_comparison}
 \small
+\adjustbox{max width=\textwidth}{%
 \begin{tabular}{lccccl}
 \toprule
 Pathogen & ESM-LLR & Existing Best & $\Delta$ & ESM Rank & Best Existing Score \\
@@ -896,7 +897,7 @@ HCV & 0.123 & 0.443 & $-$0.319 & 8/10 & E\_only \\
 \midrule
 Mean & 0.194 & 0.298 & $-$0.105 & 5.7/10 & --- \\
 \bottomrule
-\end{tabular}
+\end{tabular}}% end adjustbox
 \end{table}
 
 Table~\ref{tab:esm_comparison} shows that ESM-LLR ranks first for two pathogens (SARS-CoV-2 and MERS) but performs poorly for others (last for Norovirus and HIV-1). The overall mean best MCC of ESM-LLR (0.194) is lower than the mean of existing scoring methods (0.298), indicating that MSA-derived scoring formulas generally provide more effective hotspot signals when sufficient sequence diversity is available. However, the pathogen-dependent rank variation (1st to 10th) reinforces the central finding of this benchmark: no single scoring paradigm dominates across all pathogens.
@@ -1031,7 +1032,7 @@ The following analysis applies the 9-pathogen benchmark results as a knowledge b
 \label{subsec:pahd_prototype}
 
 The preceding LOPO analysis showed that the naive strategy (applying the training pathogens' mean-best combination directly) fails completely at 0/9 match with 4.9\% generalization ratio.
-To test PAHD's core hypothesis---``pathogens with similar mutation profiles share similar best-performing detection combinations''---a prototype experiment was conducted.
+To test PAHD's core hypothesis---that pathogens with similar mutation profiles share similar best-performing detection combinations---a prototype experiment was conducted.
 Two versions of the pathogen profile were evaluated: a \textbf{v1 profile} (8-feature vector from genomic and ground truth characteristics: alignment length, unique sequence count, Layer~A/B sizes, diversity ratio, adaptive/constrained density, ground truth ratio) and a \textbf{v2 profile} (85 MSA-derived features including per-scoring-formula statistics, cross-score correlations, and spatial autocorrelation). Both profiles were z-standardized and compared via cosine similarity; the v2 profile corrects pathologically high similarities observed in v1 (e.g., MERS--SARS-CoV-2 cosine similarity decreased from 0.834 to 0.170).
 Among three strategies tested (1-NN, Weighted, Family-first), the Family-first strategy (two-stage: predict best detection family, then best combination within that family) performed best.
 Table~\ref{tab:pahd_prototype} presents the results of PAHD Family-first for both v1 and v2 profiles compared to naive LOPO.
