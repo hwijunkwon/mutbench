@@ -68,14 +68,12 @@ Friedman 검정은 방법 간 성능 순위가 병원체에 따라 체계적으�
 
 본 학위논문은 6개의 장으로 구성된다.
 
-\textbf{제~\ref{ch:background}장, 배경 및 선행 연구}에서는 바이러스 변이 hotspot 검출에 관한 기존 문헌을 조사하고, 선행 연구인 MOSD~\cite{han2025mosd}와 MutClust~\cite{youn2025mutclust}의 핵심 방법론 및 MutBench 개발의 동기가 된 한계점을 요약한다.
+\textbf{제~\ref{ch:background}장, 관련 연구}에서는 바이러스 변이 hotspot 검출에 관한 기존 문헌을 조사하고, MutClust~\cite{youn2025mutclust}의 핵심 방법론 및 MutBench 개발의 동기가 된 한계점을 요약한다.
 
-\textbf{제~\ref{ch:mutbench}장, MutBench 방법론}에서는 본 학위논문의 핵심 기여인 MutBench 벤치마킹 프레임워크의 방법론을 상세히 기술한다.
-3계층 ground truth 정의, 검출 방법 구성, hotspot-score 복합 평가 지표, 통계적 검증 체계를 제시한다.
+\textbf{제~\ref{ch:mutbench}장, 자료 및 방법}에서는 본 학위논문의 핵심 기여인 MutBench 벤치마크 프레임워크의 자료와 방법론을 상세히 기술한다.
+제3.1절은 자료(대상 병원체, ground truth 체계, DMS 데이터)를 기술한다. 제3.2--3.4절은 방법을 제시한다: 제3.2절은 MutClust 변형 및 hotspot-score 지표를 포함하는 벤치마크 프레임워크 설계, 제3.3절은 스코어링 공식과 탐지 방법 계열, 제3.4절은 평가 지표 및 통계 분석 설계를 다룬다.
 
-\textbf{제~\ref{ch:results}장, 실험 결과}에서는 2단계 벤치마크의 실험 결과를 보고한다.
-1단계 SARS-CoV-2 심층 분석(합성 벤치마크, GISAID H-score 벤치마크, DMS 검증, 매개변수 민감도)과 2단계 9종 병원체 대규모 비교(ANOVA, Friedman 검정, LOPO 교차 검증)의 결과를 제시한다.
-추가 검증 실험으로 계통발생학적 비독립성 분석, 단백질 언어 모델(ESM-2)을 이용한 교차 패러다임 검증, 병원체 적응적 방법 선택을 위한 PAHD 개념 증명 프로토타입이 포함된다.
+\textbf{제~\ref{ch:results}장, 실험 결과}에서는 실험 결과를 네 개 절로 구분하여 보고한다: 단일 병원체 벤치마크(합성 데이터 비교, 다중 ground truth 평가, 실제 GISAID 검증, SARS-CoV-2에 대한 외부 방법 비교), 견고성 검증(통계적 검증, 민감도 분석, 시간적 일반화, indel 제외), 교차 병원체 검증(H3N2 검증, 3D 구조 분석, 계통발생학적 시뮬레이션, ESM-2 교차 패러다임 검증), 9-병원체 대규모 벤치마크(ANOVA, Friedman 검정, LOPO 교차 검증, PAHD 개념 증명 프로토타입).
 
 \textbf{제~\ref{ch:discussion}장, 논의}에서는 실험 결과의 종합적 해석, MutBench의 방법론적 함의, 한계점, 그리고 PAHD 개념적 프레임워크의 향후 방향을 논의한다.
 
