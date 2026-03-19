@@ -250,8 +250,8 @@ def fig5_variance_decomposition():
     df = pd.read_csv(f'{DATA_DIR}/anova_9pathogen.csv')
     df = df[df['dataset'] != 'Combined']
 
-    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(8, 3.5),
-                                    gridspec_kw={'width_ratios': [3, 1]})
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 5),
+                                    gridspec_kw={'width_ratios': [3, 1.2]})
 
     # Left: stacked bars per pathogen
     eta_data = {}
@@ -279,16 +279,17 @@ def fig5_variance_decomposition():
         for j, v in enumerate(vals):
             if v > 0.06:
                 ax1.text(x[j], bottoms[j] + v/2, f'{v:.0%}',
-                        ha='center', va='center', fontsize=6.5, color='white',
+                        ha='center', va='center', fontsize=8, color='white',
                         fontweight='bold')
         bottoms += vals
 
     ax1.set_xticks(x)
-    ax1.set_xticklabels(short_labels, fontsize=8, rotation=30, ha='right')
-    ax1.set_ylabel(r'Proportion of variance ($\eta^2$)', fontsize=10)
-    ax1.set_ylim(0, 1.05)
-    ax1.legend(loc='upper right', fontsize=8, frameon=False)
-    ax1.set_title('(A) Per-pathogen variance decomposition', fontsize=10,
+    ax1.set_xticklabels(short_labels, fontsize=10, rotation=45, ha='right')
+    ax1.set_ylabel(r'Proportion of variance ($\omega^2$)', fontsize=12)
+    ax1.set_ylim(0, 1.08)
+    ax1.legend(loc='upper center', fontsize=9, frameon=True, fancybox=True,
+               bbox_to_anchor=(0.5, 1.15), ncol=3)
+    ax1.set_title('(A) Per-pathogen variance decomposition', fontsize=12,
                   fontweight='bold', loc='left')
 
     # Right: donut chart (average across 9 pathogens)
@@ -302,14 +303,14 @@ def fig5_variance_decomposition():
         t.set_fontsize(9)
         t.set_fontweight('bold')
 
-    # Add legend below donut
-    ax2.legend(labels, loc='lower center', fontsize=7.5, frameon=False,
-               bbox_to_anchor=(0.5, -0.15), ncol=1)
-    ax2.set_title('(B) Cross-pathogen\naverage (n=9)', fontsize=10,
+    # Add legend below donut — outside chart area
+    ax2.legend(labels, loc='lower center', fontsize=9, frameon=True, fancybox=True,
+               bbox_to_anchor=(0.5, -0.25), ncol=1)
+    ax2.set_title('(B) Cross-pathogen\naverage (n=9)', fontsize=12,
                   fontweight='bold', loc='center')
 
-    plt.tight_layout()
-    fig.savefig(f'{FIG_DIR}/variance_decomposition.png')
+    plt.tight_layout(rect=[0, 0, 1, 0.95])
+    fig.savefig(f'{FIG_DIR}/variance_decomposition.png', dpi=300, bbox_inches='tight')
     plt.close(fig)
     print('Saved Fig 5: variance_decomposition.png')
 

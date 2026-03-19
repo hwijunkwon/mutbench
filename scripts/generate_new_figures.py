@@ -64,12 +64,20 @@ def generate_region_overlap_bar():
                         xytext=(0, 4), textcoords='offset points',
                         ha='left', va='bottom', fontsize=8, rotation=45)
 
-    # Mean lines
+    # Mean lines — labels placed to the right outside the plot area
+    mean_vals = []
     for i, (col, color) in enumerate(zip(['Exact', '±5', '±10'], colors)):
         mean_val = plot_df[col].mean()
+        mean_vals.append(mean_val)
         ax.axhline(y=mean_val, color=color, linestyle='--', alpha=0.5, linewidth=1.0)
-        ax.text(len(PATHOGENS) - 0.3, mean_val + 0.01,
-                f'Mean={mean_val:.3f}', color=color, fontsize=10, ha='right')
+
+    # Place mean labels stacked at the right edge, spaced to avoid overlap
+    mean_vals_sorted = sorted(zip(mean_vals, colors, ['Exact', '±5', '±10']), key=lambda t: t[0])
+    for j, (mv, clr, lbl) in enumerate(mean_vals_sorted):
+        ax.annotate(f'Mean {lbl}={mv:.3f}', xy=(1.01, mv),
+                    xycoords=('axes fraction', 'data'),
+                    fontsize=9, color=clr, va='center', ha='left',
+                    annotation_clip=False)
 
     ax.set_xlabel('Pathogen', fontsize=14)
     ax.set_ylabel('MCC', fontsize=14)

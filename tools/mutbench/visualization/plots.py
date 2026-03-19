@@ -51,9 +51,10 @@ def plot_genome_hotspot_map(hscores, detected_positions: set, ground_truth_posit
     fig, axes = plt.subplots(3, 1, figsize=(14, 8), sharex=True)
     positions = np.arange(len(hscores))
 
-    # H-score profile
+    # H-score profile (symlog scale for better visibility of low values)
     axes[0].fill_between(positions, hscores, alpha=0.7)
     axes[0].set_ylabel('H-score')
+    axes[0].set_yscale('symlog', linthresh=0.01)
     axes[0].set_title('Genome-wide Mutation Hotspot Map')
 
     # Detected hotspots
