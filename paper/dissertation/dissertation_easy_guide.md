@@ -113,9 +113,33 @@ hotspot-score = (recall + precision + stability) / 3
 
 **핵심 발견**: MutClust-Hybrid가 도메인 지식(CCM 시드)과 데이터 기반 탐지(HDBSCAN)를 결합하여 최고 성능을 달성했다.
 
+![방법 비교 결과 2](guide_figures/fig_method_bottom.png)
+
+**▲ Figure 4.2: 합성 데이터 방법 비교 (Part 2).** (D) Spike 단백질 위치별 점수 프로파일 — H-score(파란색)와 CH-score(빨간색)의 분포를 비교한다. RBD 영역(~330-530 AA)에서 높은 피크가 관찰된다. (E) H-score 포화 문제 — 2020년 원본 데이터(빨간색)는 소수 위치만 비제로인 반면, 2024년 포화 데이터(회색)는 모든 위치가 비제로로 변별력을 잃는다. (F) 상위 10% 점수 위치에서의 기능 영역 enrichment — dN/dS-weighted CH가 1.00(완벽)에 가장 가깝다.
+
 ![게놈 핫스팟 지도](guide_figures/fig_genome_map.png)
 
 **▲ Figure 3.2: 게놈 핫스팟 지도.** SARS-CoV-2 Spike 단백질 전체에 걸친 H-score 분포(위), 탐지 결과(가운데), Ground Truth 영역(아래)을 겹쳐 보여준다. RBD(수용체 결합 도메인) 영역에서 점수가 높게 나타나는 것이 보인다.
+
+![다중 Ground Truth 평가 (상)](guide_figures/fig_multi_gt.png)
+
+**▲ Figure 4.3: 다중 Ground Truth 평가 (Part 1).** (A) 각 GT(기능영역, DMS, 수렴진화, 수렴진화-strict)별 최고 F1을 보여주는 막대 그래프. 핵심: **GT 종류에 따라 최적 방법이 달라진다.** (B) 8가지 점수화 접근법 × 4가지 GT의 enrichment ratio 히트맵. 진한 색일수록 해당 GT에서 enrichment가 높다.
+
+![다중 Ground Truth 평가 (하)](guide_figures/fig_multi_gt_bottom.png)
+
+**▲ Figure 4.4: 다중 Ground Truth 평가 (Part 2).** (C) GT 간 Jaccard 중첩 행렬. 대각선의 큰 숫자(439, 252, 97, 25)는 각 GT의 크기이고, 비대각선의 작은 숫자(0.006 등)는 GT 간 독립성을 보여준다. 0에 가까울수록 두 GT가 서로 다른 정보를 담고 있다. (D) 수렴 vs 비수렴 위치의 TC-freq-v3 점수 분포 바이올린 플롯. 수렴 위치의 점수가 유의하게 높다.
+
+![DMS 기반 평가 (상)](guide_figures/fig_dms_top.png)
+
+**▲ Figure 4.5: DMS 기반 평가 (Part 1).** (A) DMS-escape GT vs 기능영역 GT에서의 F1 비교. 같은 방법이라도 어떤 GT를 기준으로 평가하느냐에 따라 성능이 크게 달라진다. (B) Cohen's d 효과 크기. 어떤 점수가 핫스팟/비핫스팟 위치를 잘 분리하는지를 정량화한다.
+
+![DMS 기반 평가 (하)](guide_figures/fig_dms_bottom.png)
+
+**▲ Figure 4.6: DMS 기반 평가 (Part 2).** (C) 각 점수와 DMS 적합도 간 산점도. 상관관계가 높을수록 해당 점수가 실험적 기능 중요도를 잘 반영한다. (D) DMS-escape(상위 20%) 위치에 대한 Precision-Recall 곡선. 곡선 아래 면적(AUC)이 클수록 해당 점수가 DMS 기반 핫스팟을 잘 탐지한다.
+
+![표본 크기 수렴](guide_figures/fig_convergence.png)
+
+**▲ Figure 4.7: 표본 크기 수렴.** MSA에 포함되는 서열 수(50~5,000)에 따른 hotspot-score 변화를 보여준다. 약 1,000개 서열부터 성능이 안정화된다(hotspot-score ≈ 0.62). 이는 MutBench 벤치마크에 사용된 서열 수가 충분함을 확인하는 검증이다.
 
 ### Stage 2: 9개 바이러스 — "만능 방법은 없다"
 
