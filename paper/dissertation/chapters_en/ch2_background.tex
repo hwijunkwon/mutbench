@@ -66,8 +66,13 @@ DMS data provides a natural ground truth for hotspot benchmarking: positions whe
 
 The absence of benchmark studies for hotspot detection methods in viral genomics stands in contrast to cancer genomics, where the comprehensive driver gene analysis by Bailey et al.~\cite{bailey2018comprehensive} established a standard benchmark with independent ground truth, enabling systematic comparison of 26 detection methods under uniform conditions.
 No analogous benchmark exists for viral mutation hotspot detection: detection methods are evaluated using ad hoc validation against small sets of known functional mutations, without standardized datasets, metrics, or ground truth definitions.
-Recent benchmarks for viral variant effect prediction exist (ProteinGym~\cite{notin2023proteingym}), but these evaluate protein fitness prediction models rather than mutation hotspot detection methods, addressing a fundamentally different task.
-This field-level gap is the fundamental motivation for MutBench (Chapter~\ref{ch:mutbench}), the core study of this dissertation.
+Several related efforts exist in adjacent domains, but none addresses the specific problem of benchmarking viral hotspot detection methods:
+(1)~ProteinGym~\cite{notin2023proteingym} benchmarks variant effect predictors using 250+ DMS assays, evaluating whether models can predict the fitness impact of individual mutations---a per-residue regression task rather than a hotspot region detection task;
+(2)~ConDor~\cite{morel2024condor} detects convergent mutations across phylogenies, providing a tool for identifying positively selected sites but not a benchmark framework for comparing multiple detection methods;
+(3)~in cancer genomics, Pons et al.~\cite{pons2020computational} reviewed 40+ hotspot detection methods, but this was a descriptive survey without a unified benchmark, and cancer-specific somatic mutation models do not transfer to viral evolutionary dynamics;
+(4)~individual SARS-CoV-2 hotspot studies using entropy~\cite{harvey2021tracking} or clustering validate against small sets of known variants without standardized ground truth or cross-method comparison.
+Thus, a systematic benchmark with multi-source ground truth, composite evaluation metrics, and cross-pathogen validation remains absent for viral hotspot detection.
+This gap is the fundamental motivation for MutBench (Chapter~\ref{ch:mutbench}), the core study of this dissertation.
 
 
 
