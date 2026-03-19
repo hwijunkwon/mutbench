@@ -524,18 +524,23 @@ MutClust-Orig & MutClust original algorithm & 1 \\
 
 \textbf{Threshold-based} (FreqThresh, AdaptiveKnee, AdaptWin).
 These methods select hotspots by applying a score cutoff: FreqThresh uses a fixed percentile threshold (top $k$\%), AdaptiveKnee automatically determines the threshold via knee-point detection on the sorted score curve, and AdaptWin extends seed positions above a percentile threshold bidirectionally to adjacent high-scoring positions.
+Frequency-based thresholding is widely used in viral genomic surveillance; for example, Mercatelli and Giorgi~\cite{mercatelli2020geographic} applied mutation frequency thresholds to identify recurrent SARS-CoV-2 mutations across geographic regions.
 
 \textbf{Signal processing} (Wavelet, Spectral, CUSUM).
 Transform-based methods that convert the score profile into an alternative representation to identify anomalous regions: Wavelet applies continuous wavelet transform with a Mexican hat kernel across multiple scales, Spectral uses FFT-based high-pass filtering to isolate local deviations, and CUSUM applies cumulative sum control charts to detect change points in the $z$-normalized profile.
+Wavelet-based approaches have been applied to genomic sequence analysis, including Anastassiou~\cite{anastassiou2001genomic} who demonstrated wavelet transforms for detecting periodicities in DNA sequences, and Arneodo et al.~\cite{arneodo2011wavelet} who used multi-scale wavelet analysis to characterize long-range correlations in genomic sequences.
 
 \textbf{Density and clustering} (KDE, ScoreDBSCAN).
 KDE applies Gaussian kernel density estimation to the score-weighted position profile and thresholds by percentile. ScoreDBSCAN maps positions to a 2D (coordinate, score) space and applies DBSCAN clustering with rescaled axes.
+Density-based clustering was originally proposed by Ester et al.~\cite{ester1996dbscan} and has been adapted for mutation hotspot detection in cancer genomics; notably, Tokheim et al.~\cite{tokheim2016hotmaps} applied density-based clustering to 3D protein structures for exome-scale hotspot discovery.
 
 \textbf{Statistical and model-based} (SlidingTest, LocalContrast, GradPeak, Bayes, SWAN).
 These methods apply statistical tests to identify positions or windows significantly deviating from the background: SlidingTest and SWAN use sliding-window $z$-tests against the global mean, LocalContrast computes local $z$-scores, GradPeak detects prominence-filtered peaks on smoothed profiles, and Bayes computes posterior hotspot probabilities from a prior and normalized scores.
+Sliding window approaches are a standard technique in population genetics and genomic analysis; Tajima~\cite{tajima1989statistical} introduced sliding window computation of the D statistic for detecting departures from neutrality, and similar windowed scanning strategies have been widely adopted for identifying regions under selection in viral genomes.
 
 \textbf{Ensemble and legacy} (Ensemble, MutClust-Orig).
 Ensemble combines four simple sub-detectors via majority voting. MutClust-Orig applies the original MutClust logic (CCM seed + adaptive DBSCAN) to MSA-based score profiles.
+Ensemble strategies that aggregate multiple detection methods have been shown to improve robustness in computational genomics benchmarks~\cite{bailey2018comprehensive}; the rationale is that combining diverse algorithmic perspectives mitigates individual method biases.
 
 %% ============================================================
 \section{Evaluation and Statistical Design}
