@@ -60,8 +60,8 @@ def figure_4_1():
         'sliding_window': 'dN/dS-wt CH',
     }
 
-    # ── TOP: Panels A, B, C (1x3, 16x6) ──
-    fig_top, axes_top = plt.subplots(1, 3, figsize=(16, 6))
+    # ── TOP: Panels A, B, C (1x3, 18x7) ──
+    fig_top, axes_top = plt.subplots(1, 3, figsize=(18, 7))
 
     # Panel A: Grouped bar chart (Precision, Recall, F1)
     ax_a = axes_top[0]
@@ -78,10 +78,10 @@ def figure_4_1():
 
     ax_a.set_xticks(x)
     ax_a.set_xticklabels([short_labels.get(m, m) for m in methods],
-                         fontsize=12, rotation=30, ha='right')
+                         fontsize=11, rotation=45, ha='right')
     ax_a.set_ylabel('Score', fontsize=14)
-    ax_a.set_ylim(0, 1.1)
-    ax_a.legend(fontsize=14, frameon=False, loc='upper right', ncol=3)
+    ax_a.set_ylim(0, 1.15)
+    ax_a.legend(fontsize=11, frameon=False, loc='upper left', ncol=3)
     ax_a.set_title('(A) Performance (top-10% threshold)', fontsize=PANEL_LABEL_SIZE,
                    fontweight='bold', loc='left')
     ax_a.axhline(y=0.125, color='gray', linestyle='--', linewidth=0.8, alpha=0.6)
@@ -141,14 +141,14 @@ def figure_4_1():
     ax_c.set_title('(C) CH-score: Functional vs Non-functional',
                    fontsize=PANEL_LABEL_SIZE, fontweight='bold', loc='left')
 
-    fig_top.tight_layout(pad=1.5)
+    fig_top.tight_layout(pad=2.0)
     fig_top.savefig(f'{OUT_DIR}/new_methodology_comparison_top.png', dpi=300,
                     bbox_inches='tight', facecolor='white')
     plt.close(fig_top)
     print('Saved: new_methodology_comparison_top.png (A, B, C)')
 
-    # ── BOTTOM: Panels D, E, F (1x3, 16x6) ──
-    fig_bot, axes_bot = plt.subplots(1, 3, figsize=(16, 6))
+    # ── BOTTOM: Panels D, E, F (1x3, 18x7) ──
+    fig_bot, axes_bot = plt.subplots(1, 3, figsize=(18, 7))
 
     # Panel D: Scores along Spike protein
     ax_d = axes_bot[0]
@@ -175,7 +175,8 @@ def figure_4_1():
     ax_d.axvspan(319, 541, alpha=0.1, color='pink', label='RBD')
     ax_d.set_xlabel('Spike Position (AA)', fontsize=14)
     ax_d.set_ylabel('Normalized Score', fontsize=14)
-    ax_d.legend(fontsize=12, frameon=False, loc='upper right', ncol=2)
+    ax_d.legend(fontsize=10, frameon=False, loc='upper right', ncol=2,
+                bbox_to_anchor=(1.0, 1.0))
     ax_d.set_title('(D) Scores Along Spike Protein', fontsize=PANEL_LABEL_SIZE,
                    fontweight='bold', loc='left')
     ax_d.set_xlim(0, 1280)
@@ -219,17 +220,17 @@ def figure_4_1():
                        edgecolor='white', linewidth=0.5)
 
     for i, val in enumerate(enrich_values):
-        ax_f.text(val + 0.02, i, f'{val:.2f}', va='center', fontsize=14,
+        ax_f.text(val + 0.02, i, f'{val:.2f}', va='center', fontsize=12,
                   fontweight='bold')
 
     ax_f.set_yticks(y_pos_f)
-    ax_f.set_yticklabels(enrich_methods, fontsize=14)
+    ax_f.set_yticklabels(enrich_methods, fontsize=12)
     ax_f.set_xlabel('Enrichment Ratio (vs random)', fontsize=14)
     ax_f.set_title('(F) Functional Region Enrichment in Top-10%',
                    fontsize=PANEL_LABEL_SIZE, fontweight='bold', loc='left')
     ax_f.set_xlim(0, 1.25)
 
-    fig_bot.tight_layout(pad=1.5)
+    fig_bot.tight_layout(pad=2.0)
     fig_bot.savefig(f'{OUT_DIR}/new_methodology_comparison_bottom.png', dpi=300,
                     bbox_inches='tight', facecolor='white')
     plt.close(fig_bot)
@@ -281,9 +282,9 @@ def figure_4_2():
                  color=color, edgecolor='white', linewidth=0.3)
 
     ax_a.set_xticks(x)
-    ax_a.set_xticklabels(gt_short, fontsize=14)
+    ax_a.set_xticklabels(gt_short, fontsize=12, rotation=20, ha='right')
     ax_a.set_ylabel('Best F1 Score', fontsize=14)
-    ax_a.legend(fontsize=11, frameon=False, loc='upper right', ncol=2,
+    ax_a.legend(fontsize=9, frameon=False, loc='upper right', ncol=2,
                 bbox_to_anchor=(1.0, 1.0))
     ax_a.set_title('(A) Best F1 by Approach and Ground Truth',
                    fontsize=PANEL_LABEL_SIZE, fontweight='bold', loc='left')
@@ -318,7 +319,7 @@ def figure_4_2():
     ax_b.set_title('(B) Enrichment Ratio Heatmap',
                    fontsize=PANEL_LABEL_SIZE, fontweight='bold', loc='left')
 
-    fig_top.tight_layout(pad=1.5)
+    fig_top.tight_layout(pad=2.0)
     fig_top.savefig(f'{OUT_DIR}/multi_ground_truth_top.png', dpi=300,
                     bbox_inches='tight', facecolor='white')
     plt.close(fig_top)
@@ -404,7 +405,7 @@ def figure_4_2():
     ax_d.text(1.5, 0.89, 'Mann-Whitney U p = 1.30e-02', ha='center',
               fontsize=14, fontstyle='italic')
 
-    fig_bot.tight_layout(pad=1.5)
+    fig_bot.tight_layout(pad=2.0)
     fig_bot.savefig(f'{OUT_DIR}/multi_ground_truth_bottom.png', dpi=300,
                     bbox_inches='tight', facecolor='white')
     plt.close(fig_bot)
@@ -436,8 +437,8 @@ def figure_4_3():
         'DMS-escape (strict)': '#2ca02c',
     }
 
-    # ── TOP: Panels A, B (1x2, 16x7) ──
-    fig_top, (ax_a, ax_b) = plt.subplots(1, 2, figsize=(16, 7))
+    # ── TOP: Panels A, B (1x2, 18x8) ──
+    fig_top, (ax_a, ax_b) = plt.subplots(1, 2, figsize=(18, 8))
 
     # Panel A: F1 by approach, grouped by ground truth
     gt_list_a = ['Functional regions', 'DMS-escape (top20%)']
@@ -458,9 +459,9 @@ def figure_4_3():
 
     ax_a.set_xticks(x)
     ax_a.set_xticklabels([approach_short.get(a, a) for a in approaches],
-                         fontsize=12, rotation=30, ha='right')
+                         fontsize=11, rotation=45, ha='right')
     ax_a.set_ylabel('F1 Score', fontsize=14)
-    ax_a.legend(fontsize=14, frameon=False, loc='upper right')
+    ax_a.legend(fontsize=12, frameon=False, loc='upper right')
     ax_a.set_title('(A) F1: DMS vs Functional-Region Ground Truth (top-10%)',
                    fontsize=PANEL_LABEL_SIZE, fontweight='bold', loc='left')
 
@@ -485,14 +486,14 @@ def figure_4_3():
 
     ax_b.set_xticks(x_b)
     ax_b.set_xticklabels([approach_short.get(a, a) for a in approaches],
-                         fontsize=12, rotation=30, ha='right')
+                         fontsize=11, rotation=45, ha='right')
     ax_b.set_ylabel("Cohen's d", fontsize=14)
-    ax_b.legend(fontsize=14, frameon=False, loc='upper right')
+    ax_b.legend(fontsize=12, frameon=False, loc='upper right')
     ax_b.set_title("(B) Cohen's d: Score Separation by Ground Truth",
                    fontsize=PANEL_LABEL_SIZE, fontweight='bold', loc='left')
     ax_b.axhline(y=0, color='gray', linewidth=0.8, linestyle='-')
 
-    fig_top.tight_layout(pad=1.5)
+    fig_top.tight_layout(pad=2.0)
     fig_top.savefig(f'{OUT_DIR}/dms_evaluation_top.png', dpi=300,
                     bbox_inches='tight', facecolor='white')
     plt.close(fig_top)
@@ -519,7 +520,7 @@ def figure_4_3():
 
     ax_c.set_xlabel('Approach Score', fontsize=14)
     ax_c.set_ylabel('DMS Impact (Fitness)', fontsize=14)
-    ax_c.legend(fontsize=14, frameon=False, loc='lower left',
+    ax_c.legend(fontsize=11, frameon=False, loc='lower left',
                 markerscale=2.5)
     ax_c.set_title('(C) Score vs DMS Functional Importance',
                    fontsize=PANEL_LABEL_SIZE, fontweight='bold', loc='left')
@@ -559,13 +560,13 @@ def figure_4_3():
 
     ax_d.set_xlabel('Recall', fontsize=14)
     ax_d.set_ylabel('Precision', fontsize=14)
-    ax_d.legend(fontsize=14, frameon=False, loc='upper right')
+    ax_d.legend(fontsize=11, frameon=False, loc='upper right')
     ax_d.set_title('(D) Precision-Recall: DMS-escape (top20%)',
                    fontsize=PANEL_LABEL_SIZE, fontweight='bold', loc='left')
     ax_d.set_xlim(0, 1.05)
     ax_d.set_ylim(0, 0.5)
 
-    fig_bot.tight_layout(pad=1.5)
+    fig_bot.tight_layout(pad=2.0)
     fig_bot.savefig(f'{OUT_DIR}/dms_evaluation_bottom.png', dpi=300,
                     bbox_inches='tight', facecolor='white')
     plt.close(fig_bot)

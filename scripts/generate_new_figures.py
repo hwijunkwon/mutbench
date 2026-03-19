@@ -5,8 +5,9 @@ Figure 1: Region-Overlap MCC Bar Chart (for Chapter 5)
 """
 
 import pandas as pd
-import matplotlib.pyplot as plt
 import matplotlib
+matplotlib.use('Agg')
+import matplotlib.pyplot as plt
 import numpy as np
 
 matplotlib.rcParams['font.family'] = 'sans-serif'
@@ -60,8 +61,8 @@ def generate_region_overlap_bar():
             height = bar_item.get_height()
             ax.annotate(f'{height:.3f}',
                         xy=(bar_item.get_x() + bar_item.get_width() / 2, height),
-                        xytext=(0, 3), textcoords='offset points',
-                        ha='center', va='bottom', fontsize=9, rotation=45)
+                        xytext=(0, 4), textcoords='offset points',
+                        ha='left', va='bottom', fontsize=8, rotation=45)
 
     # Mean lines
     for i, (col, color) in enumerate(zip(['Exact', '±5', '±10'], colors)):
@@ -77,7 +78,7 @@ def generate_region_overlap_bar():
     ax.set_xticklabels([label_map[p] for p in PATHOGENS], fontsize=12)
     ax.tick_params(axis='y', labelsize=12)
     ax.legend(fontsize=12, title='Window', title_fontsize=12, loc='upper left')
-    ax.set_ylim(0, 1.15)
+    ax.set_ylim(0, 1.25)
 
     # Remove top/right spines
     ax.spines['top'].set_visible(False)
