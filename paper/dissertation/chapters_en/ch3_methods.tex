@@ -102,7 +102,7 @@ This separation means each layer provides an independent, non-redundant perspect
 \subsubsection{Layer A: Adaptive Positive Selection}
 
 Convergent evolution positions---positions where mutations recurrently arose in multiple independent lineages \textit{within the same viral species}---are classified as hotspots under positive selection.
-For example, the E484K mutation in SARS-CoV-2 emerged independently in the Alpha, Beta, Gamma, and Omicron lineages, each of which descended from different ancestral branches of the SARS-CoV-2 phylogenetic tree; this repeated independent emergence at the same position provides strong evidence of positive selection at that site.
+For example, the E484K mutation in SARS-CoV-2---a substitution where glutamic acid (E) at Spike protein position 484 is replaced by lysine (K), enabling immune evasion by altering the antibody binding surface---emerged independently in the Alpha, Beta, Gamma, and Omicron lineages, each of which descended from different ancestral branches of the SARS-CoV-2 phylogenetic tree; this repeated independent emergence at the same position provides strong evidence of positive selection at that site.
 Importantly, Layer~A does not specify the biological mechanism driving the selection---the same criterion applies whether the mutation enables immune evasion, enhances receptor binding, increases transmissibility, or confers drug resistance.
 The criterion is purely phylogenetic: recurrent independent emergence in $\geq$3 lineages.
 These positions are used as \textbf{True Positives}, evaluating whether detection methods correctly identify them as hotspots.
@@ -529,6 +529,75 @@ SWAN & Sliding window adaptive normalization & 9 \\
 MutClust-Orig & MutClust original algorithm & 1 \\
 \midrule
 \textbf{Total} & & \textbf{41} \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+The 41 methods arise from 15 algorithm families, each instantiated with different parameter settings (Table~\ref{tab:detection_variants}).
+For example, the Wavelet family is tested with three peak detection thresholds ($t = 1.0, 1.5, 2.0$ standard deviations above the CWT coefficient mean), and FreqThresh is tested with four percentile cutoffs (top 1\%, 3\%, 5\%, 10\%).
+This multi-parameter design ensures that the benchmark evaluates each algorithm family across a range of sensitivity--specificity trade-offs rather than at a single, potentially suboptimal, operating point.
+
+\begin{table}[htbp]
+\centering
+\caption{Parameter variants for each detection method family (41 methods total)}
+\label{tab:detection_variants}
+\small
+\adjustbox{max width=\textwidth}{
+\begin{tabular}{llrl}
+\toprule
+\textbf{Family} & \textbf{Parameter} & \textbf{Variants} & \textbf{Values} \\
+\midrule
+Wavelet & CWT peak threshold $t$ & 3 & $t = 1.0, 1.5, 2.0$ (std. dev.) \\
+KDE & Bandwidth multiplier & 3 & $0.5\times, 1.0\times, 2.0\times$ Silverman \\
+SlidingTest & Window size & 2 & 20, 50 positions \\
+GradPeak & Smoothing window & 2 & 5, 11 positions \\
+LocalContrast & Local window size & 3 & 10, 20, 50 positions \\
+CUSUM & Drift parameter $\delta$ & 3 & $\delta = 0.5, 1.0, 2.0$ \\
+AdaptiveKnee & (parameter-free) & 1 & Automatic knee detection \\
+ScoreDBSCAN & Epsilon & 2 & $\varepsilon = 10, 15$ \\
+Spectral & High-pass cutoff & 2 & Top 5\%, 10\% frequencies \\
+Bayes & Prior probability & 2 & $\pi = 0.05, 0.10$ \\
+Ensemble & Sub-detector set & 2 & 3-of-4, 4-of-4 majority \\
+AdaptWin & Extension threshold & 2 & 50th, 75th percentile \\
+FreqThresh & Top-$k$\% cutoff & 4 & $k = 1, 3, 5, 10$ \\
+SWAN & Window $\times$ normalization & 9 & $w \in \{20,50,100\} \times \{z, \text{min-max}, \text{robust}\}$ \\
+MutClust-Orig & (fixed) & 1 & Original CCM + adaptive DBSCAN \\
+\midrule
+\textbf{Total} & & \textbf{41} & \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+Table~\ref{tab:detection_prior_apps} summarizes prior applications of each detection method family in viral and genomic research, providing context for their adaptation to viral mutation hotspot detection.
+
+\begin{table}[htbp]
+\centering
+\caption{Prior applications of detection method families in viral and genomic research}
+\label{tab:detection_prior_apps}
+\small
+\adjustbox{max width=\textwidth}{
+\begin{tabular}{llp{5.5cm}l}
+\toprule
+\textbf{Family} & \textbf{Approach type} & \textbf{Prior application} & \textbf{Reference} \\
+\midrule
+Wavelet & Signal processing & Genomic sequence periodicity detection & \cite{anastassiou2001genomic} \\
+KDE & Density estimation & ChIP-Seq peak calling via kernel smoothing & \cite{zhang2008chipseq} \\
+SlidingTest & Sliding window test & Sliding window neutrality test (Tajima's D) & \cite{tajima1989statistical} \\
+GradPeak & Peak detection & ChIP-Seq peak detection on score profiles & \cite{zhang2008chipseq} \\
+LocalContrast & Local z-score & Copy number variation segmentation & \cite{olshen2004cnv} \\
+CUSUM & Change-point detection & Biosurveillance outbreak detection & \cite{sonesson2003cusum} \\
+AdaptiveKnee & Knee-point detection & Optimal cluster number selection (Kneedle) & \cite{satopaa2011kneedle} \\
+ScoreDBSCAN & Density clustering & Cancer mutation hotspot detection & \cite{tokheim2016hotmaps} \\
+Spectral & Fourier analysis & Genomic signal processing & \cite{anastassiou2001genomic} \\
+Bayes & Bayesian detection & Cancer driver mutation detection (MutSigCV) & \cite{lawrence2013mutsigcv} \\
+\midrule
+Ensemble & Majority vote & Cancer driver gene identification & \cite{bailey2018comprehensive} \\
+AdaptWin & Adaptive windowing & Genomic copy number segmentation & \cite{picard2011genomicseg} \\
+FreqThresh & Frequency threshold & SARS-CoV-2 geographic mutation frequency & \cite{mercatelli2020geographic} \\
+SWAN & Sliding window norm. & Novel to this study & --- \\
+MutClust-Orig & Density-based clustering & SARS-CoV-2 mutation hotspot detection & \cite{youn2025mutclust} \\
 \bottomrule
 \end{tabular}
 }
