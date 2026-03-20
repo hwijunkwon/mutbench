@@ -4,7 +4,7 @@
 
 This chapter reports the experimental results of the MutBench framework presented in Chapter~\ref{ch:mutbench}.
 Stage~1 (Sections~\ref{sec:variant_comparison}--\ref{sec:phylo_simulation}) conducts in-depth analysis on SARS-CoV-2, comparing five MutClust variants and two baseline methods through synthetic benchmark, sensitivity analysis, temporal generalization, multi-ground truth evaluation, and additional validation experiments.
-Stage~2 (Section~\ref{sec:9pathogen_results} onwards) extends the evaluation to 9 RNA viruses with 9 scoring methods $\times$ 41 detection methods, establishing the statistical evidence for pathogen-adaptive method selection.
+Stage~2 (Section~\ref{sec:9pathogen_results} onwards) extends the evaluation to 9 RNA viruses with 9 scoring formulas $\times$ 41 detection algorithms, establishing the statistical evidence for pathogen-adaptive method selection.
 
 %% ============================================================
 \section{Single-Pathogen Benchmark: SARS-CoV-2}
@@ -754,7 +754,7 @@ This section sequentially reports the benchmark scale, per-pathogen best method 
 \subsection{Benchmark Scale and Data}
 \label{subsec:9pathogen_scale}
 
-A total of 3,321 evaluations (9 scoring $\times$ 41 detection methods $\times$ 9 pathogens) were conducted.
+A total of 3,321 evaluations (9 scoring formulas $\times$ 41 detection algorithms $\times$ 9 pathogens) were conducted.
 Of these, 777 (23.4\%) evaluations resulted in the detection method identifying 0 positions (n\_detected = 0), because certain SWAN and ScoreDBSCAN variants failed to find positions satisfying the $z$-normalization threshold or density criteria in the score distributions of specific pathogens.
 These zero-detection evaluations are treated as MCC = 0. However, the ANOVA analysis used 2,544 valid evaluations excluding zero-detection cases, with Type III sum of squares applied.
 Each evaluation computed MCC, F1, precision, recall, enrichment ratio, and constrained region FPR against the 3-layer ground truth (Layer A: convergent evolution positions, Layer B: constrained regions, Layer C: DMS).
