@@ -80,14 +80,18 @@ def figure_4_1():
     ax_a.set_xticklabels([short_labels.get(m, m) for m in methods],
                          fontsize=9, rotation=60, ha='right')
     ax_a.set_ylabel('Score', fontsize=14)
-    ax_a.set_ylim(0, 1.25)
+    ax_a.set_ylim(0, 1.05)
+    # Legend OUTSIDE plot area (below x-axis)
     ax_a.legend(fontsize=10, frameon=True, fancybox=True,
-                bbox_to_anchor=(0.5, 1.12), loc='upper center', ncol=3)
+                bbox_to_anchor=(0.5, -0.35), loc='upper center', ncol=3)
     ax_a.set_title('(A) Performance (top-10% threshold)', fontsize=PANEL_LABEL_SIZE,
-                   fontweight='bold', loc='left', pad=20)
+                   fontweight='bold', loc='left')
+    # Random baseline: line inside, label OUTSIDE (right margin)
     ax_a.axhline(y=0.125, color='gray', linestyle='--', linewidth=0.8, alpha=0.6)
-    ax_a.text(len(methods)-0.5, 0.135, 'random baseline', fontsize=12,
-              color='gray', ha='right')
+    ax_a.annotate('random\nbaseline', xy=(1.02, 0.125),
+                  xycoords=('axes fraction', 'data'),
+                  fontsize=9, color='gray', va='center', ha='left',
+                  annotation_clip=False)
 
     # Panel B: Best F1 at optimal threshold (horizontal bars)
     ax_b = axes_top[1]
@@ -138,8 +142,9 @@ def figure_4_1():
 
     ax_c.set_xlabel('CH-score', fontsize=14)
     ax_c.set_ylabel('Density', fontsize=14)
+    # Legend OUTSIDE plot area (below x-axis)
     ax_c.legend(fontsize=10, frameon=True, fancybox=True,
-                bbox_to_anchor=(0.98, 0.98), loc='upper right')
+                bbox_to_anchor=(0.5, -0.25), loc='upper center', ncol=1)
     ax_c.set_title('(C) CH-score: Functional vs Non-functional',
                    fontsize=PANEL_LABEL_SIZE, fontweight='bold', loc='left')
 
@@ -177,8 +182,8 @@ def figure_4_1():
     ax_d.axvspan(319, 541, alpha=0.1, color='pink', label='RBD')
     ax_d.set_xlabel('Spike Position (AA)', fontsize=14)
     ax_d.set_ylabel('Normalized Score', fontsize=14)
-    ax_d.legend(fontsize=10, frameon=False, loc='upper right', ncol=2,
-                bbox_to_anchor=(1.0, 1.0))
+    ax_d.legend(fontsize=9, frameon=True, fancybox=True,
+                bbox_to_anchor=(0.5, -0.25), loc='upper center', ncol=2)
     ax_d.set_title('(D) Scores Along Spike Protein', fontsize=PANEL_LABEL_SIZE,
                    fontweight='bold', loc='left')
     ax_d.set_xlim(0, 1280)
@@ -203,7 +208,8 @@ def figure_4_1():
 
     ax_e.set_xlabel('H-score', fontsize=14)
     ax_e.set_ylabel('Density', fontsize=14)
-    ax_e.legend(fontsize=14, frameon=False, loc='upper left')
+    ax_e.legend(fontsize=10, frameon=True, fancybox=True,
+                bbox_to_anchor=(0.5, -0.25), loc='upper center', ncol=2)
     ax_e.set_title('(E) H-score Saturation Problem', fontsize=PANEL_LABEL_SIZE,
                    fontweight='bold', loc='left')
 
@@ -286,8 +292,8 @@ def figure_4_2():
     ax_a.set_xticks(x)
     ax_a.set_xticklabels(gt_short, fontsize=12, rotation=20, ha='right')
     ax_a.set_ylabel('Best F1 Score', fontsize=14)
-    ax_a.legend(fontsize=9, frameon=False, loc='upper right', ncol=2,
-                bbox_to_anchor=(1.0, 1.0))
+    ax_a.legend(fontsize=9, frameon=True, fancybox=True,
+                bbox_to_anchor=(0.5, -0.35), loc='upper center', ncol=2)
     ax_a.set_title('(A) Best F1 by Approach and Ground Truth',
                    fontsize=PANEL_LABEL_SIZE, fontweight='bold', loc='left')
     ax_a.set_ylim(0, 0.55)
@@ -463,7 +469,8 @@ def figure_4_3():
     ax_a.set_xticklabels([approach_short.get(a, a) for a in approaches],
                          fontsize=11, rotation=45, ha='right')
     ax_a.set_ylabel('F1 Score', fontsize=14)
-    ax_a.legend(fontsize=12, frameon=False, loc='upper right')
+    ax_a.legend(fontsize=10, frameon=True, fancybox=True,
+                bbox_to_anchor=(0.5, -0.35), loc='upper center', ncol=2)
     ax_a.set_title('(A) F1: DMS vs Functional-Region Ground Truth (top-10%)',
                    fontsize=PANEL_LABEL_SIZE, fontweight='bold', loc='left')
 
@@ -490,7 +497,8 @@ def figure_4_3():
     ax_b.set_xticklabels([approach_short.get(a, a) for a in approaches],
                          fontsize=11, rotation=45, ha='right')
     ax_b.set_ylabel("Cohen's d", fontsize=14)
-    ax_b.legend(fontsize=12, frameon=False, loc='upper right')
+    ax_b.legend(fontsize=10, frameon=True, fancybox=True,
+                bbox_to_anchor=(0.5, -0.35), loc='upper center', ncol=3)
     ax_b.set_title("(B) Cohen's d: Score Separation by Ground Truth",
                    fontsize=PANEL_LABEL_SIZE, fontweight='bold', loc='left')
     ax_b.axhline(y=0, color='gray', linewidth=0.8, linestyle='-')
@@ -522,7 +530,8 @@ def figure_4_3():
 
     ax_c.set_xlabel('Approach Score', fontsize=14)
     ax_c.set_ylabel('DMS Impact (Fitness)', fontsize=14)
-    ax_c.legend(fontsize=11, frameon=False, loc='lower left',
+    ax_c.legend(fontsize=10, frameon=True, fancybox=True,
+                bbox_to_anchor=(0.5, -0.35), loc='upper center', ncol=2,
                 markerscale=2.5)
     ax_c.set_title('(C) Score vs DMS Functional Importance',
                    fontsize=PANEL_LABEL_SIZE, fontweight='bold', loc='left')
@@ -562,7 +571,8 @@ def figure_4_3():
 
     ax_d.set_xlabel('Recall', fontsize=14)
     ax_d.set_ylabel('Precision', fontsize=14)
-    ax_d.legend(fontsize=11, frameon=False, loc='upper right')
+    ax_d.legend(fontsize=10, frameon=True, fancybox=True,
+                bbox_to_anchor=(0.5, -0.25), loc='upper center', ncol=3)
     ax_d.set_title('(D) Precision-Recall: DMS-escape (top20%)',
                    fontsize=PANEL_LABEL_SIZE, fontweight='bold', loc='left')
     ax_d.set_xlim(0, 1.05)
