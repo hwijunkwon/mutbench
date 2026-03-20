@@ -15,7 +15,13 @@ Section~\ref{sec:mutbench_materials} describes the materials (target pathogens, 
 \subsection{Target Pathogens and Data}
 \label{subsec:9pathogen_data}
 
-Nine pathogens are targeted: SARS-CoV-2, Influenza A H3N2 (H3N2), Norovirus, HIV-1, Dengue, RSV (Respiratory Syncytial Virus), Influenza B, MERS-CoV (MERS), and HCV (Hepatitis C Virus).
+Nine RNA viruses were selected to cover diverse evolutionary dynamics, transmission routes, and genomic characteristics:
+(1)~\textit{Respiratory viruses}: SARS-CoV-2 (Spike, 1,273 AA), MERS-CoV (Spike, 1,330 AA), RSV (F protein, 574 AA), Influenza A H3N2 (HA, 566 AA), and Influenza B (HA, 584 AA);
+(2)~\textit{Blood-borne/sexually transmitted}: HIV-1 (Env gp120, 480 AA) and HCV (E2, 340 AA);
+(3)~\textit{Enteric}: Norovirus (VP1, 540 AA);
+(4)~\textit{Arthropod-borne}: Dengue (E protein, 495 AA).
+These 9 pathogens span mutation rates from $\sim$10$^{-3}$ (HIV-1) to $\sim$10$^{-4}$ (SARS-CoV-2) substitutions/site/year, alignment lengths from 340 to 1,330 AA, and evolutionary patterns from rapid antigenic drift (H3N2) to epochal evolution (Norovirus).
+This diversity ensures that the benchmark evaluates method performance across a representative range of viral evolutionary regimes rather than a single pathogen's characteristics.
 FASTA sequences for each pathogen were collected from NCBI GenBank by querying each target protein name (e.g., ``SARS-CoV-2 spike glycoprotein'') with filters for complete coding sequences, excluding partial sequences and laboratory-derived constructs. No date range restriction was applied; all available sequences as of December 2024 were downloaded. Sequences with $>$5\% ambiguous bases (N) were removed, and identical sequences were deduplicated (the ``Unique seq.'' column in Table~\ref{tab:pathogen_data} reflects post-deduplication counts). Multiple sequence alignment (MSA) was performed for each surface protein (SARS-CoV-2: Spike, H3N2: HA, HIV-1: Env gp120, etc.) using MAFFT v7.505~\cite{katoh2013mafft} with the \texttt{--auto} mode, followed by computation of per-position mutation frequency and entropy.
 The \texttt{--auto} mode automatically selects among FFT-NS-2, L-INS-i, and G-INS-i based on the number and length of input sequences~\cite{katoh2013mafft}.
 At the sequence scales used in this study (1,311--5,325 sequences, Table~\ref{tab:pathogen_data}), FFT-NS-2 is typically selected, but the alignment algorithm may differ across pathogens, and the effect of this difference on alignment quality---and consequently on per-position mutation frequency computation---was not controlled in this study.
