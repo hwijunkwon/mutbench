@@ -61,7 +61,7 @@ def figure_4_1():
     }
 
     # ── TOP: Panels A, B, C (1x3, 18x7) ──
-    fig_top, axes_top = plt.subplots(1, 3, figsize=(18, 7))
+    fig_top, axes_top = plt.subplots(1, 3, figsize=(20, 8))
 
     # Panel A: Grouped bar chart (Precision, Recall, F1)
     ax_a = axes_top[0]
@@ -78,12 +78,13 @@ def figure_4_1():
 
     ax_a.set_xticks(x)
     ax_a.set_xticklabels([short_labels.get(m, m) for m in methods],
-                         fontsize=11, rotation=45, ha='right')
+                         fontsize=9, rotation=60, ha='right')
     ax_a.set_ylabel('Score', fontsize=14)
-    ax_a.set_ylim(0, 1.15)
-    ax_a.legend(fontsize=11, frameon=False, loc='upper left', ncol=3)
+    ax_a.set_ylim(0, 1.25)
+    ax_a.legend(fontsize=10, frameon=True, fancybox=True,
+                bbox_to_anchor=(0.5, 1.12), loc='upper center', ncol=3)
     ax_a.set_title('(A) Performance (top-10% threshold)', fontsize=PANEL_LABEL_SIZE,
-                   fontweight='bold', loc='left')
+                   fontweight='bold', loc='left', pad=20)
     ax_a.axhline(y=0.125, color='gray', linestyle='--', linewidth=0.8, alpha=0.6)
     ax_a.text(len(methods)-0.5, 0.135, 'random baseline', fontsize=12,
               color='gray', ha='right')
@@ -137,7 +138,8 @@ def figure_4_1():
 
     ax_c.set_xlabel('CH-score', fontsize=14)
     ax_c.set_ylabel('Density', fontsize=14)
-    ax_c.legend(fontsize=14, frameon=False, loc='upper left')
+    ax_c.legend(fontsize=10, frameon=True, fancybox=True,
+                bbox_to_anchor=(0.98, 0.98), loc='upper right')
     ax_c.set_title('(C) CH-score: Functional vs Non-functional',
                    fontsize=PANEL_LABEL_SIZE, fontweight='bold', loc='left')
 
