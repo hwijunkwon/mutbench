@@ -92,10 +92,19 @@ Figure~\ref{fig:3layer_gt_concept} illustrates the structure and integration of 
 \label{fig:3layer_gt_concept}
 \end{figure}
 
+\textbf{Design rationale: three orthogonal dimensions.}
+The three layers are deliberately designed to capture different dimensions of mutational importance.
+Layer~A asks ``does this position mutate repeatedly and independently?'' (an evolutionary \textit{pattern} question), without requiring knowledge of why the mutation is advantageous---whether it confers immune evasion, increased transmissibility, or drug resistance.
+Layer~B asks ``is this position structurally constrained?'' (a \textit{structural} question), identifying positions where any mutation destroys protein function.
+Layer~C asks ``what is the measurable functional impact of mutations at this position?'' (a \textit{functional} question), using laboratory DMS experiments that directly quantify how each amino acid substitution affects viral fitness (e.g., cell entry efficiency, receptor binding affinity).
+This separation means each layer provides an independent, non-redundant perspective: Layer~A captures evolutionary signals that DMS cannot (multi-lineage emergence patterns require years of surveillance data), while Layer~C captures functional effects that convergent evolution analysis cannot (a position may have strong fitness effects but not yet show convergent evolution if the virus has not encountered sufficient selection pressure).
+
 \subsubsection{Layer A: Adaptive Positive Selection}
 
 Convergent evolution positions---positions where mutations recurrently arose in multiple independent lineages \textit{within the same viral species}---are classified as hotspots under positive selection.
 For example, the E484K mutation in SARS-CoV-2 emerged independently in the Alpha, Beta, Gamma, and Omicron lineages, each of which descended from different ancestral branches of the SARS-CoV-2 phylogenetic tree; this repeated independent emergence at the same position provides strong evidence of positive selection at that site.
+Importantly, Layer~A does not specify the biological mechanism driving the selection---the same criterion applies whether the mutation enables immune evasion, enhances receptor binding, increases transmissibility, or confers drug resistance.
+The criterion is purely phylogenetic: recurrent independent emergence in $\geq$3 lineages.
 These positions are used as \textbf{True Positives}, evaluating whether detection methods correctly identify them as hotspots.
 
 \textbf{Identification criteria.}
@@ -108,6 +117,8 @@ No computational tool was applied to identify new convergent evolution positions
 \subsubsection{Layer B: Constrained Purifying Selection}
 
 Structurally and functionally essential sites under purifying selection are identified as true negatives.
+These are positions where mutations are actively \textit{removed} from the viral population because they destroy protein folding, disrupt membrane fusion, or abolish receptor binding---any mutation here is lethal or severely deleterious to the virus.
+Unlike Layer~A (which identifies positions under \textit{positive} selection, where change is advantageous), Layer~B identifies positions under \textit{purifying} selection (where change is harmful).
 These positions exhibit low mutation rates due to loss-of-function consequences and are used as \textbf{True Negatives}.
 When detection methods incorrectly identify these positions as hotspots, they are counted as false positives, and the constrained false positive rate (constrained FPR) is computed.
 
@@ -119,7 +130,9 @@ As with Layer~A, no de novo computational identification was performed; all posi
 \subsubsection{Layer C: DMS Experimental Validation}
 
 For four pathogens with available Deep Mutational Scanning (DMS) experimental data---SARS-CoV-2~\cite{dadonaite2023dms}, HIV-1, H3N2, and RSV---experimentally measured fitness effects are used as ground truth.
+Unlike Layer~A (which infers importance from evolutionary patterns) and Layer~B (which infers importance from structural conservation), Layer~C provides direct experimental measurements: in DMS experiments, every possible single amino acid substitution at every position is physically constructed in the laboratory, and its effect on a quantifiable phenotype (e.g., cell entry efficiency for SARS-CoV-2, replicative fitness for H3N2) is measured.
 Positions in the top 20th percentile of mean absolute fitness effect from DMS data are classified as functionally important positions, and the DMS F1 score is computed against detection results.
+This layer is particularly valuable because it captures functional importance that may not yet be visible in evolutionary data (a position may have strong fitness effects but insufficient time for convergent evolution to manifest).
 
 \textbf{Layer A/B overlap handling.}
 In RSV (positions 148, 152) and Influenza B (positions 141, 194), overlapping positions exist between Layer A and Layer B.
