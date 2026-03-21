@@ -6,7 +6,20 @@
 
 ## One-Paragraph Summary
 
-This dissertation presents MutBench, the first systematic benchmark framework for evaluating methods that detect mutation hotspots in viral genomes. By evaluating 9 scoring methods combined with 41 detection algorithms across 9 RNA viruses (3,321 total evaluations), the study provides statistical proof that no single detection method works best for all pathogens: all 9 viruses required different optimal method combinations, and the interaction between method and pathogen was the largest source of performance variance. Based on this finding, the author proposes PAHD (Pathogen-Adaptive Hotspot Detection), a proof-of-concept framework that selects detection strategies based on each pathogen's genomic profile. The work fills a gap in viral genomics where, unlike cancer genomics or machine learning, no standardized benchmark existed for comparing hotspot detection approaches.
+This dissertation presents MutBench, the first systematic benchmark framework for evaluating methods that detect mutation hotspots in viral genomes. By evaluating 9 scoring methods combined with 41 detection algorithms across 9 RNA viruses (3,321 total evaluations, 161 pages, 16 figures, ~32 tables, 76 references), the study provides statistical proof that no single detection method works best for all pathogens: all 9 viruses required different optimal method combinations, and the interaction between method and pathogen was the largest source of performance variance. Based on this finding, the author proposes PAHD (Pathogen-Adaptive Hotspot Detection), a proof-of-concept framework that selects detection strategies based on each pathogen's genomic profile. The work fills a gap in viral genomics where, unlike cancer genomics or machine learning, no standardized benchmark existed for comparing hotspot detection approaches.
+
+---
+
+## Dissertation Structure (v50, 161 pages, 16 figures, ~32 tables, 76 references)
+
+- **Ch1:** Introduction
+- **Ch2:** Related Work
+- **Ch3:** Methodology — 4 sections: (1) Materials, (2) Benchmark Framework Design, (3) Scoring and Detection Methods, (4) Evaluation and Statistical Design
+- **Ch4:** Results — 4 sections: (1) Single-Pathogen Analysis, (2) Robustness Analysis, (3) Cross-Pathogen Analysis, (4) 9-Pathogen Analysis
+- **Ch5:** Discussion
+- **Ch6:** Conclusion
+- **41 detection methods** (from 15 algorithm families), **9 scoring methods**, **9 pathogens**
+- **Contributions: exactly 2** (MutBench framework; statistical demonstration of pathogen-adaptive necessity)
 
 ---
 
@@ -56,13 +69,13 @@ This dissertation addresses three specific gaps.
 
 MutBench defines ground truth using three independent biological evidence layers, mitigating single-source bias:
 
-- **Layer A (Positive selection sites):** Genomic positions where mutations arose repeatedly and independently in multiple lineages, indicating functional advantage. These are "True Positives" that detection methods should find. Sources: published convergent evolution studies for each pathogen. Example: E484K in SARS-CoV-2 arose independently in Alpha, Beta, Gamma, and Omicron lineages. (9--54 positions per pathogen.)
+- **Layer A (Positive selection sites):** Genomic positions where mutations arose repeatedly and independently in multiple lineages, indicating functional advantage. These are "True Positives" that detection methods should find. Sources: published convergent evolution studies for each pathogen. Example: E484K (glutamic acid to lysine at position 484) in SARS-CoV-2 arose independently in Alpha, Beta, Gamma, and Omicron lineages. (9--54 positions per pathogen.)
 
 - **Layer B (Constrained sites):** Structurally essential positions under purifying selection, where mutations are removed because they destroy protein function. These are "True Negatives" that detection methods should not flag. Example: heptad repeat regions in the Spike protein that are critical for membrane fusion. (0--229 positions per pathogen.)
 
 - **Layer C (DMS experimental fitness):** Positions where laboratory experiments (Deep Mutational Scanning) measured the functional impact of every possible amino acid substitution. Positions in the top 20th percentile of fitness effect are classified as functionally important. Available for 4 of 9 pathogens.
 
-Three layers are needed because they capture fundamentally different aspects of mutational importance. The Jaccard similarity between DMS-escape sites and convergent evolution sites is only 0.006, confirming near-complete independence.
+Three layers are needed because they capture fundamentally different aspects of mutational importance: Layer A captures evolutionary pattern, Layer B captures structural constraint, and Layer C captures functional effect. The Jaccard similarity between DMS-escape sites and convergent evolution sites is only 0.006, confirming near-complete independence.
 
 ### Hotspot-score Metric
 
@@ -76,11 +89,11 @@ where stability is the mean Jaccard similarity between the full-data detection a
 
 - **Stage 1 (Deep, single pathogen):** In-depth analysis on SARS-CoV-2 comparing 5 MutClust variants and 2 baselines using synthetic benchmark, real GISAID data, temporal generalization, parameter sensitivity, and multi-ground-truth evaluation. Primary metric: hotspot-score.
 
-- **Stage 2 (Broad, 9 pathogens):** Large-scale evaluation of 9 scoring formulas combined with 41 detection methods from 15 algorithm families, applied to 9 RNA viruses (SARS-CoV-2, H3N2, Norovirus, HIV-1, Dengue, RSV, Influenza B, MERS, HCV). Total: 3,321 evaluations. Primary metric: Matthews Correlation Coefficient (MCC), which is robust to the extreme class imbalance inherent in hotspot detection (positive rates of 1--16%).
+- **Stage 2 (Broad, 9 pathogens):** Large-scale evaluation of 9 scoring formulas combined with 41 detection methods from 15 algorithm families, applied to 9 RNA viruses (SARS-CoV-2, H3N2, Norovirus, HIV-1, Dengue, RSV, Influenza B, MERS, HCV) selected to cover diverse mutation rates, genome sizes, and evolutionary strategies. Total: 3,321 evaluations. Primary metric: Matthews Correlation Coefficient (MCC), which is robust to the extreme class imbalance inherent in hotspot detection (positive rates of 1--16%). A parameter variants table documents all detection method configurations, and a prior applications table summarizes existing literature for each method.
 
 ### Statistical Validation
 
-Three-way ANOVA (omega-squared effect sizes), Friedman nonparametric test, Leave-One-Pathogen-Out (LOPO) cross-validation, BCa bootstrap confidence intervals, and permutation tests.
+Three-way ANOVA (omega-squared effect sizes, including residual omega-squared = 0.307), Friedman nonparametric test, Leave-One-Pathogen-Out (LOPO) cross-validation, BCa bootstrap confidence intervals, and permutation tests. SWAN artifact in LOPO is discussed.
 
 ---
 

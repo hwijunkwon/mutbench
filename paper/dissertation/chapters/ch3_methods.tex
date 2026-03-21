@@ -15,7 +15,13 @@
 \subsection{대상 병원체 및 데이터}
 \label{subsec:9pathogen_data}
 
-9종의 병원체를 대상으로 한다: SARS-CoV-2, Influenza A H3N2 (H3N2), Norovirus, HIV-1, Dengue, RSV (Respiratory Syncytial Virus), Influenza B, MERS-CoV (MERS), HCV (Hepatitis C Virus).
+다양한 진화적 동태, 전파 경로, 유전체 특성을 포괄하도록 9종의 RNA 바이러스를 선정하였다:
+(1)~\textit{호흡기 바이러스}: SARS-CoV-2 (Spike, 1,273 AA), MERS-CoV (Spike, 1,330 AA), RSV (F protein, 574 AA), Influenza A H3N2 (HA, 566 AA), Influenza B (HA, 584 AA);
+(2)~\textit{혈액 매개/성 매개}: HIV-1 (Env gp120, 480 AA), HCV (E2, 340 AA);
+(3)~\textit{장관}: Norovirus (VP1, 540 AA);
+(4)~\textit{절지동물 매개}: Dengue (E protein, 495 AA).
+이 9종 병원체는 $\sim$10$^{-3}$ (HIV-1)에서 $\sim$10$^{-4}$ (SARS-CoV-2) substitutions/site/year에 이르는 돌연변이율, 340--1,330 AA의 정렬 길이, 급속 항원 표류(H3N2)에서 에포칼 진화(Norovirus)에 이르는 진화 패턴을 아우른다.
+이러한 다양성은 벤치마크가 단일 병원체의 특성이 아닌, 바이러스 진화 체제의 대표적 범위에 걸쳐 방법 성능을 평가하도록 보장한다.
 각 병원체의 FASTA 서열은 NCBI GenBank에서 각 표적 단백질명(예: ``SARS-CoV-2 spike glycoprotein'')으로 조회하여 수집하였으며, 완전 코딩 서열 필터를 적용하고 부분 서열 및 실험실 유래 구조물은 제외하였다. 날짜 범위 제한은 적용하지 않았으며, 2024년 12월 기준 이용 가능한 모든 서열을 다운로드하였다. 모호 염기(N)가 5\% 초과인 서열은 제거하고, 동일 서열은 중복 제거하였다(표~\ref{tab:pathogen_data}의 ``고유 서열 수'' 열은 중복 제거 후 수치이다). 각 표면 단백질(SARS-CoV-2: Spike, H3N2: HA, HIV-1: Env gp120 등)에 대해 MAFFT v7.505~\cite{katoh2013mafft}의 \texttt{--auto} 모드로 다중서열정렬(MSA)을 수행한 후 위치별 변이 빈도와 엔트로피를 산출하였다.
 \texttt{--auto} 모드는 입력 서열 수와 길이에 따라 FFT-NS-2, L-INS-i, G-INS-i 중 적합한 알고리즘을 자동 선택한다~\cite{katoh2013mafft}.
 본 연구에서 사용된 서열 규모(1,311--5,325개, 표~\ref{tab:pathogen_data})에서는 대부분 FFT-NS-2가 선택되나, 병원체별로 선택된 정렬 알고리즘이 상이할 수 있으며, 이 차이가 정렬 품질---따라서 위치별 변이 빈도 산출---에 미치는 영향은 본 연구에서 통제하지 않았다.
@@ -61,7 +67,8 @@ Layer~C는 ``이 위치의 변이가 실제로 어떤 기능적 영향을 주는
 
 \subsubsection{Layer A: 적응적 양성 선택 (Adaptive)}
 
-수렴 진화(convergent evolution) 위치, 즉 여러 독립 계통에서 반복적으로 발생한 변이 위치를 양성 선택 하의 핫스팟으로 분류한다.
+수렴 진화(convergent evolution) 위치, 즉 \textit{동일 바이러스 종 내에서} 여러 독립 계통에 걸쳐 반복적으로 발생한 변이 위치를 양성 선택 하의 핫스팟으로 분류한다.
+예를 들어, SARS-CoV-2의 E484K 변이---Spike 단백질 484번 위치에서 글루탐산(E)이 라이신(K)으로 치환되어 항체 결합 표면을 변화시킴으로써 면역 회피를 가능하게 하는 변이---는 Alpha, Beta, Gamma, Omicron 계통에서 각각 독립적으로 출현하였으며, 이 계통들은 SARS-CoV-2 계통수의 서로 다른 조상 분지로부터 유래하였다. 동일 위치에서의 이러한 반복적 독립 출현은 해당 부위에 대한 양성 선택의 강력한 근거를 제공한다.
 이 위치들은 \textbf{True Positive}로 사용되며, 탐지 방법이 이 위치들을 핫스팟으로 올바르게 식별하는지를 평가한다.
 
 \textbf{식별 기준.}
@@ -488,7 +495,76 @@ MutClust-Orig & MutClust 원본 알고리즘 & 1 \\
 }
 \end{table}
 
-\noindent 15개 패밀리는 아래 5개 범주로 분류된다. 세부 파라미터 설정은 표~\ref{tab:detection_families}에 기재하였다.
+41개 방법은 15개 알고리즘 패밀리로부터, 각각 서로 다른 파라미터 설정으로 인스턴스화하여 도출된다(표~\ref{tab:detection_variants}).
+예를 들어, Wavelet 패밀리는 3가지 피크 탐지 역치($t = 1.0, 1.5, 2.0$ 표준편차)로 검정하고, FreqThresh는 4가지 백분위 절단값(상위 1\%, 3\%, 5\%, 10\%)으로 검정한다.
+이 다중 파라미터 설계는 벤치마크가 각 알고리즘 패밀리를 단일의 잠재적으로 차선인 작동점이 아닌, 다양한 민감도--특이도 절충 범위에 걸쳐 평가하도록 보장한다.
+
+\begin{table}[htbp]
+\centering
+\caption{탐지 방법 패밀리별 파라미터 변이체 (총 41개 방법)}
+\label{tab:detection_variants}
+\small
+\adjustbox{max width=\textwidth}{
+\begin{tabular}{llrl}
+\toprule
+\textbf{패밀리} & \textbf{파라미터} & \textbf{변이체 수} & \textbf{값} \\
+\midrule
+Wavelet & CWT 피크 역치 $t$ & 3 & $t = 1.0, 1.5, 2.0$ (std. dev.) \\
+KDE & 대역폭 배수 & 3 & $0.5\times, 1.0\times, 2.0\times$ Silverman \\
+SlidingTest & 윈도우 크기 & 2 & 20, 50 positions \\
+GradPeak & 평활화 윈도우 & 2 & 5, 11 positions \\
+LocalContrast & 국소 윈도우 크기 & 3 & 10, 20, 50 positions \\
+CUSUM & 드리프트 파라미터 $\delta$ & 3 & $\delta = 0.5, 1.0, 2.0$ \\
+AdaptiveKnee & (파라미터 없음) & 1 & 자동 knee point 탐지 \\
+ScoreDBSCAN & Epsilon & 2 & $\varepsilon = 10, 15$ \\
+Spectral & 고역 통과 절단값 & 2 & 상위 5\%, 10\% 주파수 \\
+Bayes & 사전 확률 & 2 & $\pi = 0.05, 0.10$ \\
+Ensemble & 하위 탐지기 집합 & 2 & 3-of-4, 4-of-4 다수결 \\
+AdaptWin & 확장 역치 & 2 & 50th, 75th 백분위 \\
+FreqThresh & 상위 $k$\% 절단값 & 4 & $k = 1, 3, 5, 10$ \\
+SWAN & 윈도우 $\times$ 정규화 & 9 & $w \in \{20,50,100\} \times \{z, \text{min-max}, \text{robust}\}$ \\
+MutClust-Orig & (고정) & 1 & 원본 CCM + 적응형 DBSCAN \\
+\midrule
+\textbf{합계} & & \textbf{41} & \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+표~\ref{tab:detection_prior_apps}는 각 탐지 방법 패밀리의 바이러스학 및 유전체학 연구에서의 선행 적용 사례를 요약하여, 바이러스 변이 핫스팟 탐지로의 적용 맥락을 제공한다.
+
+\begin{table}[htbp]
+\centering
+\caption{탐지 방법 패밀리의 바이러스학 및 유전체학 연구 선행 적용}
+\label{tab:detection_prior_apps}
+\small
+\adjustbox{max width=\textwidth}{
+\begin{tabular}{llp{5.5cm}l}
+\toprule
+\textbf{패밀리} & \textbf{접근 유형} & \textbf{선행 적용} & \textbf{참고문헌} \\
+\midrule
+Wavelet & 신호 처리 & 유전체 서열 주기성 탐지 & \cite{anastassiou2001genomic} \\
+KDE & 밀도 추정 & 커널 평활화를 통한 ChIP-Seq 피크 호출 & \cite{zhang2008chipseq} \\
+SlidingTest & 슬라이딩 윈도우 검정 & 슬라이딩 윈도우 중립성 검정 (Tajima's D) & \cite{tajima1989statistical} \\
+GradPeak & 피크 탐지 & 점수 프로파일에서의 ChIP-Seq 피크 탐지 & \cite{zhang2008chipseq} \\
+LocalContrast & 국소 z-점수 & 복제수 변이 분할 & \cite{olshen2004cnv} \\
+CUSUM & 변화점 탐지 & 생물감시 발병 탐지 & \cite{sonesson2003cusum} \\
+AdaptiveKnee & Knee point 탐지 & 최적 클러스터 수 선택 (Kneedle) & \cite{satopaa2011kneedle} \\
+ScoreDBSCAN & 밀도 클러스터링 & 암 돌연변이 핫스팟 탐지 & \cite{tokheim2016hotmaps} \\
+Spectral & 푸리에 분석 & 유전체 신호 처리 & \cite{anastassiou2001genomic} \\
+Bayes & 베이지안 탐지 & 암 드라이버 돌연변이 탐지 (MutSigCV) & \cite{lawrence2013mutsigcv} \\
+\midrule
+Ensemble & 다수결 투표 & 암 드라이버 유전자 식별 & \cite{bailey2018comprehensive} \\
+AdaptWin & 적응형 윈도우 & 유전체 복제수 분할 & \cite{picard2011genomicseg} \\
+FreqThresh & 빈도 역치 & SARS-CoV-2 지리적 변이 빈도 & \cite{mercatelli2020geographic} \\
+SWAN & 슬라이딩 윈도우 정규화 & 본 연구에서 최초 제안 & --- \\
+MutClust-Orig & 밀도 기반 클러스터링 & SARS-CoV-2 변이 핫스팟 탐지 & \cite{youn2025mutclust} \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+\noindent 15개 패밀리는 아래 5개 범주로 분류된다.
 
 \textbf{역치 기반} (FreqThresh, AdaptiveKnee, AdaptWin).
 점수 절단값을 적용하여 핫스팟을 선정한다: FreqThresh는 고정 백분위 역치(상위 $k$\%)를 사용하고, AdaptiveKnee는 정렬된 점수 곡선에서 knee point를 자동 탐지하며, AdaptWin은 백분위 역치 이상의 시드 위치를 양방향으로 확장한다.
