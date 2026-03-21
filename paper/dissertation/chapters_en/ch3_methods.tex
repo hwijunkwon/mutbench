@@ -137,14 +137,14 @@ As with Layer~A, no de novo computational identification was performed; all posi
 
 For four pathogens with available Deep Mutational Scanning (DMS) experimental data---SARS-CoV-2~\cite{dadonaite2023dms}, HIV-1, H3N2, and RSV---experimentally measured fitness effects are used as ground truth.
 Unlike Layer~A (which infers importance from evolutionary patterns) and Layer~B (which infers importance from structural conservation), Layer~C provides direct experimental measurements: in DMS experiments, every possible single amino acid substitution at every position is physically constructed in the laboratory, and its effect on a quantifiable phenotype (e.g., cell entry efficiency for SARS-CoV-2, replicative fitness for H3N2) is measured.
-Positions in the top 20th percentile of mean absolute fitness effect from DMS data are classified as functionally important positions, and the DMS F1 score is computed against detection results.
+Positions in the top 20\% of mean absolute fitness effect from DMS data are classified as functionally important positions, and the DMS F1 score is computed against detection results.
 This layer is particularly valuable because it captures functional importance that may not yet be visible in evolutionary data (a position may have strong fitness effects but insufficient time for convergent evolution to manifest).
 
 \textbf{Layer A/B overlap handling.}
 In RSV (positions 148, 152) and Influenza B (positions 141, 194), overlapping positions exist between Layer A and Layer B.
 This occurs because these residues are simultaneously under immune evasion pressure (positive selection) and structural constraints (purifying selection), representing dual-selection sites.
 In MCC evaluation, these positions are prioritized as Layer A (positive) and excluded from the Layer B (negative) set.
-Therefore, the effective Layer B for RSV is 16 (18 $-$ 2), and for Influenza B is 8 (10 $-$ 2) positions.
+Therefore, the effective Layer B count is 16 for RSV (18 $-$ 2) and 8 for Influenza B (10 $-$ 2) positions.
 
 Table~\ref{tab:gt_positions} summarizes the amino acid position counts and sources for each pathogen's 3-layer ground truth.
 
@@ -185,7 +185,7 @@ Note that Layer~A selection criteria vary across pathogens: SARS-CoV-2 and H3N2 
 
 The DMS fitness data are derived from the full-length Spike protein characterization experiment by Dadonaite et al.~\cite{dadonaite2023dms}.
 Pseudovirus cell entry fitness measurements are used, as this is the most directly relevant phenotype capturing the overall functional impact of mutations on viral entry.
-Amino acid positions in the top 20th percentile of mean absolute fitness effect are selected as functional sites and mapped to nucleotide coordinates through codon-aware coordinate transformation:
+Amino acid positions in the top 20\% of mean absolute fitness effect are selected as functional sites and mapped to nucleotide coordinates through codon-aware coordinate transformation:
 \begin{equation}
 \text{nuc\_positions} = \{g_{\text{start}} + (p_{\text{aa}} - 1) \times 3 + k : k \in \{0, 1, 2\}\}
 \label{eq:coordinate_transform}
@@ -260,7 +260,7 @@ Scores within each category are drawn from uniform distributions: $\mathcal{U}(0
 Since the ground truth of synthetic data is known by design, this test evaluates each method's signal recovery capability but does not directly measure actual biological hotspot detection performance.
 Therefore, DMS-based validation (Section~\ref{subsec:dms_ground_truth}) and convergent evolution evaluation (Section~\ref{sec:multi_gt}) provide independent biological validation, confirming whether the conclusions from the synthetic benchmark hold on real data.
 
-\textbf{DMS-based functional sites}: From cell entry fitness measurements in the full-length Spike protein DMS experiment~\cite{dadonaite2023dms}, amino acid positions in the top 20th percentile of mean absolute fitness effect are classified as functional sites.
+\textbf{DMS-based functional sites}: From cell entry fitness measurements in the full-length Spike protein DMS experiment~\cite{dadonaite2023dms}, amino acid positions in the top 20\% of mean absolute fitness effect are classified as functional sites.
 
 The annotated functional regions used as ground truth are presented in Table~\ref{tab:ground_truth}, with region boundaries based on the cryo-EM structure of the prefusion Spike trimer~\cite{wrapp2020cryo} and the NTD antigenic supersite mapping by McCallum et al.~\cite{mccallum2021ntd}.
 
