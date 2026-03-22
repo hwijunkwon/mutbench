@@ -440,9 +440,19 @@ The hotspot-score, one of the key methodological features of this study, is a co
 
 The three components receive equal weights. In viral surveillance applications, a method with high accuracy but instability under data perturbation is less practical than a method with moderate accuracy and high reproducibility; including stability as an equal component reflects this requirement.
 
-\noindent The reason for separating recall and precision and combining them with stability, rather than using the F1 score, is that F1 collapses recall and precision into a single value, thereby obscuring their interaction with stability.
+\textbf{Why a composite metric rather than individual metrics?}
+Individual metrics alone cannot determine an overall ``best'' method because they can be trivially maximized at the expense of others.
+A method that declares the entire genome as a hotspot achieves recall $= 1.0$ but precision $\approx 0$.
+Conversely, reporting only the single most confident position yields precision $\approx 1.0$ but recall $\approx 0$.
+The hotspot-score resolves this by requiring simultaneous high performance across all three dimensions.
+Importantly, the hotspot-score does not replace individual metrics---all three components (recall, precision, stability) are reported separately in every results table (Tables~\ref{tab:method_comparison}, \ref{tab:hotspot_scores}), allowing readers to examine each dimension independently.
+The composite score serves only for \textit{ranking} methods; the individual components serve for \textit{understanding why} a method ranks where it does.
+
+\textbf{Why not F1 + stability?}
+F1 collapses recall and precision into a single value, thereby obscuring their individual interaction with stability.
 For example, HDBSCAN-Auto has a low F1 (0.146) but high recall (0.944) and stability (0.788).
 Under an F1 + stability structure, this method would be undervalued, whereas under the (recall + precision + stability)/3 structure, the high recall and stability are appropriately reflected.
+The weight sensitivity analysis (Section~\ref{subsec:weight_sensitivity}) confirms that MutClust-Hybrid maintains rank~1 in 71.9\% of 171 weight combinations, demonstrating that the ranking is robust to the specific choice of equal weights.
 
 %% ============================================================
 \section{Scoring and Detection Methods}
@@ -584,26 +594,26 @@ Table~\ref{tab:detection_prior_apps} summarizes prior applications of each detec
 \label{tab:detection_prior_apps}
 \small
 \adjustbox{max width=\textwidth}{
-\begin{tabular}{llp{5.5cm}l}
+\begin{tabular}{llp{4cm}p{4cm}l}
 \toprule
-\textbf{Family} & \textbf{Approach type} & \textbf{Prior application} & \textbf{Reference} \\
+\textbf{Family} & \textbf{Type} & \textbf{Prior application} & \textbf{Key outcome} & \textbf{Ref.} \\
 \midrule
-Wavelet & Signal processing & Genomic sequence periodicity detection & \cite{anastassiou2001genomic} \\
-KDE & Density estimation & ChIP-Seq peak calling via kernel smoothing & \cite{zhang2008chipseq} \\
-SlidingTest & Sliding window test & Sliding window neutrality test (Tajima's D) & \cite{tajima1989statistical} \\
-GradPeak & Peak detection & ChIP-Seq peak detection on score profiles & \cite{zhang2008chipseq} \\
-LocalContrast & Local z-score & Copy number variation segmentation & \cite{olshen2004cnv} \\
-CUSUM & Change-point detection & Biosurveillance outbreak detection & \cite{sonesson2003cusum} \\
-AdaptiveKnee & Knee-point detection & Optimal cluster number selection (Kneedle) & \cite{satopaa2011kneedle} \\
-ScoreDBSCAN & Density clustering & Cancer mutation hotspot detection & \cite{tokheim2016hotmaps} \\
-Spectral & Fourier analysis & Genomic signal processing & \cite{anastassiou2001genomic} \\
-Bayes & Bayesian detection & Cancer driver mutation detection (MutSigCV) & \cite{lawrence2013mutsigcv} \\
+Wavelet & Signal proc. & Genomic periodicity detection & Identified 3-bp codon periodicity in exons & \cite{anastassiou2001genomic} \\
+KDE & Density est. & ChIP-Seq peak calling (MACS) & Standard tool; $>$40,000 citations & \cite{zhang2008chipseq} \\
+SlidingTest & Sliding window & Neutrality test (Tajima's D) & Detected balancing/purifying selection in populations & \cite{tajima1989statistical} \\
+GradPeak & Peak detection & ChIP-Seq enrichment peaks & Identified protein-DNA binding sites genome-wide & \cite{zhang2008chipseq} \\
+LocalContrast & Local z-score & Copy number variation (CBS) & Detected somatic CNVs in cancer genomes & \cite{olshen2004cnv} \\
+CUSUM & Change-point & Biosurveillance outbreak detection & Early detection of disease outbreaks from case counts & \cite{sonesson2003cusum} \\
+AdaptiveKnee & Knee-point & Cluster number selection & Automated elbow detection without manual tuning & \cite{satopaa2011kneedle} \\
+ScoreDBSCAN & Density clust. & Cancer hotspot detection (HotMAPS) & Found 3D mutation clusters across 26 cancer types & \cite{tokheim2016hotmaps} \\
+Spectral & Fourier & Genomic signal processing & Separated coding/non-coding regions via frequency & \cite{anastassiou2001genomic} \\
+Bayes & Bayesian & Cancer driver detection (MutSigCV) & Identified 33 significantly mutated genes in TCGA & \cite{lawrence2013mutsigcv} \\
 \midrule
-Ensemble & Majority vote & Cancer driver gene identification & \cite{bailey2018comprehensive} \\
-AdaptWin & Adaptive windowing & Genomic copy number segmentation & \cite{picard2011genomicseg} \\
-FreqThresh & Frequency threshold & SARS-CoV-2 geographic mutation frequency & \cite{mercatelli2020geographic} \\
-SWAN & Sliding window norm. & Novel to this study & --- \\
-MutClust-Orig & Density-based clustering & SARS-CoV-2 mutation hotspot detection & \cite{youn2025mutclust} \\
+Ensemble & Majority vote & Cancer driver gene identification & Consensus of 26 methods reduced false positives & \cite{bailey2018comprehensive} \\
+AdaptWin & Adaptive win. & Genomic segmentation & Segmented chromosomes into gain/loss regions & \cite{picard2011genomicseg} \\
+FreqThresh & Freq. threshold & SARS-CoV-2 mutation frequency & Mapped recurrent mutations across 48,635 genomes & \cite{mercatelli2020geographic} \\
+SWAN & Sliding win. norm. & Novel to this study & --- & --- \\
+MutClust-Orig & Density clust. & SARS-CoV-2 hotspot detection & Identified 7 functional hotspot clusters in Spike & \cite{youn2025mutclust} \\
 \bottomrule
 \end{tabular}
 }
