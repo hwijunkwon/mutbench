@@ -219,7 +219,7 @@ def fig_protein_structures():
             a_positions = np.random.choice(v['length'], min(v['layerA'], 20), replace=False)
             a_positions.sort()
             ax.scatter(a_positions, [0.35] * len(a_positions), marker='v',
-                      c='red', s=30, zorder=5, label=f'Layer A ({v["layerA"]})')
+                      c='red', s=30, zorder=5)
 
         # Mark Layer B positions (blue triangles on bottom)
         if v['layerB'] > 0:
@@ -227,7 +227,15 @@ def fig_protein_structures():
             b_positions = np.random.choice(v['length'], min(v['layerB'], 20), replace=False)
             b_positions.sort()
             ax.scatter(b_positions, [-0.35] * len(b_positions), marker='^',
-                      c='blue', s=30, zorder=5, label=f'Layer B ({v["layerB"]})')
+                      c='blue', s=30, zorder=5)
+
+        # Mark Layer C positions (orange dots in middle)
+        if v['layerC'] > 0:
+            np.random.seed(idx * 10 + 2)
+            c_positions = np.random.choice(v['length'], min(v['layerC'], 25), replace=False)
+            c_positions.sort()
+            ax.scatter(c_positions, [-0.15] * len(c_positions), marker='o',
+                      c='orange', s=15, zorder=5, alpha=0.7)
 
         # Title and labels
         ax.set_xlim(-10, v['length'] + 10)
@@ -243,17 +251,19 @@ def fig_protein_structures():
         ax.spines['right'].set_visible(False)
         ax.spines['left'].set_visible(False)
 
-        # Compact legend
+        # Compact legend with unavailable markers
         handles = []
-        if v['layerA'] > 0:
-            handles.append(mpatches.Patch(color='red', label=f'Layer A: {v["layerA"]}'))
+        handles.append(mpatches.Patch(color='red', label=f'A: {v["layerA"]}'))
         if v['layerB'] > 0:
-            handles.append(mpatches.Patch(color='blue', label=f'Layer B: {v["layerB"]}'))
+            handles.append(mpatches.Patch(color='blue', label=f'B: {v["layerB"]}'))
+        else:
+            handles.append(mpatches.Patch(color='#CCCCCC', label='B: N/A'))
         if v['layerC'] > 0:
-            handles.append(mpatches.Patch(color='orange', label=f'Layer C: {v["layerC"]}'))
-        if handles:
-            ax.legend(handles=handles, fontsize=7, loc='upper right',
-                     frameon=True, fancybox=True, ncol=3)
+            handles.append(mpatches.Patch(color='orange', label=f'C: {v["layerC"]}'))
+        else:
+            handles.append(mpatches.Patch(color='#CCCCCC', label='C: N/A'))
+        ax.legend(handles=handles, fontsize=7, loc='upper right',
+                 frameon=True, fancybox=True, ncol=3)
 
     fig.suptitle('9 Target Viruses — Protein Structure & Ground Truth',
                  fontsize=16, fontweight='bold', y=1.01)
