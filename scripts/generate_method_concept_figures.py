@@ -327,10 +327,265 @@ def fig_wavelet():
     print('Saved: concept_wavelet.png')
 
 
+def fig_cusum():
+    """CUSUM: 4-step concept diagram."""
+    fig, axes = plt.subplots(4, 1, figsize=(12, 10), sharex=True)
+    colors = {'bg': '#E8E8E8', 'hot': '#DD8452', 'line': '#4C72B0'}
+
+    # Step 1: Raw score profile
+    ax = axes[0]
+    ax.bar(positions, scores, width=1.0, color=colors['line'], alpha=0.7, edgecolor='none')
+    ax.set_ylabel('Score', fontsize=12)
+    ax.set_title('Step 1: Score profile across the genome', fontsize=13, fontweight='bold', loc='left')
+    ax.set_ylim(0, 1.0)
+
+    # Step 2: z-normalize
+    ax = axes[1]
+    z_scores = (scores - np.mean(scores)) / np.std(scores)
+    ax.plot(positions, z_scores, color=colors['line'], linewidth=1.5)
+    ax.axhline(y=0, color='gray', linewidth=0.8)
+    ax.set_ylabel('Z-score', fontsize=12)
+    ax.set_title('Step 2: Z-normalize scores (subtract mean, divide by std)', fontsize=13, fontweight='bold', loc='left')
+
+    # Step 3: Cumulative sum
+    ax = axes[2]
+    cusum_pos = np.zeros(N)
+    for i in range(1, N):
+        cusum_pos[i] = max(0, cusum_pos[i-1] + z_scores[i] - 0.5)
+    ax.plot(positions, cusum_pos, color=colors['hot'], linewidth=2)
+    thresh_c = np.mean(cusum_pos) + 2 * np.std(cusum_pos)
+    ax.axhline(y=thresh_c, color='red', linestyle='--', linewidth=1.5)
+    ax.fill_between(positions, 0, cusum_pos, where=cusum_pos > thresh_c, color=colors['hot'], alpha=0.3)
+    ax.annotate('Threshold', xy=(1.02, thresh_c), xycoords=('axes fraction', 'data'),
+                fontsize=10, color='red', va='center', ha='left', fontweight='bold', annotation_clip=False)
+    ax.set_ylabel('CUSUM', fontsize=12)
+    ax.set_title('Step 3: Cumulative sum rises sharply in hotspot regions', fontsize=13, fontweight='bold', loc='left')
+
+    # Step 4: Detected
+    ax = axes[3]
+    detected = cusum_pos > thresh_c
+    bar_colors = [colors['hot'] if d else colors['bg'] for d in detected]
+    ax.bar(positions, scores, width=1.0, color=bar_colors, alpha=0.8, edgecolor='none')
+    ax.set_ylabel('Score', fontsize=12)
+    ax.set_xlabel('Genomic Position', fontsize=12)
+    ax.set_title('Step 4: Change-point regions = detected hotspots (orange)', fontsize=13, fontweight='bold', loc='left')
+    ax.set_ylim(0, 1.0)
+
+    for ax in axes:
+        ax.spines['top'].set_visible(False)
+        ax.spines['right'].set_visible(False)
+        ax.tick_params(labelsize=10)
+    fig.tight_layout(pad=1.5)
+    fig.savefig(f'{OUT_DIR}/concept_cusum.png', dpi=200, bbox_inches='tight', facecolor='white')
+    plt.close(fig)
+    print('Saved: concept_cusum.png')
+
+
+def fig_kde():
+    """KDE: 4-step concept diagram."""
+    from scipy.stats import gaussian_kde
+
+    fig, axes = plt.subplots(4, 1, figsize=(12, 10), sharex=True)
+    colors = {'bg': '#E8E8E8', 'hot': '#55A868', 'line': '#4C72B0', 'kde': '#D62728'}
+
+    # Step 1: Raw score profile
+    ax = axes[0]
+    ax.bar(positions, scores, width=1.0, color=colors['line'], alpha=0.7, edgecolor='none')
+    ax.set_ylabel('Score', fontsize=12)
+    ax.set_title('Step 1: Score profile across the genome', fontsize=13, fontweight='bold', loc='left')
+    ax.set_ylim(0, 1.0)
+
+    # Step 2: Weight positions by score
+    ax = axes[1]
+    weighted_pos = []
+    for i, s in enumerate(scores):
+        weighted_pos.extend([i] * int(s * 100))
+    weighted_pos = np.array(weighted_pos) if len(weighted_pos) > 0 else np.array([0])
+    ax.hist(weighted_pos, bins=100, color=colors['line'], alpha=0.6, density=True, edgecolor='none')
+    ax.set_ylabel('Weighted Density', fontsize=12)
+    ax.set_title('Step 2: Weight each position by its score (high score = more weight)', fontsize=13, fontweight='bold', loc='left')
+
+    # Step 3: Fit KDE curve
+    ax = axes[2]
+    if len(weighted_pos) > 1:
+        kde = gaussian_kde(weighted_pos, bw_method=0.03)
+        x_kde = np.linspace(0, N, 500)
+        density = kde(x_kde)
+    else:
+        x_kde = np.linspace(0, N, 500)
+        density = np.zeros_like(x_kde)
+    ax.plot(x_kde, density, color=colors['kde'], linewidth=2)
+    thresh_k = np.percentile(density, 90)
+    ax.axhline(y=thresh_k, color=colors['hot'], linestyle='--', linewidth=1.5)
+    ax.fill_between(x_kde, 0, density, where=density > thresh_k, color=colors['hot'], alpha=0.3)
+    ax.annotate('90th percentile', xy=(1.02, thresh_k), xycoords=('axes fraction', 'data'),
+                fontsize=10, color=colors['hot'], va='center', ha='left', fontweight='bold', annotation_clip=False)
+    ax.set_ylabel('KDE Density', fontsize=12)
+    ax.set_title('Step 3: Fit smooth density curve → peaks = candidate hotspots', fontsize=13, fontweight='bold', loc='left')
+
+    # Step 4: Detected
+    ax = axes[3]
+    kde_at_pos = kde(positions) if len(weighted_pos) > 1 else np.zeros(N)
+    detected = kde_at_pos > thresh_k
+    bar_colors = [colors['hot'] if d else colors['bg'] for d in detected]
+    ax.bar(positions, scores, width=1.0, color=bar_colors, alpha=0.8, edgecolor='none')
+    ax.set_ylabel('Score', fontsize=12)
+    ax.set_xlabel('Genomic Position', fontsize=12)
+    ax.set_title('Step 4: High-density regions = detected hotspots (green)', fontsize=13, fontweight='bold', loc='left')
+    ax.set_ylim(0, 1.0)
+
+    for ax in axes:
+        ax.spines['top'].set_visible(False)
+        ax.spines['right'].set_visible(False)
+        ax.tick_params(labelsize=10)
+    fig.tight_layout(pad=1.5)
+    fig.savefig(f'{OUT_DIR}/concept_kde.png', dpi=200, bbox_inches='tight', facecolor='white')
+    plt.close(fig)
+    print('Saved: concept_kde.png')
+
+
+def fig_bayes():
+    """Bayes: 4-step concept diagram."""
+    fig, axes = plt.subplots(4, 1, figsize=(12, 10), sharex=True)
+    colors = {'bg': '#E8E8E8', 'hot': '#8172B3', 'line': '#4C72B0', 'prior': '#FF7F0E'}
+
+    prior = 0.05  # prior probability of hotspot
+
+    # Step 1: Raw scores
+    ax = axes[0]
+    ax.bar(positions, scores, width=1.0, color=colors['line'], alpha=0.7, edgecolor='none')
+    ax.set_ylabel('Score', fontsize=12)
+    ax.set_title('Step 1: Observed scores at each position', fontsize=13, fontweight='bold', loc='left')
+    ax.set_ylim(0, 1.0)
+
+    # Step 2: Prior probability
+    ax = axes[1]
+    ax.axhline(y=prior, color=colors['prior'], linewidth=2)
+    ax.fill_between(positions, 0, prior, color=colors['prior'], alpha=0.2)
+    ax.set_ylabel('Prior P(hotspot)', fontsize=12)
+    ax.set_title(f'Step 2: Set prior probability = {prior} (expect {prior*100:.0f}% of positions are hotspots)',
+                 fontsize=13, fontweight='bold', loc='left')
+    ax.set_ylim(0, 0.2)
+
+    # Step 3: Posterior probability (Bayes update)
+    ax = axes[2]
+    # Simple Bayesian: posterior proportional to prior * likelihood(score)
+    likelihood = scores / (np.max(scores) + 1e-10)
+    posterior = (prior * likelihood) / (prior * likelihood + (1 - prior) * (1 - likelihood + 1e-10))
+    ax.plot(positions, posterior, color=colors['hot'], linewidth=2)
+    thresh_b = 0.5
+    ax.axhline(y=thresh_b, color='red', linestyle='--', linewidth=1.5)
+    ax.fill_between(positions, 0, posterior, where=posterior > thresh_b, color=colors['hot'], alpha=0.3)
+    ax.annotate('P > 0.5 = hotspot', xy=(1.02, thresh_b), xycoords=('axes fraction', 'data'),
+                fontsize=10, color='red', va='center', ha='left', fontweight='bold', annotation_clip=False)
+    ax.set_ylabel('Posterior P(hotspot)', fontsize=12)
+    ax.set_title('Step 3: Combine prior + observed score → posterior probability', fontsize=13, fontweight='bold', loc='left')
+    ax.set_ylim(0, 1.0)
+
+    # Step 4: Detected
+    ax = axes[3]
+    detected = posterior > thresh_b
+    bar_colors = [colors['hot'] if d else colors['bg'] for d in detected]
+    ax.bar(positions, scores, width=1.0, color=bar_colors, alpha=0.8, edgecolor='none')
+    ax.set_ylabel('Score', fontsize=12)
+    ax.set_xlabel('Genomic Position', fontsize=12)
+    ax.set_title('Step 4: Posterior > 0.5 = detected hotspots (purple)', fontsize=13, fontweight='bold', loc='left')
+    ax.set_ylim(0, 1.0)
+
+    for ax in axes:
+        ax.spines['top'].set_visible(False)
+        ax.spines['right'].set_visible(False)
+        ax.tick_params(labelsize=10)
+    fig.tight_layout(pad=1.5)
+    fig.savefig(f'{OUT_DIR}/concept_bayes.png', dpi=200, bbox_inches='tight', facecolor='white')
+    plt.close(fig)
+    print('Saved: concept_bayes.png')
+
+
+def fig_ensemble():
+    """Ensemble: 4-step concept diagram."""
+    fig, axes = plt.subplots(2, 2, figsize=(12, 10))
+    colors_methods = ['#4C72B0', '#D62728', '#55A868', '#DD8452']
+    color_final = '#8172B3'
+
+    # Simulate 4 sub-detectors with different results
+    np.random.seed(123)
+    detections = []
+    method_names = ['FreqThresh', 'Wavelet', 'DBSCAN', 'SlidingWin']
+    for i, name in enumerate(method_names):
+        det = np.zeros(N, dtype=bool)
+        # Each method detects slightly different regions
+        det[58+i*2:77-i] = True
+        det[138+i:157-i*2] = True
+        # Some false positives unique to each method
+        if i == 0: det[30:35] = True
+        if i == 1: det[100:103] = True
+        if i == 2: det[180:183] = True
+        detections.append(det)
+
+    # Step 1-2: Show 4 individual detectors
+    for idx in range(4):
+        if idx < 2:
+            ax = axes[0, idx]
+        else:
+            ax = axes[1, idx - 2]
+
+        if idx < 3:
+            det = detections[idx]
+            bar_colors = [colors_methods[idx] if d else '#E8E8E8' for d in det]
+            ax.bar(positions, scores, width=1.0, color=bar_colors, alpha=0.7, edgecolor='none')
+            ax.set_title(f'Detector {idx+1}: {method_names[idx]}', fontsize=13, fontweight='bold')
+            ax.set_ylabel('Score', fontsize=11)
+            ax.set_ylim(0, 1.0)
+            # Count detections
+            n_det = np.sum(det)
+            ax.annotate(f'{n_det} positions detected', xy=(0.98, 0.95),
+                       xycoords='axes fraction', fontsize=10, ha='right', va='top',
+                       color=colors_methods[idx], fontweight='bold')
+        else:
+            # Step 4: Majority vote (3/4 agree)
+            vote_count = np.sum(detections, axis=0)
+            majority = vote_count >= 3
+            bar_colors = [color_final if m else '#E8E8E8' for m in majority]
+            ax.bar(positions, scores, width=1.0, color=bar_colors, alpha=0.8, edgecolor='none')
+            ax.set_title('Ensemble: Majority vote (≥3/4 agree)', fontsize=13, fontweight='bold')
+            ax.set_ylabel('Score', fontsize=11)
+            ax.set_ylim(0, 1.0)
+            n_final = np.sum(majority)
+            ax.annotate(f'{n_final} positions (false positives removed)',
+                       xy=(0.98, 0.95), xycoords='axes fraction', fontsize=10,
+                       ha='right', va='top', color=color_final, fontweight='bold')
+            for start, end in [(58, 77), (138, 157)]:
+                mid = (start + end) / 2
+                if any(majority[start:end]):
+                    ax.annotate('Hotspot', xy=(mid, 0.88), fontsize=11,
+                               ha='center', color=color_final, fontweight='bold')
+
+        ax.set_xlabel('Genomic Position', fontsize=11)
+        ax.spines['top'].set_visible(False)
+        ax.spines['right'].set_visible(False)
+        ax.tick_params(labelsize=10)
+
+    # Relabel panels
+    axes[0, 0].set_title('Step 1: Detector 1 (FreqThresh)', fontsize=13, fontweight='bold')
+    axes[0, 1].set_title('Step 2: Detector 2 (Wavelet)', fontsize=13, fontweight='bold')
+    axes[1, 0].set_title('Step 3: Detector 3 (DBSCAN)', fontsize=13, fontweight='bold')
+    axes[1, 1].set_title('Step 4: Majority vote — only agreed regions kept', fontsize=13, fontweight='bold')
+
+    fig.tight_layout(pad=2.0)
+    fig.savefig(f'{OUT_DIR}/concept_ensemble.png', dpi=200, bbox_inches='tight', facecolor='white')
+    plt.close(fig)
+    print('Saved: concept_ensemble.png')
+
+
 if __name__ == '__main__':
     print('Generating method concept diagrams...\n')
     fig_freqthresh()
     fig_sliding_window()
     fig_dbscan()
     fig_wavelet()
-    print('\nAll 4 concept diagrams generated.')
+    fig_cusum()
+    fig_kde()
+    fig_bayes()
+    fig_ensemble()
+    print('\nAll 8 concept diagrams generated.')
