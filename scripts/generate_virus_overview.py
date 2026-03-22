@@ -194,7 +194,7 @@ def fig_comparative_overview():
 
 def fig_protein_structures():
     """Linear protein structure diagrams for all 9 viruses."""
-    fig, axes = plt.subplots(9, 1, figsize=(14, 18))
+    fig, axes = plt.subplots(9, 1, figsize=(14, 24))
 
     for idx, v in enumerate(VIRUSES):
         ax = axes[idx]
