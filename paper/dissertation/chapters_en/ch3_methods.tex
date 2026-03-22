@@ -177,6 +177,13 @@ HCV & E2 & 54 & 0$^\ddagger$ & --- & HVR1/HVR2 hypervariable regions \\
 $^\ddagger$The CD81 binding site residues of HCV (AA 418--535) exceed the alignment length (340 AA) and are not evaluated in this benchmark, resulting in effective Layer B = 0.
 
 Note that Layer~A selection criteria vary across pathogens: SARS-CoV-2 and H3N2 use phylogenetically confirmed convergent evolution sites, Norovirus uses epochal variant positions, HCV uses hypervariable regions (HVR1/HVR2), and the remaining pathogens use literature-reported immune evasion positions. This heterogeneity is a limitation of the current ground truth construction (discussed in Chapter~\ref{ch:discussion}).
+
+\textbf{Inclusion of pathogens with incomplete ground truth layers.}
+Only four pathogens (SARS-CoV-2, H3N2, HIV-1, RSV) have all three layers available.
+Norovirus, MERS, and HCV have only Layer~A; Influenza~B and Dengue lack Layer~C.
+These pathogens are nevertheless included because (1)~the primary evaluation metric (MCC) is computed using only Layer~A (positive selection sites as positives, all other positions as negatives), so the core evaluation is valid without Layers~B/C;
+(2)~restricting the benchmark to four pathogens would provide insufficient statistical power for the cross-pathogen analyses (ANOVA, Friedman, LOPO) in Chapter~\ref{ch:results};
+and (3)~including pathogens with diverse evolutionary dynamics and varying ground truth availability more accurately reflects real-world conditions where comprehensive ground truth is rarely available for all pathogens.
 \end{minipage}
 \end{table}
 
