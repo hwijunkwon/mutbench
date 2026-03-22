@@ -14,117 +14,44 @@ Stage~2 (Section~\ref{sec:9pathogen_results} onwards) extends the evaluation to 
 \subsection{Variant Comparison on Synthetic Data}
 \label{sec:variant_comparison}
 
-Using synthetic H-scores, the methods were compared across 7 functional regions (1,251 unique ground truth nucleotide positions) on a SARS-CoV-2-like genome (29,903 positions).
-As described in Chapter~\ref{ch:mutbench}, this synthetic benchmark serves as a controlled signal recovery test that evaluates the ability to recover signals inserted at known positions.
-The results are presented in Table~\ref{tab:method_comparison}.
+As a controlled signal recovery test, synthetic H-scores were generated for a SARS-CoV-2-like genome (29,903 positions) with 1,251 ground truth functional positions.
+This experiment validates the evaluation framework itself---not real-world detection performance, which is assessed in subsequent sections using actual GISAID data.
+Table~\ref{tab:hotspot_scores} summarizes the results.
 
 \begin{table}[htbp]
 \centering
-\caption{Method comparison on synthetic SARS-CoV-2 data (29,903 positions, 1,251 ground truth functional nucleotide positions)}
-\label{tab:method_comparison}
-\adjustbox{max width=\textwidth}{
-\begin{tabular}{lrrrrrr}
-\toprule
-\textbf{Method} & \textbf{Precision} & \textbf{Recall} & \textbf{F1} & \textbf{Enrichment} & \textbf{Detections} & \textbf{Clusters} \\
-\midrule
-MutClust-Original & 0.991 & 0.504 & 0.668 & 23.68 & 637 & 31 \\
-MutClust-Fixed & 0.988 & 0.506 & 0.669 & 23.60 & 641 & 30 \\
-MutClust-dNdS$^\dagger$ & 0.988 & 0.506 & 0.669 & 23.60 & 641 & 30 \\
-MutClust-Hybrid & 0.968 & 0.659 & 0.785 & 23.15 & 852 & 8 \\
-HDBSCAN-Auto & 0.079 & 0.944 & 0.146 & 1.89 & 14,916 & 21 \\
-\midrule
-Frequency baseline & 0.404 & 0.965 & 0.569 & 9.65 & 2,991 & 1,587 \\
-Sliding window & 0.157 & 0.974 & 0.270 & 3.75 & 7,773 & 214 \\
-\bottomrule
-\end{tabular}
-}
-\begin{minipage}{\textwidth}
-\smallskip
-\footnotesize $^\dagger$Since no reference sequence is provided for dN/dS calculation in synthetic data, this yields identical results to MutClust-Fixed. All metrics are computed from full-precision values and rounded to three decimal places for display; recomputation from the displayed values may differ by $\pm$0.001.
-\end{minipage}
-\end{table}
-
-The results reveal a clear precision--recall trade-off among detection strategies.
-MutClust variants using CCM-based seed detection (Original, Fixed, dNdS) achieve near-perfect precision ($> 0.98$) but moderate recall (0.50--0.51), reflecting that CCM detection primarily identifies high-signal hotspot regions (RBD, furin cleavage) while missing low-signal functional sites (NTD supersite, HR1/HR2).
-The bug fix expanded the detected positions by 4 while maintaining precision (641 vs. 637).
-
-MutClust-Hybrid achieved the highest F1 (0.785) by combining CCM seed detection with HDBSCAN boundary determination.
-Its precision (0.968) approached that of CCM-only variants while recall (0.659) was substantially improved, capturing additional functional regions including parts of the NTD supersite through HDBSCAN's broader boundary estimation.
-
-HDBSCAN-Auto achieved the highest recall (0.944) but exhibited low precision (0.079), detecting 14,916 positions---approximately half the genome---in 21 clusters.
-This shows that without CCM seed detection constraining the candidate space, HDBSCAN captures considerable background noise along with actual functional sites.
-This demonstrates that domain-specific prior knowledge substantially improves detection specificity.
-
-\textbf{External baseline comparison.}
-Both baselines achieved high recall (0.965, 0.974) but low precision (0.404, 0.157), with F1 scores (0.569, 0.270) below all MutClust variants (0.668--0.785).
-These results confirm that MutClust's CCM-based adaptive density estimation provides substantial performance improvement over simple threshold- and window-based approaches.
-
-Extended evaluation metrics including hotspot-score are presented in Table~\ref{tab:hotspot_scores}.
-
-\begin{table}[htbp]
-\centering
-\caption{Hotspot-score analysis (100 subsamplings, 80\% position retention)}
+\caption{Synthetic benchmark results: method comparison with hotspot-score (100 subsamplings, 80\% retention)}
 \label{tab:hotspot_scores}
 \adjustbox{max width=\textwidth}{
-\begin{tabular}{lrrrr}
+\begin{tabular}{lrrrrr}
 \toprule
-\textbf{Method} & \textbf{Precision} & \textbf{Recall} & \textbf{Stability} & \textbf{Hotspot-score} \\
+\textbf{Method} & \textbf{Precision} & \textbf{Recall} & \textbf{F1} & \textbf{Stability} & \textbf{Hotspot-score} \\
 \midrule
-MutClust-Original & 0.991 & 0.504 & 0.418 & 0.638 \\
-MutClust-Fixed & 0.988 & 0.506 & 0.445 & 0.646 \\
-MutClust-dNdS & 0.988 & 0.506 & 0.445 & 0.646 \\
-\textbf{MutClust-Hybrid} & \textbf{0.968} & \textbf{0.659} & \textbf{0.706} & \textbf{0.778} \\
-HDBSCAN-Auto & 0.079 & 0.944 & 0.788 & 0.604 \\
+MutClust-Original & 0.991 & 0.504 & 0.668 & 0.418 & 0.638 \\
+MutClust-Fixed & 0.988 & 0.506 & 0.669 & 0.445 & 0.646 \\
+MutClust-dNdS & 0.988 & 0.506 & 0.669 & 0.445 & 0.646 \\
+\textbf{MutClust-Hybrid} & \textbf{0.968} & \textbf{0.659} & \textbf{0.785} & \textbf{0.706} & \textbf{0.778} \\
+HDBSCAN-Auto & 0.079 & 0.944 & 0.146 & 0.788 & 0.604 \\
+\midrule
+Frequency baseline & 0.404 & 0.965 & 0.569 & --- & --- \\
+Sliding window & 0.157 & 0.974 & 0.270 & --- & --- \\
 \bottomrule
 \end{tabular}
 }
 \end{table}
 
-The hotspot-score identifies \textbf{MutClust-Hybrid as the best-performing method} (0.778), combining near-perfect precision (0.968), improved recall (0.659), and high stability (0.706) by retaining CCM seeds while using HDBSCAN for boundary determination.
-HDBSCAN-Auto achieved high recall (0.944) and stability (0.788) but the lowest hotspot-score (0.604) due to low precision (0.079), illustrating the value of composite metrics over single-metric evaluation (Figure~\ref{fig:mutbench_method_comparison_top}, Figure~\ref{fig:mutbench_method_comparison_bottom}).
+The results demonstrate a clear precision--recall trade-off: CCM-based variants achieve precision $> 0.98$ but recall $\sim$0.50, while HDBSCAN-Auto achieves recall 0.944 but precision 0.079 (detecting half the genome).
+\textbf{MutClust-Hybrid} achieves the best balance (F1 = 0.785, hotspot-score = 0.778) by combining CCM seed detection with HDBSCAN boundary determination.
+Both external baselines (frequency thresholding, sliding window) underperform all MutClust variants (F1: 0.270--0.569 vs. 0.668--0.785).
 
-\textbf{Two-stage pipeline validation.}
-To combine the high recall of HDBSCAN-Auto with the high precision of MutClust-Hybrid, a two-stage detection pipeline was additionally validated.
-The intersection of positions detected by HDBSCAN-Auto (14,916 positions) and MutClust-Hybrid (852 positions) yielded 831 positions in 6 clusters, maintaining precision of 0.968 while improving stability to 0.740, achieving the highest hotspot-score (0.784), with F1 (0.772) approaching that of MutClust-Hybrid alone (0.785) (Table~\ref{tab:twostep_pipeline}).
-In contrast, the union (14,964 positions) achieved the highest recall (0.970) and stability (0.794) but suffered a sharp drop in precision to 0.081.
-These results demonstrate that the complementarity of the two methods is most effectively realized through the intersection strategy, providing a basis for strategy selection according to application context (discussed in detail in Chapter~\ref{ch:discussion}).
+\textbf{Important caveat}: These synthetic results substantially overestimate real-world performance.
+On actual GISAID data (Section~\ref{subsec:real_gisaid}), MutClust-Hybrid F1 drops from 0.785 to 0.123 due to the extreme sparsity of real H-score distributions (342 of 29,903 positions nonzero vs. continuous synthetic background noise).
+The synthetic benchmark thus validates the \textit{framework's ability to discriminate methods}, not the methods' absolute performance on real data.
 
-\begin{table}[htbp]
-\centering
-\caption{Two-stage pipeline validation results (synthetic data, 29,903 positions, 1,251 ground truth positions)}
+\label{tab:method_comparison}
 \label{tab:twostep_pipeline}
-\small
-\adjustbox{max width=\textwidth}{
-\begin{tabular}{lrrrrrr}
-\toprule
-\textbf{Approach} & \textbf{Precision} & \textbf{Recall} & \textbf{F1} & \textbf{Detections} & \textbf{Stability} & \textbf{HS} \\
-\midrule
-HDBSCAN-Auto (standalone) & 0.079 & 0.944 & 0.146 & 14,916 & 0.788 & 0.604 \\
-MutClust-Hybrid (standalone) & 0.968 & 0.659 & 0.785 & 852 & 0.706 & 0.778 \\
-\midrule
-\textbf{Two-stage intersection} & \textbf{0.968} & 0.643 & 0.772 & 831 & \textbf{0.740} & \textbf{0.784} \\
-\bottomrule
-\end{tabular}
-}
-\begin{minipage}{\textwidth}
-\smallskip
-\footnotesize HS = hotspot-score. Intersection: Only 6 clusters (831 positions) from MutClust-Hybrid that overlap with HDBSCAN-Auto detection regions are selected. 6 out of 8 MutClust-Hybrid clusters (75\%) overlap with HDBSCAN-Auto. Stability is estimated as the geometric mean of the two methods' unrounded bootstrap stability values.
-\end{minipage}
-\end{table}
-
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=\textwidth]{new_methodology_comparison_top.png}
-\caption{Method comparison on synthetic SARS-CoV-2 data (Part 1). (A)~Performance metrics at top-10\% threshold, (B)~Best F1 scores at optimal threshold, (C)~CH-score distribution for functional vs non-functional positions.}
 \label{fig:mutbench_method_comparison_top}
-\end{figure}
-
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=\textwidth]{new_methodology_comparison_bottom.png}
-\caption{Method comparison on synthetic SARS-CoV-2 data (Part 2). (D)~Score profiles along the Spike protein, (E)~H-score saturation problem, (F)~Functional region enrichment in the top-10\% of scored positions.}
 \label{fig:mutbench_method_comparison_bottom}
-\end{figure}
 
 %% ------------------------------------------------------------
 \subsection{Multi-Ground Truth Evaluation}
