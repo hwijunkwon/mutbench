@@ -343,6 +343,7 @@ These results establish that the performance rankings in Table~\ref{tab:hotspot_
 
 \subsubsection{Sample Size Sensitivity}
 
+To verify that the benchmark results are not artifacts of a specific sample size, the effect of varying the number of input sequences on detection performance was analyzed.
 To determine the minimum number of input sequences required for stable hotspot detection, MutClust-Hybrid was evaluated across sample sizes ranging from 100 to 10,000 sequences (5 replicates per size).
 
 H-score rank correlation (Spearman $\rho$) between subsamples and the full dataset exceeded 0.997 at $n = 1{,}000$ and reached 1.000 at $n = 10{,}000$.
@@ -477,6 +478,7 @@ This finding validates the critical limitation that H-scores computed against a 
 \subsection{Indel Exclusion Impact}
 \label{sec:indel_impact}
 
+A critical limitation of position-level scoring methods must be acknowledged: they are blind to insertions and deletions.
 H-score is a fixed-coordinate metric that measures point mutation frequency at each position relative to a reference sequence and therefore cannot capture insertions or deletions (indels).
 Analysis of 9,957 GISAID 2024--2025 Spike sequences revealed that 99.8\% carry at least one functional indel (e.g., del69-70, Y144del, del156-157), yet all indel positions have H-score = 0.000, confirming complete exclusion from H-score-based detection.
 Among approximately 35 major Spike functional variants, at least 5 (approximately 14\%) are indels.
@@ -681,6 +683,8 @@ This section sequentially reports the benchmark scale, per-pathogen best method 
 \subsection{Benchmark Scale and Data}
 \label{subsec:9pathogen_scale}
 
+This section presents the full-scale 9-pathogen benchmark results that constitute the primary evidence for the dissertation's second contribution (statistical demonstration of pathogen-adaptive method selection necessity).
+
 A total of 3,321 evaluations (9 scoring formulas $\times$ 41 detection algorithms $\times$ 9 pathogens) were conducted.
 Of these, 777 (23.4\%) evaluations resulted in the detection method identifying 0 positions (n\_detected = 0), because certain SWAN and ScoreDBSCAN variants failed to find positions satisfying the $z$-normalization threshold or density criteria in the score distributions of specific pathogens.
 These zero-detection evaluations are treated as MCC = 0. However, the ANOVA analysis used 2,544 valid evaluations excluding zero-detection cases, with Type III sum of squares applied.
@@ -692,6 +696,7 @@ All FASTA sequences were collected from NCBI GenBank using actual accession numb
 \subsection{Per-Pathogen Best Method Analysis}
 \label{subsec:9pathogen_best_combos}
 
+The central question of Stage 2 is whether the same scoring--detection combination performs best across all pathogens, or whether each pathogen requires a different optimal combination.
 The best scoring--detection combination was selected for each of the 9 pathogens based on MCC, and \textbf{all 9/9 pathogens exhibited distinct best combinations} (Table~\ref{tab:9pathogen_best}).
 
 \begin{table}[htbp]
@@ -737,6 +742,8 @@ Third, the MCC range spans from 0.088 (MERS) to 0.549 (H3N2), exhibiting large v
 %% ------------------------------------------------------------
 \subsection{Statistical Analysis}
 \label{subsec:9pathogen_statistical}
+
+To determine whether the observed method--pathogen dependence is statistically significant, three complementary statistical analyses were performed.
 
 \textbf{Three-way ANOVA ($\omega^2$).}
 \label{subsec:9pathogen_anova}
@@ -846,6 +853,8 @@ This supports the conclusion that the benchmark findings reflect intrinsic prope
 %% ------------------------------------------------------------
 \subsection{Supplementary Analyses}
 \label{subsec:9pathogen_supplementary}
+
+Several supplementary analyses were conducted to validate the robustness and generalizability of the benchmark findings.
 
 \textbf{Cross-Paradigm Validation: Protein Language Model Scoring.}
 \label{subsec:esm_validation}
