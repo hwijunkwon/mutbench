@@ -3,7 +3,7 @@
 \label{ch:mutbench}
 
 본 장에서는 바이러스 변이 핫스팟 탐지 방법의 체계적 평가를 위한 벤치마킹 프레임워크인 MutBench의 방법론을 제시한다.
-전체 파이프라인은 9종 RNA 바이러스의 다중서열정렬(MSA) 데이터를 9가지 스코어링 공식과 41개 탐지 방법으로 처리하고, 3계층 ground truth 체계에 대해 hotspot-score 복합 지표와 Matthews Correlation Coefficient (MCC)로 평가한다.
+전체 파이프라인은 9종 RNA 바이러스의 다중서열정렬(MSA) 데이터를 9가지 스코어링 공식과 39개 탐지 방법으로 처리하고, 3계층 ground truth 체계에 대해 hotspot-score 복합 지표와 Matthews Correlation Coefficient (MCC)로 평가한다.
 평가는 2단계 구조를 따른다: 1단계는 SARS-CoV-2에 대한 깊이 우선 분석으로 프레임워크 구성요소를 검증하고, 2단계는 9종 병원체 전체로 확장하여 대규모 교차 병원체 비교를 수행한다.
 제~\ref{sec:mutbench_materials}절에서는 자료(대상 병원체, ground truth 프레임워크, DMS 데이터)를 기술한다. 제~\ref{sec:mutbench_methods}--\ref{sec:eval_stat_design_kr}절에서는 방법을 제시한다: 제~\ref{sec:mutbench_methods}절은 벤치마크 프레임워크 설계(MutClust 변이체 및 hotspot-score 지표 포함)를, 제~\ref{sec:scoring_detection_kr}절은 스코어링 공식 및 탐지 방법 패밀리를, 제~\ref{sec:eval_stat_design_kr}절은 평가 지표 및 통계 분석 설계를 기술한다.
 \label{sec:9pathogen_benchmark}
@@ -177,7 +177,7 @@ MutBench는 바이러스 변이 핫스팟 탐지를 위한 체계적 벤치마�
 \node[box, fill=green!10, below=of input] (scoring) {Scoring Formulas\\(9 methods)};
 
 % Detection
-\node[box, fill=orange!10, below=of scoring] (detection) {Detection Methods\\(41 methods, 15 families)};
+\node[box, fill=orange!10, below=of scoring] (detection) {Detection Methods\\(39 methods, 14 families)};
 
 % Ground Truth
 \node[box, fill=red!10, right=2.5cm of scoring] (gt) {3-Layer Ground Truth\\A: Convergent / B: Constrained / C: DMS};
@@ -459,12 +459,13 @@ F1 + 안정성 구조에서는 이 방법이 과소평가되지만, (재현율 +
 \subsection{탐지 방법 패밀리}
 \label{subsec:9pathogen_detection}
 
-15개 알고리즘 패밀리에 속하는 총 41개 탐지 방법을 평가한다.
+14개 알고리즘 패밀리에 속하는 총 39개 탐지 방법을 평가한다.
+2개의 앙상블 변이체(4개 역치 기반 하위 탐지기의 다수결 투표)는 벤치마크 내 다른 방법의 결정론적 조합이므로, 공정한 비교를 위해 제외하였다.
 각 탐지 방법은 스코어링 공식이 부여한 위치별 점수 프로파일로부터 핫스팟 영역을 식별한다.
 
 \begin{table}[htbp]
 \centering
-\caption{9-병원체 벤치마크에서 평가된 41개 탐지 방법 (15개 패밀리)}
+\caption{9-병원체 벤치마크에서 평가된 39개 탐지 방법 (14개 패밀리)}
 \label{tab:detection_families}
 \small
 \adjustbox{max width=\textwidth}{
@@ -483,25 +484,24 @@ ScoreDBSCAN & 점수 기반 밀도 공간 클러스터링 & 2 \\
 Spectral & 스펙트럼 분석 기반 주기적 패턴 탐지 & 2 \\
 Bayes & 베이지안 변화점 탐지 & 2 \\
 \midrule
-Ensemble & 다수결 앙상블 & 2 \\
 AdaptWin & 적응형 윈도우 크기 탐지 & 2 \\
 FreqThresh & 빈도 백분위 역치 (top-$k$\%) & 4 \\
 SWAN & 슬라이딩 윈도우 적응형 정규화 & 9 \\
 MutClust-Orig & MutClust 원본 알고리즘 & 1 \\
 \midrule
-\textbf{합계} & & \textbf{41} \\
+\textbf{합계} & & \textbf{39} \\
 \bottomrule
 \end{tabular}
 }
 \end{table}
 
-41개 방법은 15개 알고리즘 패밀리로부터, 각각 서로 다른 파라미터 설정으로 인스턴스화하여 도출된다(표~\ref{tab:detection_variants}).
+39개 방법은 14개 알고리즘 패밀리로부터, 각각 서로 다른 파라미터 설정으로 인스턴스화하여 도출된다(표~\ref{tab:detection_variants}).
 예를 들어, Wavelet 패밀리는 3가지 피크 탐지 역치($t = 1.0, 1.5, 2.0$ 표준편차)로 검정하고, FreqThresh는 4가지 백분위 절단값(상위 1\%, 3\%, 5\%, 10\%)으로 검정한다.
 이 다중 파라미터 설계는 벤치마크가 각 알고리즘 패밀리를 단일의 잠재적으로 차선인 작동점이 아닌, 다양한 민감도--특이도 절충 범위에 걸쳐 평가하도록 보장한다.
 
 \begin{table}[htbp]
 \centering
-\caption{탐지 방법 패밀리별 파라미터 변이체 (총 41개 방법)}
+\caption{탐지 방법 패밀리별 파라미터 변이체 (총 39개 방법)}
 \label{tab:detection_variants}
 \small
 \adjustbox{max width=\textwidth}{
@@ -519,13 +519,12 @@ AdaptiveKnee & (파라미터 없음) & 1 & 자동 knee point 탐지 \\
 ScoreDBSCAN & Epsilon & 2 & $\varepsilon = 10, 15$ \\
 Spectral & 고역 통과 절단값 & 2 & 상위 5\%, 10\% 주파수 \\
 Bayes & 사전 확률 & 2 & $\pi = 0.05, 0.10$ \\
-Ensemble & 하위 탐지기 집합 & 2 & 3-of-4, 4-of-4 다수결 \\
 AdaptWin & 확장 역치 & 2 & 50th, 75th 백분위 \\
 FreqThresh & 상위 $k$\% 절단값 & 4 & $k = 1, 3, 5, 10$ \\
 SWAN & 윈도우 $\times$ 정규화 & 9 & $w \in \{20,50,100\} \times \{z, \text{min-max}, \text{robust}\}$ \\
 MutClust-Orig & (고정) & 1 & 원본 CCM + 적응형 DBSCAN \\
 \midrule
-\textbf{합계} & & \textbf{41} & \\
+\textbf{합계} & & \textbf{39} & \\
 \bottomrule
 \end{tabular}
 }
@@ -554,7 +553,6 @@ ScoreDBSCAN & 밀도 클러스터링 & 암 돌연변이 핫스팟 탐지 & \cite
 Spectral & 푸리에 분석 & 유전체 신호 처리 & \cite{anastassiou2001genomic} \\
 Bayes & 베이지안 탐지 & 암 드라이버 돌연변이 탐지 (MutSigCV) & \cite{lawrence2013mutsigcv} \\
 \midrule
-Ensemble & 다수결 투표 & 암 드라이버 유전자 식별 & \cite{bailey2018comprehensive} \\
 AdaptWin & 적응형 윈도우 & 유전체 복제수 분할 & \cite{picard2011genomicseg} \\
 FreqThresh & 빈도 역치 & SARS-CoV-2 지리적 변이 빈도 & \cite{mercatelli2020geographic} \\
 SWAN & 슬라이딩 윈도우 정규화 & 본 연구에서 최초 제안 & --- \\
@@ -564,7 +562,7 @@ MutClust-Orig & 밀도 기반 클러스터링 & SARS-CoV-2 변이 핫스팟 탐�
 }
 \end{table}
 
-\noindent 15개 패밀리는 아래 5개 범주로 분류된다.
+\noindent 14개 패밀리는 아래 5개 범주로 분류된다.
 
 \textbf{역치 기반} (FreqThresh, AdaptiveKnee, AdaptWin).
 점수 절단값을 적용하여 핫스팟을 선정한다: FreqThresh는 고정 백분위 역치(상위 $k$\%)를 사용하고, AdaptiveKnee는 정렬된 점수 곡선에서 knee point를 자동 탐지하며, AdaptWin은 백분위 역치 이상의 시드 위치를 양방향으로 확장한다.
@@ -578,8 +576,8 @@ KDE는 점수 가중 위치 프로파일에 Gaussian 커널 밀도 추정을 적
 \textbf{통계 및 모델 기반} (SlidingTest, LocalContrast, GradPeak, Bayes, SWAN).
 배경으로부터 유의하게 이탈하는 위치 또는 윈도우를 식별하는 통계적 방법이다: SlidingTest와 SWAN은 슬라이딩 윈도우 $z$-검정을, LocalContrast는 국소 $z$-점수를, GradPeak는 평활화 프로파일에서 현저도 필터링 피크 탐지를, Bayes는 사전확률과 정규화 점수로부터 사후 핫스팟 확률을 산출한다.
 
-\textbf{앙상블 및 레거시} (Ensemble, MutClust-Orig).
-Ensemble은 4개의 간이 하위 탐지기를 다수결 투표로 결합한다. MutClust-Orig는 원본 MutClust 로직(CCM 시드 + 적응형 DBSCAN)을 MSA 기반 점수 프로파일에 적용한다.
+\textbf{레거시} (MutClust-Orig).
+MutClust-Orig는 원본 MutClust 로직(CCM 시드 + 적응형 DBSCAN)을 MSA 기반 점수 프로파일에 적용하며, 도메인 특화 핫스팟 탐지의 기존 기준선 역할을 수행한다~\cite{youn2025mutclust}.
 
 %% ============================================================
 \section{평가 및 통계 설계}
@@ -623,7 +621,7 @@ MCC를 주요 지표로 선택한 이유는, 핫스팟 탐지에서 양성 위�
 
 \subsubsection{Three-way ANOVA ($\omega^2$)}
 
-스코어링 공식(9수준), 탐지 패밀리(15수준), 병원체(9수준)의 세 요인에 대한 삼원분산분석(three-way ANOVA)을 수행한다.
+스코어링 공식(9수준), 탐지 패밀리(14수준), 병원체(9수준)의 세 요인에 대한 삼원분산분석(three-way ANOVA)을 수행한다.
 효과 크기로 편향 보정된 $\omega^2$ (omega-squared)를 사용하며, 이는 $\eta^2$가 표본 크기에 따라 상향 편향되는 문제를 회피한다. $\omega^2$ 값은 Cohen의 효과 크기 기준~\cite{cohen1988statistical}에 따라 0.01(소), 0.06(중), 0.14 이상(대)으로 해석된다:
 \begin{equation}
 \omega^2 = \frac{SS_{\text{effect}} - df_{\text{effect}} \times MS_{\text{error}}}{SS_{\text{total}} + MS_{\text{error}}}

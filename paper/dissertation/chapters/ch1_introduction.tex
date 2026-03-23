@@ -41,7 +41,7 @@ Hotspot 검출 결과를 객관적으로 평가하려면 알고리즘과 독립�
 위의 문제를 해결하기 위하여, 본 연구는 다음 두 가지 목표를 설정한다.
 
 \begin{enumerate}[label=\textbf{목표 \arabic*.}]
-  \item \textbf{바이러스 변이 hotspot 검출을 위한 체계적 벤치마크 프레임워크(MutBench)의 구축}: 3계층 ground truth(수렴 진화 기반 양성, 정제 선택 기반 음성, DMS 기능적 적합도), hotspot-score $= (\text{recall} + \text{precision} + \text{stability}) / 3$ (여기서 stability는 부분추출 반복 시 탐지 결과의 재현성을 측정한다) 복합 평가 지표, 2단계 실험 설계(1단계: SARS-CoV-2 심층 분석, 2단계: 9종 RNA 바이러스 $\times$ 9가지 스코어링 $\times$ 41개 탐지 방법, 총 3,321개 평가)를 포함하는 벤치마크 프레임워크를 구축한다.
+  \item \textbf{바이러스 변이 hotspot 검출을 위한 체계적 벤치마크 프레임워크(MutBench)의 구축}: 3계층 ground truth(수렴 진화 기반 양성, 정제 선택 기반 음성, DMS 기능적 적합도), hotspot-score $= (\text{recall} + \text{precision} + \text{stability}) / 3$ (여기서 stability는 부분추출 반복 시 탐지 결과의 재현성을 측정한다) 복합 평가 지표, 2단계 실험 설계(1단계: SARS-CoV-2 심층 분석, 2단계: 9종 RNA 바이러스 $\times$ 9가지 스코어링 $\times$ 39개 탐지 방법, 총 3,159개 평가)를 포함하는 벤치마크 프레임워크를 구축한다.
 
   \item \textbf{병원체 적응적 방법 선택의 필요성에 대한 경험적 입증}: 대규모 벤치마크 결과에 대한 통계 분석(ANOVA, Friedman 검정, LOPO 교차 검증)을 통해, 단일 최적 방법이라는 전제가 병원체 전반에 걸쳐 성립하지 않음을 경험적으로 확립하고, PAHD 프레임워크의 개념 증명 프로토타입을 제시한다(제~\ref{ch:results}장 참조).
 \end{enumerate}

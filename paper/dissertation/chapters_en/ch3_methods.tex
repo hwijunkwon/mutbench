@@ -3,7 +3,7 @@
 \label{ch:mutbench}
 
 This chapter presents the methodology of MutBench, a benchmark framework for the systematic evaluation of viral mutation hotspot detection methods.
-The overall pipeline processes multiple sequence alignment (MSA) data from 9 RNA viruses through 9 scoring formulas and 41 detection methods, evaluating results against a 3-layer ground truth system using the hotspot-score composite metric and Matthews Correlation Coefficient (MCC).
+The overall pipeline processes multiple sequence alignment (MSA) data from 9 RNA viruses through 9 scoring formulas and 39 detection methods, evaluating results against a 3-layer ground truth system using the hotspot-score composite metric and Matthews Correlation Coefficient (MCC).
 The evaluation follows a two-stage design: Stage~1 conducts in-depth analysis on SARS-CoV-2 to validate the framework components, and Stage~2 extends the evaluation to all 9 pathogens for large-scale cross-pathogen comparison.
 Section~\ref{sec:mutbench_materials} describes the materials (target pathogens, ground truth framework, and DMS data), Sections~\ref{sec:mutbench_methods}--\ref{sec:eval_stat_design} present the methods: Section~\ref{sec:mutbench_methods} covers the benchmark framework design including MutClust variants and the hotspot-score metric, Section~\ref{sec:scoring_detection} describes the scoring formulas and detection method families, and Section~\ref{sec:eval_stat_design} details the evaluation metrics and statistical analysis design.
 \label{sec:9pathogen_benchmark}
@@ -227,7 +227,7 @@ The framework is organized into three components, as illustrated in Figure~\ref{
 \node[box, fill=green!10, below=of input] (scoring) {Scoring Formulas\\(9 methods)};
 
 % Detection
-\node[box, fill=orange!10, below=of scoring] (detection) {Detection Methods\\(41 methods, 15 families)};
+\node[box, fill=orange!10, below=of scoring] (detection) {Detection Methods\\(39 methods, 14 families)};
 
 % Ground Truth
 \node[box, fill=red!10, right=2.5cm of scoring] (gt) {3-Layer Ground Truth\\A: Convergent / B: Constrained / C: DMS};
@@ -521,12 +521,13 @@ For each scoring method, thresholds at the top 5\%, 10\%, 20\%, and median are a
 \subsection{Detection Method Families}
 \label{subsec:9pathogen_detection}
 
-A total of 41 detection methods belonging to 15 algorithm families are evaluated.
+A total of 39 detection methods belonging to 14 algorithm families are evaluated.
 Each detection method identifies hotspot regions from the per-position score profile assigned by a scoring formula.
+Two additional ensemble variants (majority vote of 4 threshold-based sub-detectors) were initially considered but excluded from the benchmark because their outputs are deterministic combinations of other methods already in the benchmark, violating the independence assumption required for fair comparison.
 
 \begin{table}[htbp]
 \centering
-\caption{41 detection methods evaluated in the 9-pathogen benchmark (15 families)}
+\caption{39 detection methods evaluated in the 9-pathogen benchmark (14 families)}
 \label{tab:detection_families}
 \small
 \adjustbox{max width=\textwidth}{
@@ -545,25 +546,24 @@ ScoreDBSCAN & Score-based density-space clustering & 2 \\
 Spectral & Spectral analysis-based periodic pattern detection & 2 \\
 Bayes & Bayesian change-point detection & 2 \\
 \midrule
-Ensemble & Majority vote ensemble & 2 \\
 AdaptWin & Adaptive window size detection & 2 \\
 FreqThresh & Frequency percentile threshold (top-$k$\%) & 4 \\
 SWAN & Sliding window adaptive normalization & 9 \\
 MutClust-Orig & MutClust original algorithm & 1 \\
 \midrule
-\textbf{Total} & & \textbf{41} \\
+\textbf{Total} & & \textbf{39} \\
 \bottomrule
 \end{tabular}
 }
 \end{table}
 
-The 41 methods arise from 15 algorithm families, each instantiated with different parameter settings (Table~\ref{tab:detection_variants}).
+The 39 methods arise from 14 algorithm families, each instantiated with different parameter settings (Table~\ref{tab:detection_variants}).
 For example, the Wavelet family is tested with three peak detection thresholds ($t = 1.0, 1.5, 2.0$ standard deviations above the CWT coefficient mean), and FreqThresh is tested with four percentile cutoffs (top 1\%, 3\%, 5\%, 10\%).
 This multi-parameter design ensures that the benchmark evaluates each algorithm family across a range of sensitivity--specificity trade-offs rather than at a single, potentially suboptimal, operating point.
 
 \begin{table}[htbp]
 \centering
-\caption{Parameter variants for each detection method family (41 methods total)}
+\caption{Parameter variants for each detection method family (39 methods total)}
 \label{tab:detection_variants}
 \small
 \adjustbox{max width=\textwidth}{
@@ -581,13 +581,12 @@ AdaptiveKnee & (parameter-free) & 1 & Automatic knee detection \\
 ScoreDBSCAN & Epsilon & 2 & $\varepsilon = 10, 15$ \\
 Spectral & High-pass cutoff & 2 & Top 5\%, 10\% frequencies \\
 Bayes & Prior probability & 2 & $\pi = 0.05, 0.10$ \\
-Ensemble & Sub-detector set & 2 & 3-of-4, 4-of-4 majority \\
 AdaptWin & Extension threshold & 2 & 50th, 75th percentile \\
 FreqThresh & Top-$k$\% cutoff & 4 & $k = 1, 3, 5, 10$ \\
 SWAN & Window $\times$ normalization & 9 & $w \in \{20,50,100\} \times \{z, \text{min-max}, \text{robust}\}$ \\
 MutClust-Orig & (fixed) & 1 & Original CCM + adaptive DBSCAN \\
 \midrule
-\textbf{Total} & & \textbf{41} & \\
+\textbf{Total} & & \textbf{39} & \\
 \bottomrule
 \end{tabular}
 }
@@ -616,7 +615,6 @@ ScoreDBSCAN & Density clust. & Cancer hotspot detection (HotMAPS) & Found 3D mut
 Spectral & Fourier & Genomic signal processing & Separated coding/non-coding regions via frequency & \cite{anastassiou2001genomic} \\
 Bayes & Bayesian & Cancer driver detection (MutSigCV) & Identified 33 significantly mutated genes in TCGA & \cite{lawrence2013mutsigcv} \\
 \midrule
-Ensemble & Majority vote & Cancer driver gene identification & Consensus of 26 methods reduced false positives & \cite{bailey2018comprehensive} \\
 AdaptWin & Adaptive win. & Genomic segmentation & Segmented chromosomes into gain/loss regions & \cite{picard2011genomicseg} \\
 FreqThresh & Freq. threshold & SARS-CoV-2 mutation frequency & Mapped recurrent mutations across 48,635 genomes & \cite{mercatelli2020geographic} \\
 SWAN & Sliding win. norm. & Novel to this study & --- & --- \\
@@ -626,7 +624,7 @@ MutClust-Orig & Density clust. & SARS-CoV-2 hotspot detection & Identified 7 fun
 }
 \end{table}
 
-\noindent The 15 families are grouped into five categories below; each family is summarized in Table~\ref{tab:detection_families}.
+\noindent The 14 families are grouped into five categories below; each family is summarized in Table~\ref{tab:detection_families}.
 
 \textbf{Threshold-based} (FreqThresh, AdaptiveKnee, AdaptWin).
 These methods select hotspots by applying a score cutoff: FreqThresh uses a fixed percentile threshold (top $k$\%), AdaptiveKnee automatically determines the threshold via knee-point detection on the sorted score curve, and AdaptWin extends seed positions above a percentile threshold bidirectionally to adjacent high-scoring positions.
@@ -644,9 +642,8 @@ Density-based clustering was originally proposed by Ester et al.~\cite{ester1996
 These methods apply statistical tests to identify positions or windows significantly deviating from the background: SlidingTest and SWAN use sliding-window $z$-tests against the global mean, LocalContrast computes local $z$-scores, GradPeak detects prominence-filtered peaks on smoothed profiles, and Bayes computes posterior hotspot probabilities from a prior and normalized scores.
 Sliding window approaches are a standard technique in population genetics and genomic analysis; Tajima~\cite{tajima1989statistical} introduced sliding window computation of the D statistic for detecting departures from neutrality, and similar windowed scanning strategies have been widely adopted for identifying regions under selection in viral genomes.
 
-\textbf{Ensemble and legacy} (Ensemble, MutClust-Orig).
-Ensemble combines four simple sub-detectors via majority voting. MutClust-Orig applies the original MutClust logic (CCM seed + adaptive DBSCAN) to MSA-based score profiles.
-Ensemble strategies that aggregate multiple detection methods have been shown to improve robustness in computational genomics benchmarks~\cite{bailey2018comprehensive}; the rationale is that combining diverse algorithmic perspectives mitigates individual method biases.
+\textbf{Legacy} (MutClust-Orig).
+MutClust-Orig applies the original MutClust logic (CCM seed + adaptive DBSCAN) to MSA-based score profiles, serving as a reference baseline representing the prior state-of-the-art in domain-specific hotspot detection~\cite{youn2025mutclust}.
 
 %% ============================================================
 \section{Evaluation and Statistical Design}
@@ -690,7 +687,7 @@ The stability component used in Stage 1 is excluded from Stage 2 because it is a
 
 \subsubsection{Three-way ANOVA ($\omega^2$)}
 
-A three-way ANOVA is performed with scoring formula (9 levels), detection family (15 levels), and pathogen (9 levels) as factors.
+A three-way ANOVA is performed with scoring formula (9 levels), detection family (14 levels), and pathogen (9 levels) as factors.
 Bias-corrected $\omega^2$ (omega-squared) is used as the effect size measure, which avoids the upward bias of $\eta^2$ with sample size. Following Cohen's effect size benchmarks~\cite{cohen1988statistical}, $\omega^2$ values are interpreted as small (0.01), medium (0.06), and large ($\geq 0.14$):
 \begin{equation}
 \omega^2 = \frac{SS_{\text{effect}} - df_{\text{effect}} \times MS_{\text{error}}}{SS_{\text{total}} + MS_{\text{error}}}

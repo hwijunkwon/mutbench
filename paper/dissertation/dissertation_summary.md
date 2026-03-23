@@ -6,7 +6,7 @@
 
 ## One-Paragraph Summary
 
-This dissertation presents MutBench, the first systematic benchmark framework for evaluating methods that detect mutation hotspots in viral genomes. By evaluating 9 scoring methods combined with 41 detection algorithms across 9 RNA viruses (3,321 total evaluations, 161 pages, 16 figures, ~32 tables, 76 references), the study provides statistical proof that no single detection method works best for all pathogens: all 9 viruses required different optimal method combinations, and the interaction between method and pathogen was the largest source of performance variance. Based on this finding, the author proposes PAHD (Pathogen-Adaptive Hotspot Detection), a proof-of-concept framework that selects detection strategies based on each pathogen's genomic profile. The work fills a gap in viral genomics where, unlike cancer genomics or machine learning, no standardized benchmark existed for comparing hotspot detection approaches.
+This dissertation presents MutBench, the first systematic benchmark framework for evaluating methods that detect mutation hotspots in viral genomes. By evaluating 9 scoring methods combined with 39 detection algorithms across 9 RNA viruses (3,159 total evaluations, 161 pages, 16 figures, ~32 tables, 76 references), the study provides statistical proof that no single detection method works best for all pathogens: all 9 viruses required different optimal method combinations, and the interaction between method and pathogen was the largest source of performance variance. Based on this finding, the author proposes PAHD (Pathogen-Adaptive Hotspot Detection), a proof-of-concept framework that selects detection strategies based on each pathogen's genomic profile. The work fills a gap in viral genomics where, unlike cancer genomics or machine learning, no standardized benchmark existed for comparing hotspot detection approaches.
 
 ---
 
@@ -18,7 +18,7 @@ This dissertation presents MutBench, the first systematic benchmark framework fo
 - **Ch4:** Results — 4 sections: (1) Single-Pathogen Analysis, (2) Robustness Analysis, (3) Cross-Pathogen Analysis, (4) 9-Pathogen Analysis
 - **Ch5:** Discussion
 - **Ch6:** Conclusion
-- **41 detection methods** (from 15 algorithm families), **9 scoring methods**, **9 pathogens**
+- **39 detection methods** (from 14 algorithm families), **9 scoring methods**, **9 pathogens**
 - **Contributions: exactly 2** (MutBench framework; statistical demonstration of pathogen-adaptive necessity)
 
 ---
@@ -89,7 +89,7 @@ where stability is the mean Jaccard similarity between the full-data detection a
 
 - **Stage 1 (Deep, single pathogen):** In-depth analysis on SARS-CoV-2 comparing 5 MutClust variants and 2 baselines using synthetic benchmark, real GISAID data, temporal generalization, parameter sensitivity, and multi-ground-truth evaluation. Primary metric: hotspot-score.
 
-- **Stage 2 (Broad, 9 pathogens):** Large-scale evaluation of 9 scoring formulas combined with 41 detection methods from 15 algorithm families, applied to 9 RNA viruses (SARS-CoV-2, H3N2, Norovirus, HIV-1, Dengue, RSV, Influenza B, MERS, HCV) selected to cover diverse mutation rates, genome sizes, and evolutionary strategies. Total: 3,321 evaluations. Primary metric: Matthews Correlation Coefficient (MCC), which is robust to the extreme class imbalance inherent in hotspot detection (positive rates of 1--16%). A parameter variants table documents all detection method configurations, and a prior applications table summarizes existing literature for each method.
+- **Stage 2 (Broad, 9 pathogens):** Large-scale evaluation of 9 scoring formulas combined with 39 detection methods from 14 algorithm families, applied to 9 RNA viruses (SARS-CoV-2, H3N2, Norovirus, HIV-1, Dengue, RSV, Influenza B, MERS, HCV) selected to cover diverse mutation rates, genome sizes, and evolutionary strategies. Total: 3,159 evaluations. Primary metric: Matthews Correlation Coefficient (MCC), which is robust to the extreme class imbalance inherent in hotspot detection (positive rates of 1--16%). A parameter variants table documents all detection method configurations, and a prior applications table summarizes existing literature for each method.
 
 ### Statistical Validation
 
@@ -111,7 +111,7 @@ The best method on SARS-CoV-2 (MutClust-Hybrid) was outperformed on H3N2 by MutC
 
 ### ANOVA: Interaction is the dominant factor
 
-Three-way ANOVA on 2,544 valid evaluations:
+Three-way ANOVA on 2,418 valid evaluations:
 
 | Factor | omega-squared |
 |---|---|

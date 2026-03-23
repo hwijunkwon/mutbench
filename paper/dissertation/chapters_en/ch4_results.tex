@@ -4,7 +4,7 @@
 
 This chapter reports the experimental results of the MutBench framework presented in Chapter~\ref{ch:mutbench}.
 Stage~1 (Sections~\ref{sec:variant_comparison}--\ref{sec:phylo_simulation}) conducts in-depth analysis on SARS-CoV-2, comparing five MutClust variants and two baseline methods through synthetic benchmark, sensitivity analysis, temporal generalization, multi-ground truth evaluation, and additional validation experiments.
-Stage~2 (Section~\ref{sec:9pathogen_results} onwards) extends the evaluation to 9 RNA viruses with 9 scoring formulas $\times$ 41 detection algorithms, establishing the statistical evidence for pathogen-adaptive method selection.
+Stage~2 (Section~\ref{sec:9pathogen_results} onwards) extends the evaluation to 9 RNA viruses with 9 scoring formulas $\times$ 39 detection algorithms, establishing the statistical evidence for pathogen-adaptive method selection.
 
 %% ============================================================
 \section{Single-Pathogen Benchmark: SARS-CoV-2}
@@ -674,7 +674,7 @@ The qualitative conclusion of the 9-pathogen benchmark---that the best-performin
 \noindent\rule{\textwidth}{0.4pt}
 \vspace{0.5em}
 
-Building on the Stage~1 findings, a Stage~2 benchmark was conducted to systematically evaluate 41 detection methods from 15 algorithm families combined with 9 scoring formulas across 9 pathogens (Section~\ref{sec:9pathogen_benchmark}).
+Building on the Stage~1 findings, a Stage~2 benchmark was conducted to systematically evaluate 39 detection methods from 14 algorithm families combined with 9 scoring formulas across 9 pathogens (Section~\ref{sec:9pathogen_benchmark}).
 Stage~2 uses MCC rather than hotspot-score because the stability component (Jaccard-based subsampling reproducibility) requires bootstrap validation that has not been cross-validated across all 9 pathogens with their widely varying alignment lengths (340--1,330 AA) and MSA sizes (530--5,019 unique sequences). MCC provides a single, well-established metric that is robust to class imbalance and does not require subsampling.
 
 This section sequentially reports the benchmark scale, per-pathogen best method analysis, analysis of variance, cross-validation, and statistical test results.
@@ -685,9 +685,9 @@ This section sequentially reports the benchmark scale, per-pathogen best method 
 
 This section presents the full-scale 9-pathogen benchmark results that constitute the primary evidence for the dissertation's second contribution (statistical demonstration of pathogen-adaptive method selection necessity).
 
-A total of 3,321 evaluations (9 scoring formulas $\times$ 41 detection algorithms $\times$ 9 pathogens) were conducted.
-Of these, 777 (23.4\%) evaluations resulted in the detection method identifying 0 positions (n\_detected = 0), because certain SWAN and ScoreDBSCAN variants failed to find positions satisfying the $z$-normalization threshold or density criteria in the score distributions of specific pathogens.
-These zero-detection evaluations are treated as MCC = 0. However, the ANOVA analysis used 2,544 valid evaluations excluding zero-detection cases, with Type III sum of squares applied.
+A total of 3,159 evaluations (9 scoring formulas $\times$ 39 detection algorithms $\times$ 9 pathogens) were conducted.
+Of these, 741 (23.5\%) evaluations resulted in the detection method identifying 0 positions (n\_detected = 0), because certain SWAN and ScoreDBSCAN variants failed to find positions satisfying the $z$-normalization threshold or density criteria in the score distributions of specific pathogens.
+These zero-detection evaluations are treated as MCC = 0. However, the ANOVA analysis used 2,418 valid evaluations excluding zero-detection cases, with Type III sum of squares applied.
 Each evaluation computed MCC, F1, precision, recall, enrichment ratio, and constrained region FPR against the 3-layer ground truth (Layer A: convergent evolution positions, Layer B: constrained regions, Layer C: DMS).
 DMS F1 was computed only for the 4 pathogens (SARS-CoV-2, H3N2, HIV-1, RSV) where experimental fitness data are available.
 All FASTA sequences were collected from NCBI GenBank using actual accession numbers.
@@ -772,7 +772,7 @@ Residual & --- & 0.307 \\
 }
 \begin{minipage}{\textwidth}
 \smallskip
-\footnotesize family: detection method family (15 levels), score: scoring formula (9 levels), pathogen: pathogen (9 levels). $\omega^2$ is the bias-corrected estimate of the proportion of total variance explained by each factor.
+\footnotesize family: detection method family (14 levels), score: scoring formula (9 levels), pathogen: pathogen (9 levels). $\omega^2$ is the bias-corrected estimate of the proportion of total variance explained by each factor.
 \end{minipage}
 \end{table}
 
@@ -806,7 +806,7 @@ LOPO (Leave-One-Pathogen-Out) cross-validation was performed to evaluate whether
 \item \textbf{Most frequent training-best combination}: E\_only + SWAN was selected in 8/9 iterations, an artifact of SWAN producing valid results only for Norovirus (MCC = 0.311) and MCC = 0.000 elsewhere.
 \end{itemize}
 
-SWAN achieves non-zero detection for only 1 of 9 pathogens (Norovirus, MCC = 0.311), yet appears as the training-best detector in 8/9 LOPO iterations due to this single high-performing case inflating the mean across training pathogens. Excluding SWAN from the analysis (reducing evaluations from 2,544 to 2,414) changes the training-best combination primarily to P*E + Wavelet($t$ = 1.5), improves the mean generalization ratio from 4.9\% to 11.6\%, and decreases the mean performance gap from 0.277 to 0.239; however, the combination match rate of 0/9 is maintained, confirming that the core conclusion of ``non-transferability of best methods across pathogens'' does not depend on the SWAN artifact.
+SWAN achieves non-zero detection for only 1 of 9 pathogens (Norovirus, MCC = 0.311), yet appears as the training-best detector in 8/9 LOPO iterations due to this single high-performing case inflating the mean across training pathogens. Excluding SWAN from the analysis (reducing evaluations from 2,418 to 2,288) changes the training-best combination primarily to P*E + Wavelet($t$ = 1.5), improves the mean generalization ratio from 4.9\% to 11.6\%, and decreases the mean performance gap from 0.277 to 0.239; however, the combination match rate of 0/9 is maintained, confirming that the core conclusion of ``non-transferability of best methods across pathogens'' does not depend on the SWAN artifact.
 
 These results demonstrate that the strategy of selecting a method that is ``on average good across multiple pathogens'' fails to predict performance for a specific pathogen, strongly supporting the need for pathogen-specific adaptive method selection.
 
@@ -861,7 +861,7 @@ Several supplementary analyses were conducted to validate the robustness and gen
 To test whether the benchmark findings generalize beyond MSA-derived scoring formulas, an independent scoring paradigm was evaluated: the ESM-2 protein language model (650M parameters; Lin et al., 2023). ESM-2 computes per-position log-likelihood ratios (ESM-LLR) from a single consensus sequence using learned evolutionary representations, requiring no multiple sequence alignment. This provides orthogonal validation of the benchmark framework because the scoring signal originates from a fundamentally different methodology---a deep neural network trained on millions of protein families---rather than from the same MSA used by the nine existing scoring formulas.
 
 The 650M-parameter ESM-2 model was selected as it represents the largest single-GPU model in the ESM-2 family, balancing computational feasibility with representation capacity. Larger models (ESM-2 3B) require multi-GPU inference, while smaller models (8M, 35M) may lack sufficient capacity for proteins exceeding 1,000 residues.
-ESM-LLR was computed for all nine pathogens using wild-type marginal scoring: a single forward pass through the model yields $\text{ESM-LLR}[i] = -\log P(a_i \mid \text{context})$, where $a_i$ is the consensus amino acid at position $i$. For proteins exceeding the 1,022-token context window (SARS-CoV-2 Spike: 1,259 AA after MSA trimming; MERS Spike: 1,330 AA), a sliding window with 256-residue overlap was applied and scores were averaged in overlap regions. The resulting ESM-LLR arrays were evaluated through the same 41 detection methods used in the main benchmark.
+ESM-LLR was computed for all nine pathogens using wild-type marginal scoring: a single forward pass through the model yields $\text{ESM-LLR}[i] = -\log P(a_i \mid \text{context})$, where $a_i$ is the consensus amino acid at position $i$. For proteins exceeding the 1,022-token context window (SARS-CoV-2 Spike: 1,259 AA after MSA trimming; MERS Spike: 1,330 AA), a sliding window with 256-residue overlap was applied and scores were averaged in overlap regions. The resulting ESM-LLR arrays were evaluated through the same 39 detection methods used in the main benchmark.
 
 \begin{table}[htbp]
 \centering
@@ -1054,7 +1054,7 @@ Positive MCC count & 9/9 & 1/9 & \textbf{5/9} & 4/9 \\
 The v1 Family-first strategy achieved 5/9 positive MCC (mean $= 0.005$, median $= 0.014$) compared to the naive baseline (1/9 positive, mean $= 0.021$ inflated by a single Norovirus outlier).
 The v2 profile improved mean MCC to 0.017 by eliminating pathological negative transfers (HCV from $-0.291$ to $+0.141$, Influenza~B from $-0.190$ to $-0.027$), though with fewer positive cases (4/9).
 
-When evaluated at coarser prediction granularities, even failed label predictions yield competitive performance: detection family-level prediction (15 families) recovered 48.3\% of oracle performance (mean MCC $= 0.144$), and scoring-level prediction (9 formulas) recovered 57.7\% (mean MCC $= 0.172$), compared to 1.7\% for exact combination prediction (v1 Family-first mean MCC $= 0.005$).
+When evaluated at coarser prediction granularities, even failed label predictions yield competitive performance: detection family-level prediction (14 families) recovered 48.3\% of oracle performance (mean MCC $= 0.144$), and scoring-level prediction (9 formulas) recovered 57.7\% (mean MCC $= 0.172$), compared to 1.7\% for exact combination prediction (v1 Family-first mean MCC $= 0.005$).
 This supports the viability of a hierarchical prediction approach as the knowledge base expands.
 
 A random baseline (1,000 random combination selections per pathogen) yielded mean MCC = 0.001 (SD = 0.003), confirming that both naive LOPO (0.021) and PAHD Family-first v1 (0.005) exceed chance performance, though the practical significance of these small improvements remains limited at $n = 9$.
