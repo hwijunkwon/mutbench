@@ -1,0 +1,10 @@
+pathogen,n_sequences_raw,n_unique,n_used,seq_length,positions_with_changes,pct_positions_changed,max_changes,mean_changes_nonzero,few_sequences_warning
+SARS-CoV-2,500,94,94,1273,47,3.7,2,1.11,False
+HIV-1,807,729,500,480,480,100.0,147,51.22,False
+Dengue,2000,796,500,490,490,100.0,24,7.49,False
+Norovirus,1500,791,500,536,426,79.5,50,6.44,False
+H3N2,2644,2562,500,543,543,100.0,20,5.13,False
+Influenza_B,5325,5017,500,560,560,100.0,44,13.36,False
+MERS,1311,530,500,1330,1330,100.0,60,31.22,False
+HCV,1362,1067,500,340,340,100.0,142,51.24,False
+RSV,5070,4779,500,550,550,100.0,26,9.13,False
