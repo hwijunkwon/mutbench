@@ -61,6 +61,51 @@ MutBench systematically guides such context-dependent method selection.
 The ground-truth-dependent method rankings observed within SARS-CoV-2 foreshadow the pathogen-dependent rankings revealed in the 9-pathogen benchmark.
 
 %% ============================================================
+\subsection{Homoplasy-Based Scoring as an Alternative}
+\label{sec:homoplasy_scoring}
+
+The founder bias problem identified in Section~\ref{subsec:phylo_correction_poc} --- where H-score conflates founder effects with positive selection ($\rho = -0.876$) --- motivates exploration of phylogeny-based scoring as an alternative to frequency-based metrics.
+Fitch parsimony-based homoplasy counting directly addresses this limitation by quantifying the number of independent mutational origins at each position on the phylogenetic tree, rather than relying on aggregate mutation frequency.
+A position with high homoplasy (many independent origins) is more likely to be under positive selection, because convergent evolution at the same site across independent lineages implies a shared selective advantage.
+Conversely, a founder mutation that arose once and spread through subsequent clonal expansion receives a low homoplasy count regardless of its population frequency, thereby decoupling frequency from selective pressure.
+
+Using 2,000 temporally stratified SARS-CoV-2 sequences from 2020--2021, homoplasy scores were computed via Fitch parsimony on a FastTree-inferred phylogeny.
+The D614G founder mutation --- the canonical example of a high-frequency variant driven by a single founder event rather than recurrent positive selection --- received a homoplasy count of only 2 (normalized score 0.038), consistent with its known single-origin, rapid-fixation history.
+In contrast, position 476 near the RBD antibody binding interface received the highest count of 53, consistent with known immune evasion pressure at this site.
+However, key convergent evolution positions associated with later variants of concern showed weak signals (E484K: 1, N501Y: 0), attributable to the limited temporal coverage of the dataset (pre-Omicron sequences only).
+These positions would be expected to accumulate substantially higher homoplasy counts in datasets extending through 2022--2023, when convergent evolution at these sites became prominent across multiple independent lineages.
+
+To evaluate whether homoplasy-based scoring generalizes beyond SARS-CoV-2, the scores were compared against Layer~A ground truth for three pathogens with sufficient phylogenetic diversity (Table~\ref{tab:homoplasy_validation}).
+For each pathogen, homoplasy scores were computed on publicly available alignments using Fitch parsimony, and discrimination between Layer~A (positive selection) and non-Layer~A positions was assessed via AUC, Mann-Whitney $U$ test, and Cohen's $d$ effect size.
+
+\begin{table}[htbp]
+\centering
+\caption{Homoplasy scoring validation against Layer~A ground truth across three pathogens. AUC indicates discrimination between Layer~A and non-Layer~A positions; Mann-Whitney $p$ tests the null hypothesis of equal homoplasy score distributions; Cohen's $d$ quantifies effect size.}
+\label{tab:homoplasy_validation}
+\small
+\begin{tabular}{lrrrr}
+\toprule
+Pathogen & Layer~A positions & AUC & Mann-Whitney $p$ & Cohen's $d$ \\
+\midrule
+HIV-1 & 26 & 0.706 & 0.0002 & 0.653 \\
+H3N2 & 25 & 0.561 & 0.147 & 0.399 \\
+HCV & 54 & 0.390 & 0.995 & $-$0.391 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The cross-pathogen results reveal a striking pattern of pathogen-dependent performance.
+HIV-1 shows strong discrimination (AUC = 0.706, $p = 0.0002$, $d = 0.653$), confirming that homoplasy scoring captures adaptive evolution signals in pathogens with high sequence diversity and well-separated phylogenetic lineages.
+HCV, however, fails entirely (AUC = 0.390, inverted relative to expectation) because its hypervariable regions (HVR1/HVR2) exhibit such extreme diversity that parsimony reconstruction becomes saturated --- every position mutates so frequently that homoplasy counts lose discriminative power, and the ground truth positions (which are themselves hypervariable) do not stand out from the background.
+H3N2 shows a weak, non-significant trend ($p = 0.147$), suggesting partial but insufficient signal for reliable discrimination.
+
+This pathogen-dependent pattern in scoring method performance mirrors the detection-level finding of the main benchmark (Section~\ref{sec:cross_pathogen_analysis}): no single scoring approach works universally across all pathogens.
+Just as the best detection algorithm varies across pathogens ($\omega^2_{\text{interaction}} = 0.285$), the optimal scoring strategy also depends on pathogen-specific characteristics such as sequence diversity, evolutionary rate, and phylogenetic depth.
+HIV-1's high phylogenetic diversity and deep coalescent times provide the ideal conditions for parsimony-based homoplasy detection, whereas HCV's extreme hypervariability overwhelms the same approach.
+This finding provides additional motivation for the PAHD framework's adaptive approach: the selection problem extends beyond detection methods to encompass scoring methods as well.
+A fully realized PAHD implementation should therefore jointly optimize both the scoring function and the detection algorithm as a function of pathogen profile, expanding the algorithm space $\mathcal{A}$ from 351 detection-only combinations to include scoring alternatives such as homoplasy, temporal contrast, and protein language model scores.
+
+%% ============================================================
 \section{Cross-Pathogen Generalization and PAHD}
 
 %% ============================================================
