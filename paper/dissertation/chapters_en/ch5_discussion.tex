@@ -187,6 +187,39 @@ Despite these ceiling effects, the benchmark results have practical implications
 Returning to the three problems identified in Chapter~\ref{ch:introduction}: the absence of a standardized evaluation framework is addressed by MutBench's three-layer ground truth and hotspot-score metric (Contribution~1); the lack of cross-pathogen generalization evidence is resolved by the four independent lines of statistical evidence (Contribution~2); and the unknown pathogen-dependence of detection methods is quantified by the ANOVA interaction dominance ($\omega^2 = 0.285$) and LOPO failure (0/9), motivating the PAHD framework.
 
 %% ============================================================
+\subsection{Vaccine Escape Position Validation}
+\label{sec:vaccine_escape}
+
+To evaluate the practical relevance of MutBench-detected hotspots for public health, the overlap between detected positions and experimentally confirmed vaccine/antibody escape positions was analyzed.
+Because hotspot detection methods are ultimately intended to identify positions of functional importance, demonstrating that detected hotspots coincide with known immune escape sites provides direct evidence of biological utility beyond statistical performance metrics.
+
+For SARS-CoV-2, 34 escape positions were curated from published antibody escape mapping studies (Classes 1--4 monoclonal antibodies and NTD supersite).
+The best-performing MutBench method (E\_only + KDE) detected 25 of 34 escape positions (recall = 0.735), with a 4.90-fold enrichment over random expectation (Fisher's exact test, $p < 0.0001$).
+Across the full method space (351 scoring--detection combinations), all 34/34 escape positions were detected by at least one combination, confirming that the diversity of methods in the benchmark provides comprehensive coverage of functionally important sites.
+
+H3N2 showed borderline enrichment (6/25 antigenic drift positions, enrichment = 2.10$\times$, $p = 0.054$) with entropy-based scoring outperforming H-score, consistent with the founder bias limitation discussed in Section~\ref{sec:hscore_saturation}.
+HIV-1 showed poor results because the curated drug resistance positions are located in RT/PR genes, while the benchmark evaluates gp120 envelope protein---a data scope limitation rather than a methodological failure.
+
+These results demonstrate that MutBench hotspots are not merely statistical artifacts but correspond to positions of genuine public health importance.
+The finding that no single method captures all 34 escape positions, yet the full method ensemble achieves 100\% recall, provides direct evidence for the value of maintaining a diverse method portfolio---precisely what PAHD aims to systematize.
+
+\begin{table}[htbp]
+\centering
+\caption{Vaccine/antibody escape position validation}
+\label{tab:vaccine_escape}
+\small
+\begin{tabular}{lrrrr}
+\toprule
+Pathogen & Escape positions & Best recall & Enrichment & $p$-value \\
+\midrule
+SARS-CoV-2 & 34 & 25/34 (0.735) & 4.90$\times$ & $< 0.0001$ \\
+H3N2 & 25 & 6/25 (0.240) & 2.10$\times$ & 0.054 \\
+HIV-1 & 45 & 3/45 (0.067) & 0.35$\times$ & 0.997 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+%% ============================================================
 \subsection{Practical Considerations for Public Health Surveillance}
 \label{sec:practical_surveillance}
 

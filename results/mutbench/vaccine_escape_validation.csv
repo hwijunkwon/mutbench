@@ -1,0 +1,13 @@
+pathogen,score,detector,n_detected,n_escape,n_overlap,precision_escape,recall_escape,f1_escape,enrichment_ratio,fisher_odds_ratio,fisher_p_value
+SARS-CoV-2,rank(P*E),ScoreDBSCAN(ep=8),306,34,8,0.0261,0.2353,0.0471,0.968,0.957,0.609576
+SARS-CoV-2,E*rare,AdaptiveKnee,37,34,2,0.0541,0.0588,0.0563,2.002,2.125,0.26374
+SARS-CoV-2,H-score,AdaptiveKnee,95,34,2,0.0211,0.0588,0.031,0.78,0.761,0.742037
+SARS-CoV-2,H-score,Wavelet(t=1.5),85,34,5,0.0588,0.1471,0.084,2.178,2.468,0.073484
+SARS-CoV-2,E*rare,Wavelet(t=1.0),116,34,5,0.0431,0.1471,0.0667,1.596,1.73,0.197464
+H3N2,H-score,Wavelet(t=1.5),64,25,0,0.0,0.0,0.0,0.0,0.0,1.0
+H3N2,H-score,Wavelet(t=1.0),80,25,0,0.0,0.0,0.0,0.0,0.0,1.0
+H3N2,E_only,Wavelet(t=1.5),54,25,0,0.0,0.0,0.0,0.0,0.0,1.0
+H3N2,P*E,Wavelet(t=1.0),62,25,6,0.0968,0.24,0.1379,2.102,2.605,0.053745
+HIV-1,H-score,Wavelet(t=1.5),59,45,1,0.0169,0.0222,0.0192,0.169,0.136,0.998747
+HIV-1,H-score,Wavelet(t=1.0),86,45,3,0.0349,0.0667,0.0458,0.349,0.277,0.996588
+HIV-1,E_only,Wavelet(t=1.5),40,45,0,0.0,0.0,0.0,0.0,0.0,1.0

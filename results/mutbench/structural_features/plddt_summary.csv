@@ -1,0 +1,10 @@
+pathogen,protein,length,source,mean_plddt,std_plddt,min_plddt,max_plddt,pct_low_30,pct_mid_30_70,pct_high_70
+sars2,SARS-CoV-2 Spike,1273,AlphaFold_DB,67.1,19.3,21.1,95.7,2.9,41.2,55.9
+mers,MERS Spike,1353,ESMFold_API,30.9,12.2,18.0,93.0,64.4,33.5,2.1
+hiv,HIV-1 gp120,483,ESMFold_API,27.8,4.8,18.0,44.0,62.3,37.7,0.0
+dengue,Dengue E protein,493,ESMFold_API,64.1,13.4,35.0,88.0,0.0,57.4,42.6
+norovirus,Norovirus VP1,540,AlphaFold_DB,83.5,17.6,25.0,97.2,1.7,14.8,83.5
+hcv,HCV E2,352,ESMFold_API,25.1,4.8,18.0,70.0,88.9,10.8,0.3
+rsv,RSV F protein,574,ESMFold_API,61.5,17.2,27.0,97.0,0.9,63.4,35.7
+influenza_h3n2,Influenza A H3N2 HA,566,ESMFold_API,50.1,21.1,24.0,95.0,17.7,59.9,22.4
+influenza_b,Influenza B HA,582,ESMFold_API,43.4,16.7,19.0,88.0,27.5,63.4,9.1
