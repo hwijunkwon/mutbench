@@ -18,7 +18,7 @@
 
 합성 H-score를 사용하여 SARS-CoV-2 유사 게놈(29,903 위치)에서 7개 기능 영역(1,251개 고유 ground truth 뉴클레오티드 위치)을 대상으로 방법을 비교하였다.
 제~\ref{ch:mutbench}장에서 기술한 바와 같이, 이 합성 벤치마크는 통제된 신호 복원 검정으로서 알려진 위치에 삽입된 신호의 복원 능력을 평가한다.
-결과는 표~\ref{tab:method_comparison}에 제시하였다.
+결과는 표~\ref{tab:hotspot_scores}에 제시하였다.
 
 \begin{table}[htbp]
 \centering
@@ -79,11 +79,11 @@ HDBSCAN-Auto & 0.079 & 0.944 & 0.788 & 0.604 \\
 \end{table}
 
 Hotspot-score는 \textbf{MutClust-Hybrid를 최우수 방법}(0.778)으로 식별하며, 이는 거의 완벽한 정밀도(0.968), 향상된 재현율(0.659), 높은 안정성(0.706)을 결합한 결과이다.
-HDBSCAN-Auto는 높은 재현율(0.944)과 안정성(0.788)에도 불구하고 낮은 정밀도(0.079)로 인해 최저 hotspot-score(0.604)를 기록하여, 단일 지표가 아닌 복합 지표의 가치를 보여준다(그림~\ref{fig:mutbench_method_comparison}).
+HDBSCAN-Auto는 높은 재현율(0.944)과 안정성(0.788)에도 불구하고 낮은 정밀도(0.079)로 인해 최저 hotspot-score(0.604)를 기록하여, 단일 지표가 아닌 복합 지표의 가치를 보여준다(절~\ref{sec:variant_comparison}).
 
 \textbf{2단계 파이프라인 검증.}
 HDBSCAN-Auto의 높은 재현율과 MutClust-Hybrid의 높은 정밀도를 결합하기 위해, 2단계 탐지 파이프라인을 추가적으로 검증하였다.
-HDBSCAN-Auto가 탐지한 14,916개 위치와 MutClust-Hybrid가 탐지한 852개 위치의 교집합(831개 위치, 6개 클러스터)은 정밀도 0.968을 유지하면서 안정성이 0.740으로 향상되어 최고 hotspot-score(0.784)를 달성하였으며, F1(0.772)은 MutClust-Hybrid 단독(0.785)에 근접하였다(상세 결과는 제~\ref{ch:discussion}장 표~\ref{tab:twostep_pipeline} 참조).
+HDBSCAN-Auto가 탐지한 14,916개 위치와 MutClust-Hybrid가 탐지한 852개 위치의 교집합(831개 위치, 6개 클러스터)은 정밀도 0.968을 유지하면서 안정성이 0.740으로 향상되어 최고 hotspot-score(0.784)를 달성하였으며, F1(0.772)은 MutClust-Hybrid 단독(0.785)에 근접하였다(상세 결과는 제~\ref{ch:discussion}장 절~\ref{sec:variant_comparison} 참조).
 반면 합집합(14,964개 위치)은 재현율 0.970과 안정성 0.794에서 최고를 기록하였으나 정밀도가 0.081로 급락하였다.
 이 결과는 두 방법의 상보성이 교집합 전략에서 가장 효과적으로 발현됨을 입증하며, 응용 맥락별 전략 선택의 근거를 제공한다(제~\ref{ch:discussion}장에서 상세 논의).
 

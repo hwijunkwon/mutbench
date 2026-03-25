@@ -99,7 +99,7 @@ HIV-1 shows strong discrimination (AUC = 0.706, $p = 0.0002$, $d = 0.653$), conf
 HCV, however, fails entirely (AUC = 0.390, inverted relative to expectation) because its hypervariable regions (HVR1/HVR2) exhibit such extreme diversity that parsimony reconstruction becomes saturated --- every position mutates so frequently that homoplasy counts lose discriminative power, and the ground truth positions (which are themselves hypervariable) do not stand out from the background.
 H3N2 shows a weak, non-significant trend ($p = 0.147$), suggesting partial but insufficient signal for reliable discrimination.
 
-This pathogen-dependent pattern in scoring method performance mirrors the detection-level finding of the main benchmark (Section~\ref{sec:cross_pathogen_analysis}): no single scoring approach works universally across all pathogens.
+This pathogen-dependent pattern in scoring method performance mirrors the detection-level finding of the main benchmark (Section~\ref{sec:cross_pathogen_structural}): no single scoring approach works universally across all pathogens.
 Just as the best detection algorithm varies across pathogens ($\omega^2_{\text{interaction}} = 0.285$), the optimal scoring strategy also depends on pathogen-specific characteristics such as sequence diversity, evolutionary rate, and phylogenetic depth.
 HIV-1's high phylogenetic diversity and deep coalescent times provide the ideal conditions for parsimony-based homoplasy detection, whereas HCV's extreme hypervariability overwhelms the same approach.
 This finding provides additional motivation for the PAHD framework's adaptive approach: the selection problem extends beyond detection methods to encompass scoring methods as well.
@@ -226,7 +226,7 @@ HIV-1 & 45 & 3/45 (0.067) & 0.35$\times$ & 0.997 \\
 Considering SARS-CoV-2's generation time (approximately 5 days) and sequence submission delay (median approximately 14 days), a minimum 4-week window is required for real-time TC-freq alerts.
 HDBSCAN-Auto (high recall) is suitable for early warning, while MutClust-Hybrid (balanced performance) is suitable for vaccine candidate selection; in retrospective analysis, MutClust-Hybrid's higher recall suggests potential for earlier detection of emerging hotspot positions, though quantitative timing estimates require dedicated temporal validation.
 
-A two-stage detection pipeline---first-stage broad screening with HDBSCAN-Auto followed by second-stage high-precision confirmation with MutClust-Hybrid (Table~\ref{tab:twostep_pipeline})---maintained precision (0.968) while improving stability to 0.740, achieving the highest hotspot-score (0.784).
+A two-stage detection pipeline---first-stage broad screening with HDBSCAN-Auto followed by second-stage high-precision confirmation with MutClust-Hybrid (Section~\ref{sec:variant_comparison})---maintained precision (0.968) while improving stability to 0.740, achieving the highest hotspot-score (0.784).
 This two-stage approach is recommended for vaccine design applications where downstream experimental costs demand robust hotspot selection, whereas single-method approaches suffice for routine surveillance (MutClust-Hybrid) or early warning (HDBSCAN-Auto).
 However, in real GISAID 2020--2021 data, HDBSCAN-Auto failed to form clusters due to the sparsity of non-zero positions (342), so the benefits of the two-stage pipeline were not realized.
 A fundamental methodological limitation that affects all frequency-based approaches is phylogenetic non-independence.

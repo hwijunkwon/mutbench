@@ -45,13 +45,9 @@ The results demonstrate a clear precision--recall trade-off: CCM-based variants 
 Both external baselines (frequency thresholding, sliding window) underperform all MutClust variants (F1: 0.270--0.569 vs. 0.668--0.785).
 
 \textbf{Important caveat}: These synthetic results substantially overestimate real-world performance.
-On actual GISAID data (Section~\ref{subsec:real_gisaid}), MutClust-Hybrid F1 drops from 0.785 to 0.123 due to the extreme sparsity of real H-score distributions (342 of 29,903 positions nonzero vs. continuous synthetic background noise).
+On actual GISAID data (Section~\ref{sec:real_gisaid_benchmark}), MutClust-Hybrid F1 drops from 0.785 to 0.123 due to the extreme sparsity of real H-score distributions (342 of 29,903 positions nonzero vs. continuous synthetic background noise).
 The synthetic benchmark thus validates the \textit{framework's ability to discriminate methods}, not the methods' absolute performance on real data.
 
-\label{tab:method_comparison}
-\label{tab:twostep_pipeline}
-\label{fig:mutbench_method_comparison_top}
-\label{fig:mutbench_method_comparison_bottom}
 
 %% ------------------------------------------------------------
 \subsection{Multi-Ground Truth Evaluation}

@@ -452,14 +452,14 @@ Individual metrics alone cannot determine an overall ``best'' method because the
 A method that declares the entire genome as a hotspot achieves recall $= 1.0$ but precision $\approx 0$.
 Conversely, reporting only the single most confident position yields precision $\approx 1.0$ but recall $\approx 0$.
 The hotspot-score resolves this by requiring simultaneous high performance across all three dimensions.
-Importantly, the hotspot-score does not replace individual metrics---all three components (recall, precision, stability) are reported separately in every results table (Tables~\ref{tab:method_comparison}, \ref{tab:hotspot_scores}), allowing readers to examine each dimension independently.
+Importantly, the hotspot-score does not replace individual metrics---all three components (recall, precision, stability) are reported separately in every results table (Tables~\ref{tab:hotspot_scores}, \ref{tab:hotspot_scores}), allowing readers to examine each dimension independently.
 The composite score serves only for \textit{ranking} methods; the individual components serve for \textit{understanding why} a method ranks where it does.
 
 \textbf{Why not F1 + stability?}
 F1 collapses recall and precision into a single value, thereby obscuring their individual interaction with stability.
 For example, HDBSCAN-Auto has a low F1 (0.146) but high recall (0.944) and stability (0.788).
 Under an F1 + stability structure, this method would be undervalued, whereas under the (recall + precision + stability)/3 structure, the high recall and stability are appropriately reflected.
-The weight sensitivity analysis (Section~\ref{subsec:weight_sensitivity}) confirms that MutClust-Hybrid maintains rank~1 in 71.9\% of 171 weight combinations, demonstrating that the ranking is robust to the specific choice of equal weights.
+The weight sensitivity analysis (Section~\ref{subsec:weight_sensitivity_methods}) confirms that MutClust-Hybrid maintains rank~1 in 71.9\% of 171 weight combinations, demonstrating that the ranking is robust to the specific choice of equal weights.
 
 %% ============================================================
 \section{Scoring and Detection Methods}
