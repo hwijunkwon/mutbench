@@ -945,3 +945,89 @@ The exact combination match rate remains 0/9 under both profiles, confirming tha
 Scaling to 20+ pathogens, introducing top-$k$ ensemble strategies, and transitioning to meta-learning regression models are the concrete next steps.
 
 The interpretation of these results---including the methodological validity of the benchmark, the implications of cross-pathogen heterogeneity, and the practical significance for genomic surveillance---is discussed in Chapter~\ref{ch:discussion}.
+
+%% ============================================================
+\section{Information-Type Analysis}
+\label{sec:information_analysis}
+
+The preceding sections demonstrated that the best-performing scoring--detection combination differs across pathogens ($\omega^2_{\text{family}\times\text{pathogen}} = 0.285$). This section investigates \textit{why} this interaction arises by analyzing the discriminative power of individual information types (features) that underlie the scoring formulas, and examines whether pathogen-specific feature importance patterns explain the observed cross-pathogen heterogeneity.
+
+%% ------------------------------------------------------------
+\subsection{Per-Feature Discriminative Power}
+\label{subsec:per_feature_auc}
+
+Six positional features were evaluated as individual predictors of Layer~A (convergent evolution) ground truth across all 9 pathogens. These features represent four distinct information categories:
+
+\begin{itemize}
+\item \textbf{Frequency-based} (3 features): \textit{freq} (proportion of sequences carrying a non-reference amino acid at each position), \textit{entropy} (Shannon entropy measuring allelic diversity), and \textit{rare\_freq} (frequency of minor alleles below 5\% threshold, capturing low-frequency variants that may signal emerging adaptive mutations).
+\item \textbf{Phylogeny-based} (1 feature): \textit{homoplasy} (number of independent mutation origins inferred by Fitch parsimony on the phylogenetic tree, distinguishing convergent evolution from founder-effect-driven frequency).
+\item \textbf{Deep learning-based} (1 feature): \textit{esm2\_llr} (ESM-2 protein language model log-likelihood ratio, measuring how surprising a mutation is relative to learned evolutionary constraints from 250M protein sequences).
+\item \textbf{Structure-based} (1 feature): \textit{plddt} (AlphaFold2 predicted local distance difference test score, indicating structural confidence and disorder propensity at each position).
+\end{itemize}
+
+Table~\ref{tab:per_feature_auc} presents the single-feature AUC (area under the ROC curve) for predicting Layer~A membership. Each feature was used as a standalone classifier via threshold sweeping (no model training), providing a direct measure of univariate discriminative power.
+
+\begin{table}[htbp]
+\centering
+\caption{Per-feature AUC for Layer~A prediction across 9 pathogens. The highest AUC per pathogen is shown in \textbf{bold}. AUC = 0.5 indicates no discriminative power; AUC $< 0.5$ indicates inverse association (feature values are lower for hotspot positions).}
+\label{tab:per_feature_auc}
+\adjustbox{max width=\textwidth}{
+\begin{tabular}{lcccccc}
+\toprule
+\textbf{Pathogen} & \textbf{freq} & \textbf{entropy} & \textbf{rare\_freq} & \textbf{homoplasy} & \textbf{esm2\_llr} & \textbf{plddt} \\
+\midrule
+SARS-CoV-2    & 0.522 & 0.522 & 0.523 & 0.491 & \textbf{0.586} & 0.513 \\
+H3N2          & 0.548 & 0.533 & 0.535 & 0.639 & 0.405 & \textbf{0.787} \\
+Norovirus     & 0.760 & 0.762 & 0.644 & \textbf{0.944} & 0.763 & 0.674 \\
+HIV-1         & 0.713 & \textbf{0.730} & 0.592 & 0.686 & 0.339 & 0.359 \\
+Dengue        & 0.577 & 0.577 & 0.548 & \textbf{0.770} & 0.521 & 0.678 \\
+RSV           & 0.262 & 0.263 & 0.258 & 0.503 & 0.284 & \textbf{0.561} \\
+Influenza~B   & 0.784 & 0.773 & 0.641 & \textbf{0.805} & 0.587 & 0.486 \\
+MERS          & 0.515 & 0.544 & 0.665 & 0.681 & \textbf{0.695} & 0.162 \\
+HCV           & \textbf{0.677} & 0.676 & 0.424 & 0.405 & 0.447 & 0.474 \\
+\bottomrule
+\end{tabular}
+}
+\begin{minipage}{\textwidth}
+\smallskip
+\footnotesize All AUC values computed on per-pathogen feature matrices using Layer~A (convergent evolution) as the binary label. $n$ ranges from 340 (HCV) to 1,330 (MERS) positions; Layer~A positive count ranges from 9 (MERS) to 54 (HCV).
+\end{minipage}
+\end{table}
+
+The most discriminative feature varies across pathogens: homoplasy achieves the highest AUC for Norovirus (0.944), Dengue (0.770), and Influenza~B (0.805); pLDDT dominates for H3N2 (0.787) and RSV (0.561); ESM-2 LLR is best for SARS-CoV-2 (0.586) and MERS (0.695); entropy leads for HIV-1 (0.730); and frequency is best for HCV (0.677). No single feature achieves the highest AUC for more than 3 of 9 pathogens.
+
+Two pathogens exhibit inverse feature associations (AUC $< 0.5$): RSV shows AUC = 0.258--0.284 for frequency-based features and ESM-2 LLR, indicating that Layer~A positions in RSV tend to have \textit{lower} mutation frequency and \textit{higher} structural constraint than non-hotspot positions. MERS exhibits a pLDDT AUC of 0.162, indicating that its convergent evolution positions are located in structurally disordered regions. These inverse associations further demonstrate that the biological relationship between features and hotspot status is pathogen-dependent.
+
+%% ------------------------------------------------------------
+\subsection{Feature Importance by Pathogen}
+\label{subsec:rf_importance}
+
+To assess feature importance in a multivariate context---where features may interact and provide complementary information---a Random Forest classifier (100 trees, balanced class weights, random state 42) was trained for each pathogen using the 6 features as predictors and Layer~A as the binary label. Feature importances were extracted as mean decrease in impurity (Gini importance), and model performance was evaluated via stratified $k$-fold cross-validation AUC ($k = 5$ where sample size permits, reduced for pathogens with fewer than 10 Layer~A positives).
+
+Figure~\ref{fig:feature_importance_grid} presents the feature importance distributions across all 9 pathogens. Three patterns are notable.
+
+\textbf{First, the dominant feature differs across pathogens.}
+For SARS-CoV-2, ESM-2 LLR dominates (importance = 0.446), consistent with the per-feature AUC analysis. For H3N2, pLDDT is the most important feature (0.361), reflecting the strong association between antigenic sites and structurally exposed loop regions. For Norovirus, homoplasy dominates (0.460), consistent with its near-perfect univariate AUC (0.944). For HIV-1, ESM-2 LLR (0.276) and homoplasy (0.203) share importance, reflecting the dual influence of structural constraint and convergent evolution in this highly diverse pathogen.
+
+\textbf{Second, cross-validation AUC varies substantially.}
+Norovirus achieves the highest cross-validation AUC (0.920), indicating that the 6 features collectively provide strong discrimination of convergent evolution positions. In contrast, SARS-CoV-2 (0.554) and MERS (0.537) show AUC values near chance level, suggesting that additional features beyond the current 6 are needed to discriminate hotspot positions for these pathogens. The remaining pathogens fall in between: H3N2 (0.815), HIV-1 (0.840), RSV (0.772), Dengue (0.732), Influenza~B (0.708), and HCV (0.672).
+
+\textbf{Third, the importance rankings differ from univariate AUC rankings.}
+For HIV-1, entropy has the highest univariate AUC (0.730) but ranks second in RF importance (0.171) behind ESM-2 LLR (0.276), because entropy and frequency are correlated and share importance in the RF model while ESM-2 LLR provides non-redundant information. This demonstrates that multivariate analysis reveals complementary feature contributions that univariate analysis cannot capture.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{feature_importance_grid.png}
+\caption{Random Forest feature importance for Layer~A prediction across 9 pathogens. Bar colors indicate feature category: blue (frequency-based), green (phylogeny), purple (deep learning), orange (structure). Cross-validation AUC is shown in each panel title. The dominant feature differs across pathogens: ESM-2 LLR for SARS-CoV-2, pLDDT for H3N2, homoplasy for Norovirus.}
+\label{fig:feature_importance_grid}
+\end{figure}
+
+%% ------------------------------------------------------------
+\subsection{Implications for Adaptive Method Selection}
+\label{subsec:info_type_implications}
+
+The per-feature and Random Forest analyses provide a mechanistic explanation for the detection family $\times$ pathogen interaction ($\omega^2 = 0.285$) observed in the ANOVA (Section~\ref{subsec:9pathogen_statistical}). Different pathogens require different \textit{information types} for effective hotspot discrimination, and scoring formulas that emphasize the relevant information type for a given pathogen will produce higher-quality input signals for downstream detection algorithms.
+
+This finding extends the PAHD framework from detection algorithm selection to information type selection. The 9-pathogen benchmark demonstrated that the best scoring--detection combination differs across pathogens (9/9 unique best combinations). The feature importance analysis reveals that this heterogeneity is rooted in pathogen-specific relationships between biological features and hotspot status: H3N2 hotspots are characterized by structural exposure (pLDDT), Norovirus hotspots by convergent evolution (homoplasy), and SARS-CoV-2 hotspots by protein language model surprisal (ESM-2 LLR).
+
+The oracle MCC ceiling (mean = 0.298 across 9 pathogens) observed in Section~\ref{subsec:9pathogen_bootstrap} reflects the discriminative capacity of the current scoring formulas, each of which relies on one or two of the 6 features. The Random Forest analysis demonstrates that combining all 6 features in a multivariate model achieves cross-validation AUC values up to 0.920 (Norovirus) and 0.840 (HIV-1), suggesting that the performance ceiling can be raised by integrating complementary information types into the scoring stage rather than relying on a single formula. This motivates a future direction for PAHD: pathogen-adaptive \textit{feature weighting} that selects and combines information types based on the pathogen's mutation profile, prior to applying a detection algorithm.
