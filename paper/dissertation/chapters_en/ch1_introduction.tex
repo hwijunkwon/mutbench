@@ -13,19 +13,19 @@ Because hotspots are directly associated with major phenotypic changes in viruse
 \centering
 \caption{Key biological terms used in this dissertation}
 \label{tab:glossary}
-\small
-\begin{tabular}{lp{9cm}}
+\footnotesize
+\begin{tabularx}{\textwidth}{lX}
 \toprule
 \textbf{Term} & \textbf{Definition} \\
 \midrule
 Mutation & A change in the nucleotide or amino acid sequence during viral replication \\
-Hotspot & A genomic position or region where mutations accumulate significantly more frequently than expected by chance \\
-Convergent evolution & Independent emergence of the same mutation in unrelated viral lineages, indicating positive selection \\
-Purifying selection & Evolutionary removal of harmful mutations that disrupt essential protein structure or function \\
-Deep Mutational Scanning (DMS) & Laboratory technique that measures the functional impact of every possible single amino acid substitution at every position in a protein \\
-Multiple Sequence Alignment (MSA) & Computational alignment of multiple viral protein sequences to identify per-position variation patterns \\
+Hotspot & A genomic position where mutations accumulate more frequently than expected by chance \\
+Convergent evolution & Independent emergence of the same mutation in unrelated lineages, indicating positive selection \\
+Purifying selection & Evolutionary removal of harmful mutations that disrupt protein structure or function \\
+DMS & Laboratory technique measuring the functional impact of every possible amino acid substitution \\
+MSA & Computational alignment of multiple protein sequences to identify per-position variation \\
 \bottomrule
-\end{tabular}
+\end{tabularx}
 \end{table}
 
 However, no systematic benchmark framework has been established to compare and evaluate viral mutation hotspot detection methods. Formally, given a multiple sequence alignment (MSA) of viral protein sequences, the detection task identifies a subset of genomic positions with statistically elevated mutation rates; yet no standardized ground truth, composite evaluation metric, or cross-pathogen validation methodology exists, despite partial benchmark studies in cancer genomics~\cite{bailey2018comprehensive}.
