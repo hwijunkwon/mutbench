@@ -9,6 +9,25 @@ SARS-CoV-2, which emerged in late 2019, caused more than 700 million confirmed c
 Viruses continuously accumulate mutations during replication, and the phenomenon whereby mutations concentrate at specific genomic positions is termed a hotspot.
 Because hotspots are directly associated with major phenotypic changes in viruses---including increased transmissibility, immune evasion (the ability to escape pre-existing immune responses), and drug resistance---accurately detecting them is a core task in vaccine design, antiviral drug development, and real-time genomic surveillance~\cite{youn2025mutclust}.
 
+\begin{table}[htbp]
+\centering
+\caption{Key biological terms used in this dissertation}
+\label{tab:glossary}
+\small
+\begin{tabular}{lp{9cm}}
+\toprule
+\textbf{Term} & \textbf{Definition} \\
+\midrule
+Mutation & A change in the nucleotide or amino acid sequence during viral replication \\
+Hotspot & A genomic position or region where mutations accumulate significantly more frequently than expected by chance \\
+Convergent evolution & Independent emergence of the same mutation in unrelated viral lineages, indicating positive selection \\
+Purifying selection & Evolutionary removal of harmful mutations that disrupt essential protein structure or function \\
+Deep Mutational Scanning (DMS) & Laboratory technique that measures the functional impact of every possible single amino acid substitution at every position in a protein \\
+Multiple Sequence Alignment (MSA) & Computational alignment of multiple viral protein sequences to identify per-position variation patterns \\
+\bottomrule
+\end{tabular}
+\end{table}
+
 However, no systematic benchmark framework has been established to compare and evaluate viral mutation hotspot detection methods. Formally, given a multiple sequence alignment (MSA) of viral protein sequences, the detection task identifies a subset of genomic positions with statistically elevated mutation rates; yet no standardized ground truth, composite evaluation metric, or cross-pathogen validation methodology exists, despite partial benchmark studies in cancer genomics~\cite{bailey2018comprehensive}.
 The present author previously developed a systematic benchmark framework for multi-omics integration (MOSD~\cite{han2025mosd}) and an adaptive hotspot detection algorithm (MutClust~\cite{youn2025mutclust}); the experience of developing MutClust without a quantitative evaluation framework directly motivated this research.
 

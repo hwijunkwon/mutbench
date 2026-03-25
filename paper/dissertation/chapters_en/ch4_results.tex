@@ -698,6 +698,9 @@ Residual & --- & 0.307 \\
 
 \textbf{Key finding}: The detection family $\times$ pathogen interaction ($\omega^2 = 0.285$) is the \textbf{largest source of variance, exceeding all main effects and other interactions}. Under Cohen's effect size benchmarks~\cite{cohen1988statistical}, $\omega^2 > 0.14$ constitutes a large effect, confirming that this interaction is substantively large.
 This means that the best-performing detection method varies systematically depending on the pathogen, and no single pathogen-independent best method exists.
+
+This finding directly resolves the third problem identified in Chapter~\ref{ch:introduction} (Section~\ref{sec:intro_motivation}): the lack of statistical evidence on whether the best-performing detection method depends on the pathogen. The interaction dominance ($\omega^2 = 0.285$) provides definitive statistical proof that detection performance is fundamentally pathogen-dependent, not an intrinsic property of the detection method itself.
+
 The pathogen main effect ($\omega^2 = 0.260$) is also large, reflecting that intrinsic differences in mutation structure across pathogens (entropy distribution shape, density of positively selected sites, etc.) determine the performance level itself.
 
 In contrast, the main effects of scoring and detection family are small at $\omega^2 = 0.027$ and $0.025$, respectively, confirming that ``which method is applied to which pathogen'' is the dominant factor determining performance, rather than the scoring or detection method itself.
