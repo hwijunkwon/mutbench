@@ -55,19 +55,11 @@ Layer~C (DMS functional fitness) is based on published DMS datasets~\cite{dadona
 Furthermore, in interpreting DMS data, the choice of threshold for defining functionally important positions (e.g., fitness effect $\leq -0.5$) directly affects the composition of the ground truth, introducing sensitivity to that threshold.
 DMS measures in vitro molecular fitness using pseudovirus systems and thus may not fully capture in vivo fitness.
 
-\textbf{Phylogenetic Non-Independence.}
+\textbf{Methodological Limitations.}
 
-Frequency-based H-scores are susceptible to phylogenetic confounding ($\rho = -0.876$ between H-score and independent mutational origins; see Section~\ref{sec:phylo_limits} for detailed analysis and mitigation strategies).
-
-\textbf{Scope Limitations.}
-
-Evaluation was conducted on 9 RNA viruses (SARS-CoV-2, Influenza A/B, HIV-1, RSV, Dengue, HCV, MERS-CoV, Norovirus), but validation on DNA viruses (HPV, HBV, etc.) with distinct mutation mechanisms has not yet been performed.
-Additionally, the current implementation of MutBench targets only point mutations, excluding insertions and deletions (indels).
-Integration of position-specific fitness prediction using protein language models (ESM-2, etc.) also remains a future task.
-
-\textbf{Gap Between Synthetic and Real Data.}
-
-A performance gap exists between synthetic and real data due to the sparse distribution of real H-scores (only 342 of 29,903 positions being non-zero), though biological validity is preserved with enrichment ratios above 6.9-fold (see Chapter~\ref{ch:discussion} for detailed analysis).
+The phylogenetic non-independence of frequency-based scores (Section~\ref{sec:phylo_limits}) and GISAID sampling biases (Section~\ref{sec:gt_heterogeneity}) are discussed in Chapter~\ref{ch:discussion}.
+Additionally, the current implementation of MutBench targets only point mutations, excluding insertions and deletions (indels), and validation on DNA viruses has not yet been performed.
+A performance gap exists between synthetic and real data due to the sparse distribution of real H-scores, though biological validity is preserved with enrichment ratios above 6.9-fold (see Chapter~\ref{ch:discussion} for detailed analysis).
 
 \textbf{Limitations of Position-Level Evaluation.}
 
@@ -114,22 +106,12 @@ The primary computational bottleneck is TreeTime's $O(N \log N)$ scaling with se
 Phylogenetic correction would primarily affect pathogens with strong founder effects (e.g., SARS-CoV-2 D614G, which ranks 2nd by H-score but 1,134th by homoplasy), potentially changing the best-performing scoring--detection combinations for those pathogens and improving the overall oracle MCC.
 Temporal stratification, which normalizes sequence proportions across time periods, would complement phylogenetic correction by mitigating sequencing bias independently of tree topology.
 
-\textbf{DNA Virus Expansion.}
+\textbf{Additional Research Directions.}
 
-Extension to DNA viruses such as HPV and HBV is a key task for verifying the generalization scope of the MutBench framework.
-Because DNA viruses have lower mutation rates and distinct mutation mechanisms (e.g., APOBEC3-mediated deamination) compared to RNA viruses, it is necessary to verify whether the current scoring and detection methods are equally applicable.
-
-\textbf{Indel and Protein Language Model Integration.}
-
-Development of gap-handling strategies is needed to integrate insertions and deletions (indels), which are currently excluded, into the H-score framework.
-Additionally, a multi-scale scoring system is envisioned that utilizes log-likelihood ratios from protein language models (ESM-2/ESM-3) as position-specific fitness scores, combining the interpretability of the H-score with the pattern-learning capability of deep learning.
-Per-position structural confidence scores (pLDDT) from AlphaFold and ESMFold have been computed for all 9 pathogens and are available as additional features for future integration into multi-source detection pipelines.
-
-\textbf{Integration with Real-Time Surveillance Systems.}
-
-In the long term, the goal is to integrate the best-performing detection methods validated in MutBench into real-time genomic surveillance pipelines.
-This includes incremental H-score updates for streaming sequencing data, automatic alerts upon the emergence of novel variants, and integration with wastewater surveillance data.
-MutBench's stability metric plays a central role in ensuring the reliability of detection results in such real-time applications.
+Additional research directions include:
+(1)~expansion to DNA viruses (HPV, HBV) whose lower mutation rates and distinct mutation mechanisms (e.g., APOBEC3-mediated deamination) require verification of current scoring and detection applicability;
+(2)~indel and protein language model integration, developing gap-handling strategies for the H-score framework and incorporating ESM-2/ESM-3 log-likelihood ratios as position-specific fitness scores;
+and (3)~real-time surveillance pipeline development, integrating MutBench-validated detection methods with incremental H-score updates for streaming sequencing data and automatic alerts upon novel variant emergence.
 
 \section{Concluding Remarks}
 \label{sec:final_conclusion}
@@ -138,7 +120,7 @@ The COVID-19 pandemic revealed that viral mutation hotspot detection is not mere
 This dissertation presented MutBench, the first systematic benchmark framework for viral mutation hotspot detection, and statistically demonstrated through large-scale benchmark evaluation across 9 RNA viruses (3,159 total evaluations; 2,418 with non-zero MCC used for statistical testing) that no single best-performing method exists.
 Before MutBench, researchers deploying hotspot detection methods had no quantitative basis for method selection; MutBench provides this basis through standardized ground truth, composite evaluation metrics, and cross-pathogen statistical evidence.
 These results establish that adaptive method selection based on pathogen characteristics is essential; the PAHD prototype (v1 and v2 profiles) serves as a proof-of-concept application of this finding, with the v2 MSA-derived profile demonstrating improved similarity calibration, though the $n = 9$ knowledge base limitation confirms that scaling to more pathogens is the critical next step.
-More broadly, the finding that detection method performance is dominated by the method--pathogen interaction ($\omega^2 = 0.285$) rather than the method main effect carries implications beyond viral genomics: any domain where algorithms are applied across heterogeneous input distributions may benefit from similar systematic benchmarking to expose hidden interaction effects and guide principled algorithm selection.
+More broadly, the finding that detection method performance is dominated by the interaction effect ($\omega^2 = 0.285$, Section~\ref{subsec:9pathogen_anova}) rather than the method main effect carries implications beyond viral genomics: any domain where algorithms are applied across heterogeneous input distributions may benefit from similar systematic benchmarking to expose hidden interaction effects and guide principled algorithm selection.
 As new viral threats emerge, the systematic benchmarking methodology established here will enable the research community to rapidly identify optimal detection strategies tailored to each pathogen's characteristics, transforming hotspot detection from an ad hoc practice into an evidence-based discipline.
 
 \section*{Code and Data Availability}

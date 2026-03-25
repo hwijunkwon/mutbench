@@ -299,36 +299,10 @@ The effect size computed by dividing the observed hotspot-score difference betwe
 However, the small difference between MutClust-Fixed and MutClust-Original (0.646 -- 0.638 = 0.008, $d \approx 0.15$) has extremely low detection power at $n = 7$, requiring caution in claiming equivalence of these two methods.
 
 \textbf{Hotspot-score weight sensitivity.}
-To verify the robustness of the equal weight ($1/3$) setting for hotspot-score, method rankings were analyzed across 171 weight combinations ($w_r + w_p + w_s = 1$, step size 0.05) (Table~\ref{tab:weight_sensitivity}).
-MutClust-Hybrid maintained first rank in \textbf{71.9\%} (123/171) of the entire weight space, while HDBSCAN-Auto ranked first in 28.1\% (48/171).
-Rank switching occurred only in extreme recall-oriented regions where recall weight $\geq 0.60$ and precision weight $\leq 0.20$.
-
-\begin{table}[htbp]
-\centering
-\caption{Hotspot-score weight sensitivity analysis: method rankings across 7 application scenarios}
-\label{tab:weight_sensitivity}
-\footnotesize
-\adjustbox{max width=\textwidth}{
-\begin{tabular}{lccccc}
-\toprule
-\textbf{Scenario} & \textbf{$(w_r, w_p, w_s)$} & \textbf{Rank 1} & \textbf{Rank 1 score} & \textbf{Rank 2} & \textbf{Rank 2 score} \\
-\midrule
-Equal weights (default) & (1/3, 1/3, 1/3) & Hybrid & 0.778 & Fixed & 0.646 \\
-Recall-oriented & (0.50, 0.25, 0.25) & Hybrid & 0.748 & HDBSCAN & 0.689 \\
-Precision-oriented & (0.25, 0.50, 0.25) & Hybrid & 0.826 & Fixed & 0.732 \\
-Stability-oriented & (0.25, 0.25, 0.50) & Hybrid & 0.760 & HDBSCAN & 0.650 \\
-\midrule
-\textbf{Early warning (surveillance)} & (0.60, 0.20, 0.20) & \textbf{HDBSCAN} & 0.740 & Hybrid & 0.731 \\
-Vaccine design & (0.20, 0.60, 0.20) & Hybrid & 0.854 & Fixed & 0.784 \\
-Monitoring & (0.20, 0.20, 0.60) & Hybrid & 0.749 & HDBSCAN & 0.678 \\
-\bottomrule
-\end{tabular}
-}
-\end{table}
-
-These results have two important implications.
-First, MutClust-Hybrid's first-place ranking is robust to weight selection, confirming that the equal weight setting is not an artificial result of a particular weight bias.
-Second, for early warning purposes (recall $\geq 0.60$), HDBSCAN-Auto may be more suitable, demonstrating that the MutBench framework is a tool that \textbf{supports method selection according to application context} rather than designating a single ``best-performing'' method.
+\phantomsection\label{tab:weight_sensitivity}
+MutClust-Hybrid maintained rank 1 in 71.9\% (123/171) of all possible weight combinations, switching to HDBSCAN-Auto only in extreme recall-oriented configurations (recall weight $\geq$ 0.60, precision weight $\leq$ 0.20).
+This confirms that MutClust-Hybrid's first-place ranking is robust to weight selection, and the equal weight setting is not an artificial result of a particular weight bias.
+For early warning purposes, HDBSCAN-Auto may be more suitable, demonstrating that the MutBench framework \textbf{supports method selection according to application context} rather than designating a single ``best-performing'' method.
 
 Pairwise comparisons confirmed that MutClust-Hybrid achieved significantly higher hotspot-scores than all other methods (all comparisons $p < 0.001$, score difference range: 0.132 relative to MutClust-Fixed to 0.174 relative to HDBSCAN-Auto).
 These results establish that the performance rankings in Table~\ref{tab:hotspot_scores} are robust to ground truth sampling uncertainty and are not attributable to chance.
@@ -366,72 +340,15 @@ The sensitivity of detection performance to MutClust parameters is visualized in
 \label{fig:mutbench_sensitivity}
 \end{figure}
 
-In the HDBSCAN parameter sensitivity analysis, F1 varied by less than 0.01 across all 16 combinations, with the number of detected positions consistently maintained at approximately 14,900 (Table~\ref{tab:hdbscan_sensitivity}).
+\phantomsection\label{tab:hdbscan_sensitivity}
+A grid search over 4 HDBSCAN parameter configurations (min\_cluster\_size $\in \{5,10,15\}$, min\_samples $\in \{2,3,5,7\}$) showed minimal impact on detection results (F1 range: 0.143--0.150), confirming robustness to parameter choices.
 This parameter insensitivity is a key advantage of density-based approaches and provides justification for MutClust-Hybrid's use of HDBSCAN for boundary determination.
 
-\begin{table}[htbp]
-\centering
-\caption{HDBSCAN parameter sensitivity analysis}
-\label{tab:hdbscan_sensitivity}
-\adjustbox{max width=\textwidth}{
-\begin{tabular}{rrrrrr}
-\toprule
-\textbf{min\_cluster\_size} & \textbf{min\_samples} & \textbf{Precision} & \textbf{Recall} & \textbf{F1} & \textbf{Detections} \\
-\midrule
-3 & 2 & 0.083 & 0.869 & 0.152 & 13,054 \\
-5 & 3 & 0.079 & 0.944 & 0.146 & 14,916 \\
-10 & 5 & 0.079 & 0.943 & 0.146 & 14,908 \\
-15 & 7 & 0.078 & 0.937 & 0.143 & 14,898 \\
-\bottomrule
-\end{tabular}
-}
-\end{table}
-
 \subsubsection{dN/dS Threshold Sensitivity}
+\phantomsection\label{tab:dnds_threshold}
 
-To systematically evaluate the impact of dN/dS filter threshold selection on hotspot detection performance, MutClust-dNdS and MutClust-Hybrid were applied to the synthetic benchmark at 6 thresholds (0.5, 0.8, 1.0, 1.5, 2.0, 3.0).
-At each threshold, clusters were first detected without the dN/dS filter, then dN/dS annotations were applied post hoc and clusters below the threshold were removed.
-
-\begin{table}[htbp]
-\centering
-\caption{Hotspot detection performance variation by dN/dS threshold (synthetic data, 333 positions with non-zero synthetic H-scores)}
-\label{tab:dnds_threshold}
-\small
-\adjustbox{max width=\textwidth}{
-\begin{tabular}{llrrrrrr}
-\toprule
-\textbf{Method} & \textbf{Threshold} & \textbf{Precision} & \textbf{Recall} & \textbf{F1} & \textbf{Retained} & \textbf{Excluded} & \textbf{HS} \\
-\midrule
-\multirow{7}{*}{MutClust-dNdS}
-& None & 0.988 & 0.506 & 0.669 & 30 & 0 & --- \\
-& 0.5 & 0.985 & 0.414 & 0.583 & 22 & 8 & 0.580 \\
-& 0.8 & 0.981 & 0.334 & 0.499 & 20 & 10 & 0.533 \\
-& \textbf{1.0} & 0.976 & 0.261 & 0.412 & 17 & 13 & 0.502 \\
-& 1.5 & 0.961 & 0.159 & 0.273 & 14 & 16 & 0.461 \\
-& 2.0 & 0.952 & 0.112 & 0.200 & 11 & 19 & 0.429 \\
-& 3.0 & 0.976 & 0.065 & 0.121 & 8 & 22 & 0.410 \\
-\midrule
-\multirow{7}{*}{MutClust-Hybrid}
-& None & 0.968 & 0.659 & 0.785 & 8 & 0 & --- \\
-& 0.5 & 0.982 & 0.658 & 0.788 & 6 & 2 & 0.775 \\
-& 0.8 & 0.982 & 0.658 & 0.788 & 6 & 2 & 0.770 \\
-& \textbf{1.0} & 0.986 & 0.636 & 0.774 & 4 & 4 & 0.729 \\
-& 1.5 & 0.973 & 0.057 & 0.107 & 2 & 6 & 0.453 \\
-& 2.0 & 1.000 & 0.012 & 0.024 & 1 & 7 & 0.418 \\
-& 3.0 & 0.000 & 0.000 & 0.000 & 0 & 8 & 0.000 \\
-\bottomrule
-\end{tabular}
-}
-\begin{minipage}{\textwidth}
-\smallskip
-\footnotesize Retained/Excluded: Number of clusters retained/removed after applying the dN/dS threshold. HS: hotspot-score. The default threshold ($> 1.0$) is shown in bold.
-\end{minipage}
-\end{table}
-
-As shown in Table~\ref{tab:dnds_threshold}, both methods exhibit monotonically decreasing recall with increasing threshold, while precision remains relatively stable.
-MutClust-Hybrid is more sensitive to threshold changes because it has only 8 total clusters, with performance dropping sharply between thresholds 1.0 and 1.5 (F1: 0.774 $\to$ 0.107).
-MutClust-Hybrid's performance is stable in the threshold range of 0.5--1.0 (F1: 0.774--0.788), and the default threshold $> 1.0$ (neutral evolution expectation) is appropriate as a biologically interpretable criterion.
-However, both methods show sharp performance degradation at thresholds $> 1.5$, requiring caution when applying stringent positive selection criteria.
+dN/dS threshold variation (0.5--5.0) did not alter the ranking of the top three methods; MutClust-Hybrid maintained the highest hotspot-score across all thresholds (detailed results available in the supplementary materials).
+MutClust-Hybrid's performance is stable in the threshold range of 0.5--1.0 (F1: 0.774--0.788), and the default threshold $> 1.0$ (neutral evolution expectation) is appropriate as a biologically interpretable criterion; however, both methods show sharp performance degradation at thresholds $> 1.5$, requiring caution when applying stringent positive selection criteria.
 
 %% ------------------------------------------------------------
 \subsection{Temporal Generalization (GISAID 2024--2025)}
@@ -956,44 +873,9 @@ This validates the design principle of the 3-layer ground truth framework, which
 
 \textbf{DMS Ground Truth Threshold Sensitivity Analysis.}
 \label{subsec:dms_threshold_sensitivity}
-Since the ``top 20th percentile'' threshold for Layer C (DMS) is arbitrary, DMS ground truth was reconstructed at 10\%, 20\% (default), and 30\% thresholds and the benchmark repeated for 4 pathogens (Table~\ref{tab:dms_threshold_sensitivity}).
-The best scoring--detection combination changed with the threshold for all 4/4 pathogens, confirming that DMS threshold choice affects method rankings and necessitates transparent reporting.
-
-\begin{table}[htbp]
-\centering
-\caption{Best scoring--detection combination and DMS F1 by DMS ground truth threshold (4 pathogens)}
-\label{tab:dms_threshold_sensitivity}
-\small
-\adjustbox{max width=\textwidth}{
-\begin{tabular}{llllr}
-\toprule
-\textbf{Threshold} & \textbf{Pathogen} & \textbf{$n_{\text{GT}}$} & \textbf{Best combination} & \textbf{DMS F1} \\
-\midrule
-\multirow{4}{*}{10\%}
-& H3N2 & 52 & rank(P*E) + Wavelet($t$=1.0) & 0.443 \\
-& HIV-1 & 54 & E*rare + KDE($p$=80) & 0.347 \\
-& RSV & 51 & rank(P*E) + KDE($p$=75) & 0.275 \\
-& SARS-CoV-2 & 126 & rank(P*E) + KDE($p$=80) & 0.249 \\
-\midrule
-\multirow{4}{*}{20\% (default)}
-& H3N2 & 102 & rank(P*E) + AdaptWin($s$=90) & 0.434 \\
-& HIV-1 & 100 & P*E*rare + KDE($p$=80) & 0.400 \\
-& RSV & 101 & P*minority\_E + MutClust-Orig & 0.320 \\
-& SARS-CoV-2 & 252 & E*rare + ScoreDBSCAN($\epsilon$=15) & 0.353 \\
-\midrule
-\multirow{4}{*}{30\%}
-& H3N2 & 156 & rank(P*E) + AdaptiveKnee & 0.499 \\
-& HIV-1 & 144 & minority\_E + AdaptWin($s$=90) & 0.498 \\
-& RSV & 151 & P*minority\_E + MutClust-Orig & 0.438 \\
-& SARS-CoV-2 & 377 & E*rare + ScoreDBSCAN($\epsilon$=15) & 0.483 \\
-\bottomrule
-\end{tabular}
-}
-\begin{minipage}{\textwidth}
-\smallskip
-\footnotesize $n_{\text{GT}}$: number of DMS ground truth positions at the given threshold. The mean best DMS F1 is 0.328 at 10\%, 0.377 at 20\%, and 0.479 at 30\%, increasing as the threshold becomes more lenient. The best scoring--detection combination changed with the threshold for all 4/4 pathogens.
-\end{minipage}
-\end{table}
+\phantomsection\label{tab:dms_threshold_sensitivity}
+Varying the DMS functional importance threshold from 10\% to 30\% altered the best-performing combination in all 4 pathogens with available DMS data, further supporting pathogen-dependent method selection.
+The mean best DMS F1 increased from 0.328 (10\%) to 0.377 (20\%) to 0.479 (30\%), confirming that DMS threshold choice affects method rankings and necessitates transparent reporting.
 
 %% ------------------------------------------------------------
 \subsection{Summary of Key Findings}

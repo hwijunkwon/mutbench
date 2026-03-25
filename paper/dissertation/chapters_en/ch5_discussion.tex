@@ -75,32 +75,18 @@ In contrast, position 476 near the RBD antibody binding interface received the h
 However, key convergent evolution positions associated with later variants of concern showed weak signals (E484K: 1, N501Y: 0), attributable to the limited temporal coverage of the dataset (pre-Omicron sequences only).
 These positions would be expected to accumulate substantially higher homoplasy counts in datasets extending through 2022--2023, when convergent evolution at these sites became prominent across multiple independent lineages.
 
-To evaluate whether homoplasy-based scoring generalizes beyond SARS-CoV-2, the scores were compared against Layer~A ground truth for three pathogens with sufficient phylogenetic diversity (Table~\ref{tab:homoplasy_validation}).
+To evaluate whether homoplasy-based scoring generalizes beyond SARS-CoV-2, the scores were compared against Layer~A ground truth for three pathogens with sufficient phylogenetic diversity.
+\phantomsection\label{tab:homoplasy_validation}
 For each pathogen, homoplasy scores were computed on publicly available alignments using Fitch parsimony, and discrimination between Layer~A (positive selection) and non-Layer~A positions was assessed via AUC, Mann-Whitney $U$ test, and Cohen's $d$ effect size.
+HIV-1 showed significant discrimination (AUC = 0.706, $p = 0.0002$), while HCV failed (AUC = 0.390, parsimony saturation) and H3N2 showed a weak, non-significant trend (AUC = 0.561, $p = 0.147$).
 
-\begin{table}[htbp]
-\centering
-\caption{Homoplasy scoring validation against Layer~A ground truth across three pathogens. AUC indicates discrimination between Layer~A and non-Layer~A positions; Mann-Whitney $p$ tests the null hypothesis of equal homoplasy score distributions; Cohen's $d$ quantifies effect size.}
-\label{tab:homoplasy_validation}
-\small
-\begin{tabular}{lrrrr}
-\toprule
-Pathogen & Layer~A positions & AUC & Mann-Whitney $p$ & Cohen's $d$ \\
-\midrule
-HIV-1 & 26 & 0.706 & 0.0002 & 0.653 \\
-H3N2 & 25 & 0.561 & 0.147 & 0.399 \\
-HCV & 54 & 0.390 & 0.995 & $-$0.391 \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-The cross-pathogen results reveal a striking pattern of pathogen-dependent performance.
-HIV-1 shows strong discrimination (AUC = 0.706, $p = 0.0002$, $d = 0.653$), confirming that homoplasy scoring captures adaptive evolution signals in pathogens with high sequence diversity and well-separated phylogenetic lineages.
-HCV, however, fails entirely (AUC = 0.390, inverted relative to expectation) because its hypervariable regions (HVR1/HVR2) exhibit such extreme diversity that parsimony reconstruction becomes saturated --- every position mutates so frequently that homoplasy counts lose discriminative power, and the ground truth positions (which are themselves hypervariable) do not stand out from the background.
-H3N2 shows a weak, non-significant trend ($p = 0.147$), suggesting partial but insufficient signal for reliable discrimination.
+The cross-pathogen results reveal a pattern of pathogen-dependent performance.
+HIV-1's strong discrimination confirms that homoplasy scoring captures adaptive evolution signals in pathogens with high sequence diversity and well-separated phylogenetic lineages.
+HCV, however, fails entirely because its hypervariable regions (HVR1/HVR2) exhibit such extreme diversity that parsimony reconstruction becomes saturated --- every position mutates so frequently that homoplasy counts lose discriminative power, and the ground truth positions (which are themselves hypervariable) do not stand out from the background.
+H3N2 shows partial but insufficient signal for reliable discrimination.
 
 This pathogen-dependent pattern in scoring method performance mirrors the detection-level finding of the main benchmark (Section~\ref{sec:cross_pathogen_structural}): no single scoring approach works universally across all pathogens.
-Just as the best detection algorithm varies across pathogens ($\omega^2_{\text{interaction}} = 0.285$), the optimal scoring strategy also depends on pathogen-specific characteristics such as sequence diversity, evolutionary rate, and phylogenetic depth.
+Just as the best detection algorithm varies across pathogens (the interaction effect, $\omega^2 = 0.285$, Section~\ref{subsec:9pathogen_anova}), the optimal scoring strategy also depends on pathogen-specific characteristics such as sequence diversity, evolutionary rate, and phylogenetic depth.
 HIV-1's high phylogenetic diversity and deep coalescent times provide the ideal conditions for parsimony-based homoplasy detection, whereas HCV's extreme hypervariability overwhelms the same approach.
 This finding provides additional motivation for the PAHD framework's adaptive approach: the selection problem extends beyond detection methods to encompass scoring methods as well.
 A fully realized PAHD implementation should therefore jointly optimize both the scoring function and the detection algorithm as a function of pathogen profile, expanding the algorithm space $\mathcal{A}$ from 351 detection-only combinations to include scoring alternatives such as homoplasy, temporal contrast, and protein language model scores.
@@ -171,20 +157,14 @@ HCV           & 0.510 & 0.793 & 0.894 \\
 {\footnotesize $^\dagger$The position-exact MCC (0.289) in the region-overlap analysis differs from the benchmark-reported oracle (0.298) because the region-overlap analysis uses a reimplemented evaluation pipeline with minor differences in boundary handling (e.g., edge-position treatment at alignment boundaries). The absolute baseline difference (0.009, or 3.1\%) does not affect the primary finding: the relative improvement from exact to region-overlap evaluation (146\%) demonstrates that detected hotspots are spatially proximate to ground truth positions.}
 \end{table}
 
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=\textwidth]{region_overlap_bar.png}
-\caption{Region-overlap MCC under three evaluation modes (Exact, $\pm$5, $\pm$10 windows) for each pathogen. The consistent improvement from exact to $\pm$10 window evaluation demonstrates that detected hotspots are spatially proximate to ground truth positions across all 9 pathogens.}
-\label{fig:region_overlap_bar}
-\end{figure}
-
+The improvement is visualized in the region-overlap analysis, where position-exact MCC (0.289) increases to 0.712 under $\pm$10 window relaxation (Table~\ref{tab:region_overlap_mcc}).
 Pathogens with well-characterized ground truth achieve substantially higher values.
 Despite these ceiling effects, the benchmark results have practical implications for public health surveillance.
 
 %% ============================================================
 \section{Practical Implications and Fundamental Limitations}
 
-Returning to the three problems identified in Chapter~\ref{ch:introduction}: the absence of a standardized evaluation framework is addressed by MutBench's three-layer ground truth and hotspot-score metric (Contribution~1); the lack of cross-pathogen generalization evidence is resolved by the four independent lines of statistical evidence (Contribution~2); and the unknown pathogen-dependence of detection methods is quantified by the ANOVA interaction dominance ($\omega^2 = 0.285$) and LOPO failure (0/9), motivating the PAHD framework.
+Returning to the three problems identified in Chapter~\ref{ch:introduction}: the absence of a standardized evaluation framework is addressed by MutBench's three-layer ground truth and hotspot-score metric (Contribution~1); the lack of cross-pathogen generalization evidence is resolved by the four independent lines of statistical evidence (Contribution~2); and the unknown pathogen-dependence of detection methods is quantified by the interaction effect ($\omega^2 = 0.285$, Section~\ref{subsec:9pathogen_anova}) and LOPO failure (0/9), motivating the PAHD framework.
 
 %% ============================================================
 \subsection{Vaccine Escape Position Validation}
