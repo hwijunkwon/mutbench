@@ -1,0 +1,13 @@
+pathogen,n_positions,n_sequences,mean_stability,max_stability,variable_positions,pct_variable,has_plddt
+SARS-CoV-2,1273,500,0.0275,3.0,25,2.0,True
+H3N2,566,2596,1.0641,4.0,401,70.8,True
+Norovirus,540,1323,-0.1631,3.0,124,23.0,True
+HIV-1,515,104,1.0697,4.0,419,81.4,True
+Dengue,495,1728,-0.1104,4.0,158,31.9,True
+RSV,574,4765,-0.37,3.0,164,28.6,True
+Influenza_B,582,1747,0.84,4.0,419,72.0,True
+MERS,1353,960,1.2622,4.0,1111,82.1,True
+HCV,369,498,0.8616,4.0,274,74.3,True
+Zika,504,17,1.215,4.0,348,69.0,True
+Rabies,524,1941,-0.0431,3.0,200,38.2,True
+EV-A71,297,539,0.0049,3.0,81,27.3,True
