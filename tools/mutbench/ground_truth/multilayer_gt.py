@@ -77,6 +77,65 @@ def get_gt_adaptive(pathogen: str, max_len: int) -> set[int]:
     elif pathogen == "HCV":
         # HVR1 + HVR2: genuinely hypervariable regions
         sites = set(range(1, 28)) | set(range(77, 104))
+    elif pathogen == "Zika":
+        # Zika virus E protein (~504 aa, 0-based)
+        # Sourisseau et al. 2019 J Virol: DMS antibody escape mapping
+        # Long et al. 2019 J Virol: mAb escape on DIII lateral ridge
+        # Keeffe et al. 2018 Cell Host Microbe: Z004/Z021 escape
+        # Zhao et al. 2016 Cell: ZV-67 lateral ridge epitope
+        sites = {
+            # Domain III lateral ridge — major neutralizing epitope
+            # (ZV-67, ZKA64, ZIKV-116 escape positions)
+            329, 330, 331, 332, 333, 335, 339, 362, 364,
+            366, 368, 370,
+            # Domain III ABCD sheet epitope (ZKA64 escape)
+            302, 307, 309, 310, 311, 315,
+            # Domain III CC' loop / A-strand (Z004/Z021 binding)
+            389, 391, 393, 394,
+            # Domain II escape (ZKA185 antibody escape, broadly nAb)
+            67, 69, 71, 83, 118,
+            # A310E tropism/escape, D67N documented escape
+            # Convergent: positions with recurrent substitutions
+            # across Asian/African lineage divergence
+        }
+    elif pathogen == "Rabies":
+        # Rabies virus G protein (~524 aa, 0-based)
+        # Aditham et al. 2025 Cell Host Microbe: DMS of 8 mAbs
+        # Benmansour et al. 1991; Lafon 1983: classical antigenic sites
+        sites = {
+            # Antigenic site I (aa 226-231): CR57 epitope
+            226, 227, 228, 229, 230, 231,
+            # Antigenic site II (aa 34-42, 198-200): discontinuous
+            34, 35, 36, 37, 38, 39, 40, 41, 42,
+            198, 199, 200,
+            # Antigenic site III (aa 330-338): R333Q classic escape
+            # 17C7 (Rabishield) DMS escape: 334, 336-338, 340-342, 346
+            330, 331, 332, 333, 334, 336, 337, 338,
+            340, 341, 342, 346,
+            # Antigenic site IV (aa 261-264)
+            261, 262, 263, 264,
+            # DMS-identified escape from RVC20 (antigenic region I)
+            # and CTB012/RVC68 (novel sites at apex/base)
+            137, 194, 195, 196, 349,
+        }
+    elif pathogen == "EV-A71":
+        # Enterovirus A71 VP1 (~297 aa, 0-based)
+        # Huang et al. 2015 J Virol: antigenic determinants 98, 145, 164
+        # Tong et al. 2024 Nat Microbiol: DMS fitness landscape
+        # Lim et al. 2013 PLoS Pathog: VP1-145 virulence/escape
+        # NikNadia et al. 2018 J Med Virol: neutralization epitopes
+        sites = {
+            # BC loop region (surface-exposed, 5-fold axis)
+            95, 96, 97, 98, 100, 104,
+            # DE loop — neutralizing epitope
+            141, 142, 143, 145, 146, 148, 150,
+            # GH loop — major neutralizing epitope (aa 208-222)
+            208, 210, 211, 212, 214, 215, 216, 217, 218, 219, 222,
+            # Key antigenic determinants (Huang 2015)
+            164,
+            # Documented escape mutations: S241L, K244E/R
+            241, 244,
+        }
     else:
         sites = set()
 
@@ -130,6 +189,21 @@ def get_gt_constrained(pathogen: str, max_len: int) -> set[int]:
             418, 420, 422, 424, 436, 438, 441, 442,
             503, 506, 528, 529, 530, 535,
         }
+    elif pathogen == "Zika":
+        # Fusion loop: highly conserved across all flaviviruses (aa 98-110)
+        sites = set(range(98, 111))
+        # Structural disulfide bonds (invariant cysteines)
+        sites.update({3, 30, 60, 74, 92, 105, 116, 121, 137, 166, 176, 189})
+    elif pathogen == "Rabies":
+        # Fusion peptide region (highly conserved)
+        sites = set(range(102, 122))
+        # Transmembrane anchor and endodomain (invariant)
+        sites.update(range(440, 462))
+    elif pathogen == "EV-A71":
+        # VP1 hydrophobic pocket (pocket factor binding, drug target)
+        sites = set(range(174, 195))
+        # Canyon floor residues (receptor-binding conserved)
+        sites.update({128, 130, 132, 155, 157, 160, 168, 170})
 
     return {p for p in sites if p < max_len}
 
@@ -163,6 +237,7 @@ def load_bloom_preferences(filepath: str) -> dict[int, float]:
 
     Returns dict mapping 0-based position to preference entropy
     (high = tolerant of mutations = potential hotspot).
+    Skips insertion sites (e.g. '184a') that cannot map to integer positions.
     """
     import pandas as pd
 
@@ -170,7 +245,11 @@ def load_bloom_preferences(filepath: str) -> dict[int, float]:
     aa_cols = [c for c in df.columns if c != "site" and len(c) == 1]
     position_scores = {}
     for _, row in df.iterrows():
-        pos = int(row["site"]) - 1  # Convert to 0-based
+        site_val = row["site"]
+        try:
+            pos = int(site_val) - 1  # Convert to 0-based
+        except (ValueError, TypeError):
+            continue  # Skip insertion sites like '184a'
         prefs = np.array([row[aa] for aa in aa_cols])
         prefs = prefs / (prefs.sum() + 1e-10)
         entropy = -np.sum(prefs * np.log2(prefs + 1e-10))
@@ -181,13 +260,16 @@ def load_bloom_preferences(filepath: str) -> dict[int, float]:
 def load_sars2_fitness(filepath: str) -> dict[int, float]:
     """Load SARS-CoV-2 Bloom fitness data (aamut_fitness_all.csv).
 
-    Returns dict mapping 0-based Spike AA position to mean |fitness|.
+    Returns dict mapping 0-based Spike AA position to mean |delta_fitness|.
+    Filters for gene=='S' (Spike) only.
     """
     import pandas as pd
 
     df = pd.read_csv(filepath)
+    # Filter for Spike gene only
+    df = df[df["gene"] == "S"]
     site_fitness = (
-        df.groupby("site")["fitness"]
+        df.groupby("aa_site")["delta_fitness"]
         .apply(lambda x: np.mean(np.abs(x)))
         .to_dict()
     )

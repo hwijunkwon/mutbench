@@ -1,0 +1,10 @@
+pathogen,n_residues,mean_rsa,source
+SARS-CoV-2,1273,0.177,ESMFold
+H3N2,566,0.303,ESMFold
+Norovirus,540,0.356,ESMFold
+HIV-1,483,0.369,ESMFold
+Dengue,493,0.261,ESMFold
+RSV,574,0.316,ESMFold
+Influenza_B,582,0.326,ESMFold
+MERS,1353,0.17,ESMFold
+HCV,352,0.491,ESMFold

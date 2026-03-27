@@ -31,7 +31,7 @@ Table~\ref{tab:pathogen_data} summarizes the characteristics of each pathogen's 
 
 \begin{table}[htbp]
 \centering
-\caption{Sequence dataset characteristics for 9 pathogens}
+\caption{Sequence dataset characteristics for 12 pathogens (9 for Stage~2 benchmark + 3 extended for Chapter~\ref{ch:adapt} analysis)}
 \label{tab:pathogen_data}
 \footnotesize
 \adjustbox{max width=\textwidth}{
@@ -48,6 +48,11 @@ RSV & F protein & KT992094 (RSV-A) & 5,070 & 4,779 & 550 \\
 Influenza B & HA & CY018765 (B/Florida/4/2006) & 5,325 & 5,019 & 560 \\
 MERS & Spike & NC\_019843.3 (MERS-CoV) & 1,311 & 530 & 1,330 \\
 HCV & E2 & NC\_004102.1 (HCV-1a) & 1,362 & 1,067 & 340 \\
+\midrule
+\multicolumn{6}{l}{\textit{Extended pathogens (Chapter~\ref{ch:adapt})}} \\
+Zika & E protein & NC\_012532.1 & 52 & 52 & 505 \\
+Rabies & G protein & NC\_001542.1 & 2,038 & 2,038 & 524 \\
+EV-A71 & VP1 & AB204852 & 662 & 662 & 297 \\
 \bottomrule
 \end{tabular}
 }
@@ -351,16 +356,11 @@ MutClust computes an H-score for each genomic position:
 H_i = \log_2(P_i \times E_i \times 100 + 1)
 \label{eq:mutbench_hscore}
 \end{equation}
-where $P_i$ is the sum of mutation proportions at position $i$ and $E_i$ is the Shannon entropy of mutation types.
-The constant 100 is inherited from the original MutClust formulation~\cite{youn2025mutclust}; its role is to scale the product $P_i \times E_i$ (which ranges from 0 to approximately 0.01 for typical mutation frequencies) into a range where the $\log_2$ transform produces meaningful discrimination between positions.
-Since all methods in the benchmark use the same H-score formula, the constant affects absolute score values but not the relative ranking of positions, which is what detection methods operate on.
-Shannon entropy is defined as follows:
+where $P_i$ is the sum of mutation proportions at position $i$ and $E_i$ is the Shannon entropy of mutation types (Eq.~\ref{eq:shannon_entropy}).
 \begin{equation}
 E_i = -\sum_{j=1}^{k} p_{ij} \log_2 p_{ij}
 \label{eq:shannon_entropy}
 \end{equation}
-where $p_{ij}$ is the relative frequency of mutation type $j$ at position $i$ and $k$ is the number of observed mutation types.
-The H-score combines mutation frequency (how often a position mutates) and mutation diversity (how many substitution types occur).
 
 Positions satisfying the CCM (Core Candidate Mutation) criteria---H-score above a threshold, sufficient neighbor density, and minimum point count---are selected as seeds.
 The expand\_cluster function extends each seed bidirectionally using dependency-based decay:
@@ -368,66 +368,25 @@ The expand\_cluster function extends each seed bidirectionally using dependency-
 D_\epsilon(t) = D_\epsilon^{\text{CCM}} - \frac{t}{d}
 \label{eq:expand_cluster}
 \end{equation}
-where $D_\epsilon^{\text{CCM}} = \lceil \gamma \times H_{\text{seed}} \rceil$ is the initial dependency range of the seed, $t$ is the distance from the seed, and $d$ is the decay factor.
+where $D_\epsilon^{\text{CCM}} = \lceil \gamma \times H_{\text{seed}} \rceil$ is the initial dependency range, $t$ is the distance from the seed, and $d$ is the decay factor.
 
-\subsubsection{Bug Fix (MutClust-Fixed)}
+\subsubsection{Bug Fix and dN/dS Filter (MutClust-Fixed, MutClust-dNdS)}
 \label{subsec:improvements}
 
-The expand\_cluster function of MutClust-Original contained a bug in which the dependency range was subtracted cumulatively at each step rather than computed directly from the seed, causing accelerated range contraction and a loss of 71--95\% of the theoretical detection range.
-MutClust-Fixed corrects this by computing the dependency range directly from the seed ($D_\epsilon(t) = D_\epsilon^{\text{CCM}} - t/d$), which slightly increased detected positions in the synthetic benchmark (641 vs. 637) and yielded clusters extending to their theoretically predicted boundaries.
-
-\subsubsection{dN/dS Selection Filter (MutClust-dNdS)}
-
-MutClust-dNdS adds post-detection filtering based on the ratio of nonsynonymous to synonymous mutations (dN/dS).
-
-\textbf{dN/dS computation method.}
-The dN/dS ratio is computed per cluster using the Nei--Gojobori simple counting method~\cite{nei1986simple}.
-Only clusters under positive selection (dN/dS $> 1.0$) are retained; clusters under neutral or purifying selection are removed.
-In short clusters (fewer than 10 codons) where synonymous substitutions may be zero, dN/dS is undefined and the cluster is conservatively excluded.
+MutClust-Original contained a cumulative decay bug causing 71--95\% loss of theoretical detection range; MutClust-Fixed corrects this by computing the range directly from the seed.
+MutClust-dNdS adds post-detection filtering via the Nei--Gojobori dN/dS ratio~\cite{nei1986simple}, retaining only clusters under positive selection (dN/dS $> 1.0$).
 
 \textbf{Nucleotide vs. amino acid level.}
-The evaluation in this study is performed at the nucleotide (nt) level.
-The Spike gene (nt 21,563--25,384) comprises 3,822 nucleotides (1,273 amino acids + stop codon), and H-scores are computed per nt position.
-Since ground truth functional regions are defined at the amino acid level (e.g., RBD = AA 319--541), each AA position is expanded to its corresponding 3 codon positions to construct nt-level ground truth for evaluation.
-The nt-level evaluation was chosen for two reasons: (1) the H-score independently captures mutation frequency even at the third codon position (wobble position), and (2) a consistent coordinate system is maintained in anticipation of future extension to non-coding regions (5$'$/3$'$-UTR).
-
-\textbf{Insertion/deletion (indel) handling.}
-The H-score computation in MutClust targets only single nucleotide substitutions; insertions and deletions are currently not handled.
-This means that biologically important indels such as ins214EPE (Alpha/BA.1), $\Delta$69--70 (Alpha), and $\Delta$Y144 (Alpha) are not reflected in the H-score.
-Future work should integrate indel frequencies as a separate dimension or assign weights to positions where indels occur.
-
-Purifying selection (dN/dS $< 1$) also indicates biologically important functionally constrained regions---for example, the fusion machinery (HR1/HR2) and essential structural domains.
-Therefore, the dN/dS $> 1.0$ filter sacrifices recall of these conserved functional regions in exchange for improved precision in identifying sites under active positive selection, such as immune evasion and receptor adaptation.
-
-\textbf{Jukes-Cantor correction validation.}
-Jukes-Cantor correction produced negligible changes ($\rho = 0.996$); the uncorrected method was retained.
+Evaluation is performed at the nucleotide level (Spike gene: 3,822 nt). Since ground truth is defined at the amino acid level, each AA position is expanded to 3 codon positions.
 
 \subsubsection{HDBSCAN Hybrid (MutClust-Hybrid)}
 
-MutClust-Hybrid combines MutClust's domain-specific CCM seed detection with HDBSCAN's~\cite{campello2013hdbscan} automatic cluster boundary determination:
-
-\begin{enumerate}
-\item \textbf{Seed identification}: MutClust's \texttt{is\_ccm()} function is used to preserve domain knowledge regarding mutation hotspot characteristics.
-\item \textbf{Candidate collection}: All positions with non-zero H-scores within the dependency range of each CCM seed are collected.
-\item \textbf{HDBSCAN clustering}: Candidate positions are clustered by HDBSCAN in a two-dimensional feature space consisting of (i) genomic position min-max normalized to the $[0, H_{\max}]$ range and (ii) H-score magnitude. This normalization assigns equal weight to spatial proximity and score similarity.
-\item \textbf{dN/dS filtering}: The same positive selection signal filter as MutClust-dNdS is applied.
-\end{enumerate}
-
-This hybrid approach retains MutClust's biological prior knowledge (CCM criteria) while leveraging HDBSCAN's data-driven boundary detection.
-
-\textbf{Computational complexity.}
-The overall complexity of MutClust-Hybrid decomposes into three stages:
-(1)~H-score computation: $O(NM)$ for $N$ sequences and $M$ positions;
-(2)~CCM seed identification and candidate collection: linear scan after H-score sorting $O(M \log M)$;
-(3)~HDBSCAN clustering: $O(k^2)$ for $k$ candidate positions around CCM seeds (minimum spanning tree construction).
-In practice, $k \ll M$ (in the synthetic benchmark, $k \approx 800$, $M = 3{,}822$), so the overall complexity is dominated by $O(NM + M \log M)$, with H-score computation as the bottleneck.
-For $N = 10{,}000$ sequences and $M = 3{,}822$ positions, the total pipeline execution time is approximately 2 seconds (single core), making it practical even for real-time surveillance settings.
+MutClust-Hybrid combines CCM seed detection with HDBSCAN's~\cite{campello2013hdbscan} automatic boundary determination: (1)~identify seeds via MutClust's CCM criteria, (2)~collect non-zero H-score positions within each seed's dependency range, (3)~cluster candidates via HDBSCAN in a 2D feature space (normalized position, H-score), and (4)~apply dN/dS filtering.
+The overall complexity is $O(NM + M \log M)$, executing in approximately 2 seconds for $N = 10{,}000$ sequences.
 
 \subsubsection{Pure HDBSCAN (HDBSCAN-Auto)}
 
-HDBSCAN-Auto completely bypasses MutClust and applies HDBSCAN directly to positions above an adaptive threshold (median of non-zero H-scores).
-It uses the same two-dimensional feature space (min-max normalized position, H-score) and requires no manually specified domain parameters, enabling application to any viral genome without prior tuning.
-HDBSCAN-Auto uses min\_cluster\_size $= 5$ and min\_samples $= 3$ as default parameters.
+HDBSCAN-Auto bypasses MutClust entirely, applying HDBSCAN directly to positions above an adaptive threshold (median of non-zero H-scores) with min\_cluster\_size $= 5$ and min\_samples $= 3$.
 
 \subsection{Combined Evaluation Metric (Hotspot-score)}
 \label{subsec:hotspot_score}
@@ -468,55 +427,64 @@ The weight sensitivity analysis (Section~\ref{subsec:weight_sensitivity_methods}
 \subsection{Scoring Formulas}
 \label{subsec:9pathogen_scoring}
 
-Nine scoring formulas are defined to assign scores to each genomic position.
-Here, $P_i$ denotes the mutation frequency at position $i$, $E_i$ the Shannon entropy, and $\text{rare}_i$ the rare variant frequency (the proportion of variants with frequency below 5\% among all variants).
+Nine scoring formulas are defined to assign scores to each genomic position (Table~\ref{tab:scoring_formulas}).
+Here, $P_i$ denotes the mutation frequency at position $i$, $E_i$ the Shannon entropy, $\text{rare}_i$ the rare variant frequency (proportion of variants with frequency below 5\%), and $f_{2\text{nd},i}$ the second most frequent allele frequency.
 
-\begin{enumerate}
-\item \textbf{E*rare}: $S_i = E_i \times \text{rare}_i$. The product of entropy and rare variant frequency, emphasizing positions with high diversity and abundant rare variants.
-\item \textbf{P*E*rare}: $S_i = P_i \times E_i \times \text{rare}_i$. Combines mutation frequency, entropy, and rare variants.
-\item \textbf{minority\_E}: $S_i = f_{2\text{nd},i} \times E_i$. The product of the second most frequent allele frequency ($f_{2\text{nd}}$) and entropy.
-\item \textbf{P*minority\_E}: $S_i = P_i \times f_{2\text{nd},i} \times E_i$.
-\item \textbf{P*E}: $S_i = P_i \times E_i$. The simple product of frequency and entropy.
-\item \textbf{H-score}: $S_i = \log_2(P_i \times E_i \times 100 + 1)$. The original MutClust formula (Equation~\ref{eq:mutbench_hscore}).
-\item \textbf{E\_only}: $S_i = E_i$. Uses Shannon entropy alone.
-\item \textbf{P*E\textsuperscript{2}}: $S_i = P_i \times E_i^2$. Applies quadratic weighting to entropy.
-\item \textbf{rank(P*E)}: $S_i = \text{rank}(P_i \times E_i) / N$. A nonparametric score normalizing the rank of P*E.
-\end{enumerate}
+\begin{table}[htbp]
+\centering
+\caption{Nine scoring formulas used in the MutBench benchmark}
+\label{tab:scoring_formulas}
+\small
+\adjustbox{max width=\textwidth}{
+\begin{tabular}{lll}
+\toprule
+\textbf{Name} & \textbf{Formula} & \textbf{Description} \\
+\midrule
+E*rare & $S_i = E_i \times \text{rare}_i$ & Entropy $\times$ rare variant frequency \\
+P*E*rare & $S_i = P_i \times E_i \times \text{rare}_i$ & Frequency $\times$ entropy $\times$ rare variants \\
+minority\_E & $S_i = f_{2\text{nd},i} \times E_i$ & Minor allele frequency $\times$ entropy \\
+P*minority\_E & $S_i = P_i \times f_{2\text{nd},i} \times E_i$ & Frequency $\times$ minor allele $\times$ entropy \\
+P*E & $S_i = P_i \times E_i$ & Simple frequency--entropy product \\
+H-score & $S_i = \log_2(P_i \times E_i \times 100 + 1)$ & Original MutClust formula (Eq.~\ref{eq:mutbench_hscore}) \\
+E\_only & $S_i = E_i$ & Shannon entropy alone \\
+P*E$^2$ & $S_i = P_i \times E_i^2$ & Quadratic entropy weighting \\
+rank(P*E) & $S_i = \text{rank}(P_i \times E_i) / N$ & Nonparametric rank-normalized score \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
 
 \subsection{Scoring Variants for Multi-Source Ground Truth}
 \label{subsec:alternative_scoring}
 
-As H-score saturation was identified in the temporal validation (Section~\ref{sec:temporal}), the following alternative scoring methods were designed to perform complementary evaluation against various ground truth definitions.
-These methods are not hotspot ``detection'' methods but rather ``scoring'' approaches that assign a score to each genomic position; top positions are selected via thresholding and compared against multiple ground truths.
+As H-score saturation was identified in the temporal validation (Section~\ref{sec:temporal}), alternative scoring methods were designed for complementary evaluation against various ground truth definitions.
+These methods are ``scoring'' approaches that assign a score to each genomic position; top positions are selected via thresholding and compared against multiple ground truths.
+Table~\ref{tab:alternative_scoring} summarizes these variants.
 
-\textbf{Original H-score}: Uses MutClust's original H-score formula (Equation~\ref{eq:mutbench_hscore}) as-is.
+\begin{table}[htbp]
+\centering
+\caption{Alternative scoring variants for multi-source ground truth evaluation}
+\label{tab:alternative_scoring}
+\small
+\adjustbox{max width=\textwidth}{
+\begin{tabular}{lll}
+\toprule
+\textbf{Name} & \textbf{Formula} & \textbf{Description} \\
+\midrule
+Original H-score & Eq.~\ref{eq:mutbench_hscore} & MutClust's original H-score \\
+Saturated H-score & (same, on 2024--25 data) & H-score on contemporary consensus alignment \\
+CH-score & $\log_2(P_i^{\text{cons}} \times E_i \times 100 + 1)$ & Consensus-based; removes reference dependency \\
+E-score & $-\sum_{a} f_{a,i} \log_2 f_{a,i}$ & Shannon entropy alone \\
+TC-freq & $|\text{freq}_{t_2} - \text{freq}_{t_1}| / (\text{freq}_{t_1} + \epsilon)$ & Temporal frequency change rate \\
+TC-freq-v2 & $\text{TC-freq}_i \times \text{freq}_{t_2}(i)$ & TC-freq with absolute frequency weighting \\
+TC-freq-v3 & $\max_q \text{TC-freq}_{q}$ & Maximum quarterly frequency change \\
+dN/dS-weighted CH & $\text{CH}_i \times (dN/dS)_i$ & CH-score weighted by position-level dN/dS \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
 
-\textbf{Saturated H-score}: H-score computed through contemporary consensus sequence alignment on 2024--2025 data, reflecting within-population variation rather than comparison against the reference sequence (Wuhan-Hu-1).
-
-\textbf{CH-score (Consensus-based H-score)}: An H-score variant that removes reference sequence dependency by computing mutation frequency relative to the current consensus sequence:
-\begin{equation}
-\text{CH}_i = \log_2(P_i^{\text{consensus}} \times E_i \times 100 + 1)
-\end{equation}
-where $P_i^{\text{consensus}}$ is the non-consensus amino acid frequency relative to the consensus sequence.
-
-\textbf{E-score (Entropy-only score)}: Uses Shannon entropy alone, removing the frequency term ($P_i$) and scoring positions solely by diversity:
-\begin{equation}
-\text{E-score}_i = -\sum_{a} f_{a,i} \log_2 f_{a,i}
-\end{equation}
-
-\textbf{TC-freq (Temporal Contrast frequency)}: Measures the rate of change in mutation frequency between two time periods:
-\begin{equation}
-\text{TC-freq}_i = \frac{|\text{freq}_{t_2}(i) - \text{freq}_{t_1}(i)|}{\text{freq}_{t_1}(i) + \epsilon}
-\end{equation}
-where $\text{freq}_{t}(i)$ is the non-reference amino acid frequency at position $i$ in time period $t$, and $\epsilon = 10^{-6}$ is a constant to prevent division by zero.
-
-\textbf{TC-freq-v2}: A variant of TC-freq with added absolute frequency weighting, defined as $\text{TC-freq-v2}_i = \text{TC-freq}_i \times \text{freq}_{t_2}(i)$.
-
-\textbf{TC-freq-v3}: A variant using quarterly time windows, taking the maximum frequency change across each quarter rather than the full annual comparison.
-
-\textbf{dN/dS-weighted CH}: A variant that applies position-level dN/dS ratios as weights to the CH-score.
-
-For each scoring method, thresholds at the top 5\%, 10\%, 20\%, and median are applied to generate sets of ``detected'' positions, and F1, enrichment ratio, and Cohen's $d$ effect size are computed for each ground truth.
+\noindent For each scoring method, thresholds at the top 5\%, 10\%, 20\%, and median are applied to generate sets of ``detected'' positions, and F1, enrichment ratio, and Cohen's $d$ effect size are computed for each ground truth.
 
 \subsection{Detection Method Families}
 \label{subsec:9pathogen_detection}
@@ -587,38 +555,6 @@ SWAN & Window $\times$ normalization & 9 & $w \in \{20,50,100\} \times \{z, \tex
 MutClust-Orig & (fixed) & 1 & Original CCM + adaptive DBSCAN \\
 \midrule
 \textbf{Total} & & \textbf{39} & \\
-\bottomrule
-\end{tabular}
-}
-\end{table}
-
-Table~\ref{tab:detection_prior_apps} summarizes prior applications of each detection method family in viral and genomic research, providing context for their adaptation to viral mutation hotspot detection.
-
-\begin{table}[htbp]
-\centering
-\caption{Prior applications of detection method families in viral and genomic research}
-\label{tab:detection_prior_apps}
-\small
-\adjustbox{max width=\textwidth}{
-\begin{tabular}{llp{4cm}p{4cm}l}
-\toprule
-\textbf{Family} & \textbf{Type} & \textbf{Prior application} & \textbf{Key outcome} & \textbf{Ref.} \\
-\midrule
-Wavelet & Signal proc. & Genomic periodicity detection & Identified 3-bp codon periodicity in exons & \cite{anastassiou2001genomic} \\
-KDE & Density est. & ChIP-Seq peak calling (MACS) & Standard tool; $>$40,000 citations & \cite{zhang2008chipseq} \\
-SlidingTest & Sliding window & Neutrality test (Tajima's D) & Detected balancing/purifying selection in populations & \cite{tajima1989statistical} \\
-GradPeak & Peak detection & ChIP-Seq enrichment peaks & Identified protein-DNA binding sites genome-wide & \cite{zhang2008chipseq} \\
-LocalContrast & Local z-score & Copy number variation (CBS) & Detected somatic CNVs in cancer genomes & \cite{olshen2004cnv} \\
-CUSUM & Change-point & Biosurveillance outbreak detection & Early detection of disease outbreaks from case counts & \cite{sonesson2003cusum} \\
-AdaptiveKnee & Knee-point & Cluster number selection & Automated elbow detection without manual tuning & \cite{satopaa2011kneedle} \\
-ScoreDBSCAN & Density clust. & Cancer hotspot detection (HotMAPS) & Found 3D mutation clusters across 26 cancer types & \cite{tokheim2016hotmaps} \\
-Spectral & Fourier & Genomic signal processing & Separated coding/non-coding regions via frequency & \cite{anastassiou2001genomic} \\
-Bayes & Bayesian & Cancer driver detection (MutSigCV) & Identified 33 significantly mutated genes in TCGA & \cite{lawrence2013mutsigcv} \\
-\midrule
-AdaptWin & Adaptive win. & Genomic segmentation & Segmented chromosomes into gain/loss regions & \cite{picard2011genomicseg} \\
-FreqThresh & Freq. threshold & SARS-CoV-2 mutation frequency & Mapped recurrent mutations across 48,635 genomes & \cite{mercatelli2020geographic} \\
-SWAN & Sliding win. norm. & Novel to this study & --- & --- \\
-MutClust-Orig & Density clust. & SARS-CoV-2 hotspot detection & Identified 7 functional hotspot clusters in Spike & \cite{youn2025mutclust} \\
 \bottomrule
 \end{tabular}
 }

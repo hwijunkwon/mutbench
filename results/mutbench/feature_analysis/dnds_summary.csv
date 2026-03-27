@@ -1,0 +1,10 @@
+pathogen,n_positions,mean_dnds,max_dnds,n_positive_selection
+SARS-CoV-2,1273,0.057,50.923,4
+H3N2,566,1.424,8.94,357
+Norovirus,540,0.878,23.744,74
+HIV-1,515,1.403,4.412,353
+Dengue,495,1.098,4.998,180
+RSV,574,1.288,19.231,66
+Influenza_B,582,1.436,39.353,202
+MERS,1353,1.489,18.186,1209
+HCV,369,1.59,17.379,93

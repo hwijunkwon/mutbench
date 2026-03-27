@@ -2,8 +2,8 @@
 \chapter{Discussion}
 \label{ch:discussion}
 
-This chapter interprets the results from Chapter~\ref{ch:results} and discusses the methodological implications, limitations, and future research directions of MutBench.
-As established in Chapter~\ref{ch:background}, MutBench adopts the composite metric design and single-factor isolation principles from general benchmarking methodology~\cite{weber2019benchmarking,boulesteix2017towards} and applies them to viral genomics.
+This chapter interprets the results from Chapters~\ref{ch:results} and~\ref{ch:adapt} and discusses the methodological implications, limitations, and future research directions of MutBench.
+The multi-source information integration analysis (Chapter~\ref{ch:adapt}) reinforces the cross-pathogen findings: multi-feature integration consistently outperformed single-scoring approaches, complementing the statistical evidence from the benchmark evaluation.
 
 %% ============================================================
 \section{Methodological Validity of MutBench}
@@ -21,14 +21,9 @@ Having established statistical robustness, the next critical question is whether
 \subsection{Performance Gap Between Synthetic and Real Data}
 \label{sec:synthetic_real_gap}
 
-The real GISAID 2020--2021 H-score benchmark (Section~\ref{sec:real_gisaid_benchmark}) demonstrated that unconditional extrapolation of synthetic conclusions is not possible.
-As shown in Section~\ref{sec:real_gisaid_benchmark}, the sparse distribution of real H-scores (342/29,903 nonzero) fundamentally changes detection dynamics.
-Density-based clustering has limited cluster formation under such extremely sparse distributions (HDBSCAN-Auto fails to form clusters), and MutClust-Hybrid's advantage in the synthetic benchmark (hotspot-score 0.778 vs. 0.646) disappears under sparse distributions, with the two methods' performance converging (0.383 vs. 0.386).
-
-Crucially, however, even on real GISAID data the enrichment ratios remain 6.9--8.0-fold above the random baseline, demonstrating that the biological signal captured by top-performing methods is preserved despite the substantial MCC/F1 drop.
-The synthetic benchmark retains value precisely because it was designed as a controlled signal-recovery test: its purpose is not to predict absolute real-world performance, but to reveal relative method strengths under conditions where confounders (sparsity, founder effects, sampling bias) are held constant.
-Furthermore, the dual-benchmark design---synthetic and real evaluated together---is itself a methodological contribution: it quantifies the gap between theoretical detection capacity and practical performance, information that is unavailable from either benchmark alone.
-Therefore, MutBench recommends evaluating both what methods ``can do'' (synthetic) and what they ``actually do'' (real), treating the measured gap as a calibration factor rather than a limitation.
+The real GISAID benchmark (Section~\ref{sec:real_gisaid_benchmark}) demonstrated that the sparse distribution of real H-scores (342/29,903 nonzero) fundamentally changes detection dynamics: MutClust-Hybrid's synthetic advantage disappears (hotspot-score 0.383 vs.\ 0.386 for MutClust-Fixed).
+However, enrichment ratios remain 6.9--8.0-fold above random, confirming that biological signal is preserved despite the F1 drop.
+The dual-benchmark design---quantifying the gap between theoretical detection capacity (synthetic) and practical performance (real)---is itself a methodological contribution, and MutBench recommends evaluating both as complementary perspectives.
 
 %% ============================================================
 \subsection{Independence of Ground Truth and Detection Methods}
@@ -64,32 +59,11 @@ The ground-truth-dependent method rankings observed within SARS-CoV-2 foreshadow
 \subsection{Homoplasy-Based Scoring as an Alternative}
 \label{sec:homoplasy_scoring}
 
-The founder bias problem identified in Section~\ref{subsec:phylo_correction_poc} --- where H-score conflates founder effects with positive selection ($\rho = -0.876$) --- motivates exploration of phylogeny-based scoring as an alternative to frequency-based metrics.
-Fitch parsimony-based homoplasy counting directly addresses this limitation by quantifying the number of independent mutational origins at each position on the phylogenetic tree, rather than relying on aggregate mutation frequency.
-A position with high homoplasy (many independent origins) is more likely to be under positive selection, because convergent evolution at the same site across independent lineages implies a shared selective advantage.
-Conversely, a founder mutation that arose once and spread through subsequent clonal expansion receives a low homoplasy count regardless of its population frequency, thereby decoupling frequency from selective pressure.
-
-Using 2,000 temporally stratified SARS-CoV-2 sequences from 2020--2021, homoplasy scores were computed via Fitch parsimony on a FastTree-inferred phylogeny.
-The D614G founder mutation --- the canonical example of a high-frequency variant driven by a single founder event rather than recurrent positive selection --- received a homoplasy count of only 2 (normalized score 0.038), consistent with its known single-origin, rapid-fixation history.
-In contrast, position 476 near the RBD antibody binding interface received the highest count of 53, consistent with known immune evasion pressure at this site.
-However, key convergent evolution positions associated with later variants of concern showed weak signals (E484K: 1, N501Y: 0), attributable to the limited temporal coverage of the dataset (pre-Omicron sequences only).
-These positions would be expected to accumulate substantially higher homoplasy counts in datasets extending through 2022--2023, when convergent evolution at these sites became prominent across multiple independent lineages.
-
-To evaluate whether homoplasy-based scoring generalizes beyond SARS-CoV-2, the scores were compared against Layer~A ground truth for three pathogens with sufficient phylogenetic diversity.
+The founder bias problem ($\rho = -0.876$ between H-score and independent origin count; Section~\ref{subsec:phylo_correction_poc}) motivates homoplasy-based scoring as an alternative. Fitch parsimony-based homoplasy counting quantifies independent mutational origins on the phylogenetic tree, decoupling frequency from selective pressure: the D614G founder mutation receives a homoplasy count of only 2 (normalized 0.038), while convergent evolution position 476 received the highest count (53).
 \phantomsection\label{tab:homoplasy_validation}
-For each pathogen, homoplasy scores were computed on publicly available alignments using Fitch parsimony, and discrimination between Layer~A (positive selection) and non-Layer~A positions was assessed via AUC, Mann-Whitney $U$ test, and Cohen's $d$ effect size.
-HIV-1 showed significant discrimination (AUC = 0.706, $p = 0.0002$), while HCV failed (AUC = 0.390, parsimony saturation) and H3N2 showed a weak, non-significant trend (AUC = 0.561, $p = 0.147$).
 
-The cross-pathogen results reveal a pattern of pathogen-dependent performance.
-HIV-1's strong discrimination confirms that homoplasy scoring captures adaptive evolution signals in pathogens with high sequence diversity and well-separated phylogenetic lineages.
-HCV, however, fails entirely because its hypervariable regions (HVR1/HVR2) exhibit such extreme diversity that parsimony reconstruction becomes saturated --- every position mutates so frequently that homoplasy counts lose discriminative power, and the ground truth positions (which are themselves hypervariable) do not stand out from the background.
-H3N2 shows partial but insufficient signal for reliable discrimination.
-
-This pathogen-dependent pattern in scoring method performance mirrors the detection-level finding of the main benchmark (Section~\ref{sec:cross_pathogen_structural}): no single scoring approach works universally across all pathogens.
-Just as the best detection algorithm varies across pathogens (the interaction effect, $\omega^2 = 0.285$, Section~\ref{subsec:9pathogen_anova}), the optimal scoring strategy also depends on pathogen-specific characteristics such as sequence diversity, evolutionary rate, and phylogenetic depth.
-HIV-1's high phylogenetic diversity and deep coalescent times provide the ideal conditions for parsimony-based homoplasy detection, whereas HCV's extreme hypervariability overwhelms the same approach.
-This finding provides additional motivation for the PAHD framework's adaptive approach: the selection problem extends beyond detection methods to encompass scoring methods as well.
-A fully realized PAHD implementation should therefore jointly optimize both the scoring function and the detection algorithm as a function of pathogen profile, expanding the algorithm space $\mathcal{A}$ from 351 detection-only combinations to include scoring alternatives such as homoplasy, temporal contrast, and protein language model scores.
+Cross-pathogen validation revealed pathogen-dependent performance: HIV-1 showed significant discrimination (AUC = 0.706, $p = 0.0002$), H3N2 showed a weak trend (AUC = 0.561, $p = 0.147$), and HCV failed entirely (AUC = 0.390) due to parsimony saturation in its hypervariable regions.
+This mirrors the detection-level finding of the main benchmark: just as the best detection algorithm varies across pathogens ($\omega^2 = 0.285$), the optimal scoring strategy also depends on pathogen-specific characteristics. This extends the PAHD framework's selection problem to encompass scoring methods as well.
 
 %% ============================================================
 \section{Cross-Pathogen Generalization and PAHD}
@@ -98,37 +72,21 @@ A fully realized PAHD implementation should therefore jointly optimize both the 
 \subsection{Implications of Cross-Pathogen Generalization}
 \label{sec:cross_pathogen_implications}
 
-As detailed in Chapter~\ref{ch:results}, the 9-pathogen benchmark demonstrated that no universally best-performing method exists, with all pathogens exhibiting unique best-performing combinations and substantial interaction effects. This finding has important implications in the context of real-time pathogen surveillance systems such as Nextstrain~\cite{nextstrain2018hadfield}: when a new pathogen or variant emerges, applying a previously optimized combination is inadequate, and adaptive method selection based on pathogen characteristics is required.
-The underlying cause is that pathogen-specific genomic characteristics---entropy distribution, proportion of conserved regions, and density of positively selected sites---create fundamentally different signal landscapes for detection methods.
-For example, pathogens with high overall mutation rates (e.g., H3N2, where all positions have nonzero H-scores) neutralize the advantage of threshold-based seed detection, while pathogens with compact genomes and few convergent evolution sites (e.g., MERS) favor methods that can detect weak signals in sparse data.
-The proof-of-concept simulation further revealed that frequency-based scoring conflates founder effects with positive selection ($\rho = -0.876$), adding another pathogen-dependent dimension: the degree of founder-effect contamination varies with each pathogen's transmission history.
-Based on these findings, PAHD (Pathogen-Adaptive Hotspot Detection) is proposed as a conceptual framework for pathogen-specific method selection, formalizable within Rice's algorithm selection problem~\cite{rice1976algorithm}, a framework that has since been extended to automated algorithm selection~\cite{kerschke2019algorithm} and AutoML~\cite{kotthoff2016algorithm}.
-Concretely, MutBench's results instantiate Rice's framework as follows: the \textit{problem space} $\mathcal{P}$ consists of pathogens characterized by genomic profiles (alignment length, diversity ratio, ground truth density, etc.); the \textit{algorithm space} $\mathcal{A}$ comprises 351 scoring--detection combinations (9 scoring formulas $\times$ 39 detection algorithms); and the \textit{performance space} $\mathcal{Y}$ is MCC evaluated against the 3-layer ground truth. The interaction dominance ($\omega^2 = 0.285$) statistically demonstrates that the mapping $f: \mathcal{P} \to \mathcal{A}$ is non-trivial---a finding consistent with the intuition of the No Free Lunch theorem~\cite{wolpert1997nfl}, which states that no single algorithm can outperform all others across all possible problem distributions. The PAHD prototype's 5/9 positive MCC result demonstrates that even a simple nearest-neighbor approach in the profile space $\mathcal{P}$ partially recovers this mapping, motivating more sophisticated meta-learning approaches.
+The 9-pathogen benchmark demonstrated that no universally best-performing method exists (Chapter~\ref{ch:results}), with implications for real-time surveillance systems such as Nextstrain~\cite{nextstrain2018hadfield}: applying a previously optimized combination to a new pathogen is inadequate.
+The underlying cause is that pathogen-specific genomic characteristics create fundamentally different signal landscapes---for example, H3N2's uniformly nonzero H-scores neutralize threshold-based seed detection, while MERS's sparse genome favors weak-signal detectors.
 
-The PAHD prototype results (Section~\ref{subsec:pahd_prototype}) demonstrate that coarser prediction granularity recovers up to 57.7\% of oracle performance, though the $n = 9$ limitation persists.
-The ESM-2 cross-paradigm validation (Section~\ref{subsec:esm_validation}) further reinforces this finding: ESM-LLR ranked 1st for SARS-CoV-2 and MERS but last for Norovirus and HIV-1, confirming that no single scoring paradigm---whether MSA-based or protein language model-based---dominates across all pathogens.
-The concrete implementation of PAHD is proposed as future work in Chapter~\ref{ch:conclusion}.
+These findings are formalizable within Rice's algorithm selection problem~\cite{rice1976algorithm}: the problem space $\mathcal{P}$ consists of pathogens characterized by genomic profiles, the algorithm space $\mathcal{A}$ comprises 351 scoring--detection combinations, and the interaction dominance ($\omega^2 = 0.285$) demonstrates that the mapping $f: \mathcal{P} \to \mathcal{A}$ is non-trivial---consistent with the No Free Lunch theorem~\cite{wolpert1997nfl}.
+The ESM-2 cross-paradigm validation (Section~\ref{subsec:esm_validation}) reinforces this: ESM-LLR ranked 1st for SARS-CoV-2 but last for Norovirus, confirming that no single scoring paradigm dominates.
 The demonstrated necessity of pathogen-adaptive selection raises the question of how to interpret the absolute performance levels achieved.
 
 %% ============================================================
 \subsection{Upper Bound of Detection Performance}
 \label{sec:oracle_mcc_ceiling}
 
-The mean oracle MCC across 9 pathogens is 0.298 (range: 0.088--0.549), which may appear low but is explained by three structural factors.
-First, \textbf{position-level exact matching} imposes a strict criterion where a detection off by even one position counts as a false positive.
-Second, \textbf{extreme class imbalance} (positive rates mostly below 10\%) constrains the achievable MCC---under a 5\% positive rate, 90\% recall and 30\% precision yield a theoretical MCC of only 0.49.
-Third, \textbf{ground truth stringency} penalizes methods that detect genuine but unannotated hotspots, as only literature-confirmed convergent evolution sites are treated as positives.
+The mean oracle MCC across 9 pathogens is 0.298 (range: 0.088--0.549), which appears low but is explained by three structural factors: position-level exact matching (off-by-one counts as false positive), extreme class imbalance (positive rates 1--16\%), and ground truth stringency (only literature-confirmed sites).
+The oracle is unambiguously non-random (99 standard deviations above the random baseline mean of 0.001), and comparable to position-level metrics in other domains (e.g., TFBS prediction F1 = 0.3--0.5~\cite{weirauch2013evaluation}).
 
-Despite these constraints, the oracle MCC of 0.298 is unambiguously non-random: the random baseline (10,000 permutations) has a mean of 0.001 (SD = 0.003), placing the oracle approximately 99 standard deviations above chance.
-For context, similar position-level evaluation metrics in other bioinformatics benchmarks yield comparable ranges: transcription factor binding site prediction achieves F1 of 0.3--0.5 at single-nucleotide resolution~\cite{weirauch2013evaluation}, and early CASP protein structure prediction achieved GDT-TS scores below 0.3 for difficult targets~\cite{moult2014casp} (though GDT-TS measures structural similarity rather than binary classification, the comparison illustrates that low absolute scores are common in position-level biological prediction).
-The oracle MCC of 0.298 is thus consistent with the inherent difficulty of position-level biological prediction tasks.
-
-To quantify the impact of position-exact evaluation, a region-overlap analysis was conducted using $\pm5$ and $\pm10$ position windows (Table~\ref{tab:region_overlap_mcc}).
-Under region-overlap evaluation, a detected position counts as a true positive if any ground truth position lies within the specified window, and a ground truth position counts as recalled if any detection lies within the window.
-The $\pm5$ window corresponds approximately to a single protein secondary structure element or antigenic epitope ({$\sim$}15 residues), providing a biologically meaningful proximity criterion. This analysis serves as a sensitivity check on the strictness of position-exact evaluation, not as a replacement: position-exact MCC remains the primary metric because it is parameter-free and ensures full reproducibility.
-Under $\pm10$ window evaluation, the mean oracle MCC increased from 0.289 to 0.712, a 146\% improvement.
-Notably, H3N2 achieved MCC = 0.964 under $\pm10$ (vs. 0.521 exact), confirming that detected hotspots are spatially proximate to known antigenic drift sites even when not exactly overlapping.
-This quantifies the conservativeness of position-exact evaluation: the large improvement under relaxed windows indicates that many detections fall within biologically relevant proximity of ground truth positions, rather than being scattered randomly across the genome.
+Region-overlap analysis (Table~\ref{tab:region_overlap_mcc}) quantifies the conservativeness of exact evaluation: under $\pm10$ position windows, mean oracle MCC increases from 0.289 to 0.712 (146\% improvement), with H3N2 reaching 0.964, confirming that detected hotspots are spatially proximate to ground truth even when not exactly overlapping.
 
 \begin{table}[htbp]
 \centering
@@ -157,8 +115,6 @@ HCV           & 0.510 & 0.793 & 0.894 \\
 {\footnotesize $^\dagger$The position-exact MCC (0.289) in the region-overlap analysis differs from the benchmark-reported oracle (0.298) because the region-overlap analysis uses a reimplemented evaluation pipeline with minor differences in boundary handling (e.g., edge-position treatment at alignment boundaries). The absolute baseline difference (0.009, or 3.1\%) does not affect the primary finding: the relative improvement from exact to region-overlap evaluation (146\%) demonstrates that detected hotspots are spatially proximate to ground truth positions.}
 \end{table}
 
-The improvement is visualized in the region-overlap analysis, where position-exact MCC (0.289) increases to 0.712 under $\pm$10 window relaxation (Table~\ref{tab:region_overlap_mcc}).
-Pathogens with well-characterized ground truth achieve substantially higher values.
 Despite these ceiling effects, the benchmark results have practical implications for public health surveillance.
 
 %% ============================================================
@@ -170,18 +126,8 @@ Returning to the three problems identified in Chapter~\ref{ch:introduction}: the
 \subsection{Vaccine Escape Position Validation}
 \label{sec:vaccine_escape}
 
-To evaluate the practical relevance of MutBench-detected hotspots for public health, the overlap between detected positions and experimentally confirmed vaccine/antibody escape positions was analyzed.
-Because hotspot detection methods are ultimately intended to identify positions of functional importance, demonstrating that detected hotspots coincide with known immune escape sites provides direct evidence of biological utility beyond statistical performance metrics.
-
-For SARS-CoV-2, 34 escape positions were curated from published antibody escape mapping studies (Classes 1--4 monoclonal antibodies and NTD supersite).
-The best-performing MutBench method (E\_only + KDE) detected 25 of 34 escape positions (recall = 0.735), with a 4.90-fold enrichment over random expectation (Fisher's exact test, $p < 0.0001$).
-Across the full method space (351 scoring--detection combinations), all 34/34 escape positions were detected by at least one combination, confirming that the diversity of methods in the benchmark provides comprehensive coverage of functionally important sites.
-
-H3N2 showed borderline enrichment (6/25 antigenic drift positions, enrichment = 2.10$\times$, $p = 0.054$) with entropy-based scoring outperforming H-score, consistent with the founder bias limitation discussed in Section~\ref{sec:hscore_saturation}.
-HIV-1 showed poor results because the curated drug resistance positions are located in RT/PR genes, while the benchmark evaluates gp120 envelope protein---a data scope limitation rather than a methodological failure.
-
-These results demonstrate that MutBench hotspots are not merely statistical artifacts but correspond to positions of genuine public health importance.
-The finding that no single method captures all 34 escape positions, yet the full method ensemble achieves 100\% recall, provides direct evidence for the value of maintaining a diverse method portfolio---precisely what PAHD aims to systematize.
+Vaccine escape validation (Table~\ref{tab:vaccine_escape}) showed that the best MutBench method (E\_only + KDE) achieved 4.90-fold enrichment for SARS-CoV-2 ($p < 0.0001$), while H3N2 showed borderline enrichment ($p = 0.054$).
+The multi-feature integration further achieves statistically significant H3N2 escape enrichment ($p = 0.0023$; Table~\ref{tab:adapt_escape}) where single-feature approaches do not. The primary practical value of multi-source integration lies in \textit{reducing the experimental search space} rather than achieving high absolute prediction accuracy (see Section~\ref{sec:adapt_practical} for detailed discussion).
 
 \begin{table}[htbp]
 \centering
@@ -203,13 +149,7 @@ HIV-1 & 45 & 3/45 (0.067) & 0.35$\times$ & 0.997 \\
 \subsection{Practical Considerations for Public Health Surveillance}
 \label{sec:practical_surveillance}
 
-Considering SARS-CoV-2's generation time (approximately 5 days) and sequence submission delay (median approximately 14 days), a minimum 4-week window is required for real-time TC-freq alerts.
-HDBSCAN-Auto (high recall) is suitable for early warning, while MutClust-Hybrid (balanced performance) is suitable for vaccine candidate selection; in retrospective analysis, MutClust-Hybrid's higher recall suggests potential for earlier detection of emerging hotspot positions, though quantitative timing estimates require dedicated temporal validation.
-
-A two-stage detection pipeline---first-stage broad screening with HDBSCAN-Auto followed by second-stage high-precision confirmation with MutClust-Hybrid (Section~\ref{sec:variant_comparison})---maintained precision (0.968) while improving stability to 0.740, achieving the highest hotspot-score (0.784).
-This two-stage approach is recommended for vaccine design applications where downstream experimental costs demand robust hotspot selection, whereas single-method approaches suffice for routine surveillance (MutClust-Hybrid) or early warning (HDBSCAN-Auto).
-However, in real GISAID 2020--2021 data, HDBSCAN-Auto failed to form clusters due to the sparsity of non-zero positions (342), so the benefits of the two-stage pipeline were not realized.
-A fundamental methodological limitation that affects all frequency-based approaches is phylogenetic non-independence.
+Given SARS-CoV-2's generation time ({$\sim$}5 days) and sequence submission delay ({$\sim$}14 days), a minimum 4-week window is required for real-time TC-freq alerts. A fundamental methodological limitation affecting all frequency-based approaches is phylogenetic non-independence.
 
 %% ============================================================
 \subsection{Phylogenetic Non-Independence and Scalability Limits}
@@ -230,6 +170,15 @@ Systematic biases exist in the GISAID~\cite{shu2017gisaid}-based input data.
 \textbf{Geographic bias}: High-income countries contribute over 80\% of total sequences~\cite{chen2022gisaid}, leading to underrepresentation of unique variants from Africa/South Asia; weekly stratification corrects only for temporal imbalance.
 \textbf{Temporal bias}: Sequence accumulation differs substantially between the early pandemic and Omicron periods, and within-week representativeness is not guaranteed.
 \textbf{Founder effect}: ``Hitchhiker'' mutations accompanying lineage expansion (e.g., JN.1;~\cite{kaku2024virological}) cannot be distinguished from positively selected positions by frequency-based approaches alone.
+
+\subsection{ESM-2 Training Data Overlap}
+\label{sec:esm2_leakage}
+
+ESM-2~\cite{lin2023esm2} was trained on UniRef50/UniRef90, which contains viral protein sequences, and the 9 target proteins in our benchmark (e.g., SARS-CoV-2 Spike, HIV-1 gp120, H3N2 HA) are likely present in the training corpus.
+Consequently, ESM-2 log-likelihood ratio (LLR) scores may partially reflect memorized evolutionary patterns rather than purely generalizable protein language understanding, potentially inflating absolute AUC values.
+However, this concern applies uniformly to all 9 pathogens in the analysis, so while absolute performance levels may be biased upward, the relative cross-pathogen comparisons---which constitute our main finding---remain valid.
+The semantic change feature (cosine distance between wild-type and mutant embeddings) is less susceptible to this concern because it measures relative embedding shifts rather than absolute likelihoods, making it more robust to training set memorization.
+Future work should evaluate protein language models trained on databases that exclude viral sequences to quantify the magnitude of this potential bias.
 
 \subsection{Ground Truth Heterogeneity Across Pathogens}
 \label{sec:gt_heterogeneity}

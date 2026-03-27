@@ -1,0 +1,13 @@
+pathogen,n_layer_a,pct_immune_escape,pct_functional,pct_convergent,dominant_tag,best_feature_all_gt,best_auc_all_gt,best_feature_ie_only,best_auc_ie_only,best_feature_consistent
+SARS-CoV-2,25,0.88,0.12,0.0,immune_escape,esm2_llr,0.586,esm2_llr,0.6278,True
+H3N2,25,1.0,0.0,0.0,immune_escape,plddt,0.787,plddt,0.787,True
+Norovirus,15,1.0,0.0,0.0,immune_escape,homoplasy,0.9435,homoplasy,0.9435,True
+HIV-1,26,1.0,0.0,0.0,immune_escape,entropy,0.7297,entropy,0.7297,True
+Dengue,24,0.7083,0.0,0.2917,immune_escape,homoplasy,0.7697,homoplasy,0.7272,True
+RSV,20,1.0,0.0,0.0,immune_escape,plddt,0.5612,plddt,0.5612,True
+Influenza_B,17,1.0,0.0,0.0,immune_escape,homoplasy,0.8053,homoplasy,0.8053,True
+MERS,9,0.7778,0.2222,0.0,immune_escape,esm2_llr,0.6948,rare_freq,0.7262,False
+HCV,54,1.0,0.0,0.0,immune_escape,dnds_proxy,0.68,dnds_proxy,0.68,True
+Zika,27,0.9259,0.0,0.0741,immune_escape,homoplasy,0.5814,homoplasy,0.6086,True
+Rabies,39,0.9744,0.0256,0.0,immune_escape,plddt,0.6504,plddt,0.6531,True
+EV-A71,27,0.9259,0.0741,0.0,immune_escape,esm2_llr,0.5956,homoplasy,0.5872,False

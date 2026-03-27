@@ -1,0 +1,19 @@
+pathogen,method,threshold,description,n_positions,n_detected,n_escape,n_overlap,enrichment,odds_ratio,p_value,precision,recall,detected_escape_sites
+SARS-CoV-2,FreqThresh,top10,Vaccine escape (RBD + NTD + S2),1259,48,15,2,3.497,4.007,0.1090421088811761,0.0417,0.1333,"[484, 681]"
+SARS-CoV-2,EqualWeight,top10,Vaccine escape (RBD + NTD + S2),1259,126,15,2,1.332,1.39,0.4522355299029125,0.0159,0.1333,"[484, 681]"
+SARS-CoV-2,BestSingle,top10,Vaccine escape (RBD + NTD + S2),1259,126,15,0,0.0,0.0,1.0,0.0,0.0,
+H3N2,FreqThresh,top10,Antigenic drift (sites A+B + recent drift),543,55,29,8,2.724,3.785,0.005279477499000276,0.1455,0.2759,"[137, 143, 155, 157, 159, 160, 186, 188]"
+H3N2,EqualWeight,top10,Antigenic drift (sites A+B + recent drift),543,55,29,8,2.724,3.785,0.005279477499000276,0.1455,0.2759,"[137, 155, 156, 157, 159, 160, 186, 188]"
+H3N2,BestSingle,top10,Antigenic drift (sites A+B + recent drift),543,57,29,7,2.299,2.953,0.023859049645033676,0.1228,0.2414,"[186, 188, 189, 190, 192, 193, 194]"
+SARS-CoV-2,FreqThresh,top5,Vaccine escape (RBD + NTD + S2),1259,48,15,2,3.497,4.007,0.1090421088811761,0.0417,0.1333,"[484, 681]"
+SARS-CoV-2,EqualWeight,top5,Vaccine escape (RBD + NTD + S2),1259,63,15,2,2.665,2.984,0.17051472651818494,0.0317,0.1333,"[484, 681]"
+SARS-CoV-2,BestSingle,top5,Vaccine escape (RBD + NTD + S2),1259,63,15,0,0.0,0.0,1.0,0.0,0.0,
+H3N2,FreqThresh,top5,Antigenic drift (sites A+B + recent drift),543,28,29,4,2.675,3.267,0.054919178678809154,0.1429,0.1379,"[137, 155, 159, 188]"
+H3N2,EqualWeight,top5,Antigenic drift (sites A+B + recent drift),543,28,29,6,4.012,5.834,0.002254246307205835,0.2143,0.2069,"[137, 155, 159, 160, 186, 188]"
+H3N2,BestSingle,top5,Antigenic drift (sites A+B + recent drift),543,33,29,2,1.135,1.154,0.539158901455292,0.0606,0.069,"[186, 193]"
+SARS-CoV-2,FreqThresh,top3,Vaccine escape (RBD + NTD + S2),1259,48,15,2,3.497,4.007,0.1090421088811761,0.0417,0.1333,"[484, 681]"
+SARS-CoV-2,EqualWeight,top3,Vaccine escape (RBD + NTD + S2),1259,38,15,2,4.418,5.162,0.07275807621195887,0.0526,0.1333,"[484, 681]"
+SARS-CoV-2,BestSingle,top3,Vaccine escape (RBD + NTD + S2),1259,38,15,0,0.0,0.0,1.0,0.0,0.0,
+H3N2,FreqThresh,top3,Antigenic drift (sites A+B + recent drift),543,17,29,4,4.406,6.166,0.009656084432271634,0.2353,0.1379,"[137, 155, 159, 188]"
+H3N2,EqualWeight,top3,Antigenic drift (sites A+B + recent drift),543,17,29,4,4.406,6.166,0.009656084432271634,0.2353,0.1379,"[137, 155, 159, 188]"
+H3N2,BestSingle,top3,Antigenic drift (sites A+B + recent drift),543,19,29,1,0.985,0.984,0.6539004720236271,0.0526,0.0345,[186]

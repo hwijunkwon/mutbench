@@ -1,0 +1,10 @@
+pathogen,n_positions,mean_grantham,max_grantham,nonzero_positions
+SARS-CoV-2,1273,3.18,205.0,47
+H3N2,566,90.18,205.0,559
+Norovirus,540,37.18,180.0,325
+HIV-1,515,89.92,202.0,509
+Dengue,495,47.57,199.5,370
+RSV,574,50.28,215.0,473
+Influenza_B,582,85.47,197.0,581
+MERS,1353,95.88,205.0,1336
+HCV,369,86.15,210.0,369

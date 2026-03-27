@@ -1,0 +1,10 @@
+pathogen,rf_cv_auc
+SARS-CoV-2,0.6064
+H3N2,0.7908
+Norovirus,0.8988
+HIV-1,0.8019
+Dengue,0.7815
+RSV,0.7368
+Influenza_B,0.7559
+MERS,0.8751
+HCV,0.7005

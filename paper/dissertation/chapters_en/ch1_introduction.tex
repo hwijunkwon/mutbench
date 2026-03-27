@@ -34,6 +34,15 @@ The present author previously developed a systematic benchmark framework for mul
 Current viral genomics platforms such as Nextstrain~\cite{nextstrain2018hadfield} and PANGO lineage classification~\cite{rambaut2020pangolin} monitor variant emergence but do not provide systematic evaluation of hotspot detection methods.
 The absence of standardized benchmarks means that method developers cannot objectively compare their approaches, and end users cannot make informed choices about which method to deploy for a given pathogen.
 
+In practice, mutation hotspot detection follows a three-stage process.
+In the first stage (\textit{sequence collection}), viral genomes from infected individuals are sequenced over weeks to months at research institutions worldwide and deposited in public databases such as GISAID and NCBI GenBank; for SARS-CoV-2, millions of sequences have been accumulated since 2020, while for influenza, tens of thousands of sequences span several decades.
+These sequences are then aligned to a reference genome to produce a multiple sequence alignment (MSA) that enables position-by-position comparison of mutation patterns.
+In the second stage (\textit{computational analysis}), statistical and algorithmic methods are applied to the MSA to identify positions where mutations are significantly concentrated---the hotspot candidates.
+This stage, which encompasses frequency analysis, entropy computation, density-based clustering, wavelet transforms, and other approaches, is the focus of this dissertation.
+In the third stage (\textit{experimental validation}), the computationally identified hotspot candidates are individually verified through laboratory experiments such as Deep Mutational Scanning (DMS), neutralization assays, and cell infection assays.
+Because each experimental validation requires weeks to months per position, it is prohibitively resource-intensive to test all positions; computational analysis therefore serves as a critical filter that prioritizes positions for experimental investigation.
+The effectiveness of this filtering---how well computational methods concentrate biologically meaningful positions in their top-ranked candidates---is precisely what MutBench evaluates.
+
 
 \section{Research Motivation and Problem Definition}
 \label{sec:intro_motivation}
@@ -57,17 +66,19 @@ This is a specific instance of the algorithm selection problem~\cite{rice1976alg
 \section{Research Objectives}
 \label{sec:intro_objectives}
 
-To address the problems above, this study establishes the following two objectives.
+To address the problems above, this study establishes the following three objectives.
 
 \begin{enumerate}[label=\textbf{Objective \arabic*.}]
   \item \textbf{Construction of a systematic benchmark framework for viral mutation hotspot detection (MutBench)}, comprising:
   \begin{itemize}
   \item A three-layer ground truth (convergent evolution positives, purifying selection negatives, DMS fitness validation),
   \item The hotspot-score composite metric (recall + precision + stability)/3,
-  \item A two-stage experimental design: Stage~1 for in-depth SARS-CoV-2 analysis; Stage~2 for large-scale comparison across 9 RNA viruses (9 scoring formulas $\times$ 39 detection algorithms $\times$ 9 pathogens, totaling 3,159 evaluations).
+  \item A two-stage experimental design: Stage~1 for in-depth SARS-CoV-2 analysis; Stage~2 for large-scale comparison across 12 RNA viruses (9 scoring formulas $\times$ 39 detection algorithms $\times$ 9 pathogens in the initial evaluation, extended to 12 pathogens in the adaptive integration study).
   \end{itemize}
 
   \item \textbf{Statistical demonstration of the necessity of pathogen-adaptive method selection}: Through statistical analyses (ANOVA, Friedman test, LOPO cross-validation) of the large-scale benchmark results, statistically establish that the premise of a single best-performing method does not hold across pathogens, motivating the PAHD framework, for which a proof-of-concept prototype is presented (see Chapter~\ref{ch:results}).
+
+  \item \textbf{Multi-source information integration analysis}: Building on the benchmark findings, systematically analyze 10 biological information types to determine which information is essential for hotspot prediction per pathogen, and demonstrate that multi-source integration reduces the experimental search space with statistically significant vaccine escape enrichment (see Chapter~\ref{ch:adapt}).
 \end{enumerate}
 
 
@@ -130,11 +141,15 @@ Across nine RNA viruses, all nine pathogens exhibited different best-performing 
 The Friedman test confirmed that performance rankings among methods vary systematically across pathogens.
 These results statistically establish that the premise of a single best-performing method does not hold, motivating the PAHD framework, for which a proof-of-concept prototype is presented (see Chapter~\ref{ch:results}).
 
+\textbf{Contribution 3. Multi-source information integration analysis for hotspot prediction.}
+A systematic analysis of 10 biological information types---spanning sequence statistics, phylogenetic signals, protein language models, structural properties, and chemical characteristics---reveals that the most informative feature differs across pathogens (e.g., homoplasy for Norovirus, pLDDT for H3N2, ESM-2 for SARS-CoV-2), and that integrating multiple information sources reduces the experimental search space for hotspot validation.
+The equal-weight integration achieves H3N2 vaccine escape enrichment of 4.012$\times$ ($p = 0.0023$), demonstrating that multi-source analysis captures biologically meaningful hotspots that single-information approaches miss (see Chapter~\ref{ch:adapt}).
+
 
 \section{Dissertation Organization}
 \label{sec:intro_organization}
 
-This dissertation comprises six chapters.
+This dissertation comprises seven chapters.
 
 \textbf{Chapter~\ref{ch:background}, Related Research} reviews the existing literature on viral mutation hotspot detection and summarizes the core methodology and limitations of MutClust~\cite{youn2025mutclust} that motivated the development of MutBench.
 
@@ -142,6 +157,8 @@ This dissertation comprises six chapters.
 Section~3.1 describes the materials (target pathogens, ground truth framework, and DMS data). Sections~3.2--3.4 present the methods: Section~3.2 covers the benchmark framework design including MutClust variants and the hotspot-score metric, Section~3.3 describes the scoring formulas and detection method families, and Section~3.4 details the evaluation metrics and statistical analysis design.
 
 \textbf{Chapter~\ref{ch:results}, Experimental Results} reports the experimental results organized into four sections: Single-Pathogen Benchmark (synthetic data comparison, multi-ground truth evaluation, real GISAID validation, and external methods comparison on SARS-CoV-2), Robustness Validation (statistical validation, sensitivity analysis, temporal generalization, and indel exclusion), Cross-Pathogen Validation (H3N2 validation, 3D structural analysis, phylogenetic simulation, and ESM-2 cross-paradigm validation), and the 9-Pathogen Large-Scale Benchmark (ANOVA, Friedman test, LOPO cross-validation, and PAHD proof-of-concept prototype).
+
+\textbf{Chapter~\ref{ch:adapt}, Multi-Source Information Integration Analysis} systematically analyzes 10 biological information types to determine which information is essential for hotspot prediction per pathogen, validates multi-source integration through LOPO cross-validation across 12 RNA viruses, and demonstrates practical value through vaccine escape enrichment analysis.
 
 \textbf{Chapter~\ref{ch:discussion}, Discussion} provides a comprehensive interpretation of the experimental results, discusses the methodological implications of MutBench, its limitations, and the future direction of the PAHD conceptual framework.
 

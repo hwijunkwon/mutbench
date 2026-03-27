@@ -322,13 +322,14 @@
     %% Committee signatures — right-aligned block
   \end{center}
   \vspace{0.5cm}
+  \vspace{0.5cm}
   \begin{flushright}
     {\fontsize{11pt}{14pt}\selectfont
-      Chairman\hspace{0.2cm}\underline{\hspace{4.5cm}}\hspace{0.3cm}\circledin\mbox{\hspace{1.2cm}}\\[0.7cm]
-      \phantom{Chairman}\hspace{0.2cm}\underline{\hspace{4.5cm}}\hspace{0.3cm}\circledin\mbox{\hspace{1.2cm}}\\[0.7cm]
-      \phantom{Chairman}\hspace{0.2cm}\underline{\hspace{4.5cm}}\hspace{0.3cm}\circledin\mbox{\hspace{1.2cm}}\\[0.7cm]
-      \phantom{Chairman}\hspace{0.2cm}\underline{\hspace{4.5cm}}\hspace{0.3cm}\circledin\mbox{\hspace{1.2cm}}\\[0.7cm]
-      \phantom{Chairman}\hspace{0.2cm}\underline{\hspace{4.5cm}}\hspace{0.3cm}\circledin\mbox{\hspace{1.2cm}}\\
+      Chairman\hspace{0.2cm}\underline{\makebox[4.5cm]{\@committeechairman}}\hspace{0.3cm}\circledin\mbox{\hspace{1.0cm}}\\[0.7cm]
+      \phantom{Chairman}\hspace{0.2cm}\underline{\makebox[4.5cm]{\@committeememberA}}\hspace{0.3cm}\circledin\mbox{\hspace{1.0cm}}\\[0.7cm]
+      \phantom{Chairman}\hspace{0.2cm}\underline{\makebox[4.5cm]{\@committeememberB}}\hspace{0.3cm}\circledin\mbox{\hspace{1.0cm}}\\[0.7cm]
+      \phantom{Chairman}\hspace{0.2cm}\underline{\makebox[4.5cm]{\@committeememberC}}\hspace{0.3cm}\circledin\mbox{\hspace{1.0cm}}\\[0.7cm]
+      \phantom{Chairman}\hspace{0.2cm}\underline{\makebox[4.5cm]{\@committeememberD}}\hspace{0.3cm}\circledin\mbox{\hspace{1.0cm}}\\
     }
   \end{flushright}
   \begin{center}

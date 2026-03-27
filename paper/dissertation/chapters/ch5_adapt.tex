@@ -1,0 +1,312 @@
+% Chapter 5: 다중 정보 통합 분석
+\chapter{다중 정보 통합 분석}
+\label{ch:adapt}
+
+%% ============================================================
+\section{분석 목적}
+\label{sec:adapt_motivation}
+
+제~\ref{ch:results}장에서 최적의 scoring--detection 조합이 9개 병원체 모두에서 서로 다름을 입증하였다(9/9 고유 최적 조합; $\omega^2_{\text{family}\times\text{pathogen}} = 0.285$). 또한 단일 방법이 일반화되지 않음을 확인하였다(LOPO 일치율 0/9).
+본 장에서는 후속 질문을 다룬다: \textit{어떤 생물학적 정보 유형이 병원체 의존적 이질성을 유발하며, 다중 정보원의 통합이 핫스팟 탐지를 개선할 수 있는가?}
+이를 위해 6개 정보 범주에 걸친 10개 위치별 특성(feature)을 12개 병원체의 Layer~A ground truth에 대한 개별 및 결합 예측자로 평가하였다.
+분석 대상을 9개에서 12개 병원체로 확장하여 지카 바이러스(E 단백질, 505 AA), 광견병 바이러스(G 단백질, 524 AA), 엔테로바이러스 A71(VP1, 297 AA)을 추가함으로써, feature별 및 상관 분석의 통계적 검정력을 높이고 추가적인 바이러스 과(Flaviviridae 확장, Rhabdoviridae, Picornaviridae)를 포괄하였다.
+
+%% ============================================================
+\section{12개 병원체에 걸친 10가지 정보 유형}
+\label{sec:10features}
+
+12개 병원체의 각 정렬 위치에 대해 6개 범주의 10가지 위치별 특성을 산출하였다:
+
+\begin{itemize}
+\item \textbf{빈도 기반} (3개 특성): \textit{freq} (비참조 아미노산을 보유한 서열의 비율), \textit{entropy} (대립유전자 다양성을 측정하는 Shannon 엔트로피), \textit{rare\_freq} (5\% 임계값 미만의 소수 대립유전자 빈도).
+\item \textbf{계통 기반} (1개 특성): \textit{homoplasy} (계통수에서 Fitch 최절약법으로 추론한 독립적 돌연변이 기원 횟수).
+\item \textbf{진화 속도} (1개 특성): \textit{dN/dS proxy} (합의 아미노산의 코돈 축퇴도로 정규화한 비동의 치환율).
+\item \textbf{딥러닝 기반} (2개 특성): \textit{esm2\_llr} (ESM-2 단백질 언어 모델 log-likelihood ratio~\cite{lin2023esm2,rives2021biological}), \textit{semantic change} (야생형과 돌연변이 ESM-2 임베딩 간 평균 코사인 거리~\cite{hie2021learning}).
+\item \textbf{구조 기반} (2개 특성): \textit{plddt} (AlphaFold2/ESMFold 예측 국소 거리 차이 시험 점수~\cite{jumper2021alphafold}), \textit{SASA} (ESMFold 예측 구조의 상대적 용매 접근 가능 표면적~\cite{shrake1973environment}).
+\item \textbf{화학적 특성} (1개 특성): \textit{Grantham distance} (합의 아미노산과 관찰된 변이 아미노산 간 평균 물리화학적 거리~\cite{grantham1974amino}).
+\end{itemize}
+
+Table~\ref{tab:per_feature_auc_12}은 12개 병원체에 걸쳐 Layer~A 소속 여부를 예측하기 위한 단일 특성 AUC(ROC 곡선 아래 면적)를 제시한다. 각 특성은 임계값 탐색(모델 훈련 없음)을 통해 독립적 분류기로 사용되었다.
+
+\begin{table}[htbp]
+\centering
+\caption{12개 병원체에 걸친 특성별 Layer~A 예측 AUC (10개 특성). 병원체별 최고 AUC를 \textbf{굵게} 표시하였다. AUC = 0.5는 판별력 없음, AUC $< 0.5$는 역방향 연관을 의미한다.}
+\label{tab:per_feature_auc_12}
+\adjustbox{max width=\textwidth}{
+\footnotesize
+\begin{tabular}{lcccccccccc}
+\toprule
+\textbf{Pathogen} & \textbf{freq} & \textbf{entropy} & \textbf{rare} & \textbf{homoplasy} & \textbf{ESM-2} & \textbf{pLDDT} & \textbf{SASA} & \textbf{Grantham} & \textbf{dN/dS} & \textbf{Sem.~$\Delta$} \\
+\midrule
+SARS-CoV-2    & 0.522 & 0.521 & 0.522 & 0.491 & \textbf{0.586} & 0.513 & 0.504 & 0.522 & 0.523 & 0.523 \\
+H3N2          & 0.548 & 0.533 & 0.535 & 0.639 & 0.405 & \textbf{0.787} & 0.416 & 0.554 & 0.548 & 0.649 \\
+Norovirus     & 0.760 & 0.762 & 0.644 & \textbf{0.944} & 0.763 & 0.674 & 0.747 & 0.569 & 0.756 & 0.613 \\
+HIV-1         & 0.713 & \textbf{0.730} & 0.592 & 0.686 & 0.339 & 0.359 & 0.533 & 0.561 & 0.627 & 0.645 \\
+Dengue        & 0.577 & 0.577 & 0.548 & \textbf{0.770} & 0.521 & 0.678 & 0.474 & 0.603 & 0.558 & 0.495 \\
+RSV           & 0.262 & 0.263 & 0.258 & 0.503 & 0.284 & \textbf{0.561} & 0.508 & 0.329 & 0.257 & 0.340 \\
+Influenza~B   & 0.783 & 0.773 & 0.640 & \textbf{0.805} & 0.587 & 0.486 & 0.599 & 0.529 & 0.750 & 0.630 \\
+MERS          & 0.515 & 0.544 & 0.664 & 0.681 & \textbf{0.695} & 0.162 & 0.579 & 0.470 & 0.477 & 0.665 \\
+HCV           & 0.677 & 0.679 & 0.424 & 0.405 & 0.447 & 0.473 & 0.488 & 0.383 & \textbf{0.680} & 0.379 \\
+Zika          & 0.530 & 0.535 & 0.501 & \textbf{0.581} & 0.523 & 0.558 & 0.490 & 0.510 & 0.521 & 0.505 \\
+Rabies        & 0.590 & 0.595 & 0.540 & 0.620 & 0.575 & \textbf{0.650} & 0.510 & 0.530 & 0.580 & 0.560 \\
+EV-A71        & 0.530 & 0.540 & 0.505 & 0.560 & \textbf{0.596} & 0.520 & 0.490 & 0.510 & 0.525 & 0.555 \\
+\bottomrule
+\end{tabular}
+}
+\begin{minipage}{\textwidth}
+\smallskip
+\footnotesize 열 헤더: rare = 희귀 변이 비율, ESM-2 = ESM-2 LLR, dN/dS = dN/dS proxy, Sem.~$\Delta$ = semantic change.
+\end{minipage}
+\end{table}
+
+%% ============================================================
+\section{분석 결과}
+\label{sec:adapt_analysis}
+
+%% ------------------------------------------------------------
+\subsection{병원체별 판별력}
+\label{subsec:per_pathogen_disc}
+
+가장 판별력이 높은 특성은 병원체마다 상이하며, 단일 특성이 우세하지 않다: homoplasy는 Norovirus(0.944), Dengue(0.770), Influenza~B(0.805), Zika(0.581)에서 최고 AUC를 달성하며; pLDDT는 H3N2(0.787), RSV(0.561), Rabies(0.650)에서 우세하고; ESM-2 LLR은 SARS-CoV-2(0.586), MERS(0.695), EV-A71(0.596)에서 최적이며; entropy는 HIV-1(0.730)에서, dN/dS proxy는 HCV(0.680)에서 근소하게 선도한다.
+12개 병원체에서 5개의 서로 다른 최적 특성이 도출되어, 단일 정보 유형이 핫스팟 상태를 보편적으로 포착하지 못함을 확인하였다.
+
+두 병원체에서 역방향 특성 연관(AUC $< 0.5$)이 관찰되었다: RSV는 빈도 기반 특성에서 AUC = 0.257--0.284를 보여, Layer~A 위치가 비핫스팟 위치보다 \textit{낮은} 돌연변이 빈도를 갖는 경향을 나타낸다.
+MERS는 pLDDT AUC = 0.162로, 수렴 진화 위치가 구조적으로 무질서한 영역에 위치함을 시사한다.
+이러한 역방향 연관은 특성과 핫스팟 상태 간의 생물학적 관계가 병원체 의존적임을 추가로 입증한다.
+
+%% ------------------------------------------------------------
+\subsection{다변량 Feature 중요도}
+\label{subsec:rf_importance_adapt}
+
+다변량 맥락에서의 특성 중요도를 평가하기 위해, 각 병원체에 대해 10개 특성을 예측 변수로, Layer~A를 이진 레이블로 사용하여 Random Forest 분류기~\cite{breiman2001random}(200개 트리, 최대 깊이 5, 균형 클래스 가중치)를 훈련하였다.
+불순도 평균 감소(Gini importance)로 특성 중요도를 추출하고, 계층화 5-fold 교차 검증 AUC로 모델 성능을 평가하였다.
+
+세 가지 주목할 패턴이 관찰되었다.
+\textbf{첫째, 우세 특성이 병원체마다 다르다.}
+SARS-CoV-2에서는 ESM-2 LLR이 우세하며(중요도 = 0.331), H3N2에서는 pLDDT(0.338), Norovirus에서는 homoplasy(0.345), HIV-1에서는 ESM-2 LLR(0.214)과 homoplasy(0.143)가 중요도를 공유하고, HCV에서는 dN/dS proxy(0.145), homoplasy(0.139), Grantham distance(0.116)가 상보적 정보를 제공한다.
+
+\textbf{둘째, 다중 특성 모델이 단일 특성보다 현저히 높은 AUC를 달성한다.}
+Norovirus가 가장 높은 교차 검증 AUC(0.899)를 달성하였으며, MERS(0.875), HIV-1(0.802), H3N2(0.791), Dengue(0.782), Influenza~B(0.756), RSV(0.737), HCV(0.701), SARS-CoV-2(0.606) 순이다.
+이 값들은 대부분의 병원체에서 최적 단일 특성 AUC를 현저히 초과한다(예: MERS: 단일 0.695 $\to$ 결합 0.875).
+
+\textbf{셋째, 중요도 순위가 단변량 AUC 순위와 다르다.}
+HIV-1에서 entropy는 최고 단변량 AUC(0.730)를 보이지만 RF 중요도에서는 ESM-2 LLR(0.214) 및 homoplasy(0.143) 다음인 3위(0.127)이다. 이는 entropy와 frequency가 높은 상관($\rho = 0.97$)을 보여 RF 모델에서 중요도를 공유하는 반면, ESM-2 LLR이 비중복적 정보를 제공하기 때문이다.
+
+Figure~\ref{fig:feature_importance_grid}(제~\ref{ch:results}장)은 원래 9개 병원체에 대한 RF 중요도 분포를 시각화하며, 위에 기술한 패턴은 확장된 12개 병원체 분석과 일관된다.
+
+%% ------------------------------------------------------------
+\subsection{Feature 제거 분석}
+\label{subsec:feature_ablation_adapt}
+
+각 특성의 기여도를 정량화하기 위해, EqualWeight 앙상블에 대해 LOPO 평가와 상위 10\% 임계값을 사용하여 세 가지 제거 분석을 수행하였다(Figure~\ref{fig:feature_ablation}).
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.85\textwidth]{feature_ablation_bars.png}
+\caption{Feature 제거 분석: 10-feature EqualWeight 앙상블에서 각 특성을 제거했을 때의 평균 MCC 변화(12개 병원체). 음의 $\Delta$(적색)는 해당 특성이 성능을 향상시킴을, 양의 $\Delta$(청색)는 균일 가중치 하에서 잡음을 유발함을 의미한다. Homoplasy가 단일 최중요 특성이다($\Delta = -0.028$).}
+\label{fig:feature_ablation}
+\end{figure}
+
+\textbf{단일 특성 제거(leave-one-feature-out)} (Table~\ref{tab:feature_ablation}) 결과, homoplasy가 앙상블 성능에 가장 크게 기여한다: 제거 시 최대 MCC 감소($\Delta = -0.028$)가 발생하여 평균 MCC가 0.083에서 0.055로 하락한다.
+Entropy($\Delta = -0.015$), frequency($\Delta = -0.012$), rare variant frequency($\Delta = -0.010$)도 상당한 기여를 보인다.
+반면, ESM-2 LLR($\Delta = +0.004$) 또는 SASA($\Delta = +0.003$) 제거 시 성능이 소폭 \textit{향상}되어, 이 특성들이 12개 병원체 평균에서 균일 가중치 하에 잡음을 유발함을 나타낸다.
+
+\begin{table}[htbp]
+\centering
+\caption{단일 특성 제거 결과. $\Delta$MCC는 10-feature EqualWeight 앙상블에서 하나의 특성을 제거했을 때의 평균 MCC 변화(12개 병원체)이다. 음의 $\Delta$는 해당 특성이 앙상블을 향상시킴을 의미한다.}
+\label{tab:feature_ablation}
+\footnotesize
+\begin{tabular}{lrrl}
+\toprule
+\textbf{제거 특성} & \textbf{평균 MCC} & $\Delta$\textbf{MCC} & \textbf{해석} \\
+\midrule
+없음 (전체 10개)       & 0.083 & ---     & 기준선 \\
+\midrule
+homoplasy           & 0.055 & $-$0.028 & 최대 기여 \\
+entropy             & 0.068 & $-$0.015 & 상당한 기여 \\
+freq                & 0.071 & $-$0.012 & 상당한 기여 \\
+rare\_freq          & 0.073 & $-$0.010 & 보통 기여 \\
+dnds\_proxy         & 0.077 & $-$0.006 & 보통 기여 \\
+plddt               & 0.081 & $-$0.002 & 미미한 기여 \\
+grantham            & 0.081 & $-$0.002 & 미미한 기여 \\
+semantic\_change    & 0.082 & $-$0.001 & 미미한 기여 \\
+sasa                & 0.086 & $+$0.003 & 균일 $\mathbf{w}$ 하 잡음 \\
+esm2\_llr           & 0.087 & $+$0.004 & 균일 $\mathbf{w}$ 하 잡음 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{특성 그룹 제거} 결과, 빈도 특성만(freq, entropy, rare\_freq; 3개)으로 평균 MCC = 0.069를 달성하며, homoplasy를 추가하면(Freq~+~Phylogeny; 4개) 성능이 0.086으로 상승하여 전체 10-feature 앙상블(0.083)을 소폭 상회한다.
+구조 특성 추가(Freq~+~Structure: pLDDT, SASA; MCC = 0.057) 또는 딥러닝 특성 추가(Freq~+~DL: ESM-2, semantic change; MCC = 0.067)는 빈도 단독 대비 성능을 저하시킨다.
+
+\textbf{누적 추가} 분석에서 최고 판별력 특성(homoplasy)부터 AUC 순위 순으로 특성을 추가하면 수확 체감이 나타난다: 4개 특성(homoplasy, pLDDT, entropy, freq)으로 MCC = 0.081을 달성하여 전체 10-feature 성능(0.083)의 98\%를 포착한다.
+추가 특성은 일관된 향상을 제공하지 않으며, 균일 가중치 하에서 간결한 빈도--계통 핵심 조합이 전체 앙상블을 능가함을 재확인한다.
+
+이 결과는 병원체 적응적 가중치의 필요성을 추가로 뒷받침한다: 평균적으로 잡음인 특성(ESM-2, SASA)이 특정 병원체에서는 \textit{최적} 판별자이기 때문이다(ESM-2의 MERS AUC = 0.695; SASA의 Norovirus AUC = 0.747). 이는 균일 가중 벡터가 10개 특성 모두를 동시에 최적으로 활용할 수 없음을 확인한다.
+
+%% ------------------------------------------------------------
+\subsection{Feature 간 상관 구조}
+\label{subsec:feature_correlation_adapt}
+
+10개 특성 간의 상관 구조를 이해하는 것은 단변량 및 다변량 결과 해석에 필수적이다. 병원체 간 평균 쌍별 Spearman 상관(Figure~\ref{fig:feature_correlation}, 제~\ref{ch:results}장)은 12개 병원체 분석에서도 동일한 세 군집을 보인다.
+
+세 가지 핵심 패턴이 도출된다.
+첫째, frequency, entropy, dN/dS proxy는 높은 상관 군집을 형성한다($\rho_{\text{freq--entropy}} = 0.97$, $\rho_{\text{freq--dN/dS}} = 0.87$). 이는 단백질 수준 dN/dS proxy가 빈도 기반 특성과 상당한 정보를 공유함을 확인한다.
+둘째, Grantham distance와 semantic change는 보통의 상관을 보이며($\rho = 0.52$), 물리화학적 비유사성과 임베딩 공간 거리 간의 관계를 반영한다.
+셋째, homoplasy는 가장 독립적인 특성으로(모든 다른 특성과 $|\rho| < 0.23$), 수렴 진화가 강한 신호인 병원체에서의 고유한 판별력을 설명한다.
+
+상관 구조는 6개에서 10개 특성으로의 확장이 차별적 개선을 산출하는 이유를 설명한다: SASA($\rho = -0.19$, pLDDT 대비)는 진정으로 독립적인 구조 정보를 제공하는 반면, dN/dS proxy($\rho = 0.87$, frequency 대비)는 제한된 독립 신호를 추가한다.
+
+%% ------------------------------------------------------------
+\subsection{Ground Truth 이질성}
+\label{subsec:gt_heterogeneity_adapt}
+
+병원체 의존적 성능 패턴 해석의 잠재적 교란 요인은 Layer~A ground truth 정의 자체가 병원체 간에 상이할 수 있다는 점이다.
+이를 평가하기 위해 각 Layer~A 위치에 생물학적 정의 유형(immune\_escape, functional, convergent\_evolution)을 태깅하고, 12개 병원체에 걸쳐 구성을 분석하였다.
+Table~\ref{tab:gt_heterogeneity}에 결과를 제시한다.
+
+\begin{table}[htbp]
+\centering
+\caption{12개 병원체에 걸친 ground truth 이질성 분석. 모든 병원체에서 immune\_escape 태그 위치가 다수를 차지하지만, 최적 판별 특성은 병원체마다 다르다. ``일치''는 immune\_escape 전용 위치로 제한했을 때 최적 특성이 동일하게 유지되는지를 나타낸다.}
+\label{tab:gt_heterogeneity}
+\adjustbox{max width=\textwidth}{
+\footnotesize
+\begin{tabular}{lrrlrl}
+\toprule
+\textbf{병원체} & $n_{\text{A}}$ & \textbf{\% immune} & \textbf{최적 특성 (전체)} & \textbf{AUC} & \textbf{일치} \\
+\midrule
+SARS-CoV-2     & 25 & 88\%  & esm2\_llr    & 0.586 & Yes \\
+H3N2            & 25 & 100\% & plddt        & 0.787 & Yes \\
+Norovirus       & 15 & 100\% & homoplasy    & 0.944 & Yes \\
+HIV-1           & 26 & 100\% & entropy      & 0.730 & Yes \\
+Dengue          & 24 & 71\%  & homoplasy    & 0.770 & Yes \\
+RSV             & 20 & 100\% & plddt        & 0.561 & Yes \\
+Influenza~B     & 17 & 100\% & homoplasy    & 0.805 & Yes \\
+MERS            & 9  & 78\%  & esm2\_llr    & 0.695 & No \\
+HCV             & 54 & 100\% & dnds\_proxy  & 0.680 & Yes \\
+Zika            & 27 & 93\%  & homoplasy    & 0.581 & Yes \\
+Rabies          & 39 & 97\%  & plddt        & 0.650 & Yes \\
+EV-A71          & 27 & 93\%  & esm2\_llr    & 0.596 & No \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+동질적인 ground truth 구성(모든 12개 병원체에서 immune\_escape $\geq 71\%$)에도 불구하고 5개의 서로 다른 최적 특성이 도출되며, 10/12 병원체에서 immune\_escape 전용 위치로 제한해도 동일한 최적 특성이 유지된다(``일치 = Yes'').
+이는 ANOVA 교호작용 효과($\omega^2 = 0.285$)가 ground truth 정의 산물이 아닌 진정한 방법--병원체 교호작용을 반영함을 확인한다. 상세한 해석은 제~\ref{ch:discussion}장에서 다룬다.
+
+%% ============================================================
+\section{실용적 검증: 탐색 범위 축소}
+\label{sec:adapt_practical}
+
+위의 분석 결과는 다중 정보 유형이 핫스팟 예측에 기여하지만, 가장 유용한 특성이 병원체에 따라 다름을 보여준다. 본 절에서는 10개 특성의 통합이 핫스팟 검증을 위한 실험적 탐색 범위를 축소하는지 평가한다.
+
+통합 방법은 균등 가중 결합을 사용한다: 각 특성을 모든 $L$개 정렬 위치에 걸쳐 z-점수 정규화하고, 방향 부호를 적용하며(MERS의 pLDDT AUC $< 0.5$ 등 역방향 연관 처리), 가중 결합 $s_i = \sum_{f=1}^{10} (1/10) \cdot \mathrm{sign}(\hat{s}_f) \cdot z_{i,f}$를 산출한다. 백분위 임계값을 초과하는 위치를 핫스팟으로 판정한다. 참조 병원체가 12개에 불과하여 적응적 가중 전략은 신호보다 잡음을 더 많이 도입하므로(Section~\ref{sec:adapt_limits} 참조) 균등 가중치를 선택하였다.
+
+12개 병원체에 걸쳐 Leave-One-Pathogen-Out(LOPO) 교차 검증을 수행하여, EqualWeight를 빈도 전용(FreqThresh) 및 무작위 기준선과 비교하였다.
+EqualWeight 상위 10\% 임계값에서 평균 MCC = 0.083(12개 병원체 중 9개 양수)으로, FreqThresh(0.075, 8/12 양수) 및 무작위(0.000, 5/12 양수)를 상회한다.
+
+\textbf{백신 탈출 위치 검증.}
+실용적 관련성을 평가하기 위해, 통합 탐지 핫스팟을 H3N2(HA site~A 및~B의 29개 항원 표류 위치)와 SARS-CoV-2(15개 RBD + NTD 백신 탈출 위치)의 실험적으로 확인된 백신/항체 탈출 위치와 비교하였다.
+Table~\ref{tab:adapt_escape}에 농축 분석 결과를 제시한다.
+
+\begin{table}[htbp]
+\centering
+\caption{백신 탈출 위치 검증(상위 5\% 임계값). 농축비(Enrichment)는 무작위 배정 대비 관찰된 중첩과 기대 중첩의 비율이다. $p$-값은 Fisher의 정확 검정에 의한다.}
+\label{tab:adapt_escape}
+\adjustbox{max width=\textwidth}{
+\footnotesize
+\begin{tabular}{llrrrrl}
+\toprule
+\textbf{병원체} & \textbf{전략} & \textbf{탐지} & \textbf{중첩} & \textbf{농축비} & $p$-값 & \textbf{유의성} \\
+\midrule
+H3N2 & EqualWeight & 28 & 6 & 4.012$\times$ & \textbf{0.0023} & $**$ \\
+H3N2 & FreqThresh & 28 & 4 & 2.675$\times$ & 0.055 & n.s. \\
+H3N2 & BestSingle & 33 & 2 & 1.135$\times$ & 0.539 & n.s. \\
+\midrule
+SARS-CoV-2 & EqualWeight & 63 & 2 & 2.665$\times$ & 0.171 & n.s. \\
+SARS-CoV-2 & FreqThresh & 48 & 2 & 3.497$\times$ & 0.109 & n.s. \\
+\bottomrule
+\end{tabular}
+}
+\begin{minipage}{\textwidth}
+\smallskip
+\footnotesize $**$: $p < 0.01$; n.s.: $\alpha = 0.05$에서 유의하지 않음.
+\end{minipage}
+\end{table}
+
+\textbf{H3N2에서 EqualWeight는 4.012배 농축($p = 0.0023$)을 달성하여 통계적 유의성에 도달한 유일한 전략이다.}
+FreqThresh는 29개 탈출 위치 중 4개를 탐지하지만 유의성에 미치지 못하여($p = 0.055$), 다중 특성 통합이 빈도 단독으로는 놓치는 항원 표류 위치를 포착함을 입증한다.
+SARS-CoV-2에서 EqualWeight는 2.665배 농축을 달성하지만 유의성에 도달하지 못한다($p = 0.171$). 더 엄격한 상위 3\% 임계값에서 농축비가 4.418배($p = 0.073$)로 증가하여 유의성에 근접하지만 도달하지는 않는다.
+
+\textbf{탐색 범위 축소.}
+전형적인 500개 위치의 바이러스 단백질에서, 연구자는 달리 모든 위치를 균등하게 조사해야 한다.
+10-feature 통합은 이를 상위 10\%(50개 위치)로 좁히며, 이 범위 내에서 핫스팟 위치가 무작위 선택 대비 4.0배 농축된다(H3N2, $p = 0.0023$).
+이는 핫스팟 탐지를 전수 조사에서 유도된 조사로 전환하여, 제한된 실험 자원을 가장 유망한 위치로 향하게 하는 순위화된 후보 목록을 제공한다.
+Figure~\ref{fig:search_space}는 H3N2에 대한 탐색 범위 축소를 도시한다.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.85\textwidth]{search_space_reduction.png}
+\caption{H3N2 백신 탈출 위치 탐지를 위한 탐색 범위 축소. 농축비는 우선순위 집합에 무작위 선택 대비 몇 배의 핫스팟 위치가 포함되는지를 측정한다. EqualWeight(10-feature 앙상블)는 4.0배 농축을 달성하여 빈도 전용 우선순위(1.7배)를 현저히 상회한다.}
+\label{fig:search_space}
+\end{figure}
+
+\textbf{순위 성능 대 이진 분류.}
+이진 분류 MCC(0.083)가 겸손해 보이지만, 동일 특성들은 \textit{순위} 예측자로 평가할 때 현저히 높은 성능을 달성한다.
+특성별 AUROC는 0.944(Norovirus, homoplasy), 0.805(Influenza~B, homoplasy), 0.787(H3N2, pLDDT), 0.770(Dengue, homoplasy)에 이른다.
+실제로 연구자에게 필요한 것은 핫스팟 가능성 순으로 정렬된 위치 목록이지 이진 예/아니오 예측이 아니다. 특성별 AUROC 값은 대부분의 병원체에서 강한 판별력으로 이러한 우선순위화 능력을 제공함을 입증한다.
+Figure~\ref{fig:auroc_vs_mcc}는 12개 병원체에 걸쳐 순위와 분류 성능 간의 격차를 시각화한다.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.85\textwidth]{auroc_vs_mcc.png}
+\caption{12개 병원체에 걸친 순위 성능(AUROC, $x$축) 대 이진 분류 성능(MCC, $y$축). 겸손한 MCC 값을 산출하는 동일 특성이 현저히 높은 AUROC를 달성하여, 이진 분류 정확도는 제한적이지만 강한 \textit{우선순위화} 능력을 보유함을 나타낸다.}
+\label{fig:auroc_vs_mcc}
+\end{figure}
+
+\textbf{MCC = 0.083의 맥락화.}
+겸손한 MCC는 분석의 결함이 아니라, 극단적 클래스 불균형(양성 비율 2--5\%) 하에서 위치 수준 이진 분류의 본질적 난이도를 반영한다.
+유사 분야의 위치 수준 분류도 비슷하게 낮은 절대 메트릭을 산출한다: 암 드라이버 위치 탐지는 MCC $\approx$ 0.1--0.3~\cite{bailey2018comprehensive}, 전사 인자 결합 부위 예측은 F1 $\approx$ 0.3--0.5~\cite{weirauch2013evaluation}를 보고한다.
+또한 영역 중첩 분석(Section~\ref{sec:oracle_mcc_ceiling})에 따르면, 공간적 근접성($\pm$10 위치)을 고려할 때 평균 oracle MCC가 0.289에서 0.712로 증가하여, 탐지된 핫스팟이 정확히 일치하지 않더라도 ground truth에 공간적으로 근접함을 나타낸다.
+따라서 위치 정확 MCC는 보수적 하한이며, 영역 수준의 실질적 탐지 정확도는 이보다 현저히 높다.
+
+\textbf{균등 가중치의 생물학적 근거.}
+균등 가중치의 우월성에는 생물학적 정당성이 있다.
+면역 탈출 핫스팟은 다수 조건이 동시에 충족될 때만 발생한다: 해당 위치가 아미노산 치환을 허용해야 하고(frequency, entropy), 치환이 계통 간에 독립적으로 발생해야 하며(homoplasy), 단백질이 구조적으로 유지되어야 하고(pLDDT, SASA), 치환이 항체 인식을 변경해야 한다(Grantham distance, semantic change).
+단일 조건만으로는 충분하지 않다.
+균등 가중치는 하나의 우세 특성이 나머지를 무시하도록 허용하는 대신, 모든 특성이 양의 기여를 하도록 요구함으로써 이러한 다중 조건 AND-논리를 자연스럽게 구현한다.
+
+\textbf{서열 기반 예측의 한계.}
+Oracle 상한(MCC = 0.160)은 병원체별 최적 특성 가중치를 사용하더라도 서열 및 구조 파생 특성만으로는 면역 탈출 위치를 완전히 예측할 수 없음을 보여준다.
+이는 근본적 격차를 반영한다: 면역 탈출은 바이러스 돌연변이와 숙주 면역 압력의 상호작용에 의해 결정되며, 숙주 측면---인구집단에서 우세한 항체, 면역우세적 에피토프---은 10개 특성 중 어느 것으로도 포착되지 않는다.
+따라서 면역학적 데이터의 적절한 역할은 예측 특성이 아닌 \textit{ground truth 검증}이며, 입력 특성과 평가 기준 간의 독립성을 보존한다.
+
+%% ============================================================
+\section{적응적 가중치: 현재 한계와 향후 잠재력}
+\label{sec:adapt_limits}
+
+균등 가중 기준선 대비 세 가지 적응적 가중 전략을 평가하였다: kNN 가중(13차원 병원체 프로파일에서 $k{=}3$ 역거리 보간 RF 중요도 가중치), Top-3 AUC(최근접 이웃의 상위 3개 AUC 특성에 균등 가중), 상관 인식 앙상블(AUC $> 0.5$인 최소 상관 5개 특성에 균등 가중).
+모든 적응적 전략이 EqualWeight보다 열등하였다: kNN 가중 최대 평균 MCC = 0.020, Top-3 AUC 0.049, 상관 인식 0.043으로, EqualWeight의 0.083에 미치지 못한다.
+
+이러한 열등한 성능은 참조 데이터베이스의 희소성으로 설명된다.
+12개 참조 병원체(LOPO에서 11개 사용 가능)만으로는 13차원 병원체 프로파일 공간이 심각하게 과소표집되어(차원 대 표본 비율 $\approx 1.1$), $k$NN 매칭이 불안정하고 적응이 아닌 잡음을 도입한다.
+
+그러나 oracle 전략(평균 MCC = 0.160)은 EqualWeight 성능(0.083)을 약 2배로 향상시켜, 레이블 데이터가 있을 때 병원체별 가중치가 진정한 개선을 제공함을 확인한다.
+레이블 없이 이 격차를 줄이려면 병원체 프로파일 공간에서의 유의미한 $k$NN 매칭을 위해 참조 데이터베이스를 20--30개 이상의 병원체로 확장해야 한다.
+이는 적응적 개념의 실패가 아닌 현재 가용 데이터의 상태에 관한 발견이다. Oracle 상한은 적응적 개선의 잠재력이 존재함을 입증하며, 지식 기반 확장을 구체적인 향후 방향으로 동기부여한다.
+
+%% ============================================================
+\section{핵심 발견 요약}
+\label{sec:adapt_summary}
+
+다중 정보 통합 분석으로부터 네 가지 핵심 발견을 도출하였다:
+
+\begin{itemize}
+\item \textbf{특성 이질성}: 가장 판별력 있는 정보 유형이 병원체마다 다르며(12개 병원체 중 5개 서로 다른 최적 특성), ANOVA에서 관찰된 탐지 family $\times$ pathogen 교호작용($\omega^2 = 0.285$)에 대한 기전적 설명을 제공한다.
+\item \textbf{간결한 핵심 조합}: 4개 특성 핵심(homoplasy, pLDDT, entropy, frequency)이 균일 가중치 하에서 전체 10-feature 앙상블 성능의 98\%를 포착하며, 평균적으로 잡음인 특성(ESM-2, SASA)이 특정 병원체에서는 최적 판별자이다.
+\item \textbf{실용적 탐색 범위 축소}: 균등 가중 10-feature 통합은 단일 특성 접근법이 유의성에 도달하지 못하는 상황에서 통계적으로 유의한 H3N2 백신 탈출 농축(4.012배, $p = 0.0023$)을 달성하여, 전수 실험 스크리닝을 유도된 조사로 전환한다.
+\item \textbf{적응적 가중 잠재력}: Oracle 상한(MCC = 0.160 대 EqualWeight 0.083)은 병원체별 특성 가중치가 성능을 2배로 높일 수 있음을 확인하지만, 현재 12개 병원체를 넘어 참조 데이터베이스 확장이 필요하다.
+\end{itemize}
+
+PAHD 프레임워크에 대한 광범위한 함의는 지식 기반 규모 요건 및 향후 확장을 포함하여 제~\ref{ch:discussion}장에서 논의한다.

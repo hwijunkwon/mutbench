@@ -1096,3 +1096,45 @@ v2 프로파일의 개선에도 불구하고, $n = 9$ 병원체의 근본적 한
 이러한 결과는 9개 병원체와 oracle 정보 없이도 게놈 프로파일 유사도가 탐지 패밀리 선호도를 부분적으로 예측할 수 있음(v1: 5/9 양성 MCC; v2: 평균 MCC $0.005 \rightarrow 0.017$, 음의 전이 감소)을 보여준다.
 Knowledge base의 규모 확대(20개 이상), 가중 앙상블 전략 도입, 메타학습 회귀 모델~\cite{rice1976algorithm,kerschke2019algorithm}로의 전환이 실용적 PAHD 구현에 필수적이다.
 
+
+%% ============================================================
+\section{정보 유형 분석}
+\label{sec:information_analysis_kr}
+
+앞선 절에서 최적의 스코어링--탐지 조합이 병원체마다 다르다는 것을 확인하였다($\omega^2_{\text{family}\times\text{pathogen}} = 0.285$). 이 절에서는 스코어링 공식의 기반이 되는 개별 정보 유형(feature)의 판별력을 분석하여, 교차 병원체 이질성의 원인을 규명한다.
+
+\subsection{개별 Feature 판별력}
+
+10개의 위치별 feature를 Layer~A (수렴 진화) 기준에 대한 개별 예측자로 평가하였다. 이 feature들은 6개의 정보 범주를 대표한다:
+(1)~빈도 기반 3개(freq, entropy, rare variant),
+(2)~계통 기반 1개(homoplasy),
+(3)~진화적 치환율 1개(dN/dS proxy --- 뉴클레오타이드 MSA 부재로 단백질 수준 proxy 사용),
+(4)~딥러닝 기반 2개(ESM-2 LLR, semantic change~\cite{hie2021learning}),
+(5)~구조 기반 2개(pLDDT, SASA~\cite{shrake1973environment}),
+(6)~화학적 성질 1개(Grantham distance~\cite{grantham1974amino}).
+
+22개 후보 정보 유형 중 나머지는 기존 feature와의 중복(WCN과 SASA, intrinsic disorder와 pLDDT), 계산 비용($O(L^2)$의 co-mutation), 9개 병원체 전체 적용 불가(epitope distance, glycosylation proximity) 등의 이유로 제외하였다.
+
+병원체별 최적 feature는 모두 달랐다: Norovirus에서 homoplasy(AUC = 0.944), H3N2에서 pLDDT(0.787), Influenza~B에서 homoplasy(0.805), HIV-1에서 entropy(0.730), MERS에서 ESM-2 LLR(0.695), SARS-CoV-2에서 ESM-2 LLR(0.586), HCV에서 dN/dS proxy(0.680). HCV에서 dN/dS proxy(0.680)가 frequency(0.677)와 근소한 차이로 선두이나, 차이가 0.003으로 작으므로 다변량 모델에서의 기여도를 함께 고려해야 한다.
+
+\subsection{다변량 Feature 중요도}
+
+Random Forest 분류기(200 트리, 최대 깊이 5, 균형 클래스 가중치)를 사용하여 10개 feature의 다변량 중요도를 평가하였다.
+
+6개에서 10개 feature로 확장 시 교차검증 AUC가 개선되었다: MERS(0.537 $\rightarrow$ 0.875), SARS-CoV-2(0.554 $\rightarrow$ 0.606), RSV(0.737), HCV(0.701). Norovirus는 0.899로 최고 성능을 유지하였다.
+
+\subsection{Feature 간 상관관계 구조}
+
+10개 feature 간 평균 Spearman 상관관계 분석에서 세 가지 주요 패턴이 나타났다:
+(1)~빈도 파생 feature 간 높은 상관(freq--entropy $\rho = 0.97$, freq--dN/dS $\rho = 0.87$),
+(2)~Grantham distance와 semantic change 간 중간 상관($\rho = 0.52$),
+(3)~homoplasy의 독립성(모든 다른 feature와 $|\rho| < 0.23$).
+
+SASA와 pLDDT의 약한 음의 상관($\rho = -0.19$)은 두 구조 feature가 독립적 정보를 제공함을 확인한다. dN/dS proxy와 freq의 높은 상관($\rho = 0.87$)은 뉴클레오타이드 수준 동의 치환 정보 부재로 인한 본 연구의 한계이다.
+
+\subsection{적응적 방법 선택에 대한 시사점}
+
+이 분석은 ANOVA에서 관찰된 탐지 패밀리 $\times$ 병원체 상호작용($\omega^2 = 0.285$)에 대한 기계론적 설명을 제공한다. 병원체마다 효과적인 핫스팟 판별에 필요한 정보 유형이 다르며, 해당 병원체에 적합한 정보 유형을 강조하는 스코어링 공식이 더 높은 품질의 입력 신호를 생성한다.
+
+10개 feature를 다변량 모델로 결합하면 교차검증 AUC가 최대 0.899(Norovirus), 0.875(MERS)에 도달하여, 단일 스코어링 공식에 의존하는 것보다 상보적 정보 유형의 통합이 성능 상한을 높일 수 있음을 시사한다. 이는 PAHD의 향후 방향으로서 병원체 적응적 \textit{feature 가중치} 선택을 동기부여한다.
+

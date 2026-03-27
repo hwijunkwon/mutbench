@@ -16,7 +16,7 @@ This chapter reviews prior work in viral mutation hotspot detection (Section~\re
 \label{subsec:bg_hotspot_methods}
 
 Mutation hotspots are regions within a genome where mutations are concentrated in a non-uniform manner, likely reflecting functionally important sites under structural or immunological selective pressure.
-Identifying hotspots in viral genomes is critical for predicting variant emergence, selecting vaccine targets, and developing therapeutics.
+Identifying hotspots in viral genomes is critical for predicting variant emergence, selecting vaccine targets, and developing therapeutics~\cite{holmes2009evolution}.
 Existing hotspot detection approaches can be categorized into frequency-based, entropy-based, and density-based methods.
 
 \textbf{Frequency-based approaches} calculate mutation frequency at the amino acid or nucleotide level and designate positions with high frequency as hotspots.
@@ -61,16 +61,62 @@ OPTICS~\cite{ankerst1999optics} generates a reachability plot revealing clusteri
 \textbf{Deep Mutational Scanning (DMS)} is an experimental technique that systematically measures the functional effects of all possible single amino acid substitutions within a protein~\cite{fowler2014dms}.
 For SARS-CoV-2, Starr et al.~\cite{starr2020dms} measured ACE2 binding affinity and expression in the receptor-binding domain (RBD), and Dadonaite et al.~\cite{dadonaite2023dms} measured pseudovirus cell entry fitness across the full-length Spike protein.
 Bloom and Neher~\cite{bloom2023fitness} provided an integrated analysis of DMS fitness effects across all SARS-CoV-2 proteins.
-DMS data provides a natural ground truth for hotspot benchmarking: positions where mutations exhibit large fitness effects correspond to biologically functional sites that detection methods should identify.
+DMS data provides a natural ground truth for hotspot benchmarking: positions where mutations exhibit large fitness effects correspond to biologically functional sites that detection methods should identify~\cite{livesey2020using}. Deep generative models have also been shown to predict the effects of mutations from sequence variation alone~\cite{riesselman2018deep}, providing a complementary computational approach to DMS-based validation.
 
+
+\subsection{Protein Language Models for Variant Effect Prediction}
+\label{subsec:bg_plm}
+
+Protein language models (PLMs) trained on large-scale protein sequence databases have emerged as a complementary computational approach to variant effect prediction.
+ESM-2~\cite{lin2023esm2,rives2021biological}, trained on 250 million protein sequences from UniRef, computes per-position log-likelihood ratios that quantify how unexpected a mutation is relative to learned evolutionary constraints, and has been applied to predict variant fitness effects.
+ProtTrans~\cite{elnaggar2022prottrans} adopts transformer architectures (including BERT and T5 variants) pretrained on UniRef and BFD databases, achieving competitive performance on protein function prediction tasks.
+More recently, ESM-3 extended the ESM family to a multimodal generative model integrating sequence, structure, and function tokens.
+Despite the growing adoption of PLMs in protein engineering and variant effect prediction, no systematic comparison of PLM-derived features exists for viral mutation hotspot detection across multiple pathogens.
+In this dissertation, ESM-2 log-likelihood ratios and embedding-derived semantic change scores are evaluated as two of the 10 positional features in the MutBench information analysis (Chapter~\ref{ch:adapt}).
+
+\subsection{Viral Genomic Surveillance Platforms}
+\label{subsec:bg_surveillance}
+
+Real-time viral genomic surveillance platforms provide the operational context in which hotspot detection methods are deployed, but serve a fundamentally different purpose.
+
+\textbf{Nextstrain}~\cite{nextstrain2018hadfield} integrates phylogenetic analysis with geographic and temporal metadata to track pathogen evolution in real time. Its primary function is to answer ``which lineages are currently spreading and where?''---for example, tracking the geographic expansion of SARS-CoV-2 Omicron sublineages or seasonal influenza clades. Nextstrain visualizes the evolutionary relationships among circulating variants but does not evaluate or compare methods for detecting mutation-prone positions.
+
+\textbf{PANGO}~\cite{rambaut2020pangolin} provides a standardized lineage classification system for SARS-CoV-2, assigning labels (e.g., BA.2.86, JN.1) to sequences based on their phylogenetic placement. Its purpose is taxonomic organization---labeling ``what is this variant?''---rather than identifying which genomic positions are likely to accumulate future mutations of functional significance.
+
+These platforms cannot substitute for hotspot detection benchmarking for three reasons:
+(1)~they operate at the \textit{lineage/variant level} (which variant is spreading), not at the \textit{position level} (which genomic position is mutation-prone);
+(2)~they are \textit{retrospective} (tracking variants that have already emerged) rather than \textit{prospective} (identifying positions predisposed to future functionally important mutations);
+and (3)~they do not compare or evaluate detection algorithms---they are end-user tools, not method evaluation frameworks.
+The distinction is critical: surveillance answers ``what has happened?'' while hotspot detection aims to answer ``where might important mutations occur next?''
+MutBench addresses the latter question by providing a systematic framework for evaluating which detection methods most effectively identify biologically meaningful mutation-prone positions.
+
+\subsection{Feature Importance Analysis in Viral Mutation Prediction}
+\label{subsec:bg_feature_importance}
+
+Several recent studies have analyzed which biological features predict viral mutation patterns, providing context for the multi-source information analysis in this dissertation (Chapter~\ref{ch:adapt}).
+Maher et al.~\cite{maher2022predicting} analyzed features predicting future SARS-CoV-2 variants of concern, finding that epidemiological features (geographic spread, growth rate) dominated over sequence-based features for a single pathogen.
+Rodriguez-Rivas et al.~\cite{rodriguez2022epistatic} demonstrated that epistatic coupling models (DCA-based) achieve AUC = 0.76 for predicting escape mutations, outperforming non-epistatic models (AUC = 0.63), highlighting the value of co-evolutionary information.
+Hie et al.~\cite{hie2021learning} showed that protein language model embeddings capture ``semantic change'' that predicts viral escape, providing a complementary deep learning perspective.
+However, these studies are limited to single pathogens (primarily SARS-CoV-2 or influenza) and do not systematically compare feature importance \textit{across} multiple pathogens---a gap that the present study addresses.
+
+\subsection{Algorithm Selection and Benchmarking Methodology}
+\label{subsec:bg_algorithm_selection}
+
+The finding that the best-performing detection method depends on the pathogen (Chapter~\ref{ch:results}) is an instance of Rice's algorithm selection problem~\cite{rice1976algorithm}: given a problem instance (pathogen) with specific characteristics, which algorithm should be applied?
+This framework has been formalized in the machine learning community through meta-learning~\cite{kerschke2019algorithm,bischl2016aslib} and automated algorithm selection (AutoML)~\cite{feurer2015automl,kotthoff2016algorithm}, but has not been applied to viral genomics.
+The benchmarking methodology adopted in this dissertation follows established principles from computational biology: Weber et al.~\cite{weber2019benchmarking} proposed guidelines for neutral benchmarking (independent evaluation, multiple metrics, controlled experimental design), and Boulesteix et al.~\cite{boulesteix2017towards} emphasized the importance of avoiding ``self-assessment bias'' where method developers evaluate their own methods.
+MutBench adheres to these principles by evaluating all methods---including the author's own MutClust---under identical conditions with independent ground truth.
+
+\subsection{Benchmarking Gap in Viral Hotspot Detection}
+\label{subsec:bg_benchmarking_gap}
 
 The absence of benchmark studies for hotspot detection methods in viral genomics stands in contrast to cancer genomics, where the comprehensive driver gene analysis by Bailey et al.~\cite{bailey2018comprehensive} established a standard benchmark with independent ground truth, enabling systematic comparison of 26 detection methods under uniform conditions.
 No analogous benchmark exists for viral mutation hotspot detection: detection methods are evaluated using ad hoc validation against small sets of known functional mutations, without standardized datasets, metrics, or ground truth definitions.
-Several related efforts exist in adjacent domains, but none addresses the specific problem of benchmarking viral hotspot detection methods:
-(1)~ProteinGym~\cite{notin2023proteingym} benchmarks variant effect predictors using 250+ DMS assays, evaluating whether models can predict the fitness impact of individual mutations---a per-residue regression task rather than a hotspot region detection task;
-(2)~ConDor~\cite{morel2024condor} detects convergent mutations across phylogenies, providing a tool for identifying positively selected sites but not a benchmark framework for comparing multiple detection methods;
-(3)~in cancer genomics, Pons et al.~\cite{pons2020computational} reviewed 40+ hotspot detection methods, but this was a descriptive survey without a unified benchmark, and cancer-specific somatic mutation models do not transfer to viral evolutionary dynamics;
-(4)~individual SARS-CoV-2 hotspot studies using entropy~\cite{harvey2021tracking} or clustering validate against small sets of known variants without standardized ground truth or cross-method comparison.
+Related efforts in adjacent domains include:
+(1)~ProteinGym~\cite{notin2023proteingym}, which benchmarks variant effect predictors using 250+ DMS assays but addresses a per-residue regression task rather than hotspot region detection;
+(2)~ConDor~\cite{morel2024condor}, which detects convergent mutations across phylogenies but is a single tool rather than a benchmark framework;
+(3)~Pons et al.~\cite{pons2020computational}, who reviewed 40+ cancer hotspot detection methods but produced a descriptive survey without a unified benchmark, and cancer-specific models do not transfer to viral evolutionary dynamics;
+and (4)~individual SARS-CoV-2 studies using entropy~\cite{harvey2021tracking} or clustering that validate against small variant sets without standardized ground truth.
 Thus, a systematic benchmark with multi-source ground truth, composite evaluation metrics, and cross-pathogen validation remains absent for viral hotspot detection.
 This gap is the fundamental motivation for MutBench (Chapter~\ref{ch:mutbench}), the core study of this dissertation.
 
