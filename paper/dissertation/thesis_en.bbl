@@ -1,4 +1,4 @@
-\begin{thebibliography}{62}
+\begin{thebibliography}{85}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -60,6 +60,11 @@ John~R. Rice.
 \newblock In \emph{Advances in Computers}, volume~15, pages 65--118. Academic
   Press, 1976.
 \newblock \doi{10.1016/S0065-2458(08)60520-3}.
+
+\bibitem[Holmes(2009)]{holmes2009evolution}
+Edward~C. Holmes.
+\newblock \emph{The Evolution and Emergence of {RNA} Viruses}.
+\newblock Oxford University Press, 2009.
 
 \bibitem[Mullick et~al.(2021)Mullick, Magar, Jhunjhunwala, and
   Barati~Farimani]{mullick2021entropy}
@@ -197,11 +202,114 @@ Jesse~D. Bloom and Richard~A. Neher.
 \newblock \emph{Virus Evolution}, 9\penalty0 (2):\penalty0 vead055, 2023.
 \newblock \doi{10.1093/ve/vead055}.
 
-\bibitem[Smith et~al.(2004)Smith, Lapedes, de~Jong, et~al.]{smith2004antigenic}
-Derek~J. Smith, Alan~S. Lapedes, Jan~C. de~Jong, et~al.
-\newblock Mapping the antigenic and genetic evolution of influenza virus.
-\newblock \emph{Science}, 305:\penalty0 371--376, 2004.
-\newblock \doi{10.1126/science.1097211}.
+\bibitem[Livesey and Marsh(2020)]{livesey2020using}
+Benjamin~J. Livesey and Joseph~A. Marsh.
+\newblock Using deep mutational scanning to benchmark variant effect predictors
+  and identify disease mutations.
+\newblock \emph{Molecular Systems Biology}, 16\penalty0 (7):\penalty0 e9380,
+  2020.
+\newblock \doi{10.15252/msb.20199380}.
+
+\bibitem[Riesselman et~al.(2018)Riesselman, Ingraham, and
+  Marks]{riesselman2018deep}
+Adam~J. Riesselman, John~B. Ingraham, and Debora~S. Marks.
+\newblock Deep generative models of genetic variation capture the effects of
+  mutations.
+\newblock \emph{Nature Methods}, 15\penalty0 (10):\penalty0 816--822, 2018.
+\newblock \doi{10.1038/s41592-018-0138-4}.
+
+\bibitem[Lin et~al.(2023)Lin, Akin, Rao, Hie, Zhu, Lu, Smedberg, Verkuil,
+  Kabeli, Shmueli, dos Santos~Costa, Fazel-Zarandi, Sercu, Candido, and
+  Rives]{lin2023esm2}
+Zeming Lin, Halil Akin, Roshan Rao, Brian Hie, Zhongkai Zhu, Wenting Lu, Nikita
+  Smedberg, Robert Verkuil, Ori Kabeli, Yaniv Shmueli, Allan dos Santos~Costa,
+  Maryam Fazel-Zarandi, Tom Sercu, Salvatore Candido, and Alexander Rives.
+\newblock Evolutionary-scale prediction of atomic-level protein structure with
+  a language model.
+\newblock \emph{Science}, 379\penalty0 (6637):\penalty0 1123--1130, 2023.
+\newblock \doi{10.1126/science.ade2574}.
+
+\bibitem[Rives et~al.(2021)Rives, Meier, Sercu, Goyal, Lin, Liu, Guo, Ott,
+  Zitnick, Ma, and Fergus]{rives2021biological}
+Alexander Rives, Joshua Meier, Tom Sercu, Siddharth Goyal, Zeming Lin, Jason
+  Liu, Demi Guo, Myle Ott, C.~Lawrence Zitnick, Jerry Ma, and Rob Fergus.
+\newblock Biological structure and function emerge from scaling unsupervised
+  learning to 250 million protein sequences.
+\newblock \emph{Proceedings of the National Academy of Sciences}, 118\penalty0
+  (15):\penalty0 e2016239118, 2021.
+\newblock \doi{10.1073/pnas.2016239118}.
+
+\bibitem[Elnaggar et~al.(2022)Elnaggar, Heinzinger, Dallago, Rehawi, Wang,
+  Jones, Gibbs, Feher, Angerer, Steinegger, Bhowmik, and
+  Rost]{elnaggar2022prottrans}
+Ahmed Elnaggar, Michael Heinzinger, Christian Dallago, Ghalia Rehawi, Yu~Wang,
+  Llion Jones, Tom Gibbs, Tamas Feher, Christoph Angerer, Martin Steinegger,
+  Debsindhu Bhowmik, and Burkhard Rost.
+\newblock {ProtTrans}: Toward understanding the language of life through
+  self-supervised learning.
+\newblock \emph{IEEE Transactions on Pattern Analysis and Machine
+  Intelligence}, 44\penalty0 (10):\penalty0 7112--7127, 2022.
+\newblock \doi{10.1109/TPAMI.2021.3095381}.
+
+\bibitem[Maher et~al.(2022)Maher, Barber, Morayse, Silber, Fogel, Lee, Cai,
+  Bolon, and Whitaker]{maher2022predicting}
+Muddil~C. Maher, Istvan Barber, Mark~E. Morayse, Joseph~D. Silber, Ruth Fogel,
+  Eun~Jee Lee, Yun~S. Cai, Daniel N.~A. Bolon, and Robert~J. Whitaker.
+\newblock Predicting the mutational drivers of future {SARS-CoV-2} variants of
+  concern.
+\newblock \emph{Science Translational Medicine}, 14\penalty0 (633):\penalty0
+  eabk3445, 2022.
+\newblock \doi{10.1126/scitranslmed.abk3445}.
+
+\bibitem[Rodriguez-Rivas et~al.(2022)Rodriguez-Rivas, Croce, Muscat, and
+  Weigt]{rodriguez2022epistatic}
+Juan Rodriguez-Rivas, Guido Croce, Martina Muscat, and Martin Weigt.
+\newblock Epistatic models predict mutable sites in {SARS-CoV-2} proteins and
+  epitopes.
+\newblock \emph{Proceedings of the National Academy of Sciences}, 119\penalty0
+  (4):\penalty0 e2113118119, 2022.
+\newblock \doi{10.1073/pnas.2113118119}.
+
+\bibitem[Hie et~al.(2021)Hie, Zhong, Berger, and Bryson]{hie2021learning}
+Brian Hie, Ellen~D Zhong, Bonnie Berger, and Bryan Bryson.
+\newblock Learning the language of viral evolution and escape.
+\newblock \emph{Science}, 371\penalty0 (6526):\penalty0 284--288, 2021.
+\newblock \doi{10.1126/science.abd7331}.
+
+\bibitem[Kerschke et~al.(2019)Kerschke, Hoos, Neumann, and
+  Trautmann]{kerschke2019algorithm}
+Pascal Kerschke, Holger~H. Hoos, Frank Neumann, and Heike Trautmann.
+\newblock Automated algorithm selection: Survey and perspectives.
+\newblock \emph{Evolutionary Computation}, 27\penalty0 (1):\penalty0 3--45,
+  2019.
+\newblock \doi{10.1162/evco_a_00242}.
+
+\bibitem[Bischl et~al.(2016)Bischl, Kerschke, Kotthoff, Lindauer, Malitsky,
+  Fr{\'e}chette, Hoos, Hutter, Leyton-Brown, Tierney, and
+  Vanschoren]{bischl2016aslib}
+Bernd Bischl, Pascal Kerschke, Lars Kotthoff, Marius Lindauer, Yuri Malitsky,
+  Alexandre Fr{\'e}chette, Holger Hoos, Frank Hutter, Kevin Leyton-Brown, Kevin
+  Tierney, and Joaquin Vanschoren.
+\newblock {ASlib}: A benchmark library for algorithm selection.
+\newblock \emph{Artificial Intelligence}, 237:\penalty0 41--58, 2016.
+\newblock \doi{10.1016/j.artint.2016.04.003}.
+
+\bibitem[Feurer et~al.(2015)Feurer, Klein, Eggensperger, Springenberg, Blum,
+  and Hutter]{feurer2015automl}
+Matthias Feurer, Aaron Klein, Katharina Eggensperger, Jost~Tobias Springenberg,
+  Manuel Blum, and Frank Hutter.
+\newblock Efficient and robust automated machine learning.
+\newblock \emph{Advances in Neural Information Processing Systems},
+  28:\penalty0 2962--2970, 2015.
+
+\bibitem[Kotthoff et~al.(2017)Kotthoff, Thornton, Hoos, Hutter, and
+  Leyton-Brown]{kotthoff2016algorithm}
+Lars Kotthoff, Chris Thornton, Holger~H. Hoos, Frank Hutter, and Kevin
+  Leyton-Brown.
+\newblock Auto-{WEKA}: Automatic model selection and hyperparameter
+  optimization in {WEKA}.
+\newblock \emph{Journal of Machine Learning Research}, 18\penalty0
+  (25):\penalty0 1--5, 2017.
 
 \bibitem[Weber et~al.(2019)Weber, Saelens, Cannoodt, Soneson, Hapfelmeier,
   Gardner, Boulesteix, Saeys, and Robinson]{weber2019benchmarking}
@@ -211,6 +319,46 @@ Lukas~M. Weber, Wouter Saelens, Robrecht Cannoodt, Charlotte Soneson, Alexander
 \newblock Essential guidelines for computational method benchmarking.
 \newblock \emph{Genome Biology}, 20:\penalty0 125, 2019.
 \newblock \doi{10.1186/s13059-019-1738-8}.
+
+\bibitem[Boulesteix et~al.(2013)Boulesteix, Lauer, and
+  Eugster]{boulesteix2017towards}
+Anne-Laure Boulesteix, Sabine Lauer, and Manuel~J.A. Eugster.
+\newblock A plea for neutral comparison studies in computational sciences.
+\newblock \emph{PLoS ONE}, 8\penalty0 (4):\penalty0 e61562, 2013.
+\newblock \doi{10.1371/journal.pone.0061562}.
+
+\bibitem[Notin et~al.(2023)Notin, Dias, Frazer, Marchena-Hurtado, Gomez, Marks,
+  and Gal]{notin2023proteingym}
+Pascal Notin, Mafalda Dias, Jonathan Frazer, Javier Marchena-Hurtado, Aidan
+  Gomez, Debora Marks, and Yarin Gal.
+\newblock Proteingym: Large-scale benchmarks for protein fitness prediction and
+  design.
+\newblock \emph{Advances in Neural Information Processing Systems}, 36, 2023.
+
+\bibitem[Morel et~al.(2024)Morel, Kozlov, Stamatakis, and
+  Szöllősi]{morel2024condor}
+Beno{\^\i}t Morel, Alexey~M Kozlov, Alexandros Stamatakis, and Gergely~J
+  Szöllősi.
+\newblock Detecting convergent and parallel amino acid substitutions in large
+  protein alignments.
+\newblock \emph{Genome Biology and Evolution}, 16\penalty0 (4):\penalty0
+  evae080, 2024.
+\newblock \doi{10.1093/gbe/evae080}.
+
+\bibitem[Pons et~al.(2020)Pons, Gonzalez-Perez, Lopez-Bigas, Schomburg, and
+  Valencia]{pons2020computational}
+Tirso Pons, Abel Gonzalez-Perez, Nuria Lopez-Bigas, Dietmar Schomburg, and
+  Alfonso Valencia.
+\newblock Computational methods for detecting cancer hotspots.
+\newblock \emph{Computational and Structural Biotechnology Journal},
+  18:\penalty0 3567--3576, 2020.
+\newblock \doi{10.1016/j.csbj.2020.11.020}.
+
+\bibitem[Smith et~al.(2004)Smith, Lapedes, de~Jong, et~al.]{smith2004antigenic}
+Derek~J. Smith, Alan~S. Lapedes, Jan~C. de~Jong, et~al.
+\newblock Mapping the antigenic and genetic evolution of influenza virus.
+\newblock \emph{Science}, 305:\penalty0 371--376, 2004.
+\newblock \doi{10.1126/science.1097211}.
 
 \bibitem[Katoh and Standley(2013)]{katoh2013mafft}
 Kazutaka Katoh and Daron~M Standley.
@@ -384,6 +532,34 @@ Masatoshi Nei and Takashi Gojobori.
   418--426, 1986.
 \newblock \doi{10.1093/oxfordjournals.molbev.a040410}.
 
+\bibitem[Mercatelli and Giorgi(2020)]{mercatelli2020geographic}
+Daniele Mercatelli and Federico~M. Giorgi.
+\newblock Geographic and genomic distribution of {SARS-CoV-2} mutations.
+\newblock \emph{Frontiers in Microbiology}, 11:\penalty0 1800, 2020.
+\newblock \doi{10.3389/fmicb.2020.01800}.
+
+\bibitem[Anastassiou(2001)]{anastassiou2001genomic}
+Dimitris Anastassiou.
+\newblock Genomic signal processing.
+\newblock \emph{IEEE Signal Processing Magazine}, 18\penalty0 (4):\penalty0
+  8--20, 2001.
+\newblock \doi{10.1109/79.939833}.
+
+\bibitem[Arneodo et~al.(2011)Arneodo, Vaillant, Audit, Argoul, d'Aubenton
+  Carafa, and Thermes]{arneodo2011wavelet}
+Alain Arneodo, C{\'e}dric Vaillant, Benjamin Audit, Fran{\c{c}}oise Argoul,
+  Yves d'Aubenton Carafa, and Claude Thermes.
+\newblock Multi-scale coding of genomic information: From {DNA} sequence to
+  genome structure and function.
+\newblock \emph{Physics Reports}, 498\penalty0 (2--3):\penalty0 45--188, 2011.
+\newblock \doi{10.1016/j.physrep.2010.10.001}.
+
+\bibitem[Tajima(1989)]{tajima1989statistical}
+Fumio Tajima.
+\newblock Statistical method for testing the neutral mutation hypothesis by
+  {DNA} polymorphism.
+\newblock \emph{Genetics}, 123\penalty0 (3):\penalty0 585--595, 1989.
+
 \bibitem[Chicco and Jurman(2020)]{chicco2020mcc}
 Davide Chicco and Giuseppe Jurman.
 \newblock The advantages of the {Matthews} correlation coefficient ({MCC}) over
@@ -423,36 +599,42 @@ Bette Korber, Will~M. Fischer, Sandrasegaram Gnanakaran, Hyejin Yoon, James
 \newblock \emph{Cell}, 182\penalty0 (4):\penalty0 812--827, 2020.
 \newblock \doi{10.1016/j.cell.2020.06.043}.
 
-\bibitem[Boulesteix et~al.(2013)Boulesteix, Lauer, and
-  Eugster]{boulesteix2017towards}
-Anne-Laure Boulesteix, Sabine Lauer, and Manuel~J.A. Eugster.
-\newblock A plea for neutral comparison studies in computational sciences.
-\newblock \emph{PLoS ONE}, 8\penalty0 (4):\penalty0 e61562, 2013.
-\newblock \doi{10.1371/journal.pone.0061562}.
+\bibitem[Jumper et~al.(2021)Jumper, Evans, Pritzel, Green, Figurnov,
+  Ronneberger, Tunyasuvunakool, Bates, {\v{Z}}{\'\i}dek, Potapenko,
+  et~al.]{jumper2021alphafold}
+John Jumper, Richard Evans, Alexander Pritzel, Tim Green, Michael Figurnov,
+  Olaf Ronneberger, Kathryn Tunyasuvunakool, Russ Bates, Augustin
+  {\v{Z}}{\'\i}dek, Anna Potapenko, et~al.
+\newblock Highly accurate protein structure prediction with {AlphaFold}.
+\newblock \emph{Nature}, 596\penalty0 (7873):\penalty0 583--589, 2021.
+\newblock \doi{10.1038/s41586-021-03819-2}.
 
-\bibitem[Kerschke et~al.(2019)Kerschke, Hoos, Neumann, and
-  Trautmann]{kerschke2019algorithm}
-Pascal Kerschke, Holger~H. Hoos, Frank Neumann, and Heike Trautmann.
-\newblock Automated algorithm selection: Survey and perspectives.
-\newblock \emph{Evolutionary Computation}, 27\penalty0 (1):\penalty0 3--45,
-  2019.
-\newblock \doi{10.1162/evco_a_00242}.
+\bibitem[Shrake and Rupley(1973)]{shrake1973environment}
+A~Shrake and JA~Rupley.
+\newblock Environment and exposure to solvent of protein atoms. lysozyme and
+  insulin.
+\newblock \emph{Journal of Molecular Biology}, 79\penalty0 (2):\penalty0
+  351--371, 1973.
+\newblock \doi{10.1016/0022-2836(73)90011-9}.
 
-\bibitem[Kotthoff et~al.(2017)Kotthoff, Thornton, Hoos, Hutter, and
-  Leyton-Brown]{kotthoff2016algorithm}
-Lars Kotthoff, Chris Thornton, Holger~H. Hoos, Frank Hutter, and Kevin
-  Leyton-Brown.
-\newblock Auto-{WEKA}: Automatic model selection and hyperparameter
-  optimization in {WEKA}.
-\newblock \emph{Journal of Machine Learning Research}, 18\penalty0
-  (25):\penalty0 1--5, 2017.
+\bibitem[Grantham(1974)]{grantham1974amino}
+R~Grantham.
+\newblock Amino acid difference formula to help explain protein evolution.
+\newblock \emph{Science}, 185\penalty0 (4154):\penalty0 862--864, 1974.
+\newblock \doi{10.1126/science.185.4154.862}.
 
-\bibitem[Wolpert and Macready(1997)]{wolpert1997nfl}
-David~H. Wolpert and William~G. Macready.
-\newblock No free lunch theorems for optimization.
-\newblock \emph{IEEE Transactions on Evolutionary Computation}, 1\penalty0
-  (1):\penalty0 67--82, 1997.
-\newblock \doi{10.1109/4235.585893}.
+\bibitem[Wilson et~al.(2022)Wilson, Choy, and Bhatt]{wilson2022alphafold}
+Christopher~J Wilson, Wing-Yiu Choy, and Dilip~K Bhatt.
+\newblock {AlphaFold2}: a role for disordered protein/region prediction?
+\newblock \emph{International Journal of Molecular Sciences}, 23\penalty0
+  (9):\penalty0 4591, 2022.
+\newblock \doi{10.3390/ijms23094591}.
+
+\bibitem[Breiman(2001)]{breiman2001random}
+Leo Breiman.
+\newblock Random forests.
+\newblock \emph{Machine Learning}, 45\penalty0 (1):\penalty0 5--32, 2001.
+\newblock \doi{10.1023/A:1010933404324}.
 
 \bibitem[Weirauch et~al.(2013)]{weirauch2013evaluation}
 Matthew~T. Weirauch et~al.
@@ -461,15 +643,12 @@ Matthew~T. Weirauch et~al.
 \newblock \emph{Nature Biotechnology}, 31:\penalty0 126--134, 2013.
 \newblock \doi{10.1038/nbt.2486}.
 
-\bibitem[Moult et~al.(2014)Moult, Fidelis, Kryshtafovych, Schwede, and
-  Tramontano]{moult2014casp}
-John Moult, Krzysztof Fidelis, Andriy Kryshtafovych, Torsten Schwede, and Anna
-  Tramontano.
-\newblock Critical assessment of methods of protein structure prediction
-  ({CASP})---round {X}.
-\newblock \emph{Proteins: Structure, Function, and Bioinformatics}, 82\penalty0
-  (S2):\penalty0 1--6, 2014.
-\newblock \doi{10.1002/prot.24452}.
+\bibitem[Wolpert and Macready(1997)]{wolpert1997nfl}
+David~H. Wolpert and William~G. Macready.
+\newblock No free lunch theorems for optimization.
+\newblock \emph{IEEE Transactions on Evolutionary Computation}, 1\penalty0
+  (1):\penalty0 67--82, 1997.
+\newblock \doi{10.1109/4235.585893}.
 
 \bibitem[Shu and McCauley(2017)]{shu2017gisaid}
 Yuelong Shu and John McCauley.
@@ -494,5 +673,14 @@ Yu~Kaku, Mst~Shamima Yo, Paula~S. Tolber, Keiya Uriu, Jumpei Ito, and Kei Sato.
 \newblock \emph{The Lancet Infectious Diseases}, 24\penalty0 (2):\penalty0 e82,
   2024.
 \newblock \doi{10.1016/S1473-3099(23)00813-7}.
+
+\bibitem[Meier et~al.(2021)Meier, Rao, Verkuil, Liu, Sercu, and
+  Rives]{meier2021language}
+Joshua Meier, Roshan Rao, Robert Verkuil, Jason Liu, Tom Sercu, and Alexander
+  Rives.
+\newblock Language models enable zero-shot prediction of the effects of
+  mutations on protein function.
+\newblock \emph{Advances in Neural Information Processing Systems},
+  34:\penalty0 29287--29303, 2021.
 
 \end{thebibliography}

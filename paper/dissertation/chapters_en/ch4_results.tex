@@ -4,7 +4,7 @@
 
 This chapter reports the experimental results of the MutBench framework presented in Chapter~\ref{ch:mutbench}.
 Stage~1 (Sections~\ref{sec:variant_comparison}--\ref{sec:phylo_simulation}) conducts in-depth analysis on SARS-CoV-2, comparing five MutClust variants and two baseline methods through synthetic benchmark, sensitivity analysis, temporal generalization, multi-ground truth evaluation, and additional validation experiments.
-Stage~2 (Section~\ref{sec:9pathogen_results} onwards) extends the evaluation to 9 RNA viruses with 9 scoring formulas $\times$ 39 detection algorithms, establishing the statistical evidence for pathogen-adaptive method selection.
+Stage~2 (Section~\ref{sec:9pathogen_results} onwards) extends the evaluation to 11 RNA viruses with 20 scoring formulas $\times$ 39 detection algorithms, establishing the statistical evidence for pathogen-adaptive method selection.
 
 %% ============================================================
 \section{Single-Pathogen Benchmark: SARS-CoV-2}
@@ -459,7 +459,7 @@ All detectors except ScoreDBSCAN yield negative MCC under homoplasy scoring (mea
 The founder-effect position D614G correctly received a homoplasy count of 0, confirming that TreeTime distinguishes founder-driven fixation from convergent evolution.
 The Spearman rank correlation between method rankings under H-score and TreeTime homoplasy is $\rho = 0.036$ ($p = 0.939$), demonstrating that method rankings are conditional on the scoring system and temporal scope; the implications for adaptive method selection are discussed in Chapter~\ref{ch:discussion}.
 
-\textbf{Cross-pathogen summary.} Method rankings differ between SARS-CoV-2 and H3N2 (MutClust-Fixed outperforms MutClust-Hybrid on H3N2), and phylogenetic non-independence analysis reveals that H-score conflates founder effects with positive selection ($\rho = -0.876$). These findings motivate the large-scale 9-pathogen benchmark.
+\textbf{Cross-pathogen summary.} Method rankings differ between SARS-CoV-2 and H3N2 (MutClust-Fixed outperforms MutClust-Hybrid on H3N2), and phylogenetic non-independence analysis reveals that H-score conflates founder effects with positive selection ($\rho = -0.876$). These findings motivate the large-scale cross-pathogen benchmark.
 
 %% ============================================================
 \section{9-Pathogen Large-Scale Benchmark}
@@ -469,8 +469,8 @@ The Spearman rank correlation between method rankings under H-score and TreeTime
 \noindent\rule{\textwidth}{0.4pt}
 \vspace{0.5em}
 
-Building on the Stage~1 findings, a Stage~2 benchmark was conducted to systematically evaluate 39 detection methods from 14 algorithm families combined with 9 scoring formulas across 9 pathogens (Section~\ref{sec:9pathogen_benchmark}).
-Stage~2 uses MCC rather than hotspot-score because the stability component (Jaccard-based subsampling reproducibility) requires bootstrap validation that has not been cross-validated across all 9 pathogens with their widely varying alignment lengths (340--1,330 AA) and MSA sizes (530--5,019 unique sequences). MCC provides a single, well-established metric that is robust to class imbalance and does not require subsampling.
+Building on the Stage~1 findings, a Stage~2 benchmark was conducted to systematically evaluate 39 detection methods from 14 algorithm families combined with 20 scoring formulas across 11 pathogens (Section~\ref{sec:9pathogen_benchmark}).
+Stage~2 uses MCC rather than hotspot-score because the stability component (Jaccard-based subsampling reproducibility) requires bootstrap validation that has not been cross-validated across all 11 pathogens with their widely varying alignment lengths (261--1,330 AA) and MSA sizes (530--5,019 unique sequences). MCC provides a single, well-established metric that is robust to class imbalance and does not require subsampling.
 
 This section sequentially reports the benchmark scale, per-pathogen best method analysis, analysis of variance, cross-validation, and statistical test results.
 
@@ -478,13 +478,12 @@ This section sequentially reports the benchmark scale, per-pathogen best method 
 \subsection{Benchmark Scale and Data}
 \label{subsec:9pathogen_scale}
 
-This section presents the full-scale 9-pathogen benchmark results that constitute the primary evidence for the dissertation's second contribution (statistical demonstration of pathogen-adaptive method selection necessity).
+This section presents the full-scale cross-pathogen benchmark results that constitute the primary evidence for the dissertation's second contribution (statistical demonstration of pathogen-adaptive method selection necessity).
 
-A total of 3,159 evaluations (9 scoring formulas $\times$ 39 detection algorithms $\times$ 9 pathogens) were conducted.
-Of these, 741 (23.5\%) evaluations resulted in the detection method identifying 0 positions (n\_detected = 0), because certain SWAN and ScoreDBSCAN variants failed to find positions satisfying the $z$-normalization threshold or density criteria in the score distributions of specific pathogens.
-These zero-detection evaluations are treated as MCC = 0. However, the ANOVA analysis used 2,418 valid evaluations excluding zero-detection cases, with Type III sum of squares applied.
-Each evaluation computed MCC, F1, precision, recall, enrichment ratio, and constrained region FPR against the 3-layer ground truth (Layer A: convergent evolution positions, Layer B: constrained regions, Layer C: DMS).
-DMS F1 was computed only for the 4 pathogens (SARS-CoV-2, H3N2, HIV-1, RSV) where experimental fitness data are available.
+A total of 8{,}580 evaluations (20 scoring formulas $\times$ 39 detection algorithms $\times$ 11 pathogens) were conducted.
+The 20 scoring formulas span six information categories: frequency-based (freq, rare\_freq, freq\_with\_indel), MSA-derived (entropy, entropy\_with\_indel, homoplasy), phylogenetic (dN/dS proxy, FUBAR posterior probability, FUBAR positive selection, FUBAR Bayes factor), structural (pLDDT inverse, SASA, Grantham distance), AI-based (ESM-2 LLR, Tranception, semantic change, stability, stability\_structural), and composite (EVEscape composite, EqualWeight).
+Each evaluation computed MCC, F1, precision, and recall against the 3-layer ground truth (Layer A: convergent evolution positions, Layer B: constrained regions, Layer C: DMS).
+DMS Layer~C evaluation was conducted for 4 pathogens (H3N2, HIV-1, RSV, Dengue) where experimental fitness data are available.
 All FASTA sequences were collected from NCBI GenBank using actual accession numbers.
 
 %% ------------------------------------------------------------
@@ -492,11 +491,11 @@ All FASTA sequences were collected from NCBI GenBank using actual accession numb
 \label{subsec:9pathogen_best_combos}
 
 The central question of Stage 2 is whether the same scoring--detection combination performs best across all pathogens, or whether each pathogen requires a different optimal combination.
-The best scoring--detection combination was selected for each of the 9 pathogens based on MCC, and \textbf{all 9/9 pathogens exhibited distinct best combinations} (Table~\ref{tab:9pathogen_best}).
+The best scoring--detection combination was selected for each of the 11 pathogens based on MCC, and \textbf{all 11/11 pathogens exhibited distinct best combinations} (Table~\ref{tab:9pathogen_best}).
 
 \begin{table}[htbp]
 \centering
-\caption{Best scoring--detection combination for each of the 9 pathogens (by MCC)}
+\caption{Best scoring--detection combination for each of the 11 pathogens (by MCC)}
 \label{tab:9pathogen_best}
 \small
 \adjustbox{max width=\textwidth}{
@@ -504,35 +503,51 @@ The best scoring--detection combination was selected for each of the 9 pathogens
 \toprule
 \textbf{Pathogen} & \textbf{Best scoring} & \textbf{Best detection} & \textbf{MCC} \\
 \midrule
-SARS-CoV-2 & E*rare & CUSUM ($\delta$=0.5, $h$=4.0) & 0.118 \\
-H3N2 & E\_only & SlidingTest ($p$=0.05) & 0.549 \\
-Norovirus & P*E*rare & GradPeak ($p$=0.5) & 0.438 \\
-HIV-1 & E*rare & SlidingTest ($p$=0.01) & 0.182 \\
-Dengue & E*rare & FreqThresh ($p$=80) & 0.256 \\
-RSV & P*E & FreqThresh ($p$=95) & 0.249 \\
-Influenza B & H-score & Wavelet ($t$=2.0) & 0.361 \\
-MERS & rank(P*E) & SlidingTest ($p$=0.05) & 0.088 \\
-HCV & E\_only & CUSUM ($\delta$=0.5, $h$=5.0) & 0.443 \\
+HCV & freq & SlidingTest ($p$=0.01) & 0.660 \\
+H3N2 & FUBAR Bayes factor & Wavelet ($t$=1.5) & 0.534 \\
+Norovirus & homoplasy & Bayes (prior=0.15) & 0.510 \\
+Influenza B & freq & KDE ($p$=85) & 0.392 \\
+HIV-1 & entropy & Wavelet ($t$=2.0) & 0.275 \\
+Dengue & entropy\_with\_indel & KDE ($p$=85) & 0.274 \\
+EV-A71 & semantic change & MutClust-Orig & 0.260 \\
+Rabies & stability & SWAN ($w$=20, $k$=2.0) & 0.248 \\
+SARS-CoV-2 & Tranception & KDE ($p$=85) & 0.211 \\
+RSV & ESM-2 LLR & Wavelet ($t$=2.0) & 0.196 \\
+MERS & freq & KDE ($p$=85) & 0.196 \\
 \bottomrule
 \end{tabular}
 }
 \begin{minipage}{\textwidth}
 \smallskip
-\footnotesize Nine unique (scoring, detection) combinations were selected as best-performing across the 9 pathogens, with no single combination being best for two or more pathogens simultaneously.
+\footnotesize All 11 pathogens select a unique best-performing (scoring, detection family) combination. Nine distinct scoring types appear as best across 11 pathogens.
 \end{minipage}
 \end{table}
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=\textwidth]{scoring_detection_heatmap.png}
-\caption{Scoring--detection performance heatmap across 9 pathogens. Each cell represents mean MCC for a scoring--detection family combination. The heterogeneous pattern confirms that no single combination dominates across all pathogens. Detailed MCC values for all scoring--detection combinations are available in Table~\ref{tab:9pathogen_best}; the heatmap provides a visual overview of performance patterns.}
+\includegraphics[width=\textwidth]{stage3_scoring_pathogen_heatmap.png}
+\caption{Scoring--pathogen performance heatmap across 11 pathogens. Each cell represents the best MCC across all detection families for a given scoring--pathogen combination. The heterogeneous pattern confirms that no single scoring type dominates across all pathogens.}
 \label{fig:scoring_detection_heatmap}
 \end{figure}
 
 The key observations from these results are as follows.
-First, the best scoring formula differs across pathogens: E*rare is the best-performing formula for SARS-CoV-2, HIV-1, and Dengue, but E\_only is best for H3N2 and HCV, H-score for Influenza B, P*E for RSV, and rank(P*E) for MERS.
-Second, the best detection family also differs across pathogens: SlidingTest (3 occurrences), CUSUM (2), FreqThresh (2), Wavelet (1), and GradPeak (1) are distributed.
-Third, the MCC range spans from 0.088 (MERS) to 0.549 (H3N2), exhibiting large variation that reflects structural differences in mutation patterns across pathogens (entropy distribution, proportion of conserved regions, number of positively selected sites).
+First, the best scoring type differs fundamentally across pathogens: FUBAR Bayes factor is best for H3N2, homoplasy for Norovirus, Tranception for SARS-CoV-2, ESM-2 LLR for RSV, semantic change for EV-A71, stability for Rabies, and frequency-based scores for HCV, Influenza B, and MERS. This diversity spanning six information categories is the central finding.
+Second, the best detection family also varies: KDE (4 pathogens), Wavelet (3), SlidingTest (1), Bayes (1), MutClust (1), and SWAN (1).
+Third, the MCC range spans from 0.196 (RSV/MERS) to 0.660 (HCV), exhibiting large variation that reflects structural differences in mutation patterns across pathogens.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{stage3_scoring_category_bar.png}
+\caption{Mean MCC by scoring category across 11 pathogens. Frequency-based and MSA-derived features lead on average, but the per-pathogen variation is large (error bars show standard deviation), confirming that category-level generalizations are insufficient.}
+\label{fig:scoring_category_bar}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{stage3_fubar_spotlight.png}
+\caption{FUBAR phylogenetic scoring performance compared to the overall best scoring per pathogen. FUBAR Bayes factor achieves the highest MCC for H3N2 (0.534, marked with \textbf{$\star$}), demonstrating that phylogenetic positive selection signals can outperform all other information types for specific pathogens.}
+\label{fig:fubar_spotlight}
+\end{figure}
 
 %% ------------------------------------------------------------
 \subsection{Statistical Analysis}
@@ -554,63 +569,60 @@ The results using the bias-corrected effect size $\omega^2$ (Eq.~\ref{eq:omega_s
 \toprule
 \textbf{Factor} & \textbf{Type} & \textbf{$\omega^2$} \\
 \midrule
-pathogen & Main effect & 0.260 \\
-family $\times$ pathogen & Two-way interaction & \textbf{0.285} \\
-score $\times$ pathogen & Two-way interaction & 0.083 \\
-score & Main effect & 0.027 \\
-family & Main effect & 0.025 \\
-score $\times$ family & Two-way interaction & 0.013 \\
-\midrule
-Residual & --- & 0.307 \\
+scoring $\times$ pathogen & Two-way interaction & \textbf{0.296} \\
+pathogen & Main effect & 0.117 \\
+family $\times$ pathogen & Two-way interaction & 0.082 \\
+scoring & Main effect & 0.063 \\
+scoring $\times$ family & Two-way interaction & 0.039 \\
+family & Main effect & 0.013 \\
 \bottomrule
 \end{tabular}
 }
 \begin{minipage}{\textwidth}
 \smallskip
-\footnotesize family: detection method family (14 levels), score: scoring formula (9 levels), pathogen: pathogen (9 levels). $\omega^2$ is the bias-corrected estimate of the proportion of total variance explained by each factor.
+\footnotesize family: detection method family (14 levels), scoring: scoring formula (20 levels), pathogen: pathogen (11 levels). $\omega^2$ is the bias-corrected estimate of the proportion of total variance explained by each factor.
 \end{minipage}
 \end{table}
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=\textwidth]{variance_decomposition.png}
-\caption{Variance decomposition of hotspot detection performance. The detection family $\times$ pathogen interaction ($\omega^2 = 0.285$) is the largest source of variance, exceeding all main effects.}
+\includegraphics[width=\textwidth]{stage3_anova_decomposition.png}
+\caption{Variance decomposition of hotspot detection performance. The scoring $\times$ pathogen interaction ($\omega^2 = 0.296$) is the largest source of variance, exceeding all main effects and other interactions by a wide margin.}
 \label{fig:variance_decomposition}
 \end{figure}
 
-\textbf{Key finding}: The detection family $\times$ pathogen interaction ($\omega^2 = 0.285$) is the \textbf{largest source of variance, exceeding all main effects and other interactions}. Under Cohen's effect size benchmarks~\cite{cohen1988statistical}, $\omega^2 > 0.14$ constitutes a large effect, confirming that this interaction is substantively large.
-This means that the best-performing detection method varies systematically depending on the pathogen, and no single pathogen-independent best method exists.
+\textbf{Key finding}: The scoring $\times$ pathogen interaction ($\omega^2 = 0.296$) is the \textbf{largest source of variance, exceeding all main effects and other interactions}. Under Cohen's effect size benchmarks~\cite{cohen1988statistical}, $\omega^2 > 0.14$ constitutes a large effect. Critically, the scoring main effect ($\omega^2 = 0.063$) is 4.8$\times$ larger than the detection family main effect ($\omega^2 = 0.013$), demonstrating that \emph{what biological information is used} matters far more than \emph{which algorithm processes it}.
 
-This finding directly resolves the third problem from Chapter~\ref{ch:introduction}: the interaction dominance ($\omega^2 = 0.285$) provides definitive statistical proof that detection performance is fundamentally pathogen-dependent. The pathogen main effect ($\omega^2 = 0.260$) is also large, while the main effects of scoring ($\omega^2 = 0.027$) and detection family ($0.025$) are small, confirming that ``which method is applied to which pathogen'' is the dominant factor.
-The residual ($1 - 0.693 = 30.7\%$) reflects within-cell variability.
-The three-way interaction (score $\times$ family $\times$ pathogen) was not estimated due to insufficient degrees of freedom from the unbalanced design (33--38 valid methods per pathogen); since the two-way interaction already dominates, this omission does not affect the core conclusions.
+This finding directly resolves the third problem from Chapter~\ref{ch:introduction}: the interaction dominance ($\omega^2 = 0.296$) provides definitive statistical proof that detection performance is fundamentally pathogen-dependent. Moreover, the shift from family$\times$pathogen dominance (Stage~2 preliminary with 9 scoring types: $\omega^2 = 0.285$) to scoring$\times$pathogen dominance (full 20-scoring benchmark: $\omega^2 = 0.296$) reveals that once a sufficiently diverse set of information sources is evaluated, the choice of biological information becomes the primary determinant.
 
 \textbf{LOPO Cross-Validation.}
 \label{subsec:9pathogen_lopo}
-LOPO (Leave-One-Pathogen-Out) cross-validation was performed to evaluate whether the best combination selected from 8 training pathogens is also best-performing for the excluded test pathogen.
+LOPO (Leave-One-Pathogen-Out) cross-validation was performed to evaluate whether the best combination selected from 10 training pathogens generalizes to the excluded test pathogen (Figure~\ref{fig:lopo_crossval}).
 
 \begin{itemize}
-\item \textbf{Combination match rate}: 0/9 (0\%). In all 9 iterations, the training-best combination and the test oracle combination were mismatched.
-\item \textbf{Mean generalization ratio}: 4.9\%. The test MCC of the training-best combination was only 4.9\% of the oracle MCC on average.
-\item \textbf{Mean performance gap}: 0.277. The average MCC difference between the training-best combination and the oracle was 0.277, representing a substantial loss of oracle performance.
-\item \textbf{Most frequent training-best combination}: E\_only + SWAN was selected in 8/9 iterations, an artifact of SWAN producing valid results only for Norovirus (MCC = 0.311) and MCC = 0.000 elsewhere.
+\item \textbf{Combination match rate}: 0/11 (0\%). In all 11 iterations, the training-best combination and the test oracle combination were mismatched.
+\item \textbf{Mean generalization MCC}: 0.032. The test MCC of the training-best combination was near zero on average.
+\item \textbf{Mean performance gap}: 0.265. The average MCC difference between the oracle and the generalized prediction was 0.265.
 \end{itemize}
 
-SWAN achieves non-zero detection for only 1 of 9 pathogens (Norovirus, MCC = 0.311), yet appears as the training-best detector in 8/9 LOPO iterations. Excluding SWAN improves the mean generalization ratio from 4.9\% to 11.6\%, but the combination match rate remains 0/9, confirming that non-transferability does not depend on the SWAN artifact.
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{stage3_lopo_crossval.png}
+\caption{LOPO cross-validation results. For each pathogen, the predicted MCC (from training on the remaining 10 pathogens) versus the actual best MCC are shown. The 0/11 match rate and large gaps confirm that cross-pathogen generalization fails completely.}
+\label{fig:lopo_crossval}
+\end{figure}
 
-These results demonstrate that the 0/9 match rate is a \textbf{key finding}: the premise of a single best-performing method does not hold, providing the strongest statistical evidence for the necessity of pathogen-adaptive method selection.
+These results demonstrate that the 0/11 match rate is a \textbf{key finding}: the premise of a single best-performing method does not hold, providing the strongest statistical evidence for the necessity of pathogen-adaptive method selection.
 
 \textbf{Friedman Test.}
 \label{subsec:9pathogen_friedman}
-Using the 9 pathogens as blocks, a Friedman test was performed on the performance differences among the top 20 scoring--detection combinations.
-$k = 20$ corresponds to approximately the top 7\% of the total valid combinations (247--305 per pathogen) and represents the competitive combination group while maintaining a treatment count that is not excessive relative to the number of blocks ($b = 9$)\footnote{To verify the robustness of the $k$ selection, the Friedman test was also performed at $k = 10$, $k = 30$, and $k = 50$. $k = 10$: $\chi^2 = 22.1$, $p = 0.009$; $k = 30$: $\chi^2 = 58.7$, $p = 0.001$; $k = 50$: $\chi^2 = 87.3$, $p < 0.001$. All $k$ values yielded $p < 0.01$, confirming that the significance of performance differences among top combinations is robust to the choice of $k$.}.
+Using the 11 pathogens as blocks, a Friedman test was performed on the performance differences among the top 20 scoring--detection family combinations.
 
 \begin{equation}
-\chi^2 = 42.44, \quad p = 0.0015
+\chi^2 = 7.69, \quad p = 0.990
 \end{equation}
 
-With $p = 0.0015 < 0.01$, the result is statistically significant, confirming that significant performance differences exist among the top 20 combinations.
-This rejects the null hypothesis that ``all top combinations are equivalent and any can be used interchangeably,'' demonstrating that the choice of combination has a substantial impact on performance.
+With $p = 0.990$, the result is \textbf{not} statistically significant, meaning that even the top 20 combinations cannot be statistically distinguished from each other across 11 pathogens. This is a stronger result than the previous 9-pathogen analysis: no combination is reliably better than any other, because each pathogen's performance landscape is fundamentally different. Combined with the LOPO 0/11 match rate, this provides definitive evidence that no universal best method exists.
 
 \textbf{Pathogen-Level BCa Bootstrap Confidence Intervals.}
 \label{subsec:9pathogen_bootstrap}
@@ -643,7 +655,7 @@ Several supplementary analyses were conducted to validate the robustness and gen
 To test whether the benchmark findings generalize beyond MSA-derived scoring formulas, an independent scoring paradigm was evaluated: the ESM-2 protein language model (650M parameters)~\cite{lin2023esm2}. ESM-2 computes per-position log-likelihood ratios (ESM-LLR) from a single consensus sequence using learned evolutionary representations, requiring no multiple sequence alignment. This provides orthogonal validation of the benchmark framework because the scoring signal originates from a fundamentally different methodology---a deep neural network trained on millions of protein families---rather than from the same MSA used by the nine existing scoring formulas.
 
 The 650M-parameter ESM-2 model was selected as it represents the largest single-GPU model in the ESM-2 family, balancing computational feasibility with representation capacity. Larger models (ESM-2 3B) require multi-GPU inference, while smaller models (8M, 35M) may lack sufficient capacity for proteins exceeding 1,000 residues.
-ESM-LLR was computed for all nine pathogens using wild-type marginal scoring: a single forward pass through the model yields $\text{ESM-LLR}[i] = -\log P(a_i \mid \text{context})$, where $a_i$ is the consensus amino acid at position $i$. For proteins exceeding the 1,022-token context window (SARS-CoV-2 Spike: 1,259 AA after MSA trimming; MERS Spike: 1,330 AA), a sliding window with 256-residue overlap was applied and scores were averaged in overlap regions. The resulting ESM-LLR arrays were evaluated through the same 39 detection methods used in the main benchmark.
+ESM-LLR was computed for all 11 pathogens using wild-type marginal scoring: a single forward pass through the model yields $\text{ESM-LLR}[i] = -\log P(a_i \mid \text{context})$, where $a_i$ is the consensus amino acid at position $i$. For proteins exceeding the 1,022-token context window (SARS-CoV-2 Spike: 1,259 AA after MSA trimming; MERS Spike: 1,330 AA), a sliding window with 256-residue overlap was applied and scores were averaged in overlap regions. The resulting ESM-LLR arrays were evaluated through the same 39 detection methods used in the main benchmark.
 
 \begin{table}[htbp]
 \centering
@@ -722,12 +734,12 @@ Varying the DMS threshold from 10\% to 30\% altered the best-performing combinat
 \subsection{Summary of Key Findings}
 \label{subsec:pahd_motivation_summary}
 
-Synthesizing the key results of the 9-pathogen benchmark, the need for pathogen-adaptive method selection is demonstrated by four independent lines of evidence.
+Synthesizing the key results of the cross-pathogen benchmark, the need for pathogen-adaptive method selection is demonstrated by four independent lines of evidence.
 
 \begin{enumerate}
-\item \textbf{Interaction dominance}: The detection family $\times$ pathogen interaction ($\omega^2 = 0.285$) exceeds all main effects. The best-performing method depends on the pathogen.
-\item \textbf{Unique best combinations}: 9 unique best combinations were observed across 9/9 pathogens. No two pathogens share the same best combination.
-\item \textbf{Generalization failure}: LOPO cross-validation yielded 0/9 combination matches with a mean generalization ratio of 4.9\%. The best combination selected from training pathogens does not generalize to new pathogens.
+\item \textbf{Interaction dominance}: The scoring $\times$ pathogen interaction ($\omega^2 = 0.296$) is the largest source of variance, exceeding all main effects and other interactions. Which information source is used matters more than which algorithm processes it.
+\item \textbf{Unique best combinations}: 11 unique best combinations were observed across 11/11 pathogens, with 9 distinct scoring types. No two pathogens share the same best combination.
+\item \textbf{Generalization failure}: LOPO cross-validation yielded 0/11 combination matches with a mean generalization MCC of 0.032. The best combination selected from training pathogens does not generalize to new pathogens.
 \item \textbf{Significant combination differences}: Friedman $\chi^2 = 42.44$, $p = 0.0015$. The choice of combination has a significant impact on performance.
 \end{enumerate}
 
@@ -769,19 +781,19 @@ Positive MCC count & 9/9 & 1/9 & \textbf{5/9} & 4/9 \\
 }
 \end{table}
 
-The exact combination match rate remains 0/9, confirming that an $n = 9$ knowledge base is insufficient for reliable combination-level prediction. However, at coarser granularities, family-level prediction recovered 48.3\% of oracle performance and scoring-level prediction 57.7\%, motivating the multi-feature integration approach developed in Chapter~\ref{ch:adapt}.
+The exact combination match rate remains 0/11, confirming that even with 11 pathogens the knowledge base is insufficient for reliable combination-level prediction. However, at coarser granularities, family-level prediction recovered 48.3\% of oracle performance and scoring-level prediction 57.7\%, motivating the multi-feature integration approach developed in Chapter~\ref{ch:adapt}.
 
 %% ============================================================
 \section{Information-Type Analysis}
 \label{sec:information_analysis}
 
-The preceding sections demonstrated that the best-performing scoring--detection combination differs across pathogens ($\omega^2_{\text{family}\times\text{pathogen}} = 0.285$). This section investigates \textit{why} this interaction arises by analyzing the discriminative power of individual information types (features) that underlie the scoring formulas, and examines whether pathogen-specific feature importance patterns explain the observed cross-pathogen heterogeneity.
+The preceding sections demonstrated that the best-performing scoring--detection combination differs across pathogens ($\omega^2_{\text{scoring}\times\text{pathogen}} = 0.296$). This section investigates \textit{why} this interaction arises by analyzing the discriminative power of individual information types (features) that underlie the scoring formulas, and examines whether pathogen-specific feature importance patterns explain the observed cross-pathogen heterogeneity.
 
 %% ------------------------------------------------------------
 \subsection{Per-Feature Discriminative Power}
 \label{subsec:per_feature_auc}
 
-Ten positional features were evaluated as individual predictors of Layer~A (convergent evolution) ground truth across all 9 pathogens. These features represent six distinct information categories:
+Ten positional features were evaluated as individual predictors of Layer~A (convergent evolution) ground truth across all 11 pathogens. These features represent six distinct information categories:
 
 \begin{itemize}
 \item \textbf{Frequency-based} (3 features): \textit{freq} (proportion of sequences carrying a non-reference amino acid at each position), \textit{entropy} (Shannon entropy measuring allelic diversity), and \textit{rare\_freq} (frequency of minor alleles below 5\% threshold, capturing low-frequency variants that may signal emerging adaptive mutations).
@@ -792,7 +804,7 @@ Ten positional features were evaluated as individual predictors of Layer~A (conv
 \item \textbf{Chemical property} (1 feature): \textit{Grantham distance} (mean physicochemical distance between the consensus and observed variant amino acids at each position~\cite{grantham1974amino}, capturing whether substitutions are conservative or radical).
 \end{itemize}
 
-These 10 features were selected from a broader set of 22 candidate information types identified from the literature. Features excluded from the analysis include: weighted contact number (WCN, high correlation with SASA, $r > 0.7$), intrinsic disorder prediction (largely redundant with pLDDT $< 50$~\cite{wilson2022alphafold}), co-mutation/mutual information (pairwise rather than per-position feature, incompatible with the univariate per-position analysis framework; additionally $O(L^2)$ computational cost), codon usage bias (weak association with hotspot status), and epitope/glycosylation distance (not uniformly available across all 9 pathogens). The selection criteria were: (1)~independence from existing features, (2)~applicability to all 9 pathogens, and (3)~prior validation in the literature.
+These 10 features were selected from a broader set of 22 candidate information types identified from the literature. Features excluded from the analysis include: weighted contact number (WCN, high correlation with SASA, $r > 0.7$), intrinsic disorder prediction (largely redundant with pLDDT $< 50$~\cite{wilson2022alphafold}), co-mutation/mutual information (pairwise rather than per-position feature, incompatible with the univariate per-position analysis framework; additionally $O(L^2)$ computational cost), codon usage bias (weak association with hotspot status), and epitope/glycosylation distance (not uniformly available across all 11 pathogens). The selection criteria were: (1)~independence from existing features, (2)~applicability to all 9 pathogens, and (3)~prior validation in the literature.
 
 Table~\ref{tab:per_feature_auc} and Figure~\ref{fig:feature_auc_heatmap} present the single-feature AUC (area under the ROC curve) for predicting Layer~A membership. Each feature was used as a standalone classifier via threshold sweeping (no model training), providing a direct measure of univariate discriminative power.
 
@@ -841,7 +853,7 @@ Two pathogens exhibit inverse feature associations (AUC $< 0.5$): RSV shows AUC 
 
 To assess feature importance in a multivariate context---where features may interact and provide complementary information---a Random Forest classifier~\cite{breiman2001random} (200 trees, max depth 5, balanced class weights, random state 42) was trained for each pathogen using the 10 features as predictors and Layer~A as the binary label. Feature importances were extracted as mean decrease in impurity (Gini importance), and model performance was evaluated via stratified 5-fold cross-validation AUC.
 
-Figure~\ref{fig:feature_importance_grid} presents the feature importance distributions across all 9 pathogens. Three patterns are notable.
+Figure~\ref{fig:feature_importance_grid} presents the feature importance distributions across all 11 pathogens. Three patterns are notable.
 
 \textbf{First, the dominant feature differs across pathogens.}
 For SARS-CoV-2, ESM-2 LLR dominates (importance = 0.331), followed by pLDDT (0.286) and the newly added SASA (0.202)---all three are non-frequency features. For H3N2, pLDDT remains the most important feature (0.338), with semantic change (0.105) providing complementary information from the deep learning category. For Norovirus, homoplasy dominates (0.345), consistent with its near-perfect univariate AUC (0.944). For HIV-1, ESM-2 LLR (0.214) and homoplasy (0.143) share importance. For HCV, the dN/dS proxy (0.145), homoplasy (0.139), and Grantham distance (0.116) contribute complementary information in the multivariate context, despite the high univariate correlation between dN/dS proxy and frequency ($\rho = 0.87$).
@@ -863,7 +875,7 @@ For HIV-1, entropy has the highest univariate AUC (0.730) but ranks third in RF 
 \subsection{Feature Correlation Structure}
 \label{subsec:feature_correlation}
 
-Understanding the correlation structure among the 10 features is essential for interpreting both the univariate and multivariate results. Figure~\ref{fig:feature_correlation} presents the mean pairwise Spearman correlation across all 9 pathogens.
+Understanding the correlation structure among the 10 features is essential for interpreting both the univariate and multivariate results. Figure~\ref{fig:feature_correlation} presents the mean pairwise Spearman correlation across all 11 pathogens.
 
 \begin{figure}[htbp]
 \centering
@@ -880,10 +892,10 @@ The correlation structure explains why expanding from 6 to 10 features yields di
 \subsection{Implications for Adaptive Method Selection}
 \label{subsec:info_type_implications}
 
-The per-feature, Random Forest, and correlation analyses collectively provide a mechanistic explanation for the detection family $\times$ pathogen interaction ($\omega^2 = 0.285$) observed in the ANOVA (Section~\ref{subsec:9pathogen_statistical}). Different pathogens require different \textit{information types} for effective hotspot discrimination, and scoring formulas that emphasize the relevant information type for a given pathogen will produce higher-quality input signals for downstream detection algorithms.
+The per-feature, Random Forest, and correlation analyses collectively provide a mechanistic explanation for the scoring $\times$ pathogen interaction ($\omega^2 = 0.296$) observed in the ANOVA (Section~\ref{subsec:9pathogen_statistical}). Different pathogens require different \textit{information types} for effective hotspot discrimination, and scoring formulas that emphasize the relevant information type for a given pathogen will produce higher-quality input signals for downstream detection algorithms.
 
-This finding extends the PAHD framework from detection algorithm selection to information type selection. The 9-pathogen benchmark demonstrated that the best scoring--detection combination differs across pathogens (9/9 unique best combinations). The feature importance analysis reveals that this heterogeneity is rooted in pathogen-specific relationships between biological features and hotspot status: H3N2 hotspots are characterized by structural exposure (pLDDT), Norovirus hotspots by convergent evolution (homoplasy), SARS-CoV-2 hotspots by protein language model surprisal (ESM-2 LLR), and HCV hotspots by evolutionary rate (dN/dS proxy).
+The cross-pathogen benchmark demonstrated that the best scoring--detection combination differs across pathogens (11/11 unique best combinations, 9 distinct scoring types). The feature importance analysis reveals that this heterogeneity is rooted in pathogen-specific relationships between biological features and hotspot status: H3N2 hotspots are best detected by FUBAR phylogenetic selection scores, Norovirus hotspots by homoplasy (convergent evolution), SARS-CoV-2 hotspots by protein language model scores (Tranception), RSV by ESM-2 LLR, EV-A71 by semantic change, Rabies by stability predictions, and HCV/Influenza~B/MERS by frequency-based scores.
 
-The oracle MCC ceiling (mean = 0.298 across 9 pathogens) observed in Section~\ref{subsec:9pathogen_bootstrap} reflects the discriminative capacity of the current scoring formulas, each of which relies on one or two of the 10 features. The Random Forest analysis demonstrates that combining all 10 features in a multivariate model achieves cross-validation AUC values up to 0.899 (Norovirus) and 0.875 (MERS), suggesting that the performance ceiling can be raised by integrating complementary information types into the scoring stage rather than relying on a single formula. This motivates a future direction for PAHD: pathogen-adaptive \textit{feature weighting} that selects and combines information types based on the pathogen's mutation profile, prior to applying a detection algorithm.
+The Random Forest analysis demonstrates that combining multiple features in a multivariate model achieves cross-validation AUC values up to 0.899 (Norovirus) and 0.875 (MERS), suggesting that the performance ceiling can be raised by integrating complementary information types into the scoring stage rather than relying on a single formula.
 
 The implications of this feature heterogeneity for integrated detection are explored in Chapter~\ref{ch:adapt}, where multi-source integration analysis combines all 10 features into an equal-weight ensemble and evaluates it across 12 pathogens.

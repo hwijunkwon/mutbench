@@ -1,103 +1,125 @@
-\contentsline {chapter}{List of Tables}{vi}{section*.2}%
-\contentsline {chapter}{List of Figures}{x}{section*.4}%
+\contentsline {chapter}{List of Tables}{iv}{section*.2}%
+\contentsline {chapter}{List of Figures}{viii}{section*.4}%
 \contentsline {chapter}{Abstract}{xiv}{section*.6}%
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Research Background}{1}{section.1.1}%
-\contentsline {section}{\numberline {1.2}Research Motivation and Problem Definition}{2}{section.1.2}%
-\contentsline {section}{\numberline {1.3}Research Objectives}{4}{section.1.3}%
-\contentsline {section}{\numberline {1.4}Research Contributions}{6}{section.1.4}%
-\contentsline {section}{\numberline {1.5}Dissertation Organization}{7}{section.1.5}%
-\contentsline {chapter}{\numberline {2}Related Research}{9}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Viral Mutation Hotspot Detection}{9}{section.2.1}%
-\contentsline {subsection}{\numberline {2.1.1}Mutation Hotspot Detection Methods}{9}{subsection.2.1.1}%
-\contentsline {subsection}{\numberline {2.1.2}Density-Based Clustering}{11}{subsection.2.1.2}%
-\contentsline {subsection}{\numberline {2.1.3}Deep Mutational Scanning as Ground Truth}{12}{subsection.2.1.3}%
-\contentsline {section}{\numberline {2.2}MutClust: Adaptive Density-Based Hotspot Detection}{13}{section.2.2}%
-\contentsline {subsection}{\numberline {2.2.1}H-score and Adaptive DBSCAN}{13}{subsection.2.2.1}%
-\contentsline {subsection}{\numberline {2.2.2}SARS-CoV-2 Hotspot Detection Results}{14}{subsection.2.2.2}%
-\contentsline {subsection}{\numberline {2.2.3}Limitations and Motivation for MutBench Development}{15}{subsection.2.2.3}%
-\contentsline {chapter}{\numberline {3}Materials and Method}{18}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Materials}{19}{section.3.1}%
-\contentsline {subsection}{\numberline {3.1.1}Target Pathogens and Data}{19}{subsection.3.1.1}%
-\contentsline {subsection}{\numberline {3.1.2}3-Layer Ground Truth Framework}{20}{subsection.3.1.2}%
-\contentsline {subsubsection}{Layer A: Adaptive Positive Selection}{20}{section*.12}%
-\contentsline {subsubsection}{Layer B: Constrained Purifying Selection}{22}{section*.13}%
-\contentsline {subsubsection}{Layer C: DMS Experimental Validation}{23}{section*.14}%
-\contentsline {subsection}{\numberline {3.1.3}DMS-based Benchmark}{23}{subsection.3.1.3}%
-\contentsline {section}{\numberline {3.2}Method}{25}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}MutBench Framework Architecture}{25}{subsection.3.2.1}%
-\contentsline {subsubsection}{Component 1: Ground Truth Generation}{26}{section*.17}%
-\contentsline {subsubsection}{Component 2: Detection Methods}{27}{section*.20}%
-\contentsline {subsubsection}{Component 3: Evaluation Metrics}{29}{section*.22}%
-\contentsline {subsection}{\numberline {3.2.2}Five MutClust Variants}{29}{subsection.3.2.2}%
-\contentsline {subsubsection}{H-score Computation}{29}{section*.23}%
-\contentsline {subsubsection}{Bug Fix (MutClust-Fixed)}{30}{section*.24}%
-\contentsline {subsubsection}{dN/dS Selection Filter (MutClust-dNdS)}{31}{section*.25}%
-\contentsline {subsubsection}{HDBSCAN Hybrid (MutClust-Hybrid)}{32}{section*.26}%
-\contentsline {subsubsection}{Pure HDBSCAN (HDBSCAN-Auto)}{34}{section*.27}%
-\contentsline {subsection}{\numberline {3.2.3}Scoring Formulas}{34}{subsection.3.2.3}%
-\contentsline {subsection}{\numberline {3.2.4}Detection Method Families}{35}{subsection.3.2.4}%
-\contentsline {subsection}{\numberline {3.2.5}Hotspot-score Composite Metric}{37}{subsection.3.2.5}%
-\contentsline {subsection}{\numberline {3.2.6}Alternative Scoring Methods for Multiple Ground Truths}{38}{subsection.3.2.6}%
-\contentsline {subsection}{\numberline {3.2.7}Evaluation Metrics}{40}{subsection.3.2.7}%
-\contentsline {subsection}{\numberline {3.2.8}Statistical Analysis Design}{43}{subsection.3.2.8}%
-\contentsline {subsubsection}{Three-way ANOVA ($\omega ^2$)}{43}{section*.29}%
-\contentsline {subsubsection}{LOPO Cross-Validation (Leave-One-Pathogen-Out)}{44}{section*.30}%
-\contentsline {subsubsection}{Friedman Test}{44}{section*.31}%
-\contentsline {subsubsection}{Pathogen-level BCa Bootstrap Confidence Intervals}{44}{section*.32}%
-\contentsline {subsubsection}{Subsample Robustness Analysis}{44}{section*.33}%
-\contentsline {subsection}{\numberline {3.2.9}Weight Sensitivity Analysis}{45}{subsection.3.2.9}%
-\contentsline {subsection}{\numberline {3.2.10}Statistical Validation Methods}{45}{subsection.3.2.10}%
-\contentsline {chapter}{\numberline {4}Experimental Results}{47}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Single-Pathogen Benchmark: SARS-CoV-2}{47}{section.4.1}%
-\contentsline {subsection}{\numberline {4.1.1}Variant Comparison on Synthetic Data}{47}{subsection.4.1.1}%
-\contentsline {subsection}{\numberline {4.1.2}Multi-Ground Truth Evaluation}{50}{subsection.4.1.2}%
-\contentsline {subsection}{\numberline {4.1.3}Real GISAID H-score Benchmark}{54}{subsection.4.1.3}%
-\contentsline {subsection}{\numberline {4.1.4}Comparison with External Methods}{58}{subsection.4.1.4}%
-\contentsline {section}{\numberline {4.2}Robustness and Sensitivity Validation}{60}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}Statistical Validation}{60}{subsection.4.2.1}%
+\contentsline {section}{\numberline {1.2}Research Motivation and Problem Definition}{4}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Research Objectives}{5}{section.1.3}%
+\contentsline {section}{\numberline {1.4}Research Contributions}{8}{section.1.4}%
+\contentsline {section}{\numberline {1.5}Dissertation Organization}{9}{section.1.5}%
+\contentsline {chapter}{\numberline {2}Related Research}{11}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Viral Mutation Hotspot Detection}{11}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Mutation Hotspot Detection Methods}{11}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}Density-Based Clustering}{13}{subsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.1.3}Deep Mutational Scanning as Ground Truth}{14}{subsection.2.1.3}%
+\contentsline {subsection}{\numberline {2.1.4}Protein Language Models for Variant Effect Prediction}{15}{subsection.2.1.4}%
+\contentsline {subsection}{\numberline {2.1.5}Viral Genomic Surveillance Platforms}{16}{subsection.2.1.5}%
+\contentsline {subsection}{\numberline {2.1.6}Feature Importance Analysis in Viral Mutation Prediction}{17}{subsection.2.1.6}%
+\contentsline {subsection}{\numberline {2.1.7}Algorithm Selection and Benchmarking Methodology}{18}{subsection.2.1.7}%
+\contentsline {subsection}{\numberline {2.1.8}Benchmarking Gap in Viral Hotspot Detection}{18}{subsection.2.1.8}%
+\contentsline {section}{\numberline {2.2}MutClust: Adaptive Density-Based Hotspot Detection}{20}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}H-score and Adaptive DBSCAN}{20}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}SARS-CoV-2 Hotspot Detection Results}{21}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.3}Limitations and Motivation for MutBench Development}{21}{subsection.2.2.3}%
+\contentsline {chapter}{\numberline {3}Materials and Method}{24}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Materials}{25}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Target Pathogens and Data}{25}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}3-Layer Ground Truth Framework}{26}{subsection.3.1.2}%
+\contentsline {subsubsection}{Layer A: Adaptive Positive Selection}{28}{section*.13}%
+\contentsline {subsubsection}{Layer B: Constrained Purifying Selection}{30}{section*.14}%
+\contentsline {subsubsection}{Layer C: DMS Experimental Validation}{31}{section*.15}%
+\contentsline {subsection}{\numberline {3.1.3}DMS-based Benchmark}{33}{subsection.3.1.3}%
+\contentsline {section}{\numberline {3.2}Benchmark Framework Design}{33}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}MutBench Framework Architecture}{33}{subsection.3.2.1}%
+\contentsline {subsubsection}{Component 1: Ground Truth Generation}{34}{section*.18}%
+\contentsline {subsubsection}{Component 2: Detection Methods}{36}{section*.21}%
+\contentsline {subsubsection}{Component 3: Evaluation Metrics}{38}{section*.23}%
+\contentsline {subsection}{\numberline {3.2.2}Five MutClust Variants}{38}{subsection.3.2.2}%
+\contentsline {subsubsection}{H-score Computation}{38}{section*.24}%
+\contentsline {subsubsection}{Bug Fix and dN/dS Filter (MutClust-Fixed, MutClust-dNdS)}{39}{section*.25}%
+\contentsline {subsubsection}{HDBSCAN Hybrid (MutClust-Hybrid)}{39}{section*.26}%
+\contentsline {subsubsection}{Pure HDBSCAN (HDBSCAN-Auto)}{40}{section*.27}%
+\contentsline {subsection}{\numberline {3.2.3}Combined Evaluation Metric (Hotspot-score)}{40}{subsection.3.2.3}%
+\contentsline {section}{\numberline {3.3}Scoring and Detection Methods}{42}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Scoring Formulas}{42}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Scoring Variants for Multi-Source Ground Truth}{42}{subsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.3.3}Detection Method Families}{43}{subsection.3.3.3}%
+\contentsline {section}{\numberline {3.4}Evaluation and Statistical Design}{47}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}Evaluation Metrics}{47}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.2}Statistical Analysis Design}{50}{subsection.3.4.2}%
+\contentsline {subsubsection}{Three-way ANOVA ($\omega ^2$)}{50}{section*.32}%
+\contentsline {subsubsection}{LOPO Cross-Validation (Leave-One-Pathogen-Out)}{50}{section*.33}%
+\contentsline {subsubsection}{Friedman Test}{51}{section*.34}%
+\contentsline {subsubsection}{Pathogen-level BCa Bootstrap Confidence Intervals}{51}{section*.35}%
+\contentsline {subsubsection}{Subsample Robustness Analysis}{51}{section*.36}%
+\contentsline {chapter}{\numberline {4}Experimental Results}{54}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Single-Pathogen Benchmark: SARS-CoV-2}{54}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Variant Comparison on Synthetic Data}{54}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Multi-Ground Truth Evaluation}{55}{subsection.4.1.2}%
+\contentsline {subsection}{\numberline {4.1.3}Real GISAID H-score Benchmark}{60}{subsection.4.1.3}%
+\contentsline {subsection}{\numberline {4.1.4}Comparison with External Methods}{61}{subsection.4.1.4}%
+\contentsline {section}{\numberline {4.2}Robustness and Sensitivity Validation}{62}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Statistical Validation}{62}{subsection.4.2.1}%
 \contentsline {subsection}{\numberline {4.2.2}Sensitivity Analysis}{65}{subsection.4.2.2}%
-\contentsline {subsubsection}{Sample Size Sensitivity}{65}{section*.48}%
-\contentsline {subsubsection}{Parameter Sensitivity}{65}{section*.50}%
-\contentsline {subsubsection}{dN/dS Threshold Sensitivity}{67}{section*.53}%
-\contentsline {subsection}{\numberline {4.2.3}Temporal Generalization (GISAID 2024--2025)}{68}{subsection.4.2.3}%
-\contentsline {subsection}{\numberline {4.2.4}Indel Exclusion Impact}{70}{subsection.4.2.4}%
-\contentsline {section}{\numberline {4.3}Cross-Pathogen and Structural Validation}{71}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}Influenza A H3N2 Cross-Validation}{71}{subsection.4.3.1}%
-\contentsline {subsection}{\numberline {4.3.2}3D Structure Analysis}{75}{subsection.4.3.2}%
-\contentsline {subsection}{\numberline {4.3.3}Phylogenetic Non-Independence Simulation}{75}{subsection.4.3.3}%
-\contentsline {subsubsection}{Proof of Concept}{75}{section*.59}%
-\contentsline {subsubsection}{TreeTime ML Ancestral Reconstruction Validation}{76}{section*.60}%
-\contentsline {subsubsection}{TreeTime Ancestral Reconstruction Validation on Real GISAID Sequences}{77}{section*.61}%
-\contentsline {subsubsection}{Homoplasy-Based Scoring Sensitivity Analysis}{77}{section*.62}%
-\contentsline {section}{\numberline {4.4}9-Pathogen Large-Scale Benchmark}{80}{section.4.4}%
-\contentsline {subsection}{\numberline {4.4.1}Benchmark Scale and Data}{80}{subsection.4.4.1}%
-\contentsline {subsection}{\numberline {4.4.2}Per-Pathogen Best Method Analysis}{81}{subsection.4.4.2}%
-\contentsline {subsection}{\numberline {4.4.3}Statistical Analysis}{83}{subsection.4.4.3}%
-\contentsline {subsection}{\numberline {4.4.4}Supplementary Analyses}{89}{subsection.4.4.4}%
-\contentsline {subsection}{\numberline {4.4.5}Summary of Key Findings}{95}{subsection.4.4.5}%
-\contentsline {subsection}{\numberline {4.4.6}PAHD Prototype Validation}{96}{subsection.4.4.6}%
-\contentsline {chapter}{\numberline {5}Discussion}{99}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Methodological Validity of MutBench}{99}{section.5.1}%
-\contentsline {subsection}{\numberline {5.1.1}Interpretation of Bootstrap Confidence Intervals}{99}{subsection.5.1.1}%
-\contentsline {subsection}{\numberline {5.1.2}Performance Gap Between Synthetic and Real Data}{100}{subsection.5.1.2}%
-\contentsline {subsection}{\numberline {5.1.3}Independence of Ground Truth and Detection Methods}{101}{subsection.5.1.3}%
-\contentsline {section}{\numberline {5.2}Limitations of H-score-Based Detection}{102}{section.5.2}%
-\contentsline {subsection}{\numberline {5.2.1}H-score Saturation and the Need for Adaptive Reference Sequences}{102}{subsection.5.2.1}%
-\contentsline {subsection}{\numberline {5.2.2}Complementary Evaluation Perspectives}{102}{subsection.5.2.2}%
-\contentsline {section}{\numberline {5.3}Cross-Pathogen Generalization and PAHD}{103}{section.5.3}%
-\contentsline {subsection}{\numberline {5.3.1}Implications of Cross-Pathogen Generalization}{103}{subsection.5.3.1}%
-\contentsline {subsection}{\numberline {5.3.2}Interpretation of the Oracle MCC Ceiling (0.298)}{105}{subsection.5.3.2}%
-\contentsline {section}{\numberline {5.4}Practical Implications and Fundamental Limitations}{108}{section.5.4}%
-\contentsline {subsection}{\numberline {5.4.1}Practical Considerations for Public Health Surveillance}{108}{subsection.5.4.1}%
-\contentsline {subsection}{\numberline {5.4.2}Phylogenetic Non-Independence and Scalability Limits}{109}{subsection.5.4.2}%
-\contentsline {subsection}{\numberline {5.4.3}Representativeness and Sampling Bias of GISAID Data}{110}{subsection.5.4.3}%
-\contentsline {subsection}{\numberline {5.4.4}Ground Truth Heterogeneity Across Pathogens}{110}{subsection.5.4.4}%
-\contentsline {subsection}{\numberline {5.4.5}Scope Justification: 9 RNA Viruses}{112}{subsection.5.4.5}%
-\contentsline {chapter}{\numberline {6}Conclusion}{113}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Summary of Research Contributions}{113}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Limitations}{114}{section.6.2}%
-\contentsline {section}{\numberline {6.3}Future Research Directions}{116}{section.6.3}%
-\contentsline {section}{\numberline {6.4}Concluding Remarks}{120}{section.6.4}%
-\contentsline {chapter}{References}{121}{section*.78}%
-\contentsline {chapter}{Abstract (Korean)}{135}{section*.80}%
+\contentsline {subsubsection}{Sample Size Sensitivity}{65}{section*.47}%
+\contentsline {subsubsection}{Parameter Sensitivity}{65}{section*.49}%
+\contentsline {subsubsection}{dN/dS Threshold Sensitivity}{67}{section*.52}%
+\contentsline {subsection}{\numberline {4.2.3}Temporal and Structural Robustness}{67}{subsection.4.2.3}%
+\contentsline {section}{\numberline {4.3}Cross-Pathogen and Structural Validation}{68}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Influenza A H3N2 Cross-Validation}{68}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}3D Structure Analysis}{70}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.3.3}Phylogenetic Non-Independence Simulation}{70}{subsection.4.3.3}%
+\contentsline {subsubsection}{Simulation and ML Validation}{72}{section*.58}%
+\contentsline {subsubsection}{Real GISAID Validation}{72}{section*.60}%
+\contentsline {subsubsection}{Homoplasy-Based Scoring Sensitivity Analysis}{73}{section*.61}%
+\contentsline {section}{\numberline {4.4}9-Pathogen Large-Scale Benchmark}{74}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}Benchmark Scale and Data}{75}{subsection.4.4.1}%
+\contentsline {subsection}{\numberline {4.4.2}Per-Pathogen Best Method Analysis}{76}{subsection.4.4.2}%
+\contentsline {subsection}{\numberline {4.4.3}Statistical Analysis}{80}{subsection.4.4.3}%
+\contentsline {subsection}{\numberline {4.4.4}Supplementary Analyses}{84}{subsection.4.4.4}%
+\contentsline {subsection}{\numberline {4.4.5}Summary of Key Findings}{89}{subsection.4.4.5}%
+\contentsline {subsection}{\numberline {4.4.6}PAHD Prototype Validation}{90}{subsection.4.4.6}%
+\contentsline {section}{\numberline {4.5}Information-Type Analysis}{91}{section.4.5}%
+\contentsline {subsection}{\numberline {4.5.1}Per-Feature Discriminative Power}{91}{subsection.4.5.1}%
+\contentsline {subsection}{\numberline {4.5.2}Feature Importance by Pathogen}{95}{subsection.4.5.2}%
+\contentsline {subsection}{\numberline {4.5.3}Feature Correlation Structure}{97}{subsection.4.5.3}%
+\contentsline {subsection}{\numberline {4.5.4}Implications for Adaptive Method Selection}{100}{subsection.4.5.4}%
+\contentsline {chapter}{\numberline {5}Multi-Source Information Integration Analysis}{102}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Analysis Objective}{102}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Ten Information Types Across 12 Pathogens}{103}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Analysis Results}{104}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}Per-Pathogen Discriminative Power}{104}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.3.2}Multivariate Feature Importance}{105}{subsection.5.3.2}%
+\contentsline {subsection}{\numberline {5.3.3}Feature Ablation}{106}{subsection.5.3.3}%
+\contentsline {subsection}{\numberline {5.3.4}Feature Correlation Structure}{109}{subsection.5.3.4}%
+\contentsline {subsection}{\numberline {5.3.5}Ground Truth Heterogeneity}{110}{subsection.5.3.5}%
+\contentsline {section}{\numberline {5.4}Practical Validation: Search Space Reduction}{111}{section.5.4}%
+\contentsline {section}{\numberline {5.5}Adaptive Weighting: Current Limits and Future Potential}{116}{section.5.5}%
+\contentsline {section}{\numberline {5.6}Key Findings Summary}{117}{section.5.6}%
+\contentsline {chapter}{\numberline {6}Discussion}{119}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Methodological Validity of MutBench}{119}{section.6.1}%
+\contentsline {subsection}{\numberline {6.1.1}Interpretation of Bootstrap Confidence Intervals}{119}{subsection.6.1.1}%
+\contentsline {subsection}{\numberline {6.1.2}Performance Gap Between Synthetic and Real Data}{120}{subsection.6.1.2}%
+\contentsline {subsection}{\numberline {6.1.3}Independence of Ground Truth and Detection Methods}{120}{subsection.6.1.3}%
+\contentsline {section}{\numberline {6.2}Limitations of H-score-Based Detection}{121}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Limitations of Fixed-Reference Scoring}{121}{subsection.6.2.1}%
+\contentsline {subsection}{\numberline {6.2.2}Complementary Evaluation Perspectives}{122}{subsection.6.2.2}%
+\contentsline {subsection}{\numberline {6.2.3}Homoplasy-Based Scoring as an Alternative}{122}{subsection.6.2.3}%
+\contentsline {section}{\numberline {6.3}Cross-Pathogen Generalization and PAHD}{123}{section.6.3}%
+\contentsline {subsection}{\numberline {6.3.1}Implications of Cross-Pathogen Generalization}{123}{subsection.6.3.1}%
+\contentsline {subsection}{\numberline {6.3.2}Upper Bound of Detection Performance}{124}{subsection.6.3.2}%
+\contentsline {section}{\numberline {6.4}Practical Implications and Fundamental Limitations}{125}{section.6.4}%
+\contentsline {subsection}{\numberline {6.4.1}Vaccine Escape Position Validation}{126}{subsection.6.4.1}%
+\contentsline {subsection}{\numberline {6.4.2}Practical Considerations for Public Health Surveillance}{126}{subsection.6.4.2}%
+\contentsline {subsection}{\numberline {6.4.3}Phylogenetic Non-Independence and Scalability Limits}{127}{subsection.6.4.3}%
+\contentsline {subsection}{\numberline {6.4.4}Representativeness and Sampling Bias of GISAID Data}{128}{subsection.6.4.4}%
+\contentsline {subsection}{\numberline {6.4.5}ESM-2 Training Data Overlap}{128}{subsection.6.4.5}%
+\contentsline {subsection}{\numberline {6.4.6}Ground Truth Heterogeneity Across Pathogens}{129}{subsection.6.4.6}%
+\contentsline {subsection}{\numberline {6.4.7}Scope Justification: 11 RNA Viruses}{130}{subsection.6.4.7}%
+\contentsline {chapter}{\numberline {7}Conclusion}{131}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Summary of Research Contributions}{131}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Limitations}{133}{section.7.2}%
+\contentsline {section}{\numberline {7.3}Future Research Directions}{134}{section.7.3}%
+\contentsline {section}{\numberline {7.4}Concluding Remarks}{137}{section.7.4}%
+\contentsline {chapter}{References}{138}{section*.91}%
+\contentsline {chapter}{Abstract (Korean)}{156}{section*.93}%

@@ -73,7 +73,7 @@ To address the problems above, this study establishes the following three object
   \begin{itemize}
   \item A three-layer ground truth (convergent evolution positives, purifying selection negatives, DMS fitness validation),
   \item The hotspot-score composite metric (recall + precision + stability)/3,
-  \item A two-stage experimental design: Stage~1 for in-depth SARS-CoV-2 analysis; Stage~2 for large-scale comparison across 12 RNA viruses (9 scoring formulas $\times$ 39 detection algorithms $\times$ 9 pathogens in the initial evaluation, extended to 12 pathogens in the adaptive integration study).
+  \item A two-stage experimental design: Stage~1 for in-depth SARS-CoV-2 analysis; Stage~2 for large-scale comparison across 11 RNA viruses (20 scoring formulas $\times$ 39 detection algorithms $\times$ 11 pathogens = 8{,}580 evaluations, extended to 12 pathogens in the adaptive integration study).
   \end{itemize}
 
   \item \textbf{Statistical demonstration of the necessity of pathogen-adaptive method selection}: Through statistical analyses (ANOVA, Friedman test, LOPO cross-validation) of the large-scale benchmark results, statistically establish that the premise of a single best-performing method does not hold across pathogens, motivating the PAHD framework, for which a proof-of-concept prototype is presented (see Chapter~\ref{ch:results}).
@@ -104,7 +104,7 @@ To address the problems above, this study establishes the following three object
 \node[subbox, fill=blue!5, below=0.6cm of mutbench, xshift=4cm] (design) {2-Stage Design};
 
 % Statistical Validation
-\node[mainbox, fill=green!10, below=2.5cm of mutbench] (stats) {\textbf{Statistical Validation}: ANOVA ($\omega^2{=}0.285$) + Friedman ($p{=}0.0015$) + LOPO (0/9)};
+\node[mainbox, fill=green!10, below=2.5cm of mutbench] (stats) {\textbf{Statistical Validation}: ANOVA ($\omega^2{=}0.296$) + Friedman ($p{=}0.990$) + LOPO (0/11)};
 
 % PAHD Prototype
 \node[mainbox, fill=orange!10, below=1.5cm of stats] {\textbf{PAHD Prototype}: Pathogen-adaptive method selection (proof-of-concept)};
@@ -134,10 +134,10 @@ The research contributions of this study are as follows.
 \textbf{Contribution 1. The MutBench Benchmark Framework.}
 MutBench is the first systematic benchmark framework for viral mutation hotspot detection.
 It defines a three-layer ground truth framework that uses convergent evolution sites as the positive criterion (Layer~A), purifying selection sites as the negative criterion (Layer~B), and DMS experimental data as the functional fitness criterion (Layer~C).
-It introduces the hotspot-score, a composite metric that simultaneously evaluates detection performance (recall, precision) and reliability (stability), and presents a two-stage experimental design combining in-depth SARS-CoV-2 analysis with a large-scale comparison across nine pathogens.
+It introduces the hotspot-score, a composite metric that simultaneously evaluates detection performance (recall, precision) and reliability (stability), and presents a two-stage experimental design combining in-depth SARS-CoV-2 analysis with a large-scale comparison across eleven pathogens.
 
 \textbf{Contribution 2. Statistical demonstration of the necessity of pathogen-adaptive method selection.}
-Across nine RNA viruses, all nine pathogens exhibited different best-performing combinations (LOPO cross-validation: 0/9 matches), and the interaction between method family and pathogen was the largest source of variance in ANOVA.
+Across eleven RNA viruses, all eleven pathogens exhibited different best-performing combinations (LOPO cross-validation: 0/11 matches), and the interaction between scoring method and pathogen was the largest source of variance in ANOVA.
 The Friedman test confirmed that performance rankings among methods vary systematically across pathogens.
 These results statistically establish that the premise of a single best-performing method does not hold, motivating the PAHD framework, for which a proof-of-concept prototype is presented (see Chapter~\ref{ch:results}).
 
@@ -156,7 +156,7 @@ This dissertation comprises seven chapters.
 \textbf{Chapter~\ref{ch:mutbench}, Materials and Method} describes in detail the materials and methodology of the MutBench benchmark framework, the core contribution of this dissertation.
 Section~3.1 describes the materials (target pathogens, ground truth framework, and DMS data). Sections~3.2--3.4 present the methods: Section~3.2 covers the benchmark framework design including MutClust variants and the hotspot-score metric, Section~3.3 describes the scoring formulas and detection method families, and Section~3.4 details the evaluation metrics and statistical analysis design.
 
-\textbf{Chapter~\ref{ch:results}, Experimental Results} reports the experimental results organized into four sections: Single-Pathogen Benchmark (synthetic data comparison, multi-ground truth evaluation, real GISAID validation, and external methods comparison on SARS-CoV-2), Robustness Validation (statistical validation, sensitivity analysis, temporal generalization, and indel exclusion), Cross-Pathogen Validation (H3N2 validation, 3D structural analysis, phylogenetic simulation, and ESM-2 cross-paradigm validation), and the 9-Pathogen Large-Scale Benchmark (ANOVA, Friedman test, LOPO cross-validation, and PAHD proof-of-concept prototype).
+\textbf{Chapter~\ref{ch:results}, Experimental Results} reports the experimental results organized into four sections: Single-Pathogen Benchmark (synthetic data comparison, multi-ground truth evaluation, real GISAID validation, and external methods comparison on SARS-CoV-2), Robustness Validation (statistical validation, sensitivity analysis, temporal generalization, and indel exclusion), Cross-Pathogen Validation (H3N2 validation, 3D structural analysis, phylogenetic simulation, and ESM-2 cross-paradigm validation), and the Cross-Pathogen Large-Scale Benchmark (ANOVA, Friedman test, LOPO cross-validation, and PAHD proof-of-concept prototype).
 
 \textbf{Chapter~\ref{ch:adapt}, Multi-Source Information Integration Analysis} systematically analyzes 10 biological information types to determine which information is essential for hotspot prediction per pathogen, validates multi-source integration through LOPO cross-validation across 12 RNA viruses, and demonstrates practical value through vaccine escape enrichment analysis.
 

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Stage 3 FULL Benchmark: 18 scoring types x 39 detector variants (14 families) x 11 pathogens.
+Stage 3 FULL Benchmark: 20 scoring types x 39 detector variants (14 families) x 11 pathogens.
 
 This is the DEFINITIVE benchmark run.
 
@@ -10,7 +10,7 @@ Scoring types (18):
                         EVEscape_composite, EqualWeight
   From separate CSVs:   tranception, stability, stability_structural,
                         freq_with_indel, entropy_with_indel
-  New:                  fubar (posterior probability of positive selection)
+  New:                  fubar, fubar_pos_sel (beta-alpha), fubar_bf (Bayes Factor)
 
 Detection families (14, 39 variants — Ensemble excluded):
   Wavelet(3), KDE(3), SlidingTest(2), GradPeak(2), LocalContrast(3),
@@ -228,6 +228,16 @@ def build_all_scorings(pathogen, n_pos):
     if arr is not None:
         scorings['fubar'] = arr
 
+    # --- 19: FUBAR positive selection (beta - alpha, clamped to >= 0) ---
+    arr = load_supplementary_csv(pathogen, 'fubar_pos_sel', 'fubar_score', n_pos)
+    if arr is not None:
+        scorings['fubar_pos_sel'] = arr
+
+    # --- 20: FUBAR Bayes Factor for positive selection ---
+    arr = load_supplementary_csv(pathogen, 'fubar_bf', 'fubar_score', n_pos)
+    if arr is not None:
+        scorings['fubar_bf'] = arr
+
     return scorings
 
 
@@ -307,7 +317,7 @@ def main():
     print(f"Detectors: {n_detectors} variants across {len(families)} families")
     print(f"Families: {', '.join(families)}")
     print(f"Pathogens: {len(PATHOGENS)}")
-    print(f"Target scorings: 18")
+    print(f"Target scorings: 20")
     print()
 
     all_results = []

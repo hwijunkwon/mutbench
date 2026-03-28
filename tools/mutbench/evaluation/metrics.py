@@ -67,7 +67,7 @@ def hotspot_score(recall_known: float, precision_simulated: float, stability: fl
     return (recall_known + precision_simulated + stability) / 3
 
 
-def compute_stability(hscores, detect_fn, n_iter: int = 50,
+def compute_stability(hscores, detect_fn, n_iter: int = 100,
                       subsample_frac: float = 0.8, seed: int = 42) -> float:
     """Bootstrap subsampling stability of detected hotspots.
 
@@ -111,3 +111,82 @@ def compute_stability(hscores, detect_fn, n_iter: int = 50,
             jaccard_scores.append(intersection / union)
 
     return float(np.mean(jaccard_scores))
+
+
+def circular_permutation_test(
+    hscores,
+    detect_fn,
+    ground_truth_positions: set[int],
+    genome_length: int,
+    n_perm: int = 1000,
+    metric_fn=None,
+    seed: int = 42,
+    detect_kwargs: dict | None = None,
+) -> dict:
+    """Block (circular) permutation null model for hotspot detection significance.
+
+    Instead of randomly shuffling H-scores (which destroys spatial
+    autocorrelation), this rotates the entire H-score vector by a random
+    offset.  Position i's H-score becomes position (i + k) mod N.  Hotspot
+    detection is re-run on the rotated scores and evaluated against the
+    *original* ground-truth positions.  This tests whether the spatial
+    overlap between detected hotspots and ground truth is non-random while
+    preserving the clustering structure of the H-scores.
+
+    Args:
+        hscores: 1-D array of H-scores (length = genome_length).
+        detect_fn: Callable that takes (hscores, **kwargs) and returns a
+            list of cluster dicts (each with a 'positions' key).
+        ground_truth_positions: Set of ground-truth nucleotide positions.
+        genome_length: Total genome length (should equal len(hscores)).
+        n_perm: Number of circular permutations (default 1000).
+        metric_fn: Optional callable(detected_set, gt_set) -> float.
+            Defaults to F1 score.
+        seed: Random seed.
+        detect_kwargs: Extra keyword arguments forwarded to detect_fn.
+
+    Returns:
+        dict with keys: observed, null_mean, null_std, p_value, null_dist.
+    """
+    hscores = np.asarray(hscores, dtype=float)
+    n = len(hscores)
+    if detect_kwargs is None:
+        detect_kwargs = {}
+    if metric_fn is None:
+        metric_fn = f1_score
+
+    # --- Observed statistic ---
+    obs_clusters = detect_fn(hscores, **detect_kwargs)
+    obs_positions = set()
+    for c in obs_clusters:
+        obs_positions.update(c['positions'])
+    observed = metric_fn(obs_positions, ground_truth_positions)
+
+    # --- Null distribution via circular shifts ---
+    rng = np.random.default_rng(seed)
+    null_values = np.empty(n_perm)
+
+    for i in range(n_perm):
+        # Random offset in [1, n-1] to avoid identity rotation
+        offset = rng.integers(1, n)
+        rotated = np.roll(hscores, offset)
+
+        perm_clusters = detect_fn(rotated, **detect_kwargs)
+        perm_positions = set()
+        for c in perm_clusters:
+            perm_positions.update(c['positions'])
+
+        null_values[i] = metric_fn(perm_positions, ground_truth_positions)
+
+    null_mean = float(np.mean(null_values))
+    null_std = float(np.std(null_values))
+    # One-sided p-value: proportion of null >= observed
+    p_value = float(np.mean(null_values >= observed))
+
+    return {
+        'observed': observed,
+        'null_mean': null_mean,
+        'null_std': null_std,
+        'p_value': p_value,
+        'null_dist': null_values,
+    }

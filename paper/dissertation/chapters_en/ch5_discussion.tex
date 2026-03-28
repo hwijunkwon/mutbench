@@ -53,7 +53,7 @@ In the multiple ground truth evaluation (Section~\ref{sec:multi_gt}), the Jaccar
 Using only a single ground truth risks overestimating methods that align with a specific biological dimension, and MutBench's multi-ground-truth approach mitigates this.
 The result that the best method varies depending on the ground truth suggests that the ``best hotspot detection method'' is context-dependent: for immune evasion studies, methods best suited for the convergent evolution criterion are preferred, while for molecular function studies, methods best suited for the DMS criterion are preferred.
 MutBench systematically guides such context-dependent method selection.
-The ground-truth-dependent method rankings observed within SARS-CoV-2 foreshadow the pathogen-dependent rankings revealed in the 9-pathogen benchmark.
+The ground-truth-dependent method rankings observed within SARS-CoV-2 foreshadow the pathogen-dependent rankings revealed in the cross-pathogen benchmark.
 
 %% ============================================================
 \subsection{Homoplasy-Based Scoring as an Alternative}
@@ -63,7 +63,7 @@ The founder bias problem ($\rho = -0.876$ between H-score and independent origin
 \phantomsection\label{tab:homoplasy_validation}
 
 Cross-pathogen validation revealed pathogen-dependent performance: HIV-1 showed significant discrimination (AUC = 0.706, $p = 0.0002$), H3N2 showed a weak trend (AUC = 0.561, $p = 0.147$), and HCV failed entirely (AUC = 0.390) due to parsimony saturation in its hypervariable regions.
-This mirrors the detection-level finding of the main benchmark: just as the best detection algorithm varies across pathogens ($\omega^2 = 0.285$), the optimal scoring strategy also depends on pathogen-specific characteristics. This extends the PAHD framework's selection problem to encompass scoring methods as well.
+This mirrors the detection-level finding of the main benchmark: just as the best detection algorithm varies across pathogens ($\omega^2 = 0.296$), the optimal scoring strategy also depends on pathogen-specific characteristics. This extends the PAHD framework's selection problem to encompass scoring methods as well.
 
 %% ============================================================
 \section{Cross-Pathogen Generalization and PAHD}
@@ -72,10 +72,10 @@ This mirrors the detection-level finding of the main benchmark: just as the best
 \subsection{Implications of Cross-Pathogen Generalization}
 \label{sec:cross_pathogen_implications}
 
-The 9-pathogen benchmark demonstrated that no universally best-performing method exists (Chapter~\ref{ch:results}), with implications for real-time surveillance systems such as Nextstrain~\cite{nextstrain2018hadfield}: applying a previously optimized combination to a new pathogen is inadequate.
+The cross-pathogen benchmark demonstrated that no universally best-performing method exists (Chapter~\ref{ch:results}), with implications for real-time surveillance systems such as Nextstrain~\cite{nextstrain2018hadfield}: applying a previously optimized combination to a new pathogen is inadequate.
 The underlying cause is that pathogen-specific genomic characteristics create fundamentally different signal landscapes---for example, H3N2's uniformly nonzero H-scores neutralize threshold-based seed detection, while MERS's sparse genome favors weak-signal detectors.
 
-These findings are formalizable within Rice's algorithm selection problem~\cite{rice1976algorithm}: the problem space $\mathcal{P}$ consists of pathogens characterized by genomic profiles, the algorithm space $\mathcal{A}$ comprises 351 scoring--detection combinations, and the interaction dominance ($\omega^2 = 0.285$) demonstrates that the mapping $f: \mathcal{P} \to \mathcal{A}$ is non-trivial---consistent with the No Free Lunch theorem~\cite{wolpert1997nfl}.
+These findings are formalizable within Rice's algorithm selection problem~\cite{rice1976algorithm}: the problem space $\mathcal{P}$ consists of pathogens characterized by genomic profiles, the algorithm space $\mathcal{A}$ comprises 780 scoring--detection combinations, and the interaction dominance ($\omega^2 = 0.296$) demonstrates that the mapping $f: \mathcal{P} \to \mathcal{A}$ is non-trivial---consistent with the No Free Lunch theorem~\cite{wolpert1997nfl}.
 The ESM-2 cross-paradigm validation (Section~\ref{subsec:esm_validation}) reinforces this: ESM-LLR ranked 1st for SARS-CoV-2 but last for Norovirus, confirming that no single scoring paradigm dominates.
 The demonstrated necessity of pathogen-adaptive selection raises the question of how to interpret the absolute performance levels achieved.
 
@@ -120,7 +120,7 @@ Despite these ceiling effects, the benchmark results have practical implications
 %% ============================================================
 \section{Practical Implications and Fundamental Limitations}
 
-Returning to the three problems identified in Chapter~\ref{ch:introduction}: the absence of a standardized evaluation framework is addressed by MutBench's three-layer ground truth and hotspot-score metric (Contribution~1); the lack of cross-pathogen generalization evidence is resolved by the four independent lines of statistical evidence (Contribution~2); and the unknown pathogen-dependence of detection methods is quantified by the interaction effect ($\omega^2 = 0.285$, Section~\ref{subsec:9pathogen_anova}) and LOPO failure (0/9), motivating the PAHD framework.
+Returning to the three problems identified in Chapter~\ref{ch:introduction}: the absence of a standardized evaluation framework is addressed by MutBench's three-layer ground truth and hotspot-score metric (Contribution~1); the lack of cross-pathogen generalization evidence is resolved by the four independent lines of statistical evidence (Contribution~2); and the unknown pathogen-dependence of detection methods is quantified by the interaction effect ($\omega^2 = 0.296$, Section~\ref{subsec:9pathogen_anova}) and LOPO failure (0/11), motivating the PAHD framework.
 
 %% ============================================================
 \subsection{Vaccine Escape Position Validation}
@@ -174,9 +174,9 @@ Systematic biases exist in the GISAID~\cite{shu2017gisaid}-based input data.
 \subsection{ESM-2 Training Data Overlap}
 \label{sec:esm2_leakage}
 
-ESM-2~\cite{lin2023esm2} was trained on UniRef50/UniRef90, which contains viral protein sequences, and the 9 target proteins in our benchmark (e.g., SARS-CoV-2 Spike, HIV-1 gp120, H3N2 HA) are likely present in the training corpus.
+ESM-2~\cite{lin2023esm2} was trained on UniRef50/UniRef90, which contains viral protein sequences, and the 11 target proteins in our benchmark (e.g., SARS-CoV-2 Spike, HIV-1 gp120, H3N2 HA) are likely present in the training corpus.
 Consequently, ESM-2 log-likelihood ratio (LLR) scores may partially reflect memorized evolutionary patterns rather than purely generalizable protein language understanding, potentially inflating absolute AUC values.
-However, this concern applies uniformly to all 9 pathogens in the analysis, so while absolute performance levels may be biased upward, the relative cross-pathogen comparisons---which constitute our main finding---remain valid.
+However, this concern applies uniformly to all 11 pathogens in the analysis, so while absolute performance levels may be biased upward, the relative cross-pathogen comparisons---which constitute our main finding---remain valid.
 The semantic change feature (cosine distance between wild-type and mutant embeddings) is less susceptible to this concern because it measures relative embedding shifts rather than absolute likelihoods, making it more robust to training set memorization.
 Future work should evaluate protein language models trained on databases that exclude viral sequences to quantify the magnitude of this potential bias.
 
@@ -186,14 +186,14 @@ Future work should evaluate protein language models trained on databases that ex
 A key limitation of the 3-layer ground truth framework is the heterogeneity in how Layer~A (positive selection sites) is defined across pathogens.
 For SARS-CoV-2 and H3N2, Layer~A positions are phylogenetically confirmed convergent evolution sites---positions where identical mutations arose independently in multiple lineages.
 In contrast, HCV Layer~A comprises hypervariable regions (HVR1/HVR2) that exhibit diversifying rather than convergent selection, Norovirus Layer~A consists of epochal variant positions associated with antigenic shift events, and the remaining pathogens use literature-reported immune evasion sites with varying levels of phylogenetic confirmation (Table~\ref{tab:gt_positions}).
-This heterogeneity could artificially inflate the method $\times$ pathogen interaction in the ANOVA, because differences in ground truth definition criteria---not only differences in pathogen biology---may contribute to the observed interaction effect ($\omega^2 = 0.285$).
+This heterogeneity could artificially inflate the method $\times$ pathogen interaction in the ANOVA, because differences in ground truth definition criteria---not only differences in pathogen biology---may contribute to the observed interaction effect ($\omega^2 = 0.296$).
 However, this heterogeneity reflects the real-world challenge of hotspot detection: ground truth definitions necessarily depend on pathogen-specific biology, and no single criterion (e.g., convergent evolution alone) is applicable across all pathogens.
 The finding that detection performance is pathogen-dependent holds regardless of whether this dependence stems from intrinsic biological differences among pathogens, from differences in ground truth construction, or from their interaction---in all cases, the practical implication is the same: a single detection method cannot be applied uniformly across pathogens without performance degradation.
 Additionally, HCV has an effective Layer~B size of 0 (constrained regions could not be mapped within the alignment length), meaning HCV evaluation relies solely on Layer~A. This asymmetry should be considered when interpreting HCV-specific results.
 
-\subsection{Scope Justification: 9 RNA Viruses}
+\subsection{Scope Justification: 11 RNA Viruses}
 
-The 9 pathogens were selected to systematically cover 6 major RNA virus families (Coronaviridae, Orthomyxoviridae, Retroviridae, Pneumoviridae, Flaviviridae, Caliciviridae), representing the primary taxonomic diversity of RNA viruses with pandemic potential.
+The 11 pathogens were selected to systematically cover 6 major RNA virus families (Coronaviridae, Orthomyxoviridae, Retroviridae, Pneumoviridae, Flaviviridae, Caliciviridae), representing the primary taxonomic diversity of RNA viruses with pandemic potential.
 This scope limitation to RNA viruses is an intentional design decision: H-score-based scoring requires sufficient mutation density, which RNA viruses provide due to their high mutation rates ($10^{-3}$--$10^{-5}$ substitutions/site/year), whereas DNA viruses ($10^{-6}$--$10^{-8}$) would require fundamentally different scoring approaches.
-Despite the small sample size ($n=9$), the Friedman test achieved $p=0.0015$, indicating that the effect size is large enough to be detected even with limited pathogens.
+Despite the small sample size ($n=11$), the Friedman test achieved $p=0.990$, indicating that performance rankings do not differ significantly across pathogens---consistent with the finding that each pathogen exhibits a unique best-performing combination.
 
