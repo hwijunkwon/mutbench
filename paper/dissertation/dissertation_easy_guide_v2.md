@@ -36,7 +36,8 @@
 2. **병원체 적응형 방법 선택의 필요성 통계적 증명** — ANOVA, Friedman, LOPO
 3. **다중 정보 통합 분석** — 10가지 정보 유형 분석, vaccine escape enrichment 검증
 
-[그림: research_overview — 연구 전체 흐름도]
+> **[그림 1.1: 연구 전체 흐름도]** — 문제 정의 → MutBench 구축 → 통계 검증 → 다중 정보 통합의 흐름 (논문 내 TikZ 다이어그램)
+
 
 ### 1.4 Research Contributions (연구 기여)
 
@@ -173,7 +174,8 @@ MutClust의 한계 → 벤치마크 필요성:
 
 #### 3.1.2 3-Layer Ground Truth Framework (3층 정답 기준)
 
-[그림: 3layer_gt_concept — 3층 GT 개념도]
+> **[그림 3.1: 3층 GT 개념도]** — Layer A (수렴진화) + Layer B (보존영역) + Layer C (DMS) 구조 (논문 내 TikZ 다이어그램)
+
 
 | Layer | 생물학적 의미 | 벤치마크 역할 |
 |-------|-------------|-------------|
@@ -214,7 +216,8 @@ DMS Layer C 가용 병원체: SARS-CoV-2, H3N2, HIV-1, RSV, **Rabies**, **EV-A71
 
 #### 3.2.1 MutBench Framework Architecture
 
-[그림: mutbench_pipeline — MutBench 파이프라인 전체 아키텍처]
+> **[그림 3.2: MutBench 파이프라인]** — MSA → Scoring(20) → Detection(39) → GT(3층) → Evaluation → Statistics (논문 내 TikZ 다이어그램)
+
 
 ```
 MSA 서열 (11개 병원체)
@@ -228,7 +231,8 @@ MSA 서열 (11개 병원체)
 통계 분석 (ANOVA, Friedman, LOPO)
 ```
 
-[그림: genome_hotspot_map — SARS-CoV-2 Spike 게놈 핫스팟 지도]
+![SARS-CoV-2 Spike 게놈 핫스팟 지도](figures/genome_hotspot_map.png)
+
 
 #### 3.2.2 Five MutClust Variants
 
@@ -334,17 +338,21 @@ MutClust-Hybrid가 F1=0.785로 최고 균형 (precision 0.968, recall 0.659).
 
 [테이블: Table 4.2 — Multi-GT evaluation results]
 
-[그림: multi_ground_truth_top.png — 4가지 GT별 최고 F1 비교]
+![4가지 GT별 최고 F1 비교](figures/multi_ground_truth_top.png)
 
-[그림: multi_ground_truth_bottom.png — GT 간 Jaccard 중첩 행렬]
+
+![GT 간 Jaccard 중첩 행렬](figures/multi_ground_truth_bottom.png)
+
 
 **핵심 발견**: 정답 기준에 따라 최적 방법이 달라짐. GT 간 Jaccard 0.006 — 세 GT가 독립적.
 
 DMS 검증:
 
-[그림: dms_evaluation_top.png — DMS 기반 GT vs 기능 영역 GT에서의 F1]
+![DMS 기반 GT vs 기능 영역 GT에서의 F1](figures/dms_evaluation_top.png)
 
-[그림: dms_evaluation_bottom.png — 점수와 DMS 적합도의 상관]
+
+![점수와 DMS 적합도의 상관](figures/dms_evaluation_bottom.png)
+
 
 #### 4.1.3 Real GISAID H-score Benchmark
 
@@ -359,18 +367,21 @@ MutClust variants vs 범용 방법(OPTICS, KDE 등) 비교. 도메인 특화 방
 
 ### 4.2 Robustness and Sensitivity Validation (견고성 검증)
 
-[그림: sample_size_convergence.png — 표본 크기에 따른 수렴]
+![표본 크기에 따른 수렴](figures/sample_size_convergence.png)
+
 
 약 1,000개 서열부터 안정화. 본 벤치마크의 서열 수(662~5,325)는 수렴점 이상.
 
-[그림: sensitivity_heatmap.png — 가중치 민감도 히트맵]
+![가중치 민감도 히트맵](figures/sensitivity_heatmap.png)
+
 
 MutClust-Hybrid가 171가지 가중치 조합 중 71.9%에서 1위 유지.
 
 
 ### 4.3 Cross-Pathogen and Structural Validation
 
-[그림: cross_pathogen_comparison.png — SARS-CoV-2 vs H3N2 vs Flu-B 방법 순위 비교]
+![SARS-CoV-2 vs H3N2 vs Flu-B 방법 순위 비교](figures/cross_pathogen_comparison.png)
+
 
 Stage 1 최적(MutClust-Hybrid)이 다른 바이러스에서는 순위 하락. "만능 방법 없다"의 첫 번째 직접 증거.
 
@@ -405,11 +416,14 @@ Stage 1 최적(MutClust-Hybrid)이 다른 바이러스에서는 순위 하락. "
 
 **11/11 고유 최적 조합**. 9개의 서로 다른 점수화 유형이 최적으로 나타남. 6개 카테고리 전체에 걸쳐 분포.
 
-[그림: stage3_scoring_pathogen_heatmap.png — 20 scoring x 11 pathogen MCC 히트맵]
+![20 scoring x 11 pathogen MCC 히트맵](figures/stage3_scoring_pathogen_heatmap.png)
 
-[그림: stage3_scoring_category_bar.png — 카테고리별 평균 MCC]
 
-[그림: stage3_fubar_spotlight.png — FUBAR 계통발생 scoring의 per-pathogen 성능]
+![카테고리별 평균 MCC](figures/stage3_scoring_category_bar.png)
+
+
+![FUBAR 계통발생 scoring의 per-pathogen 성능](figures/stage3_fubar_spotlight.png)
+
 
 #### 4.4.3 Statistical Analysis
 
@@ -425,7 +439,8 @@ Stage 1 최적(MutClust-Hybrid)이 다른 바이러스에서는 순위 하락. "
 | scoring | 정보 유형 주효과 | 0.013 |
 | family | 알고리즘 주효과 | 0.002 |
 
-[그림: stage3_anova_decomposition.png — 분산 분해 파이 차트/막대]
+![분산 분해 파이 차트/막대](figures/stage3_anova_decomposition.png)
+
 
 **핵심 해석**: "어떤 알고리즘을 쓰느냐"(family, 0.2%)보다 "**어떤 정보를 어떤 바이러스에 쓰느냐**"(scoring x pathogen, 29.6%)가 **23배 더 중요**합니다.
 
@@ -439,7 +454,8 @@ Kendall W = 0.037 (거의 0 — 순위 합의 없음)
 
 **LOPO 교차 검증:**
 
-[그림: stage3_lopo_crossval.png — LOPO 결과: 예측 MCC vs 실제 best MCC]
+![LOPO 결과: 예측 MCC vs 실제 best MCC](figures/stage3_lopo_crossval.png)
+
 
 **0/11 일치**. 평균 일반화 MCC = 0.032, oracle과의 gap = 0.265.
 
@@ -476,7 +492,8 @@ Precision@k 분석, DMS 임계값 민감도 분석, **Layer A vs Layer C 최적 
 
 [테이블: Table 4.9 — Per-feature AUC for 10 features x 9 pathogens]
 
-[그림: feature_auc_heatmap.png — 10 feature x 9 pathogen AUC 히트맵]
+![10 feature x 9 pathogen AUC 히트맵](figures/feature_auc_heatmap.png)
+
 
 | 바이러스 | 가장 효과적인 정보 | AUC |
 |---------|------------------|-----|
@@ -500,17 +517,20 @@ Random Forest로 10가지 feature 결합 시 cross-validation AUC:
 - HIV-1: **0.802**
 - RSV: **0.737** (단일 feature로는 거의 불가능했던 예측이 가능)
 
-[그림: feature_importance_grid.png — 바이러스별 RF feature 중요도 격자]
+![바이러스별 RF feature 중요도 격자](figures/feature_importance_grid.png)
+
 
 #### 4.5.3 Feature Correlation Structure
 
-[그림: feature_correlation_heatmap.png — 10 feature 간 상관 행렬]
+![10 feature 간 상관 행렬](figures/feature_correlation_heatmap.png)
+
 
 빈도-엔트로피 상관 0.97 (사실상 동일). homoplasy는 다른 feature와 상관 0.23 이하 (독립적 정보).
 
 #### 4.5.4 Feature Ablation Analysis
 
-[그림: feature_ablation_bars.png — Feature 제거 실험 결과]
+![Feature 제거 실험 결과](figures/feature_ablation_bars.png)
+
 
 [테이블: Table 4.10 — Feature ablation results]
 
