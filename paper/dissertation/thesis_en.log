@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2022/dev/Debian) (preloaded format=xelatex 2026.3.7)  28 MAR 2026 18:05
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2022/dev/Debian) (preloaded format=xelatex 2026.3.7)  28 MAR 2026 18:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1883,19 +1883,7 @@ Overfull \hbox (9.46124pt too wide) in paragraph at lines 121--121
 ons 
  []
 
-[116]
-
-LaTeX Warning: Reference `tab:adapt_escape' on page 117 undefined on input line
- 130.
-
-
-Overfull \hbox (0.49693pt too wide) in paragraph at lines 129--131
-\TU/TeXGyreTermes(0)/m/n/10.95 (E_only + KDE) achieved 4.90-fold enrichment for
- SARS-CoV-2 ($\OML/cmm/m/it/10.95 p < \OT1/cmr/m/n/10.95 0\OML/cmm/m/it/10.95 :
-\OT1/cmr/m/n/10.95 0001$\TU/TeXGyreTermes(0)/m/n/10.95 ),
- []
-
-[117] [118] [119]
+[116] [117] [118] [119]
 Overfull \hbox (0.61572pt too wide) in paragraph at lines 182--183
  []\TU/TeXGyreTermes(0)/b/n/10.95 Step 3: Scoring category selection.[] \TU/TeX
 GyreTermes(0)/m/n/10.95 Table [][]5.3[][] provides empirically grounded
@@ -2122,15 +2110,12 @@ cmr/m/n/10.95 0\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 0001$\TU/NotoSerifCJKKR(
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.5pt have occurred.
 
-
-LaTeX Warning: There were undefined references.
-
  ) 
 Here is how much of TeX's memory you used:
- 30637 strings out of 477728
- 617190 string characters out of 5842239
+ 30636 strings out of 477728
+ 617172 string characters out of 5842239
  954051 words of memory out of 5000000
- 50662 multiletter control sequences out of 15000+600000
+ 50661 multiletter control sequences out of 15000+600000
  482782 words of font info for 145 fonts, out of 8000000 for 9000
  264 hyphenation exceptions out of 8191
  100i,13n,131p,1012b,892s stack positions out of 5000i,500n,10000p,200000b,80000s
