@@ -128,6 +128,8 @@ Most recently, EVEREST~\cite{gurev2025everest} specifically benchmarked VEP meth
 
 These benchmarks address variant effect \textit{prediction} (estimating continuous fitness scores for individual mutations), whereas MutBench addresses hotspot \textit{detection} (identifying genomic regions where mutations cluster with functional significance). The two problems are complementary: VEP methods predict per-mutation effects, while hotspot detection identifies spatial patterns of mutational enrichment. Notably, EVEREST's finding that optimal VEP methods differ across viral families~\cite{gurev2025everest} parallels MutBench's central finding that optimal scoring--detection combinations differ across pathogens, suggesting that pathogen-adaptive method selection is a general principle extending beyond hotspot detection to variant effect prediction.
 
+The difference in DMS dataset count (45 in EVEREST vs.\ 4 in MutBench) reflects the distinct evaluation paradigms: EVEREST evaluates per-mutation fitness predictions, where each DMS assay provides thousands of labeled mutations for supervised evaluation. MutBench evaluates per-position hotspot detection, where DMS data serves as an independent ground truth layer (Layer~C) complementing the literature-based Layer~A. Since MutBench's primary evaluation uses Layer~A (convergent evolution positions curated from published studies for all 11 pathogens), DMS availability is not a limiting factor for the main benchmark; Layer~C provides additional validation for the 4 pathogens where DMS data exist.
+
 This gap is the fundamental motivation for MutBench (Chapter~\ref{ch:mutbench}), the core study of this dissertation.
 
 
@@ -206,4 +208,6 @@ Number of methods compared & 1 & 26 & 10 & 39 \\
 \end{table}
 
 Table~\ref{tab:approach_comparison} summarizes how MutBench compares with existing approaches along key benchmark dimensions.
+The comparison with Bailey et al.\ (2018) highlights a key methodological distinction. Cancer driver benchmarks operate on somatic mutations within a single host genome, where ground truth is defined by recurrence across patient cohorts and functional assays. Viral hotspot benchmarks operate on population-level mutations across thousands of pathogen genomes, where ground truth derives from convergent evolution across phylogenetically independent lineages. This fundamental difference in data structure---intra-host somatic variation versus inter-host population variation---means that cancer benchmark methodologies cannot be directly transferred to viral hotspot detection, necessitating the domain-specific MutBench framework.
+
 Chapter~\ref{ch:mutbench} presents MutBench, which systematically addresses these three limitations through implementation improvements, independent ground truth construction, a composite evaluation framework, and parameter sensitivity analysis.

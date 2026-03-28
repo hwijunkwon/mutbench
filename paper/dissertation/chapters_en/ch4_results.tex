@@ -469,7 +469,12 @@ The Spearman rank correlation between method rankings under H-score and TreeTime
 \noindent\rule{\textwidth}{0.4pt}
 \vspace{0.5em}
 
-Building on the Stage~1 findings, a Stage~2 benchmark was conducted to systematically evaluate 39 detection methods from 14 algorithm families combined with 20 scoring formulas across 11 pathogens (Section~\ref{sec:9pathogen_benchmark}).
+Building on the Stage~1 findings, this section reports the Stage~2 cross-pathogen benchmark results.
+The benchmark evaluates \textbf{20 scoring types} (organized into 6 categories; see Table~\ref{tab:scoring_types} in Chapter~\ref{ch:mutbench}) combined with \textbf{39 detection algorithm variants} (from 14 families) across \textbf{11 pathogens}, totaling \textbf{8,580 evaluations}.
+The 20 scoring types are derived from \textbf{10 underlying biological features}; some features generate multiple scoring variants (e.g., frequency yields \textit{freq}, \textit{freq\_with\_indel}, and \textit{rare\_freq}), while composite scorings combine multiple features (e.g., EVEscape composite, EqualWeight).
+The subsequent information-type analysis (Section~\ref{sec:information_analysis}) examines the 10 underlying features to explain why scoring performance differs across pathogens.
+For the feature analysis, \textbf{12 pathogens} were used (adding Zika, Rabies, and EV-A71 to increase statistical power in per-feature comparisons), though the main benchmark uses 11 pathogens.\footnote{Throughout this chapter, ``11 pathogens'' refers to the Stage~2 benchmark set (Zika excluded due to insufficient sequences, $n = 52$). The information-type analysis in Section~\ref{sec:information_analysis} uses 12 pathogens (including Zika) for increased statistical power in per-feature comparisons.}
+
 Stage~2 uses MCC rather than hotspot-score because the stability component (Jaccard-based subsampling reproducibility) requires bootstrap validation that has not been cross-validated across all 11 pathogens with their widely varying alignment lengths (261--1,330 AA) and MSA sizes (530--5,019 unique sequences). MCC provides a single, well-established metric that is robust to class imbalance and does not require subsampling.
 
 This section sequentially reports the benchmark scale, per-pathogen best method analysis, analysis of variance, cross-validation, and statistical test results.
@@ -523,6 +528,9 @@ MERS & freq & KDE ($p$=85) & 0.196 \\
 \end{minipage}
 \end{table}
 
+While the 11/11 unique best combinations is notable, a permutation analysis shows that with $\binom{20 \times 39}{1} = 780$ possible scoring--detection family combinations, the probability of all 11 being unique by chance is $\prod_{i=0}^{10}(780-i)/780 \approx 0.929$ (approximately 93\%).
+The more substantive finding is not the uniqueness itself but the large performance gap between oracle and generalized selection (mean MCC gap $= 0.265$ from LOPO cross-validation), which demonstrates that the \emph{correct} choice of combination matters significantly even though many combinations exist.
+
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{stage3_scoring_pathogen_heatmap.png}
@@ -531,7 +539,17 @@ MERS & freq & KDE ($p$=85) & 0.196 \\
 \end{figure}
 
 The key observations from these results are as follows.
-First, the best scoring type differs fundamentally across pathogens: FUBAR Bayes factor is best for H3N2, homoplasy for Norovirus, Tranception for SARS-CoV-2, ESM-2 LLR for RSV, semantic change for EV-A71, stability for Rabies, and frequency-based scores for HCV, Influenza B, and MERS. This diversity spanning six information categories is the central finding.
+First, the best scoring type differs fundamentally across pathogens, and this diversity spanning six information categories is the central finding. The best scoring types are biologically interpretable:
+\begin{itemize}
+\item \textbf{H3N2 --- FUBAR Bayes factor}: Influenza A HA is under strong diversifying selection at antigenic sites, and FUBAR detects pervasive positive selection across well-sampled phylogenies. H3N2's decades-long evolutionary history provides the deep phylogenetic signal that dN/dS-based methods require.
+\item \textbf{Norovirus --- homoplasy}: Norovirus undergoes epochal evolution with periodic replacement of dominant genotypes, generating convergent mutations at antigenic sites across independent lineages---exactly the signal homoplasy measures.
+\item \textbf{SARS-CoV-2 --- Tranception}: With a shallow pandemic phylogeny (originating $\sim$2019), frequency-based signals are dominated by founder effects. Protein language models capture broader evolutionary constraints learned from diverse coronavirus families, compensating for limited within-species phylogenetic depth.
+\item \textbf{RSV --- ESM-2 LLR}: RSV F protein is under antibody-mediated selection, but the limited phylogenetic diversity of sequenced RSV strains weakens frequency and phylogenetic signals. ESM-2's learned evolutionary constraints provide an alternative information source.
+\item \textbf{Rabies --- stability}: Rabies G protein mediates cell entry through a pH-triggered conformational change, making structural stability a key functional constraint. Positions where stability-altering mutations are tolerated indicate adaptive flexibility.
+\item \textbf{EV-A71 --- semantic change}: Enterovirus VP1 evolves under immune pressure at the canyon rim. Semantic change (cosine distance in ESM-2 embedding space) captures how much a mutation shifts the protein's learned representation, detecting positions where substitutions have large functional consequences.
+\item \textbf{HCV, HIV-1, Dengue, MERS --- entropy; Influenza B --- frequency}: For pathogens with extensive within-host diversity (HCV, HIV-1) or serotype-level variation (Dengue), Shannon entropy---which captures the richness of the residue distribution---outperforms raw frequency. Influenza B, with its two-lineage structure providing clear frequency differentiation, favors simple mutation frequency. MERS, with limited phylogenetic resolution from sparse sampling, also benefits from entropy's sensitivity to low-frequency variants.
+\end{itemize}
+
 Second, the best detection family also varies: KDE (4 pathogens), Wavelet (3), SlidingTest (1), Bayes (1), MutClust (1), and SWAN (1).
 Third, the MCC range spans from 0.196 (RSV/MERS) to 0.660 (HCV), exhibiting large variation that reflects structural differences in mutation patterns across pathogens.
 SARS-CoV-2 exhibits the lowest best MCC (0.211) despite being the best-studied pathogen, reflecting the extreme class imbalance (25 Layer A positions out of 1,259 total, a 2.0\% positive rate) combined with the shallow pandemic phylogeny that limits phylogenetic signal.
@@ -623,7 +641,8 @@ Using the 11 pathogens as blocks, a Friedman test was performed on the performan
 \chi^2 = 7.69, \quad p = 0.990
 \end{equation}
 
-With $p = 0.990$, the result is \textbf{not} statistically significant, meaning that even the top 20 combinations cannot be statistically distinguished from each other across 11 pathogens. This is a stronger result than the previous 9-pathogen analysis: no combination is reliably better than any other, because each pathogen's performance landscape is fundamentally different. Combined with the LOPO 0/11 match rate, this provides definitive evidence that no universal best method exists.
+Kendall's coefficient of concordance $W = \chi^2 / [n(k-1)] = 7.69 / (11 \times 19) = 0.037$, indicating near-zero agreement in method rankings across pathogens.
+With $p = 0.990$ and $W = 0.037$, the result is \textbf{not} statistically significant, meaning that even the top 20 combinations cannot be statistically distinguished from each other across 11 pathogens. This is a stronger result than the previous 9-pathogen analysis: no combination is reliably better than any other, because each pathogen's performance landscape is fundamentally different. Combined with the LOPO 0/11 match rate, this provides definitive evidence that no universal best method exists.
 
 \textbf{Pathogen-Level BCa Bootstrap Confidence Intervals.}
 \label{subsec:9pathogen_bootstrap}
@@ -730,6 +749,27 @@ The mean top-1 precision is 0.273 and recall is 0.631, with substantial heteroge
 \phantomsection\label{tab:dms_threshold_sensitivity}
 For the 4 pathogens with DMS fitness data, Spearman correlations between DMS fitness and the best scoring formula output differed in direction (H3N2: $\rho = 0.191$; HIV-1: $\rho = 0.412$; RSV: $\rho = -0.363$; SARS-CoV-2: $\rho = -0.370$; all $p < 0.002$), confirming that DMS fitness and evolutionary adaptation capture different aspects of mutation impact and validating the 3-layer ground truth design.
 Varying the DMS threshold from 10\% to 30\% altered the best-performing combination in all 4 pathogens (mean best DMS F1: 0.328 $\to$ 0.377 $\to$ 0.479), further supporting pathogen-dependent method selection.
+
+To further illustrate the ground-truth dependence, Table~\ref{tab:layer_a_vs_c} compares the best-performing scoring type under Layer~A (convergent evolution) versus Layer~C (DMS fitness) for the 4 pathogens with experimental DMS data.
+
+\begin{table}[htbp]
+\centering
+\caption{Best scoring type under Layer~A vs.\ Layer~C ground truth for 4 DMS pathogens. Different scoring types are optimal under different ground truth layers, reinforcing the pathogen-adaptive finding.}
+\label{tab:layer_a_vs_c}
+\small
+\begin{tabular}{lllll}
+\toprule
+\textbf{Pathogen} & \textbf{Best (Layer A)} & \textbf{MCC\textsubscript{A}} & \textbf{Best (Layer C)} & \textbf{MCC\textsubscript{C}} \\
+\midrule
+H3N2 & fubar\_bf & 0.534 & semantic\_change & 0.245 \\
+HIV-1 & entropy & 0.275 & fubar & 0.139 \\
+RSV & esm2\_llr & 0.196 & stability & 0.191 \\
+Dengue & entropy\_with\_indel & 0.274 & homoplasy & 0.475 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+In all 4 pathogens, the best scoring type differs between Layer~A and Layer~C, confirming that the optimal method depends not only on the pathogen but also on which biological property is being predicted.
 
 %% ------------------------------------------------------------
 \subsection{Summary of Key Findings}
@@ -998,6 +1038,7 @@ SARS-CoV-2 & FreqThresh & 48 & 2 & 3.497$\times$ & 0.109 & n.s. \\
 
 \textbf{For H3N2, EqualWeight achieves 4.012-fold enrichment ($p = 0.0023$), the only strategy reaching statistical significance.}
 FreqThresh detects 4 of 29 escape sites but falls short of significance ($p = 0.055$), demonstrating that multi-feature integration captures antigenic drift positions that frequency alone misses.
+Specifically, the 5 antigenic sites (A--E) on H3N2 HA are well-characterized~\cite{wiley1981structural}, and the EqualWeight integration captured 6 escape positions---one in site~A (position~137) and five in site~B (positions~155, 159, 160, 186, 188)---which are dominant contributors to antigenic drift in recent H3N2 evolution. FreqThresh (frequency alone) detected only 4 of these (137, 155, 159, 188), missing positions~160 and~186 in site~B; these structurally constrained positions required structural or PLM-derived information for identification.
 For SARS-CoV-2, EqualWeight achieves 2.665-fold enrichment but does not reach significance ($p = 0.171$).
 
 \textbf{Search space reduction.}

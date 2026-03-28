@@ -664,6 +664,7 @@ The stability component used in Stage 1 is excluded from Stage 2 because it is a
 A three-way ANOVA is performed with scoring type (20 levels), detection family (14 levels), and pathogen (11 levels) as factors.
 The three-way ANOVA model includes all three main effects (scoring, family, pathogen) and all three two-way interactions (scoring $\times$ family, scoring $\times$ pathogen, family $\times$ pathogen). The three-way interaction was not estimated due to insufficient within-cell replication.
 Partial omega-squared ($\omega^2_p$) was computed as the bias-corrected estimate of variance explained. With $N = 8{,}580$, the central limit theorem ensures robustness to non-normality of MCC values.
+As a robustness check, the nonparametric Kruskal--Wallis test was also applied to the scoring main effect, yielding $H = 277.9$, $p < 10^{-47}$, consistent with the parametric ANOVA result. This concordance confirms that the ANOVA conclusions are not artifacts of distributional assumptions.
 Following Cohen's effect size benchmarks~\cite{cohen1988statistical}, $\omega^2$ values are interpreted as small (0.01), medium (0.06), and large ($\geq 0.14$):
 \begin{equation}
 \omega^2 = \frac{SS_{\text{effect}} - df_{\text{effect}} \times MS_{\text{error}}}{SS_{\text{total}} + MS_{\text{error}}}

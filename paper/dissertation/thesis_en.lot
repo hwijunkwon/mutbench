@@ -3,35 +3,37 @@
 \addvspace {10\p@ }
 \contentsline {table}{\numberline {2.1}{\ignorespaces Comparison of MutBench with existing approaches\relax }}{25}{table.caption.11}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {3.1}{\ignorespaces Sequence dataset characteristics for 12 pathogens (11 for Stage\nobreakspace {}2 benchmark + Zika excluded)\relax }}{29}{table.caption.12}%
-\contentsline {table}{\numberline {3.2}{\ignorespaces 3-layer ground truth position counts per pathogen (amino acid level, 0-based)\relax }}{34}{table.caption.17}%
-\contentsline {table}{\numberline {3.3}{\ignorespaces Functional regions of the Spike protein (ground truth)\relax }}{38}{table.caption.20}%
-\contentsline {table}{\numberline {3.4}{\ignorespaces Detection methods evaluated in MutBench\relax }}{38}{table.caption.23}%
-\contentsline {table}{\numberline {3.5}{\ignorespaces Twenty scoring types used in the MutBench Stage\nobreakspace {}2 benchmark (6 categories)\relax }}{44}{table.caption.29}%
-\contentsline {table}{\numberline {3.6}{\ignorespaces Stage\nobreakspace {}1 temporal scoring variants used only for SARS-CoV-2 analysis\relax }}{46}{table.caption.30}%
-\contentsline {table}{\numberline {3.7}{\ignorespaces 39 detection methods evaluated in the 11-pathogen benchmark (14 families)\relax }}{47}{table.caption.31}%
-\contentsline {table}{\numberline {3.8}{\ignorespaces Parameter variants for each detection method family (39 methods total)\relax }}{48}{table.caption.32}%
+\contentsline {table}{\numberline {3.1}{\ignorespaces Sequence dataset characteristics for 12 pathogens (11 for Stage\nobreakspace {}2 benchmark + Zika excluded)\relax }}{30}{table.caption.12}%
+\contentsline {table}{\numberline {3.2}{\ignorespaces 3-layer ground truth position counts per pathogen (amino acid level, 0-based)\relax }}{35}{table.caption.17}%
+\contentsline {table}{\numberline {3.3}{\ignorespaces Functional regions of the Spike protein (ground truth)\relax }}{39}{table.caption.20}%
+\contentsline {table}{\numberline {3.4}{\ignorespaces Detection methods evaluated in MutBench\relax }}{39}{table.caption.23}%
+\contentsline {table}{\numberline {3.5}{\ignorespaces Twenty scoring types used in the MutBench Stage\nobreakspace {}2 benchmark (6 categories)\relax }}{45}{table.caption.29}%
+\contentsline {table}{\numberline {3.6}{\ignorespaces Stage\nobreakspace {}1 temporal scoring variants used only for SARS-CoV-2 analysis\relax }}{47}{table.caption.30}%
+\contentsline {table}{\numberline {3.7}{\ignorespaces 39 detection methods evaluated in the 11-pathogen benchmark (14 families)\relax }}{48}{table.caption.31}%
+\contentsline {table}{\numberline {3.8}{\ignorespaces Parameter variants for each detection method family (39 methods total)\relax }}{49}{table.caption.32}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {4.1}{\ignorespaces Synthetic benchmark results: method comparison with hotspot-score (100 subsamplings, 80\% retention)\relax }}{59}{table.caption.38}%
-\contentsline {table}{\numberline {4.2}{\ignorespaces Method comparison across multiple ground truths\relax }}{61}{table.caption.39}%
-\contentsline {table}{\numberline {4.3}{\ignorespaces Method comparison on real GISAID 2020--2021 H-score data (342 nonzero positions, 1,251 ground truth nucleotide positions)\relax }}{64}{table.caption.44}%
-\contentsline {table}{\numberline {4.4}{\ignorespaces Benchmark results including external independent methods. Synthetic H-score data, 7 Spike functional region ground truth.\relax }}{65}{table.caption.45}%
-\contentsline {table}{\numberline {4.5}{\ignorespaces Region-level BCa bootstrap 95\% confidence intervals for hotspot-score (1,000 resamplings of 7 functional regions, bias-corrected and accelerated)\relax }}{68}{table.caption.46}%
-\contentsline {table}{\numberline {4.6}{\ignorespaces Temporal validation results using GISAID 2024--2025 data\relax }}{72}{table.caption.55}%
-\contentsline {table}{\numberline {4.7}{\ignorespaces Influenza A H3N2 HA cross-pathogen benchmark results (1,967 sequences, 5 antigenic site ground truth)\relax }}{73}{table.caption.56}%
-\contentsline {table}{\numberline {4.8}{\ignorespaces Two-pathogen cross-comparison: pathogen dependence of the best-performing method\relax }}{74}{table.caption.57}%
-\contentsline {table}{\numberline {4.9}{\ignorespaces Comparison of detection method MCC under H-score versus TreeTime ML-inferred homoplasy counts for SARS-CoV-2 Spike (500 sequences, 2020-H1).\relax }}{77}{table.caption.63}%
-\contentsline {table}{\numberline {4.10}{\ignorespaces Best scoring--detection combination for each of the 11 pathogens (by MCC)\relax }}{80}{table.caption.64}%
-\contentsline {table}{\numberline {4.11}{\ignorespaces Three-way ANOVA results: $\omega ^2$ effect size of each factor on MCC\relax }}{83}{table.caption.68}%
-\contentsline {table}{\numberline {4.12}{\ignorespaces Best MCC (Layer A, adaptive ground truth) for ESM-LLR versus the best existing scoring formula per pathogen. ESM rank indicates the position of ESM-LLR among 10 total scoring methods (9 existing + ESM-LLR) when each is paired with its best-performing detector.\relax }}{90}{table.caption.71}%
-\contentsline {table}{\numberline {4.13}{\ignorespaces Precision, recall, detection size, and best MCC of the top-1 combination for each pathogen.\relax }}{92}{table.caption.72}%
-\contentsline {table}{\numberline {4.14}{\ignorespaces Per-feature AUC for Layer\nobreakspace {}A prediction across 9 pathogens (10 features). The highest AUC per pathogen is shown in \textbf {bold}. AUC = 0.5 indicates no discriminative power; AUC $< 0.5$ indicates inverse association.\relax }}{97}{table.caption.75}%
-\contentsline {table}{\numberline {4.15}{\ignorespaces Leave-one-feature-out ablation results. $\Delta $MCC is the change in mean MCC (12 pathogens) when removing one feature from the 10-feature EqualWeight ensemble. Negative $\Delta $ indicates the feature improves the ensemble.\relax }}{106}{table.caption.80}%
-\contentsline {table}{\numberline {4.16}{\ignorespaces Ground truth heterogeneity analysis across 12 pathogens. All pathogens are dominated by immune\_escape-tagged positions, yet the best discriminative feature differs across pathogens. ``Consistent'' indicates whether the best feature remains unchanged when restricting to immune\_escape-only positions.\relax }}{107}{table.caption.81}%
-\contentsline {table}{\numberline {4.17}{\ignorespaces Vaccine escape position validation (top-5\% threshold). Enrichment is the ratio of observed to expected overlap under random assignment. $p$-values from Fisher's exact test.\relax }}{109}{table.caption.82}%
+\contentsline {table}{\numberline {4.1}{\ignorespaces Synthetic benchmark results: method comparison with hotspot-score (100 subsamplings, 80\% retention)\relax }}{60}{table.caption.38}%
+\contentsline {table}{\numberline {4.2}{\ignorespaces Method comparison across multiple ground truths\relax }}{62}{table.caption.39}%
+\contentsline {table}{\numberline {4.3}{\ignorespaces Method comparison on real GISAID 2020--2021 H-score data (342 nonzero positions, 1,251 ground truth nucleotide positions)\relax }}{65}{table.caption.44}%
+\contentsline {table}{\numberline {4.4}{\ignorespaces Benchmark results including external independent methods. Synthetic H-score data, 7 Spike functional region ground truth.\relax }}{66}{table.caption.45}%
+\contentsline {table}{\numberline {4.5}{\ignorespaces Region-level BCa bootstrap 95\% confidence intervals for hotspot-score (1,000 resamplings of 7 functional regions, bias-corrected and accelerated)\relax }}{69}{table.caption.46}%
+\contentsline {table}{\numberline {4.6}{\ignorespaces Temporal validation results using GISAID 2024--2025 data\relax }}{73}{table.caption.55}%
+\contentsline {table}{\numberline {4.7}{\ignorespaces Influenza A H3N2 HA cross-pathogen benchmark results (1,967 sequences, 5 antigenic site ground truth)\relax }}{74}{table.caption.56}%
+\contentsline {table}{\numberline {4.8}{\ignorespaces Two-pathogen cross-comparison: pathogen dependence of the best-performing method\relax }}{75}{table.caption.57}%
+\contentsline {table}{\numberline {4.9}{\ignorespaces Comparison of detection method MCC under H-score versus TreeTime ML-inferred homoplasy counts for SARS-CoV-2 Spike (500 sequences, 2020-H1).\relax }}{78}{table.caption.63}%
+\contentsline {table}{\numberline {4.10}{\ignorespaces Best scoring--detection combination for each of the 11 pathogens (by MCC)\relax }}{82}{table.caption.64}%
+\contentsline {table}{\numberline {4.11}{\ignorespaces Three-way ANOVA results: $\omega ^2$ effect size of each factor on MCC\relax }}{88}{table.caption.68}%
+\contentsline {table}{\numberline {4.12}{\ignorespaces Best MCC (Layer A, adaptive ground truth) for ESM-LLR versus the best existing scoring formula per pathogen. ESM rank indicates the position of ESM-LLR among 10 total scoring methods (9 existing + ESM-LLR) when each is paired with its best-performing detector.\relax }}{94}{table.caption.71}%
+\contentsline {table}{\numberline {4.13}{\ignorespaces Precision, recall, detection size, and best MCC of the top-1 combination for each pathogen.\relax }}{96}{table.caption.72}%
+\contentsline {table}{\numberline {4.14}{\ignorespaces Best scoring type under Layer\nobreakspace {}A vs.\ Layer\nobreakspace {}C ground truth for 4 DMS pathogens. Different scoring types are optimal under different ground truth layers, reinforcing the pathogen-adaptive finding.\relax }}{97}{table.caption.74}%
+\contentsline {table}{\numberline {4.15}{\ignorespaces Per-feature AUC for Layer\nobreakspace {}A prediction across 9 pathogens (10 features). The highest AUC per pathogen is shown in \textbf {bold}. AUC = 0.5 indicates no discriminative power; AUC $< 0.5$ indicates inverse association.\relax }}{101}{table.caption.76}%
+\contentsline {table}{\numberline {4.16}{\ignorespaces Leave-one-feature-out ablation results. $\Delta $MCC is the change in mean MCC (12 pathogens) when removing one feature from the 10-feature EqualWeight ensemble. Negative $\Delta $ indicates the feature improves the ensemble.\relax }}{110}{table.caption.81}%
+\contentsline {table}{\numberline {4.17}{\ignorespaces Ground truth heterogeneity analysis across 12 pathogens. All pathogens are dominated by immune\_escape-tagged positions, yet the best discriminative feature differs across pathogens. ``Consistent'' indicates whether the best feature remains unchanged when restricting to immune\_escape-only positions.\relax }}{112}{table.caption.82}%
+\contentsline {table}{\numberline {4.18}{\ignorespaces Vaccine escape position validation (top-5\% threshold). Enrichment is the ratio of observed to expected overlap under random assignment. $p$-values from Fisher's exact test.\relax }}{113}{table.caption.83}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {5.1}{\ignorespaces Region-overlap MCC analysis for oracle combinations under three evaluation modes\relax }}{119}{table.caption.84}%
-\contentsline {table}{\numberline {5.2}{\ignorespaces Vaccine/antibody escape position validation\relax }}{120}{table.caption.85}%
+\contentsline {table}{\numberline {5.1}{\ignorespaces Region-overlap MCC analysis for oracle combinations under three evaluation modes\relax }}{123}{table.caption.85}%
+\contentsline {table}{\numberline {5.2}{\ignorespaces Vaccine/antibody escape position validation\relax }}{124}{table.caption.86}%
+\contentsline {table}{\numberline {5.3}{\ignorespaces Recommended scoring categories by virus family, based on cross-pathogen benchmark results\relax }}{126}{table.caption.90}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {6.1}{\ignorespaces Summary of MutBench limitations and mitigation status\relax }}{128}{table.caption.86}%
-\contentsline {table}{\numberline {6.2}{\ignorespaces Prioritized future research roadmap\relax }}{129}{table.caption.87}%
+\contentsline {table}{\numberline {6.1}{\ignorespaces Summary of MutBench limitations and mitigation status\relax }}{135}{table.caption.93}%
+\contentsline {table}{\numberline {6.2}{\ignorespaces Prioritized future research roadmap\relax }}{136}{table.caption.94}%

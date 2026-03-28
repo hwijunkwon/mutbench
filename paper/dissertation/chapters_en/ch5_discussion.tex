@@ -152,6 +152,46 @@ HIV-1 & 45 & 3/45 (0.067) & 0.35$\times$ & 0.997 \\
 Given SARS-CoV-2's generation time ({$\sim$}5 days) and sequence submission delay ({$\sim$}14 days), a minimum 4-week window is required for real-time TC-freq alerts. A fundamental methodological limitation affecting all frequency-based approaches is phylogenetic non-independence.
 
 %% ============================================================
+\subsection{Practical Application Workflow for New Pathogens}
+\label{sec:practical_workflow}
+
+Based on the cross-pathogen findings, we outline a concrete workflow for applying MutBench's methodology to a novel RNA virus not included in the benchmark.
+
+\paragraph{Step 1: Sequence collection.}
+Retrieve $\geq$200 protein-coding sequences from NCBI GenBank or GISAID, ensuring temporal and geographic diversity. Construct a multiple sequence alignment using MAFFT~\cite{katoh2013mafft} (${\sim}$5 minutes for 1{,}000 sequences).
+
+\paragraph{Step 2: Feature computation.}
+Compute scoring features in order of increasing computational cost: (i)~frequency and Shannon entropy from the MSA (seconds); (ii)~homoplasy counts via Fitch parsimony on an inferred phylogenetic tree (2--5 minutes); (iii)~ESM-2 log-likelihood ratios, requiring a GPU (3--5 minutes per protein); (iv)~structural features such as surface accessibility and interface proximity, requiring an AlphaFold2~\cite{jumper2021alphafold} predicted structure or an experimental PDB entry when available. Steps (i)--(iii) are applicable to any pathogen; step (iv) can be omitted when no structural model exists.
+
+\paragraph{Step 3: Scoring category selection.}
+Table~\ref{tab:scoring_recommendation} provides empirically grounded recommendations based on which scoring category achieved the highest mean MCC for each virus family in the benchmark. Users should select the recommended category as a starting point and, if computational resources permit, evaluate additional categories.
+
+\begin{table}[htbp]
+\centering
+\caption{Recommended scoring categories by virus family, based on cross-pathogen benchmark results}
+\label{tab:scoring_recommendation}
+\small
+\begin{tabular}{lll}
+\toprule
+\textbf{Virus Family} & \textbf{Recommended Scoring} & \textbf{Rationale} \\
+\midrule
+Orthomyxoviridae & Phylogenetic (FUBAR) & Strong diversifying selection signal \\
+Coronaviridae    & AI-based (PLM)       & Shallow phylogeny; PLM captures broader context \\
+Caliciviridae    & MSA-derived (homoplasy) & Epochal evolution with convergent patterns \\
+Retroviridae     & MSA-derived (entropy)   & High diversity; entropy captures allelic variation \\
+Flaviviridae     & Frequency-based         & Hypervariable regions dominate signal \\
+Pneumoviridae    & AI-based (ESM-2)        & Limited phylogenetic signal \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Step 4: Detection and evaluation.}
+Apply KDE or Wavelet-based detection as robust defaults (Section~\ref{sec:external_comparison}). If ground truth positions are available (e.g., from DMS experiments or literature), compute the hotspot-score metric. The full detection and evaluation step requires ${\sim}$30 seconds for all 39 detector configurations.
+
+\paragraph{Computational requirements.}
+The total pipeline runtime per pathogen is approximately 15--20 minutes on a workstation equipped with a single GPU (tested on NVIDIA RTX 3090). The most time-consuming step is ESM-2 inference; all other steps complete in under 10 minutes on a standard CPU. No specialized high-performance computing infrastructure is required.
+
+%% ============================================================
 \subsection{Phylogenetic Non-Independence and Scalability Limits}
 \label{sec:phylo_limits}
 
@@ -180,6 +220,8 @@ However, this concern applies uniformly to all 11 pathogens in the analysis, so 
 The semantic change feature (cosine distance between wild-type and mutant embeddings) is less susceptible to this concern because it measures relative embedding shifts rather than absolute likelihoods, making it more robust to training set memorization.
 Future work should evaluate protein language models trained on databases that exclude viral sequences to quantify the magnitude of this potential bias.
 
+Among the 20 scoring types, several share an underlying information source (e.g., freq, freq\_with\_indel, and rare\_freq are all frequency-derived). This partial collinearity could inflate the apparent number of independent scoring levels in the ANOVA. However, the key finding---that scoring $\times$ pathogen interaction dominates---holds even when scoring types are aggregated to the 6-category level: a supplementary two-way ANOVA with 6 scoring categories (instead of 20 types) yields $\omega^2_{\text{category} \times \text{pathogen}} = 0.103$, a large effect by Cohen's benchmarks ($\geq 0.14$ for individual effects, but 0.103 exceeds the medium threshold of 0.06) and comparable in magnitude to the pathogen main effect ($\omega^2 = 0.117$). The interaction remains substantively important, confirming that the pathogen-adaptive finding is not an artifact of correlated scoring types within the same information category.
+
 \subsection{Ground Truth Heterogeneity Across Pathogens}
 \label{sec:gt_heterogeneity}
 
@@ -196,4 +238,6 @@ Additionally, HCV has an effective Layer~B size of 0 (constrained regions could 
 The 11 pathogens were selected to systematically cover 6 major RNA virus families (Coronaviridae, Orthomyxoviridae, Retroviridae, Pneumoviridae, Flaviviridae, Caliciviridae), representing the primary taxonomic diversity of RNA viruses with pandemic potential.
 This scope limitation to RNA viruses is an intentional design decision: H-score-based scoring requires sufficient mutation density, which RNA viruses provide due to their high mutation rates ($10^{-3}$--$10^{-5}$ substitutions/site/year), whereas DNA viruses ($10^{-6}$--$10^{-8}$) would require fundamentally different scoring approaches.
 Despite the small sample size ($n=11$), the Friedman test yielded $p=0.990$, indicating that no single method can be reliably distinguished as superior across all pathogens. This is consistent with the LOPO finding (0/11 match rate) that each pathogen requires a unique best-performing combination.
+
+A methodological caveat is that the 11 pathogens are not phylogenetically independent: three pairs share viral families (SARS-CoV-2 and MERS in Coronaviridae, H3N2 and Influenza~B in Orthomyxoviridae, HCV and Dengue in Flaviviridae). The ANOVA treats pathogens as independent blocks, which may underestimate standard errors for pathogen-related effects. However, within each family pair, the best-performing scoring types differ (FUBAR Bayes factor for H3N2 vs.\ frequency for Influenza~B; frequency for HCV vs.\ entropy\_with\_indel for Dengue; Tranception for SARS-CoV-2 vs.\ frequency for MERS), indicating that phylogenetic relatedness does not determine method preference. This within-family heterogeneity strengthens rather than weakens the pathogen-adaptive finding.
 
