@@ -43,6 +43,7 @@ This stage, which encompasses frequency analysis, entropy computation, density-b
 In the third stage (\textit{experimental validation}), the computationally identified hotspot candidates are individually verified through laboratory experiments such as Deep Mutational Scanning (DMS), neutralization assays, and cell infection assays.
 Because each experimental validation requires weeks to months per position, it is prohibitively resource-intensive to test all positions; computational analysis therefore serves as a critical filter that prioritizes positions for experimental investigation.
 The effectiveness of this filtering---how well computational methods concentrate biologically meaningful positions in their top-ranked candidates---is precisely what MutBench evaluates.
+In practice, this means that for a virus with 1,000 amino acid positions, computational hotspot detection narrows the candidate list from 1,000 to approximately 50--100 positions (top 5--10\%), saving months of laboratory effort and enabling rapid response during emerging outbreaks.
 
 
 \section{Research Motivation and Problem Definition}
