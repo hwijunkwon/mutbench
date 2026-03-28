@@ -4,7 +4,7 @@
 
 **저자**: 권휘준 | **지도교수**: 정인욱 | **소속**: 경북대학교 컴퓨터학부
 
-**버전**: v97 | **페이지**: 170 | **날짜**: 2026-03-28
+**버전**: v98 | **페이지**: 169 | **날짜**: 2026-03-28
 
 ---
 
@@ -168,7 +168,7 @@ Layer A ↔ vaccine escape 교차 검증: Layer A 탐지 결과가 vaccine escap
 
 ---
 
-## 논문 구성 (6장, 170페이지)
+## 논문 구성 (6장, 169페이지)
 
 | 장 | 제목 | 한 줄 |
 |---|------|------|
@@ -181,13 +181,15 @@ Layer A ↔ vaccine escape 교차 검증: Layer A 탐지 결과가 vaccine escap
 
 ---
 
-## v97 주요 변경사항
+## v98 주요 변경사항
 
-- 모든 그림/테이블 11 pathogens 반영
-- DMS 6/11 (Dengue DMS 제거 — 잘못된 단백질 매칭)
+- 모든 그림/테이블 11 pathogens 반영 (9-pathogen 잔존 완전 제거)
+- DMS 6/11 검증 완료 (Dengue DMS 제거 — NS5를 E protein에 잘못 매칭)
+- Rabies DMS: 시뮬레이션 → 실제 데이터 (Aditham 2025, Cell Host & Microbe)
 - Vaccine escape: 3개 병원체 (SARS-CoV-2, H3N2, HIV-1), 최대 9.36배 enrichment
-- Layer A ↔ vaccine escape 교차 검증 추가
-- Ch2에 벤치마크 비교 테이블 추가 (EVEREST, ProteinGym 등과 체계적 비교)
-- ESM comparison table 제거 (20-scoring 체계에 통합됨)
+- Layer A ↔ vaccine escape 교차 검증 (H3N2: FUBAR BF가 양쪽 모두 최적)
+- Ch2에 벤치마크 비교 테이블 추가 (MutBench vs EVEREST vs ProteinGym vs Bailey)
+- ESM comparison table 삭제 (20-scoring 체계에 통합됨)
 - Precision@k 테이블 11 pathogens 업데이트
-- 170 페이지
+- Ch1 접근성 개선, Ch3 다중검정 정당화, Ch5 NFL 한정, Ch6 CLI 예시
+- 169 페이지, 에러 0, PAHD 0, 구데이터 잔존 0
