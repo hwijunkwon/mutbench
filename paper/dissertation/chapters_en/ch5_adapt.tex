@@ -6,7 +6,7 @@
 \section{Analysis Objective}
 \label{sec:adapt_motivation}
 
-Chapter~\ref{ch:results} demonstrated that the best-performing scoring--detection combination differs across all 9 pathogens (9/9 unique best combinations; $\omega^2_{\text{family}\times\text{pathogen}} = 0.285$), and that no single method generalizes (LOPO match rate 0/9).
+Chapter~\ref{ch:results} demonstrated that the best-performing scoring--detection combination differs across all 11 pathogens (11/11 unique best combinations; $\omega^2_{\text{scoring}\times\text{pathogen}} = 0.296$), and that no single method generalizes (LOPO match rate 0/11).
 This chapter asks the follow-up question: \textit{which biological information types drive this pathogen-dependent heterogeneity, and can integrating multiple information sources improve hotspot detection?}
 To answer this, 10 positional features spanning six information categories were evaluated as individual and combined predictors of Layer~A ground truth across 12 pathogens.
 The analysis was expanded from 9 to 12 pathogens by adding Zika virus (E protein, 505 AA), Rabies virus (G protein, 524 AA), and Enterovirus A71 (VP1, 297 AA), to increase statistical power for per-feature and correlation analyses and to cover additional viral families (Flaviviridae expansion, Rhabdoviridae, Picornaviridae).
@@ -92,7 +92,7 @@ These values substantially exceed the best single-feature AUC for most pathogens
 \textbf{Third, the importance rankings differ from univariate AUC rankings.}
 For HIV-1, entropy has the highest univariate AUC (0.730) but ranks third in RF importance (0.127) behind ESM-2 LLR (0.214) and homoplasy (0.143), because entropy and frequency are highly correlated ($\rho = 0.97$) and share importance in the RF model while ESM-2 LLR provides non-redundant information.
 
-Figure~\ref{fig:feature_importance_grid} (Chapter~\ref{ch:results}) visualizes the RF importance distributions for the original 9 pathogens; the patterns described above are consistent with the expanded 12-pathogen analysis.
+Figure~\ref{fig:feature_importance_grid} (Chapter~\ref{ch:results}) visualizes the RF importance distributions for the original 9 benchmark pathogens; the patterns described above are consistent with the expanded 12-pathogen analysis.
 
 %% ------------------------------------------------------------
 \subsection{Feature Ablation}

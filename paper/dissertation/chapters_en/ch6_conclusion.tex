@@ -42,7 +42,7 @@ This analysis establishes which biological information is essential for each pat
 \textbf{Limitation} & \textbf{Severity} & \textbf{Current mitigation} & \textbf{Future work} \\
 \midrule
 Ground truth limited to literature & High & 3-layer GT with DMS validation & Expand to more pathogens \\
-DMS data available for 4/11 pathogens & Medium & Layers A+B for remaining 5 & New DMS experiments \\
+DMS data available for 6/11 pathogens & Medium & Layers A+B for remaining 5 & New DMS experiments \\
 Phylogenetic non-independence & High & PoC simulation + TreeTime validation & Full pipeline integration \\
 Synthetic--real performance gap & Medium & Dual benchmark design & Adaptive reference sequences \\
 Position-level exact matching & Medium & Enrichment ratio as complement & Region-overlap metrics \\
@@ -55,7 +55,7 @@ GISAID sampling bias & Medium & Weekly temporal stratification & Geographic stra
 
 \textbf{Ground Truth Limitations.}
 
-The full three-layer ground truth (Layers A, B, and C) is available only for the four pathogens with DMS data (SARS-CoV-2, H3N2, HIV-1, RSV); the remaining five pathogens are evaluated using only Layers A and B.
+The full three-layer ground truth (Layers A, B, and C) is available only for the six pathogens with DMS data (SARS-CoV-2, H3N2, HIV-1, RSV, Rabies, EV-A71); the remaining five pathogens are evaluated using only Layers A and B.
 Layer~C (DMS functional fitness) is based on published DMS datasets~\cite{dadonaite2023dms}, and for pathogens without available DMS data, functional fitness validation cannot be performed.
 Furthermore, in interpreting DMS data, the choice of threshold for defining functionally important positions (e.g., fitness effect $\leq -0.5$) directly affects the composition of the ground truth, introducing sensitivity to that threshold.
 DMS measures in vitro molecular fitness using pseudovirus systems and thus may not fully capture in vivo fitness.

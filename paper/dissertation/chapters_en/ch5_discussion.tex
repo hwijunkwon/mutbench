@@ -83,7 +83,7 @@ The demonstrated necessity of pathogen-adaptive selection raises the question of
 \subsection{Upper Bound of Detection Performance}
 \label{sec:oracle_mcc_ceiling}
 
-The mean oracle MCC across 9 pathogens is 0.298 (range: 0.088--0.549), which appears low but is explained by three structural factors: position-level exact matching (off-by-one counts as false positive), extreme class imbalance (positive rates 1--16\%), and ground truth stringency (only literature-confirmed sites).
+The mean oracle MCC across 11 pathogens is 0.341 (range: 0.196--0.660; Table~\ref{tab:9pathogen_best}), which appears low but is explained by three structural factors: position-level exact matching (off-by-one counts as false positive), extreme class imbalance (positive rates 1--16\%), and ground truth stringency (only literature-confirmed sites).
 The oracle is unambiguously non-random (99 standard deviations above the random baseline mean of 0.001), and comparable to position-level metrics in other domains (e.g., TFBS prediction F1 = 0.3--0.5~\cite{weirauch2013evaluation}).
 
 Region-overlap analysis (Table~\ref{tab:region_overlap_mcc}) quantifies the conservativeness of exact evaluation: under $\pm10$ position windows, mean oracle MCC increases from 0.289 to 0.712 (146\% improvement), with H3N2 reaching 0.964, confirming that detected hotspots are spatially proximate to ground truth even when not exactly overlapping.
@@ -131,7 +131,7 @@ The multi-feature EqualWeight integration further achieves statistically signifi
 
 \begin{table}[htbp]
 \centering
-\caption{Vaccine/antibody escape position validation}
+\caption{Vaccine/antibody escape position validation (Stage~1 single-scoring analysis; see Table~\ref{tab:vaccine_escape_stage3} for the full 20-scoring benchmark results with higher enrichment values)}
 \label{tab:vaccine_escape}
 \small
 \begin{tabular}{lrrrr}
@@ -156,7 +156,7 @@ Specifically, the scoring type identified as optimal by Layer~A also achieves th
 This concordance between Layer~A rankings and vaccine escape enrichment is notable because the two evaluations measure fundamentally different quantities: Layer~A assesses position-level detection accuracy against convergent evolution sites, while vaccine escape enrichment measures the overlap between detected hotspots and experimentally confirmed antibody escape positions.
 The fact that optimizing for Layer~A also maximizes escape capture provides strong evidence that the benchmark is not merely a circular evaluation artifact.
 
-This cross-validation is particularly important for the six pathogens without DMS data (Layer~C), where benchmark validity rests primarily on Layer~A.
+This cross-validation is particularly important for the five pathogens without DMS data (Layer~C), where benchmark validity rests primarily on Layer~A.
 The EVEREST study~\cite{gurev2025everest} demonstrated that even with 48 DMS datasets, half of WHO priority viruses cannot be reliably evaluated using DMS alone.
 MutBench's combination of Layer~A benchmark rankings with independent vaccine escape validation provides complementary evidence that circumvents DMS data availability constraints, supporting the validity of Layer~A as a ground truth even for pathogens where DMS data are unavailable.
 
