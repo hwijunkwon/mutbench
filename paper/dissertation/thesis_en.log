@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2022/dev/Debian) (preloaded format=xelatex 2026.3.7)  28 MAR 2026 18:30
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2022/dev/Debian) (preloaded format=xelatex 2026.3.7)  28 MAR 2026 18:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1882,60 +1882,60 @@ ined by three structural factors: position-
  []
 
 [112]
-Overfull \hbox (9.46124pt too wide) in paragraph at lines 121--121
+Overfull \hbox (9.46124pt too wide) in paragraph at lines 120--120
 []\TU/TeXGyreTermes(0)/b/n/14.4 Practical Implications and Fundamental Limitati
 ons 
  []
 
 [113] [114] [115] [116]
-Overfull \hbox (0.61572pt too wide) in paragraph at lines 182--183
+Overfull \hbox (0.61572pt too wide) in paragraph at lines 181--182
  []\TU/TeXGyreTermes(0)/b/n/10.95 Step 3: Scoring category selection.[] \TU/TeX
 GyreTermes(0)/m/n/10.95 Table [][]5.3[][] provides empirically grounded
  []
 
 
-Overfull \hbox (77.12701pt too wide) in paragraph at lines 189--201
+Overfull \hbox (77.12701pt too wide) in paragraph at lines 188--200
  [][] 
  []
 
 [117]
-Overfull \hbox (15.26685pt too wide) in paragraph at lines 213--215
+Overfull \hbox (15.26685pt too wide) in paragraph at lines 212--214
 \TU/TeXGyreTermes(0)/m/n/10.95 and frequency-based approaches cannot distinguis
 h positive selection from founder
  []
 
 
-Overfull \hbox (14.19205pt too wide) in paragraph at lines 216--220
+Overfull \hbox (14.19205pt too wide) in paragraph at lines 215--219
 []\TU/TeXGyreTermes(0)/m/n/10.95 Proof-of-concept simulations (Section [][]4.3[
 ][]) demonstrated that Fitch parsimony-
  []
 
 
-Overfull \hbox (4.4182pt too wide) in paragraph at lines 216--220
+Overfull \hbox (4.4182pt too wide) in paragraph at lines 215--219
 \TU/TeXGyreTermes(0)/m/n/10.95 mutations, and extended TreeTime ML validation (
 Section [][]4.3[][]) confirmed equiv-
  []
 
 [118]
-Overfull \hbox (11.71176pt too wide) in paragraph at lines 232--237
+Overfull \hbox (11.71176pt too wide) in paragraph at lines 231--236
 \TU/TeXGyreTermes(0)/m/n/10.95 formance levels may be biased upward, the relati
 ve cross-pathogen comparisons—
  []
 
 [119]
-Overfull \hbox (0.30383pt too wide) in paragraph at lines 238--239
+Overfull \hbox (0.30383pt too wide) in paragraph at lines 237--238
 []\TU/TeXGyreTermes(0)/m/n/10.95 Among the 20 scoring types, several share an u
 nderlying information source
  []
 
 [120] [121]
-Overfull \hbox (13.88629pt too wide) in paragraph at lines 257--258
+Overfull \hbox (13.88629pt too wide) in paragraph at lines 256--257
 \TU/TeXGyreTermes(0)/m/n/10.95 for H3N2 vs. frequency for Influenza B; frequenc
 y for HCV vs. entropy_with_indel
  []
 
 
-Overfull \hbox (15.21571pt too wide) in paragraph at lines 257--258
+Overfull \hbox (15.21571pt too wide) in paragraph at lines 256--257
 \TU/TeXGyreTermes(0)/m/n/10.95 within-family heterogeneity strengthens rather t
 han weakens the pathogen-adaptive
  []
@@ -2124,7 +2124,7 @@ LaTeX Font Warning: Size substitutions with differences
 Here is how much of TeX's memory you used:
  30634 strings out of 477728
  617140 string characters out of 5842239
- 954642 words of memory out of 5000000
+ 954675 words of memory out of 5000000
  50659 multiletter control sequences out of 15000+600000
  482782 words of font info for 145 fonts, out of 8000000 for 9000
  264 hyphenation exceptions out of 8191

@@ -86,33 +86,32 @@ The demonstrated necessity of pathogen-adaptive selection raises the question of
 The mean oracle MCC across 11 pathogens is 0.341 (range: 0.196--0.660; Table~\ref{tab:9pathogen_best}), which appears low but is explained by three structural factors: position-level exact matching (off-by-one counts as false positive), extreme class imbalance (positive rates 1--16\%), and ground truth stringency (only literature-confirmed sites).
 The oracle is unambiguously non-random (99 standard deviations above the random baseline mean of 0.001), and comparable to position-level metrics in other domains (e.g., TFBS prediction F1 = 0.3--0.5~\cite{weirauch2013evaluation}).
 
-Region-overlap analysis (Table~\ref{tab:region_overlap_mcc}) quantifies the conservativeness of exact evaluation: under $\pm10$ position windows, mean oracle MCC increases from 0.289 to 0.712 (146\% improvement), with H3N2 reaching 0.964, confirming that detected hotspots are spatially proximate to ground truth even when not exactly overlapping.
+Region-overlap analysis (Table~\ref{tab:region_overlap_mcc}) quantifies the effect of evaluation stringency: under $\pm5$ position windows, mean oracle MCC increases from 0.341 to 0.472 (38\% improvement), with Influenza~B reaching 0.894. Notably, some pathogens (HCV, Norovirus) show \textit{decreased} MCC under window expansion because their oracle detections are already precise---window expansion dilutes precision by including non-functional neighboring positions.
 
 \begin{table}[htbp]
 \centering
-\caption{Region-overlap MCC analysis for oracle combinations under three evaluation modes}
+\caption{Region-overlap MCC analysis for oracle combinations under three evaluation modes (11 pathogens, 20 scoring types)}
 \label{tab:region_overlap_mcc}
 \small
 \begin{tabular}{lccc}
 \toprule
 \textbf{Pathogen} & \textbf{Exact} & \textbf{$\pm$5 window} & \textbf{$\pm$10 window} \\
 \midrule
-SARS-CoV-2    & 0.227 & 0.712 & 0.861 \\
-H3N2          & 0.521 & 0.851 & 0.964 \\
-Norovirus     & 0.355 & 0.925 & 0.925 \\
-HIV-1         & 0.301 & 0.736 & 0.789 \\
-Dengue        & 0.274 & 0.741 & 0.919 \\
-RSV           & 0.150 & 0.164 & 0.164 \\
-Influenza B   & 0.195 & 0.558 & 0.594 \\
-MERS          & 0.071 & 0.263 & 0.295 \\
-HCV           & 0.510 & 0.793 & 0.894 \\
+HCV           & 0.660 & 0.588 & 0.519 \\
+H3N2          & 0.534 & 0.639 & 0.548 \\
+Norovirus     & 0.510 & 0.335 & 0.275 \\
+Influenza B   & 0.392 & 0.894 & 0.924 \\
+HIV-1         & 0.275 & 0.406 & 0.343 \\
+Dengue        & 0.274 & 0.441 & 0.508 \\
+EV-A71        & 0.260 & 0.275 & 0.199 \\
+Rabies        & 0.248 & 0.265 & 0.266 \\
+SARS-CoV-2    & 0.211 & 0.480 & 0.497 \\
+MERS          & 0.196 & 0.470 & 0.593 \\
+RSV           & 0.196 & 0.394 & 0.318 \\
 \midrule
-\textbf{Mean} & \textbf{0.289} & \textbf{0.638} & \textbf{0.712} \\
+\textbf{Mean} & \textbf{0.341} & \textbf{0.472} & \textbf{0.454} \\
 \bottomrule
 \end{tabular}
-
-\vspace{1mm}
-{\footnotesize $^\dagger$The position-exact MCC (0.289) in the region-overlap analysis differs from the benchmark-reported oracle (0.298) because the region-overlap analysis uses a reimplemented evaluation pipeline with minor differences in boundary handling (e.g., edge-position treatment at alignment boundaries). The absolute baseline difference (0.009, or 3.1\%) does not affect the primary finding: the relative improvement from exact to region-overlap evaluation (146\%) demonstrates that detected hotspots are spatially proximate to ground truth positions.}
 \end{table}
 
 Despite these ceiling effects, the benchmark results have practical implications for public health surveillance.
