@@ -1,0 +1,754 @@
+# MutBench 학위논문 비전공자용 상세 설명서 (v2, v98 반영)
+
+**한줄 요약**: 바이러스 변이 핫스팟을 찾는 방법이 여러 개 있는데, 어떤 방법이 좋은지 비교할 기준이 없었습니다. 이 논문이 그 기준(MutBench)을 만들고, "만능 방법은 없다"는 것을 증명한 뒤, 10가지 생물학적 정보를 통합 분석하여 어떤 정보가 핵심적인지 밝히고, 실험 탐색 범위를 최대 9.36배 축소(3개 병원체, p<0.0001)할 수 있음을 검증했습니다.
+
+**논문 구조**: 6장 (Ch1 서론 → Ch2 관련 연구 → Ch3 재료 및 방법 → Ch4 실험 결과 → Ch5 논의 → Ch6 결론)
+
+
+\newpage
+
+## Chapter 1. Introduction (서론)
+
+### 1.1 Research Background (연구 배경)
+
+바이러스는 세포 안에서 자신의 유전자를 복사하여 증식합니다. 복제 과정에서 간혹 복사 오류가 발생하는데, 이것이 **변이(mutation)**입니다. RNA 바이러스(코로나, 인플루엔자, HIV 등)는 변이가 빠르며, 연간 유전자 위치당 약 10만분의 1 ~ 1천분의 1 비율로 변이가 축적됩니다.
+
+**핫스팟(hotspot)**이란 변이가 유독 많이 생기는 유전체 위치 또는 영역입니다. 핵심적 구분은:
+
+- **생물학적으로 의미 있는 핫스팟**: 면역 회피, 감염력 증가 등 바이러스에 이점을 주는 변이가 집중 (예: SARS-CoV-2 E484K — 여러 변이주에서 독립적 반복 출현)
+- **Founder effect에 의한 핫스팟**: 빈도가 높지만 "유리해서"가 아니라 "그 변이를 가진 계통이 우연히 크게 번성해서"인 경우 (예: D614G)
+
+[테이블: Table 1.1 — Glossary of biological terms]
+
+### 1.2 Research Motivation and Problem Definition (연구 동기)
+
+핫스팟 탐지의 세 가지 근본적 한계:
+
+1. **정답 기준 부재**: 핫스팟의 정의 자체가 모호하고, 관찰 시점에 따라 변하며, 최종 검증은 실험실에서만 가능
+2. **공정 비교 불가**: 방법 A는 코로나 5,000개 서열, 방법 B는 인플루엔자 2,000개 서열로 각각 테스트 — 비교 불가능
+3. **일반화 미검증**: 코로나에서 좋은 방법이 HIV에서도 통할지 검증된 적 없음
+
+### 1.3 Research Objectives (연구 목표)
+
+세 가지 연구 목표:
+
+1. **MutBench 벤치마크 프레임워크 구축** — 3층 정답 기준, 다수의 탐지 방법, 체계적 평가 지표
+2. **병원체 적응형 방법 선택의 필요성 통계적 증명** — ANOVA, Friedman, LOPO
+3. **다중 정보 통합 분석** — 10가지 정보 유형 분석, vaccine escape enrichment 검증
+
+[그림: research_overview — 연구 전체 흐름도]
+
+### 1.4 Research Contributions (연구 기여)
+
+핵심 수치:
+
+- 11개 바이러스, 20가지 점수화 유형, 39가지 탐지 알고리즘, **8,580회** 평가
+- ANOVA scoring x pathogen **omega-squared = 0.296** (최대 분산원)
+- LOPO **0/11** 일치 (일반화 실패)
+- H3N2 vaccine escape enrichment **4.012배** (p=0.0023)
+
+### 1.5 Dissertation Organization (논문 구성)
+
+| 장 | 내용 |
+|----|------|
+| Ch1 | 서론 — 배경, 동기, 목표 |
+| Ch2 | 관련 연구 — 기존 방법, MutClust |
+| Ch3 | 재료 및 방법 — 11개 바이러스, 3층 GT, 20 scoring, 39 detection |
+| Ch4 | 실험 결과 — Stage 1/2 + 정보 유형 분석 + 다중 정보 통합 |
+| Ch5 | 논의 — 방법론 타당성, 한계, 실용적 함의 |
+| Ch6 | 결론 — 기여 요약, 한계, 향후 연구 |
+
+
+\newpage
+
+## Chapter 2. Related Research (관련 연구)
+
+### 2.1 Viral Mutation Hotspot Detection (바이러스 변이 핫스팟 탐지)
+
+#### 2.1.1 Mutation Hotspot Detection Methods
+
+핫스팟 탐지는 크게 세 단계로 이루어집니다:
+
+- **1단계**: 서열 수집 (GISAID/GenBank → MSA)
+- **2단계**: 통계적 분석 (빈도, 엔트로피, 클러스터링 등) — **본 논문의 범위**
+- **3단계**: 실험 검증 (DMS, 중화 항체 실험 등)
+
+#### 2.1.2 Density-Based Clustering
+
+DBSCAN, HDBSCAN 등 밀도 기반 방법이 암 드라이버 유전자 탐지(HotMAPS)와 유사한 접근으로 바이러스에 적용 가능.
+
+#### 2.1.3 Deep Mutational Scanning as Ground Truth
+
+DMS는 단백질의 모든 가능한 아미노산 치환의 기능적 영향을 직접 측정. 본 연구에서 6개 병원체(SARS-CoV-2, H3N2, HIV-1, RSV, Rabies, EV-A71)의 DMS 데이터를 Layer C로 사용.
+
+#### 2.1.4 Protein Language Models for Variant Effect Prediction
+
+ESM-2 (Meta AI, 6.5억 파라미터), Tranception, EVEscape 등 단백질 언어 모델이 변이 효과 예측에 활용. 본 연구에서는 이들을 점수화 유형의 하나로 포함.
+
+#### 2.1.5 Viral Genomic Surveillance Platforms
+
+| 시스템 | 목적 | MutBench와의 차이 |
+|--------|------|-----------------|
+| **Nextstrain** | 계통 추적 + 확산 시각화 | "변이주" 단위. "위치" 단위 핫스팟 아님 |
+| **PANGO** | 변이주 분류 | 사후 분류. 사전 예측 아님 |
+| **MutBench** | 핫스팟 탐지 방법 비교 | "위치" 단위 평가 프레임워크 |
+
+#### 2.1.6 Feature Importance Analysis in Viral Mutation Prediction
+
+관련 연구들의 비교:
+
+| 연구 | 무엇을 하나 | MutBench와의 차이 |
+|------|-----------|-----------------|
+| **EVEREST** (Mol Biol Evol, 2023) | 계통수에서 수렴 진화를 탐지 | 단일 **탐지 도구**이지 벤치마크가 아님 |
+| **EVEscape** (Nature, 2023) | 바이러스 escape 변이 사전 예측 | **예측 모델**이지 벤치마크가 아님 |
+| **ProteinGym** (NeurIPS, 2023) | 250+ DMS 데이터로 변이 효과 예측 벤치마크 | per-mutation 예측. 핫스팟 **영역** 탐지 아님 |
+| **Hie et al.** (Science, 2021) | AI로 escape 변이 예측 | 단일 방법. 비교 없음 |
+| **Maher et al.** (Sci Transl Med, 2022) | SARS-CoV-2 변이주 예측 | SARS-CoV-2 **하나**에 한정 |
+| **ConDor** (2024) | 계통수 수렴 변이 탐지 | 단일 도구. 벤치마크 아님 |
+
+[테이블: Table 2.1 — Benchmark comparison across related studies]
+
+#### 2.1.7 Algorithm Selection and Benchmarking Methodology
+
+벤치마크 설계 원칙:
+
+1. **중립 평가 원칙** (Weber et al., 2019): 방법 개발자가 자기 방법을 평가하면 편향
+2. **알고리즘 선택 문제** (Rice, 1976): 문제 특성에 따라 최적 알고리즘이 다름
+
+### 2.2 MutClust: Adaptive Density-Based Hotspot Detection (MutClust 선행 연구)
+
+#### 2.2.1 H-score and Adaptive DBSCAN
+
+MutClust 원래 알고리즘: CCM(Cluster Core Model)으로 시드 위치 식별 → 적응적 DBSCAN으로 경계 확장
+
+#### 2.2.2 SARS-CoV-2 Hotspot Detection Results
+
+Youn et al. (2025)이 SARS-CoV-2 Spike에서 7개 핫스팟 클러스터 식별, 5개가 면역 회피 관련 영역과 일치
+
+#### 2.2.3 Limitations and Motivation for MutBench Development
+
+MutClust의 한계 → 벤치마크 필요성:
+
+- 단일 바이러스에서만 검증
+- H-score가 founder effect를 구분 못함
+- 다른 방법과의 비교 부재
+
+[테이블: Table 2.2 — Approach comparison (MutClust vs MutBench)]
+
+
+\newpage
+
+## Chapter 3. Materials and Method (재료 및 방법)
+
+### 3.1 Materials (재료)
+
+#### 3.1.1 Target Pathogens and Data (11개 바이러스)
+
+다양한 진화 양상을 포괄하기 위해 **12개 RNA 바이러스**를 수집, 이 중 **11개**를 Stage 2 벤치마크에 사용했습니다.
+
+- **호흡기**: SARS-CoV-2, MERS, RSV, H3N2, Influenza B
+- **혈액/성매개**: HIV-1, HCV
+- **위장관**: Norovirus
+- **모기 매개**: Dengue, Zika (서열 부족으로 제외)
+- **신경 친화성**: Rabies, EV-A71
+
+[테이블: Table 3.1 — Sequence dataset characteristics for 12 pathogens]
+
+| 바이러스 | 단백질 | 서열 수 | 고유 서열 | 길이(AA) |
+|---------|--------|--------|----------|---------|
+| SARS-CoV-2 | Spike | 4,982 | 753 | 1,259 |
+| H3N2 | HA | 2,644 | 2,562 | 543 |
+| Norovirus | VP1 | 1,500 | 791 | 536 |
+| HIV-1 | Env gp120 | 3,000 | 2,256 | 450 |
+| Dengue | E protein | 2,000 | 796 | 490 |
+| RSV | F protein | 5,070 | 4,779 | 550 |
+| Influenza B | HA | 5,325 | 5,019 | 560 |
+| MERS | Spike | 1,311 | 530 | 1,330 |
+| HCV | E2 | 1,362 | 1,067 | 340 |
+| Rabies | G protein | 2,038 | 2,038 | 524 |
+| EV-A71 | VP1 | 662 | 662 | 297 |
+| Zika* | E protein | 52 | 52 | 505 |
+
+*Zika는 서열 수 부족으로 Stage 2에서 제외
+
+#### 3.1.2 3-Layer Ground Truth Framework (3층 정답 기준)
+
+[그림: 3layer_gt_concept — 3층 GT 개념도]
+
+| Layer | 생물학적 의미 | 벤치마크 역할 |
+|-------|-------------|-------------|
+| **A** | 수렴 진화 위치 (양성 선택) | 양성 기준 — MCC 계산에 사용 |
+| **B** | 정화 선택 하의 보존 영역 | 위험 감시 — Constrained FPR |
+| **C** | DMS 실험에서 기능 영향 확인 | 교차 검증 — Layer A와 독립 |
+
+[테이블: Table 3.2 — 3-layer ground truth position counts per pathogen]
+
+| 바이러스 | Layer A | Layer B | Layer C |
+|---------|---------|---------|---------|
+| SARS-CoV-2 | 25 | 154 | 252 |
+| H3N2 | 25 | 10 | 102 |
+| Norovirus | 15 | 229 | --- |
+| HIV-1 | 23 | 23 | 100 |
+| Dengue | 24 | 24 | --- |
+| RSV | 20 | 18 | 101 |
+| Influenza B | 17 | 10 | --- |
+| MERS | 9 | 110 | --- |
+| HCV | 54 | 0 | --- |
+
+DMS Layer C 가용 병원체: SARS-CoV-2, H3N2, HIV-1, RSV, **Rabies**, **EV-A71** (총 6개)
+
+세 층은 거의 겹치지 않음 (Jaccard 유사도 0.006) → 독립적 정보 제공
+
+#### 3.1.3 DMS-based Benchmark (DMS 기반 벤치마크)
+
+6개 병원체에서 DMS 데이터 가용:
+- SARS-CoV-2 (Dadonaite 2024, spike entry)
+- H3N2 (Lee 2018, HA preferences)
+- HIV-1 (Haddox 2018, Env growth)
+- RSV (Bloom lab 2026, F entry)
+- Rabies (Aditham 2025, G entry)
+- EV-A71 (Bakhache 2025, VP1 replication)
+
+
+### 3.2 Benchmark Framework Design (벤치마크 프레임워크 설계)
+
+#### 3.2.1 MutBench Framework Architecture
+
+[그림: mutbench_pipeline — MutBench 파이프라인 전체 아키텍처]
+
+```
+MSA 서열 (11개 병원체)
+    ↓
+점수화 유형 (6 카테고리, 20가지)
+    ↓
+탐지 알고리즘 (14 패밀리, 39 변형)
+    ↓
+3층 GT 대비 평가 (MCC + Constrained FPR + DMS F1)
+    ↓
+통계 분석 (ANOVA, Friedman, LOPO)
+```
+
+[그림: genome_hotspot_map — SARS-CoV-2 Spike 게놈 핫스팟 지도]
+
+#### 3.2.2 Five MutClust Variants
+
+| 변형 | 설명 |
+|------|------|
+| MutClust-Orig | 원래 CCM + DBSCAN |
+| MutClust-Fixed | 고정 파라미터 DBSCAN |
+| MutClust-HDBSCAN | CCM + HDBSCAN |
+| MutClust-Hybrid | CCM 시드 + HDBSCAN 경계 (최적 균형) |
+| MutClust-Ensemble | 다중 방법 앙상블 |
+
+#### 3.2.3 Combined Evaluation Metric (Hotspot-score)
+
+Stage 1에서 사용:
+
+```
+hotspot-score = (recall + precision + stability) / 3
+```
+
+Stage 2에서는 **MCC**를 핵심 지표로 사용 (stability는 cross-pathogen 비교에서 제외)
+
+### 3.3 Scoring and Detection Methods (점수화 및 탐지 방법)
+
+#### 3.3.1 Scoring Types (20가지, 6개 카테고리)
+
+[테이블: Table 3.4 — Twenty scoring types used in Stage 2 (6 categories)]
+
+| 카테고리 | 유형 | 정보 원천 | 설명 |
+|---------|------|----------|------|
+| **빈도 기반 (3)** | freq | MSA 변이 빈도 | 위치별 변이 빈도 |
+| | rare_freq | MSA 희귀 변이 | 5% 미만 변이 비율 |
+| | freq_with_indel | MSA+indel | 삽입/결실 포함 빈도 |
+| **MSA 파생 (3)** | entropy | Shannon 엔트로피 | 아미노산 다양성 |
+| | entropy_with_indel | 갭 포함 엔트로피 | 갭 문자 포함 |
+| | homoplasy | 계통수 | 독립적 수렴 변이 횟수 |
+| **계통발생 (4)** | dN/dS proxy | 코돈 정렬 | Nei-Gojobori 비율 |
+| | FUBAR prob | HyPhy FUBAR | 양성 선택 사후 확률 |
+| | FUBAR pos_sel | HyPhy FUBAR | 양성 선택 속도 |
+| | FUBAR Bayes factor | HyPhy FUBAR | 양성 선택 베이즈 팩터 |
+| **구조 기반 (3)** | pLDDT inverse | AlphaFold2 | 낮은 신뢰도 = 유연 영역 |
+| | SASA | 3D 구조 | 표면 노출도 |
+| | Grantham distance | 물리화학 | 치환의 화학적 차이 |
+| **AI 기반 (5)** | ESM-2 LLR | PLM | 변이 예측 log-likelihood ratio |
+| | Tranception | PLM | 자기회귀 변이 효과 |
+| | semantic change | ESM-2 임베딩 | 임베딩 공간 코사인 거리 |
+| | stability | 열역학 | 안정성 변화 예측 |
+| | stability_structural | 구조 인식 | 구조 기반 안정성 |
+| **복합 (2)** | EVEscape composite | 다중 결합 | 진화+구조+면역 가중 결합 |
+| | EqualWeight | 전체 평균 | 모든 유형의 동등 가중 평균 |
+
+**핵심 변화 (v1 → v2)**: 9가지 H-score 변형 → 20가지로 확장. 빈도/엔트로피 외에 계통발생(FUBAR), 구조(pLDDT, SASA), AI(ESM-2, Tranception, semantic change, stability), 복합(EVEscape) 유형 추가.
+
+#### 3.3.2 Detection Method Families (14개 탐지 알고리즘 패밀리)
+
+[테이블: Table 3.5 — Detection method families]
+[테이블: Table 3.6 — 39 detection variants]
+
+핵심 9개 알고리즘:
+
+1. **FreqThresh** (빈도 임계값) — 상위 k% 판정. 기준선
+2. **AdaptiveKnee** — 자동 꺾임점 탐지
+3. **Wavelet** (웨이블릿) — 다중 스케일 이상 신호 탐지. **평균 성능 1위**
+4. **CUSUM** — 누적합 변화점. RSV에서 강점
+5. **SlidingTest** — 슬라이딩 윈도우 z-검정. HIV-1에서 강점
+6. **LocalContrast** — 국소-전체 대비
+7. **ScoreDBSCAN** — 밀도 기반 클러스터링. SARS-CoV-2에서 강점
+8. **KDE** — 커널 밀도 추정. 바이러스마다 성능 극단적 차이
+9. **MutClust-Orig** — 레거시 기준
+
+### 3.4 Evaluation and Statistical Design (평가 및 통계 설계)
+
+#### 3.4.1 Evaluation Metrics
+
+- **MCC** (Matthews Correlation Coefficient): 핵심 지표. -1~+1, 4가지 결과(TP/TN/FP/FN) 모두 활용. 극심한 불균형(양성 1~16%)에서 F1보다 공정
+- **Constrained FPR**: Layer B 위치를 핫스팟이라 잘못 판정하는 비율
+- **DMS F1**: Layer C DMS 데이터 대비 F1
+
+#### 3.4.2 Statistical Analysis Design
+
+- **3-way ANOVA**: scoring(20) x detection(14) x pathogen(11), omega-squared로 분산 분해
+- **Friedman 검정**: 비모수. 상위 20개 조합의 순위 일관성 검정
+- **LOPO**: Leave-One-Pathogen-Out. 10개 학습 → 1개 테스트, 11번 반복
+- **BCa bootstrap CI**: MCC의 신뢰 구간
+
+
+\newpage
+
+## Chapter 4. Experimental Results (실험 결과)
+
+### 4.1 Single-Pathogen Benchmark: SARS-CoV-2 (Stage 1)
+
+#### 4.1.1 Variant Comparison on Synthetic Data
+
+합성 데이터에서 MutClust 5가지 변형 비교:
+
+[테이블: Table 4.1 — Hotspot-scores for MutClust variants]
+
+MutClust-Hybrid가 F1=0.785로 최고 균형 (precision 0.968, recall 0.659).
+
+**주의**: 실제 GISAID 데이터에서는 F1이 0.123으로 급락. 합성 실험은 방법 간 차이 구분 능력을 검증하는 것이 목적.
+
+#### 4.1.2 Multi-Ground Truth Evaluation
+
+[테이블: Table 4.2 — Multi-GT evaluation results]
+
+[그림: multi_ground_truth_top.png — 4가지 GT별 최고 F1 비교]
+
+[그림: multi_ground_truth_bottom.png — GT 간 Jaccard 중첩 행렬]
+
+**핵심 발견**: 정답 기준에 따라 최적 방법이 달라짐. GT 간 Jaccard 0.006 — 세 GT가 독립적.
+
+DMS 검증:
+
+[그림: dms_evaluation_top.png — DMS 기반 GT vs 기능 영역 GT에서의 F1]
+
+[그림: dms_evaluation_bottom.png — 점수와 DMS 적합도의 상관]
+
+#### 4.1.3 Real GISAID H-score Benchmark
+
+[테이블: Table 4.3 — Real GISAID benchmark results]
+
+합성 → 실제 데이터 성능 격차가 크지만 enrichment ratio는 6.9~8.0배로 생물학적 타당성 유지.
+
+#### 4.1.4 Comparison with External Methods
+
+MutClust variants vs 범용 방법(OPTICS, KDE 등) 비교. 도메인 특화 방법이 우수.
+
+
+### 4.2 Robustness and Sensitivity Validation (견고성 검증)
+
+[그림: sample_size_convergence.png — 표본 크기에 따른 수렴]
+
+약 1,000개 서열부터 안정화. 본 벤치마크의 서열 수(662~5,325)는 수렴점 이상.
+
+[그림: sensitivity_heatmap.png — 가중치 민감도 히트맵]
+
+MutClust-Hybrid가 171가지 가중치 조합 중 71.9%에서 1위 유지.
+
+
+### 4.3 Cross-Pathogen and Structural Validation
+
+[그림: cross_pathogen_comparison.png — SARS-CoV-2 vs H3N2 vs Flu-B 방법 순위 비교]
+
+Stage 1 최적(MutClust-Hybrid)이 다른 바이러스에서는 순위 하락. "만능 방법 없다"의 첫 번째 직접 증거.
+
+3D 구조 분석: 선형 서열 핫스팟이 공간적으로도 클러스터링됨 (**5.92배** spatial contact enrichment, z=13.34).
+
+
+### 4.4 Cross-Pathogen Large-Scale Benchmark (대규모 벤치마크, Stage 2)
+
+**핵심**: 20 scoring x 39 detection x 11 pathogens = **8,580회** 평가
+
+#### 4.4.1 Benchmark Scale and Data
+
+총 8,580회 평가. 11개 바이러스에 대해 780가지 scoring-detection 조합 각각의 MCC를 계산.
+
+#### 4.4.2 Per-Pathogen Best Method Analysis
+
+[테이블: Table 4.5 — Best scoring-detection combination for each of the 11 pathogens (by MCC)]
+
+| 바이러스 | 최적 점수화 | 카테고리 | 최적 탐지 | MCC |
+|---------|-----------|---------|----------|-----|
+| HCV | freq | 빈도 기반 | SlidingTest(p=0.01) | **0.660** |
+| H3N2 | FUBAR Bayes factor | 계통발생 | Wavelet(t=1.5) | **0.534** |
+| Norovirus | homoplasy | MSA 파생 | Bayes(prior=0.15) | **0.510** |
+| Flu-B | freq | 빈도 기반 | KDE(p=85) | **0.392** |
+| HIV-1 | entropy | MSA 파생 | Wavelet(t=2.0) | **0.275** |
+| Dengue | entropy_with_indel | MSA 파생 | KDE(p=85) | **0.274** |
+| EV-A71 | semantic change | AI 기반 | MutClust-Orig | **0.260** |
+| Rabies | stability | AI 기반 | SWAN(w=20,k=2.0) | **0.248** |
+| SARS-CoV-2 | Tranception | AI 기반 | KDE(p=85) | **0.211** |
+| RSV | ESM-2 LLR | AI 기반 | Wavelet(t=2.0) | **0.196** |
+| MERS | freq | 빈도 기반 | KDE(p=85) | **0.196** |
+
+**11/11 고유 최적 조합**. 9개의 서로 다른 점수화 유형이 최적으로 나타남. 6개 카테고리 전체에 걸쳐 분포.
+
+[그림: stage3_scoring_pathogen_heatmap.png — 20 scoring x 11 pathogen MCC 히트맵]
+
+[그림: stage3_scoring_category_bar.png — 카테고리별 평균 MCC]
+
+[그림: stage3_fubar_spotlight.png — FUBAR 계통발생 scoring의 per-pathogen 성능]
+
+#### 4.4.3 Statistical Analysis
+
+**3-way ANOVA 분산 분해:**
+
+[테이블: Table 4.6 — ANOVA variance decomposition]
+
+| 요인 | 설명 | omega-squared |
+|------|------|--------------|
+| scoring x pathogen | **정보 유형 x 바이러스 상호작용** | **0.296** (최대!) |
+| pathogen | 바이러스 주효과 | 0.128 |
+| family x pathogen | 알고리즘 x 바이러스 상호작용 | 0.065 |
+| scoring | 정보 유형 주효과 | 0.013 |
+| family | 알고리즘 주효과 | 0.002 |
+
+[그림: stage3_anova_decomposition.png — 분산 분해 파이 차트/막대]
+
+**핵심 해석**: "어떤 알고리즘을 쓰느냐"(family, 0.2%)보다 "**어떤 정보를 어떤 바이러스에 쓰느냐**"(scoring x pathogen, 29.6%)가 **23배 더 중요**합니다.
+
+**Friedman 검정:**
+
+chi-squared = 7.69, **p = 0.990** (비유의)
+
+Kendall W = 0.037 (거의 0 — 순위 합의 없음)
+
+해석: 상위 20개 조합 중 어떤 하나도 모든 바이러스에서 일관되게 우위를 점하지 못함. v1에서는 chi-squared=42.44, p=0.0015(유의)였으나, 20가지 scoring으로 확장 후 순위가 더 뒤바뀌어 비유의로 전환 — "만능 방법 없다"를 더 강하게 지지.
+
+**LOPO 교차 검증:**
+
+[그림: stage3_lopo_crossval.png — LOPO 결과: 예측 MCC vs 실제 best MCC]
+
+**0/11 일치**. 평균 일반화 MCC = 0.032, oracle과의 gap = 0.265.
+
+#### 4.4.4 Supplementary Analyses
+
+Precision@k 분석, DMS 임계값 민감도 분석, **Layer A vs Layer C 최적 비교**:
+
+[테이블: Table 4.8 — Best scoring type under Layer A vs Layer C for 6 DMS pathogens]
+
+| 바이러스 | Layer A 최적 | MCC_A | Layer C 최적 | MCC_C |
+|---------|------------|-------|------------|-------|
+| SARS-CoV-2 | Tranception | 0.211 | pLDDT inv | 0.186 |
+| H3N2 | FUBAR BF | 0.534 | semantic change | 0.245 |
+| HIV-1 | entropy | 0.275 | FUBAR | 0.139 |
+| RSV | ESM-2 LLR | 0.196 | EVEscape | 0.180 |
+| Rabies | stability | 0.248 | homoplasy | 0.182 |
+| EV-A71 | semantic change | 0.260 | pLDDT inv | 0.322 |
+
+6개 중 5개에서 Layer A와 Layer C의 최적이 다름 → 독립적 평가 차원 확인.
+
+#### 4.4.5 Summary of Key Findings
+
+4가지 독립 증거:
+
+1. **Interaction dominance**: scoring x pathogen omega-squared = 0.296 (최대)
+2. **Unique best**: 11/11 고유 최적 조합, 9개 서로 다른 scoring 유형
+3. **Generalization failure**: LOPO 0/11, gap = 0.265
+4. **No universal best**: Friedman p = 0.990
+
+
+### 4.5 Information-Type Analysis (정보 유형 분석)
+
+#### 4.5.1 Per-Feature Discriminative Power
+
+[테이블: Table 4.9 — Per-feature AUC for 10 features x 9 pathogens]
+
+[그림: feature_auc_heatmap.png — 10 feature x 9 pathogen AUC 히트맵]
+
+| 바이러스 | 가장 효과적인 정보 | AUC |
+|---------|------------------|-----|
+| Norovirus | homoplasy | **0.944** |
+| Flu-B | homoplasy | **0.805** |
+| H3N2 | pLDDT | **0.787** |
+| Dengue | homoplasy | **0.770** |
+| HIV-1 | entropy | **0.730** |
+| MERS | ESM-2 LLR | **0.695** |
+| HCV | dN/dS proxy | **0.680** |
+| SARS-CoV-2 | ESM-2 LLR | **0.586** |
+| RSV | pLDDT | **0.561** |
+
+#### 4.5.2 Feature Importance by Pathogen
+
+Random Forest로 10가지 feature 결합 시 cross-validation AUC:
+
+- Norovirus: **0.899** (최고)
+- MERS: 0.537 → **0.875** (가장 큰 개선)
+- H3N2: **0.791**
+- HIV-1: **0.802**
+- RSV: **0.737** (단일 feature로는 거의 불가능했던 예측이 가능)
+
+[그림: feature_importance_grid.png — 바이러스별 RF feature 중요도 격자]
+
+#### 4.5.3 Feature Correlation Structure
+
+[그림: feature_correlation_heatmap.png — 10 feature 간 상관 행렬]
+
+빈도-엔트로피 상관 0.97 (사실상 동일). homoplasy는 다른 feature와 상관 0.23 이하 (독립적 정보).
+
+#### 4.5.4 Feature Ablation Analysis
+
+[그림: feature_ablation_bars.png — Feature 제거 실험 결과]
+
+[테이블: Table 4.10 — Feature ablation results]
+
+- **homoplasy** 제거 시 최대 성능 하락 (-0.028) → 가장 중요
+- 빈도 + homoplasy 등 **4개 feature만으로 전체 10개의 98% 성능** 달성
+- ESM-2, SASA는 전체 평균에서 노이즈지만 특정 바이러스에서 최고
+
+#### 4.5.5 Ground Truth Heterogeneity
+
+[테이블: Table 4.11 — GT heterogeneity analysis]
+
+11개 바이러스의 Layer A 위치가 대부분 "면역 회피" 유형 (80~100%). 같은 유형인데도 최적 정보가 다양하게 갈라짐 → omega-squared = 0.296은 GT 차이가 아닌 **진짜 생물학적 차이**.
+
+#### 4.5.6 Practical Validation: Search Space Reduction (실용적 검증)
+
+**Vaccine escape enrichment (20 scoring x 39 detectors, 2,340 evaluations):**
+
+[테이블: Table 4.12 — Best vaccine escape enrichment per pathogen]
+
+| 바이러스 | 최적 scoring | 카테고리 | Detection | Enrichment | p값 |
+|---------|------------|---------|-----------|-----------|-----|
+| **H3N2** | FUBAR BF | 계통발생 | Wavelet(t=2.0) | **9.36배** | <0.0001 |
+| **HIV-1** | freq | 빈도 기반 | Wavelet(t=1.5) | **7.19배** | <0.0001 |
+| **SARS-CoV-2** | FUBAR pos.sel. | 계통발생 | FreqThresh(p=85) | **7.63배** | 0.026 |
+
+**다중 정보 통합 (EqualWeight):**
+
+| 바이러스 | Enrichment | p값 |
+|---------|-----------|-----|
+| H3N2 | **4.01배** | **0.0023** |
+| HIV-1 | **4.17배** | **0.0037** |
+| SARS-CoV-2 | 2.67배 | 0.171 (비유의) |
+
+**Layer A ↔ vaccine escape 교차 검증:**
+
+Layer A 벤치마크에서 최적으로 식별된 scoring 유형 = vaccine escape에서도 최고 enrichment:
+- H3N2: Layer A 최적 = FUBAR BF (MCC 0.534) → escape 최적도 = FUBAR BF (9.36배)
+- HIV-1: Layer A 최적 = freq → escape 최적도 = freq (7.19배)
+
+이 일치는 두 평가가 근본적으로 다른 것을 측정하기 때문에 의미가 큽니다. **Layer A 기반 벤치마크가 실제 공중보건 관련 위치를 정확히 반영**함을 독립적으로 입증.
+
+**탐색 범위 축소 효과:**
+
+| 접근 | 탐색 범위 | 핫스팟 농축 |
+|------|----------|-----------|
+| 무정보 | 500 전부 | 1.0배 |
+| 빈도만 | 상위 50 | 1.7배 |
+| **EqualWeight (10-feature)** | **상위 50** | **4.01배** |
+| **최적 조합 (oracle)** | **상위 20-80** | **7-9배** |
+
+#### 4.5.7 Adaptive Weighting: Current Limits
+
+3가지 적응적 가중치 전략 모두 EqualWeight보다 성능 낮음:
+- kNN-weighted: MCC 0.020
+- Top-3 AUC: MCC 0.049
+- Correlation-aware: MCC 0.043
+- **EqualWeight: MCC 0.083**
+
+원인: 12개 참조 바이러스로는 13차원 프로파일 공간이 심각하게 부족 (차원-표본 비 약 1.1).
+
+단, Oracle MCC = 0.160으로 EqualWeight의 약 2배 → 20~30개 이상 병원체 확보 시 적응적 개선 가능.
+
+
+\newpage
+
+## Chapter 5. Discussion (논의)
+
+### 5.1 Methodological Validity of MutBench (방법론 타당성)
+
+#### 5.1.1 Bootstrap Confidence Intervals
+
+BCa bootstrap CI로 MCC 추정의 불확실성 정량화.
+
+#### 5.1.2 Performance Gap Between Synthetic and Real Data
+
+합성 F1=0.785 → 실제 F1=0.123. 격차 원인: 실제 H-score 분포의 희소성. 단, enrichment 6.9~8.0배로 생물학적 신호 보존.
+
+#### 5.1.3 Independence of Ground Truth and Detection Methods
+
+3층 GT 구성이 특정 탐지 방법에 유리하게 편향되지 않음을 확인. 3D 구조 분석으로 5.92배 공간 접촉 enrichment 확인.
+
+### 5.2 Limitations of H-score-Based Detection (H-score 한계)
+
+#### 5.2.1 Fixed-Reference Scoring
+
+H-score는 founder mutation에 가장 높은 점수 부여 (시뮬레이션에서 100% 경우). 독립 발생 횟수와 rho = -0.876 (강한 음의 상관).
+
+#### 5.2.2 Complementary Evaluation Perspectives
+
+Region-overlap MCC: Exact 0.289 → +/-5: 0.638 → +/-10: **0.712**. H3N2는 +/-10에서 MCC 0.964.
+
+[테이블: Table 5.2 — Region-overlap MCC per pathogen]
+
+#### 5.2.3 Homoplasy-Based Scoring as an Alternative
+
+HIV-1에서 AUC=0.71 (우수), HCV에서 AUC=0.39 (실패 — parsimony 포화).
+
+### 5.3 Cross-Pathogen Generalization (교차 병원체 일반화)
+
+#### 5.3.1 Implications
+
+LOPO 0/11의 실용적 함의: 새 바이러스에 대해 기존 최적을 직접 적용 불가. 병원체별 벤치마크가 필수.
+
+#### 5.3.2 Upper Bound of Detection Performance
+
+MCC 0.083이 낮아 보이는 이유:
+
+| 비교 대상 | 과제 | 성능 | 양성 비율 |
+|----------|------|------|----------|
+| 암 드라이버 유전자 | position-level | MCC 0.1~0.3 | 1~5% |
+| 전사인자 결합 부위 | position-level | F1 0.3~0.5 | 1~3% |
+| **MutBench** | **position-level** | **MCC 0.083** | **2~5%** |
+
+영역 수준에서는 MCC 0.712 (양호).
+
+### 5.4 Practical Implications (실용적 함의)
+
+#### 5.4.1 Vaccine Escape Position Validation (Stage 1 단일 scoring)
+
+[테이블: Table 5.3 — Vaccine escape validation (Stage 1)]
+
+SARS-CoV-2에서 최고 방법이 34개 중 25개 탐지 (recall 73.5%, 4.9배 enrichment).
+
+#### 5.4.2 Cross-Validation via Vaccine Escape Enrichment
+
+**v98의 핵심 추가 검증**: 3개 병원체, 2,340회 evaluation에서 Layer A 최적 = escape 최적이라는 교차 검증 달성. 이것은 DMS 데이터 없는 5개 바이러스에서 Layer A의 타당성을 뒷받침하는 독립 증거.
+
+#### 5.4.3 Practical Application Workflow for New Pathogens
+
+새로운 바이러스에 MutBench 적용하는 4단계 워크플로우:
+
+1. **서열 수집**: 200개 이상, MAFFT로 MSA 구축 (~5분)
+2. **Feature 계산**: freq/entropy (초), homoplasy (2~5분), ESM-2 (3~5분, GPU), 구조 (AlphaFold2)
+3. **Scoring 카테고리 선택**: 아래 추천표 참고
+4. **탐지 및 평가**: KDE 또는 Wavelet 기본값 적용 (~30초)
+
+전체 소요시간: **15~20분** (GPU 탑재 워크스테이션)
+
+[테이블: Table 5.4 — Recommended scoring categories by virus family]
+
+| 바이러스 패밀리 | 추천 Scoring | 근거 |
+|---------------|-------------|------|
+| Orthomyxoviridae (인플루엔자) | Phylogenetic (FUBAR) | 강한 다양화 선택 신호 |
+| Coronaviridae (코로나) | AI-based (PLM) | 얕은 계통; PLM이 넓은 맥락 포착 |
+| Caliciviridae (노로) | MSA-derived (homoplasy) | epoch 진화에서 수렴 패턴 |
+| Retroviridae (HIV) | MSA-derived (entropy) | 높은 다양성; 대립유전자 변이 포착 |
+| Flaviviridae (HCV, 뎅기) | Frequency-based | 초변이 영역이 신호 지배 |
+| Pneumoviridae (RSV) | AI-based (ESM-2) | 제한된 계통발생 신호 |
+
+#### 5.4.4 Phylogenetic Non-Independence
+
+H-score가 founder effect 보정 불가. Homoplasy 기반 보정이 부분적 대안 (H-score vs homoplasy: rho = -0.107, p = 1.36e-4).
+
+#### 5.4.5 ESM-2 Training Data Overlap
+
+ESM-2가 SARS-CoV-2/MERS에서 높은 성능을 보이는 것이 학습 데이터 겹침 때문일 가능성. 단, Norovirus/HIV에서 낮은 성능은 이것이 만능이 아님을 확인.
+
+#### 5.4.6 Ground Truth Heterogeneity Across Pathogens
+
+Layer A 선정 기준이 병원체마다 다름 (SARS-CoV-2: 수렴 진화, HCV: 초변이 영역 등). 논문에서 한계로 명시.
+
+
+\newpage
+
+## Chapter 6. Conclusion (결론)
+
+### 6.1 Summary of Research Contributions (기여 요약)
+
+**기여 1: MutBench 벤치마크 프레임워크**
+
+바이러스 핫스팟 탐지 분야 최초의 체계적 비교 기준.
+- 11개 바이러스, 20가지 점수화 유형 (6개 카테고리), 39가지 탐지 알고리즘, 3층 정답 기준
+- **8,580회** 대규모 평가
+
+**기여 2: 정보 유형 x 병원체 상호작용이 핵심이라는 발견**
+
+4가지 독립 통계 증거:
+- ANOVA: scoring x pathogen **omega-squared = 0.296** (최대 분산원). "어떤 알고리즘"(0.2%)보다 "어떤 정보"(29.6%)가 **23배 중요**
+- 11/11 고유 최적 조합 (9개 서로 다른 scoring 유형)
+- Friedman: **chi-squared = 7.69, p = 0.990** (일관된 최고 조합 없음)
+- LOPO: **0/11** 일치 (일반화 불가)
+
+**기여 3: 다중 정보 통합 분석 및 vaccine escape 교차 검증**
+
+- 10가지 정보 유형의 병원체별 판별력 분석
+- 최적 조합으로 **최대 9.36배** enrichment (H3N2, p<0.0001)
+- EqualWeight 통합: H3N2 **4.01배** (p=0.0023), HIV-1 **4.17배** (p=0.0037)
+- Layer A 최적 = vaccine escape 최적이라는 **독립적 교차 검증** 달성
+
+### 6.2 Limitations (한계)
+
+[테이블: Table 6.1 — Summary of limitations]
+
+| 한계 | 설명 | 경감 요인 |
+|------|------|----------|
+| GT 불완전 | DMS 데이터 6/11 병원체만 | Layer A만으로 MCC 평가 가능 |
+| RNA 바이러스만 | DNA 바이러스(HPV, HBV) 미포함 | 변이 메커니즘이 다르므로 별도 검증 필요 |
+| Founder effect | H-score 파이프라인 내 직접 보정 미통합 | Homoplasy + FUBAR scoring으로 보완 |
+| dN/dS proxy | 단백질 수준 proxy, 빈도와 r=0.87 | FUBAR는 codon alignment 직접 사용 |
+| 적응적 가중치 | 12개 병원체로 학습 부족 | Oracle MCC 0.160 → 확장 시 개선 가능 |
+
+### 6.3 Future Research Directions (향후 연구)
+
+[테이블: Table 6.2 — Future research roadmap]
+
+| 방향 | 내용 |
+|------|------|
+| 병원체 확장 | 20~30개 이상으로 확장하여 적응적 가중치 학습 가능하게 |
+| DNA 바이러스 | HPV, HBV 등 DNA 바이러스로 벤치마크 확장 |
+| 시계열 통합 | 시간에 따른 핫스팟 변화 추적 |
+| 구조 통합 | AlphaFold2 예측 구조를 3D 핫스팟 탐지에 활용 |
+| 실시간 감시 | MutBench를 Nextstrain과 통합하여 실시간 핫스팟 모니터링 |
+
+### 6.4 Concluding Remarks (맺음말)
+
+바이러스마다 최적의 핫스팟 탐지 방법이 다릅니다. MutBench가 11개 바이러스, 20가지 점수화 유형, 8,580회 평가로 이를 증명했고, **"어떤 정보를 사용하느냐"가 "어떤 알고리즘을 쓰느냐"보다 23배 더 중요**하다는 것을 밝혔습니다.
+
+10가지 정보의 통합 분석은 최대 9.36배의 탐색 범위 축소를 달성하며, Layer A 벤치마크 순위와 vaccine escape enrichment의 일치를 통해 독립적으로 검증되었습니다.
+
+앞으로는 바이러스 특성에 맞는 정보 유형을 선택·통합하는 접근이 필요하며, 병원체 참조 데이터베이스의 확장이 적응적 방법 선택의 핵심 과제입니다.
+
+
+\newpage
+
+## 부록: v1 → v2 주요 변경 사항 요약
+
+| 항목 | v1 (구) | v2 (신) |
+|------|---------|---------|
+| 바이러스 수 | 9개 | **11개** (Rabies, EV-A71 추가) |
+| 점수화 공식 | 9가지 (H-score 변형) | **20가지** (6개 카테고리) |
+| 총 평가 횟수 | 3,159회 | **8,580회** |
+| ANOVA 최대 분산원 | family x pathogen, omega-squared=0.285 | **scoring x pathogen, omega-squared=0.296** |
+| ANOVA 핵심 해석 | "탐지 알고리즘 x 바이러스 궁합이 핵심" | **"정보 유형 x 바이러스 궁합이 핵심"** |
+| Friedman 검정 | chi-squared=42.44, p=0.0015 (유의) | **chi-squared=7.69, p=0.990 (비유의)** |
+| LOPO | 0/9 | **0/11** |
+| DMS 가용 병원체 | 4개 (SARS-CoV-2, H3N2, HIV-1, RSV) | **6개** (+Rabies, EV-A71) |
+| Vaccine escape enrichment | H3N2 4.0배 (단일) | **최대 9.36배** (3개 병원체) |
+| Vaccine escape 교차 검증 | 없음 | **추가** (Layer A 최적 = escape 최적) |
+| 논문 구조 | 7장 | **6장** (Ch5 → Ch4 통합) |
+| EVE scoring | 포함 | **제거** |
+| Dengue DMS | 포함 | **제거** (잘못된 단백질 매핑) |
