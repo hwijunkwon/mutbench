@@ -1,4 +1,4 @@
-\begin{thebibliography}{85}
+\begin{thebibliography}{91}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -218,6 +218,14 @@ Adam~J. Riesselman, John~B. Ingraham, and Debora~S. Marks.
 \newblock \emph{Nature Methods}, 15\penalty0 (10):\penalty0 816--822, 2018.
 \newblock \doi{10.1038/s41592-018-0138-4}.
 
+\bibitem[Frazer et~al.(2021)Frazer, Notin, Dias, Gomez, Min, Brock, Gal, and
+  Marks]{frazer2021eve}
+Jonathan Frazer, Pascal Notin, Mafalda Dias, Aidan Gomez, Joseph~K Min, Kelly
+  Brock, Yarin Gal, and Debora~S Marks.
+\newblock Disease variant prediction with deep generative models of
+  evolutionary data.
+\newblock \emph{Nature}, 599:\penalty0 91--95, 2021.
+
 \bibitem[Lin et~al.(2023)Lin, Akin, Rao, Hie, Zhu, Lu, Smedberg, Verkuil,
   Kabeli, Shmueli, dos Santos~Costa, Fazel-Zarandi, Sercu, Candido, and
   Rives]{lin2023esm2}
@@ -275,6 +283,14 @@ Brian Hie, Ellen~D Zhong, Bonnie Berger, and Bryan Bryson.
 \newblock Learning the language of viral evolution and escape.
 \newblock \emph{Science}, 371\penalty0 (6526):\penalty0 284--288, 2021.
 \newblock \doi{10.1126/science.abd7331}.
+
+\bibitem[Thadani et~al.(2023)Thadani, Gurev, Notin, Youssef, Rollber, Gal, and
+  Marks]{thadani2023evescape}
+Nicole~N. Thadani, Sarah Gurev, Pascal Notin, Noor Youssef, Nathan Rollber,
+  Yarin Gal, and Debora~S. Marks.
+\newblock Learning from prepandemic data to forecast viral escape.
+\newblock \emph{Nature}, 622:\penalty0 818--825, 2023.
+\newblock \doi{10.1038/s41586-023-06617-0}.
 
 \bibitem[Kerschke et~al.(2019)Kerschke, Hoos, Neumann, and
   Trautmann]{kerschke2019algorithm}
@@ -353,6 +369,20 @@ Tirso Pons, Abel Gonzalez-Perez, Nuria Lopez-Bigas, Dietmar Schomburg, and
 \newblock \emph{Computational and Structural Biotechnology Journal},
   18:\penalty0 3567--3576, 2020.
 \newblock \doi{10.1016/j.csbj.2020.11.020}.
+
+\bibitem[Gurev et~al.(2025)Gurev, Youssef, Jain, and Marks]{gurev2025everest}
+Sarah Gurev, Noor Youssef, Sanjit Jain, and Debora~S Marks.
+\newblock Variant effect prediction across priority viruses.
+\newblock \emph{bioRxiv}, 2025.
+\newblock \doi{10.1101/2025.08.04.668549}.
+
+\bibitem[Cheng et~al.(2023)Cheng, Novati, Pan, Bycroft, Zemgulyte, Sherburn,
+  et~al.]{cheng2023alphamissense}
+Jun Cheng, Guido Novati, Joshua Pan, Clare Bycroft, Agne Zemgulyte, Taylor
+  Sherburn, et~al.
+\newblock Accurate proteome-wide missense variant effect prediction with
+  {AlphaMissense}.
+\newblock \emph{Science}, 381:\penalty0 eadg7492, 2023.
 
 \bibitem[Smith et~al.(2004)Smith, Lapedes, de~Jong, et~al.]{smith2004antigenic}
 Derek~J. Smith, Alan~S. Lapedes, Jan~C. de~Jong, et~al.
@@ -532,6 +562,21 @@ Masatoshi Nei and Takashi Gojobori.
   418--426, 1986.
 \newblock \doi{10.1093/oxfordjournals.molbev.a040410}.
 
+\bibitem[Murrell et~al.(2013)Murrell, Moola, Mabona, Weighill, Sheward,
+  Kosakovsky~Pond, and Scheffler]{murrell2013fubar}
+Ben Murrell, Sasha Moola, Amandla Mabona, Thomas Weighill, Daniel Sheward,
+  Sergei~L Kosakovsky~Pond, and Konrad Scheffler.
+\newblock {FUBAR}: a fast, unconstrained {B}ayesian approximation for inferring
+  selection.
+\newblock \emph{Molecular Biology and Evolution}, 30\penalty0 (5):\penalty0
+  1196--1205, 2013.
+
+\bibitem[Grantham(1974)]{grantham1974amino}
+R~Grantham.
+\newblock Amino acid difference formula to help explain protein evolution.
+\newblock \emph{Science}, 185\penalty0 (4154):\penalty0 862--864, 1974.
+\newblock \doi{10.1126/science.185.4154.862}.
+
 \bibitem[Mercatelli and Giorgi(2020)]{mercatelli2020geographic}
 Daniele Mercatelli and Federico~M. Giorgi.
 \newblock Geographic and genomic distribution of {SARS-CoV-2} mutations.
@@ -570,6 +615,11 @@ Davide Chicco and Giuseppe Jurman.
 Jacob Cohen.
 \newblock \emph{Statistical Power Analysis for the Behavioral Sciences}.
 \newblock Lawrence Erlbaum Associates, 2nd edition, 1988.
+
+\bibitem[Dem{\v{s}}ar(2006)]{demsar2006statistical}
+Janez Dem{\v{s}}ar.
+\newblock Statistical comparisons of classifiers over multiple datasets.
+\newblock \emph{Journal of Machine Learning Research}, 7:\penalty0 1--30, 2006.
 
 \bibitem[Efron(1987)]{efron1987better}
 Bradley Efron.
@@ -616,12 +666,6 @@ A~Shrake and JA~Rupley.
 \newblock \emph{Journal of Molecular Biology}, 79\penalty0 (2):\penalty0
   351--371, 1973.
 \newblock \doi{10.1016/0022-2836(73)90011-9}.
-
-\bibitem[Grantham(1974)]{grantham1974amino}
-R~Grantham.
-\newblock Amino acid difference formula to help explain protein evolution.
-\newblock \emph{Science}, 185\penalty0 (4154):\penalty0 862--864, 1974.
-\newblock \doi{10.1126/science.185.4154.862}.
 
 \bibitem[Wilson et~al.(2022)Wilson, Choy, and Bhatt]{wilson2022alphafold}
 Christopher~J Wilson, Wing-Yiu Choy, and Dilip~K Bhatt.

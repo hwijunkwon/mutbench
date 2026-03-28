@@ -534,6 +534,7 @@ The key observations from these results are as follows.
 First, the best scoring type differs fundamentally across pathogens: FUBAR Bayes factor is best for H3N2, homoplasy for Norovirus, Tranception for SARS-CoV-2, ESM-2 LLR for RSV, semantic change for EV-A71, stability for Rabies, and frequency-based scores for HCV, Influenza B, and MERS. This diversity spanning six information categories is the central finding.
 Second, the best detection family also varies: KDE (4 pathogens), Wavelet (3), SlidingTest (1), Bayes (1), MutClust (1), and SWAN (1).
 Third, the MCC range spans from 0.196 (RSV/MERS) to 0.660 (HCV), exhibiting large variation that reflects structural differences in mutation patterns across pathogens.
+SARS-CoV-2 exhibits the lowest best MCC (0.211) despite being the best-studied pathogen, reflecting the extreme class imbalance (25 Layer A positions out of 1,259 total, a 2.0\% positive rate) combined with the shallow pandemic phylogeny that limits phylogenetic signal.
 
 \begin{figure}[htbp]
 \centering
@@ -740,7 +741,7 @@ Synthesizing the key results of the cross-pathogen benchmark, the need for patho
 \item \textbf{Interaction dominance}: The scoring $\times$ pathogen interaction ($\omega^2 = 0.296$) is the largest source of variance, exceeding all main effects and other interactions. Which information source is used matters more than which algorithm processes it.
 \item \textbf{Unique best combinations}: 11 unique best combinations were observed across 11/11 pathogens, with 9 distinct scoring types. No two pathogens share the same best combination.
 \item \textbf{Generalization failure}: LOPO cross-validation yielded 0/11 combination matches with a mean generalization MCC of 0.032. The best combination selected from training pathogens does not generalize to new pathogens.
-\item \textbf{Significant combination differences}: Friedman $\chi^2 = 42.44$, $p = 0.0015$. The choice of combination has a significant impact on performance.
+\item \textbf{No universally superior combination}: Friedman $\chi^2 = 7.69$, $p = 0.990$. No single combination is reliably distinguishable as superior across all pathogens.
 \end{enumerate}
 
 These results statistically establish that ``the best-performing method differs for each pathogen,'' and that the interaction between scoring method and pathogen is the dominant source of performance variance.
@@ -751,6 +752,8 @@ The following section investigates \textit{why} this interaction arises by analy
 \section{Information-Type Analysis}
 \label{sec:information_analysis}
 \label{ch:adapt} % retained for cross-reference compatibility (formerly Chapter 5)
+
+The 20 scoring formulas used in the benchmark are derived from 10 underlying biological features spanning 6 information categories. Several scoring formulas represent the same feature (e.g., freq, freq\_with\_indel, and rare\_freq are all frequency-based), while composite formulas (EVEscape\_composite, EqualWeight) combine multiple features. The following analysis examines the discriminative power of the 10 underlying features to explain why the scoring $\times$ pathogen interaction dominates.
 
 The preceding sections demonstrated that the best-performing scoring--detection combination differs across pathogens ($\omega^2_{\text{scoring}\times\text{pathogen}} = 0.296$). This section investigates \textit{why} this interaction arises by analyzing the discriminative power of individual information types (features) that underlie the scoring formulas, and examines whether pathogen-specific feature importance patterns explain the observed cross-pathogen heterogeneity.
 

@@ -3,9 +3,9 @@
 \label{ch:mutbench}
 
 This chapter presents the methodology of MutBench, a benchmark framework for the systematic evaluation of viral mutation hotspot detection methods.
-The overall pipeline processes multiple sequence alignment (MSA) data from 9 RNA viruses through 9 scoring formulas and 39 detection methods, evaluating results against a 3-layer ground truth system using the hotspot-score composite metric and Matthews Correlation Coefficient (MCC).
-The evaluation follows a two-stage design: Stage~1 conducts in-depth analysis on SARS-CoV-2 to validate the framework components, and Stage~2 extends the evaluation to all 9 pathogens for large-scale cross-pathogen comparison.
-Section~\ref{sec:mutbench_materials} describes the materials (target pathogens, ground truth framework, and DMS data), Sections~\ref{sec:mutbench_methods}--\ref{sec:eval_stat_design} present the methods: Section~\ref{sec:mutbench_methods} covers the benchmark framework design including MutClust variants and the hotspot-score metric, Section~\ref{sec:scoring_detection} describes the scoring formulas and detection method families, and Section~\ref{sec:eval_stat_design} details the evaluation metrics and statistical analysis design.
+The overall pipeline processes multiple sequence alignment (MSA) data from 11 RNA viruses through 20 scoring types and 39 detection methods, evaluating results against a 3-layer ground truth system using the hotspot-score composite metric and Matthews Correlation Coefficient (MCC).
+The evaluation follows a two-stage design: Stage~1 conducts in-depth analysis on SARS-CoV-2 to validate the framework components, and Stage~2 extends the evaluation to all 11 pathogens for large-scale cross-pathogen comparison.
+Section~\ref{sec:mutbench_materials} describes the materials (target pathogens, ground truth framework, and DMS data), Sections~\ref{sec:mutbench_methods}--\ref{sec:eval_stat_design} present the methods: Section~\ref{sec:mutbench_methods} covers the benchmark framework design including MutClust variants and the hotspot-score metric, Section~\ref{sec:scoring_detection} describes the scoring types and detection method families, and Section~\ref{sec:eval_stat_design} details the evaluation metrics and statistical analysis design.
 \label{sec:9pathogen_benchmark}
 
 %% ============================================================
@@ -15,13 +15,15 @@ Section~\ref{sec:mutbench_materials} describes the materials (target pathogens, 
 \subsection{Target Pathogens and Data}
 \label{subsec:9pathogen_data}
 
-Nine RNA viruses were selected to cover diverse evolutionary dynamics, transmission routes, and genomic characteristics:
+Eleven RNA viruses were selected to cover diverse evolutionary dynamics, transmission routes, and genomic characteristics:
 (1)~\textit{Respiratory viruses}: SARS-CoV-2 (Spike, 1,273 AA), MERS-CoV (Spike, 1,330 AA), RSV (F protein, 574 AA), Influenza A H3N2 (HA, 566 AA), and Influenza B (HA, 584 AA);
 (2)~\textit{Blood-borne/sexually transmitted}: HIV-1 (Env gp120, 480 AA) and HCV (E2, 340 AA);
 (3)~\textit{Enteric}: Norovirus (VP1, 540 AA);
-(4)~\textit{Arthropod-borne}: Dengue (E protein, 495 AA).
-These 9 pathogens span mutation rates from $\sim$10$^{-3}$ (HIV-1) to $\sim$10$^{-4}$ (SARS-CoV-2) substitutions/site/year, alignment lengths from 340 to 1,330 AA, and evolutionary patterns from rapid antigenic drift (H3N2) to epochal evolution (Norovirus).
+(4)~\textit{Arthropod-borne}: Dengue (E protein, 495 AA) and Zika (E protein, 505 AA);
+(5)~\textit{Neurotropic}: Rabies (G protein, 524 AA) and EV-A71 (VP1, 297 AA).
+These 11 pathogens span mutation rates from $\sim$10$^{-3}$ (HIV-1) to $\sim$10$^{-4}$ (SARS-CoV-2) substitutions/site/year, alignment lengths from 297 to 1,330 AA, and evolutionary patterns from rapid antigenic drift (H3N2) to epochal evolution (Norovirus).
 This diversity ensures that the benchmark evaluates method performance across a representative range of viral evolutionary regimes rather than a single pathogen's characteristics.
+Zika virus (52 unique sequences) was excluded from the Stage~2 benchmark due to insufficient sequence diversity for reliable scoring and detection; all other 11 pathogens are included in the full evaluation.
 FASTA sequences for each pathogen were collected from NCBI GenBank by querying each target protein name (e.g., ``SARS-CoV-2 spike glycoprotein'') with filters for complete coding sequences, excluding partial sequences and laboratory-derived constructs. No date range restriction was applied; all available sequences as of December 2024 were downloaded. Sequences with $>$5\% ambiguous bases (N) were removed, and identical sequences were deduplicated (the ``Unique seq.'' column in Table~\ref{tab:pathogen_data} reflects post-deduplication counts). Multiple sequence alignment (MSA) was performed for each surface protein (SARS-CoV-2: Spike, H3N2: HA, HIV-1: Env gp120, etc.) using MAFFT v7.505~\cite{katoh2013mafft} with the \texttt{--auto} mode, followed by computation of per-position mutation frequency and entropy.
 The \texttt{--auto} mode automatically selects among FFT-NS-2, L-INS-i, and G-INS-i based on the number and length of input sequences~\cite{katoh2013mafft}.
 At the sequence scales used in this study (1,311--5,325 sequences, Table~\ref{tab:pathogen_data}), FFT-NS-2 is typically selected, but the alignment algorithm may differ across pathogens, and the effect of this difference on alignment quality---and consequently on per-position mutation frequency computation---was not controlled in this study.
@@ -31,7 +33,7 @@ Table~\ref{tab:pathogen_data} summarizes the characteristics of each pathogen's 
 
 \begin{table}[htbp]
 \centering
-\caption{Sequence dataset characteristics for 12 pathogens (9 for Stage~2 benchmark + 3 extended for information-type analysis)}
+\caption{Sequence dataset characteristics for 12 pathogens (11 for Stage~2 benchmark + Zika excluded)}
 \label{tab:pathogen_data}
 \footnotesize
 \adjustbox{max width=\textwidth}{
@@ -48,14 +50,18 @@ RSV & F protein & KT992094 (RSV-A) & 5,070 & 4,779 & 550 \\
 Influenza B & HA & CY018765 (B/Florida/4/2006) & 5,325 & 5,019 & 560 \\
 MERS & Spike & NC\_019843.3 (MERS-CoV) & 1,311 & 530 & 1,330 \\
 HCV & E2 & NC\_004102.1 (HCV-1a) & 1,362 & 1,067 & 340 \\
-\midrule
-\multicolumn{6}{l}{\textit{Extended pathogens (Section~\ref{sec:information_analysis})}} \\
-Zika & E protein & NC\_012532.1 & 52 & 52 & 505 \\
 Rabies & G protein & NC\_001542.1 & 2,038 & 2,038 & 524 \\
 EV-A71 & VP1 & AB204852 & 662 & 662 & 297 \\
+\midrule
+\multicolumn{6}{l}{\textit{Excluded from Stage~2 benchmark (insufficient sequences)}} \\
+Zika$^\star$ & E protein & NC\_012532.1 & 52 & 52 & 505 \\
 \bottomrule
 \end{tabular}
 }
+\begin{minipage}{\textwidth}
+\smallskip
+\footnotesize $^\star$Zika was excluded from the Stage~2 benchmark (52 unique sequences insufficient for reliable per-position scoring).
+\end{minipage}
 \end{table}
 
 \subsection{3-Layer Ground Truth Framework}
@@ -226,10 +232,10 @@ The framework is organized into three components, as illustrated in Figure~\ref{
     label/.style={font=\footnotesize\itshape, text=gray}
 ]
 % Input
-\node[box, fill=blue!10] (input) {MSA Sequences\\(9 pathogens)};
+\node[box, fill=blue!10] (input) {MSA Sequences\\(11 pathogens)};
 
 % Scoring
-\node[box, fill=green!10, below=of input] (scoring) {Scoring Formulas\\(9 methods)};
+\node[box, fill=green!10, below=of input] (scoring) {Scoring Types\\(6 categories, 20 types)};
 
 % Detection
 \node[box, fill=orange!10, below=of scoring] (detection) {Detection Methods\\(39 methods, 14 families)};
@@ -252,11 +258,11 @@ The framework is organized into three components, as illustrated in Figure~\ref{
 
 % Stage labels
 \node[label, left=0.3cm of scoring] {Stage 1: SARS-CoV-2};
-\node[label, left=0.3cm of stats] {Stage 2: 9 pathogens};
+\node[label, left=0.3cm of stats] {Stage 2: 11 pathogens};
 
 \end{tikzpicture}
 }% end resizebox
-\caption{Overview of the MutBench benchmark framework pipeline. Input multiple sequence alignment (MSA) data are processed through scoring formulas and detection methods, evaluated against a 3-layer ground truth, and analyzed using multiple statistical tests.}
+\caption{Overview of the MutBench benchmark framework pipeline. Input multiple sequence alignment (MSA) data are processed through scoring types and detection methods, evaluated against a 3-layer ground truth, and analyzed using multiple statistical tests.}
 \label{fig:mutbench_pipeline}
 \end{figure}
 
@@ -424,46 +430,78 @@ The weight sensitivity analysis (Section~\ref{subsec:weight_sensitivity_methods}
 \section{Scoring and Detection Methods}
 \label{sec:scoring_detection}
 
-\subsection{Scoring Formulas}
+\subsection{Scoring Types}
 \label{subsec:9pathogen_scoring}
 
-Nine scoring formulas are defined to assign scores to each genomic position (Table~\ref{tab:scoring_formulas}).
-Here, $P_i$ denotes the mutation frequency at position $i$, $E_i$ the Shannon entropy, $\text{rare}_i$ the rare variant frequency (proportion of variants with frequency below 5\%), and $f_{2\text{nd},i}$ the second most frequent allele frequency.
+Twenty scoring types organized into six categories are defined to assign per-position scores from diverse information sources (Table~\ref{tab:scoring_types}).
+Each category captures a distinct biological or computational perspective on mutational importance, ensuring that the benchmark evaluates detection methods across a broad range of input signals.
 
 \begin{table}[htbp]
 \centering
-\caption{Nine scoring formulas used in the MutBench benchmark}
-\label{tab:scoring_formulas}
+\caption{Twenty scoring types used in the MutBench Stage~2 benchmark (6 categories)}
+\label{tab:scoring_types}
 \small
 \adjustbox{max width=\textwidth}{
-\begin{tabular}{lll}
+\begin{tabular}{llll}
 \toprule
-\textbf{Name} & \textbf{Formula} & \textbf{Description} \\
+\textbf{Category} & \textbf{Scoring type} & \textbf{Information source} & \textbf{Description} \\
 \midrule
-E*rare & $S_i = E_i \times \text{rare}_i$ & Entropy $\times$ rare variant frequency \\
-P*E*rare & $S_i = P_i \times E_i \times \text{rare}_i$ & Frequency $\times$ entropy $\times$ rare variants \\
-minority\_E & $S_i = f_{2\text{nd},i} \times E_i$ & Minor allele frequency $\times$ entropy \\
-P*minority\_E & $S_i = P_i \times f_{2\text{nd},i} \times E_i$ & Frequency $\times$ minor allele $\times$ entropy \\
-P*E & $S_i = P_i \times E_i$ & Simple frequency--entropy product \\
-H-score & $S_i = \log_2(P_i \times E_i \times 100 + 1)$ & Original MutClust formula (Eq.~\ref{eq:mutbench_hscore}) \\
-E\_only & $S_i = E_i$ & Shannon entropy alone \\
-P*E$^2$ & $S_i = P_i \times E_i^2$ & Quadratic entropy weighting \\
-rank(P*E) & $S_i = \text{rank}(P_i \times E_i) / N$ & Nonparametric rank-normalized score \\
+\multirow{3}{*}{Frequency-based (3)} & freq & MSA mutation frequency & Position-level mutation frequency \\
+ & rare\_freq & MSA rare variant frequency & Proportion of variants below 5\% frequency \\
+ & freq\_with\_indel & MSA frequency incl.\ indels & Mutation frequency including insertion/deletion events \\
+\midrule
+\multirow{3}{*}{MSA-derived (3)} & entropy & MSA Shannon entropy & Per-position diversity ($-\sum p_j \log_2 p_j$) \\
+ & entropy\_with\_indel & MSA entropy incl.\ indels & Shannon entropy including gap characters \\
+ & homoplasy & Phylogenetic tree & Convergent evolution count on reconstructed phylogeny \\
+\midrule
+\multirow{4}{*}{Phylogenetic (4)} & dN/dS proxy & Codon alignment & Nei--Gojobori nonsynonymous/synonymous ratio proxy \\
+ & FUBAR prob & Codon model (HyPhy) & Posterior probability of positive selection \\
+ & FUBAR pos\_sel & Codon model (HyPhy) & Positive selection rate ($\beta - \alpha$) \\
+ & FUBAR Bayes factor & Codon model (HyPhy) & Bayes factor evidence for positive selection \\
+\midrule
+\multirow{3}{*}{Structural (3)} & pLDDT inverse & AlphaFold2 prediction & $1 - \text{pLDDT}$; low confidence $\approx$ flexible/disordered \\
+ & SASA & 3D structure & Solvent-accessible surface area (exposed residues) \\
+ & Grantham distance & Physicochemical properties & Mean Grantham distance of observed substitutions \\
+\midrule
+\multirow{5}{*}{AI-based (5)} & ESM-2 LLR & Protein language model & Log-likelihood ratio of mutation vs.\ wildtype \\
+ & Tranception & Autoregressive PLM & Mutation effect prediction via Tranception model \\
+ & semantic change & ESM-2 embeddings & Cosine distance in embedding space (WT vs.\ mutant) \\
+ & stability & Thermodynamic predictor & Predicted $\Delta\Delta G$ of folding stability change \\
+ & stability\_structural & Structure-aware predictor & $\Delta\Delta G$ from structure-conditioned stability model \\
+\midrule
+\multirow{2}{*}{Composite (2)} & EVEscape composite & Multi-feature combination & Weighted combination of evolutionary and structural features \\
+ & EqualWeight & All-feature average & Equal-weighted average of all normalized scoring types \\
 \bottomrule
 \end{tabular}
 }
 \end{table}
 
-\subsection{Scoring Variants for Multi-Source Ground Truth}
+\textbf{Frequency-based scores} capture the raw mutation signal from the MSA: how often each position deviates from the consensus, including rare variants and indel-inclusive counts.
+These scores reflect the most direct observable signal but are susceptible to sampling bias and alignment artifacts.
+
+\textbf{MSA-derived scores} quantify diversity patterns beyond simple frequency: Shannon entropy measures allelic diversity, while homoplasy counts independent convergent mutations on the phylogeny, providing a signal distinct from overall frequency.
+
+\textbf{Phylogenetic scores} leverage codon-level evolutionary models to estimate selection pressures.
+The dN/dS proxy uses the Nei--Gojobori method, while the three FUBAR-based scores~\cite{murrell2013fubar} provide Bayesian estimates of site-specific selection from the HyPhy framework, each capturing a different aspect of the posterior distribution.
+
+\textbf{Structural scores} incorporate three-dimensional protein information: pLDDT inverse from AlphaFold2 predictions identifies flexible or disordered regions, SASA measures surface exposure (relevant for immune accessibility), and Grantham distance~\cite{grantham1974amino} quantifies the physicochemical severity of observed substitutions.
+
+\textbf{AI-based scores} leverage protein language models (PLMs) trained on large-scale protein sequence databases.
+ESM-2 log-likelihood ratios and Tranception scores predict mutational effects from evolutionary context, semantic change captures embedding-space shifts, and stability predictors estimate thermodynamic consequences of mutations.
+
+\textbf{Composite scores} combine multiple information sources: EVEscape integrates evolutionary, structural, and immunological features, while EqualWeight provides a naive baseline averaging all normalized scores.
+
+\subsection{Stage~1 Temporal Scoring Variants (SARS-CoV-2 Only)}
 \label{subsec:alternative_scoring}
 
+The following scoring variants were developed specifically for the Stage~1 SARS-CoV-2 temporal analysis and are distinct from the 20 Stage~2 scoring types described above.
 As H-score saturation was identified in the temporal validation (Section~\ref{sec:temporal}), alternative scoring methods were designed for complementary evaluation against various ground truth definitions.
 These methods are ``scoring'' approaches that assign a score to each genomic position; top positions are selected via thresholding and compared against multiple ground truths.
-Table~\ref{tab:alternative_scoring} summarizes these variants.
+Table~\ref{tab:alternative_scoring} summarizes these Stage~1 variants.
 
 \begin{table}[htbp]
 \centering
-\caption{Alternative scoring variants for multi-source ground truth evaluation}
+\caption{Stage~1 temporal scoring variants used only for SARS-CoV-2 analysis}
 \label{tab:alternative_scoring}
 \small
 \adjustbox{max width=\textwidth}{
@@ -490,12 +528,12 @@ dN/dS-weighted CH & $\text{CH}_i \times (dN/dS)_i$ & CH-score weighted by positi
 \label{subsec:9pathogen_detection}
 
 A total of 39 detection methods belonging to 14 algorithm families are evaluated.
-Each detection method identifies hotspot regions from the per-position score profile assigned by a scoring formula.
+Each detection method identifies hotspot regions from the per-position score profile assigned by a scoring type.
 Two additional ensemble variants (majority vote of 4 threshold-based sub-detectors) were initially considered but excluded from the benchmark because their outputs are deterministic combinations of other methods already in the benchmark, violating the independence assumption required for fair comparison.
 
 \begin{table}[htbp]
 \centering
-\caption{39 detection methods evaluated in the 9-pathogen benchmark (14 families)}
+\caption{39 detection methods evaluated in the 11-pathogen benchmark (14 families)}
 \label{tab:detection_families}
 \small
 \adjustbox{max width=\textwidth}{
@@ -588,7 +626,7 @@ MutClust-Orig applies the original MutClust logic (CCM seed + adaptive DBSCAN) t
 \subsection{Evaluation Metrics}
 \label{subsec:9pathogen_metrics}
 
-The following evaluation metrics are used in the 9-pathogen benchmark.
+The following evaluation metrics are used in the 11-pathogen benchmark.
 
 \begin{itemize}
 \item \textbf{MCC (Matthews Correlation Coefficient)}: The primary evaluation metric (defined formally in Equation~\ref{eq:mcc} below).
@@ -605,7 +643,7 @@ Layer B (constrained regions) is not included in MCC computation and is evaluate
 While Stage~1 uses hotspot-score (which includes stability) for in-depth single-pathogen analysis, Stage~2 adopts MCC as the primary metric because stability has not been validated for cross-pathogen comparability and MCC provides a balanced evaluation for the extreme class imbalance present in multi-pathogen evaluation.
 This design decision is motivated by three considerations.
 First, the stability component measures bootstrap reproducibility under position-level subsampling, but the subsampling behavior differs fundamentally across pathogens with different alignment lengths (340--1,330 AA) and MSA sizes (530--5,019 unique sequences), making cross-pathogen stability values non-comparable.
-Second, MCC utilizes all four cells of the confusion matrix (TP, TN, FP, FN), providing a balanced evaluation under the extreme class imbalance inherent in hotspot detection (positive rates 1--16\% across the 9 pathogens).
+Second, MCC utilizes all four cells of the confusion matrix (TP, TN, FP, FN), providing a balanced evaluation under the extreme class imbalance inherent in hotspot detection (positive rates 1--16\% across the 11 pathogens).
 Third, separating the evaluation metric between stages allows Stage~1 to assess detection \textit{reliability} (via stability) and Stage~2 to assess detection \textit{accuracy} (via MCC), each optimized for its analytical purpose.
 MCC is formally defined as:
 \begin{equation}
@@ -616,15 +654,17 @@ where $TP$, $TN$, $FP$, and $FN$ denote true positives, true negatives, false po
 MCC ranges from $-1$ (complete disagreement) through $0$ (random prediction) to $+1$ (perfect prediction), and unlike F1, it utilizes all four cells of the confusion matrix, making it robust to class imbalance.
 When any factor in the denominator is zero (e.g., no positive predictions), MCC is conventionally defined as 0.
 MCC was selected as the primary metric because in hotspot detection, where positive positions (convergent evolution sites) constitute a minority of the genome, it provides a more balanced evaluation than F1 for imbalanced classification problems. Chicco and Jurman~\cite{chicco2020mcc} systematically demonstrated that MCC provides more informative evaluation than F1 and accuracy in imbalanced binary classification.
-The stability component used in Stage 1 is excluded from Stage 2 because it is an internal consistency metric independent of external ground truth, and cross-pathogen comparability of Bernoulli masking effects has not been validated given the wide variation in sequence length and MSA size across the 9 pathogens.
+The stability component used in Stage 1 is excluded from Stage 2 because it is an internal consistency metric independent of external ground truth, and cross-pathogen comparability of Bernoulli masking effects has not been validated given the wide variation in sequence length and MSA size across the 11 pathogens.
 
 \subsection{Statistical Analysis Design}
 \label{subsec:9pathogen_statistics}
 
 \subsubsection{Three-way ANOVA ($\omega^2$)}
 
-A three-way ANOVA is performed with scoring formula (9 levels), detection family (14 levels), and pathogen (9 levels) as factors.
-Bias-corrected $\omega^2$ (omega-squared) is used as the effect size measure, which avoids the upward bias of $\eta^2$ with sample size. Following Cohen's effect size benchmarks~\cite{cohen1988statistical}, $\omega^2$ values are interpreted as small (0.01), medium (0.06), and large ($\geq 0.14$):
+A three-way ANOVA is performed with scoring type (20 levels), detection family (14 levels), and pathogen (11 levels) as factors.
+The three-way ANOVA model includes all three main effects (scoring, family, pathogen) and all three two-way interactions (scoring $\times$ family, scoring $\times$ pathogen, family $\times$ pathogen). The three-way interaction was not estimated due to insufficient within-cell replication.
+Partial omega-squared ($\omega^2_p$) was computed as the bias-corrected estimate of variance explained. With $N = 8{,}580$, the central limit theorem ensures robustness to non-normality of MCC values.
+Following Cohen's effect size benchmarks~\cite{cohen1988statistical}, $\omega^2$ values are interpreted as small (0.01), medium (0.06), and large ($\geq 0.14$):
 \begin{equation}
 \omega^2 = \frac{SS_{\text{effect}} - df_{\text{effect}} \times MS_{\text{error}}}{SS_{\text{total}} + MS_{\text{error}}}
 \label{eq:omega_squared}
@@ -634,16 +674,20 @@ The $\omega^2$ values of main effects and two-way interactions are compared to i
 
 \subsubsection{LOPO Cross-Validation (Leave-One-Pathogen-Out)}
 
-The best-performing combination (scoring $\times$ detection) is selected from 8 of 9 pathogens, applied to the held-out pathogen, and generalization performance is evaluated.
-Through 9 iterations, the concordance rate between training-best and test-best (oracle) combinations and the performance gap are computed.
+The best-performing combination (scoring $\times$ detection) is selected from $n-1$ of 11 pathogens, applied to the held-out pathogen, and generalization performance is evaluated.
+The best-performing combination is defined as the (scoring, family) pair with the highest mean MCC across the $n-1$ training pathogens.
+Through 11 iterations, the concordance rate between training-best and test-best (oracle) combinations and the performance gap are computed.
+Under random selection from 280 possible combinations ($20 \times 14$), the expected concordance rate is approximately 0.36\%.
 
 \subsubsection{Friedman Test}
 
-A nonparametric repeated-measures test using 9 pathogens as blocks, testing whether statistically significant performance differences exist among the top $k$ combinations.
+A nonparametric repeated-measures test using 11 pathogens as blocks, the top $k = 20$ scoring $\times$ family combinations were compared to test whether statistically significant performance differences exist among them.
+Kendall's coefficient of concordance ($W$) is reported alongside $\chi^2$ to quantify ranking agreement across pathogens: $W = 1$ indicates perfect agreement, while $W = 0$ indicates no agreement.
+Critical values and interpretation follow Dem\v{s}ar~\cite{demsar2006statistical}.
 
 \subsubsection{Pathogen-level BCa Bootstrap Confidence Intervals}
 
-Bias-corrected and accelerated (BCa) bootstrap confidence intervals are computed for MCC values across 9 pathogens to quantify the performance variability of the best-performing combination across pathogens.
+Bias-corrected and accelerated (BCa) bootstrap confidence intervals are computed for MCC values across 11 pathogens to quantify the performance variability of the best-performing combination across pathogens.
 
 \subsubsection{Subsample Robustness Analysis}
 

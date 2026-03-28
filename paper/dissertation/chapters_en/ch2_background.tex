@@ -61,7 +61,7 @@ OPTICS~\cite{ankerst1999optics} generates a reachability plot revealing clusteri
 \textbf{Deep Mutational Scanning (DMS)} is an experimental technique that systematically measures the functional effects of all possible single amino acid substitutions within a protein~\cite{fowler2014dms}.
 For SARS-CoV-2, Starr et al.~\cite{starr2020dms} measured ACE2 binding affinity and expression in the receptor-binding domain (RBD), and Dadonaite et al.~\cite{dadonaite2023dms} measured pseudovirus cell entry fitness across the full-length Spike protein.
 Bloom and Neher~\cite{bloom2023fitness} provided an integrated analysis of DMS fitness effects across all SARS-CoV-2 proteins.
-DMS data provides a natural ground truth for hotspot benchmarking: positions where mutations exhibit large fitness effects correspond to biologically functional sites that detection methods should identify~\cite{livesey2020using}. Deep generative models have also been shown to predict the effects of mutations from sequence variation alone~\cite{riesselman2018deep}, providing a complementary computational approach to DMS-based validation.
+DMS data provides a natural ground truth for hotspot benchmarking: positions where mutations exhibit large fitness effects correspond to biologically functional sites that detection methods should identify~\cite{livesey2020using}. Deep generative models have also been shown to predict the effects of mutations from sequence variation alone~\cite{riesselman2018deep}, providing a complementary computational approach to DMS-based validation. This approach was extended by EVE~\cite{frazer2021eve}, a Bayesian VAE that learns evolutionary constraints from MSAs without requiring experimental labels.
 
 
 \subsection{Protein Language Models for Variant Effect Prediction}
@@ -97,6 +97,7 @@ Several recent studies have analyzed which biological features predict viral mut
 Maher et al.~\cite{maher2022predicting} analyzed features predicting future SARS-CoV-2 variants of concern, finding that epidemiological features (geographic spread, growth rate) dominated over sequence-based features for a single pathogen.
 Rodriguez-Rivas et al.~\cite{rodriguez2022epistatic} demonstrated that epistatic coupling models (DCA-based) achieve AUC = 0.76 for predicting escape mutations, outperforming non-epistatic models (AUC = 0.63), highlighting the value of co-evolutionary information.
 Hie et al.~\cite{hie2021learning} showed that protein language model embeddings capture ``semantic change'' that predicts viral escape, providing a complementary deep learning perspective.
+EVEscape~\cite{thadani2023evescape} demonstrated that combining evolutionary fitness predictions with structural accessibility and immune presentation features can predict viral escape mutations, providing a practical example of multi-source information integration for viral mutation analysis.
 However, these studies are limited to single pathogens (primarily SARS-CoV-2 or influenza) and do not systematically compare feature importance \textit{across} multiple pathogens---a gap that the present study addresses.
 
 \subsection{Algorithm Selection and Benchmarking Methodology}
@@ -118,6 +119,15 @@ Related efforts in adjacent domains include:
 (3)~Pons et al.~\cite{pons2020computational}, who reviewed 40+ cancer hotspot detection methods but produced a descriptive survey without a unified benchmark, and cancer-specific models do not transfer to viral evolutionary dynamics;
 and (4)~individual SARS-CoV-2 studies using entropy~\cite{harvey2021tracking} or clustering that validate against small variant sets without standardized ground truth.
 Thus, a systematic benchmark with multi-source ground truth, composite evaluation metrics, and cross-pathogen validation remains absent for viral hotspot detection.
+
+\subsubsection*{Variant Effect Prediction Benchmarks}
+
+Recent years have seen significant progress in benchmarking variant effect prediction (VEP) methods on proteins. ProteinGym~\cite{notin2023proteingym} established a large-scale benchmark comprising 217 DMS assays and 2.7 million substitution variants, primarily for human and model organism proteins. EVE~\cite{frazer2021eve}, a Bayesian VAE trained on evolutionary sequences, demonstrated that unsupervised generative models can predict disease-associated variants without clinical labels. EVEscape~\cite{thadani2023evescape} extended this framework to viral immune escape prediction by combining EVE fitness scores with structural and immunological features, successfully forecasting SARS-CoV-2 Omicron escape mutations from pre-pandemic data.
+
+Most recently, EVEREST~\cite{gurev2025everest} specifically benchmarked VEP methods across WHO priority viruses using 45 viral DMS datasets, finding that protein language models substantially underperform alignment-based approaches on viral proteins and that prediction reliability varies dramatically across pathogens. AlphaMissense~\cite{cheng2023alphamissense} demonstrated proteome-wide variant classification using an AlphaFold-derived architecture, though its focus on human proteins limits direct viral applicability.
+
+These benchmarks address variant effect \textit{prediction} (estimating continuous fitness scores for individual mutations), whereas MutBench addresses hotspot \textit{detection} (identifying genomic regions where mutations cluster with functional significance). The two problems are complementary: VEP methods predict per-mutation effects, while hotspot detection identifies spatial patterns of mutational enrichment. Notably, EVEREST's finding that optimal VEP methods differ across viral families~\cite{gurev2025everest} parallels MutBench's central finding that optimal scoring--detection combinations differ across pathogens, suggesting that pathogen-adaptive method selection is a general principle extending beyond hotspot detection to variant effect prediction.
+
 This gap is the fundamental motivation for MutBench (Chapter~\ref{ch:mutbench}), the core study of this dissertation.
 
 
