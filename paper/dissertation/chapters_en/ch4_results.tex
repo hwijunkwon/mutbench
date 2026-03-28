@@ -812,13 +812,13 @@ Ten positional features were evaluated as individual predictors of Layer~A (conv
 \item \textbf{Chemical property} (1 feature): \textit{Grantham distance} (mean physicochemical distance between the consensus and observed variant amino acids at each position~\cite{grantham1974amino}, capturing whether substitutions are conservative or radical).
 \end{itemize}
 
-These 10 features were selected from a broader set of 22 candidate information types identified from the literature. Features excluded from the analysis include: weighted contact number (WCN, high correlation with SASA, $r > 0.7$), intrinsic disorder prediction (largely redundant with pLDDT $< 50$~\cite{wilson2022alphafold}), co-mutation/mutual information (pairwise rather than per-position feature, incompatible with the univariate per-position analysis framework; additionally $O(L^2)$ computational cost), codon usage bias (weak association with hotspot status), and epitope/glycosylation distance (not uniformly available across all 11 pathogens). The selection criteria were: (1)~independence from existing features, (2)~applicability to all 9 pathogens, and (3)~prior validation in the literature.
+These 10 features were selected from a broader set of 22 candidate information types identified from the literature. Features excluded from the analysis include: weighted contact number (WCN, high correlation with SASA, $r > 0.7$), intrinsic disorder prediction (largely redundant with pLDDT $< 50$~\cite{wilson2022alphafold}), co-mutation/mutual information (pairwise rather than per-position feature, incompatible with the univariate per-position analysis framework; additionally $O(L^2)$ computational cost), codon usage bias (weak association with hotspot status), and epitope/glycosylation distance (not uniformly available across all 11 pathogens). The selection criteria were: (1)~independence from existing features, (2)~applicability to all 11 pathogens, and (3)~prior validation in the literature.
 
 Table~\ref{tab:per_feature_auc} and Figure~\ref{fig:feature_auc_heatmap} present the single-feature AUC (area under the ROC curve) for predicting Layer~A membership. Each feature was used as a standalone classifier via threshold sweeping (no model training), providing a direct measure of univariate discriminative power.
 
 \begin{table}[htbp]
 \centering
-\caption{Per-feature AUC for Layer~A prediction across 9 pathogens (10 features). The highest AUC per pathogen is shown in \textbf{bold}. AUC = 0.5 indicates no discriminative power; AUC $< 0.5$ indicates inverse association.}
+\caption{Per-feature AUC for Layer~A prediction across 11 pathogens (10 features). The highest AUC per pathogen is shown in \textbf{bold}. AUC = 0.5 indicates no discriminative power; AUC $< 0.5$ indicates inverse association.}
 \label{tab:per_feature_auc}
 \adjustbox{max width=\textwidth}{
 \footnotesize
@@ -847,7 +847,7 @@ HCV           & 0.677 & 0.679 & 0.424 & 0.405 & 0.447 & 0.473 & 0.488 & 0.383 & 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{feature_auc_heatmap.png}
-\caption{Per-feature AUC heatmap for Layer~A prediction. Green indicates high discriminative power; red indicates inverse association (AUC $< 0.5$). The best feature per pathogen is shown in bold. No single feature achieves the highest AUC for more than 3 of 9 pathogens.}
+\caption{Per-feature AUC heatmap for Layer~A prediction. Green indicates high discriminative power; red indicates inverse association (AUC $< 0.5$). The best feature per pathogen is shown in bold. No single feature achieves the highest AUC for more than 3 of 11 pathogens.}
 \label{fig:feature_auc_heatmap}
 \end{figure}
 
@@ -875,7 +875,7 @@ For HIV-1, entropy has the highest univariate AUC (0.730) but ranks third in RF 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{feature_importance_grid.png}
-\caption{Random Forest feature importance for Layer~A prediction across 9 pathogens (10 features). Bar colors indicate feature category: blue (frequency-based), green (phylogeny/evolutionary), purple (deep learning), orange (structure), crimson (chemical property). Cross-validation AUC is shown in each panel title. The dominant feature differs across pathogens: ESM-2 LLR for SARS-CoV-2, pLDDT for H3N2, homoplasy for Norovirus, dN/dS proxy for HCV.}
+\caption{Random Forest feature importance for Layer~A prediction across 11 pathogens (10 features). Bar colors indicate feature category: blue (frequency-based), green (phylogeny/evolutionary), purple (deep learning), orange (structure), crimson (chemical property). Cross-validation AUC is shown in each panel title. The dominant feature differs across pathogens: ESM-2 LLR for SARS-CoV-2, pLDDT for H3N2, homoplasy for Norovirus, dN/dS proxy for HCV.}
 \label{fig:feature_importance_grid}
 \end{figure}
 
@@ -888,7 +888,7 @@ Understanding the correlation structure among the 10 features is essential for i
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.85\textwidth]{feature_correlation_heatmap.png}
-\caption{Mean pairwise Spearman correlation among 10 features across 9 pathogens. Three clusters are evident: frequency-derived features (freq, entropy, rare variant, dN/dS proxy) are highly correlated ($\rho > 0.54$); deep learning features (ESM-2 LLR, semantic change) show weak negative correlation ($\rho = -0.09$); and structure-based features (pLDDT, SASA) are weakly anti-correlated ($\rho = -0.19$). Homoplasy is the most independent feature ($|\rho| < 0.23$ with all others).}
+\caption{Mean pairwise Spearman correlation among 10 features across 11 pathogens. Three clusters are evident: frequency-derived features (freq, entropy, rare variant, dN/dS proxy) are highly correlated ($\rho > 0.54$); deep learning features (ESM-2 LLR, semantic change) show weak negative correlation ($\rho = -0.09$); and structure-based features (pLDDT, SASA) are weakly anti-correlated ($\rho = -0.19$). Homoplasy is the most independent feature ($|\rho| < 0.23$ with all others).}
 \label{fig:feature_correlation}
 \end{figure}
 
