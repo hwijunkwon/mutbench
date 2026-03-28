@@ -29,6 +29,7 @@ DMS_DIR = RESULTS_DIR / 'dms_data'
 
 # DMS pathogens and their data files
 DMS_PATHOGENS = {
+    'SARS-CoV-2': DMS_DIR / 'sars2_dms.csv',
     'H3N2': DMS_DIR / 'h3n2_dms.csv',
     'HIV-1': DMS_DIR / 'hiv1_dms.csv',
     'RSV': DMS_DIR / 'rsv_dms.csv',
