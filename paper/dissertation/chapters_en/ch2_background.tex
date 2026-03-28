@@ -126,6 +126,27 @@ Recent years have seen significant progress in benchmarking variant effect predi
 
 Most recently, EVEREST~\cite{gurev2025everest} specifically benchmarked VEP methods across WHO priority viruses using 45 viral DMS datasets, finding that protein language models substantially underperform alignment-based approaches on viral proteins and that prediction reliability varies dramatically across pathogens. AlphaMissense~\cite{cheng2023alphamissense} demonstrated proteome-wide variant classification using an AlphaFold-derived architecture, though its focus on human proteins limits direct viral applicability.
 
+MutBench's unique contribution is the \textit{scoring $\times$ pathogen interaction analysis}: while EVEREST establishes that method performance varies across viruses, MutBench quantifies this interaction through three-way ANOVA ($\omega^2 = 0.296$) and demonstrates that the choice of \textit{biological information source} (not just the computational method) is the dominant performance factor. This finding---that information selection matters more than algorithm selection---has no counterpart in EVEREST or ProteinGym, which treat the scoring/feature set as fixed.
+
+\begin{table}[htbp]
+\centering
+\caption{Comparison of MutBench with related benchmarks}
+\label{tab:benchmark_comparison}
+\footnotesize
+\begin{tabular}{lcccc}
+\toprule
+& \textbf{MutBench} & \textbf{EVEREST} & \textbf{ProteinGym} & \textbf{Bailey 2018} \\
+\midrule
+Domain & Viral hotspot & Viral VEP & General VEP & Cancer driver \\
+Task & Detection & Prediction & Prediction & Detection \\
+Pathogens/proteins & 11 viruses & 4 viruses (48 DMS) & 217 proteins & Cancer genes \\
+Ground truth & 3-layer & DMS & DMS & Patient cohorts \\
+Methods compared & 780 combos & $\sim$20 VEP & $\sim$40 VEP & $\sim$10 tools \\
+Cross-pathogen ANOVA & Yes ($\omega^2$) & Partial & No & No \\
+\bottomrule
+\end{tabular}
+\end{table}
+
 These benchmarks address variant effect \textit{prediction} (estimating continuous fitness scores for individual mutations), whereas MutBench addresses hotspot \textit{detection} (identifying genomic regions where mutations cluster with functional significance). The two problems are complementary: VEP methods predict per-mutation effects, while hotspot detection identifies spatial patterns of mutational enrichment. Notably, EVEREST's finding that optimal VEP methods differ across viral families~\cite{gurev2025everest} parallels MutBench's central finding that optimal scoring--detection combinations differ across pathogens, suggesting that pathogen-adaptive method selection is a general principle extending beyond hotspot detection to variant effect prediction.
 
 The difference in DMS dataset count (45 in EVEREST vs.\ 4 in MutBench) reflects the distinct evaluation paradigms: EVEREST evaluates per-mutation fitness predictions, where each DMS assay provides thousands of labeled mutations for supervised evaluation. MutBench evaluates per-position hotspot detection, where DMS data serves as an independent ground truth layer (Layer~C) complementing the literature-based Layer~A. Since MutBench's primary evaluation uses Layer~A (convergent evolution positions curated from published studies for all 11 pathogens), DMS availability is not a limiting factor for the main benchmark; Layer~C provides additional validation for the 4 pathogens where DMS data exist.

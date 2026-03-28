@@ -127,6 +127,7 @@ As new viral threats emerge, the systematic benchmarking methodology established
 
 The source code of the MutBench framework, benchmark scripts, ground truth definitions for 11 pathogens, and configuration files necessary for reproducing all experiments will be made available at the GitHub repository (\url{https://github.com/hwijun/mutbench}).
 During the review period, the source code is available to committee members upon request. All detection method implementations, ground truth definitions, and evaluation scripts are organized as a reproducible pipeline with configuration files specifying exact parameters for each experiment.
+The benchmark can be reproduced with three commands: (1)~feature computation (\texttt{python compute\_features.py --pathogen H3N2}), (2)~detection evaluation (\texttt{python run\_stage3\_full\_detectors.py}), and (3)~statistical analysis (\texttt{python analyze\_stage3\_stats.py}). Typical runtime for the full 8{,}580-evaluation benchmark is approximately 25 seconds on a single workstation.
 All repositories will be made public upon completion of the dissertation review.
 Pathogen sequence data were collected from NCBI GenBank, and SARS-CoV-2 DMS data were obtained from the original data provided by Dadonaite et al.~\cite{dadonaite2023dms}.
 GISAID sequence data were accessed under the GISAID Data Access Agreement. The benchmark framework does not redistribute raw GISAID sequences; instead, computed H-scores and detection results are provided.

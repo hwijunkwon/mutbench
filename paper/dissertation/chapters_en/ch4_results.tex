@@ -316,6 +316,7 @@ First, the best scoring type differs fundamentally across pathogens, and this di
 Second, the best detection family also varies: KDE (4 pathogens), Wavelet (3), SlidingTest (1), Bayes (1), MutClust (1), and SWAN (1).
 Third, the MCC range spans from 0.196 (RSV/MERS) to 0.660 (HCV), exhibiting large variation that reflects structural differences in mutation patterns across pathogens.
 SARS-CoV-2 exhibits the lowest best MCC (0.211) despite being the best-studied pathogen, reflecting the extreme class imbalance (25 Layer A positions out of 1,259 total, a 2.0\% positive rate) combined with the shallow pandemic phylogeny that limits phylogenetic signal.
+Additionally, the Layer~A ground truth for SARS-CoV-2 includes only positions with documented convergent evolution across multiple SARS-CoV-2 lineages, excluding positions that are functional but lineage-specific. This strict criterion reduces the number of true positives available for detection, further lowering the achievable MCC.
 
 \begin{figure}[htbp]
 \centering
@@ -626,7 +627,7 @@ Two pathogens exhibit inverse feature associations (AUC $< 0.5$): RSV shows AUC 
 
 To assess feature importance in a multivariate context---where features may interact and provide complementary information---a Random Forest classifier~\cite{breiman2001random} (200 trees, max depth 5, balanced class weights, random state 42) was trained for each pathogen using the 10 features as predictors and Layer~A as the binary label. Feature importances were extracted as mean decrease in impurity (Gini importance), and model performance was evaluated via stratified 5-fold cross-validation AUC.
 
-Figure~\ref{fig:feature_importance_grid} presents the feature importance distributions across the initial 9 pathogens. Three patterns are notable.
+Figure~\ref{fig:feature_importance_grid} presents the feature importance distributions across the initial 9 pathogens (see Chapter~\ref{ch:adapt} for the full 11-pathogen detection benchmark and 12-pathogen feature analysis). Three patterns are notable.
 
 \textbf{First, the dominant feature differs across pathogens.}
 For SARS-CoV-2, ESM-2 LLR dominates (importance = 0.331), followed by pLDDT (0.286) and the newly added SASA (0.202)---all three are non-frequency features. For H3N2, pLDDT remains the most important feature (0.338), with semantic change (0.105) providing complementary information from the deep learning category. For Norovirus, homoplasy dominates (0.345), consistent with its near-perfect univariate AUC (0.944). For HIV-1, ESM-2 LLR (0.214) and homoplasy (0.143) share importance. For HCV, the dN/dS proxy (0.145), homoplasy (0.139), and Grantham distance (0.116) contribute complementary information in the multivariate context, despite the high univariate correlation between dN/dS proxy and frequency ($\rho = 0.87$).
@@ -648,7 +649,7 @@ For HIV-1, entropy has the highest univariate AUC (0.730) but ranks third in RF 
 \subsection{Feature Correlation Structure}
 \label{subsec:feature_correlation}
 
-Understanding the correlation structure among the 10 features is essential for interpreting both the univariate and multivariate results. Figure~\ref{fig:feature_correlation} presents the mean pairwise Spearman correlation across 9 pathogens.
+Understanding the correlation structure among the 10 features is essential for interpreting both the univariate and multivariate results. Figure~\ref{fig:feature_correlation} presents the mean pairwise Spearman correlation across the initial 9 pathogens (see Chapter~\ref{ch:adapt} for the expanded 12-pathogen results).
 
 \begin{figure}[htbp]
 \centering
