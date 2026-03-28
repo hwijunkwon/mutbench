@@ -462,7 +462,7 @@ The Spearman rank correlation between method rankings under H-score and TreeTime
 \textbf{Cross-pathogen summary.} Method rankings differ between SARS-CoV-2 and H3N2 (MutClust-Fixed outperforms MutClust-Hybrid on H3N2), and phylogenetic non-independence analysis reveals that H-score conflates founder effects with positive selection ($\rho = -0.876$). These findings motivate the large-scale cross-pathogen benchmark.
 
 %% ============================================================
-\section{9-Pathogen Large-Scale Benchmark}
+\section{Cross-Pathogen Large-Scale Benchmark}
 \label{sec:9pathogen_results}
 
 \vspace{1em}
@@ -743,49 +743,14 @@ Synthesizing the key results of the cross-pathogen benchmark, the need for patho
 \item \textbf{Significant combination differences}: Friedman $\chi^2 = 42.44$, $p = 0.0015$. The choice of combination has a significant impact on performance.
 \end{enumerate}
 
-These results statistically establish that ``the best-performing method differs for each pathogen,'' motivating the conceptual PAHD framework---a future system that would adaptively select the best combination by profiling the mutation characteristics of each pathogen.
-
-The following analysis applies the 9-pathogen benchmark results as a knowledge base for a proof-of-concept method selection experiment, demonstrating how MutBench's findings can be translated into practical method recommendations.
-
-%% ------------------------------------------------------------
-\subsection{PAHD Prototype Validation}
-\label{subsec:pahd_prototype}
-
-To test whether pathogens with similar mutation profiles share best-performing combinations, a proof-of-concept PAHD prototype was evaluated.
-Two pathogen profile versions were compared: v1 (8 genomic features) and v2 (85 MSA-derived features including per-scoring statistics and spatial autocorrelation).
-Using the best-performing Family-first strategy (predict detection family, then select within it), the v1 profile achieved 5/9 positive MCC (mean $= 0.005$) vs.\ the naive baseline (1/9 positive), and v2 improved mean MCC to 0.017 by reducing negative transfers (Table~\ref{tab:pahd_prototype}).
-
-\begin{table}[htbp]
-\centering
-\caption{Per-pathogen test MCC: naive LOPO vs.\ PAHD Family-first prototype. Oracle is each pathogen's best combination MCC.}
-\label{tab:pahd_prototype}
-\adjustbox{max width=\textwidth}{
-\begin{tabular}{lrrrr}
-\toprule
-\textbf{Pathogen} & \textbf{Oracle} & \textbf{Naive} & \textbf{PAHD Family v1} & \textbf{PAHD Family v2} \\
-\midrule
-Dengue      & 0.256 & 0.000 & $-$0.012 & $-$0.027 \\
-H3N2        & 0.549 & 0.000 & 0.207 & 0.011 \\
-HCV         & 0.443 & 0.000 & $-$0.291 & 0.141 \\
-HIV-1       & 0.182 & 0.000 & 0.014 & 0.014 \\
-Influenza B & 0.361 & 0.000 & $-$0.190 & $-$0.027 \\
-MERS        & 0.088 & 0.000 & $-$0.012 & $-$0.025 \\
-Norovirus   & 0.438 & 0.192 & 0.217 & 0.118 \\
-RSV         & 0.249 & 0.000 & 0.069 & $-$0.054 \\
-SARS-CoV-2  & 0.118 & 0.000 & 0.045 & 0.000 \\
-\midrule
-Mean         & 0.298 & 0.021 & 0.005 & 0.017 \\
-Positive MCC count & 9/9 & 1/9 & \textbf{5/9} & 4/9 \\
-\bottomrule
-\end{tabular}
-}
-\end{table}
-
-The exact combination match rate remains 0/11, confirming that even with 11 pathogens the knowledge base is insufficient for reliable combination-level prediction. However, at coarser granularities, family-level prediction recovered 48.3\% of oracle performance and scoring-level prediction 57.7\%, motivating the multi-feature integration approach developed in Chapter~\ref{ch:adapt}.
+These results statistically establish that ``the best-performing method differs for each pathogen,'' and that the interaction between scoring method and pathogen is the dominant source of performance variance.
+The following section investigates \textit{why} this interaction arises by analyzing the discriminative power of individual information types.
+\phantomsection\label{subsec:pahd_prototype} % retained for cross-reference compatibility
 
 %% ============================================================
 \section{Information-Type Analysis}
 \label{sec:information_analysis}
+\label{ch:adapt} % retained for cross-reference compatibility (formerly Chapter 5)
 
 The preceding sections demonstrated that the best-performing scoring--detection combination differs across pathogens ($\omega^2_{\text{scoring}\times\text{pathogen}} = 0.296$). This section investigates \textit{why} this interaction arises by analyzing the discriminative power of individual information types (features) that underlie the scoring formulas, and examines whether pathogen-specific feature importance patterns explain the observed cross-pathogen heterogeneity.
 
@@ -898,4 +863,170 @@ The cross-pathogen benchmark demonstrated that the best scoring--detection combi
 
 The Random Forest analysis demonstrates that combining multiple features in a multivariate model achieves cross-validation AUC values up to 0.899 (Norovirus) and 0.875 (MERS), suggesting that the performance ceiling can be raised by integrating complementary information types into the scoring stage rather than relying on a single formula.
 
-The implications of this feature heterogeneity for integrated detection are explored in Chapter~\ref{ch:adapt}, where multi-source integration analysis combines all 10 features into an equal-weight ensemble and evaluates it across 12 pathogens.
+The following subsections extend this analysis by quantifying individual feature contributions through ablation, examining ground truth heterogeneity as a potential confound, and evaluating practical search space reduction through multi-source integration.
+
+%% ------------------------------------------------------------
+\subsection{Feature Ablation Analysis}
+\label{subsec:feature_ablation}
+
+To quantify each feature's contribution, three ablation analyses were conducted using the EqualWeight ensemble with LOPO evaluation and a top-10\% threshold across 12 pathogens (the original 11 plus Zika, Rabies, and EV-A71, added to increase statistical power; Figure~\ref{fig:feature_ablation}).
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.85\textwidth]{feature_ablation_bars.png}
+\caption{Feature ablation analysis: change in mean MCC (12 pathogens) when removing each feature from the 10-feature EqualWeight ensemble. Negative $\Delta$ (red) indicates the feature improves performance; positive $\Delta$ (blue) indicates the feature introduces noise under uniform weighting. Homoplasy is the single most important feature ($\Delta = -0.028$).}
+\label{fig:feature_ablation}
+\end{figure}
+
+\textbf{Leave-one-feature-out} (Table~\ref{tab:feature_ablation}) reveals that homoplasy contributes the most to ensemble performance: its removal causes the largest MCC decrease ($\Delta = -0.028$), reducing mean MCC from 0.083 to 0.055.
+Entropy ($\Delta = -0.015$), frequency ($\Delta = -0.012$), and rare variant frequency ($\Delta = -0.010$) also show substantial contributions.
+In contrast, removing ESM-2 LLR ($\Delta = +0.004$) or SASA ($\Delta = +0.003$) marginally \textit{improves} performance, indicating that these features introduce noise under uniform weighting when averaged across 12 pathogens.
+
+\begin{table}[htbp]
+\centering
+\caption{Leave-one-feature-out ablation results. $\Delta$MCC is the change in mean MCC (12 pathogens) when removing one feature from the 10-feature EqualWeight ensemble. Negative $\Delta$ indicates the feature improves the ensemble.}
+\label{tab:feature_ablation}
+\footnotesize
+\begin{tabular}{lrrl}
+\toprule
+\textbf{Removed feature} & \textbf{Mean MCC} & $\Delta$\textbf{MCC} & \textbf{Interpretation} \\
+\midrule
+None (all 10)       & 0.083 & ---     & Baseline \\
+\midrule
+homoplasy           & 0.055 & $-$0.028 & Largest contributor \\
+entropy             & 0.068 & $-$0.015 & Substantial \\
+freq                & 0.071 & $-$0.012 & Substantial \\
+rare\_freq          & 0.073 & $-$0.010 & Moderate \\
+dnds\_proxy         & 0.077 & $-$0.006 & Moderate \\
+plddt               & 0.081 & $-$0.002 & Minimal \\
+grantham            & 0.081 & $-$0.002 & Minimal \\
+semantic\_change    & 0.082 & $-$0.001 & Minimal \\
+sasa                & 0.086 & $+$0.003 & Noise under uniform $\mathbf{w}$ \\
+esm2\_llr           & 0.087 & $+$0.004 & Noise under uniform $\mathbf{w}$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{Feature group ablation} shows that frequency features alone (freq, entropy, rare\_freq; 3 features) achieve mean MCC = 0.069, while adding homoplasy (Freq~+~Phylogeny; 4 features) raises performance to 0.086---slightly above the full 10-feature ensemble (0.083).
+Adding structural features (Freq~+~Structure: pLDDT, SASA; MCC = 0.057) or deep learning features (Freq~+~DL: ESM-2, semantic change; MCC = 0.067) decreases performance relative to frequency alone.
+
+\textbf{Cumulative addition} starting from the most discriminative feature (homoplasy) and adding features in AUC-rank order shows diminishing returns: 4 features (homoplasy, pLDDT, entropy, freq) achieve MCC = 0.081, capturing 98\% of the full 10-feature performance (0.083).
+Additional features provide no consistent improvement, reinforcing the finding that a compact frequency--phylogeny core outperforms the full ensemble under uniform weighting.
+
+These results further motivate pathogen-adaptive weighting: features that are noise on average (ESM-2, SASA) are the \textit{best} discriminators for specific pathogens (ESM-2 for MERS AUC = 0.695; SASA for Norovirus AUC = 0.747), confirming that a uniform weight vector cannot optimally exploit all 10 features simultaneously.
+
+%% ------------------------------------------------------------
+\subsection{Ground Truth Heterogeneity}
+\label{subsec:gt_heterogeneity_results}
+
+A potential confound in interpreting the pathogen-dependent performance patterns is that the Layer~A ground truth definitions may themselves differ across pathogens.
+To assess this, each Layer~A position was tagged with its biological definition type (immune\_escape, functional, or convergent\_evolution), and the composition was analyzed across all 12~pathogens.
+Table~\ref{tab:gt_heterogeneity} presents the results.
+
+\begin{table}[htbp]
+\centering
+\caption{Ground truth heterogeneity analysis across 12 pathogens. All pathogens are dominated by immune\_escape-tagged positions, yet the best discriminative feature differs across pathogens. ``Consistent'' indicates whether the best feature remains unchanged when restricting to immune\_escape-only positions.}
+\label{tab:gt_heterogeneity}
+\adjustbox{max width=\textwidth}{
+\footnotesize
+\begin{tabular}{lrrlrl}
+\toprule
+\textbf{Pathogen} & $n_{\text{A}}$ & \textbf{\% immune} & \textbf{Best feature (all)} & \textbf{AUC} & \textbf{Consistent} \\
+\midrule
+SARS-CoV-2     & 25 & 88\%  & esm2\_llr    & 0.586 & Yes \\
+H3N2            & 25 & 100\% & plddt        & 0.787 & Yes \\
+Norovirus       & 15 & 100\% & homoplasy    & 0.944 & Yes \\
+HIV-1           & 26 & 100\% & entropy      & 0.730 & Yes \\
+Dengue          & 24 & 71\%  & homoplasy    & 0.770 & Yes \\
+RSV             & 20 & 100\% & plddt        & 0.561 & Yes \\
+Influenza~B     & 17 & 100\% & homoplasy    & 0.805 & Yes \\
+MERS            & 9  & 78\%  & esm2\_llr    & 0.695 & No \\
+HCV             & 54 & 100\% & dnds\_proxy  & 0.680 & Yes \\
+Zika            & 27 & 93\%  & homoplasy    & 0.581 & Yes \\
+Rabies          & 39 & 97\%  & plddt        & 0.650 & Yes \\
+EV-A71          & 27 & 93\%  & esm2\_llr    & 0.596 & No \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+Despite homogeneous ground truth composition (immune\_escape $\geq 71\%$ for all 12 pathogens), 5 different best features emerge, and 10/12 pathogens retain the same best feature when restricting to immune\_escape-only positions (``Consistent = Yes'').
+This confirms that the ANOVA interaction effect ($\omega^2 = 0.296$) reflects genuine method--pathogen interaction rather than a ground truth definition artifact; see Chapter~\ref{ch:discussion} for detailed interpretation.
+
+%% ------------------------------------------------------------
+\subsection{Practical Validation: Search Space Reduction}
+\label{subsec:search_space_reduction}
+
+The analysis results above demonstrate that multiple information types contribute to hotspot prediction, but the most informative feature differs by pathogen. This subsection evaluates whether integrating all 10 features reduces the experimental search space for hotspot validation.
+
+The integration method uses equal-weight combination: each feature is z-score normalized across all $L$ alignment positions, directional signs are applied (to handle inverse associations such as pLDDT AUC $< 0.5$ for MERS), and the weighted combination $s_i = \sum_{f=1}^{10} (1/10) \cdot \mathrm{sign}(\hat{s}_f) \cdot z_{i,f}$ is computed. Positions exceeding a percentile threshold are called as hotspots. Equal weighting was chosen because, with only 12 reference pathogens, adaptive weighting strategies introduce more noise than signal (see below).
+
+Leave-One-Pathogen-Out (LOPO) cross-validation was conducted across all 12 pathogens, comparing EqualWeight against frequency-only (FreqThresh) and random baselines.
+Under the EqualWeight top-10\% threshold, mean MCC = 0.083 (9/12 pathogens positive), outperforming FreqThresh (0.075, 8/12 positive) and random (0.000, 5/12 positive).
+
+\textbf{Vaccine escape position validation.}
+To assess practical relevance, integrated-detection hotspots were compared against experimentally confirmed vaccine/antibody escape positions for H3N2 (29 antigenic drift sites in HA sites~A and~B) and SARS-CoV-2 (15 RBD + NTD vaccine escape positions).
+Table~\ref{tab:adapt_escape} presents the enrichment analysis results.
+
+\begin{table}[htbp]
+\centering
+\caption{Vaccine escape position validation (top-5\% threshold). Enrichment is the ratio of observed to expected overlap under random assignment. $p$-values from Fisher's exact test.}
+\label{tab:adapt_escape}
+\adjustbox{max width=\textwidth}{
+\footnotesize
+\begin{tabular}{llrrrrl}
+\toprule
+\textbf{Pathogen} & \textbf{Strategy} & \textbf{Detected} & \textbf{Overlap} & \textbf{Enrichment} & $p$-value & \textbf{Significance} \\
+\midrule
+H3N2 & EqualWeight & 28 & 6 & 4.012$\times$ & \textbf{0.0023} & $**$ \\
+H3N2 & FreqThresh & 28 & 4 & 2.675$\times$ & 0.055 & n.s. \\
+H3N2 & BestSingle & 33 & 2 & 1.135$\times$ & 0.539 & n.s. \\
+\midrule
+SARS-CoV-2 & EqualWeight & 63 & 2 & 2.665$\times$ & 0.171 & n.s. \\
+SARS-CoV-2 & FreqThresh & 48 & 2 & 3.497$\times$ & 0.109 & n.s. \\
+\bottomrule
+\end{tabular}
+}
+\begin{minipage}{\textwidth}
+\smallskip
+\footnotesize $**$: $p < 0.01$; n.s.: not significant at $\alpha = 0.05$.
+\end{minipage}
+\end{table}
+
+\textbf{For H3N2, EqualWeight achieves 4.012-fold enrichment ($p = 0.0023$), the only strategy reaching statistical significance.}
+FreqThresh detects 4 of 29 escape sites but falls short of significance ($p = 0.055$), demonstrating that multi-feature integration captures antigenic drift positions that frequency alone misses.
+For SARS-CoV-2, EqualWeight achieves 2.665-fold enrichment but does not reach significance ($p = 0.171$).
+
+\textbf{Search space reduction.}
+For a typical viral protein of 500 positions, researchers would otherwise need to investigate all positions equally.
+The 10-feature integration narrows this to the top 10\% (50 positions), within which hotspot positions are enriched 4.0$\times$ relative to random selection (H3N2, $p = 0.0023$).
+This transforms hotspot detection from an exhaustive search into a guided investigation, providing a ranked candidate list that directs limited experimental resources toward the most promising positions.
+
+%% ------------------------------------------------------------
+\subsection{Adaptive Weighting: Current Limits and Future Potential}
+\label{subsec:adaptive_weighting_limits}
+
+Three adaptive weighting strategies were evaluated against the equal-weight baseline: kNN-weighted ($k{=}3$ inverse-distance interpolation of RF importance weights using a 13-dimensional pathogen profile), Top-3 AUC (equal weight on 3 highest-AUC features from nearest neighbors), and Correlation-aware ensemble (equal weight on 5 lowest-correlation features with AUC $> 0.5$).
+All adaptive strategies performed worse than EqualWeight: kNN-weighted achieved a maximum mean MCC of 0.020, Top-3 AUC 0.049, and Correlation-aware 0.043, compared to EqualWeight's 0.083.
+
+This underperformance is explained by the sparsity of the reference database.
+With only 12 reference pathogens (11 available in LOPO), the 13-dimensional pathogen profile space is severely undersampled (dimensions-to-samples ratio $\approx 1.1$), making $k$NN matching unreliable and introducing noise rather than adaptation.
+
+However, the oracle strategy (mean MCC = 0.160) approximately doubles EqualWeight performance (0.083), confirming that per-pathogen weighting provides genuine improvement when labeled data is available.
+Closing this gap without labels requires expanding the reference database to 20--30+ pathogens for meaningful $k$NN matching in the pathogen profile space.
+This is a finding about the current state of available data, not a failure of the adaptive concept; the oracle ceiling demonstrates that the potential for adaptive improvement exists and motivates knowledge base expansion as a concrete future direction.
+
+%% ------------------------------------------------------------
+\subsection{Information-Type Analysis Summary}
+\label{subsec:info_analysis_summary}
+
+The multi-source information integration analysis yields four key findings:
+
+\begin{itemize}
+\item \textbf{Feature heterogeneity}: The most discriminative information type differs across pathogens (5 distinct best features among 12 pathogens), providing a mechanistic explanation for the scoring $\times$ pathogen interaction ($\omega^2 = 0.296$) observed in the ANOVA.
+\item \textbf{Compact core}: A 4-feature core (homoplasy, pLDDT, entropy, frequency) captures 98\% of the full 10-feature ensemble performance under uniform weighting, while features that are noise on average (ESM-2, SASA) are the best discriminators for specific pathogens.
+\item \textbf{Practical search space reduction}: Equal-weight 10-feature integration achieves statistically significant H3N2 vaccine escape enrichment (4.012$\times$, $p = 0.0023$) where single-feature approaches fail to reach significance, transforming exhaustive experimental screening into guided investigation.
+\item \textbf{Adaptive weighting potential}: The oracle ceiling (MCC = 0.160 vs.\ EqualWeight 0.083) confirms that per-pathogen feature weighting can double performance, but requires expanding the reference database beyond the current 12 pathogens.
+\end{itemize}
+
+The broader implications for adaptive method selection, including knowledge base scaling requirements and future extensions, are discussed in Chapter~\ref{ch:discussion}.

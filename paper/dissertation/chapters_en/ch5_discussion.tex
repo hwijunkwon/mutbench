@@ -2,8 +2,8 @@
 \chapter{Discussion}
 \label{ch:discussion}
 
-This chapter interprets the results from Chapters~\ref{ch:results} and~\ref{ch:adapt} and discusses the methodological implications, limitations, and future research directions of MutBench.
-The multi-source information integration analysis (Chapter~\ref{ch:adapt}) reinforces the cross-pathogen findings: multi-feature integration consistently outperformed single-scoring approaches, complementing the statistical evidence from the benchmark evaluation.
+This chapter interprets the results from Chapter~\ref{ch:results} and discusses the methodological implications, limitations, and future research directions of MutBench.
+The multi-source information integration analysis (Section~\ref{sec:information_analysis}) reinforces the cross-pathogen findings: multi-feature integration consistently outperformed single-scoring approaches, complementing the statistical evidence from the benchmark evaluation.
 
 %% ============================================================
 \section{Methodological Validity of MutBench}
@@ -63,10 +63,10 @@ The founder bias problem ($\rho = -0.876$ between H-score and independent origin
 \phantomsection\label{tab:homoplasy_validation}
 
 Cross-pathogen validation revealed pathogen-dependent performance: HIV-1 showed significant discrimination (AUC = 0.706, $p = 0.0002$), H3N2 showed a weak trend (AUC = 0.561, $p = 0.147$), and HCV failed entirely (AUC = 0.390) due to parsimony saturation in its hypervariable regions.
-This mirrors the detection-level finding of the main benchmark: just as the best detection algorithm varies across pathogens ($\omega^2 = 0.296$), the optimal scoring strategy also depends on pathogen-specific characteristics. This extends the PAHD framework's selection problem to encompass scoring methods as well.
+This mirrors the detection-level finding of the main benchmark: just as the best detection algorithm varies across pathogens ($\omega^2 = 0.296$), the optimal scoring strategy also depends on pathogen-specific characteristics. This extends the algorithm selection problem to encompass scoring methods as well.
 
 %% ============================================================
-\section{Cross-Pathogen Generalization and PAHD}
+\section{Cross-Pathogen Generalization}
 
 %% ============================================================
 \subsection{Implications of Cross-Pathogen Generalization}
@@ -120,14 +120,14 @@ Despite these ceiling effects, the benchmark results have practical implications
 %% ============================================================
 \section{Practical Implications and Fundamental Limitations}
 
-Returning to the three problems identified in Chapter~\ref{ch:introduction}: the absence of a standardized evaluation framework is addressed by MutBench's three-layer ground truth and hotspot-score metric (Contribution~1); the lack of cross-pathogen generalization evidence is resolved by the four independent lines of statistical evidence (Contribution~2); and the unknown pathogen-dependence of detection methods is quantified by the interaction effect ($\omega^2 = 0.296$, Section~\ref{subsec:9pathogen_anova}) and LOPO failure (0/11), motivating the PAHD framework.
+Returning to the three problems identified in Chapter~\ref{ch:introduction}: the absence of a standardized evaluation framework is addressed by MutBench's three-layer ground truth and hotspot-score metric (Contribution~1); the lack of cross-pathogen generalization evidence is resolved by the four independent lines of statistical evidence (Contribution~2); and the unknown pathogen-dependence of detection methods is quantified by the interaction effect ($\omega^2 = 0.296$, Section~\ref{subsec:9pathogen_anova}) and LOPO failure (0/11), establishing the necessity of pathogen-adaptive method selection.
 
 %% ============================================================
 \subsection{Vaccine Escape Position Validation}
 \label{sec:vaccine_escape}
 
 Vaccine escape validation (Table~\ref{tab:vaccine_escape}) showed that the best MutBench method (E\_only + KDE) achieved 4.90-fold enrichment for SARS-CoV-2 ($p < 0.0001$), while H3N2 showed borderline enrichment ($p = 0.054$).
-The multi-feature integration further achieves statistically significant H3N2 escape enrichment ($p = 0.0023$; Table~\ref{tab:adapt_escape}) where single-feature approaches do not. The primary practical value of multi-source integration lies in \textit{reducing the experimental search space} rather than achieving high absolute prediction accuracy (see Section~\ref{sec:adapt_practical} for detailed discussion).
+The multi-feature integration further achieves statistically significant H3N2 escape enrichment ($p = 0.0023$; Table~\ref{tab:adapt_escape}) where single-feature approaches do not. The primary practical value of multi-source integration lies in \textit{reducing the experimental search space} rather than achieving high absolute prediction accuracy (see Section~\ref{subsec:search_space_reduction} for detailed discussion).
 
 \begin{table}[htbp]
 \centering

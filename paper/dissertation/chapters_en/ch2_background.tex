@@ -72,7 +72,7 @@ ESM-2~\cite{lin2023esm2,rives2021biological}, trained on 250 million protein seq
 ProtTrans~\cite{elnaggar2022prottrans} adopts transformer architectures (including BERT and T5 variants) pretrained on UniRef and BFD databases, achieving competitive performance on protein function prediction tasks.
 More recently, ESM-3 extended the ESM family to a multimodal generative model integrating sequence, structure, and function tokens.
 Despite the growing adoption of PLMs in protein engineering and variant effect prediction, no systematic comparison of PLM-derived features exists for viral mutation hotspot detection across multiple pathogens.
-In this dissertation, ESM-2 log-likelihood ratios and embedding-derived semantic change scores are evaluated as two of the 10 positional features in the MutBench information analysis (Chapter~\ref{ch:adapt}).
+In this dissertation, ESM-2 log-likelihood ratios and embedding-derived semantic change scores are evaluated as two of the 10 positional features in the MutBench information-type analysis (Section~\ref{sec:information_analysis}).
 
 \subsection{Viral Genomic Surveillance Platforms}
 \label{subsec:bg_surveillance}
@@ -93,7 +93,7 @@ MutBench addresses the latter question by providing a systematic framework for e
 \subsection{Feature Importance Analysis in Viral Mutation Prediction}
 \label{subsec:bg_feature_importance}
 
-Several recent studies have analyzed which biological features predict viral mutation patterns, providing context for the multi-source information analysis in this dissertation (Chapter~\ref{ch:adapt}).
+Several recent studies have analyzed which biological features predict viral mutation patterns, providing context for the multi-source information analysis in this dissertation (Section~\ref{sec:information_analysis}).
 Maher et al.~\cite{maher2022predicting} analyzed features predicting future SARS-CoV-2 variants of concern, finding that epidemiological features (geographic spread, growth rate) dominated over sequence-based features for a single pathogen.
 Rodriguez-Rivas et al.~\cite{rodriguez2022epistatic} demonstrated that epistatic coupling models (DCA-based) achieve AUC = 0.76 for predicting escape mutations, outperforming non-epistatic models (AUC = 0.63), highlighting the value of co-evolutionary information.
 Hie et al.~\cite{hie2021learning} showed that protein language model embeddings capture ``semantic change'' that predicts viral escape, providing a complementary deep learning perspective.

@@ -76,9 +76,9 @@ To address the problems above, this study establishes the following three object
   \item A two-stage experimental design: Stage~1 for in-depth SARS-CoV-2 analysis; Stage~2 for large-scale comparison across 11 RNA viruses (20 scoring formulas $\times$ 39 detection algorithms $\times$ 11 pathogens = 8{,}580 evaluations, extended to 12 pathogens in the adaptive integration study).
   \end{itemize}
 
-  \item \textbf{Statistical demonstration of the necessity of pathogen-adaptive method selection}: Through statistical analyses (ANOVA, Friedman test, LOPO cross-validation) of the large-scale benchmark results, statistically establish that the premise of a single best-performing method does not hold across pathogens, motivating the PAHD framework, for which a proof-of-concept prototype is presented (see Chapter~\ref{ch:results}).
+  \item \textbf{Statistical demonstration of the necessity of pathogen-adaptive method selection}: Through statistical analyses (ANOVA, Friedman test, LOPO cross-validation) of the large-scale benchmark results, statistically establish that the premise of a single best-performing method does not hold across pathogens (see Chapter~\ref{ch:results}).
 
-  \item \textbf{Multi-source information integration analysis}: Building on the benchmark findings, systematically analyze 10 biological information types to determine which information is essential for hotspot prediction per pathogen, and demonstrate that multi-source integration reduces the experimental search space with statistically significant vaccine escape enrichment (see Chapter~\ref{ch:adapt}).
+  \item \textbf{Multi-source information integration analysis}: Building on the benchmark findings, systematically analyze 10 biological information types to determine which information is essential for hotspot prediction per pathogen, and demonstrate that multi-source integration reduces the experimental search space with statistically significant vaccine escape enrichment (see Chapter~\ref{ch:results}).
 \end{enumerate}
 
 
@@ -106,8 +106,8 @@ To address the problems above, this study establishes the following three object
 % Statistical Validation
 \node[mainbox, fill=green!10, below=2.5cm of mutbench] (stats) {\textbf{Statistical Validation}: ANOVA ($\omega^2{=}0.296$) + Friedman ($p{=}0.990$) + LOPO (0/11)};
 
-% PAHD Prototype
-\node[mainbox, fill=orange!10, below=1.5cm of stats] {\textbf{PAHD Prototype}: Pathogen-adaptive method selection (proof-of-concept)};
+% Multi-source Integration
+\node[mainbox, fill=orange!10, below=1.5cm of stats] (integration) {\textbf{Multi-Source Information Integration}: 10 features $\times$ 12 pathogens};
 
 % Arrows
 \draw[arrow] (problem) -- (mutbench);
@@ -117,11 +117,11 @@ To address the problems above, this study establishes the following three object
 \draw[arrow] ([yshift=-0.3cm]gt.south) -- ([yshift=0.3cm]stats.north -| gt);
 \draw[arrow] ([yshift=-0.3cm]hs.south) -- ([yshift=0.3cm]stats.north);
 \draw[arrow] ([yshift=-0.3cm]design.south) -- ([yshift=0.3cm]stats.north -| design);
-\draw[arrow] (stats) -- ++(0,-1.5cm);
+\draw[arrow] (stats) -- (integration);
 
 \end{tikzpicture}
 }% end resizebox
-\caption{Research overview. The study proceeds from problem identification through framework construction (MutBench with three core components), statistical validation establishing cross-pathogen heterogeneity, to the PAHD proof-of-concept prototype.}
+\caption{Research overview. The study proceeds from problem identification through framework construction (MutBench with three core components), statistical validation establishing cross-pathogen heterogeneity, to multi-source information integration analysis.}
 \label{fig:research_overview}
 \end{figure}
 
@@ -139,27 +139,25 @@ It introduces the hotspot-score, a composite metric that simultaneously evaluate
 \textbf{Contribution 2. Statistical demonstration of the necessity of pathogen-adaptive method selection.}
 Across eleven RNA viruses, all eleven pathogens exhibited different best-performing combinations (LOPO cross-validation: 0/11 matches), and the interaction between scoring method and pathogen was the largest source of variance in ANOVA.
 The Friedman test confirmed that performance rankings among methods vary systematically across pathogens.
-These results statistically establish that the premise of a single best-performing method does not hold, motivating the PAHD framework, for which a proof-of-concept prototype is presented (see Chapter~\ref{ch:results}).
+These results statistically establish that the premise of a single best-performing method does not hold, demonstrating the necessity of pathogen-adaptive method selection (see Chapter~\ref{ch:results}).
 
 \textbf{Contribution 3. Multi-source information integration analysis for hotspot prediction.}
 A systematic analysis of 10 biological information types---spanning sequence statistics, phylogenetic signals, protein language models, structural properties, and chemical characteristics---reveals that the most informative feature differs across pathogens (e.g., homoplasy for Norovirus, pLDDT for H3N2, ESM-2 for SARS-CoV-2), and that integrating multiple information sources reduces the experimental search space for hotspot validation.
-The equal-weight integration achieves H3N2 vaccine escape enrichment of 4.012$\times$ ($p = 0.0023$), demonstrating that multi-source analysis captures biologically meaningful hotspots that single-information approaches miss (see Chapter~\ref{ch:adapt}).
+The equal-weight integration achieves H3N2 vaccine escape enrichment of 4.012$\times$ ($p = 0.0023$), demonstrating that multi-source analysis captures biologically meaningful hotspots that single-information approaches miss (see Chapter~\ref{ch:results}).
 
 
 \section{Dissertation Organization}
 \label{sec:intro_organization}
 
-This dissertation comprises seven chapters.
+This dissertation comprises six chapters.
 
 \textbf{Chapter~\ref{ch:background}, Related Research} reviews the existing literature on viral mutation hotspot detection and summarizes the core methodology and limitations of MutClust~\cite{youn2025mutclust} that motivated the development of MutBench.
 
 \textbf{Chapter~\ref{ch:mutbench}, Materials and Method} describes in detail the materials and methodology of the MutBench benchmark framework, the core contribution of this dissertation.
 Section~3.1 describes the materials (target pathogens, ground truth framework, and DMS data). Sections~3.2--3.4 present the methods: Section~3.2 covers the benchmark framework design including MutClust variants and the hotspot-score metric, Section~3.3 describes the scoring formulas and detection method families, and Section~3.4 details the evaluation metrics and statistical analysis design.
 
-\textbf{Chapter~\ref{ch:results}, Experimental Results} reports the experimental results organized into four sections: Single-Pathogen Benchmark (synthetic data comparison, multi-ground truth evaluation, real GISAID validation, and external methods comparison on SARS-CoV-2), Robustness Validation (statistical validation, sensitivity analysis, temporal generalization, and indel exclusion), Cross-Pathogen Validation (H3N2 validation, 3D structural analysis, phylogenetic simulation, and ESM-2 cross-paradigm validation), and the Cross-Pathogen Large-Scale Benchmark (ANOVA, Friedman test, LOPO cross-validation, and PAHD proof-of-concept prototype).
+\textbf{Chapter~\ref{ch:results}, Experimental Results} reports the experimental results organized into five sections: Single-Pathogen Benchmark (synthetic data comparison, multi-ground truth evaluation, real GISAID validation, and external methods comparison on SARS-CoV-2), Robustness Validation (statistical validation, sensitivity analysis, temporal generalization, and indel exclusion), Cross-Pathogen Validation (H3N2 validation, 3D structural analysis, phylogenetic simulation, and ESM-2 cross-paradigm validation), the Cross-Pathogen Large-Scale Benchmark (ANOVA, Friedman test, LOPO cross-validation), and Information-Type Analysis (feature ablation, ground truth heterogeneity, search space reduction, and multi-source integration across 12 pathogens).
 
-\textbf{Chapter~\ref{ch:adapt}, Multi-Source Information Integration Analysis} systematically analyzes 10 biological information types to determine which information is essential for hotspot prediction per pathogen, validates multi-source integration through LOPO cross-validation across 12 RNA viruses, and demonstrates practical value through vaccine escape enrichment analysis.
-
-\textbf{Chapter~\ref{ch:discussion}, Discussion} provides a comprehensive interpretation of the experimental results, discusses the methodological implications of MutBench, its limitations, and the future direction of the PAHD conceptual framework.
+\textbf{Chapter~\ref{ch:discussion}, Discussion} provides a comprehensive interpretation of the experimental results, discusses the methodological implications of MutBench, its limitations, and future research directions.
 
 \textbf{Chapter~\ref{ch:conclusion}, Conclusion} summarizes the contributions of this research, analyzes its limitations, and presents future research directions.

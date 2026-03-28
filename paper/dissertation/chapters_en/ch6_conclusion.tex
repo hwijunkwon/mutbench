@@ -20,10 +20,9 @@ Second, all 11 pathogens exhibited unique best scoring--detection combinations (
 Third, the Friedman test confirmed that performance rankings among methods systematically vary across pathogens.
 Fourth, Leave-One-Pathogen-Out (LOPO) cross-validation yielded a 0/11 agreement result, showing that the best combination selected from training pathogens does not generalize.
 These results provide the statistical basis for pathogen-adaptive method selection.
-As a proof-of-concept application of these benchmark findings, the PAHD prototype (Section~\ref{subsec:pahd_prototype}) demonstrated that genomic profile similarity can partially predict detection family preferences: the v1 profile (8 features) achieved 5/11 positive MCC with median MCC $= 0.014$ vs.\ naive median $= 0.000$, and the v2 profile (85 MSA-derived features) improved mean MCC from 0.005 to 0.017 by reducing pathological negative transfers, illustrating how the benchmark results can guide practical method selection (see Chapter~\ref{ch:results} for detailed statistics).
 
 \textbf{Contribution 3. Multi-source information integration analysis for hotspot prediction.}
-A systematic analysis of 10 biological information types (Chapter~\ref{ch:adapt}) reveals that the most informative feature for hotspot prediction differs across pathogens---homoplasy for Norovirus (AUC = 0.944), pLDDT for H3N2 (0.787), ESM-2 LLR for SARS-CoV-2 (0.586)---and that feature ablation identifies a 4-feature core (homoplasy, entropy, frequency, rare variant) capturing 98\% of integrated performance.
+A systematic analysis of 10 biological information types (Section~\ref{sec:information_analysis}) reveals that the most informative feature for hotspot prediction differs across pathogens---homoplasy for Norovirus (AUC = 0.944), pLDDT for H3N2 (0.787), ESM-2 LLR for SARS-CoV-2 (0.586)---and that feature ablation identifies a 4-feature core (homoplasy, entropy, frequency, rare variant) capturing 98\% of integrated performance.
 Multi-source integration reduces the experimental search space, achieving H3N2 vaccine escape enrichment of 4.012$\times$ ($p = 0.0023$) where single-information approaches fail to reach significance.
 This analysis establishes which biological information is essential for each pathogen and provides a ranked candidate list for experimental validation.
 
@@ -85,7 +84,7 @@ Window-based or region overlap metrics could more leniently reflect the practica
 \textbf{Priority} & \textbf{Research direction} & \textbf{Prerequisite} & \textbf{Expected impact} \\
 \midrule
 1 (Highest) & Phylogenetic correction integration & TreeTime pipeline & Resolves founder-effect bias \\
-2 & PAHD implementation & Corrected benchmark data & Adaptive method selection \\
+2 & Adaptive method selection & Corrected benchmark + 20+ pathogens & Pathogen-specific optimization \\
 3 & DNA virus extension & New ground truth curation & Broader applicability \\
 4 & Real-time surveillance integration & Incremental H-score updates & Public health utility \\
 \bottomrule
@@ -93,11 +92,10 @@ Window-based or region overlap metrics could more leniently reflect the practica
 }
 \end{table}
 
-\textbf{PAHD: From Benchmark Application to Full Implementation.}
+\textbf{Adaptive Method Selection.}
 
-The PAHD prototype (Section~\ref{subsec:pahd_prototype}) demonstrated that coarser-granularity prediction---family-level (48.3\% of oracle) and scoring-level (57.7\%)---substantially outperforms exact combination prediction (1.7\%), supporting a hierarchical prediction approach.
-However, the $n = 11$ knowledge base remains the fundamental bottleneck: the exact match rate was 0/11 for both v1 (8 features) and v2 (85 MSA-derived features) profiles.
-Scaling to 20+ pathogens, introducing top-$k$ ensemble strategies, and transitioning to meta-learning regression models~\cite{rice1976algorithm,kerschke2019algorithm} are the concrete next steps.
+The oracle ceiling analysis (Section~\ref{subsec:adaptive_weighting_limits}) demonstrated that per-pathogen feature weighting can double performance (MCC = 0.160 vs.\ EqualWeight 0.083), but with only 12 reference pathogens the knowledge base is insufficient for reliable adaptive selection.
+Scaling to 20+ pathogens, introducing top-$k$ ensemble strategies, and transitioning to meta-learning regression models~\cite{rice1976algorithm,kerschke2019algorithm} are the concrete next steps toward pathogen-adaptive method selection.
 
 \textbf{Integration of Phylogenetic Correction.}
 
@@ -118,7 +116,7 @@ and (3)~real-time surveillance pipeline development, integrating MutBench-valida
 \label{sec:final_conclusion}
 
 The COVID-19 pandemic revealed that viral mutation hotspot detection is not merely an academic exercise but a public health imperative.
-This dissertation presented MutBench, the first systematic benchmark framework for viral mutation hotspot detection, and statistically demonstrated through large-scale benchmark evaluation across 11 RNA viruses (8{,}580 total evaluations) that no single best-performing method exists. Furthermore, the multi-source information integration analysis (Chapter~\ref{ch:adapt}) demonstrated that a 10-feature integrated ensemble consistently outperforms single-scoring approaches across 12 pathogens.
+This dissertation presented MutBench, the first systematic benchmark framework for viral mutation hotspot detection, and statistically demonstrated through large-scale benchmark evaluation across 11 RNA viruses (8{,}580 total evaluations) that no single best-performing method exists. Furthermore, the multi-source information integration analysis (Section~\ref{sec:information_analysis}) demonstrated that a 10-feature integrated ensemble consistently outperforms single-scoring approaches across 12 pathogens.
 Before MutBench, researchers deploying hotspot detection methods had no quantitative basis for method selection; MutBench provides this basis through standardized ground truth, composite evaluation metrics, and cross-pathogen statistical evidence.
 These results establish that adaptive method selection based on pathogen characteristics is essential, and the interaction dominance ($\omega^2 = 0.296$) empirically confirms the algorithm selection principle~\cite{kerschke2019algorithm} in viral mutation hotspot detection.
 As new viral threats emerge, the systematic benchmarking methodology established here may enable rapid identification of optimal detection strategies tailored to each pathogen's characteristics, transforming hotspot detection from an ad hoc practice into an evidence-based discipline.

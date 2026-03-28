@@ -636,19 +636,19 @@ Leo Breiman.
 \newblock \emph{Machine Learning}, 45\penalty0 (1):\penalty0 5--32, 2001.
 \newblock \doi{10.1023/A:1010933404324}.
 
-\bibitem[Weirauch et~al.(2013)]{weirauch2013evaluation}
-Matthew~T. Weirauch et~al.
-\newblock Evaluation of methods for modeling transcription factor sequence
-  specificity.
-\newblock \emph{Nature Biotechnology}, 31:\penalty0 126--134, 2013.
-\newblock \doi{10.1038/nbt.2486}.
-
 \bibitem[Wolpert and Macready(1997)]{wolpert1997nfl}
 David~H. Wolpert and William~G. Macready.
 \newblock No free lunch theorems for optimization.
 \newblock \emph{IEEE Transactions on Evolutionary Computation}, 1\penalty0
   (1):\penalty0 67--82, 1997.
 \newblock \doi{10.1109/4235.585893}.
+
+\bibitem[Weirauch et~al.(2013)]{weirauch2013evaluation}
+Matthew~T. Weirauch et~al.
+\newblock Evaluation of methods for modeling transcription factor sequence
+  specificity.
+\newblock \emph{Nature Biotechnology}, 31:\penalty0 126--134, 2013.
+\newblock \doi{10.1038/nbt.2486}.
 
 \bibitem[Shu and McCauley(2017)]{shu2017gisaid}
 Yuelong Shu and John McCauley.
