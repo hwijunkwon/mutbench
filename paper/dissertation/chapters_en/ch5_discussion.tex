@@ -146,6 +146,21 @@ HIV-1 & 45 & 3/45 (0.067) & 0.35$\times$ & 0.997 \\
 \end{table}
 
 %% ============================================================
+\subsection{Cross-Validation via Vaccine Escape Enrichment}
+\label{sec:cross_validation_escape}
+
+A critical question for any benchmark is whether its rankings reflect genuine biological relevance or merely circular evaluation artifacts.
+The vaccine escape enrichment analysis across three pathogens (2{,}340 evaluations) provides independent cross-validation of the Layer~A benchmark results.
+Specifically, the scoring type identified as optimal by Layer~A also achieves the highest vaccine escape enrichment: for H3N2, FUBAR Bayes factor---the best Layer~A scorer (MCC = 0.534)---achieves the highest escape enrichment (9.36$\times$, $p < 0.0001$), and for HIV-1, frequency-based scoring---the best Layer~A scorer---achieves the highest escape enrichment (7.19$\times$, $p < 0.0001$).
+
+This concordance between Layer~A rankings and vaccine escape enrichment is notable because the two evaluations measure fundamentally different quantities: Layer~A assesses position-level detection accuracy against convergent evolution sites, while vaccine escape enrichment measures the overlap between detected hotspots and experimentally confirmed antibody escape positions.
+The fact that optimizing for Layer~A also maximizes escape capture provides strong evidence that the benchmark is not merely a circular evaluation artifact.
+
+This cross-validation is particularly important for the six pathogens without DMS data (Layer~C), where benchmark validity rests primarily on Layer~A.
+The EVEREST study~\cite{gurev2025everest} demonstrated that even with 48 DMS datasets, half of WHO priority viruses cannot be reliably evaluated using DMS alone.
+MutBench's combination of Layer~A benchmark rankings with independent vaccine escape validation provides complementary evidence that circumvents DMS data availability constraints, supporting the validity of Layer~A as a ground truth even for pathogens where DMS data are unavailable.
+
+%% ============================================================
 \subsection{Practical Considerations for Public Health Surveillance}
 \label{sec:practical_surveillance}
 

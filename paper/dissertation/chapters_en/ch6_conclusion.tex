@@ -24,6 +24,7 @@ These results provide the statistical basis for pathogen-adaptive method selecti
 \textbf{Contribution 3. Multi-source information integration analysis for hotspot prediction.}
 A systematic analysis of 10 biological information types (Section~\ref{sec:information_analysis}) reveals that the most informative feature for hotspot prediction differs across pathogens---homoplasy for Norovirus (AUC = 0.944), pLDDT for H3N2 (0.787), ESM-2 LLR for SARS-CoV-2 (0.586)---and that feature ablation identifies a 4-feature core (homoplasy, entropy, frequency, rare variant) capturing 98\% of integrated performance.
 Multi-source integration reduces the experimental search space, achieving H3N2 vaccine escape enrichment of 4.012$\times$ ($p = 0.0023$) where single-information approaches fail to reach significance.
+Vaccine escape enrichment analysis across 3 pathogens (2{,}340 evaluations) cross-validates the Layer~A benchmark: the scoring type identified as optimal by the benchmark also achieves the highest vaccine escape enrichment (H3N2: 9.36$\times$, HIV-1: 7.19$\times$, both $p < 0.0001$), providing independent evidence that Layer~A rankings reflect genuine biological relevance.
 This analysis establishes which biological information is essential for each pathogen and provides a ranked candidate list for experimental validation.
 
 
@@ -119,6 +120,7 @@ The COVID-19 pandemic revealed that viral mutation hotspot detection is not mere
 This dissertation presented MutBench, the first systematic benchmark framework for viral mutation hotspot detection, and statistically demonstrated through large-scale benchmark evaluation across 11 RNA viruses (8{,}580 total evaluations) that no single best-performing method exists. Furthermore, the multi-source information integration analysis (Section~\ref{sec:information_analysis}) demonstrated that a 10-feature integrated ensemble consistently outperforms single-scoring approaches across 12 pathogens.
 Before MutBench, researchers deploying hotspot detection methods had no quantitative basis for method selection; MutBench provides this basis through standardized ground truth, composite evaluation metrics, and cross-pathogen statistical evidence.
 These results establish that adaptive method selection based on pathogen characteristics is essential, and the interaction dominance ($\omega^2 = 0.296$) empirically confirms the algorithm selection principle~\cite{kerschke2019algorithm} in viral mutation hotspot detection.
+The concordance between Layer~A benchmark rankings and independent vaccine escape enrichment (up to 9.36-fold) further validates that MutBench's benchmark results translate to practical utility in identifying immune evasion positions.
 As new viral threats emerge, the systematic benchmarking methodology established here may enable rapid identification of optimal detection strategies tailored to each pathogen's characteristics, transforming hotspot detection from an ad hoc practice into an evidence-based discipline.
 
 \section*{Code and Data Availability}
