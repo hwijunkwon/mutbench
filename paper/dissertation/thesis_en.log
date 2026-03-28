@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2022/dev/Debian) (preloaded format=xelatex 2026.3.7)  28 MAR 2026 18:43
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2022/dev/Debian) (preloaded format=xelatex 2026.3.7)  28 MAR 2026 18:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1301,25 +1301,7 @@ Overfull \hbox (12.06221pt too wide) in paragraph at lines 17--17
  but the per-pathogen 
  []
 
-[9]
-Overfull \hbox (8.7869pt too wide) in paragraph at lines 23--23
- \TU/TeXGyreTermes(0)/m/n/10.95 panded 12-pathogen analysis). Three clusters ar
-e evident: frequency- 
- []
-
-
-Overfull \hbox (2.74655pt too wide) in paragraph at lines 23--23
- \TU/TeXGyreTermes(0)/m/n/10.95 derived features (freq, entropy, rare variant, 
-dN/dS proxy) are highly 
- []
-
-
-Overfull \hbox (3.45822pt too wide) in paragraph at lines 23--23
- \TU/TeXGyreTermes(0)/m/n/10.95 structure-based features (pLDDT, SASA) are weak
-ly anti-correlated 
- []
-
-[10])
+[9] [10])
 \tf@lof=\write6
 \openout6 = `thesis_en.lof'.
 
@@ -1774,36 +1756,49 @@ rmes(0)/m/n/10.95 (mean physicochem-
 [90]
 File: figures//feature_auc_heatmap.png Graphic file (type bmp)
 <figures//feature_auc_heatmap.png>
- [91]
-Overfull \hbox (3.27661pt too wide) in paragraph at lines 628--629
+ [91] [92]
+Overfull \hbox (3.27661pt too wide) in paragraph at lines 630--631
 \TU/TeXGyreTermes(0)/m/n/10.95 teract and provide complementary information—a R
 andom Forest classifier [[]]
  []
 
-[92]
-Overfull \hbox (7.03891pt too wide) in paragraph at lines 632--634
+
+Overfull \hbox (21.16722pt too wide) in paragraph at lines 632--633
+[]\TU/TeXGyreTermes(0)/m/n/10.95 Figure [][]4.14[][] presents the feature impor
+tance distributions across all 11 pathogens.
+ []
+
+
+Overfull \hbox (7.03891pt too wide) in paragraph at lines 634--636
 \TU/TeXGyreTermes(0)/m/n/10.95 H3N2, pLDDT remains the most important feature (
 0.338), with semantic change
  []
 
 [93]
-Overfull \hbox (4.15096pt too wide) in paragraph at lines 635--637
+Overfull \hbox (4.15096pt too wide) in paragraph at lines 637--639
 []\TU/TeXGyreTermes(0)/b/n/10.95 Second, expanding from 6 to 10 features improv
 es cross-validation AUC.
  []
 
 
-Overfull \hbox (7.60005pt too wide) in paragraph at lines 638--640
+Overfull \hbox (7.60005pt too wide) in paragraph at lines 640--642
 \TU/TeXGyreTermes(0)/m/n/10.95 and share importance in the RF model while ESM-2
  LLR provides non-redundant
  []
 
 File: figures//feature_importance_grid.png Graphic file (type bmp)
 <figures//feature_importance_grid.png>
+
+Underfull \hbox (badness 1221) in paragraph at lines 646--646
+\TU/TeXGyreTermes(0)/m/n/10.95 11 pathogens (10 features). Bar colors indicate 
+feature category: blue
+ []
+
+[94]
 File: figures//feature_correlation_heatmap.png Graphic file (type bmp)
 <figures//feature_correlation_heatmap.png>
-[94] [95] [96] [97]
-Overfull \hbox (4.0633pt too wide) in paragraph at lines 671--672
+ [95] [96] [97]
+Overfull \hbox (4.0633pt too wide) in paragraph at lines 673--674
 []\TU/TeXGyreTermes(0)/m/n/10.95 The cross-pathogen benchmark demonstrated that
  the best scoring–detection
  []
@@ -1812,55 +1807,55 @@ Overfull \hbox (4.0633pt too wide) in paragraph at lines 671--672
 File: figures//feature_ablation_bars.png Graphic file (type bmp)
 <figures//feature_ablation_bars.png>
  [99] [100]
-Overfull \hbox (1.8654pt too wide) in paragraph at lines 725--726
+Overfull \hbox (1.8654pt too wide) in paragraph at lines 727--728
 \TU/TeXGyreTermes(0)/m/n/10.95 pathogens (ESM-2 for MERS AUC = 0.695; SASA for 
 Norovirus AUC = 0.747),
  []
 
 [101]
-Overfull \hbox (5.6382pt too wide) in paragraph at lines 769--770
+Overfull \hbox (5.6382pt too wide) in paragraph at lines 771--772
 \TU/TeXGyreTermes(0)/m/n/10.95 tribute to hotspot prediction, but the most info
 rmative feature differs by pathogen.
  []
 
 [102]
-Overfull \hbox (0.78639pt too wide) in paragraph at lines 806--808
+Overfull \hbox (0.78639pt too wide) in paragraph at lines 808--810
 \TU/TeXGyreTermes(0)/m/n/10.95 cross-validates the Layer A findings through an 
 entirely independent criterion—
  []
 
 [103]
-Overfull \hbox (1.92607pt too wide) in paragraph at lines 809--810
+Overfull \hbox (1.92607pt too wide) in paragraph at lines 811--812
 \TU/TeXGyreTermes(0)/m/n/10.95 9.36-fold enrichment, substantially outperformin
 g frequency-based approaches.
  []
 
 
-Overfull \hbox (0.52454pt too wide) in paragraph at lines 811--813
+Overfull \hbox (0.52454pt too wide) in paragraph at lines 813--815
 \TU/TeXGyreTermes(0)/m/n/10.95 tection from an exhaustive search into a guided 
 investigation, providing a ranked
  []
 
 
-Overfull \hbox (5.33887pt too wide) in paragraph at lines 811--813
+Overfull \hbox (5.33887pt too wide) in paragraph at lines 813--815
 \TU/TeXGyreTermes(0)/m/n/10.95 candidate list that directs limited experimental
  resources toward the most promis-
  []
 
 [104]
-Overfull \hbox (4.66557pt too wide) in paragraph at lines 821--823
+Overfull \hbox (4.66557pt too wide) in paragraph at lines 823--825
 []\TU/TeXGyreTermes(0)/m/n/10.95 This underperformance is explained by the spar
 sity of the reference database.
  []
 
 [105]
-Overfull \hbox (6.34535pt too wide) in paragraph at lines 836--837
+Overfull \hbox (6.34535pt too wide) in paragraph at lines 838--839
 []\TU/TeXGyreTermes(0)/b/n/10.95 Compact core\TU/TeXGyreTermes(0)/m/n/10.95 : A
  4-feature core (homoplasy, pLDDT, entropy, frequency)
  []
 
 
-Overfull \hbox (8.47906pt too wide) in paragraph at lines 837--838
+Overfull \hbox (8.47906pt too wide) in paragraph at lines 839--840
 \TU/TeXGyreTermes(0)/m/n/10.95 achieves statistically significant H3N2 vaccine 
 escape enrichment (4.012$\OMS/cmsy/m/n/10.95 ^^B$\TU/TeXGyreTermes(0)/m/n/10.95
  ,
@@ -2149,7 +2144,7 @@ LaTeX Font Warning: Size substitutions with differences
 Here is how much of TeX's memory you used:
  30635 strings out of 477728
  617166 string characters out of 5842239
- 954755 words of memory out of 5000000
+ 954389 words of memory out of 5000000
  50660 multiletter control sequences out of 15000+600000
  482782 words of font info for 145 fonts, out of 8000000 for 9000
  264 hyphenation exceptions out of 8191

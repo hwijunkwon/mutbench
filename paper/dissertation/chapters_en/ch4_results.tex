@@ -567,7 +567,7 @@ The preceding sections demonstrated that the best-performing scoring--detection 
 \subsection{Per-Feature Discriminative Power}
 \label{subsec:per_feature_auc}
 
-Ten positional features were evaluated as individual predictors of Layer~A (convergent evolution) ground truth. This section reports the initial 9-pathogen analysis; the expanded 12-pathogen analysis is presented in Chapter~\ref{ch:adapt}. These features represent six distinct information categories:
+Ten positional features were evaluated as individual predictors of Layer~A (convergent evolution) ground truth across all 11 benchmark pathogens. These features represent six distinct information categories:
 
 \begin{itemize}
 \item \textbf{Frequency-based} (3 features): \textit{freq} (proportion of sequences carrying a non-reference amino acid at each position), \textit{entropy} (Shannon entropy measuring allelic diversity), and \textit{rare\_freq} (frequency of minor alleles below 5\% threshold, capturing low-frequency variants that may signal emerging adaptive mutations).
@@ -584,7 +584,7 @@ Table~\ref{tab:per_feature_auc} and Figure~\ref{fig:feature_auc_heatmap} present
 
 \begin{table}[htbp]
 \centering
-\caption{Per-feature AUC for Layer~A prediction across 9 pathogens (10 features). The highest AUC per pathogen is shown in \textbf{bold}. AUC = 0.5 indicates no discriminative power; AUC $< 0.5$ indicates inverse association. The expanded 12-pathogen analysis (including Zika, Rabies, and EV-A71) is presented in Chapter~\ref{ch:adapt}.}
+\caption{Per-feature AUC for Layer~A prediction across 11 pathogens (10 features). The highest AUC per pathogen is shown in \textbf{bold}. AUC = 0.5 indicates no discriminative power; AUC $< 0.5$ indicates inverse association.}
 \label{tab:per_feature_auc}
 \adjustbox{max width=\textwidth}{
 \footnotesize
@@ -601,6 +601,8 @@ RSV           & 0.262 & 0.263 & 0.258 & 0.503 & 0.284 & \textbf{0.561} & 0.508 &
 Influenza~B   & 0.783 & 0.773 & 0.640 & \textbf{0.805} & 0.587 & 0.486 & 0.599 & 0.529 & 0.750 & 0.630 \\
 MERS          & 0.515 & 0.544 & 0.664 & 0.681 & \textbf{0.695} & 0.162 & 0.579 & 0.470 & 0.477 & 0.665 \\
 HCV           & 0.677 & 0.679 & 0.424 & 0.405 & 0.447 & 0.473 & 0.488 & 0.383 & \textbf{0.680} & 0.379 \\
+Rabies        & 0.370 & 0.369 & 0.411 & 0.408 & 0.415 & \textbf{0.650} & 0.395 & 0.469 & 0.364 & 0.418 \\
+EV-A71        & 0.531 & 0.530 & 0.540 & 0.594 & \textbf{0.596} & 0.315 & 0.595 & 0.560 & 0.529 & 0.507 \\
 \bottomrule
 \end{tabular}
 }
@@ -613,7 +615,7 @@ HCV           & 0.677 & 0.679 & 0.424 & 0.405 & 0.447 & 0.473 & 0.488 & 0.383 & 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{feature_auc_heatmap.png}
-\caption{Per-feature AUC heatmap for Layer~A prediction (9 pathogens; the expanded 12-pathogen analysis in Chapter~\ref{ch:adapt} includes Zika, Rabies, and EV-A71). Green indicates high discriminative power; red indicates inverse association (AUC $< 0.5$). The best feature per pathogen is shown in bold. No single feature achieves the highest AUC for more than 3 pathogens.}
+\caption{Per-feature AUC heatmap for Layer~A prediction (11 pathogens, 10 features). Green indicates high discriminative power; red indicates inverse association (AUC $< 0.5$). The best feature per pathogen is shown in bold. No single feature achieves the highest AUC for more than 3 of 11 pathogens.}
 \label{fig:feature_auc_heatmap}
 \end{figure}
 
@@ -627,7 +629,7 @@ Two pathogens exhibit inverse feature associations (AUC $< 0.5$): RSV shows AUC 
 
 To assess feature importance in a multivariate context---where features may interact and provide complementary information---a Random Forest classifier~\cite{breiman2001random} (200 trees, max depth 5, balanced class weights, random state 42) was trained for each pathogen using the 10 features as predictors and Layer~A as the binary label. Feature importances were extracted as mean decrease in impurity (Gini importance), and model performance was evaluated via stratified 5-fold cross-validation AUC.
 
-Figure~\ref{fig:feature_importance_grid} presents the feature importance distributions across the initial 9 pathogens (see Chapter~\ref{ch:adapt} for the full 11-pathogen detection benchmark and 12-pathogen feature analysis). Three patterns are notable.
+Figure~\ref{fig:feature_importance_grid} presents the feature importance distributions across all 11 pathogens. Three patterns are notable.
 
 \textbf{First, the dominant feature differs across pathogens.}
 For SARS-CoV-2, ESM-2 LLR dominates (importance = 0.331), followed by pLDDT (0.286) and the newly added SASA (0.202)---all three are non-frequency features. For H3N2, pLDDT remains the most important feature (0.338), with semantic change (0.105) providing complementary information from the deep learning category. For Norovirus, homoplasy dominates (0.345), consistent with its near-perfect univariate AUC (0.944). For HIV-1, ESM-2 LLR (0.214) and homoplasy (0.143) share importance. For HCV, the dN/dS proxy (0.145), homoplasy (0.139), and Grantham distance (0.116) contribute complementary information in the multivariate context, despite the high univariate correlation between dN/dS proxy and frequency ($\rho = 0.87$).
@@ -641,7 +643,7 @@ For HIV-1, entropy has the highest univariate AUC (0.730) but ranks third in RF 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{feature_importance_grid.png}
-\caption{Random Forest feature importance for Layer~A prediction across 9 pathogens (10 features; see Chapter~\ref{ch:adapt} for the expanded 12-pathogen analysis including Zika, Rabies, and EV-A71). Bar colors indicate feature category: blue (frequency-based), green (phylogeny/evolutionary), purple (deep learning), orange (structure), crimson (chemical property). Cross-validation AUC is shown in each panel title. The dominant feature differs across pathogens: ESM-2 LLR for SARS-CoV-2, pLDDT for H3N2, homoplasy for Norovirus, dN/dS proxy for HCV.}
+\caption{Random Forest feature importance for Layer~A prediction across 11 pathogens (10 features). Bar colors indicate feature category: blue (frequency-based), green (phylogeny/evolutionary), purple (deep learning), orange (structure), crimson (chemical property). Cross-validation AUC is shown in each panel title. The dominant feature differs across pathogens: ESM-2 LLR for SARS-CoV-2, pLDDT for H3N2 and Rabies, homoplasy for Norovirus and Dengue.}
 \label{fig:feature_importance_grid}
 \end{figure}
 
@@ -649,12 +651,12 @@ For HIV-1, entropy has the highest univariate AUC (0.730) but ranks third in RF 
 \subsection{Feature Correlation Structure}
 \label{subsec:feature_correlation}
 
-Understanding the correlation structure among the 10 features is essential for interpreting both the univariate and multivariate results. Figure~\ref{fig:feature_correlation} presents the mean pairwise Spearman correlation across the initial 9 pathogens (see Chapter~\ref{ch:adapt} for the expanded 12-pathogen results).
+Understanding the correlation structure among the 10 features is essential for interpreting both the univariate and multivariate results. Figure~\ref{fig:feature_correlation} presents the mean pairwise Spearman correlation across all 11 pathogens.
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.85\textwidth]{feature_correlation_heatmap.png}
-\caption{Mean pairwise Spearman correlation among 10 features across 9 pathogens (the original benchmark set; see Chapter~\ref{ch:adapt} for the expanded 12-pathogen analysis). Three clusters are evident: frequency-derived features (freq, entropy, rare variant, dN/dS proxy) are highly correlated ($\rho > 0.54$); deep learning features (ESM-2 LLR, semantic change) show weak negative correlation ($\rho = -0.09$); and structure-based features (pLDDT, SASA) are weakly anti-correlated ($\rho = -0.19$). Homoplasy is the most independent feature ($|\rho| < 0.23$ with all others).}
+\caption{Mean pairwise Spearman correlation among 10 features across 11 pathogens. Three clusters are evident: frequency-derived features (freq, entropy, rare variant, dN/dS proxy) are highly correlated ($\rho > 0.54$); deep learning features (ESM-2 LLR, semantic change) show weak negative correlation ($\rho = -0.09$); and structure-based features (pLDDT, SASA) are weakly anti-correlated ($\rho = -0.19$). Homoplasy is the most independent feature ($|\rho| < 0.23$ with all others).}
 \label{fig:feature_correlation}
 \end{figure}
 
