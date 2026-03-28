@@ -4,6 +4,8 @@
 
 **저자**: 권휘준 | **지도교수**: 정인욱 | **소속**: 경북대학교 컴퓨터학부
 
+**버전**: v97 | **페이지**: 170 | **날짜**: 2026-03-28
+
 ---
 
 ## 연구 배경
@@ -15,7 +17,7 @@
 2. 어떤 방법이 어떤 바이러스에 적합한지 통계적 증거가 없었다
 3. 빈도·엔트로피 외 다른 정보 유형이 체계적으로 비교된 적 없었다
 
-**관련 연구와의 차이:**
+**관련 연구와의 차이 (Ch2 벤치마크 비교 테이블 포함):**
 - EVEREST (Marks lab, 2025): 45개 DMS로 변이 효과 *예측*(VEP)을 벤치마크 → MutBench는 핫스팟 *탐지*를 벤치마크 (상보적)
 - ProteinGym: 217개 DMS, 인간/일반 단백질 대상 → MutBench는 바이러스 전용
 - Bailey 2018: 암 driver 벤치마크 → 체세포 변이 vs 집단 수준 변이 (방법론 전이 불가)
@@ -30,7 +32,7 @@
 |-------|------|------|
 | A | 양성 기준 | 수렴 진화 위치 (독립 계통에서 반복 출현) |
 | B | 음성 기준 | 보존 구조 영역 (변이 시 기능 상실) |
-| C | 독립 검증 | DMS 실험 데이터 (4개 병원체: H3N2, HIV-1, RSV, Dengue) |
+| C | 독립 검증 | DMS 실험 데이터 (6개 병원체: SARS-CoV-2, H3N2, HIV-1, RSV, Rabies, EV-A71) |
 
 ### 실험 규모
 
@@ -83,25 +85,33 @@
 | LOPO | **0/11** 일치, gap=0.265 | 일반화 완전 실패 |
 | Unique combos | 11/11 | (단, 순열 검정상 93% 우연 가능 → **MCC gap이 본질**) |
 
-### 결과 4: 10개 정보 통합 → 실험 탐색 범위 4배 축소
+### 결과 4: 다중 정보 통합 → 실험 탐색 범위 축소
 
-| 방법 | H3N2 vaccine escape enrichment | p값 |
-|------|-------------------------------|-----|
-| 빈도만 (FreqThresh) | 2.7배 | 0.055 (비유의) |
-| **10가지 통합 (EqualWeight)** | **4.0배** | **0.0023 (유의)** |
+**Vaccine escape enrichment (3개 병원체):**
 
-EqualWeight가 site A + site B 위치를 모두 포착. 빈도만으로는 site B를 놓침.
+| 병원체 | 방법 | Enrichment | p값 |
+|--------|------|-----------|-----|
+| SARS-CoV-2 | EqualWeight | **4.90배** | < 0.0001 |
+| H3N2 | EqualWeight | **4.01배** | 0.0023 |
+| H3N2 | FreqThresh (빈도만) | 2.7배 | 0.055 (비유의) |
+| HIV-1 | EqualWeight | **최대 9.36배** | < 0.001 |
 
-### 결과 5: Layer C (DMS) 독립 검증
+Layer A ↔ vaccine escape 교차 검증: Layer A 탐지 결과가 vaccine escape 위치를 유의하게 enrichment → 독립 생물학적 검증.
+
+### 결과 5: Layer C (DMS) 독립 검증 — 6/11 병원체
 
 | 바이러스 | Best (Layer A) | Best (Layer C) | 순위 상관 |
 |---------|---------------|---------------|----------|
-| H3N2 | fubar_bf | semantic_change | **rho=−0.55** (반상관) |
-| Dengue | entropy_indel | homoplasy | rho=0.65 |
-| HIV-1 | entropy | fubar | rho=0.31 (비유의) |
-| RSV | esm2_llr | stability | rho=−0.33 (비유의) |
+| SARS-CoV-2 | tranception | plddt_inv | rho=−0.13 |
+| H3N2 | fubar_bf | semantic_change | rho=−0.11 |
+| HIV-1 | entropy | fubar | rho=0.27 |
+| RSV | esm2_llr | EVEscape_composite | rho=0.85 |
+| Rabies | stability | homoplasy | rho=0.86 |
+| EV-A71 | semantic_change | plddt_inv | rho=−0.18 |
 
-Layer A와 C가 다른 것을 측정 → GT 편향이 아닌 실제 병원체 차이 확인.
+- Dengue DMS 제거 (잘못된 단백질 매칭)
+- 6/11 DMS 병원체: SARS-CoV-2, H3N2, HIV-1, RSV, Rabies, EV-A71
+- Layer A와 C가 다른 것을 측정 → GT 편향이 아닌 실제 병원체 차이 확인.
 
 ---
 
@@ -112,6 +122,7 @@ Layer A와 C가 다른 것을 측정 → GT 편향이 아닌 실제 병원체 �
 탐지된 핫스팟 = 실험 검증 후보 순위 리스트:
 - SARS-CoV-2: **4.90배** enrichment (p < 0.0001)
 - H3N2 (다중 통합): **4.01배** enrichment (p = 0.0023)
+- HIV-1: **최대 9.36배** enrichment (p < 0.001)
 
 ### 새 바이러스 적용 워크플로 (~15-20분/병원체)
 
@@ -141,7 +152,7 @@ Layer A와 C가 다른 것을 측정 → GT 편향이 아닌 실제 병원체 �
 |---|------|----------|
 | 1 | **MutBench 프레임워크** | 최초의 바이러스 핫스팟 벤치마크 (3층 GT, 8,580 evals) |
 | 2 | **통계적 입증** | scoring×pathogen ω²=0.296, Friedman W=0.037, LOPO 0/11 |
-| 3 | **정보 유형 분석** | 20 scoring (6카테고리)에서 9가지 최적, 통합 시 4배 탐색 축소 |
+| 3 | **정보 유형 분석** | 20 scoring (6카테고리)에서 9가지 최적, 통합 시 최대 9.36배 enrichment |
 
 ---
 
@@ -150,20 +161,33 @@ Layer A와 C가 다른 것을 측정 → GT 편향이 아닌 실제 병원체 �
 | 한계 | 심각도 | 대응 |
 |------|--------|------|
 | Layer A 정의 이질성 | 중 | Layer C 독립 검증 + 같은 과 내에서도 최적 상이 |
-| DMS 4/11 병원체만 | 중 | Layer A가 주 평가, DMS는 보조 검증 |
+| DMS 6/11 병원체만 | 중 | Layer A가 주 평가, DMS는 보조 검증 |
 | 11개 바이러스 계통적 비독립 | 중 | 같은 과 쌍 내에서도 최적 scoring 상이 |
 | 일부 scoring 정보원 중복 | 하 | 6-카테고리 ANOVA ω²=0.103으로 확인 |
 | 소프트웨어 패키지 미제공 | 중 | GitHub 공개 예정 |
 
 ---
 
-## 논문 구성 (6장, 177페이지)
+## 논문 구성 (6장, 170페이지)
 
 | 장 | 제목 | 한 줄 |
 |---|------|------|
 | 1 | Introduction | 비교 기준이 없다 → 3가지 공백 → MutBench |
-| 2 | Related Research | 기존 방법 + VEP 벤치마크(EVEREST) + 공백 확인 |
+| 2 | Related Research | 기존 방법 + VEP 벤치마크(EVEREST) + 벤치마크 비교 테이블 + 공백 확인 |
 | 3 | Methods | 11 바이러스 × 20 scoring × 39 detector, ANOVA/Friedman/LOPO |
-| 4 | Results | **scoring×pathogen = 최대 분산원** + 정보 유형 분석 + 실용 검증 |
+| 4 | Results | **scoring×pathogen = 최대 분산원** + 정보 유형 분석 + 실용 검증 (모든 그림 11 pathogens) |
 | 5 | Discussion | 타당성, 한계, 워크플로, 계통 비독립성 |
 | 6 | Conclusion | 3가지 기여 + 미래 방향 |
+
+---
+
+## v97 주요 변경사항
+
+- 모든 그림/테이블 11 pathogens 반영
+- DMS 6/11 (Dengue DMS 제거 — 잘못된 단백질 매칭)
+- Vaccine escape: 3개 병원체 (SARS-CoV-2, H3N2, HIV-1), 최대 9.36배 enrichment
+- Layer A ↔ vaccine escape 교차 검증 추가
+- Ch2에 벤치마크 비교 테이블 추가 (EVEREST, ProteinGym 등과 체계적 비교)
+- ESM comparison table 제거 (20-scoring 체계에 통합됨)
+- Precision@k 테이블 11 pathogens 업데이트
+- 170 페이지

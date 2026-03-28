@@ -436,40 +436,12 @@ Several supplementary analyses were conducted to validate the robustness and gen
 
 \textbf{Cross-Paradigm Validation: Protein Language Model Scoring.}
 \label{subsec:esm_validation}
-To test whether the benchmark findings generalize beyond MSA-derived scoring formulas, an independent scoring paradigm was evaluated: the ESM-2 protein language model (650M parameters)~\cite{lin2023esm2}. ESM-2 computes per-position log-likelihood ratios (ESM-LLR) from a single consensus sequence using learned evolutionary representations, requiring no multiple sequence alignment. This provides orthogonal validation of the benchmark framework because the scoring signal originates from a fundamentally different methodology---a deep neural network trained on millions of protein families---rather than from the same MSA used by the nine existing scoring formulas.
+To test whether the benchmark findings generalize beyond MSA-derived scoring formulas, an independent scoring paradigm was evaluated: the ESM-2 protein language model (650M parameters)~\cite{lin2023esm2}. ESM-2 computes per-position log-likelihood ratios (ESM-LLR) from a single consensus sequence using learned evolutionary representations, requiring no multiple sequence alignment. This provides orthogonal validation of the benchmark framework because the scoring signal originates from a fundamentally different methodology---a deep neural network trained on millions of protein families---rather than from the same MSA used by the other scoring formulas.
 
 The 650M-parameter ESM-2 model was selected as it represents the largest single-GPU model in the ESM-2 family, balancing computational feasibility with representation capacity. Larger models (ESM-2 3B) require multi-GPU inference, while smaller models (8M, 35M) may lack sufficient capacity for proteins exceeding 1,000 residues.
 ESM-LLR was computed for all 11 pathogens using wild-type marginal scoring: a single forward pass through the model yields $\text{ESM-LLR}[i] = -\log P(a_i \mid \text{context})$, where $a_i$ is the consensus amino acid at position $i$. For proteins exceeding the 1,022-token context window (SARS-CoV-2 Spike: 1,259 AA after MSA trimming; MERS Spike: 1,330 AA), a sliding window with 256-residue overlap was applied and scores were averaged in overlap regions. The resulting ESM-LLR arrays were evaluated through the same 39 detection methods used in the main benchmark.
 
-\begin{table}[htbp]
-\centering
-\caption{Best MCC (Layer A, adaptive ground truth) for ESM-LLR versus the best existing scoring formula per pathogen (9-pathogen preliminary analysis). ESM rank indicates the position of ESM-LLR among 10 total scoring methods (9 existing + ESM-LLR) when each is paired with its best-performing detector. ESM-LLR was subsequently incorporated into the full 20-scoring benchmark as one of the AI-based scoring types.}
-\label{tab:esm_comparison}
-\small
-\adjustbox{max width=\textwidth}{%
-\begin{tabular}{lccccl}
-\toprule
-Pathogen & ESM-LLR & Existing Best & $\Delta$ & ESM Rank & Best Existing Score \\
-\midrule
-SARS-CoV-2 & 0.168 & 0.118 & +0.049 & 1/10 & E*rare \\
-H3N2 & 0.360 & 0.549 & $-$0.189 & 5/10 & E\_only \\
-Norovirus & 0.176 & 0.438 & $-$0.262 & 10/10 & P*E*rare \\
-HIV-1 & 0.096 & 0.182 & $-$0.085 & 10/10 & E*rare \\
-Dengue & 0.127 & 0.256 & $-$0.129 & 9/10 & E*rare \\
-RSV & 0.196 & 0.249 & $-$0.053 & 5/10 & P*E \\
-Influenza~B & 0.354 & 0.361 & $-$0.008 & 2/10 & H-score \\
-MERS & 0.143 & 0.088 & +0.055 & 1/10 & rank(P*E) \\
-HCV & 0.123 & 0.443 & $-$0.319 & 8/10 & E\_only \\
-\midrule
-Mean & 0.194 & 0.298 & $-$0.105 & 5.7/10 & --- \\
-\bottomrule
-\end{tabular}}% end adjustbox
-\end{table}
-
-Table~\ref{tab:esm_comparison} shows that ESM-LLR ranks first for two pathogens (SARS-CoV-2 and MERS) but performs poorly for others (last for Norovirus and HIV-1). The overall mean best MCC of ESM-LLR (0.194) is lower than the mean of existing scoring methods (0.298), indicating that MSA-derived scoring formulas generally provide more effective hotspot signals when sufficient sequence diversity is available. However, the pathogen-dependent rank variation (1st to 10th) reinforces the central finding of this benchmark: no single scoring paradigm dominates across all pathogens.
-
-Spearman correlation between ESM-LLR and MSA-based scores varied substantially across pathogens. Norovirus showed strong positive correlation ($\rho = 0.63$ with E*rare, $p < 10^{-60}$), indicating that ESM-2's learned representations capture similar evolutionary signals as entropy-based scoring for this pathogen. In contrast, HIV-1 showed moderate negative correlation ($\rho = -0.35$, $p < 10^{-14}$), and Influenza~B showed near-zero correlation ($\rho = -0.04$, $p = 0.34$). For H3N2, ESM-LLR correlated positively with DMS fitness data ($\rho = 0.47$, $p < 10^{-30}$), suggesting that the protein language model captures experimentally measurable mutational tolerance. These results confirm that ESM-LLR provides a genuinely independent scoring signal for most pathogens, validating its use as a cross-paradigm check on the benchmark framework.
-When ESM-LLR scores were additionally evaluated through all 39 detection methods (as a 10th scoring formula rather than cross-paradigm validation), the Friedman test across 10 scoring methods remained non-significant ($p = 0.608$), confirming that no single scoring paradigm---whether MSA-based or deep learning-based---consistently outperforms others across all pathogens.
+In the full 20-scoring benchmark, ESM-2 LLR achieves the best MCC for RSV (0.196) and ranks among the top 3 for SARS-CoV-2, but performs poorly for Norovirus and HIV-1, reinforcing the central finding that no single scoring paradigm dominates across all pathogens. Spearman correlation between ESM-LLR and MSA-based scores varies substantially: Norovirus shows strong positive correlation ($\rho = 0.63$, $p < 10^{-60}$), while HIV-1 shows moderate negative correlation ($\rho = -0.35$, $p < 10^{-14}$), confirming that ESM-2 provides a genuinely independent scoring signal for most pathogens.
 
 \textbf{ANOVA Diagnostic Tests.}
 \label{subsec:anova_diagnostics}
@@ -483,30 +455,32 @@ The detection precision and recall of the best combination for each pathogen wer
 
 \begin{table}[htbp]
 \centering
-\caption{Precision, recall, detection size, and best MCC of the top-1 combination for each pathogen (9-pathogen preliminary analysis; the full 11-pathogen results are in Table~\ref{tab:9pathogen_best}).}
+\caption{Precision, recall, detection size, and best MCC of the top-1 combination for each pathogen (11 pathogens, 20 scoring types).}
 \label{tab:precision_at_k}
 \adjustbox{max width=\textwidth}{
 \begin{tabular}{lrrrr}
 \toprule
 Pathogen & Precision & Recall & $n_{\text{det}}$ & Best MCC \\
 \midrule
-Dengue       & 0.157 & 0.667 & 102 & 0.256 \\
-H3N2         & 0.333 & 1.000 &  75 & 0.549 \\
-HCV          & 0.622 & 0.426 &  37 & 0.443 \\
-HIV-1        & 0.089 & 0.913 & 235 & 0.182 \\
-Influenza B  & 0.189 & 0.824 &  74 & 0.361 \\
-MERS         & 0.018 & 0.778 & 390 & 0.088 \\
-Norovirus    & 0.290 & 0.733 &  38 & 0.438 \\
-RSV          & 0.667 & 0.100 &   3 & 0.249 \\
-SARS-CoV-2   & 0.090 & 0.240 &  67 & 0.118 \\
+Dengue       & 0.189 & 0.583 &  74 & 0.274 \\
+EV-A71       & 0.500 & 0.185 &  10 & 0.260 \\
+H3N2         & 0.517 & 0.600 &  29 & 0.534 \\
+HCV          & 0.964 & 0.500 &  28 & 0.660 \\
+HIV-1        & 0.318 & 0.304 &  22 & 0.275 \\
+Influenza B  & 0.190 & 0.941 &  84 & 0.392 \\
+MERS         & 0.045 & 1.000 & 200 & 0.196 \\
+Norovirus    & 0.417 & 0.667 &  24 & 0.510 \\
+Rabies       & 0.308 & 0.308 &  39 & 0.248 \\
+RSV          & 0.182 & 0.300 &  33 & 0.196 \\
+SARS-CoV-2   & 0.090 & 0.680 & 189 & 0.211 \\
 \midrule
-Mean          & 0.273 & 0.631 &  -- & 0.298 \\
+Mean          & 0.338 & 0.552 &  -- & 0.342 \\
 \bottomrule
 \end{tabular}
 }
 \end{table}
 
-The mean top-1 precision is 0.273 and recall is 0.631, with substantial heterogeneity across pathogens (e.g., H3N2 achieves perfect recall but RSV shows precision 0.667 with recall 0.10), confirming the limitations of single-threshold detection.
+The mean top-1 precision is 0.338 and recall is 0.552, with substantial heterogeneity across pathogens (e.g., HCV achieves precision 0.964 but MERS shows precision 0.045 with perfect recall), confirming the limitations of single-threshold detection.
 
 \textbf{DMS Validation.}
 \label{subsec:dms_evolution_correlation}
