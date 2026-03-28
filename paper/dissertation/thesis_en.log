@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2022/dev/Debian) (preloaded format=xelatex 2026.3.7)  28 MAR 2026 17:43
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2022/dev/Debian) (preloaded format=xelatex 2026.3.7)  28 MAR 2026 18:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1807,37 +1807,43 @@ rmative feature differs by pathogen.
  []
 
 [104] [105]
-Overfull \hbox (12.21252pt too wide) in paragraph at lines 893--896
-[]\TU/TeXGyreTermes(0)/b/n/10.95 Vaccine escape position validation. \TU/TeXGyr
-eTermes(0)/m/n/10.95 To assess practical relevance, integrated-
+Overfull \hbox (0.78639pt too wide) in paragraph at lines 923--925
+\TU/TeXGyreTermes(0)/m/n/10.95 cross-validates the Layer A findings through an 
+entirely independent criterion—
+ []
+
+[106]
+Overfull \hbox (1.92607pt too wide) in paragraph at lines 926--927
+\TU/TeXGyreTermes(0)/m/n/10.95 9.36-fold enrichment, substantially outperformin
+g frequency-based approaches.
  []
 
 
-Overfull \hbox (2.82034pt too wide) in paragraph at lines 893--896
-\TU/TeXGyreTermes(0)/m/n/10.95 detection hotspots were compared against experim
-entally confirmed vaccine/an-
+Overfull \hbox (0.52454pt too wide) in paragraph at lines 928--930
+\TU/TeXGyreTermes(0)/m/n/10.95 tection from an exhaustive search into a guided 
+investigation, providing a ranked
  []
 
 
-Overfull \hbox (11.08762pt too wide) in paragraph at lines 922--926
-\TU/TeXGyreTermes(0)/m/n/10.95 characterized [[]], and the EqualWeight integrat
-ion captured 6 escape positions—
+Overfull \hbox (5.33887pt too wide) in paragraph at lines 928--930
+\TU/TeXGyreTermes(0)/m/n/10.95 candidate list that directs limited experimental
+ resources toward the most promis-
  []
 
-[106] [107]
-Overfull \hbox (4.66557pt too wide) in paragraph at lines 939--941
+[107]
+Overfull \hbox (4.66557pt too wide) in paragraph at lines 938--940
 []\TU/TeXGyreTermes(0)/m/n/10.95 This underperformance is explained by the spar
 sity of the reference database.
  []
 
 [108]
-Overfull \hbox (6.34535pt too wide) in paragraph at lines 954--955
+Overfull \hbox (6.34535pt too wide) in paragraph at lines 953--954
 []\TU/TeXGyreTermes(0)/b/n/10.95 Compact core\TU/TeXGyreTermes(0)/m/n/10.95 : A
  4-feature core (homoplasy, pLDDT, entropy, frequency)
  []
 
 
-Overfull \hbox (8.47906pt too wide) in paragraph at lines 955--956
+Overfull \hbox (8.47906pt too wide) in paragraph at lines 954--955
 \TU/TeXGyreTermes(0)/m/n/10.95 achieves statistically significant H3N2 vaccine 
 escape enrichment (4.012$\OMS/cmsy/m/n/10.95 ^^B$\TU/TeXGyreTermes(0)/m/n/10.95
  ,
@@ -1878,6 +1884,11 @@ ons
  []
 
 [116]
+
+LaTeX Warning: Reference `tab:adapt_escape' on page 117 undefined on input line
+ 130.
+
+
 Overfull \hbox (0.49693pt too wide) in paragraph at lines 129--131
 \TU/TeXGyreTermes(0)/m/n/10.95 (E_only + KDE) achieved 4.90-fold enrichment for
  SARS-CoV-2 ($\OML/cmm/m/it/10.95 p < \OT1/cmr/m/n/10.95 0\OML/cmm/m/it/10.95 :
@@ -2104,12 +2115,15 @@ Underfull \hbox (badness 1259) in paragraph at lines 20--24
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.5pt have occurred.
 
+
+LaTeX Warning: There were undefined references.
+
  ) 
 Here is how much of TeX's memory you used:
- 30635 strings out of 477728
- 617134 string characters out of 5842239
- 953916 words of memory out of 5000000
- 50660 multiletter control sequences out of 15000+600000
+ 30636 strings out of 477728
+ 617161 string characters out of 5842239
+ 953969 words of memory out of 5000000
+ 50661 multiletter control sequences out of 15000+600000
  482782 words of font info for 145 fonts, out of 8000000 for 9000
  264 hyphenation exceptions out of 8191
  100i,13n,131p,1012b,892s stack positions out of 5000i,500n,10000p,200000b,80000s
