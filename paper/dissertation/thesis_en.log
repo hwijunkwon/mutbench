@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2022/dev/Debian) (preloaded format=xelatex 2026.3.7)  28 MAR 2026 17:19
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2022/dev/Debian) (preloaded format=xelatex 2026.3.7)  28 MAR 2026 17:43
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1720,27 +1720,21 @@ Overfull \hbox (11.40427pt too wide) in paragraph at lines 634--635
 ergent evolution) versus Layer C
  []
 
-
-Overfull \hbox (3.29965pt too wide) in paragraph at lines 653--654
-[]\TU/TeXGyreTermes(0)/m/n/10.95 In all 4 pathogens, the best scoring type diff
-ers between Layer A and Layer C,
- []
-
-[89]
-Overfull \hbox (4.8571pt too wide) in paragraph at lines 665--666
+[89] [90]
+Overfull \hbox (4.8571pt too wide) in paragraph at lines 667--668
 \OT1/cmr/m/n/10.95 0\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 990$\TU/TeXGyreTerm
 es(0)/m/n/10.95 . No single combination is reliably distinguishable as superior
  across
  []
 
-[90]
-Overfull \hbox (20.9263pt too wide) in paragraph at lines 679--680
+[91]
+Overfull \hbox (20.9263pt too wide) in paragraph at lines 681--682
 []\TU/TeXGyreTermes(0)/m/n/10.95 The preceding sections demonstrated that the b
 est-performing scoring–detection
  []
 
-[91] [92]
-Overfull \hbox (0.55367pt too wide) in paragraph at lines 693--694
+[92]
+Overfull \hbox (0.55367pt too wide) in paragraph at lines 695--696
 []\TU/TeXGyreTermes(0)/b/n/10.95 Chemical property \TU/TeXGyreTermes(0)/m/n/10.
 95 (1 feature): \TU/TeXGyreTermes(0)/m/it/10.95 Grantham distance \TU/TeXGyreTe
 rmes(0)/m/n/10.95 (mean physicochem-
@@ -1749,99 +1743,101 @@ rmes(0)/m/n/10.95 (mean physicochem-
 [93]
 File: figures//feature_auc_heatmap.png Graphic file (type bmp)
 <figures//feature_auc_heatmap.png>
- [94]
-Overfull \hbox (3.27661pt too wide) in paragraph at lines 743--744
+ [94] [95]
+Overfull \hbox (3.27661pt too wide) in paragraph at lines 745--746
 \TU/TeXGyreTermes(0)/m/n/10.95 teract and provide complementary information—a R
 andom Forest classifier [[]]
  []
 
-[95]
-Overfull \hbox (21.16722pt too wide) in paragraph at lines 745--746
+
+Overfull \hbox (21.16722pt too wide) in paragraph at lines 747--748
 []\TU/TeXGyreTermes(0)/m/n/10.95 Figure [][]4.14[][] presents the feature impor
 tance distributions across all 11 pathogens.
  []
 
 
-Overfull \hbox (7.03891pt too wide) in paragraph at lines 747--749
+Overfull \hbox (7.03891pt too wide) in paragraph at lines 749--751
 \TU/TeXGyreTermes(0)/m/n/10.95 H3N2, pLDDT remains the most important feature (
 0.338), with semantic change
  []
 
-
-Overfull \hbox (4.15096pt too wide) in paragraph at lines 750--752
+[96]
+Overfull \hbox (4.15096pt too wide) in paragraph at lines 752--754
 []\TU/TeXGyreTermes(0)/b/n/10.95 Second, expanding from 6 to 10 features improv
 es cross-validation AUC.
  []
 
-[96]
-Overfull \hbox (7.60005pt too wide) in paragraph at lines 753--755
+
+Overfull \hbox (7.60005pt too wide) in paragraph at lines 755--757
 \TU/TeXGyreTermes(0)/m/n/10.95 and share importance in the RF model while ESM-2
  LLR provides non-redundant
  []
 
+[97]
 File: figures//feature_importance_grid.png Graphic file (type bmp)
 <figures//feature_importance_grid.png>
 
-Underfull \hbox (badness 1221) in paragraph at lines 759--759
+Underfull \hbox (badness 1221) in paragraph at lines 761--761
 \TU/TeXGyreTermes(0)/m/n/10.95 11 pathogens (10 features). Bar colors indicate 
 feature category: blue
  []
 
+[98]
 File: figures//feature_correlation_heatmap.png Graphic file (type bmp)
 <figures//feature_correlation_heatmap.png>
-[97] [98] [99] [100]
-Overfull \hbox (4.0633pt too wide) in paragraph at lines 786--787
+ [99]
+Overfull \hbox (4.0633pt too wide) in paragraph at lines 788--789
 []\TU/TeXGyreTermes(0)/m/n/10.95 The cross-pathogen benchmark demonstrated that
  the best scoring–detection
  []
 
-[101]
+[100] [101]
 File: figures//feature_ablation_bars.png Graphic file (type bmp)
 <figures//feature_ablation_bars.png>
  [102] [103]
-Overfull \hbox (1.8654pt too wide) in paragraph at lines 840--841
+Overfull \hbox (1.8654pt too wide) in paragraph at lines 842--843
 \TU/TeXGyreTermes(0)/m/n/10.95 pathogens (ESM-2 for MERS AUC = 0.695; SASA for 
 Norovirus AUC = 0.747),
  []
 
-[104]
-Overfull \hbox (5.6382pt too wide) in paragraph at lines 884--885
+
+Overfull \hbox (5.6382pt too wide) in paragraph at lines 886--887
 \TU/TeXGyreTermes(0)/m/n/10.95 tribute to hotspot prediction, but the most info
 rmative feature differs by pathogen.
  []
 
-[105]
-Overfull \hbox (12.21252pt too wide) in paragraph at lines 891--894
+[104] [105]
+Overfull \hbox (12.21252pt too wide) in paragraph at lines 893--896
 []\TU/TeXGyreTermes(0)/b/n/10.95 Vaccine escape position validation. \TU/TeXGyr
 eTermes(0)/m/n/10.95 To assess practical relevance, integrated-
  []
 
 
-Overfull \hbox (2.82034pt too wide) in paragraph at lines 891--894
+Overfull \hbox (2.82034pt too wide) in paragraph at lines 893--896
 \TU/TeXGyreTermes(0)/m/n/10.95 detection hotspots were compared against experim
 entally confirmed vaccine/an-
  []
 
 
-Overfull \hbox (11.08762pt too wide) in paragraph at lines 920--924
+Overfull \hbox (11.08762pt too wide) in paragraph at lines 922--926
 \TU/TeXGyreTermes(0)/m/n/10.95 characterized [[]], and the EqualWeight integrat
 ion captured 6 escape positions—
  []
 
 [106] [107]
-Overfull \hbox (4.66557pt too wide) in paragraph at lines 937--939
+Overfull \hbox (4.66557pt too wide) in paragraph at lines 939--941
 []\TU/TeXGyreTermes(0)/m/n/10.95 This underperformance is explained by the spar
 sity of the reference database.
  []
 
 [108]
-Overfull \hbox (6.34535pt too wide) in paragraph at lines 952--953
+Overfull \hbox (6.34535pt too wide) in paragraph at lines 954--955
 []\TU/TeXGyreTermes(0)/b/n/10.95 Compact core\TU/TeXGyreTermes(0)/m/n/10.95 : A
  4-feature core (homoplasy, pLDDT, entropy, frequency)
  []
 
 
-Overfull \hbox (8.47906pt too wide) in paragraph at lines 953--954
+Overfull \hbox (8.47906pt too wide) in paragraph at lines 955--956
 \TU/TeXGyreTermes(0)/m/n/10.95 achieves statistically significant H3N2 vaccine 
 escape enrichment (4.012$\OMS/cmsy/m/n/10.95 ^^B$\TU/TeXGyreTermes(0)/m/n/10.95
  ,
@@ -2112,7 +2108,7 @@ LaTeX Font Warning: Size substitutions with differences
 Here is how much of TeX's memory you used:
  30635 strings out of 477728
  617134 string characters out of 5842239
- 953772 words of memory out of 5000000
+ 953916 words of memory out of 5000000
  50660 multiletter control sequences out of 15000+600000
  482782 words of font info for 145 fonts, out of 8000000 for 9000
  264 hyphenation exceptions out of 8191

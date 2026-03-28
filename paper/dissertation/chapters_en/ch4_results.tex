@@ -631,26 +631,28 @@ The mean top-1 precision is 0.273 and recall is 0.631, with substantial heteroge
 For the 4 pathogens with DMS fitness data, Spearman correlations between DMS fitness and the best scoring formula output differed in direction (H3N2: $\rho = 0.191$; HIV-1: $\rho = 0.412$; RSV: $\rho = -0.363$; SARS-CoV-2: $\rho = -0.370$; all $p < 0.002$), confirming that DMS fitness and evolutionary adaptation capture different aspects of mutation impact and validating the 3-layer ground truth design.
 Varying the DMS threshold from 10\% to 30\% altered the best-performing combination in all 4 pathogens (mean best DMS F1: 0.328 $\to$ 0.377 $\to$ 0.479), further supporting pathogen-dependent method selection.
 
-To further illustrate the ground-truth dependence, Table~\ref{tab:layer_a_vs_c} compares the best-performing scoring type under Layer~A (convergent evolution) versus Layer~C (DMS fitness) for the 4 pathogens with experimental DMS data.
+To further illustrate the ground-truth dependence, Table~\ref{tab:layer_a_vs_c} compares the best-performing scoring type under Layer~A (convergent evolution) versus Layer~C (DMS fitness) for the 6 pathogens with experimental DMS data.
 
 \begin{table}[htbp]
 \centering
-\caption{Best scoring type under Layer~A vs.\ Layer~C ground truth for 4 DMS pathogens. Different scoring types are optimal under different ground truth layers, reinforcing the pathogen-adaptive finding.}
+\caption{Best scoring type under Layer~A vs.\ Layer~C ground truth for 6 DMS pathogens. DMS sources: SARS-CoV-2 (Dadonaite et al.\ 2024, spike entry), H3N2 (Lee et al.\ 2018, HA preferences), HIV-1 (Haddox et al.\ 2018, Env growth), RSV (Bloom lab 2026, F entry), Rabies (Aditham et al.\ 2025, G entry), EV-A71 (Bakhache et al.\ 2025, VP1 replication).}
 \label{tab:layer_a_vs_c}
 \small
 \begin{tabular}{lllll}
 \toprule
 \textbf{Pathogen} & \textbf{Best (Layer A)} & \textbf{MCC\textsubscript{A}} & \textbf{Best (Layer C)} & \textbf{MCC\textsubscript{C}} \\
 \midrule
+SARS-CoV-2 & tranception & 0.211 & plddt\_inv & 0.186 \\
 H3N2 & fubar\_bf & 0.534 & semantic\_change & 0.245 \\
 HIV-1 & entropy & 0.275 & fubar & 0.139 \\
-RSV & esm2\_llr & 0.196 & stability & 0.191 \\
-Dengue & entropy\_with\_indel & 0.274 & homoplasy & 0.475 \\
+RSV & esm2\_llr & 0.196 & EVEscape\_composite & 0.180 \\
+Rabies & stability & 0.248 & homoplasy & 0.182 \\
+EV-A71 & semantic\_change & 0.260 & plddt\_inv & 0.322 \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-In all 4 pathogens, the best scoring type differs between Layer~A and Layer~C, confirming that the optimal method depends not only on the pathogen but also on which biological property is being predicted.
+In 5 of 6 pathogens, the best scoring type differs between Layer~A and Layer~C (only EV-A71 shows partial overlap via structural features). The Spearman rank correlations between Layer~A and Layer~C scoring rankings are non-significant for 4 of 6 pathogens (SARS-CoV-2: $\rho = -0.13$; H3N2: $\rho = -0.11$; HIV-1: $\rho = 0.27$; EV-A71: $\rho = -0.18$), confirming that Layer~C provides an independent evaluation dimension. RSV ($\rho = 0.85$) and Rabies ($\rho = 0.86$) show strong positive correlations, indicating that for these pathogens, convergent evolution positions and DMS-functional positions partially overlap.
 
 %% ------------------------------------------------------------
 \subsection{Summary of Key Findings}

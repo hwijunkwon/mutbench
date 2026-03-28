@@ -32,9 +32,9 @@ DMS_PATHOGENS = {
     'SARS-CoV-2': DMS_DIR / 'sars2_dms.csv',
     'H3N2': DMS_DIR / 'h3n2_dms.csv',
     'HIV-1': DMS_DIR / 'hiv1_dms.csv',
-    'RSV': DMS_DIR / 'rsv_dms.csv',
-    'Dengue': DMS_DIR / 'dengue_dms.csv',
-    'EV-A71': DMS_DIR / 'enterovirus_capsid_dms.csv',
+    'RSV': DMS_DIR / 'rsv_dms_new.csv',
+    'Rabies': DMS_DIR / 'rabies_dms.csv',
+    'EV-A71': DMS_DIR / 'eva71_vp1_dms.csv',
 }
 
 
