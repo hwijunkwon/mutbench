@@ -67,53 +67,46 @@
 ![Research Overview](figures/research_overview.png)
 
 
-### 1.4 Research Contributions (연구 기여)
-
-핵심 수치:
-
-- 11개 바이러스, 20가지 점수화 유형, 14개 탐지 방법 패밀리 (5개 카테고리, 39개 파라미터 변형), **8,580회** 평가
-- ANOVA scoring x pathogen **omega-squared = 0.296** (최대 분산원)
-- LOPO **0/11** 일치 (일반화 실패)
-- H3N2 vaccine escape enrichment **4.012배** (p=0.0023)
-
-### 1.5 Dissertation Organization (논문 구성)
-
-| 장 | 내용 |
-|----|------|
-| Ch1 | 서론 — 배경, 동기, 목표 |
-| Ch2 | 관련 연구 — 기존 방법, MutClust |
-| Ch3 | 재료 및 방법 — 11개 바이러스, 3층 GT, 20 scoring, 14 families (39 variants) |
-| Ch4 | 실험 결과 — Stage 1/2 + 정보 유형 분석 + 다중 정보 통합 |
-| Ch5 | 논의 — 방법론 타당성, 한계, 실용적 함의 |
-| Ch6 | 결론 — 기여 요약, 한계, 향후 연구 |
-
-
 \newpage
 
 ## Chapter 2. Related Research (관련 연구)
 
 ### 2.1 Viral Mutation Hotspot Detection (바이러스 변이 핫스팟 탐지)
 
-#### 2.1.1 Mutation Hotspot Detection Methods
+#### 2.1.1 핫스팟 탐지의 3단계와 각 단계의 방법론
 
-핫스팟 탐지는 크게 세 단계로 이루어집니다:
+핫스팟 탐지는 세 단계로 이루어지며, 각 단계에서 사용되는 방법론이 다릅니다.
 
-- **1단계**: 서열 수집 (GISAID/GenBank → MSA)
-- **2단계**: 통계적 분석 (빈도, 엔트로피, 클러스터링 등) — **본 논문의 범위**
-- **3단계**: 실험 검증 (DMS, 중화 항체 실험 등)
+**1단계: 서열 수집 및 정렬**
 
-#### 2.1.2 Density-Based Clustering
+전 세계 연구기관에서 바이러스 유전자 서열을 수집(GISAID, NCBI GenBank)하고, 다중 서열 정렬(MSA)을 수행합니다. 이 단계에서 각 위치별로 "어떤 변이가 얼마나 발생했는가"를 비교할 수 있는 기반이 만들어집니다.
 
-위 방법들(빈도, 엔트로피)이 각 위치에 **점수를 부여**하는 단계라면, 점수화된 프로파일에서 **높은 영역을 묶어내는** 것이 탐지 단계입니다. 핫스팟은 게놈 상에서 밀도가 높은 영역으로 정의될 수 있어, 밀도 기반 클러스터링이 자연스러운 접근입니다.
+**2단계: 점수화(Scoring) + 탐지(Detection) — 본 논문의 핵심 범위**
 
-- **DBSCAN**: ε-이웃 내 최소 MinPts개 점이 있으면 core point로 분류. 임의 형태의 클러스터를 발견하나, **고정 ε이 문제** — 바이러스 게놈에서 변이 밀도는 영역마다 다르므로 (RBD는 높고, S2는 낮음) 단일 ε로는 포착 불가.
-- **HDBSCAN**: 상호 도달 거리(mutual reachability distance)를 사용하여 ε을 자동 적응. 클러스터별 안정성을 기반으로 멤버십 확률 부여. min_cluster_size 하나만 지정.
-- **OPTICS**: 도달 거리 플롯(reachability plot)으로 다중 스케일 클러스터를 시각화. ξ-추출로 이산 클러스터 산출.
-- **MutClust의 적응 접근**: H-score에 비례하여 ε을 설정 (ε = γ × H), 점수가 높은 영역에서 자동으로 넓은 이웃 탐색.
+수집된 MSA 데이터에서 각 위치에 점수를 부여하고(점수화), 높은 점수 영역을 묶어 핫스팟으로 식별합니다(탐지). 이 두 과정에 사용되는 방법론이 본 연구의 비교 대상입니다.
 
-#### 2.1.3 Deep Mutational Scanning as Ground Truth
+*점수화 방법 (각 위치에 점수 부여):*
+- **빈도 기반**: 변이 빈도를 직접 계산. 직관적이나 계통 편향(founder effect)에 취약.
+- **엔트로피 기반**: Shannon 엔트로피로 다양성 측정. K-means 등과 결합(Mullick et al., 2021).
+- **계통 분석 기반**: dN/dS, FUBAR(양성선택 탐지), homoplasy(수렴 변이 탐지). 빈도와 달리 계통수에서 독립 발생을 구분.
+- **구조 기반**: pLDDT(구조 신뢰도), SASA(표면 노출도), Grantham 거리(물리화학적 차이).
+- **AI 기반**: ESM-2, Tranception 등 단백질 언어모델. 진화적 제약을 학습하여 변이 허용도를 예측.
 
-위의 점수화 + 탐지 방법으로 핫스팟을 식별한 후, **그 결과가 생물학적으로 의미 있는지** 평가할 정답 기준이 필요합니다. 가장 직접적인 실험적 정답이 DMS입니다.
+*탐지 방법 (점수 프로파일에서 핫스팟 영역 식별):*
+- **밀도 기반 클러스터링**: DBSCAN(고정 ε), HDBSCAN(적응 ε), OPTICS(다중 스케일). MutClust는 H-score에 비례하는 적응 ε을 사용.
+- **임계값 기반**: 상위 N% 위치를 선택 (FreqThresh, AdaptiveKnee).
+- **신호 처리**: Wavelet 변환, Spectral 필터, CUSUM 변화점 탐지.
+- **통계 검정**: Sliding window t-test, Bayesian change-point, gradient peak.
+
+본 연구에서는 6개 카테고리 20가지 점수화 유형과 5개 카테고리 14개 탐지 패밀리(39 변형)를 조합하여 8,580회 평가를 수행합니다.
+
+**3단계: 실험 검증 (후속 연구)**
+
+식별된 핫스팟이 실제로 생물학적으로 중요한지 실험실에서 검증합니다. 본 연구에서는 DMS(Deep Mutational Scanning) 데이터를 활용하여 이 검증을 간접적으로 수행합니다.
+
+#### 2.1.2 Deep Mutational Scanning as Ground Truth
+
+2단계에서 식별된 핫스팟이 **생물학적으로 의미 있는지** 평가하려면 정답 기준이 필요합니다. 가장 직접적인 실험적 정답이 DMS입니다.
 
 DMS는 단백질의 **모든 가능한 아미노산 치환**을 체계적으로 생성하고, 각 치환의 기능적 영향(결합력, 세포 침입, 복제 효율 등)을 정량 측정하는 실험입니다.
 
@@ -122,7 +115,7 @@ DMS는 단백질의 **모든 가능한 아미노산 치환**을 체계적으로 
 - **한계**: 비용이 높고, pseudovirus 시스템 사용 (실제 바이러스와 다를 수 있음), in vitro 결과가 in vivo를 완전히 반영하지 못함
 - **가용성 격차**: EVEREST가 45개 바이러스 DMS 데이터셋을 수집했으나, WHO 우선순위 바이러스의 절반 이상에서 DMS 데이터가 부재. 본 연구에서 6개 병원체의 DMS를 Layer C로 사용.
 
-#### 2.1.4 Protein Language Models for Variant Effect Prediction
+#### 2.1.3 Protein Language Models for Variant Effect Prediction
 
 빈도/엔트로피/계통 분석은 모두 **관찰된 서열 데이터**에 기반합니다. 이와 달리, 단백질 언어모델(PLM)은 수억 개의 단백질 서열에서 **진화적 제약**을 학습하여 관찰되지 않은 변이의 효과도 예측할 수 있습니다. 본 연구에서는 PLM 점수를 핫스팟 탐지의 추가 정보 유형으로 활용합니다.
 
@@ -132,7 +125,7 @@ DMS는 단백질의 **모든 가능한 아미노산 치환**을 체계적으로 
 - **AlphaMissense**: AlphaFold 기반, 인간 단백질에 최적화 → 바이러스 적용은 제한적.
 - **EVEREST 발견**: PLM이 바이러스 단백질에서 정렬 기반 방법보다 성능이 낮음 → 본 연구에서도 PLM이 특정 바이러스에서만 최적.
 
-#### 2.1.5 Viral Genomic Surveillance Platforms
+#### 2.1.4 Viral Genomic Surveillance Platforms
 
 핫스팟 탐지와 혼동될 수 있는 기존 바이러스 감시 시스템이 존재하지만, 이들과 MutBench는 목적이 근본적으로 다릅니다.
 
@@ -148,7 +141,7 @@ DMS는 단백질의 **모든 가능한 아미노산 치환**을 체계적으로 
 2. **시점이 다릅니다**: 감시 플랫폼은 **이미 나타난 변이**를 사후 추적합니다. 핫스팟 탐지는 **앞으로 중요한 변이가 나타날 가능성이 높은 위치**를 사전에 식별하는 것입니다.
 3. **방법 평가를 하지 않습니다**: 감시 플랫폼은 최종 사용자 도구이지, 탐지 알고리즘을 비교·평가하는 프레임워크가 아닙니다.
 
-#### 2.1.6 Feature Importance Analysis and Related Benchmarks
+#### 2.1.5 Feature Importance Analysis and Related Benchmarks
 
 지금까지 살펴본 정보 유형(빈도, 엔트로피, 계통, PLM, 구조)을 개별적으로 활용한 연구는 있지만, **이들을 체계적으로 비교**한 연구는 없습니다. 관련 연구들의 공통 한계를 정리합니다:
 
@@ -171,7 +164,7 @@ DMS는 단백질의 **모든 가능한 아미노산 치환**을 체계적으로 
 
 [테이블: Table 2.1 — Benchmark comparison across related studies]
 
-#### 2.1.7 Algorithm Selection and Benchmarking Methodology
+#### 2.1.6 Algorithm Selection and Benchmarking Methodology
 
 위의 공백을 메우기 위해서는 체계적 벤치마크가 필요합니다. 벤치마크 설계에는 다음 원칙이 적용됩니다:
 
