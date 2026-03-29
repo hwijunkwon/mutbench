@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2022/dev/Debian) (preloaded format=xelatex 2026.3.7)  28 MAR 2026 19:24
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2022/dev/Debian) (preloaded format=xelatex 2026.3.7)  29 MAR 2026 12:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1305,100 +1305,73 @@ Overfull \hbox (12.06221pt too wide) in paragraph at lines 17--17
 \tf@lof=\write6
 \openout6 = `thesis_en.lof'.
 
- [11] (./front_en/abstract.tex
-Overfull \hbox (0.46303pt too wide) in paragraph at lines 5--10
-[]\TU/TeXGyreTermes(0)/m/n/11 This dissertation presents MutBench, the first sy
-stematic benchmark frame-
- []
+ [11] (./front_en/abstract.tex [12
 
 
-Overfull \hbox (6.6267pt too wide) in paragraph at lines 11--14
+
+]
+Overfull \hbox (6.6267pt too wide) in paragraph at lines 10--13
 []\TU/TeXGyreTermes(0)/m/n/11 Stage 1 validates the framework on SARS-CoV-2 (Mu
 tClust-Hybrid hotspot-
  []
 
-[12
 
-
-
-]
-Overfull \hbox (2.08603pt too wide) in paragraph at lines 15--18
-\TU/TeXGyreTermes(0)/m/n/11 determines performance, and that optimal strategies
- differ fundamentally across
+Overfull \hbox (11.88155pt too wide) in paragraph at lines 14--16
+\TU/TeXGyreTermes(0)/m/n/11 FUBAR phylogenetic selection scores achieve the hig
+hest MCC for H3N2 (0.534),
  []
 
-[13])
-Overfull \hbox (1.151pt too wide) in paragraph at lines 20--144
-\TU/TeXGyreTermes(0)/b/n/11 Keywords\TU/TeXGyreTermes(0)/m/n/11 : mutation hots
-pot detection, benchmark framework, viral genomics,
- []
-
-[14] (./chapters_en/ch1_introduction.tex
+[13]) [14] (./chapters_en/ch1_introduction.tex
 Chapter 1.
 [1
 
 
-]
-Overfull \hbox (0.58122pt too wide) in paragraph at lines 32--34
-[]\TU/TeXGyreTermes(0)/m/n/10.95 However, no systematic benchmark framework has
- been established to com-
- []
-
-[2] [3] [4]
-Overfull \hbox (10.56198pt too wide) in paragraph at lines 62--66
+] [2] [3] [4]
+Overfull \hbox (10.56198pt too wide) in paragraph at lines 64--68
 \TU/TeXGyreTermes(0)/m/n/10.95 Whether differences in pathogen-specific genomic
  characteristics (genome length,
  []
 
 [5]
-Overfull \hbox (4.12006pt too wide) in paragraph at lines 78--79
+Overfull \hbox (4.12006pt too wide) in paragraph at lines 80--81
 \TU/TeXGyreTermes(0)/m/n/10.95 2 analysis; Stage 2 for large-scale comparison a
 cross 11 RNA viruses
  []
 
-
-Overfull \hbox (8.84283pt too wide) in paragraph at lines 81--82
-[]\TU/TeXGyreTermes(0)/b/n/10.95 Statistical demonstration of the necessity of 
-pathogen-adaptive method
- []
-
-[6] [7]
-Overfull \hbox (2.05658pt too wide) in paragraph at lines 141--145
-\TU/TeXGyreTermes(0)/m/n/10.95 exhibited different best-performing combinations
- (LOPO cross-validation: 0/11
+[6]
+Overfull \hbox (9.39761pt too wide) in paragraph at lines 83--84
+\TU/TeXGyreTermes(0)/b/n/10.95 source—not the detection algorithm—is the domina
+nt factor in hotspot
  []
 
 
-Overfull \hbox (0.70702pt too wide) in paragraph at lines 141--145
-\TU/TeXGyreTermes(0)/m/n/10.95 results statistically establish that the premise
- of a single best-performing method
+Overfull \hbox (4.46643pt too wide) in paragraph at lines 83--84
+\TU/TeXGyreTermes(0)/b/n/10.95 fundamentally across pathogens\TU/TeXGyreTermes(
+0)/m/n/10.95 : Through statistical analyses (ANOVA,
+ []
+
+[7] [8]
+Overfull \hbox (0.6185pt too wide) in paragraph at lines 142--147
+\TU/TeXGyreTermes(0)/b/n/10.95 lection ($\OML/cmm/m/it/10.95 ![] \OT1/cmr/m/n/1
+0.95 = 0\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 296$\TU/TeXGyreTermes(0)/b/n/10
+.95 ) matters 23$\OMS/cmsy/m/n/10.95 ^^B$ \TU/TeXGyreTermes(0)/b/n/10.95 more t
+han algorithm choice ($\OML/cmm/m/it/10.95 ![] \OT1/cmr/m/n/10.95 = 0\OML/cmm/m
+/it/10.95 :\OT1/cmr/m/n/10.95 013$\TU/TeXGyreTermes(0)/b/n/10.95 ),
  []
 
 
-Overfull \hbox (11.66136pt too wide) in paragraph at lines 146--149
-[]\TU/TeXGyreTermes(0)/b/n/10.95 Contribution 3. Multi-source information integ
-ration analysis for hotspot
+Overfull \hbox (2.88486pt too wide) in paragraph at lines 142--147
+\TU/TeXGyreTermes(0)/b/n/10.95 with 9 distinct optimal information types across
+ 11 pathogens. \TU/TeXGyreTermes(0)/m/n/10.95 Across eleven
  []
 
-
-Overfull \hbox (2.77078pt too wide) in paragraph at lines 146--149
-\TU/TeXGyreTermes(0)/b/n/10.95 prediction. \TU/TeXGyreTermes(0)/m/n/10.95 A sys
-tematic analysis of 10 biological information types—spanning
- []
-
-
-Overfull \hbox (15.25955pt too wide) in paragraph at lines 146--149
-\TU/TeXGyreTermes(0)/m/n/10.95 demonstrating that multi-source analysis capture
-s biologically meaningful hotspots
- []
-
-[8]
-Overfull \hbox (27.2927pt too wide) in paragraph at lines 161--162
+[9] [10]
+Overfull \hbox (27.2927pt too wide) in paragraph at lines 164--165
 \TU/TeXGyreTermes(0)/m/n/10.95 Scale Benchmark (ANOVA, Friedman test, LOPO cros
 s-validation), and Information-
  []
 
-[9]) (./chapters_en/ch2_background.tex [10]
+) (./chapters_en/ch2_background.tex [11]
 Chapter 2.
 
 Overfull \hbox (0.7253pt too wide) in paragraph at lines 6--7
@@ -1412,21 +1385,21 @@ Overfull \hbox (6.9704pt too wide) in paragraph at lines 18--21
 -based, and density-based meth-
  []
 
-[11
+[12
 
-] [12]
+] [13]
 Overfull \hbox (0.50992pt too wide) in paragraph at lines 45--50
 \TU/TeXGyreTermes(0)/m/n/10.95 fines high-density regions as clusters and class
 ifies low-density regions as noise.
  []
 
-[13] [14]
+[14] [15]
 Overfull \hbox (12.93085pt too wide) in paragraph at lines 70--76
 \TU/TeXGyreTermes(0)/m/n/10.95 Protein language models (PLMs) trained on large-
 scale protein sequence databases
  []
 
-[15]
+[16]
 Overfull \hbox (2.11784pt too wide) in paragraph at lines 84--85
 []\TU/TeXGyreTermes(0)/b/n/10.95 PANGO \TU/TeXGyreTermes(0)/m/n/10.95 [[]] prov
 ides a standardized lineage classification system for SARS-
@@ -1445,7 +1418,7 @@ Overfull \hbox (13.09633pt too wide) in paragraph at lines 86--92
 or evaluate detection algorithms—
  []
 
-[16] [17] [18] [19]
+[17] [18] [19] [20]
 Overfull \hbox (4.35703pt too wide) in paragraph at lines 127--128
 \TU/TeXGyreTermes(0)/m/n/10.95 viral proteins and that prediction reliability v
 aries dramatically across pathogens.
@@ -1464,12 +1437,12 @@ Overfull \hbox (7.10454pt too wide) in paragraph at lines 129--131
 EST establishes that method performance varies across viruses,
  []
 
-[20]
+[21]
 Overfull \hbox (27.66304pt too wide) in paragraph at lines 137--149
  [][] 
  []
 
-[21] [22] [23]
+[22] [23] [24]
 Overfull \hbox (2.63057pt too wide) in paragraph at lines 184--187
 \TU/TeXGyreTermes(0)/m/n/10.95 10 known functional mutations examined for valid
 ation, 9 were contained within
@@ -1481,19 +1454,19 @@ Overfull \hbox (2.15971pt too wide) in paragraph at lines 184--187
 2R, and the highest hotspot
  []
 
-[24] [25]
+[25] [26]
 Overfull \hbox (19.22343pt too wide) in paragraph at lines 234--236
 \TU/TeXGyreTermes(0)/m/n/10.95 data structure—intra-host somatic variation vers
 us inter-host population variation—
  []
 
-[26])
+[27])
 Overfull \hbox (1.9772pt too wide) in paragraph at lines 237--155
 \TU/TeXGyreTermes(0)/m/n/10.95 construction, a composite evaluation framework, 
 and parameter sensitivity anal-
  []
 
-(./chapters_en/ch3_methods.tex [27]
+(./chapters_en/ch3_methods.tex [28]
 Chapter 3.
 
 Overfull \hbox (8.84651pt too wide) in paragraph at lines 18--33
@@ -1514,24 +1487,24 @@ Overfull \hbox (4.15869pt too wide) in paragraph at lines 18--33
 /10.95 --auto \TU/TeXGyreTermes(0)/m/n/10.95 mode automatically selects among
  []
 
-[28
+[29
 
-] [29] [30] [31] [32]
+] [30] [31] [32] [33]
 Overfull \hbox (2.50282pt too wide) in paragraph at lines 127--133
 \TU/TeXGyreTermes(0)/m/n/10.95 piled from published studies that identified con
 vergent evolution sites (Table [][]3.2[][],
  []
 
-[33] [34]
+[34] [35]
 Overfull \hbox (3.14401pt too wide) in paragraph at lines 149--153
 \TU/TeXGyreTermes(0)/m/n/10.95 experimentally measured fitness effects are used
  as ground truth. Unlike Layer A
  []
 
-[35] [36] [37] [38] [39]
+[36] [37] [38] [39] [40]
 File: figures//genome_hotspot_map.png Graphic file (type bmp)
 <figures//genome_hotspot_map.png>
- [40] [41] [42] [43] [44] [45] [46]
+ [41] [42] [43] [44] [45] [46] [47]
 Overfull \hbox (14.44751pt too wide) in paragraph at lines 487--488
 []\TU/TeXGyreTermes(0)/b/n/10.95 Structural scores \TU/TeXGyreTermes(0)/m/n/10.
 95 incorporate three-dimensional protein information: pLDDT
@@ -1549,13 +1522,13 @@ Overfull \hbox (1.63605pt too wide) in paragraph at lines 489--491
  leverage protein language models (PLMs) trained on large-
  []
 
-[47]
+[48]
 Overfull \hbox (5.07245pt too wide) in paragraph at lines 497--501
 \TU/TeXGyreTermes(0)/m/n/10.95 The following scoring variants were developed sp
 ecifically for the Stage 1 SARS-
  []
 
-[48] [49] [50]
+[49] [50] [51]
 Overfull \hbox (4.89915pt too wide) in paragraph at lines 615--618
 []\TU/TeXGyreTermes(0)/b/n/10.95 Statistical and model-based \TU/TeXGyreTermes(
 0)/m/n/10.95 (SlidingTest, LocalContrast, GradPeak, Bayes,
@@ -1574,13 +1547,13 @@ Overfull \hbox (0.90475pt too wide) in paragraph at lines 615--618
 /cmm/m/it/10.95 z$\TU/TeXGyreTermes(0)/m/n/10.95 -scores,
  []
 
-[51]
+[52]
 Overfull \hbox (4.06772pt too wide) in paragraph at lines 632--635
 []\TU/TeXGyreTermes(0)/b/n/10.95 MCC (Matthews Correlation Coefficient)\TU/TeXG
 yreTermes(0)/m/n/10.95 : The primary evaluation met-
  []
 
-[52] [53] [54]
+[53] [54] [55]
 Overfull \hbox (6.68217pt too wide) in paragraph at lines 664--670
 \TU/TeXGyreTermes(0)/m/n/10.95 two-way interactions (scoring $\OMS/cmsy/m/n/10.
 95 ^^B$ \TU/TeXGyreTermes(0)/m/n/10.95 family, scoring $\OMS/cmsy/m/n/10.95 ^^B
@@ -1594,23 +1567,23 @@ Overfull \hbox (0.499pt too wide) in paragraph at lines 664--670
 to insufficient within-cell repli-
  []
 
-[55] [56]
+[56] [57]
 Overfull \hbox (0.71729pt too wide) in paragraph at lines 679--683
 \TU/TeXGyreTermes(0)/m/n/10.95 ing, family) pair with the highest mean MCC acro
 ss the $\OML/cmm/m/it/10.95 n \OMS/cmsy/m/n/10.95 ^^@ \OT1/cmr/m/n/10.95 1$ \TU
 /TeXGyreTermes(0)/m/n/10.95 training pathogens.
  []
 
-[57]
+[58]
 Overfull \hbox (12.09871pt too wide) in paragraph at lines 698--701
 \TU/TeXGyreTermes(0)/m/n/10.95 weights ($\OT1/cmr/m/n/10.95 1/3$\TU/TeXGyreTerm
 es(0)/m/n/10.95 ) to the three components of the hotspot-score, a generalized w
 eighted
  []
 
-[58]) (./chapters_en/ch4_results.tex [59]
+[59]) (./chapters_en/ch4_results.tex [60]
 Chapter 4.
-[60
+[61
 
 ]
 Overfull \hbox (2.48373pt too wide) in paragraph at lines 56--60
@@ -1618,7 +1591,7 @@ Overfull \hbox (2.48373pt too wide) in paragraph at lines 56--60
 on peptide, HR1, HR2), \TU/TeXGyreTermes(0)/b/n/10.95 DMS-
  []
 
-[61]
+[62]
 Overfull \hbox (0.25206pt too wide) in paragraph at lines 83--84
 \TU/TeXGyreTermes(0)/m/n/10.95 ground truth risk systematic bias (Figure [][]4.
 1[][], Figure [][]4.2[][]; Figure [][]4.3[][], Figure [][]4.4[][]). 
@@ -1632,13 +1605,13 @@ File: figures//dms_evaluation_top.png Graphic file (type bmp)
 <figures//dms_evaluation_top.png>
 File: figures//dms_evaluation_bottom.png Graphic file (type bmp)
 <figures//dms_evaluation_bottom.png>
-[62] [63]
+[63] [64]
 Overfull \hbox (14.12073pt too wide) in paragraph at lines 147--152
 \TU/TeXGyreTermes(0)/m/n/10.95 shifted—MutClust-Hybrid’s advantage disappeared 
 (0.383 vs. 0.386 for MutClust-
  []
 
-[64]
+[65]
 Overfull \hbox (0.9042pt too wide) in paragraph at lines 157--161
 \TU/TeXGyreTermes(0)/m/n/10.95 Two independent methods—OPTICS (min_samples=5, $
 \OML/cmm/m/it/10.95 ^^X$\TU/TeXGyreTermes(0)/m/n/10.95 =0.05) and KDE (90th
@@ -1656,24 +1629,24 @@ Overfull \hbox (3.90512pt too wide) in paragraph at lines 162--163
 5 MutClust-Hybrid achieves the best hotspot-score (0.778)
  []
 
-[65]
+[66]
 File: figures//sample_size_convergence.png Graphic file (type bmp)
 <figures//sample_size_convergence.png>
 File: figures//sensitivity_heatmap.png Graphic file (type bmp)
 <figures//sensitivity_heatmap.png>
- [66] [67]
+ [67] [68]
 File: figures//cross_pathogen_comparison.png Graphic file (type bmp)
 <figures//cross_pathogen_comparison.png>
- [68] [69] [70]
+ [69] [70] [71]
 Overfull \hbox (2.0858pt too wide) in paragraph at lines 251--256
 \TU/TeXGyreTermes(0)/m/n/10.95 (entropy, entropy_with_indel, homoplasy), phylog
 enetic (dN/dS proxy, FUBAR
  []
 
-[71]
+[72]
 File: figures//stage3_scoring_pathogen_heatmap.png Graphic file (type bmp)
 <figures//stage3_scoring_pathogen_heatmap.png>
- [72] [73]
+ [73] [74]
 Overfull \hbox (1.82263pt too wide) in paragraph at lines 309--310
 \TU/TeXGyreTermes(0)/m/n/10.95 effects. Protein language models capture broader
  evolutionary constraints
@@ -1685,20 +1658,20 @@ Overfull \hbox (10.85033pt too wide) in paragraph at lines 309--310
 nsating for limited within-
  []
 
-[74]
+[75]
 Overfull \hbox (18.88765pt too wide) in paragraph at lines 313--314
 \TU/TeXGyreTermes(0)/m/n/10.95 For pathogens with extensive within-host diversi
 ty (HCV, HIV-1) or serotype-
  []
 
-[75]
+[76]
 File: figures//stage3_scoring_category_bar.png Graphic file (type bmp)
 <figures//stage3_scoring_category_bar.png>
 File: figures//stage3_fubar_spotlight.png Graphic file (type bmp)
 <figures//stage3_fubar_spotlight.png>
 File: figures//stage3_anova_decomposition.png Graphic file (type bmp)
 <figures//stage3_anova_decomposition.png>
- [76] [77] [78] [79]
+ [77] [78] [79] [80]
 Overfull \hbox (13.45532pt too wide) in paragraph at lines 381--384
 []\TU/TeXGyreTermes(0)/b/n/10.95 LOPO Cross-Validation. []\TU/TeXGyreTermes(0)/
 m/n/10.95 LOPO (Leave-One-Pathogen-Out) cross-validation
@@ -1719,42 +1692,42 @@ reTermes(0)/m/n/10.95 , indicating near-zero agreement in method rankings acros
 s pathogens.
  []
 
-[80] [81] [82]
+[81] [82] [83]
 Overfull \hbox (5.64336pt too wide) in paragraph at lines 441--443
 \TU/TeXGyreTermes(0)/m/n/10.95 proteins exceeding 1,000 residues. ESM-LLR was c
 omputed for all 11 pathogens
  []
 
-[83] [84] [85]
+[84] [85] [86]
 Overfull \hbox (11.40427pt too wide) in paragraph at lines 491--492
 \TU/TeXGyreTermes(0)/m/n/10.95 best-performing scoring type under Layer A (conv
 ergent evolution) versus Layer C
  []
 
-[86]
+[87]
 Overfull \hbox (4.8571pt too wide) in paragraph at lines 524--525
 \OT1/cmr/m/n/10.95 0\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 990$\TU/TeXGyreTerm
 es(0)/m/n/10.95 . No single combination is reliably distinguishable as superior
  across
  []
 
-[87]
+[88]
 Overfull \hbox (20.9263pt too wide) in paragraph at lines 538--539
 []\TU/TeXGyreTermes(0)/m/n/10.95 The preceding sections demonstrated that the b
 est-performing scoring–detection
  []
 
-[88] [89]
+[89] [90]
 Overfull \hbox (0.55367pt too wide) in paragraph at lines 552--553
 []\TU/TeXGyreTermes(0)/b/n/10.95 Chemical property \TU/TeXGyreTermes(0)/m/n/10.
 95 (1 feature): \TU/TeXGyreTermes(0)/m/it/10.95 Grantham distance \TU/TeXGyreTe
 rmes(0)/m/n/10.95 (mean physicochem-
  []
 
-[90]
+[91]
 File: figures//feature_auc_heatmap.png Graphic file (type bmp)
 <figures//feature_auc_heatmap.png>
- [91] [92]
+ [92] [93]
 Overfull \hbox (3.27661pt too wide) in paragraph at lines 604--605
 \TU/TeXGyreTermes(0)/m/n/10.95 teract and provide complementary information—a R
 andom Forest classifier [[]]
@@ -1772,7 +1745,7 @@ Overfull \hbox (7.03891pt too wide) in paragraph at lines 608--610
 0.338), with semantic change
  []
 
-[93]
+[94]
 Overfull \hbox (4.15096pt too wide) in paragraph at lines 611--613
 []\TU/TeXGyreTermes(0)/b/n/10.95 Second, expanding from 6 to 10 features improv
 es cross-validation AUC.
@@ -1792,37 +1765,37 @@ Underfull \hbox (badness 1221) in paragraph at lines 620--620
 feature category: blue
  []
 
-[94]
+[95]
 File: figures//feature_correlation_heatmap.png Graphic file (type bmp)
 <figures//feature_correlation_heatmap.png>
- [95] [96] [97]
+ [96] [97] [98]
 Overfull \hbox (4.0633pt too wide) in paragraph at lines 647--648
 []\TU/TeXGyreTermes(0)/m/n/10.95 The cross-pathogen benchmark demonstrated that
  the best scoring–detection
  []
 
-[98]
+[99]
 File: figures//feature_ablation_bars.png Graphic file (type bmp)
 <figures//feature_ablation_bars.png>
- [99] [100]
+ [100] [101]
 Overfull \hbox (1.8654pt too wide) in paragraph at lines 701--702
 \TU/TeXGyreTermes(0)/m/n/10.95 pathogens (ESM-2 for MERS AUC = 0.695; SASA for 
 Norovirus AUC = 0.747),
  []
 
-[101]
+[102]
 Overfull \hbox (5.6382pt too wide) in paragraph at lines 745--746
 \TU/TeXGyreTermes(0)/m/n/10.95 tribute to hotspot prediction, but the most info
 rmative feature differs by pathogen.
  []
 
-[102]
+[103]
 Overfull \hbox (0.78639pt too wide) in paragraph at lines 782--784
 \TU/TeXGyreTermes(0)/m/n/10.95 cross-validates the Layer A findings through an 
 entirely independent criterion—
  []
 
-[103]
+[104]
 Overfull \hbox (1.92607pt too wide) in paragraph at lines 785--786
 \TU/TeXGyreTermes(0)/m/n/10.95 9.36-fold enrichment, substantially outperformin
 g frequency-based approaches.
@@ -1840,13 +1813,13 @@ Overfull \hbox (5.33887pt too wide) in paragraph at lines 787--789
  resources toward the most promis-
  []
 
-[104]
+[105]
 Overfull \hbox (4.66557pt too wide) in paragraph at lines 797--799
 []\TU/TeXGyreTermes(0)/m/n/10.95 This underperformance is explained by the spar
 sity of the reference database.
  []
 
-[105]
+[106]
 Overfull \hbox (6.34535pt too wide) in paragraph at lines 812--813
 []\TU/TeXGyreTermes(0)/b/n/10.95 Compact core\TU/TeXGyreTermes(0)/m/n/10.95 : A
  4-feature core (homoplasy, pLDDT, entropy, frequency)
@@ -1859,11 +1832,11 @@ escape enrichment (4.012$\OMS/cmsy/m/n/10.95 ^^B$\TU/TeXGyreTermes(0)/m/n/10.95
  ,
  []
 
-) [106] (./chapters_en/ch5_discussion.tex [107]
+) [107] (./chapters_en/ch5_discussion.tex [108]
 Chapter 5.
-[108
+[109
 
-] [109]
+] [110]
 Overfull \hbox (10.59853pt too wide) in paragraph at lines 44--47
 \TU/TeXGyreTermes(0)/m/n/10.95 The H-score saturation phenomenon observed in te
 mporal validation (Section [][]4.2[][])
@@ -1875,7 +1848,7 @@ Overfull \hbox (21.1068pt too wide) in paragraph at lines 52--57
 hadow the pathogen-dependent
  []
 
-[110] [111]
+[111] [112]
 Overfull \hbox (3.70921pt too wide) in paragraph at lines 65--67
 []\TU/TeXGyreTermes(0)/m/n/10.95 Cross-pathogen validation revealed pathogen-de
 pendent performance: HIV-
@@ -1887,19 +1860,19 @@ Overfull \hbox (7.47409pt too wide) in paragraph at lines 75--77
 o universally best-performing
  []
 
-[112]
+[113]
 Overfull \hbox (0.46613pt too wide) in paragraph at lines 86--88
 \TU/TeXGyreTermes(0)/m/n/10.95 ble [][]4.4[][]), which appears low but is expla
 ined by three structural factors: position-
  []
 
-[113]
+[114]
 Overfull \hbox (9.46124pt too wide) in paragraph at lines 120--120
 []\TU/TeXGyreTermes(0)/b/n/14.4 Practical Implications and Fundamental Limitati
 ons 
  []
 
-[114] [115] [116] [117]
+[115] [116] [117] [118]
 Overfull \hbox (0.61572pt too wide) in paragraph at lines 181--182
  []\TU/TeXGyreTermes(0)/b/n/10.95 Step 3: Scoring category selection.[] \TU/TeX
 GyreTermes(0)/m/n/10.95 Table [][]5.3[][] provides empirically grounded
@@ -1910,7 +1883,7 @@ Overfull \hbox (77.12701pt too wide) in paragraph at lines 188--200
  [][] 
  []
 
-[118]
+[119]
 Overfull \hbox (15.26685pt too wide) in paragraph at lines 212--214
 \TU/TeXGyreTermes(0)/m/n/10.95 and frequency-based approaches cannot distinguis
 h positive selection from founder
@@ -1928,19 +1901,19 @@ Overfull \hbox (4.4182pt too wide) in paragraph at lines 215--219
 Section [][]4.3[][]) confirmed equiv-
  []
 
-[119]
+[120]
 Overfull \hbox (11.71176pt too wide) in paragraph at lines 231--236
 \TU/TeXGyreTermes(0)/m/n/10.95 formance levels may be biased upward, the relati
 ve cross-pathogen comparisons—
  []
 
-[120]
+[121]
 Overfull \hbox (0.30383pt too wide) in paragraph at lines 237--238
 []\TU/TeXGyreTermes(0)/m/n/10.95 Among the 20 scoring types, several share an u
 nderlying information source
  []
 
-[121] [122] [123]
+[122] [123] [124]
 Overfull \hbox (13.88629pt too wide) in paragraph at lines 256--257
 \TU/TeXGyreTermes(0)/m/n/10.95 for H3N2 vs. frequency for Influenza B; frequenc
 y for HCV vs. entropy_with_indel
@@ -1952,83 +1925,80 @@ Overfull \hbox (15.21571pt too wide) in paragraph at lines 256--257
 han weakens the pathogen-adaptive
  []
 
-) (./chapters_en/ch6_conclusion.tex [124]
+) (./chapters_en/ch6_conclusion.tex [125]
 Chapter 6.
 
-Overfull \hbox (2.66254pt too wide) in paragraph at lines 13--15
-\TU/TeXGyreTermes(0)/m/n/10.95 thetic data analysis (Stage 1) with large-scale 
-comparison across 11 RNA viruses
+Overfull \hbox (0.10109pt too wide) in paragraph at lines 13--16
+\TU/TeXGyreTermes(0)/m/n/10.95 and presents a two-stage experimental design com
+bining in-depth SARS-CoV-2
  []
 
-
-Overfull \hbox (0.49968pt too wide) in paragraph at lines 16--23
-[]\TU/TeXGyreTermes(0)/b/n/10.95 Contribution 2. Statistical Demonstration of t
-he Necessity of Pathogen-
- []
-
-
-Overfull \hbox (14.31572pt too wide) in paragraph at lines 16--23
-\TU/TeXGyreTermes(0)/m/n/10.95 vary across pathogens. Fourth, Leave-One-Pathoge
-n-Out (LOPO) cross-validation
- []
-
-[125
+[126
 
 ]
-Overfull \hbox (11.66136pt too wide) in paragraph at lines 24--29
-[]\TU/TeXGyreTermes(0)/b/n/10.95 Contribution 3. Multi-source information integ
-ration analysis for hotspot
+Overfull \hbox (0.6185pt too wide) in paragraph at lines 17--24
+\TU/TeXGyreTermes(0)/b/n/10.95 lection ($\OML/cmm/m/it/10.95 ![] \OT1/cmr/m/n/1
+0.95 = 0\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 296$\TU/TeXGyreTermes(0)/b/n/10
+.95 ) matters 23$\OMS/cmsy/m/n/10.95 ^^B$ \TU/TeXGyreTermes(0)/b/n/10.95 more t
+han algorithm choice ($\OML/cmm/m/it/10.95 ![] \OT1/cmr/m/n/10.95 = 0\OML/cmm/m
+/it/10.95 :\OT1/cmr/m/n/10.95 013$\TU/TeXGyreTermes(0)/b/n/10.95 ).
  []
 
-[126] [127]
-Overfull \hbox (11.78304pt too wide) in paragraph at lines 65--68
+[127] [128]
+Overfull \hbox (11.78304pt too wide) in paragraph at lines 66--69
 []\TU/TeXGyreTermes(0)/m/n/10.95 The phylogenetic non-independence of frequency
 -based scores (Section [][]5.4.5[][])
  []
 
-[128]
-Overfull \hbox (9.62958pt too wide) in paragraph at lines 103--108
+[129]
+Overfull \hbox (9.62958pt too wide) in paragraph at lines 104--109
 []\TU/TeXGyreTermes(0)/m/n/10.95 The proof-of-concept results reported in Secti
 on [][]4.3[][] establish that homoplasy-
  []
 
 
-Overfull \hbox (11.66429pt too wide) in paragraph at lines 103--108
+Overfull \hbox (11.66429pt too wide) in paragraph at lines 104--109
 \TU/TeXGyreTermes(0)/m/n/10.95 based scoring captures qualitatively different e
 volutionary signals from frequency-
  []
 
 
-Overfull \hbox (3.6453pt too wide) in paragraph at lines 103--108
+Overfull \hbox (3.6453pt too wide) in paragraph at lines 104--109
 \TU/TeXGyreTermes(0)/m/n/10.95 scaling with sequence count, but recent ultrafas
 t alternatives such as UShER [[]]
  []
 
-[129]
-Overfull \hbox (1.7228pt too wide) in paragraph at lines 111--115
+[130]
+Overfull \hbox (1.7228pt too wide) in paragraph at lines 112--116
 []\TU/TeXGyreTermes(0)/m/n/10.95 Additional research directions include: (1) ex
 pansion to DNA viruses (HPV,
  []
 
 
-Overfull \hbox (30.17989pt too wide) in paragraph at lines 111--115
+Overfull \hbox (30.17989pt too wide) in paragraph at lines 112--116
 \TU/TeXGyreTermes(0)/m/n/10.95 HBV) whose lower mutation rates and distinct mut
 ation mechanisms (e.g., APOBEC3-
  []
 
-[130])
-Overfull \hbox (13.05124pt too wide) in paragraph at lines 128--165
+[131]
+Overfull \hbox (0.30432pt too wide) in paragraph at lines 120--122
+\TU/TeXGyreTermes(0)/m/n/10.95 cal information source for each pathogen. The re
+commended scoring categories
+ []
+
+[132])
+Overfull \hbox (13.05124pt too wide) in paragraph at lines 132--165
 \TU/TeXGyreTermes(0)/m/n/10.95 (1) feature computation (\TU/lmtt/m/n/10.95 pyth
 on compute_features.py --pathogen H3N2\TU/TeXGyreTermes(0)/m/n/10.95 ),
  []
 
-[131] (./thesis_en.bbl [132]
+[133] (./thesis_en.bbl [134]
 Underfull \hbox (badness 1009) in paragraph at lines 11--19
 \TU/TeXGyreTermes(0)/m/n/10.95 Gupta, Emma C. Thomson, Ewan M. Harrison, Cather
 ine Ludden,
  []
 
-[133
+[135
 
 ]
 Underfull \hbox (badness 3758) in paragraph at lines 71--76
@@ -2036,13 +2006,13 @@ Underfull \hbox (badness 3758) in paragraph at lines 71--76
 ala, and Amir
  []
 
-[134] [135]
+[136] [137]
 Underfull \hbox (badness 1320) in paragraph at lines 164--168
 \TU/TeXGyreTermes(0)/m/it/10.95 2013, Part II, LNAI 7819\TU/TeXGyreTermes(0)/m/
 n/10.95 , pages 160–172, 2013.  doi: $[][] [] [][][][] []
  []
 
-[136] [137] [138] [139]
+[138] [139] [140] [141]
 Underfull \hbox (badness 2277) in paragraph at lines 306--312
 \TU/TeXGyreTermes(0)/m/n/10.95 Malitsky, Alexandre Fréchette, Holger Hoos, Fran
 k Hutter, Kevin
@@ -2054,86 +2024,88 @@ Underfull \hbox (badness 1194) in paragraph at lines 315--320
 perger, Jost Tobias
  []
 
-[140] [141]
+[142] [143]
 Underfull \hbox (badness 4608) in paragraph at lines 403--412
 []\TU/TeXGyreTermes(0)/m/n/10.95 Alessandro M. Carabelli, Thomas P. Peacock, Lu
 cy G. Thorne,
  []
 
-[142] [143]
+[144] [145]
 Underfull \hbox (badness 1953) in paragraph at lines 479--485
 []\TU/TeXGyreTermes(0)/m/n/10.95 Vicente Mas, Haresh Nair, Harry Campbell, Jose
  A Melero, and
  []
 
-[144] [145] [146] [147]
+[146] [147] [148] [149]
 Underfull \hbox (badness 1281) in paragraph at lines 620--623
 []\TU/TeXGyreTermes(0)/m/n/10.95 Janez Demšar.  Statistical comparisons of clas
 sifiers over multiple
  []
 
-[148] [149]) [150] (./front/abstract_kr.tex
+[150] [151]) [152] (./front/abstract_kr.tex
 Underfull \hbox (badness 10000) in paragraph at lines 178--2
 
  []
 
 
-Underfull \hbox (badness 1173) in paragraph at lines 3--5
+Underfull \hbox (badness 1173) in paragraph at lines 3--4
 []\TU/NotoSerifCJKKR(0)/m/n/11 바이러스 게놈의 변이 핫스팟 탐지는 변이주 감시와 백신 설계에
  []
 
 
-Underfull \hbox (badness 4518) in paragraph at lines 3--5
-\TU/NotoSerifCJKKR(0)/m/n/11 프레임워크가 부재하였다. 기존 연구들은 단일 병원체·단일 탐지
+Underfull \hbox (badness 1616) in paragraph at lines 3--4
+\TU/NotoSerifCJKKR(0)/m/n/11 필수적이나, 기존 접근법은 변이 빈도와 Shannon 엔트로피에 거의
  []
 
 
-Underfull \hbox (badness 1194) in paragraph at lines 6--14
+Underfull \hbox (badness 1194) in paragraph at lines 5--13
 []\TU/NotoSerifCJKKR(0)/m/n/11 본 연구에서는 이 문제를 해결하기 위해 MutBench를 제안한다.
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 6--14
-\TU/NotoSerifCJKKR(0)/m/n/11 MutBench는 변이 핫스팟 탐지를 위한 최초의 체계적 벤치마크
+Underfull \hbox (badness 2111) in paragraph at lines 5--13
+\TU/NotoSerifCJKKR(0)/m/n/11 총 8,580회 평가를 수행하는 벤치마크 프레임워크로, 세 가지 핵심
  []
 
-
-Underfull \hbox (badness 3098) in paragraph at lines 6--14
-\TU/NotoSerifCJKKR(0)/m/n/11 종 내에서 서로 다른 계통에서 독립적으로 반복 출현한 수렴 진화
- []
-
-
-Underfull \hbox (badness 1715) in paragraph at lines 6--14
-\TU/NotoSerifCJKKR(0)/m/n/11 기준(Layer B), Deep Mutational Scanning(DMS) 실험적 적합도
-
- []
-
-
-Underfull \hbox (badness 3907) in paragraph at lines 6--14
-\TU/NotoSerifCJKKR(0)/m/n/11 데이터를 기능적 검증(Layer C)으로 통합하는 3층 ground truth
- []
-
-[151
+[153
 
 ]
-Underfull \hbox (badness 2932) in paragraph at lines 20--24
-\TU/NotoSerifCJKKR(0)/m/n/11 입증한다. 6개 정보 카테고리(빈도 기반, MSA 유래, 계통 분석,
+Underfull \hbox (badness 2753) in paragraph at lines 14--19
+\TU/NotoSerifCJKKR(0)/m/n/11 효과적임을 확인하였다. Stage 2의 핵심 발견은 탐지 알고리즘이
  []
 
 
-Underfull \hbox (badness 1259) in paragraph at lines 20--24
+Underfull \hbox (badness 5667) in paragraph at lines 14--19
+\TU/NotoSerifCJKKR(0)/m/n/11 것이다: 점수화 방법과 병원체 간 상호작용이 전체 성능 분산의
+ []
+
+
+Underfull \hbox (badness 1881) in paragraph at lines 14--19
+\TU/NotoSerifCJKKR(0)/m/n/11 주효과($\OML/cmm/m/it/10.95 ![] \OT1/cmr/m/n/10.95 = 
+0\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 013$\TU/NotoSerifCJKKR(0)/m/n/11 )의 22
+배에 달하였다. Friedman 검정($\OML/cmm/m/it/10.95 ^^_[] \OT1/cmr/m/n/10.95 =
+ []
+
+
+Underfull \hbox (badness 2818) in paragraph at lines 14--19
+\OT1/cmr/m/n/10.95 7\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 69$\TU/NotoSerifCJK
+KR(0)/m/n/11 , $\OML/cmm/m/it/10.95 p \OT1/cmr/m/n/10.95 = 0\OML/cmm/m/it/10.95
+ :\OT1/cmr/m/n/10.95 990$\TU/NotoSerifCJKKR(0)/m/n/11 )에서 상위 20개 조합 간 유의한 차이가 없
+음을
+ []
+
+
+Underfull \hbox (badness 3557) in paragraph at lines 14--19
+\TU/NotoSerifCJKKR(0)/m/n/11 정보원을 요구하였다(일반화 성공률 0/11). 또한 탐지된 핫스팟이
+ []
+
+[154]
+Underfull \hbox (badness 1259) in paragraph at lines 20--22
 \TU/NotoSerifCJKKR(0)/m/n/11 변화(EV-A71), 안정성 예측(Rabies), 빈도 기반(HCV, Influenza B
 ,
  []
 
-
-Underfull \hbox (badness 5091) in paragraph at lines 20--24
-\TU/NotoSerifCJKKR(0)/m/n/11 최대 9.36배 enrichment($\OML/cmm/m/it/10.95 p < \OT1/
-cmr/m/n/10.95 0\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 0001$\TU/NotoSerifCJKKR(
-0)/m/n/11 )를 보이며, 벤치마크에서
- []
-
-[152]) [153] (./thesis_en.aux)
+) [155] (./thesis_en.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.5pt have occurred.
@@ -2142,10 +2114,10 @@ LaTeX Font Warning: Size substitutions with differences
 Here is how much of TeX's memory you used:
  30634 strings out of 477728
  617146 string characters out of 5842239
- 953883 words of memory out of 5000000
+ 953979 words of memory out of 5000000
  50659 multiletter control sequences out of 15000+600000
  482782 words of font info for 145 fonts, out of 8000000 for 9000
  264 hyphenation exceptions out of 8191
  100i,13n,131p,1012b,892s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on thesis_en.pdf (169 pages).
+Output written on thesis_en.pdf (171 pages).
