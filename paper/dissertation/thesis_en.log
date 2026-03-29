@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2022/dev/Debian) (preloaded format=xelatex 2026.3.7)  29 MAR 2026 18:18
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2022/dev/Debian) (preloaded format=xelatex 2026.3.7)  29 MAR 2026 18:24
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1339,18 +1339,6 @@ Overfull \hbox (10.56198pt too wide) in paragraph at lines 64--68
  []
 
 [5]
-Overfull \hbox (2.26186pt too wide) in paragraph at lines 76--78
-\TU/TeXGyreTermes(0)/b/n/10.95 alyzing which factors—biological information typ
-e, detection method
- []
-
-
-Overfull \hbox (19.90231pt too wide) in paragraph at lines 76--78
-\TU/TeXGyreTermes(0)/b/n/10.95 category, and pathogen characteristics—influence
- viral mutation hotspot
- []
-
-
 Overfull \hbox (4.12006pt too wide) in paragraph at lines 80--81
 \TU/TeXGyreTermes(0)/m/n/10.95 2 analysis; Stage 2 for large-scale comparison a
 cross 11 RNA viruses
