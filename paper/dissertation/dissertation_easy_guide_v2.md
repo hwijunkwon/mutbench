@@ -712,7 +712,19 @@ HIV-1에서 AUC=0.71 (우수), HCV에서 AUC=0.39 (실패 — parsimony 포화).
 
 LOPO 0/11의 실용적 함의: 새 바이러스에 대해 기존 최적을 직접 적용 불가. 병원체별 벤치마크가 필수.
 
-#### 5.3.2 Upper Bound of Detection Performance
+#### 5.3.2 선행 연구와의 결론 비교
+
+| 선행 연구 | 그들의 결론 | MutBench와 동일? | 차이점 |
+|----------|-----------|----------------|--------|
+| **EVEREST** (2025) | 최적 VEP 방법이 바이러스마다 다름 | ✅ 동일 방향 | EVEREST는 per-mutation 예측, MutBench는 per-region 탐지 |
+| **Maher** (2022) | SARS-CoV-2에서 다중 feature 결합이 단일보다 우수 | ✅ 동일 | MutBench는 이를 11개 바이러스로 일반화 |
+| **Hie** (2021) | PLM semantic similarity가 escape 예측에 유효 | ✅ 부분 동일 | EV-A71에서 최적이나 다른 바이러스에서는 아님 → 병원체 의존적 |
+| **Bailey** (2018) | 암 driver 도구들이 서로 다른 결과 산출 | ✅ 유사 패턴 | 바이러스에서도 동일 패턴, 병원체 생물학이 원인 |
+| **ProteinGym** (2023) | VEP 성능이 단백질마다 다름 | ✅ 동일 방향 | MutBench는 정보 유형이 핵심 요인임을 추가 규명 |
+
+**MutBench의 고유 기여**: 병원체 의존성을 분산 분해로 정량화(ω²=0.296)하고, vaccine escape 교차검증(최대 9.36배)으로 실용적 타당성을 입증한 점.
+
+#### 5.3.3 Upper Bound of Detection Performance
 
 MCC 0.083이 상대적으로 낮은 수치로 보일 수 있는 이유:
 
