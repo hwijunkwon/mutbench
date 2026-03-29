@@ -216,7 +216,7 @@ MutClust의 한계 → 벤치마크 필요성:
 - **호흡기**: SARS-CoV-2, MERS, RSV, H3N2, Influenza B
 - **혈액/성매개**: HIV-1, HCV
 - **위장관**: Norovirus
-- **모기 매개**: Dengue, Zika (서열 부족으로 제외)
+- **모기 매개**: Dengue
 - **신경 친화성**: Rabies, EV-A71
 
 [테이블: Table 3.1 — Sequence dataset characteristics for 12 pathogens]
@@ -234,13 +234,10 @@ MutClust의 한계 → 벤치마크 필요성:
 | HCV | E2 | 1,362 | 1,067 | 340 |
 | Rabies | G protein | 2,038 | 2,038 | 524 |
 | EV-A71 | VP1 | 662 | 662 | 297 |
-| Zika* | E protein | 52 | 52 | 505 |
 
-*Zika는 서열 수 부족으로 Stage 2에서 제외
 
 #### 3.1.2 3-Layer Ground Truth Framework (3층 정답 기준)
 
-![Three-Layer Ground Truth](figures/3layer_gt_concept.png)
 
 
 | Layer | 생물학적 의미 | 벤치마크 역할 |
