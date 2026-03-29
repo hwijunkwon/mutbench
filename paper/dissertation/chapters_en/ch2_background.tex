@@ -29,6 +29,7 @@ Second, \textbf{neglect of rare variants}: mutations that occur at low frequency
 Mullick et al.~\cite{mullick2021entropy} combined Shannon entropy with K-means clustering to detect hotspots in the SARS-CoV-2 Spike protein.
 However, conventional nucleotide entropy reflects the distribution of all nucleotides regardless of whether mutation has occurred, failing to capture effective diversity conditioned on the occurrence of mutation.
 Furthermore, K-means clustering requires the number of clusters to be specified in advance and does not account for density structure.
+Large-scale frequency-based analyses have been applied to SARS-CoV-2~\cite{koyama2020variant,obermeyer2022analysis}, but these studies used single information types (mutation frequency or fitness proxies) without systematic comparison against alternative scoring approaches.
 
 \textbf{Cancer genomics methods.}
 In cancer genomics, various methods have been developed to detect somatic mutation hotspots.
@@ -36,6 +37,7 @@ Cancer genomics tools such as MutSigCV~\cite{lawrence2013mutsigcv} (gene-level d
 
 An important limitation of frequency-based mutation analysis is \textbf{phylogenetic non-independence}: mutations observed in closely related sequences are not independent events~\cite{felsenstein1985phylogenies}.
 Phylogeny-aware methods such as TreeTime~\cite{sagulenko2018treetime}, BEAST~\cite{suchard2018beast}, and HyPhy~\cite{kosakovsky2020hyphy} can address this but require high-quality phylogenetic trees and have limited reliability in densely sampled datasets~\cite{turakhia2020ultrafast}.
+Several tools detect homoplasic (independently recurrent) mutations on phylogenies, including HomoplasyFinder~\cite{crispell2019homoplasyfinder} and ConDor~\cite{morel2024condor}; however, these identify individual recurrent sites rather than performing the spatial clustering and multi-information-type comparison that MutBench provides.
 
 Simpler approaches to hotspot identification include sliding window methods, which scan fixed-length windows across the genome and flag those exceeding a mutation count threshold, and signal processing techniques such as wavelet transforms, which decompose mutation frequency profiles to identify localized peaks at multiple scales.
 
@@ -118,6 +120,7 @@ Related efforts in adjacent domains include:
 (2)~ConDor~\cite{morel2024condor}, which detects convergent mutations across phylogenies but is a single tool rather than a benchmark framework;
 (3)~Pons et al.~\cite{pons2020computational}, who reviewed 40+ cancer hotspot detection methods but produced a descriptive survey without a unified benchmark, and cancer-specific models do not transfer to viral evolutionary dynamics;
 and (4)~individual SARS-CoV-2 studies using entropy~\cite{harvey2021tracking} or clustering that validate against small variant sets without standardized ground truth.
+Among the 35+ mutation clustering tools catalogued in the computational oncology literature~\cite{pons2020computational}, none was designed for or validated on viral population-level mutation data. Cancer hotspot tools (OncodriveCLUSTL, HotMAPS, MutSpot) require tumor cohort somatic mutation calls and human-genome-specific background models (trinucleotide signatures, replication timing). Phylogenetic selection tools (MEME, FUBAR, FEL) detect per-codon dN/dS signals but do not perform spatial clustering of hotspot regions. The only virus-specific hotspot clustering tool is MutClust~\cite{youn2025mutclust}, validated on a single pathogen (SARS-CoV-2). This gap---the absence of systematic multi-pathogen hotspot detection benchmarking---is what MutBench addresses.
 Thus, a systematic benchmark with multi-source ground truth, composite evaluation metrics, and cross-pathogen validation remains absent for viral hotspot detection.
 
 \subsubsection*{Variant Effect Prediction Benchmarks}

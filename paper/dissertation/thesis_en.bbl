@@ -1,4 +1,4 @@
-\begin{thebibliography}{91}
+\begin{thebibliography}{98}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -73,6 +73,22 @@ Bhumika Mullick, Rohit Magar, Aditya Jhunjhunwala, and Amir Barati~Farimani.
   using {Shannon} entropy and {K}-means clustering.
 \newblock \emph{Computers in Biology and Medicine}, 138:\penalty0 104915, 2021.
 \newblock \doi{10.1016/j.compbiomed.2021.104915}.
+
+\bibitem[Koyama et~al.(2020)Koyama, Platt, and Parida]{koyama2020variant}
+Takahiko Koyama, Daniel Platt, and Laxmi Parida.
+\newblock Variant analysis of {SARS-CoV-2} genomes.
+\newblock \emph{Bulletin of the World Health Organization}, 98:\penalty0
+  495--504, 2020.
+
+\bibitem[Obermeyer et~al.(2022)Obermeyer, Jankowiak, Barkas, Schaffner, Pyle,
+  Yurkovetskiy, Bosber, Luban, Sabeti, and Lemieux]{obermeyer2022analysis}
+Fritz Obermeyer, Martin Jankowiak, Nikolaos Barkas, Stephen~F. Schaffner,
+  Jesse~D. Pyle, Leonid Yurkovetskiy, Moreno Bosber, Jeremy Luban, Pardis~C.
+  Sabeti, and Jacob~E. Lemieux.
+\newblock Analysis of 6.4 million {SARS-CoV-2} genomes identifies mutations
+  associated with fitness.
+\newblock \emph{Science}, 376\penalty0 (6599):\penalty0 1327--1332, 2022.
+\newblock \doi{10.1126/science.abm1208}.
 
 \bibitem[Lawrence et~al.(2013)Lawrence, Stojanov, Polak,
   et~al.]{lawrence2013mutsigcv}
@@ -151,6 +167,23 @@ Yatish Turakhia, Bryan Thornlow, Angie~S. Hinrichs, Nicola De~Maio, Landen
   real-time phylogenetics for the {SARS-CoV-2} pandemic.
 \newblock \emph{Nature Genetics}, 53:\penalty0 809--816, 2021.
 \newblock \doi{10.1038/s41588-021-00862-7}.
+
+\bibitem[Crispell et~al.(2019)Crispell, Balaz, and
+  Gordon]{crispell2019homoplasyfinder}
+Joseph Crispell, David Balaz, and Stephen~V Gordon.
+\newblock {HomoplasyFinder}: a simple tool to identify homoplasies on a
+  phylogeny.
+\newblock \emph{Microbial Genomics}, 5\penalty0 (1), 2019.
+
+\bibitem[Morel et~al.(2024)Morel, Kozlov, Stamatakis, and
+  Szöllősi]{morel2024condor}
+Beno{\^\i}t Morel, Alexey~M Kozlov, Alexandros Stamatakis, and Gergely~J
+  Szöllősi.
+\newblock Detecting convergent and parallel amino acid substitutions in large
+  protein alignments.
+\newblock \emph{Genome Biology and Evolution}, 16\penalty0 (4):\penalty0
+  evae080, 2024.
+\newblock \doi{10.1093/gbe/evae080}.
 
 \bibitem[Ester et~al.(1996)Ester, Kriegel, Sander, and Xu]{ester1996dbscan}
 Martin Ester, Hans-Peter Kriegel, J\"{o}rg Sander, and Xiaowei Xu.
@@ -351,16 +384,6 @@ Pascal Notin, Mafalda Dias, Jonathan Frazer, Javier Marchena-Hurtado, Aidan
   design.
 \newblock \emph{Advances in Neural Information Processing Systems}, 36, 2023.
 
-\bibitem[Morel et~al.(2024)Morel, Kozlov, Stamatakis, and
-  Szöllősi]{morel2024condor}
-Beno{\^\i}t Morel, Alexey~M Kozlov, Alexandros Stamatakis, and Gergely~J
-  Szöllősi.
-\newblock Detecting convergent and parallel amino acid substitutions in large
-  protein alignments.
-\newblock \emph{Genome Biology and Evolution}, 16\penalty0 (4):\penalty0
-  evae080, 2024.
-\newblock \doi{10.1093/gbe/evae080}.
-
 \bibitem[Pons et~al.(2020)Pons, Gonzalez-Perez, Lopez-Bigas, Schomburg, and
   Valencia]{pons2020computational}
 Tirso Pons, Abel Gonzalez-Perez, Nuria Lopez-Bigas, Dietmar Schomburg, and
@@ -518,6 +541,39 @@ Xian-Chun Tang, Sudhakar~S Agnihothram, Yang Jiao, Jeremy Stanhope, Rachel~L
   and their role in virus adaptive evolution.
 \newblock \emph{Proceedings of the National Academy of Sciences}, 111\penalty0
   (19):\penalty0 E2018--E2026, 2014.
+
+\bibitem[Benmansour et~al.(1991)Benmansour, Leblois, Coulon, Tuffereau, Gaudin,
+  Flamand, and Lafay]{benmansour1991rabies}
+A~Benmansour, H~Leblois, P~Coulon, C~Tuffereau, Y~Gaudin, A~Flamand, and
+  F~Lafay.
+\newblock Antigenicity of rabies virus glycoprotein.
+\newblock \emph{Journal of Virology}, 65\penalty0 (8):\penalty0 4198--4203,
+  1991.
+
+\bibitem[Aditham et~al.(2025)Aditham, Shi, Crawford, and
+  Bloom]{aditham2025rabies}
+Arjun~K Aditham, Rui Shi, Katharine H~D Crawford, and Jesse~D Bloom.
+\newblock Deep mutational scanning of rabies glycoprotein defines mutational
+  constraint and antibody-escape mutations.
+\newblock \emph{Cell Host \& Microbe}, 2025.
+\newblock bioRxiv preprint: 10.1101/2024.12.17.628970.
+
+\bibitem[Huang et~al.(2015)Huang, Lin, Chiu, Yang, Tsao, Huang, and
+  Lin]{huang2015eva71}
+Kai-Yi~Amy Huang, Jia-Jyun Lin, Ching-Hsiang Chiu, Shimin Yang, Kuo-Chien Tsao,
+  Yhu-Chering Huang, and Tzou-Yien Lin.
+\newblock Antigenic characteristics and genetic diversity of {Enterovirus} 71
+  in shenzhen, {China} from 2009 to 2013.
+\newblock \emph{Journal of Virology}, 89\penalty0 (14):\penalty0 7180--7192,
+  2015.
+\newblock \doi{10.1128/JVI.00576-15}.
+
+\bibitem[Tong et~al.(2024)Tong, Jiang, Bina, and Schmidt]{tong2024eva71}
+Patricia Tong, Qiancheng Jiang, Dyuti Bina, and Aaron~G Schmidt.
+\newblock Deep mutational scanning of {Enterovirus} {A71} reveals the
+  functional landscape of capsid protein {VP1}.
+\newblock \emph{Nature Microbiology}, 9:\penalty0 2507--2518, 2024.
+\newblock \doi{10.1038/s41564-024-01783-z}.
 
 \bibitem[Lee et~al.(2018)Lee, Huddleston, Doud, Hooper, Wu, Bedford, and
   Bloom]{lee2018h3n2dms}

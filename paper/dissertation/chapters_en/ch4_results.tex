@@ -294,7 +294,7 @@ MERS & freq & KDE ($p$=85) & 0.196 \\
 \end{table}
 
 While the 11/11 unique best combinations is notable, a permutation analysis shows that with $\binom{20 \times 39}{1} = 780$ possible scoring--detection family combinations, the probability of all 11 being unique by chance is $\prod_{i=0}^{10}(780-i)/780 \approx 0.929$ (approximately 93\%).
-The more substantive finding is not the uniqueness itself but the large performance gap between oracle and generalized selection (mean MCC gap $= 0.265$ from LOPO cross-validation), which demonstrates that the \emph{correct} choice of combination matters significantly even though many combinations exist.
+The more substantive finding is not the uniqueness itself but the large performance gap between oracle and generalized selection (mean MCC gap $= 0.320$ from LOPO cross-validation), which demonstrates that the \emph{correct} choice of combination matters significantly even though many combinations exist.
 
 \begin{figure}[htbp]
 \centering
@@ -386,8 +386,8 @@ LOPO (Leave-One-Pathogen-Out) cross-validation was performed to evaluate whether
 
 \begin{itemize}
 \item \textbf{Combination match rate}: 0/11 (0\%). In all 11 iterations, the training-best combination and the test oracle combination were mismatched.
-\item \textbf{Mean generalization MCC}: 0.032. The test MCC of the training-best combination was near zero on average.
-\item \textbf{Mean performance gap}: 0.265. The average MCC difference between the oracle and the generalized prediction was 0.265.
+\item \textbf{Mean generalization MCC}: 0.022. The test MCC of the training-best combination was near zero on average.
+\item \textbf{Mean performance gap}: 0.320. The average MCC difference between the oracle and the generalized prediction was 0.320.
 \end{itemize}
 
 \begin{figure}[htbp]
@@ -422,7 +422,7 @@ Ranking by mean MCC alone could place combinations that perform well only on spe
 \item \textbf{95\% BCa confidence interval}: [0.047, 0.202]
 \end{itemize}
 
-The mean MCC of the best single combination (0.124) is only 42\% of the mean oracle MCC (0.298), confirming that a single fixed combination falls substantially short. Despite appearing low, this MCC exceeds the random baseline (mean=0.001, SD=0.003) by approximately 41 standard deviations, and MCC $>$ 0.1 under extreme class imbalance (1--16\% positive rate) is not trivial.
+The mean MCC of the best single combination (0.124) is only 36\% of the mean oracle MCC (0.341), confirming that a single fixed combination falls substantially short. Despite appearing low, this MCC exceeds the random baseline (mean=0.001, SD=0.003) by approximately 41 standard deviations, and MCC $>$ 0.1 under extreme class imbalance (1--16\% positive rate) is not trivial.
 
 \textbf{Subsampling Robustness.}
 \label{subsec:9pathogen_subsampling}
@@ -522,7 +522,7 @@ Synthesizing the key results of the cross-pathogen benchmark, the need for patho
 \begin{enumerate}
 \item \textbf{Interaction dominance}: The scoring $\times$ pathogen interaction ($\omega^2 = 0.296$) is the largest source of variance, exceeding all main effects and other interactions. Which information source is used matters more than which algorithm processes it.
 \item \textbf{Unique best combinations}: 11 unique best combinations were observed across 11/11 pathogens, with 9 distinct scoring types. No two pathogens share the same best combination.
-\item \textbf{Generalization failure}: LOPO cross-validation yielded 0/11 combination matches with a mean generalization MCC of 0.032. The best combination selected from training pathogens does not generalize to new pathogens.
+\item \textbf{Generalization failure}: LOPO cross-validation yielded 0/11 combination matches with a mean generalization MCC of 0.022. The best combination selected from training pathogens does not generalize to new pathogens.
 \item \textbf{No universally superior combination}: Friedman $\chi^2 = 7.69$, $p = 0.990$. No single combination is reliably distinguishable as superior across all pathogens.
 \end{enumerate}
 
@@ -769,7 +769,7 @@ HIV-1 & freq & Frequency & Wavelet($t$=1.5) & \textbf{7.19}$\times$ & 23/45 & $<
 SARS-CoV-2 & FUBAR pos.\ sel. & Phylogenetic & FreqThresh($p$=85) & \textbf{7.63}$\times$ & 2/30 & 0.026 & $*$ \\
 \midrule
 \multicolumn{8}{l}{\textit{Multi-source integration (EqualWeight, top 10\% threshold):}} \\
-H3N2 & EqualWeight & Composite & top-10\% & 4.01$\times$ & 6/29 & \textbf{0.0023} & $**$ \\
+H3N2 & EqualWeight & Composite & top-10\% & 4.012$\times$ & 6/29 & \textbf{0.0023} & $**$ \\
 HIV-1 & EqualWeight & Composite & top-10\% & 4.17$\times$ & --- & 0.0037 & $**$ \\
 SARS-CoV-2 & EqualWeight & Composite & top-10\% & 2.67$\times$ & 2/30 & 0.171 & n.s. \\
 \bottomrule
@@ -784,7 +784,7 @@ SARS-CoV-2 & EqualWeight & Composite & top-10\% & 2.67$\times$ & 2/30 & 0.171 & 
 \textbf{Key findings:}
 All three pathogens achieve statistically significant vaccine escape enrichment ($p < 0.05$) with the optimal scoring--detection combination. Notably, the best scoring type for escape enrichment is consistent with the Layer~A benchmark results: FUBAR (phylogenetic) dominates for H3N2 (9.36$\times$), while frequency-based scoring dominates for HIV-1 (7.19$\times$). This cross-validates the Layer~A findings through an entirely independent criterion---the scoring type that best detects convergent evolution positions (Layer~A) also best captures vaccine escape positions.
 
-For H3N2, FUBAR Bayes factor captures 9 of 29 antigenic drift sites with 9.36-fold enrichment, substantially outperforming frequency-based approaches. The multi-source EqualWeight integration achieves 4.01-fold enrichment ($p = 0.0023$), capturing positions in both antigenic site~A (position~137) and site~B (positions~155, 159, 160, 186, 188), while frequency alone misses the structurally constrained site~B positions.
+For H3N2, FUBAR Bayes factor captures 9 of 29 antigenic drift sites with 9.36-fold enrichment, substantially outperforming frequency-based approaches. The multi-source EqualWeight integration achieves 4.012-fold enrichment ($p = 0.0023$), capturing positions in both antigenic site~A (position~137) and site~B (positions~155, 159, 160, 186, 188), while frequency alone misses the structurally constrained site~B positions.
 
 \textbf{Search space reduction.}
 For a typical viral protein of 500 positions, the optimal scoring--detection combination narrows the candidate list to 20--80 positions with 7--9-fold enrichment for escape sites. This transforms hotspot detection from an exhaustive search into a guided investigation, providing a ranked candidate list that directs limited experimental resources toward the most promising positions.
