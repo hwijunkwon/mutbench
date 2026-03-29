@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2022/dev/Debian) (preloaded format=xelatex 2026.3.7)  29 MAR 2026 18:24
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2022/dev/Debian) (preloaded format=xelatex 2026.3.7)  29 MAR 2026 18:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2036,19 +2036,37 @@ Overfull \hbox (0.30383pt too wide) in paragraph at lines 242--243
 nderlying information source
  []
 
-[144] [145]
-Overfull \hbox (13.88629pt too wide) in paragraph at lines 261--262
+
+Overfull \hbox (8.79538pt too wide) in paragraph at lines 244--247
+\TU/TeXGyreTermes(0)/m/n/10.95 pathogens: H3N2’s well-sampled multi-decade tree
+ provides more reliable dN/dS
+ []
+
+
+Overfull \hbox (9.51688pt too wide) in paragraph at lines 244--247
+\TU/TeXGyreTermes(0)/m/n/10.95 estimates than MERS’s sparse 5-year phylogeny. S
+tructure-based scores (pLDDT,
+ []
+
+
+Overfull \hbox (25.28523pt too wide) in paragraph at lines 244--247
+\TU/TeXGyreTermes(0)/m/n/10.95 SASA) depend on predicted structure accuracy, wh
+ich is higher for well-characterized
+ []
+
+[144] [145] [146]
+Overfull \hbox (13.88629pt too wide) in paragraph at lines 265--266
 \TU/TeXGyreTermes(0)/m/n/10.95 for H3N2 vs. frequency for Influenza B; frequenc
 y for HCV vs. entropy_with_indel
  []
 
 
-Overfull \hbox (15.21571pt too wide) in paragraph at lines 261--262
+Overfull \hbox (15.21571pt too wide) in paragraph at lines 265--266
 \TU/TeXGyreTermes(0)/m/n/10.95 within-family heterogeneity strengthens rather t
 han weakens the pathogen-adaptive
  []
 
-[146]) (./chapters_en/ch6_conclusion.tex [147]
+) (./chapters_en/ch6_conclusion.tex [147]
 Chapter 6.
 [148
 
