@@ -518,7 +518,7 @@ Kendall W = 0.037 (거의 0 — 순위 합의 없음)
 ![LOPO 결과: 예측 MCC vs 실제 best MCC](figures/stage3_lopo_crossval.png)
 
 
-**0/11 일치**. 평균 일반화 MCC = 0.032, oracle과의 gap = 0.265.
+**0/11 일치**. 평균 일반화 MCC = 0.022, oracle과의 gap = 0.320.
 
 #### 4.4.4 Supplementary Analyses
 
@@ -543,7 +543,7 @@ Precision@k 분석, DMS 임계값 민감도 분석, **Layer A vs Layer C 최적 
 
 1. **Interaction dominance**: scoring x pathogen omega-squared = 0.296 (최대)
 2. **Unique best**: 11/11 고유 최적 조합, 9개 서로 다른 scoring 유형
-3. **Generalization failure**: LOPO 0/11, gap = 0.265
+3. **Generalization failure**: LOPO 0/11, gap = 0.320
 4. **No universal best**: Friedman p = 0.990
 
 
