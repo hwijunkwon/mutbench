@@ -238,7 +238,7 @@ Building on the Stage~1 findings, this section reports the Stage~2 cross-pathoge
 The benchmark evaluates \textbf{20 scoring types} (organized into 6 categories; see Table~\ref{tab:scoring_types} in Chapter~\ref{ch:mutbench}) combined with \textbf{14 detection method families spanning 5 categories} (threshold-based, signal processing, density/clustering, statistical, and adaptive window), with \textbf{39 parameter variants}, across \textbf{11 pathogens}, totaling \textbf{8,580 evaluations}.
 The 20 scoring types are derived from \textbf{10 underlying biological features}; some features generate multiple scoring variants (e.g., frequency yields \textit{freq}, \textit{freq\_with\_indel}, and \textit{rare\_freq}), while composite scorings combine multiple features (e.g., EVEscape composite, EqualWeight).
 The subsequent information-type analysis (Section~\ref{sec:information_analysis}) examines the 10 underlying features to explain why scoring performance differs across pathogens.
-For the feature analysis, \textbf{12 pathogens} were used (adding Zika, Rabies, and EV-A71 to increase statistical power in per-feature comparisons), though the main benchmark uses 11 pathogens.\footnote{Throughout this chapter, ``11 pathogens'' refers to the Stage~2 benchmark set (Zika excluded due to insufficient sequences, $n = 52$). The information-type analysis in Section~\ref{sec:information_analysis} uses 12 pathogens (including Zika) for increased statistical power in per-feature comparisons.}
+The information-type analysis in Section~\ref{sec:information_analysis} examines these 10 features across the same 11 pathogens used in the main benchmark.
 
 Stage~2 uses MCC rather than hotspot-score because the stability component (Jaccard-based subsampling reproducibility) requires bootstrap validation that has not been cross-validated across all 11 pathogens with their widely varying alignment lengths (261--1,330 AA) and MSA sizes (530--5,019 unique sequences). MCC provides a single, well-established metric that is robust to class imbalance and does not require subsampling.
 
@@ -664,7 +664,7 @@ The following subsections extend this analysis by quantifying individual feature
 \subsection{Feature Ablation Analysis}
 \label{subsec:feature_ablation}
 
-To quantify each feature's contribution, three ablation analyses were conducted using the EqualWeight ensemble with LOPO evaluation and a top-10\% threshold across 12 pathogens (the original 11 plus Zika, Rabies, and EV-A71, added to increase statistical power; Figure~\ref{fig:feature_ablation}).
+To quantify each feature's contribution, three ablation analyses were conducted using the EqualWeight ensemble with LOPO evaluation and a top-10\% threshold across 11 pathogens (Figure~\ref{fig:feature_ablation}).
 
 \begin{figure}[htbp]
 \centering
@@ -737,7 +737,6 @@ RSV             & 20 & 100\% & plddt        & 0.561 & Yes \\
 Influenza~B     & 17 & 100\% & homoplasy    & 0.805 & Yes \\
 MERS            & 9  & 78\%  & esm2\_llr    & 0.695 & No \\
 HCV             & 54 & 100\% & dnds\_proxy  & 0.680 & Yes \\
-Zika            & 27 & 93\%  & homoplasy    & 0.581 & Yes \\
 Rabies          & 39 & 97\%  & plddt        & 0.650 & Yes \\
 EV-A71          & 27 & 93\%  & esm2\_llr    & 0.596 & No \\
 \bottomrule
