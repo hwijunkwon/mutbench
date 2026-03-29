@@ -64,7 +64,7 @@
 - **어떻게 달성하는가**: (1) Per-feature AUC와 Random Forest로 바이러스별 핵심 정보 유형을 식별하고, (2) Feature ablation으로 최소 필수 정보 조합을 규명하며, (3) Vaccine escape enrichment 분석으로 벤치마크 결과가 실제 면역 회피 위치와 일치하는지 독립 검증합니다.
 - **기대 결과**: 4개 핵심 정보(homoplasy, pLDDT, entropy, freq)로 전체 성능의 98%를 달성. Vaccine escape enrichment 최대 9.36배(p<0.0001)로 실험 탐색 범위 축소 입증.
 
-> **[그림 1.1: 연구 전체 흐름도]** — 문제 정의 → MutBench 구축 → 통계 검증 → 다중 정보 통합의 흐름 (논문 내 TikZ 다이어그램)
+![Research Overview](figures/research_overview.png)
 
 
 ### 1.4 Research Contributions (연구 기여)
@@ -218,7 +218,7 @@ MutClust의 한계 → 벤치마크 필요성:
 
 #### 3.1.2 3-Layer Ground Truth Framework (3층 정답 기준)
 
-> **[그림 3.1: 3층 GT 개념도]** — Layer A (수렴진화) + Layer B (보존영역) + Layer C (DMS) 구조 (논문 내 TikZ 다이어그램)
+![Three-Layer Ground Truth](figures/3layer_gt_concept.png)
 
 
 | Layer | 생물학적 의미 | 벤치마크 역할 |
@@ -260,7 +260,7 @@ DMS Layer C 가용 병원체: SARS-CoV-2, H3N2, HIV-1, RSV, **Rabies**, **EV-A71
 
 #### 3.2.1 MutBench Framework Architecture
 
-> **[그림 3.2: MutBench 파이프라인]** — MSA → Scoring(20) → Detection(39) → GT(3층) → Evaluation → Statistics (논문 내 TikZ 다이어그램)
+![MutBench Pipeline](figures/mutbench_pipeline.png)
 
 
 ```
