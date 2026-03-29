@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2022/dev/Debian) (preloaded format=xelatex 2026.3.7)  29 MAR 2026 17:19
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2022/dev/Debian) (preloaded format=xelatex 2026.3.7)  29 MAR 2026 18:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1339,6 +1339,12 @@ Overfull \hbox (10.56198pt too wide) in paragraph at lines 64--68
  []
 
 [5]
+Overfull \hbox (2.26186pt too wide) in paragraph at lines 76--78
+\TU/TeXGyreTermes(0)/b/n/10.95 alyzing which factors—biological information typ
+e, detection method
+ []
+
+
 Overfull \hbox (19.90231pt too wide) in paragraph at lines 76--78
 \TU/TeXGyreTermes(0)/b/n/10.95 category, and pathogen characteristics—influence
  viral mutation hotspot
@@ -1351,9 +1357,15 @@ cross 11 RNA viruses
  []
 
 [6]
-Overfull \hbox (2.41518pt too wide) in paragraph at lines 83--84
-[]\TU/TeXGyreTermes(0)/b/n/10.95 Through factorial ANOVA, Friedman test, and Le
-ave-One-Pathogen-
+Overfull \hbox (13.24107pt too wide) in paragraph at lines 83--84
+[]\TU/TeXGyreTermes(0)/b/n/10.95 Identify the dominant factor in hotspot detect
+ion performance\TU/TeXGyreTermes(0)/m/n/10.95 : Through
+ []
+
+
+Overfull \hbox (0.18137pt too wide) in paragraph at lines 85--86
+\TU/TeXGyreTermes(0)/b/n/10.95 multi-source integration reduces the experimenta
+l search space\TU/TeXGyreTermes(0)/m/n/10.95 : Sys-
  []
 
 [7] [8]
@@ -1368,13 +1380,13 @@ Overfull \hbox (2.88242pt too wide) in paragraph at lines 142--146
 s vary systematically across
  []
 
-[9] [10]
+[9]
 Overfull \hbox (27.2927pt too wide) in paragraph at lines 163--164
 \TU/TeXGyreTermes(0)/m/n/10.95 Scale Benchmark (ANOVA, Friedman test, LOPO cros
 s-validation), and Information-
  []
 
-) (./chapters_en/ch2_background.tex [11]
+[10]) (./chapters_en/ch2_background.tex [11]
 Chapter 2.
 
 Overfull \hbox (0.7253pt too wide) in paragraph at lines 6--7

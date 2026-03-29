@@ -73,16 +73,16 @@ This is a specific instance of the algorithm selection problem~\cite{rice1976alg
 To address the problems above, this study establishes the following three objectives.
 
 \begin{enumerate}[label=\textbf{Objective \arabic*.}]
-  \item \textbf{Construct a systematic experimental framework (MutBench) to analyze which factors---biological information type, detection method category, and pathogen characteristics---influence viral mutation hotspot detection performance, using variance decomposition across 11 RNA viruses}, comprising:
+  \item \textbf{Construct a systematic experimental framework (MutBench) for analyzing which factors---biological information type, detection method category, and pathogen characteristics---influence viral mutation hotspot detection performance across 11 RNA viruses}, comprising:
   \begin{itemize}
   \item A three-layer ground truth (convergent evolution positives, purifying selection negatives, DMS fitness validation),
   \item The hotspot-score composite metric (recall + precision + stability)/3,
   \item A two-stage experimental design: Stage~1 for in-depth SARS-CoV-2 analysis; Stage~2 for large-scale comparison across 11 RNA viruses (20 scoring formulas $\times$ 14 detection method families spanning 5 categories, with 39 parameter variants $\times$ 11 pathogens = 8{,}580 evaluations, extended to 12 pathogens in the adaptive integration study).
   \end{itemize}
 
-  \item \textbf{Through factorial ANOVA, Friedman test, and Leave-One-Pathogen-Out cross-validation, establish that the scoring method $\times$ pathogen interaction ($\omega^2 = 0.296$) is the dominant variance component, with 9 distinct optimal information types across 11 pathogens and no cross-pathogen generalization (LOPO 0/11)} (see Chapter~\ref{ch:results}).
+  \item \textbf{Identify the dominant factor in hotspot detection performance}: Through factorial ANOVA, Friedman test, and Leave-One-Pathogen-Out (LOPO) cross-validation, establish that the scoring method $\times$ pathogen interaction ($\omega^2 = 0.296$) is the largest variance component, with 9 distinct optimal information types across 11 pathogens and no cross-pathogen generalization (LOPO 0/11) (see Chapter~\ref{ch:results}).
 
-  \item \textbf{Evaluate whether integrating multiple information types reduces the experimental search space for hotspot validation, and identify the minimum set of information sources needed for effective detection}: Building on the benchmark findings, systematically analyze 10 biological information types to determine which information is essential for hotspot prediction per pathogen, and demonstrate that multi-source integration achieves statistically significant vaccine escape enrichment (see Chapter~\ref{ch:results}).
+  \item \textbf{Identify pathogen-specific essential information types and verify that multi-source integration reduces the experimental search space}: Systematically analyze 10 biological information types to determine which are essential per pathogen, and demonstrate that integration achieves up to 9.36-fold vaccine escape enrichment (see Chapter~\ref{ch:results}).
 \end{enumerate}
 
 
