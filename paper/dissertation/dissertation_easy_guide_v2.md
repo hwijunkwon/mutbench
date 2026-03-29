@@ -275,7 +275,9 @@ DMS Layer C 가용 병원체: SARS-CoV-2, H3N2, HIV-1, RSV, **Rabies**, **EV-A71
 - EV-A71 (Bakhache 2025, VP1 replication)
 
 
-### 3.2 Benchmark Framework Design (벤치마크 프레임워크 설계)
+### 3.2 Methods (방법)
+
+#### 3.2.1 Benchmark Framework Design (벤치마크 프레임워크 설계)
 
 #### 3.2.1 MutBench Framework Architecture
 
@@ -304,7 +306,7 @@ MSA 서열 (11개 병원체)
 - Stage 1: hotspot-score = (recall + precision + stability) / 3 — 탐지 정확도와 재현성을 동시 평가
 - Stage 2: **MCC** (Matthews Correlation Coefficient) — 극심한 클래스 불균형(양성 0.7~15.9%)에서 F1보다 공정. TP/TN/FP/FN 모두 고려. stability는 병원체 간 서열 수/길이 차이로 cross-pathogen 비교에 부적합하여 제외
 
-### 3.3 Scoring and Detection Methods (점수화 및 탐지 방법)
+#### 3.2.3 Scoring and Detection Methods (점수화 및 탐지 방법)
 
 #### 3.3.1 Scoring Types (20가지, 6개 카테고리)
 
@@ -352,7 +354,7 @@ MSA 서열 (11개 병원체)
 8. **KDE** — 커널 밀도 추정. 바이러스마다 성능 극단적 차이
 9. **MutClust-Orig** — 레거시 기준
 
-### 3.4 Evaluation and Statistical Design (평가 및 통계 설계)
+#### 3.2.4 Evaluation and Statistical Design (평가 및 통계 설계)
 
 #### 3.4.1 Evaluation Metrics
 
