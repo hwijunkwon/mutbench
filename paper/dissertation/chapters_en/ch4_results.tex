@@ -168,7 +168,7 @@ MutClust-Hybrid maintained the highest hotspot-score (0.778); parameter sensitiv
 \label{sec:sensitivity_analysis}
 \label{sec:temporal}
 
-Statistical robustness of Stage~1 results was confirmed through multiple complementary analyses.
+Before extending the benchmark to multiple pathogens, the Stage~1 results must be verified for statistical robustness and parameter sensitivity. This section confirms that the findings are not artifacts of specific parameter choices or statistical fluctuations.
 All detection results are statistically significant: permutation tests (1,000 random and 200 circular iterations) yielded $p < 0.005$ for all methods ($z > 9.2$).
 \phantomsection\label{tab:bootstrap_ci}%
 Region-level BCa bootstrap CIs~\cite{efron1987better} (1,000 resamplings, $n = 7$ regions) gave a 95\% CI of [0.323, 0.635] for MutClust-Hybrid; pairwise bootstrap comparisons confirmed all score differences are significant ($p < 0.001$).
@@ -200,6 +200,8 @@ Among MutClust parameters, F1 is most sensitive to $\gamma$ (epsilon scaling), w
 \label{sec:structure_analysis}
 \label{sec:phylo_simulation}
 
+Having confirmed robustness on SARS-CoV-2, the next question is whether the same methods perform well on other pathogens. This section applies the benchmark pipeline to H3N2 and examines structural and phylogenetic aspects that foreshadow the large-scale comparison in Section~\ref{sec:9pathogen_results}.
+
 Application of the benchmark pipeline to Influenza A H3N2 hemagglutinin (1,967 sequences, 5 antigenic sites~\cite{wiley1981structural,wilson1990structural}) revealed that method rankings differ from SARS-CoV-2: MutClust-Fixed outperformed MutClust-Hybrid (HS = 0.661 vs.\ 0.577), because all 566 HA positions have nonzero H-scores, eliminating HDBSCAN's advantage.
 \phantomsection\label{tab:influenza}%
 Enrichment ratios also decreased (0.87--2.36-fold vs.\ 1.9--23.7-fold for SARS-CoV-2), reflecting the short HA gene and high background mutation rate (Figure~\ref{fig:cross_pathogen_comparison}).
@@ -222,7 +224,7 @@ Coalescent simulation (100 replicates, $N = 500$) demonstrated that H-score rank
 TreeTime~\cite{sagulenko2018treetime} ML validation confirmed AUC = 1.000 for both Fitch and TreeTime-ML, while H-score achieved AUC = 0.000.
 These results demonstrate that \textbf{frequency-based scores systematically conflate founder effects with positive selection}; D614G is accordingly excluded from Layers~A and~B~\cite{korber2020tracking}.
 
-\textbf{Cross-pathogen summary.} Method rankings differ between SARS-CoV-2 and H3N2, and phylogenetic non-independence analysis reveals that H-score conflates founder effects with positive selection ($\rho = -0.876$). These findings motivate the large-scale cross-pathogen benchmark.
+\textbf{Cross-pathogen summary.} Method rankings differ between SARS-CoV-2 and H3N2, and phylogenetic non-independence analysis reveals that H-score conflates founder effects with positive selection ($\rho = -0.876$). These findings---that the best method is pathogen-dependent and that frequency-based scoring has fundamental limitations---motivate the large-scale cross-pathogen benchmark with expanded information types.
 
 %% ============================================================
 \section{Cross-Pathogen Large-Scale Benchmark}

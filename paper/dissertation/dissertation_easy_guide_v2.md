@@ -1,4 +1,4 @@
-# MutBench 학위논문 비전공자용 상세 설명서 (v2, v98 반영)
+# MutBench 학위논문 비전공자용 상세 설명서 (v2, v100 반영)
 
 **한줄 요약**: 바이러스 변이 핫스팟을 찾는 방법이 여러 개 있는데, 어떤 방법이 좋은지 비교할 기준이 없었습니다. 이 논문이 그 기준(MutBench)을 만들고, "만능 방법은 없다"는 것을 증명한 뒤, 10가지 생물학적 정보를 통합 분석하여 어떤 정보가 핵심적인지 밝히고, 실험 탐색 범위를 최대 9.36배 축소(3개 병원체, p<0.0001)할 수 있음을 검증했습니다.
 
@@ -409,26 +409,27 @@ MutClust variants vs 범용 방법(OPTICS, KDE 등) 비교. 도메인 특화 방
 
 ### 4.2 Robustness and Sensitivity Validation (견고성 검증)
 
-![표본 크기에 따른 수렴](figures/sample_size_convergence.png)
+> **이 섹션의 목적**: Stage 2로 확장하기 전에, Stage 1 결과가 파라미터나 통계적 변동의 산물이 아닌지 확인합니다.
 
+![표본 크기에 따른 수렴](figures/sample_size_convergence.png)
 
 약 1,000개 서열부터 안정화. 본 벤치마크의 서열 수(662~5,325)는 수렴점 이상.
 
 ![가중치 민감도 히트맵](figures/sensitivity_heatmap.png)
 
-
 MutClust-Hybrid가 171가지 가중치 조합 중 71.9%에서 1위 유지.
-
 
 ### 4.3 Cross-Pathogen and Structural Validation
 
+> **이 섹션의 목적**: SARS-CoV-2에서 확인된 프레임워크를 다른 바이러스에 적용해보고, Stage 2 대규모 벤치마크의 필요성을 확인합니다.
+
 ![SARS-CoV-2 vs H3N2 vs Flu-B 방법 순위 비교](figures/cross_pathogen_comparison.png)
 
-
-Stage 1 최적(MutClust-Hybrid)이 다른 바이러스에서는 순위 하락. "만능 방법 없다"의 첫 번째 직접 증거.
+Stage 1 최적(MutClust-Hybrid)이 다른 바이러스에서는 순위 하락 → **"만능 방법 없다"의 첫 번째 직접 증거**.
 
 3D 구조 분석: 선형 서열 핫스팟이 공간적으로도 클러스터링됨 (**5.92배** spatial contact enrichment, z=13.34).
 
+계통 비독립성: H-score는 founder effect를 양성선택과 혼동 (D614G: H-score 2위 vs homoplasy 1,134위, ρ=−0.876). → **빈도 기반 scoring의 근본적 한계 확인, 다양한 정보 유형 필요**
 
 ### 4.4 Cross-Pathogen Large-Scale Benchmark (대규모 벤치마크, Stage 2)
 

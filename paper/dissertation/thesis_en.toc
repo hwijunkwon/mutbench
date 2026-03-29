@@ -59,7 +59,7 @@
 \contentsline {subsection}{\numberline {4.1.3}Real GISAID H-score Benchmark}{65}{subsection.4.1.3}%
 \contentsline {subsection}{\numberline {4.1.4}Comparison with External Methods}{66}{subsection.4.1.4}%
 \contentsline {section}{\numberline {4.2}Robustness and Sensitivity Validation}{67}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Cross-Pathogen and Structural Validation}{69}{section.4.3}%
+\contentsline {section}{\numberline {4.3}Cross-Pathogen and Structural Validation}{67}{section.4.3}%
 \contentsline {section}{\numberline {4.4}Cross-Pathogen Large-Scale Benchmark}{70}{section.4.4}%
 \contentsline {subsection}{\numberline {4.4.1}Benchmark Scale and Data}{72}{subsection.4.4.1}%
 \contentsline {subsection}{\numberline {4.4.2}Per-Pathogen Best Method Analysis}{72}{subsection.4.4.2}%
