@@ -169,7 +169,18 @@ EVEREST(Marks lab, 2025)는 MutBench와 가장 가까운 연구이며, "최적 �
 | **실용적 검증** | 없음 | vaccine escape enrichment 최대 9.36배 |
 | **DMS 필요 여부** | 필수 (평가 기준 자체가 DMS) | 선택적 (Layer C 보조 검증, DMS 없이도 Layer A로 평가 가능) |
 
-핵심 차이: EVEREST는 **"어떤 예측 모델이 좋은가"**를, MutBench는 **"어떤 정보가 어떤 바이러스에 유효한가"**를 분석합니다. EVEREST는 정보 유형을 고정하고 모델을 비교하지만, MutBench는 정보 유형 자체를 비교 대상으로 삼습니다.
+핵심 차이: EVEREST는 **"어떤 예측 모델이 좋은가"**를, MutBench는 **"어떤 정보가 어떤 바이러스에 유효한가"**를 분석합니다.
+
+**기존 접근과 MutBench 비교** [테이블: Table 2.2]
+
+| 특성 | MutClust | Bailey 2018 (암) | MOSD (다중오믹스) | **MutBench** |
+|------|---------|----------------|----------------|------------|
+| 도메인 | 바이러스 | 암 | 다중오믹스 | **바이러스** |
+| 독립 정답 기준 | 없음 | 있음 | 있음 | **있음 (3층)** |
+| 복합 평가 지표 | 없음 | 없음 | cluster-score | **hotspot-score** |
+| 다중 병원체 비교 | 부분 (2개) | 해당 없음 | 해당 없음 | **있음 (11개)** |
+| 통계적 방법 선택 | 없음 | 없음 | ANOVA | **ANOVA+Friedman+LOPO** |
+| 비교 방법 수 | 1개 | 26개 | 10개 | **14 families (39 variants)** |
 
 ### 2.2 MutClust: Adaptive Density-Based Hotspot Detection (MutClust 선행 연구)
 
