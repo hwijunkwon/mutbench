@@ -235,6 +235,9 @@ MutClust의 한계 → 벤치마크 필요성:
 | Rabies | G protein | 2,038 | 2,038 | 524 |
 | EV-A71 | VP1 | 662 | 662 | 297 |
 
+![바이러스별 데이터 특성 비교](guide_figures/virus_overview_comparison.png)
+
+![바이러스별 표적 단백질 구조](guide_figures/virus_protein_structures.png)
 
 #### 3.1.2 3-Layer Ground Truth Framework (3층 정답 기준)
 
