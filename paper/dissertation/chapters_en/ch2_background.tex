@@ -16,8 +16,10 @@ This chapter reviews prior work in viral mutation hotspot detection (Section~\re
 \label{subsec:bg_hotspot_methods}
 
 Mutation hotspots are regions within a genome where mutations are concentrated in a non-uniform manner, likely reflecting functionally important sites under structural or immunological selective pressure.
-Identifying hotspots in viral genomes is critical for predicting variant emergence, selecting vaccine targets, and developing therapeutics~\cite{holmes2009evolution}.
-Existing hotspot detection approaches can be categorized into frequency-based, entropy-based, and density-based methods.
+The concept originates from the observation that mutations are not distributed uniformly across viral genomes: certain positions or regions accumulate mutations at rates far exceeding the background, driven by positive selection for immune evasion, receptor binding optimization, or adaptation to new host environments.
+For RNA viruses, which exhibit mutation rates of $10^{-3}$ to $10^{-5}$ substitutions per nucleotide per replication cycle~\cite{holmes2009evolution}, the interplay between high mutation supply and strong selective pressure creates pronounced mutational clustering in functionally critical regions.
+Identifying hotspots in viral genomes is critical for three practical applications: (1)~predicting variant emergence by identifying positions predisposed to future mutations, (2)~selecting vaccine targets by avoiding highly mutable epitopes or targeting conserved adjacent regions, and (3)~developing broadly effective therapeutics that target structurally constrained positions unlikely to mutate without fitness cost.
+Existing hotspot detection approaches can be categorized into frequency-based, entropy-based, density-based, and selection-based methods.
 
 \textbf{Frequency-based approaches} calculate mutation frequency at the amino acid or nucleotide level and designate positions with high frequency as hotspots.
 While intuitive and easy to implement, they have two fundamental limitations.
@@ -32,47 +34,124 @@ Furthermore, K-means clustering requires the number of clusters to be specified 
 Large-scale frequency-based analyses have been applied to SARS-CoV-2~\cite{koyama2020variant,obermeyer2022analysis}, but these studies used single information types (mutation frequency or fitness proxies) without systematic comparison against alternative scoring approaches.
 
 \textbf{Cancer genomics methods.}
-In cancer genomics, various methods have been developed to detect somatic mutation hotspots.
-Cancer genomics tools such as MutSigCV~\cite{lawrence2013mutsigcv} (gene-level driver detection), OncodriveCLUST~\cite{tamborero2013oncodriveclust}, HotMAPS~\cite{tokheim2016hotmaps}, and MutSpot~\cite{munoz2020mutspot} target somatic mutations in tumor genomes, which are more than 1,000 times larger than viral genomes and involve fundamentally different mutation dynamics and selective pressures, making direct transfer infeasible.
+In cancer genomics, a rich ecosystem of methods has been developed to detect somatic mutation hotspots.
+MutSigCV~\cite{lawrence2013mutsigcv} identifies significantly mutated genes by modeling background mutation rates that account for gene expression, replication timing, and chromatin state.
+OncodriveCLUST~\cite{tamborero2013oncodriveclust} detects genes with significant spatial clustering of mutations in protein sequence space, under the assumption that driver mutations cluster in functional domains.
+HotMAPS~\cite{tokheim2016hotmaps} maps mutations onto protein three-dimensional structures to identify spatial hotspots in 3D, and MutSpot~\cite{munoz2020mutspot} models position-specific background mutation rates using epigenomic features.
+While these tools represent sophisticated approaches to hotspot detection, they target somatic mutations in tumor genomes, which are more than 1,000 times larger than viral genomes and involve fundamentally different mutation dynamics and selective pressures (neutral somatic mutation followed by clonal selection vs.\ population-level viral evolution), making direct transfer infeasible.
 
 An important limitation of frequency-based mutation analysis is \textbf{phylogenetic non-independence}: mutations observed in closely related sequences are not independent events~\cite{felsenstein1985phylogenies}.
 Phylogeny-aware methods such as TreeTime~\cite{sagulenko2018treetime}, BEAST~\cite{suchard2018beast}, and HyPhy~\cite{kosakovsky2020hyphy} can address this but require high-quality phylogenetic trees and have limited reliability in densely sampled datasets~\cite{turakhia2020ultrafast}.
-Several tools detect homoplasic (independently recurrent) mutations on phylogenies, including HomoplasyFinder~\cite{crispell2019homoplasyfinder} and ConDor~\cite{morel2024condor}; however, these identify individual recurrent sites rather than performing the spatial clustering and multi-information-type comparison that MutBench provides.
+Several tools detect homoplasic (independently recurrent) mutations on phylogenies.
+HomoplasyFinder~\cite{crispell2019homoplasyfinder} identifies positions where the same mutation arises independently on multiple branches of a phylogenetic tree, which provides evidence for convergent evolution driven by positive selection rather than shared ancestry.
+ConDor~\cite{morel2024condor} extends this approach to detect convergent amino acid substitutions across large protein alignments, using statistical tests to distinguish genuine convergence from chance recurrence.
+Homoplasy-based approaches are valuable because they explicitly account for phylogenetic non-independence, but they identify individual recurrent sites rather than performing the spatial clustering and multi-information-type comparison that MutBench provides.
+In MutBench, homoplasy scores are incorporated as one of the 10 information types evaluated across pathogens (Section~\ref{sec:information_analysis}).
 
-Simpler approaches to hotspot identification include sliding window methods, which scan fixed-length windows across the genome and flag those exceeding a mutation count threshold, and signal processing techniques such as wavelet transforms, which decompose mutation frequency profiles to identify localized peaks at multiple scales.
+Simpler approaches to hotspot identification include sliding window methods, which scan fixed-length windows across the genome and flag those exceeding a mutation count threshold.
+While computationally straightforward, sliding window methods suffer from two inherent limitations: the window size must be specified in advance (too small misses extended hotspots; too large merges distinct hotspots), and they impose a fixed spatial resolution that cannot adapt to the variable density of mutations across different genomic regions.
+Signal processing techniques such as wavelet transforms offer a multi-scale alternative, decomposing mutation frequency profiles to identify localized peaks at multiple spatial scales simultaneously.
+However, these methods treat the genome as a one-dimensional signal and do not incorporate biological information about mutation importance or selective pressure.
+
+\textbf{Selection-based methods} represent a fundamentally different approach.
+Rather than detecting spatial clusters of mutations, codon-based methods such as MEME (Mixed Effects Model of Evolution)~\cite{kosakovsky2020hyphy} and FUBAR (Fast Unconstrained Bayesian AppRoximation)~\cite{kosakovsky2020hyphy} estimate the ratio of non-synonymous to synonymous substitution rates ($\omega = dN/dS$) at each codon position.
+MEME detects episodic positive selection (sites where $\omega > 1$ on a subset of phylogenetic branches), while FUBAR provides a Bayesian estimate of per-site selection pressure.
+These methods provide a principled evolutionary framework for identifying positions under positive selection, but they detect individual selected sites rather than spatial clusters of hotspot regions, and they require reliable phylogenetic trees and codon-aligned sequences---prerequisites that are not always available for all pathogens.
+MutBench incorporates both MEME-derived and FUBAR-derived per-site scores as information types, enabling direct comparison of selection-based features against frequency-based and PLM-based alternatives within a unified framework.
 
 \subsection{Density-Based Clustering}
 \label{subsec:bg_density_clustering}
 
 DBSCAN~\cite{ester1996dbscan} is a representative density-based clustering algorithm that defines high-density regions as clusters and classifies low-density regions as noise.
-It uses two key parameters---epsilon (search radius) and MinPts (minimum number of points)---to define density conditions.
+The algorithm operates on two fundamental concepts: the \textit{$\varepsilon$-neighborhood} of a point $p$, defined as all points within distance $\varepsilon$ from $p$, and \textit{core points}, defined as points whose $\varepsilon$-neighborhood contains at least MinPts points.
+Points reachable from core points through chains of $\varepsilon$-neighborhoods form clusters, while points not reachable from any core point are classified as \textit{noise}.
+This formulation enables discovery of clusters with arbitrary shapes without requiring the number of clusters to be specified in advance---a key advantage over partitional methods such as K-means.
+
 However, DBSCAN uses a \textbf{fixed global epsilon}, making it unable to form appropriate clusters in data with substantial density variation.
-This problem manifests in extreme form in viral genomes:
+In viral genomics, mutation density varies dramatically across the genome: immunodominant surface proteins (e.g., the Spike receptor-binding domain) accumulate mutations at far higher density than conserved polymerase regions.
+A single epsilon value cannot simultaneously capture tight clusters in high-density regions and sparser clusters in lower-density functional domains.
+This problem manifests in extreme form:
 direct application to the SARS-CoV-2 genome with default parameters results in 99.76\% of the data being merged into a single massive cluster; even with manually tuned parameters ($\varepsilon = 0.15$, MinPts $= 5$), only 4 undifferentiated clusters are obtained, rendering biologically meaningful hotspot distinction impossible~\cite{youn2025mutclust}.
 
-HDBSCAN~\cite{campello2013hdbscan} addresses the fundamental limitation of DBSCAN's fixed epsilon.
-It hierarchically explores DBSCAN results across various epsilon values to adaptively extract clusters in response to density variation.
+HDBSCAN~\cite{campello2013hdbscan} addresses the fundamental limitation of DBSCAN's fixed epsilon by constructing a hierarchy of density-based clusterings.
+Rather than fixing a single epsilon value, HDBSCAN computes a \textit{mutual reachability distance} between all pairs of points and builds a minimum spanning tree, which is then condensed into a cluster hierarchy.
+Clusters are extracted by selecting the most persistent components across density levels, effectively adapting the neighborhood radius to local data density.
 It operates with a single parameter, min\_cluster\_size, without requiring explicit specification of epsilon.
-It can detect clusters of arbitrary shape, automatically identifies noise points, and provides probabilistic interpretation of cluster membership.
+It can detect clusters of arbitrary shape, automatically identifies noise points, and provides probabilistic interpretation of cluster membership through cluster stability scores.
+For viral hotspot detection, HDBSCAN's adaptive density handling is conceptually appealing, but it was designed for general-purpose spatial data and does not incorporate domain-specific biological information such as mutation importance scores.
 
-OPTICS~\cite{ankerst1999optics} generates a reachability plot revealing clustering structure at all density levels but requires post-processing for cluster extraction.
+OPTICS~\cite{ankerst1999optics} takes a complementary approach by producing a \textit{reachability plot}---an ordering of data points where the reachability distance of each point reflects the density required to connect it to the preceding point.
+Valleys in this plot correspond to clusters, and their depth indicates cluster density relative to surrounding regions.
+This visualization reveals clustering structure at all density levels simultaneously, but requires post-processing (e.g., the $\xi$-extraction method) to convert the reachability plot into discrete clusters.
+The multi-scale perspective of OPTICS is valuable for exploratory analysis, but the additional extraction step introduces subjectivity in cluster boundary determination.
+
+The limitations of standard density-based methods in the viral genomics context motivated the development of adaptive approaches that integrate biological scoring into the clustering framework.
+MutClust~\cite{youn2025mutclust} addressed this by replacing DBSCAN's fixed epsilon with a position-specific radius proportional to the H-score, a mutation importance metric (Section~\ref{subsec:mutclust_hscore}), thereby assigning wider neighborhoods to biologically significant positions and narrower neighborhoods elsewhere.
 
 \subsection{Deep Mutational Scanning as Ground Truth}
 \label{subsec:bg_dms}
 
 \textbf{Deep Mutational Scanning (DMS)} is an experimental technique that systematically measures the functional effects of all possible single amino acid substitutions within a protein~\cite{fowler2014dms}.
-For SARS-CoV-2, Starr et al.~\cite{starr2020dms} measured ACE2 binding affinity and expression in the receptor-binding domain (RBD), and Dadonaite et al.~\cite{dadonaite2023dms} measured pseudovirus cell entry fitness across the full-length Spike protein.
-Bloom and Neher~\cite{bloom2023fitness} provided an integrated analysis of DMS fitness effects across all SARS-CoV-2 proteins.
-DMS data provides a natural ground truth for hotspot benchmarking: positions where mutations exhibit large fitness effects correspond to biologically functional sites that detection methods should identify~\cite{livesey2020using}. Deep generative models have also been shown to predict the effects of mutations from sequence variation alone~\cite{riesselman2018deep}, providing a complementary computational approach to DMS-based validation. This approach was extended by EVE~\cite{frazer2021eve}, a Bayesian VAE that learns evolutionary constraints from MSAs without requiring experimental labels.
+In a typical DMS experiment, a library of mutant variants---each carrying a single amino acid substitution at one position---is generated through saturation mutagenesis.
+These variants are subjected to a selection assay (e.g., receptor binding, viral entry, or replication), and the relative fitness effect of each mutation is quantified by comparing variant frequencies before and after selection using deep sequencing.
+The result is a comprehensive \textit{fitness landscape}: a matrix of fitness scores for every possible substitution at every position in the protein.
+
+DMS is considered the gold standard for characterizing mutational effects because it is \textbf{unbiased} (every position and substitution is tested, not just those observed in nature), \textbf{comprehensive} (thousands of mutations are measured simultaneously in a single experiment), and \textbf{experimental} (fitness effects are directly measured rather than computationally predicted).
+Unlike natural sequence variation, which reflects the combined effects of selection, drift, and sampling bias, DMS directly measures the intrinsic functional consequence of each mutation.
+
+Several landmark DMS studies have shaped our understanding of viral protein fitness landscapes.
+Starr et al.~\cite{starr2020dms} measured ACE2 binding affinity and protein expression for all single amino acid substitutions in the SARS-CoV-2 receptor-binding domain (RBD), revealing that most RBD positions are highly constrained for binding.
+Dadonaite et al.~\cite{dadonaite2023dms} extended this to the full-length Spike protein by measuring pseudovirus cell entry fitness, identifying positions critical for viral entry beyond the RBD.
+Lee et al.~\cite{lee2018h3n2dms} performed DMS of influenza H3N2 hemagglutinin (HA), demonstrating that DMS fitness measurements can predict the evolutionary fates of naturally circulating variants.
+Bloom and Neher~\cite{bloom2023fitness} provided an integrated analysis of DMS fitness effects across all SARS-CoV-2 proteins, establishing a comprehensive reference for the entire viral proteome.
+
+Despite its power, DMS has important limitations.
+First, it is \textbf{expensive and labor-intensive}: each DMS experiment requires constructing a complete mutant library and performing selection assays, limiting its application to a small number of viral proteins.
+Second, most viral DMS studies use \textbf{pseudovirus systems} rather than authentic replication-competent virus, potentially missing fitness effects that depend on the complete viral replication cycle.
+Third, DMS measures fitness \textbf{in vitro}, which may not fully capture in vivo selective pressures such as immune evasion in the context of population-level immunity.
+Finally, DMS coverage across the viral world remains sparse: the EVEREST benchmark~\cite{gurev2025everest} catalogued only 45 DMS datasets across all WHO priority viruses, and comprehensive DMS data exist for fewer than 20 viral proteins.
+This availability gap means that DMS alone cannot serve as a universal ground truth for all pathogens---motivating MutBench's three-layer ground truth design (Chapter~\ref{ch:mutbench}), where DMS serves as Layer~C for the subset of pathogens with available data.
+
+DMS data provides a natural ground truth for hotspot benchmarking: positions where mutations exhibit large fitness effects correspond to biologically functional sites that detection methods should identify~\cite{livesey2020using}.
+Specifically, positions where the average DMS fitness effect of mutations is strongly negative (indicating functional constraint) or where specific mutations show large positive effects (indicating adaptive potential) are expected to overlap with biologically meaningful hotspots.
+Livesey and Marsh~\cite{livesey2020using} demonstrated that DMS datasets can serve as unbiased benchmarks for computational variant effect predictors, establishing a precedent for the use of DMS as ground truth in method evaluation.
+
+As a complementary approach, deep generative models have been shown to predict the effects of mutations from sequence variation alone~\cite{riesselman2018deep}, learning the statistical patterns of amino acid co-occurrence in evolutionarily related sequences to infer functional constraints without experimental data.
+This approach was extended by EVE~\cite{frazer2021eve}, a Bayesian variational autoencoder (VAE) that learns evolutionary constraints from multiple sequence alignments (MSAs) without requiring experimental labels.
+EVE achieves state-of-the-art performance on clinical variant classification for human proteins and provides uncertainty estimates through its Bayesian formulation.
+The success of EVE and related generative models suggests that evolutionary information encoded in natural sequence variation captures much of the same functional signal as DMS experiments, albeit with lower resolution for individual mutations.
 
 
 \subsection{Protein Language Models for Variant Effect Prediction}
 \label{subsec:bg_plm}
 
 Protein language models (PLMs) trained on large-scale protein sequence databases have emerged as a complementary computational approach to variant effect prediction.
-ESM-2~\cite{lin2023esm2,rives2021biological}, trained on 250 million protein sequences from UniRef, computes per-position log-likelihood ratios that quantify how unexpected a mutation is relative to learned evolutionary constraints, and has been applied to predict variant fitness effects.
-ProtTrans~\cite{elnaggar2022prottrans} adopts transformer architectures (including BERT and T5 variants) pretrained on UniRef and BFD databases, achieving competitive performance on protein function prediction tasks.
-More recently, ESM-3 extended the ESM family to a multimodal generative model integrating sequence, structure, and function tokens.
+The fundamental insight underlying PLMs is that evolutionary constraints on protein function are implicitly encoded in the patterns of amino acid co-occurrence across millions of naturally evolved sequences.
+By training transformer-based architectures on these patterns, PLMs learn a representation of ``evolutionary plausibility'' that can be used to score mutations without requiring structural data or experimental fitness measurements.
+
+\textbf{ESM-2}~\cite{lin2023esm2,rives2021biological} is a masked language model with 650 million parameters, trained on approximately 250 million protein sequences from the UniRef database.
+For variant effect prediction, it computes a \textit{log-likelihood ratio} (LLR) at each position: $\text{LLR}(m, i) = \log P(m_{\text{mut}} | \text{context}) - \log P(m_{\text{wt}} | \text{context})$, where $m_{\text{mut}}$ and $m_{\text{wt}}$ are the mutant and wild-type amino acids at position $i$, and the context is provided by the surrounding sequence.
+Negative LLR values indicate that the mutation is disfavored relative to the wild-type, suggesting functional constraint, while positive values suggest the mutation may be tolerated or even beneficial.
+ESM-2 LLR scores have shown competitive performance with alignment-based methods on human protein variant effect prediction, though their effectiveness on viral proteins---which evolve under distinct selective pressures and exhibit higher sequence divergence within protein families---is less well characterized.
+A critical consideration is that ESM-2 was trained predominantly on cellular organism proteins from UniRef; viral proteins, which constitute a small fraction of the training data and exhibit evolutionary dynamics distinct from eukaryotic and prokaryotic proteins, may not be equally well represented in the learned embedding space.
+
+\textbf{Tranception}~\cite{notin2022tranception} takes an autoregressive approach, modeling the probability of each amino acid conditioned on the preceding sequence positions.
+Unlike ESM-2's masked (bidirectional) architecture, Tranception's autoregressive design captures directional dependencies and can incorporate retrieval-augmented inference using homologous sequences at test time.
+This retrieval mechanism aligns Tranception more closely with alignment-based methods while retaining the flexibility of deep learning.
+
+\textbf{ProtTrans}~\cite{elnaggar2022prottrans} adopts transformer architectures (including BERT and T5 variants) pretrained on UniRef and BFD databases totaling over 2 billion protein sequences, achieving competitive performance on protein function prediction tasks including secondary structure prediction and localization.
+More recently, ESM-3 extended the ESM family to a multimodal generative model integrating sequence, structure, and function tokens, enabling joint reasoning across these modalities.
+While ProtTrans and ESM-3 represent important advances in protein representation learning, their application to viral variant effect prediction has been less extensively validated than ESM-2.
+
+Beyond single-model predictions, \textbf{EVEscape}~\cite{thadani2023evescape} demonstrated the value of combining PLM-derived features with complementary biological information.
+EVEscape integrates EVE fitness scores (from a Bayesian variational autoencoder trained on MSAs), structural accessibility (solvent-accessible surface area from AlphaFold predictions), and immune presentation features (antibody accessibility) to predict viral immune escape mutations.
+Its success in forecasting SARS-CoV-2 Omicron escape mutations from pre-pandemic data illustrates the potential of multi-source feature integration.
+
+\textbf{AlphaMissense}~\cite{cheng2023alphamissense} adopted an AlphaFold-derived architecture to classify missense variants across the entire human proteome, achieving high accuracy for pathogenicity prediction.
+However, its training data and evaluation are centered on human genetic variants, and the distinct evolutionary dynamics of viral proteins---rapid evolution, high mutation rates, and population-level rather than individual-level selection---limit the direct applicability of AlphaMissense to viral variant effect prediction.
+
+A key question for this dissertation is whether PLM-derived scores can serve as effective features for hotspot detection across diverse pathogens.
+The EVEREST benchmark~\cite{gurev2025everest} found that PLMs substantially underperform alignment-based methods on viral proteins, suggesting that the evolutionary patterns learned from predominantly cellular organism sequences may not transfer well to fast-evolving viral proteins.
 Despite the growing adoption of PLMs in protein engineering and variant effect prediction, no systematic comparison of PLM-derived features exists for viral mutation hotspot detection across multiple pathogens.
 In this dissertation, ESM-2 log-likelihood ratios and embedding-derived semantic change scores are evaluated as two of the 10 positional features in the MutBench information-type analysis (Section~\ref{sec:information_analysis}).
 
@@ -92,23 +171,52 @@ and (3)~they do not compare or evaluate detection algorithms---they are end-user
 The distinction is critical: surveillance answers ``what has happened?'' while hotspot detection aims to answer ``where might important mutations occur next?''
 MutBench addresses the latter question by providing a systematic framework for evaluating which detection methods most effectively identify biologically meaningful mutation-prone positions.
 
+Other surveillance-related resources include \textbf{GISAID}~\cite{shu2017gisaid}, the primary repository for pathogen genome sequences providing the raw data from which mutation frequencies are computed, and \textbf{outbreak.info}, which aggregates variant prevalence data from GISAID.
+These databases are essential data \textit{sources} for hotspot detection studies (including the present dissertation), but they do not themselves provide detection or benchmarking capabilities.
+The relationship between surveillance platforms and hotspot detection is thus complementary: surveillance platforms provide the data and operational context, while benchmarking frameworks like MutBench provide the methodological infrastructure for evaluating detection methods applied to that data.
+
 \subsection{Feature Importance Analysis in Viral Mutation Prediction}
 \label{subsec:bg_feature_importance}
 
 Several recent studies have analyzed which biological features predict viral mutation patterns, providing context for the multi-source information analysis in this dissertation (Section~\ref{sec:information_analysis}).
-Maher et al.~\cite{maher2022predicting} analyzed features predicting future SARS-CoV-2 variants of concern, finding that epidemiological features (geographic spread, growth rate) dominated over sequence-based features for a single pathogen.
-Rodriguez-Rivas et al.~\cite{rodriguez2022epistatic} demonstrated that epistatic coupling models (DCA-based) achieve AUC = 0.76 for predicting escape mutations, outperforming non-epistatic models (AUC = 0.63), highlighting the value of co-evolutionary information.
-Hie et al.~\cite{hie2021learning} showed that protein language model embeddings capture ``semantic change'' that predicts viral escape, providing a complementary deep learning perspective.
+
+Maher et al.~\cite{maher2022predicting} analyzed a comprehensive set of features predicting future SARS-CoV-2 variants of concern, including mutation frequency, phylogenetic placement, geographic spread, growth rate, and structural properties.
+Their key finding was that epidemiological features (geographic spread, growth rate) dominated over sequence-based features for predicting variant emergence in a single pathogen.
+However, their analysis was restricted to SARS-CoV-2, and the feature importance hierarchy they established may not generalize to pathogens with different evolutionary dynamics.
+
+Rodriguez-Rivas et al.~\cite{rodriguez2022epistatic} took a co-evolutionary approach, applying Direct Coupling Analysis (DCA) to model epistatic interactions between positions in SARS-CoV-2 proteins.
+Their epistatic models achieved AUC = 0.76 for predicting escape mutations, substantially outperforming non-epistatic (independent-site) models (AUC = 0.63).
+This result highlights that mutual information between positions---capturing the constraint network within protein structures---provides predictive power beyond what single-position features can offer.
+
+Hie et al.~\cite{hie2021learning} demonstrated that protein language model embeddings can capture ``semantic change''---the degree to which a mutation alters the functional meaning of a protein as represented in the PLM embedding space.
+They showed that viral sequences that are antigenically distinct but phylogenetically close exhibit large semantic change, suggesting that PLM representations can detect functionally significant mutations that traditional phylogenetic or frequency-based approaches might miss.
+
 EVEscape~\cite{thadani2023evescape} demonstrated that combining evolutionary fitness predictions with structural accessibility and immune presentation features can predict viral escape mutations, providing a practical example of multi-source information integration for viral mutation analysis.
-However, these studies are limited to single pathogens (primarily SARS-CoV-2 or influenza) and do not systematically compare feature importance \textit{across} multiple pathogens---a gap that the present study addresses.
+Its three-component score (evolutionary fitness from EVE, structural accessibility from AlphaFold, and immune presentation) achieved stronger predictive performance than any single component, establishing a precedent for the multi-source approach.
+
+A critical limitation shared by all these studies is their focus on \textbf{single pathogens}---primarily SARS-CoV-2 or influenza.
+None systematically compares feature importance \textit{across} multiple pathogens to determine whether the same features are universally predictive or whether the optimal feature set is pathogen-dependent.
+This is the gap that the present study addresses: by evaluating 10 information types across 11 pathogens, MutBench quantifies the pathogen-specificity of feature importance and provides concrete recommendations for which information source to prioritize for each virus (Section~\ref{sec:information_analysis}).
 
 \subsection{Algorithm Selection and Benchmarking Methodology}
 \label{subsec:bg_algorithm_selection}
 
-The finding that the best-performing detection method depends on the pathogen (Chapter~\ref{ch:results}) is an instance of Rice's algorithm selection problem~\cite{rice1976algorithm}: given a problem instance (pathogen) with specific characteristics, which algorithm should be applied?
-This framework has been formalized in the machine learning community through meta-learning~\cite{kerschke2019algorithm,bischl2016aslib} and automated algorithm selection (AutoML)~\cite{feurer2015automl,kotthoff2016algorithm}, but has not been applied to viral genomics.
-The benchmarking methodology adopted in this dissertation follows established principles from computational biology: Weber et al.~\cite{weber2019benchmarking} proposed guidelines for neutral benchmarking (independent evaluation, multiple metrics, controlled experimental design), and Boulesteix et al.~\cite{boulesteix2017towards} emphasized the importance of avoiding ``self-assessment bias'' where method developers evaluate their own methods.
-MutBench adheres to these principles by evaluating all methods---including the author's own MutClust---under identical conditions with independent ground truth.
+The finding that the best-performing detection method depends on the pathogen (Chapter~\ref{ch:results}) is an instance of Rice's algorithm selection problem~\cite{rice1976algorithm}.
+Rice formalized this as a mapping from a \textit{problem space} (characterized by measurable features of each problem instance) through a \textit{feature space} to an \textit{algorithm space}, with the goal of selecting the algorithm that maximizes a given \textit{performance measure} for each instance.
+In the context of hotspot detection, each pathogen constitutes a problem instance characterized by features such as genome size, evolutionary rate, and mutation density distribution; the algorithm space comprises the set of scoring--detection combinations; and the performance measure is the hotspot-score evaluated against ground truth.
+
+This perspective is closely related to the \textbf{No Free Lunch (NFL) theorem}~\cite{wolpert1997nfl}, which states that no single optimization algorithm outperforms all others across all possible problem instances.
+Importantly, NFL does \textit{not} imply that all algorithms perform equally on any given problem---rather, it implies that superior performance on one class of problems necessarily comes at the cost of inferior performance on others.
+For hotspot detection, this means that a scoring type optimized for one pathogen's evolutionary characteristics may be suboptimal for another, motivating the systematic cross-pathogen comparison that MutBench provides.
+
+This framework has been formalized in the machine learning community through meta-learning~\cite{kerschke2019algorithm,bischl2016aslib} and automated algorithm selection (AutoML)~\cite{feurer2015automl,kotthoff2016algorithm}, where the goal is to automatically select the best-performing model or pipeline configuration for a given dataset.
+The parallel to MutBench is direct: just as AutoML selects the optimal machine learning pipeline based on dataset characteristics, MutBench's pathogen-to-scoring recommendation table selects the optimal scoring--detection combination based on pathogen characteristics.
+However, the algorithm selection framework has not previously been applied to viral genomics, where the ``problem instances'' are pathogens with diverse evolutionary characteristics (genome size, mutation rate, population structure, selective pressure regime) and the ``algorithms'' are scoring--detection pipelines.
+
+The benchmarking methodology adopted in this dissertation follows established principles from computational biology.
+Weber et al.~\cite{weber2019benchmarking} proposed guidelines for neutral benchmarking, articulating three core requirements: (1)~\textit{independent evaluation}, where the benchmark designer is distinct from the method developers; (2)~\textit{multiple metrics}, to capture different aspects of performance and avoid optimization for a single criterion; and (3)~\textit{controlled experimental design}, ensuring that all methods are evaluated on identical data under identical conditions.
+Boulesteix et al.~\cite{boulesteix2017towards} further emphasized the importance of avoiding ``self-assessment bias'' where method developers evaluate their own methods on self-selected datasets, which systematically inflates reported performance.
+MutBench adheres to these principles by evaluating all methods---including the author's own MutClust---under identical conditions with independent ground truth, using a composite metric (hotspot-score) that balances precision, recall, and specificity.
 
 \subsection{Benchmarking Gap in Viral Hotspot Detection}
 \label{subsec:bg_benchmarking_gap}
@@ -127,7 +235,10 @@ Thus, a systematic benchmark with multi-source ground truth, composite evaluatio
 
 Recent years have seen significant progress in benchmarking variant effect prediction (VEP) methods on proteins. ProteinGym~\cite{notin2023proteingym} established a large-scale benchmark comprising 217 DMS assays and 2.7 million substitution variants, primarily for human and model organism proteins. EVE~\cite{frazer2021eve}, a Bayesian VAE trained on evolutionary sequences, demonstrated that unsupervised generative models can predict disease-associated variants without clinical labels. EVEscape~\cite{thadani2023evescape} extended this framework to viral immune escape prediction by combining EVE fitness scores with structural and immunological features, successfully forecasting SARS-CoV-2 Omicron escape mutations from pre-pandemic data.
 
-Most recently, EVEREST~\cite{gurev2025everest} specifically benchmarked VEP methods across WHO priority viruses using 45 viral DMS datasets, finding that protein language models substantially underperform alignment-based approaches on viral proteins and that prediction reliability varies dramatically across pathogens. AlphaMissense~\cite{cheng2023alphamissense} demonstrated proteome-wide variant classification using an AlphaFold-derived architecture, though its focus on human proteins limits direct viral applicability.
+Most recently, EVEREST~\cite{gurev2025everest} specifically benchmarked VEP methods across WHO priority viruses using 45 viral DMS datasets, finding that protein language models substantially underperform alignment-based approaches on viral proteins and that prediction reliability varies dramatically across pathogens.
+A particularly relevant finding from EVEREST is that the performance gap between methods varies by viral family: alignment-based methods such as EVE consistently outperform PLMs across most viral proteins, but the magnitude of this advantage differs substantially between, for example, influenza HA and SARS-CoV-2 Spike.
+This pathogen-dependent performance variation parallels the central finding of MutBench (Chapter~\ref{ch:results}).
+AlphaMissense~\cite{cheng2023alphamissense} demonstrated proteome-wide variant classification using an AlphaFold-derived architecture, though its focus on human proteins limits direct viral applicability.
 
 MutBench's unique contribution is the \textit{scoring $\times$ pathogen interaction analysis}: while EVEREST establishes that method performance varies across viruses, MutBench quantifies this interaction through three-way ANOVA ($\omega^2 = 0.296$) and demonstrates that the choice of \textit{biological information source} (not just the computational method) is the dominant performance factor. This finding---that the optimal information source is fundamentally pathogen-dependent---has no counterpart in EVEREST or ProteinGym, which treat the scoring/feature set as fixed.
 Specifically, MutBench provides three capabilities absent in EVEREST and other VEP benchmarks:
@@ -157,7 +268,12 @@ Cross-pathogen ANOVA & Yes ($\omega^2$) & Partial & No & No \\
 \footnotesize Direct performance comparison between MutBench and ProteinGym/EVEREST is not possible because the tasks differ fundamentally: VEP benchmarks evaluate Spearman correlation between predicted and measured fitness effects (continuous regression), while MutBench evaluates MCC for binary hotspot classification. The benchmarks are complementary rather than competing.
 \end{table}
 
-These benchmarks address variant effect \textit{prediction} (estimating continuous fitness scores for individual mutations), whereas MutBench addresses hotspot \textit{detection} (identifying genomic regions where mutations cluster with functional significance). The two problems are complementary: VEP methods predict per-mutation effects, while hotspot detection identifies spatial patterns of mutational enrichment. Notably, EVEREST's finding that optimal VEP methods differ across viral families~\cite{gurev2025everest} parallels MutBench's central finding that optimal scoring--detection combinations differ across pathogens, suggesting that pathogen-adaptive method selection is a general principle extending beyond hotspot detection to variant effect prediction.
+These benchmarks address variant effect \textit{prediction} (estimating continuous fitness scores for individual mutations), whereas MutBench addresses hotspot \textit{detection} (identifying genomic regions where mutations cluster with functional significance).
+The two problems differ in both the unit of analysis and the evaluation paradigm.
+VEP operates at the \textit{mutation level}: given a specific amino acid substitution at a specific position, predict its fitness effect (a continuous score evaluated by Spearman correlation against DMS measurements).
+Hotspot detection operates at the \textit{region level}: given a genome, identify contiguous or proximal regions enriched for functionally important mutations (a binary classification evaluated by precision, recall, and MCC against ground truth positions).
+The two problems are complementary: VEP methods predict per-mutation effects, while hotspot detection identifies spatial patterns of mutational enrichment.
+Notably, EVEREST's finding that optimal VEP methods differ across viral families~\cite{gurev2025everest} parallels MutBench's central finding that optimal scoring--detection combinations differ across pathogens, suggesting that pathogen-adaptive method selection is a general principle extending beyond hotspot detection to variant effect prediction.
 
 The difference in DMS dataset count (45 in EVEREST vs.\ 4 in MutBench) reflects the distinct evaluation paradigms: EVEREST evaluates per-mutation fitness predictions, where each DMS assay provides thousands of labeled mutations for supervised evaluation. MutBench evaluates per-position hotspot detection, where DMS data serves as an independent ground truth layer (Layer~C) complementing the literature-based Layer~A. Since MutBench's primary evaluation uses Layer~A (convergent evolution positions curated from published studies for all 11 pathogens), DMS availability is not a limiting factor for the main benchmark; Layer~C provides additional validation for the 4 pathogens where DMS data exist.
 
@@ -172,6 +288,8 @@ This gap is the fundamental motivation for MutBench (Chapter~\ref{ch:mutbench}),
 \label{sec:mutclust_summary}
 
 \textit{This section is a summary of the paper published in BioData Mining (2025) 18:61~\cite{youn2025mutclust}.}
+MutClust was the first study to apply density-based clustering specifically to viral mutation hotspot detection, addressing the limitations of frequency-only and entropy-only approaches reviewed in Section~\ref{subsec:bg_hotspot_methods}.
+Its contributions and limitations directly motivate the MutBench benchmark developed in this dissertation.
 
 \subsection{H-score and Adaptive DBSCAN}
 \label{subsec:mutclust_hscore}
@@ -179,18 +297,39 @@ This gap is the fundamental motivation for MutBench (Chapter~\ref{ch:mutbench}),
 MutClust is the first density-based algorithm designed for detecting mutation hotspots in viral genomes.
 Its core innovations are a novel mutation importance metric called the H-score and an adaptive DBSCAN framework built upon it.
 
-The \textbf{H-score} combines mutation frequency and mutation entropy (diversity conditioned on mutation occurrence) through a logarithmic transformation of their product, thereby simultaneously capturing two complementary signals while suppressing two classes of false positives: lineage-defining mutations with high frequency but low diversity, and noise positions with low frequency but spuriously high diversity.
+The \textbf{H-score} is defined as:
+\begin{equation}
+H_i = \log_2(P_i \times E_i \times 100 + 1)
+\label{eq:hscore}
+\end{equation}
+where $P_i$ is the mutation frequency at position $i$ (the fraction of sequences carrying a mutation at that position) and $E_i$ is the mutation entropy (Shannon entropy computed over the distribution of observed mutant amino acids, conditioned on mutation occurrence).
+Frequency $P_i$ captures how commonly a position mutates across the population, while entropy $E_i$ captures the \textit{diversity} of mutations at that position---a high-entropy position exhibits many different amino acid substitutions, suggesting it is under diversifying selective pressure or is structurally tolerant of change.
+The multiplicative combination $P_i \times E_i$ suppresses two classes of false positives: (1)~lineage-defining mutations with high frequency but low diversity (e.g., D614G, which is nearly fixed but only produces a single substitution, yielding $E \approx 0$), and (2)~noise positions with low frequency but spuriously high diversity (where one or two rare mutations inflate entropy).
+The logarithmic transformation compresses the dynamic range and ensures that H-scores are non-negative (since $P \times E \times 100 + 1 \geq 1$).
 
-Built upon the H-score, \textbf{Adaptive DBSCAN} replaces DBSCAN's fixed global epsilon with a neighborhood radius proportional to each position's H-score, assigning wider search radii to biologically significant regions and narrower radii elsewhere.
-The algorithm first identifies Core Candidate Mutations (CCMs) that satisfy threshold conditions on individual H-score, neighborhood mean, neighborhood sum, and minimum point count, then expands clusters bidirectionally from each CCM with a diminishing radius.
-The key parameters ($\gamma=10$, $d=3$, MinPts$=5$) were empirically determined from 224,318 SARS-CoV-2 sequences, and the overall time complexity is $O(N + M \log M)$ where $N$ is genome length and $M$ is the number of mutation positions.
+Built upon the H-score, \textbf{Adaptive DBSCAN} replaces DBSCAN's fixed global epsilon with a position-specific neighborhood radius:
+\begin{equation}
+\varepsilon_i = \gamma \times H_i
+\label{eq:adaptive_eps}
+\end{equation}
+where $\gamma$ is a scaling parameter. This formulation assigns wider search radii to positions with high H-scores (biologically significant regions where nearby positions are likely to be part of the same functional hotspot) and narrower radii elsewhere, naturally adapting the clustering resolution to local mutation importance.
+
+The algorithm first identifies \textbf{Core Cluster Members (CCMs)} that satisfy four threshold conditions: (1)~the individual H-score $H_i$ exceeds a threshold $t_H$, (2)~the mean H-score within the $\varepsilon_i$-neighborhood exceeds $t_{\text{mean}}$, (3)~the sum of H-scores in the neighborhood exceeds $t_{\text{sum}}$, and (4)~the neighborhood contains at least MinPts points.
+Clusters are then expanded bidirectionally from each CCM with a diminishing radius, and overlapping clusters are merged.
+The key parameters ($\gamma=10$, $d=3$, MinPts$=5$, $t_H=0.03$, $t_{\text{mean}}=0.01$, $t_{\text{sum}}=0.05$) were empirically determined from 224,318 SARS-CoV-2 sequences, and the overall time complexity is $O(N + M \log M)$ where $N$ is genome length and $M$ is the number of mutation positions.
 
 \subsection{SARS-CoV-2 Hotspot Detection Results}
 \label{subsec:mutclust_results_summary}
 
-Analysis of 224,318 GISAID SARS-CoV-2 sequences aligned to the Wuhan-Hu-1 reference genome (NC\_045512.2, 29,903 bp) revealed that MutClust detected \textbf{477} mutation hotspots, compared to only 4 clusters obtained by DBSCAN with tuned parameters---a qualitatively different level of resolution.
-Of 10 known functional mutations examined for validation, 9 were contained within hotspots, including D614G, E484K, N501Y, and L452R, and the highest hotspot density was observed in the Spike protein region.
-Validation on influenza confirmed partial generalizability but highlighted the need for parameter readjustment across different genome sizes. For H3N2 in particular, Smith et al.~\cite{smith2004antigenic} demonstrated through antigenic cartography that a small number of substitutions in the HA protein drive major antigenic change, underscoring the importance of accurate detection of such key positions.
+Analysis of 224,318 GISAID SARS-CoV-2 sequences aligned to the Wuhan-Hu-1 reference genome (NC\_045512.2, 29,903 bp) revealed that MutClust detected \textbf{477} mutation hotspots using parameters $\gamma=10$, $d=3$, and MinPts$=5$.
+This represents a qualitatively different level of resolution compared to standard DBSCAN, which with tuned parameters ($\varepsilon = 0.15$, MinPts $= 5$) produced only 4 undifferentiated clusters, and with default parameters merged 99.76\% of positions into a single cluster.
+The 477 detected hotspots spanned all major viral proteins, with the highest density observed in the Spike protein region---consistent with the known role of Spike as the primary target of antibody-mediated selection.
+
+Of 10 known functional mutations examined for validation, 9 were contained within detected hotspots.
+These included key mutations driving variant emergence: D614G (increased transmissibility), E484K (immune evasion in Beta and Gamma variants), N501Y (enhanced ACE2 binding in Alpha and Omicron), and L452R (immune evasion in Delta).
+The single undetected mutation was located in a low-density genomic region where the adaptive epsilon was too narrow to form a cluster, illustrating the trade-off between sensitivity and specificity inherent in the threshold-based CCM criteria.
+
+Validation on influenza H3N2 hemagglutinin confirmed partial generalizability: MutClust successfully identified hotspots overlapping known antigenic sites, but the substantially smaller genome size ($\sim$1,700 bp for HA vs.\ $\sim$30,000 bp for the full SARS-CoV-2 genome) highlighted the need for parameter readjustment across different genome scales. For H3N2 in particular, Smith et al.~\cite{smith2004antigenic} demonstrated through antigenic cartography that a small number of substitutions in the HA protein drive major antigenic change, underscoring the importance of accurate detection of such key positions.
 
 \subsection{Limitations and Motivation for MutBench Development}
 \label{subsec:mutclust_limitations}
@@ -199,15 +338,24 @@ Despite the achievements of MutClust, three fundamental limitations serve as the
 
 \textbf{First, implementation-level issues.}
 A bug in the diminishing formula of the cluster expansion function causes cumulative rather than linear radius decay, leading to premature termination of cluster expansion and, in certain edge cases, reversal of the decay direction.
+Specifically, the intended linear decay $\varepsilon' = \varepsilon - \delta \times \text{step}$ was implemented as cumulative subtraction, causing the effective epsilon to shrink faster than designed and occasionally become negative when the step count exceeds the expected range.
+This affects the boundaries of detected hotspots, potentially splitting genuine hotspots into fragments.
 
 \textbf{Second, hardcoded parameters.}
 $\gamma=10$, $d=3$, and the CCM thresholds (0.03, 0.01, 0.05) are empirically determined values fitted to 224,318 SARS-CoV-2 sequences.
 These values may become inappropriate when the number of sequences or genome size differs, yet the sensitivity of detection results to parameter variation has never been systematically analyzed.
+For instance, a pathogen with fewer available sequences will have a different distribution of mutation frequencies, potentially requiring lower thresholds to identify meaningful hotspots.
 Although applying the same parameters was successful in influenza validation, influenza genomes are approximately one-tenth the size of SARS-CoV-2 ($\sim$2,300 bp/segment vs. $\sim$30,000 bp), and the necessity of parameter readjustment for best performance remains unresolved.
 
 \textbf{Third, the absence of systematic benchmarking.}
 MutClust's reliance on self-referential bootstrap validation, without independent ground truth or standardized metrics, exemplifies the broader benchmarking gap identified in Section~\ref{sec:bg_hotspot}.
+The bootstrap approach validates internal consistency (whether repeated runs produce similar clusters) but does not evaluate whether the detected hotspots correspond to biologically meaningful sites.
 Quantitative evaluation (precision, recall, stability) based on independent ground truth has not been conducted, and the absence of standardized evaluation metrics makes fair comparison of results across different methods impossible.
+
+\textbf{Fourth, single-information-type limitation.}
+The H-score combines only two types of information: mutation frequency and mutation entropy.
+Since both are derived from the same underlying sequence alignment, the H-score does not incorporate complementary biological signals such as selective pressure (dN/dS), evolutionary fitness (from PLMs or generative models), structural accessibility, or immune presentation.
+Whether these alternative information types would improve or change the detected hotspots was not investigated.
 
 Additionally, since H-scores are computed at the nucleotide level, they do not distinguish between synonymous and non-synonymous mutations, necessitating integration with selective pressure indicators such as the dN/dS ratio.
 Phylogenetic non-independence---the possibility that mutation frequency is the result of a single founder effect rather than independent positive selection---is also not corrected for.
@@ -241,4 +389,12 @@ Number of methods compared & 1 & 26 & 10 & 39 \\
 Table~\ref{tab:approach_comparison} summarizes how MutBench compares with existing approaches along key benchmark dimensions.
 The comparison with Bailey et al.\ (2018) highlights a key methodological distinction. Cancer driver benchmarks operate on somatic mutations within a single host genome, where ground truth is defined by recurrence across patient cohorts and functional assays. Viral hotspot benchmarks operate on population-level mutations across thousands of pathogen genomes, where ground truth derives from convergent evolution across phylogenetically independent lineages. This fundamental difference in data structure---intra-host somatic variation versus inter-host population variation---means that cancer benchmark methodologies cannot be directly transferred to viral hotspot detection, necessitating the domain-specific MutBench framework.
 
-Chapter~\ref{ch:mutbench} presents MutBench, which systematically addresses these three limitations through implementation improvements, independent ground truth construction, a composite evaluation framework, and parameter sensitivity analysis.
+Chapter~\ref{ch:mutbench} presents MutBench, which systematically addresses these limitations through implementation improvements, independent ground truth construction, a composite evaluation framework, and parameter sensitivity analysis.
+
+\vspace{1em}
+\noindent\textbf{Chapter Summary.}
+This chapter has reviewed the two bodies of prior work that directly inform MutBench.
+Section~\ref{sec:bg_hotspot} surveyed viral mutation hotspot detection methods---from frequency-based and entropy-based scoring through density-based clustering to protein language models and selection-based approaches---and identified a critical benchmarking gap: no standardized framework exists for evaluating and comparing these methods across multiple pathogens with independent ground truth.
+Section~\ref{sec:mutclust_summary} summarized MutClust, which introduced the H-score and adaptive DBSCAN for virus-specific hotspot detection, but whose reliance on a single pathogen, single information type, and self-referential validation left open the question of how different scoring approaches and detection algorithms compare across the diversity of viral pathogens.
+Together, these gaps motivate the design of MutBench as a systematic, multi-pathogen benchmark with three-layer ground truth, composite evaluation metrics, and statistical analysis of scoring--pathogen interactions.
+The following chapter presents the MutBench framework in detail, including the construction of multi-layer ground truth datasets for 11 pathogens, the benchmark design comprising 20 scoring types across 6 categories and 14 detection method families, and the factorial ANOVA methodology for quantifying scoring--pathogen interactions.

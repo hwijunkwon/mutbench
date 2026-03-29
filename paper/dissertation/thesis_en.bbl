@@ -1,4 +1,4 @@
-\begin{thebibliography}{98}
+\begin{thebibliography}{99}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -229,11 +229,26 @@ Bernadeta Dadonaite, Katharine H.~D. Crawford, Caelan~E. Radford, Ariana~G.
 \newblock \emph{Cell}, 186\penalty0 (6):\penalty0 1263--1278, 2023.
 \newblock \doi{10.1016/j.cell.2023.02.001}.
 
+\bibitem[Lee et~al.(2018)Lee, Huddleston, Doud, Hooper, Wu, Bedford, and
+  Bloom]{lee2018h3n2dms}
+Juhye~M Lee, John Huddleston, Michael~B Doud, Kathryn~A Hooper, Nicholas~C Wu,
+  Trevor Bedford, and Jesse~D Bloom.
+\newblock Deep mutational scanning of hemagglutinin helps predict evolutionary
+  fates of human {H3N2} influenza variants.
+\newblock \emph{Proceedings of the National Academy of Sciences}, 115\penalty0
+  (35):\penalty0 E8276--E8285, 2018.
+
 \bibitem[Bloom and Neher(2023)]{bloom2023fitness}
 Jesse~D. Bloom and Richard~A. Neher.
 \newblock Fitness effects of mutations to {SARS-CoV-2} proteins.
 \newblock \emph{Virus Evolution}, 9\penalty0 (2):\penalty0 vead055, 2023.
 \newblock \doi{10.1093/ve/vead055}.
+
+\bibitem[Gurev et~al.(2025)Gurev, Youssef, Jain, and Marks]{gurev2025everest}
+Sarah Gurev, Noor Youssef, Sanjit Jain, and Debora~S Marks.
+\newblock Variant effect prediction across priority viruses.
+\newblock \emph{bioRxiv}, 2025.
+\newblock \doi{10.1101/2025.08.04.668549}.
 
 \bibitem[Livesey and Marsh(2020)]{livesey2020using}
 Benjamin~J. Livesey and Joseph~A. Marsh.
@@ -280,6 +295,15 @@ Alexander Rives, Joshua Meier, Tom Sercu, Siddharth Goyal, Zeming Lin, Jason
   (15):\penalty0 e2016239118, 2021.
 \newblock \doi{10.1073/pnas.2016239118}.
 
+\bibitem[Notin et~al.(2022)Notin, Dias, Frazer, Marchena-Hurtado, Gomez, Marks,
+  and Gal]{notin2022tranception}
+Pascal Notin, Mafalda Dias, Jonathan Frazer, Javier Marchena-Hurtado, Aidan~N.
+  Gomez, Debora~S. Marks, and Yarin Gal.
+\newblock Tranception: protein fitness prediction with autoregressive
+  transformers and inference-time retrieval.
+\newblock In \emph{International Conference on Machine Learning (ICML)}, pages
+  16990--17024, 2022.
+
 \bibitem[Elnaggar et~al.(2022)Elnaggar, Heinzinger, Dallago, Rehawi, Wang,
   Jones, Gibbs, Feher, Angerer, Steinegger, Bhowmik, and
   Rost]{elnaggar2022prottrans}
@@ -291,6 +315,29 @@ Ahmed Elnaggar, Michael Heinzinger, Christian Dallago, Ghalia Rehawi, Yu~Wang,
 \newblock \emph{IEEE Transactions on Pattern Analysis and Machine
   Intelligence}, 44\penalty0 (10):\penalty0 7112--7127, 2022.
 \newblock \doi{10.1109/TPAMI.2021.3095381}.
+
+\bibitem[Thadani et~al.(2023)Thadani, Gurev, Notin, Youssef, Rollber, Gal, and
+  Marks]{thadani2023evescape}
+Nicole~N. Thadani, Sarah Gurev, Pascal Notin, Noor Youssef, Nathan Rollber,
+  Yarin Gal, and Debora~S. Marks.
+\newblock Learning from prepandemic data to forecast viral escape.
+\newblock \emph{Nature}, 622:\penalty0 818--825, 2023.
+\newblock \doi{10.1038/s41586-023-06617-0}.
+
+\bibitem[Cheng et~al.(2023)Cheng, Novati, Pan, Bycroft, Zemgulyte, Sherburn,
+  et~al.]{cheng2023alphamissense}
+Jun Cheng, Guido Novati, Joshua Pan, Clare Bycroft, Agne Zemgulyte, Taylor
+  Sherburn, et~al.
+\newblock Accurate proteome-wide missense variant effect prediction with
+  {AlphaMissense}.
+\newblock \emph{Science}, 381:\penalty0 eadg7492, 2023.
+
+\bibitem[Shu and McCauley(2017)]{shu2017gisaid}
+Yuelong Shu and John McCauley.
+\newblock {GISAID}: Global initiative on sharing all influenza data---from
+  vision to reality.
+\newblock \emph{Eurosurveillance}, 22\penalty0 (13):\penalty0 30494, 2017.
+\newblock \doi{10.2807/1560-7917.ES.2017.22.13.30494}.
 
 \bibitem[Maher et~al.(2022)Maher, Barber, Morayse, Silber, Fogel, Lee, Cai,
   Bolon, and Whitaker]{maher2022predicting}
@@ -317,13 +364,12 @@ Brian Hie, Ellen~D Zhong, Bonnie Berger, and Bryan Bryson.
 \newblock \emph{Science}, 371\penalty0 (6526):\penalty0 284--288, 2021.
 \newblock \doi{10.1126/science.abd7331}.
 
-\bibitem[Thadani et~al.(2023)Thadani, Gurev, Notin, Youssef, Rollber, Gal, and
-  Marks]{thadani2023evescape}
-Nicole~N. Thadani, Sarah Gurev, Pascal Notin, Noor Youssef, Nathan Rollber,
-  Yarin Gal, and Debora~S. Marks.
-\newblock Learning from prepandemic data to forecast viral escape.
-\newblock \emph{Nature}, 622:\penalty0 818--825, 2023.
-\newblock \doi{10.1038/s41586-023-06617-0}.
+\bibitem[Wolpert and Macready(1997)]{wolpert1997nfl}
+David~H. Wolpert and William~G. Macready.
+\newblock No free lunch theorems for optimization.
+\newblock \emph{IEEE Transactions on Evolutionary Computation}, 1\penalty0
+  (1):\penalty0 67--82, 1997.
+\newblock \doi{10.1109/4235.585893}.
 
 \bibitem[Kerschke et~al.(2019)Kerschke, Hoos, Neumann, and
   Trautmann]{kerschke2019algorithm}
@@ -392,20 +438,6 @@ Tirso Pons, Abel Gonzalez-Perez, Nuria Lopez-Bigas, Dietmar Schomburg, and
 \newblock \emph{Computational and Structural Biotechnology Journal},
   18:\penalty0 3567--3576, 2020.
 \newblock \doi{10.1016/j.csbj.2020.11.020}.
-
-\bibitem[Gurev et~al.(2025)Gurev, Youssef, Jain, and Marks]{gurev2025everest}
-Sarah Gurev, Noor Youssef, Sanjit Jain, and Debora~S Marks.
-\newblock Variant effect prediction across priority viruses.
-\newblock \emph{bioRxiv}, 2025.
-\newblock \doi{10.1101/2025.08.04.668549}.
-
-\bibitem[Cheng et~al.(2023)Cheng, Novati, Pan, Bycroft, Zemgulyte, Sherburn,
-  et~al.]{cheng2023alphamissense}
-Jun Cheng, Guido Novati, Joshua Pan, Clare Bycroft, Agne Zemgulyte, Taylor
-  Sherburn, et~al.
-\newblock Accurate proteome-wide missense variant effect prediction with
-  {AlphaMissense}.
-\newblock \emph{Science}, 381:\penalty0 eadg7492, 2023.
 
 \bibitem[Smith et~al.(2004)Smith, Lapedes, de~Jong, et~al.]{smith2004antigenic}
 Derek~J. Smith, Alan~S. Lapedes, Jan~C. de~Jong, et~al.
@@ -575,15 +607,6 @@ Patricia Tong, Qiancheng Jiang, Dyuti Bina, and Aaron~G Schmidt.
 \newblock \emph{Nature Microbiology}, 9:\penalty0 2507--2518, 2024.
 \newblock \doi{10.1038/s41564-024-01783-z}.
 
-\bibitem[Lee et~al.(2018)Lee, Huddleston, Doud, Hooper, Wu, Bedford, and
-  Bloom]{lee2018h3n2dms}
-Juhye~M Lee, John Huddleston, Michael~B Doud, Kathryn~A Hooper, Nicholas~C Wu,
-  Trevor Bedford, and Jesse~D Bloom.
-\newblock Deep mutational scanning of hemagglutinin helps predict evolutionary
-  fates of human {H3N2} influenza variants.
-\newblock \emph{Proceedings of the National Academy of Sciences}, 115\penalty0
-  (35):\penalty0 E8276--E8285, 2018.
-
 \bibitem[Haddox et~al.(2018)Haddox, Dingens, Hilton, Overbaugh, and
   Bloom]{haddox2018hiv1dms}
 Hugh~K Haddox, Adam~S Dingens, Sarah~K Hilton, Julie Overbaugh, and Jesse~D
@@ -736,26 +759,12 @@ Leo Breiman.
 \newblock \emph{Machine Learning}, 45\penalty0 (1):\penalty0 5--32, 2001.
 \newblock \doi{10.1023/A:1010933404324}.
 
-\bibitem[Wolpert and Macready(1997)]{wolpert1997nfl}
-David~H. Wolpert and William~G. Macready.
-\newblock No free lunch theorems for optimization.
-\newblock \emph{IEEE Transactions on Evolutionary Computation}, 1\penalty0
-  (1):\penalty0 67--82, 1997.
-\newblock \doi{10.1109/4235.585893}.
-
 \bibitem[Weirauch et~al.(2013)]{weirauch2013evaluation}
 Matthew~T. Weirauch et~al.
 \newblock Evaluation of methods for modeling transcription factor sequence
   specificity.
 \newblock \emph{Nature Biotechnology}, 31:\penalty0 126--134, 2013.
 \newblock \doi{10.1038/nbt.2486}.
-
-\bibitem[Shu and McCauley(2017)]{shu2017gisaid}
-Yuelong Shu and John McCauley.
-\newblock {GISAID}: Global initiative on sharing all influenza data---from
-  vision to reality.
-\newblock \emph{Eurosurveillance}, 22\penalty0 (13):\penalty0 30494, 2017.
-\newblock \doi{10.2807/1560-7917.ES.2017.22.13.30494}.
 
 \bibitem[Chen et~al.(2022)Chen, Azman, Chen, Zou, Tian, Sun, Xu, Wu, Lu, Ge,
   et~al.]{chen2022gisaid}
