@@ -77,6 +77,8 @@ The underlying cause is that pathogen-specific genomic characteristics create fu
 
 These findings are formalizable within Rice's algorithm selection problem~\cite{rice1976algorithm}: the problem space $\mathcal{P}$ consists of pathogens characterized by genomic profiles, the algorithm space $\mathcal{A}$ comprises 780 scoring--detection combinations, and the interaction dominance ($\omega^2 = 0.296$) demonstrates that the mapping $f: \mathcal{P} \to \mathcal{A}$ is non-trivial---consistent with the No Free Lunch theorem~\cite{wolpert1997nfl}---though unlike the theoretical NFL result, which applies to all possible problem distributions, the empirical finding here is grounded in a specific, biologically meaningful problem class (11 RNA viruses with documented functional sites) and therefore provides stronger practical evidence for pathogen-adaptive selection than the abstract theorem alone.
 The ESM-2 cross-paradigm validation (Section~\ref{subsec:esm_validation}) reinforces this: ESM-LLR ranked 1st for SARS-CoV-2 but last for Norovirus, confirming that no single scoring paradigm dominates.
+A notable corollary is that the detection algorithm family contributes only $\omega^2 = 0.013$ to performance variance---an order of magnitude smaller than the scoring main effect ($\omega^2 = 0.063$) and 23-fold smaller than the scoring $\times$ pathogen interaction ($\omega^2 = 0.296$). This means that, given the same input scoring signal, Wavelet, KDE, SWAN, Bayesian change-point detection, and MutClust produce largely similar results. The practical implication is that developing new detection algorithms is unlikely to yield substantial improvements; the dominant lever for improving hotspot detection is \emph{selecting the appropriate biological information source for each pathogen}. This redirects research effort from algorithmic innovation to information-source optimization.
+
 The demonstrated necessity of pathogen-adaptive selection raises the question of how to interpret the absolute performance levels achieved.
 
 %% ============================================================
@@ -224,6 +226,10 @@ Systematic biases exist in the GISAID~\cite{shu2017gisaid}-based input data.
 \textbf{Geographic bias}: High-income countries contribute over 80\% of total sequences~\cite{chen2022gisaid}, leading to underrepresentation of unique variants from Africa/South Asia; weekly stratification corrects only for temporal imbalance.
 \textbf{Temporal bias}: Sequence accumulation differs substantially between the early pandemic and Omicron periods, and within-week representativeness is not guaranteed.
 \textbf{Founder effect}: ``Hitchhiker'' mutations accompanying lineage expansion (e.g., JN.1;~\cite{kaku2024virological}) cannot be distinguished from positively selected positions by frequency-based approaches alone.
+
+\textbf{Temporal window dependence}: An additional unstandardized factor is the analysis time window. The 11 pathogens in this benchmark were analyzed using sequences spanning different time ranges: SARS-CoV-2 covers approximately 2 years of pandemic evolution (2020--2021), while H3N2 encompasses decades of seasonal circulation.
+Temporal analysis on SARS-CoV-2 Spike across three 6-month windows reveals that feature discriminative power changes substantially: frequency AUC increases from 0.337 (2020-H1) to 0.472 (2021-H1), and entropy AUC from 0.328 to 0.507, as mean Shannon entropy rises 10-fold (0.126 to 1.241) with accumulating diversity.
+This implies that the optimal scoring type for a given pathogen may depend not only on its biology but also on the temporal depth of the available sequence data. Standardizing the analysis time window---or explicitly studying how optimal scoring changes with temporal coverage---is an important future direction for hotspot benchmarking.
 
 \subsection{ESM-2 Training Data Overlap}
 \label{sec:esm2_leakage}

@@ -87,26 +87,26 @@
 \contentsline {subsection}{\numberline {5.2.3}Homoplasy-Based Scoring as an Alternative}{115}{subsection.5.2.3}%
 \contentsline {section}{\numberline {5.3}Cross-Pathogen Generalization}{116}{section.5.3}%
 \contentsline {subsection}{\numberline {5.3.1}Implications of Cross-Pathogen Generalization}{116}{subsection.5.3.1}%
-\contentsline {subsection}{\numberline {5.3.2}Upper Bound of Detection Performance}{117}{subsection.5.3.2}%
-\contentsline {section}{\numberline {5.4}Practical Implications and Fundamental Limitations}{118}{section.5.4}%
-\contentsline {subsection}{\numberline {5.4.1}Vaccine Escape Position Validation}{119}{subsection.5.4.1}%
+\contentsline {subsection}{\numberline {5.3.2}Upper Bound of Detection Performance}{118}{subsection.5.3.2}%
+\contentsline {section}{\numberline {5.4}Practical Implications and Fundamental Limitations}{119}{section.5.4}%
+\contentsline {subsection}{\numberline {5.4.1}Vaccine Escape Position Validation}{120}{subsection.5.4.1}%
 \contentsline {subsection}{\numberline {5.4.2}Cross-Validation via Vaccine Escape Enrichment}{120}{subsection.5.4.2}%
-\contentsline {subsection}{\numberline {5.4.3}Practical Considerations for Public Health Surveillance}{121}{subsection.5.4.3}%
-\contentsline {subsection}{\numberline {5.4.4}Practical Application Workflow for New Pathogens}{121}{subsection.5.4.4}%
-\contentsline {paragraph}{Step 1: Sequence collection.}{121}{section*.82}%
+\contentsline {subsection}{\numberline {5.4.3}Practical Considerations for Public Health Surveillance}{122}{subsection.5.4.3}%
+\contentsline {subsection}{\numberline {5.4.4}Practical Application Workflow for New Pathogens}{122}{subsection.5.4.4}%
+\contentsline {paragraph}{Step 1: Sequence collection.}{122}{section*.82}%
 \contentsline {paragraph}{Step 2: Feature computation.}{122}{section*.83}%
-\contentsline {paragraph}{Step 3: Scoring category selection.}{122}{section*.84}%
-\contentsline {paragraph}{Step 4: Detection and evaluation.}{122}{section*.86}%
-\contentsline {paragraph}{Computational requirements.}{123}{section*.87}%
-\contentsline {subsection}{\numberline {5.4.5}Phylogenetic Non-Independence and Scalability Limits}{123}{subsection.5.4.5}%
-\contentsline {subsection}{\numberline {5.4.6}Representativeness and Sampling Bias of GISAID Data}{124}{subsection.5.4.6}%
-\contentsline {subsection}{\numberline {5.4.7}ESM-2 Training Data Overlap}{125}{subsection.5.4.7}%
-\contentsline {subsection}{\numberline {5.4.8}Ground Truth Heterogeneity Across Pathogens}{126}{subsection.5.4.8}%
-\contentsline {subsection}{\numberline {5.4.9}Scope Justification: 11 RNA Viruses}{127}{subsection.5.4.9}%
-\contentsline {chapter}{\numberline {6}Conclusion}{129}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Summary of Research Contributions}{129}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Limitations}{131}{section.6.2}%
-\contentsline {section}{\numberline {6.3}Future Research Directions}{133}{section.6.3}%
-\contentsline {section}{\numberline {6.4}Concluding Remarks}{135}{section.6.4}%
-\contentsline {chapter}{References}{137}{section*.91}%
-\contentsline {chapter}{Abstract (Korean)}{158}{section*.93}%
+\contentsline {paragraph}{Step 3: Scoring category selection.}{123}{section*.84}%
+\contentsline {paragraph}{Step 4: Detection and evaluation.}{123}{section*.86}%
+\contentsline {paragraph}{Computational requirements.}{124}{section*.87}%
+\contentsline {subsection}{\numberline {5.4.5}Phylogenetic Non-Independence and Scalability Limits}{124}{subsection.5.4.5}%
+\contentsline {subsection}{\numberline {5.4.6}Representativeness and Sampling Bias of GISAID Data}{125}{subsection.5.4.6}%
+\contentsline {subsection}{\numberline {5.4.7}ESM-2 Training Data Overlap}{126}{subsection.5.4.7}%
+\contentsline {subsection}{\numberline {5.4.8}Ground Truth Heterogeneity Across Pathogens}{127}{subsection.5.4.8}%
+\contentsline {subsection}{\numberline {5.4.9}Scope Justification: 11 RNA Viruses}{128}{subsection.5.4.9}%
+\contentsline {chapter}{\numberline {6}Conclusion}{130}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Summary of Research Contributions}{130}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Limitations}{132}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Future Research Directions}{134}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Concluding Remarks}{136}{section.6.4}%
+\contentsline {chapter}{References}{138}{section*.91}%
+\contentsline {chapter}{Abstract (Korean)}{159}{section*.93}%
