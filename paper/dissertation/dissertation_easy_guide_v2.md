@@ -1,4 +1,4 @@
-# MutBench 학위논문 설명서 (v106)
+# MutBench 학위논문 설명서 (v107)
 
 **한줄 요약**: 기존 핫스팟 탐지가 빈도/엔트로피에만 의존하던 것을 10가지 정보로 확장하여 11개 바이러스에서 비교한 결과, 최적 정보 유형이 바이러스마다 다르고(ω²=0.296, LOPO 0/11), 통합 시 실험 탐색을 최대 9.36배 축소할 수 있음을 입증하였다.
 
@@ -104,15 +104,31 @@
 
 #### 2.1.2 Density-Based Clustering
 
-DBSCAN, HDBSCAN 등 밀도 기반 방법이 암 드라이버 유전자 탐지(HotMAPS)와 유사한 접근으로 바이러스에 적용 가능.
+핫스팟은 게놈 상에서 **밀도가 높은 영역**으로 정의될 수 있어, 밀도 기반 클러스터링이 자연스러운 접근입니다.
+
+- **DBSCAN**: ε-이웃 내 최소 MinPts개 점이 있으면 core point로 분류. 임의 형태의 클러스터를 발견하나, **고정 ε이 문제** — 바이러스 게놈에서 변이 밀도는 영역마다 다르므로 (RBD는 높고, S2는 낮음) 단일 ε로는 포착 불가.
+- **HDBSCAN**: 상호 도달 거리(mutual reachability distance)를 사용하여 ε을 자동 적응. 클러스터별 안정성을 기반으로 멤버십 확률 부여. min_cluster_size 하나만 지정.
+- **OPTICS**: 도달 거리 플롯(reachability plot)으로 다중 스케일 클러스터를 시각화. ξ-추출로 이산 클러스터 산출.
+- **MutClust의 적응 접근**: H-score에 비례하여 ε을 설정 (ε = γ × H), 점수가 높은 영역에서 자동으로 넓은 이웃 탐색.
 
 #### 2.1.3 Deep Mutational Scanning as Ground Truth
 
-DMS는 단백질의 모든 가능한 아미노산 치환의 기능적 영향을 직접 측정. 본 연구에서 6개 병원체(SARS-CoV-2, H3N2, HIV-1, RSV, Rabies, EV-A71)의 DMS 데이터를 Layer C로 사용.
+DMS는 단백질의 **모든 가능한 아미노산 치환**을 체계적으로 생성하고, 각 치환의 기능적 영향(결합력, 세포 침입, 복제 효율 등)을 정량 측정하는 실험입니다.
+
+- **왜 정답 기준인가**: 편향 없이 포괄적이며 실험적. 계산 예측이 아닌 직접 측정.
+- **주요 연구**: Starr et al. 2020 (SARS-CoV-2 RBD ACE2 결합), Dadonaite et al. 2024 (전체 Spike 세포 침입), Lee et al. 2018 (H3N2 HA 아미노산 선호도)
+- **한계**: 비용이 높고, pseudovirus 시스템 사용 (실제 바이러스와 다를 수 있음), in vitro 결과가 in vivo를 완전히 반영하지 못함
+- **가용성 격차**: EVEREST가 45개 바이러스 DMS 데이터셋을 수집했으나, WHO 우선순위 바이러스의 절반 이상에서 DMS 데이터가 부재. 본 연구에서 6개 병원체의 DMS를 Layer C로 사용.
 
 #### 2.1.4 Protein Language Models for Variant Effect Prediction
 
-ESM-2 (Meta AI, 6.5억 파라미터), Tranception, EVEscape 등 단백질 언어 모델이 변이 효과 예측에 활용. 본 연구에서는 이들을 점수화 유형의 하나로 포함.
+수억 개의 단백질 서열에서 학습한 언어모델이 진화적 제약을 포착하여 변이 효과를 예측합니다.
+
+- **ESM-2** (Meta AI, 6.5억 파라미터): UniRef에서 학습. Log-Likelihood Ratio(LLR)로 각 위치의 변이 허용도를 측정. 바이러스 단백질은 학습 데이터에서 소수이므로 과적합 위험.
+- **Tranception**: 자기회귀 모델로 서열 전체를 좌→우 순서로 예측. 검색 증강(retrieval augmentation)으로 진화 맥락 보강.
+- **EVEscape**: EVE 적합도 + 구조적 접근성 + 면역 제시를 결합. 팬데믹 이전 데이터로 Omicron 돌파변이를 성공적으로 예측.
+- **AlphaMissense**: AlphaFold 기반, 인간 단백질에 최적화 → 바이러스 적용은 제한적.
+- **EVEREST 발견**: PLM이 바이러스 단백질에서 정렬 기반 방법보다 성능이 낮음 → 본 연구에서도 PLM이 특정 바이러스에서만 최적.
 
 #### 2.1.5 Viral Genomic Surveillance Platforms
 
