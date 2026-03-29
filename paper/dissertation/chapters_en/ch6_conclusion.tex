@@ -10,8 +10,8 @@ This chapter summarizes the research contributions of MutBench, analyzes its lim
 This dissertation presented MutBench, a systematic benchmark framework for viral mutation hotspot detection.
 The research contributions of MutBench are summarized in the following three points.
 
-\textbf{Contribution 1. MutBench: a benchmark framework enabling systematic comparison of 10 biological information types across 11 RNA viruses.}
-MutBench introduced the first systematic benchmark framework for viral mutation hotspot detection, designed to answer the question: \emph{which biological information source is most effective for which pathogen?}
+\textbf{Contribution 1. MutBench: an experimental framework for analyzing which factors influence viral mutation hotspot detection performance across 11 RNA viruses.}
+MutBench introduced the first systematic experimental framework for viral mutation hotspot detection, designed to answer the question: \emph{which biological information source is most effective for which pathogen?}
 It organizes 10 information types into 20 scoring formulas across 6 categories, defines a three-layer ground truth (Layers A/B/C), introduces the hotspot-score composite metric, and presents a two-stage experimental design combining in-depth SARS-CoV-2 analysis (Stage~1) with large-scale comparison across 11 RNA viruses (Stage~2; see Chapter~\ref{ch:results} for detailed statistics).
 
 \textbf{Contribution 2. Statistical demonstration that the optimal biological information source differs fundamentally across pathogens ($\omega^2_{\text{scoring} \times \text{pathogen}} = 0.296$), with 9 distinct optimal information types across 11 pathogens and no cross-pathogen generalization (LOPO 0/11).}
@@ -119,7 +119,7 @@ and (3)~real-time surveillance pipeline development, integrating MutBench-valida
 The COVID-19 pandemic revealed that viral mutation hotspot detection is not merely an academic exercise but a public health imperative.
 This work demonstrates that the most impactful factor in hotspot detection is selecting the appropriate biological information source for each pathogen. The recommended scoring categories by virus family (Table~\ref{tab:scoring_recommendation}) provide practical guidance for researchers analyzing new viral sequences.
 
-This dissertation presented MutBench, a benchmark framework that enabled this finding by systematically comparing 10 biological information types across 11 RNA viruses (8{,}580 total evaluations).
+This dissertation presented MutBench, an experimental framework that enabled this finding by systematically comparing 10 biological information types across 11 RNA viruses (8{,}580 total evaluations).
 The central result---that the scoring $\times$ pathogen interaction ($\omega^2 = 0.296$) is the largest performance determinant---empirically confirms the algorithm selection principle~\cite{kerschke2019algorithm} and establishes that the optimal biological information source is fundamentally pathogen-dependent.
 Nine distinct optimal information types were identified across 11 pathogens, from FUBAR phylogenetic selection scores for H3N2 to protein language models for SARS-CoV-2, establishing that no single information source suffices across the viral landscape.
 The concordance between Layer~A benchmark rankings and independent vaccine escape enrichment (up to 9.36-fold) validates that these information-centric rankings translate to practical utility in identifying immune evasion positions.

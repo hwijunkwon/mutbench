@@ -4,12 +4,12 @@
 
 This chapter reports MutBench experimental results.
 Stage~1 (Sections~\ref{sec:variant_comparison}--\ref{sec:phylo_simulation}) conducts in-depth SARS-CoV-2 analysis comparing five MutClust variants and two baselines.
-Stage~2 (Section~\ref{sec:9pathogen_results} onwards) extends to 11 RNA viruses with 20 scoring formulas $\times$ 39 detection algorithms.
+Stage~2 (Section~\ref{sec:9pathogen_results} onwards) extends to 11 RNA viruses with 20 scoring formulas $\times$ 14 detection method families (5 categories, 39 parameter variants).
 
 \noindent\fbox{\parbox{\dimexpr\textwidth-2\fboxsep-2\fboxrule}{%
 \small\textbf{Key Results.}
 (1)~scoring $\times$ pathogen interaction is the largest variance source ($\omega^2 = 0.296$): which biological information is used is the dominant factor in performance.
-(2)~No universal best method: 11 pathogens all require different optimal combinations (LOPO 0/11).
+(2)~No universal best method across 5 detection categories and 20 scoring types: 11 pathogens all require different optimal combinations (LOPO 0/11).
 (3)~Vaccine escape cross-validation: up to 9.36-fold enrichment ($p < 0.0001$).
 }}
 \vspace{0.5em}
@@ -235,7 +235,7 @@ These results demonstrate that \textbf{frequency-based scores systematically con
 \vspace{0.5em}
 
 Building on the Stage~1 findings, this section reports the Stage~2 cross-pathogen benchmark results.
-The benchmark evaluates \textbf{20 scoring types} (organized into 6 categories; see Table~\ref{tab:scoring_types} in Chapter~\ref{ch:mutbench}) combined with \textbf{39 detection algorithm variants} (from 14 families) across \textbf{11 pathogens}, totaling \textbf{8,580 evaluations}.
+The benchmark evaluates \textbf{20 scoring types} (organized into 6 categories; see Table~\ref{tab:scoring_types} in Chapter~\ref{ch:mutbench}) combined with \textbf{14 detection method families spanning 5 categories} (threshold-based, signal processing, density/clustering, statistical, and adaptive window), with \textbf{39 parameter variants}, across \textbf{11 pathogens}, totaling \textbf{8,580 evaluations}.
 The 20 scoring types are derived from \textbf{10 underlying biological features}; some features generate multiple scoring variants (e.g., frequency yields \textit{freq}, \textit{freq\_with\_indel}, and \textit{rare\_freq}), while composite scorings combine multiple features (e.g., EVEscape composite, EqualWeight).
 The subsequent information-type analysis (Section~\ref{sec:information_analysis}) examines the 10 underlying features to explain why scoring performance differs across pathogens.
 For the feature analysis, \textbf{12 pathogens} were used (adding Zika, Rabies, and EV-A71 to increase statistical power in per-feature comparisons), though the main benchmark uses 11 pathogens.\footnote{Throughout this chapter, ``11 pathogens'' refers to the Stage~2 benchmark set (Zika excluded due to insufficient sequences, $n = 52$). The information-type analysis in Section~\ref{sec:information_analysis} uses 12 pathogens (including Zika) for increased statistical power in per-feature comparisons.}
@@ -250,7 +250,7 @@ This section sequentially reports the benchmark scale, per-pathogen best method 
 
 This section presents the full-scale cross-pathogen benchmark results that constitute the primary evidence for the dissertation's second contribution (statistical demonstration of pathogen-adaptive method selection necessity).
 
-A total of 8{,}580 evaluations (20 scoring formulas $\times$ 39 detection algorithms $\times$ 11 pathogens) were conducted.
+A total of 8{,}580 evaluations (20 scoring formulas $\times$ 39 detection parameter variants from 14 families $\times$ 11 pathogens) were conducted.
 The 20 scoring formulas span six information categories: frequency-based (freq, rare\_freq, freq\_with\_indel), MSA-derived (entropy, entropy\_with\_indel, homoplasy), phylogenetic (dN/dS proxy, FUBAR posterior probability, FUBAR positive selection, FUBAR Bayes factor), structural (pLDDT inverse, SASA, Grantham distance), AI-based (ESM-2 LLR, Tranception, semantic change, stability, stability\_structural), and composite (EVEscape composite, EqualWeight).
 Each evaluation computed MCC, F1, precision, and recall against the 3-layer ground truth (Layer A: convergent evolution positions, Layer B: constrained regions, Layer C: DMS).
 DMS Layer~C evaluation was conducted for 6 pathogens (SARS-CoV-2, H3N2, HIV-1, RSV, Rabies, EV-A71) where experimental fitness data are available.
@@ -381,6 +381,10 @@ family & Main effect & 0.013 \\
 \end{figure}
 
 \textbf{Key finding}: The scoring $\times$ pathogen interaction ($\omega^2 = 0.296$) is the \textbf{largest source of variance, exceeding all main effects and other interactions}. Under Cohen's effect size benchmarks~\cite{cohen1988statistical}, $\omega^2 > 0.14$ constitutes a large effect. The scoring $\times$ pathogen interaction ($\omega^2 = 0.296$) exceeds all other sources, demonstrating that the optimal information source is pathogen-dependent.
+
+The residual variance ($\omega^2_{\text{residual}} \approx 0.39$) represents within-cell variation across the 39 parameter variants within each scoring--family--pathogen combination and measurement noise. The three dominant components---scoring $\times$ pathogen interaction (0.296), pathogen main effect (0.117), and family $\times$ pathogen interaction (0.082)---together account for approximately 50\% of total variance, with the scoring $\times$ pathogen interaction alone explaining the largest single share.
+
+Three independent analyses converge on the same conclusion: (1)~factorial ANOVA identifies the scoring $\times$ pathogen interaction as the largest variance component ($\omega^2 = 0.296$); (2)~Friedman test shows no reliably superior combination across pathogens ($\chi^2 = 7.69$, $p = 0.990$, $W = 0.037$); and (3)~LOPO cross-validation demonstrates complete generalization failure (0/11 match rate, mean MCC gap = 0.320). Together, these establish that the optimal information source is fundamentally pathogen-dependent.
 
 This finding directly resolves the third problem from Chapter~\ref{ch:introduction}: the interaction dominance ($\omega^2 = 0.296$) provides definitive statistical proof that detection performance is fundamentally pathogen-dependent. Moreover, the shift from family$\times$pathogen dominance (Stage~2 preliminary with 9 scoring types: $\omega^2 = 0.285$) to scoring$\times$pathogen dominance (full 20-scoring benchmark: $\omega^2 = 0.296$) reveals that once a sufficiently diverse set of information sources is evaluated, the choice of biological information becomes the primary determinant.
 

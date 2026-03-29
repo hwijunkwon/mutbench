@@ -1,7 +1,7 @@
 % Abstract
 Detecting mutation hotspots in viral genomes is essential for variant surveillance and vaccine design, yet existing approaches have relied almost exclusively on mutation frequency and Shannon entropy, leaving unexplored a rich landscape of complementary information sources including phylogenetic selection signals, protein language models, and structural features. No systematic comparison has evaluated which of these information types is most effective for which pathogen.
 
-This dissertation presents MutBench, a benchmark framework that systematically compares 10 biological information types (organized into 20 scoring formulas across 6 categories) combined with 39 detection algorithms across 11 RNA viruses, totaling 8{,}580 evaluations.
+This dissertation presents MutBench, an experimental framework for analyzing which factors influence viral mutation hotspot detection. It systematically compares 10 biological information types (organized into 20 scoring formulas across 6 categories) combined with 14 detection method families spanning 5 categories (threshold-based, signal processing, density/clustering, statistical, and adaptive window), with 39 parameter variants, across 11 RNA viruses, totaling 8{,}580 evaluations.
 MutBench comprises three core components:
 (1) a three-layer ground truth system integrating convergent evolution signatures as positive selection markers (Layer~A), conserved structural regions under purifying selection as negative controls (Layer~B), and Deep Mutational Scanning (DMS) experimental fitness data as functional validation (Layer~C);
 (2) a composite evaluation metric defined as $\text{hotspot-score} = (\text{recall} + \text{precision} + \text{stability}) / 3$; and

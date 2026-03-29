@@ -2,8 +2,8 @@
 \chapter{Materials and Method}
 \label{ch:mutbench}
 
-This chapter presents the methodology of MutBench, a benchmark framework for the systematic evaluation of viral mutation hotspot detection methods.
-The overall pipeline processes multiple sequence alignment (MSA) data from 11 RNA viruses through 20 scoring types and 39 detection methods, evaluating results against a 3-layer ground truth system using the hotspot-score composite metric and Matthews Correlation Coefficient (MCC).
+This chapter presents the methodology of MutBench, an experimental framework for analyzing which factors---biological information type, detection method category, and pathogen characteristics---influence viral mutation hotspot detection performance.
+The overall pipeline processes multiple sequence alignment (MSA) data from 11 RNA viruses through 20 scoring types and 14 detection method families spanning 5 categories (threshold-based, signal processing, density/clustering, statistical, and adaptive window), with 39 parameter variants, evaluating results against a 3-layer ground truth system using the hotspot-score composite metric and Matthews Correlation Coefficient (MCC).
 The evaluation follows a two-stage design: Stage~1 conducts in-depth analysis on SARS-CoV-2 to validate the framework components, and Stage~2 extends the evaluation to all 11 pathogens for large-scale cross-pathogen comparison.
 Section~\ref{sec:mutbench_materials} describes the materials (target pathogens, ground truth framework, and DMS data), Sections~\ref{sec:mutbench_methods}--\ref{sec:eval_stat_design} present the methods: Section~\ref{sec:mutbench_methods} covers the benchmark framework design including MutClust variants and the hotspot-score metric, Section~\ref{sec:scoring_detection} describes the scoring types and detection method families, and Section~\ref{sec:eval_stat_design} details the evaluation metrics and statistical analysis design.
 \label{sec:9pathogen_benchmark}
@@ -565,6 +565,8 @@ MutClust-Orig & MutClust original algorithm & 1 \\
 }
 \end{table}
 
+The 14 families are organized into 5 higher-level categories reflecting their algorithmic approach to converting continuous score profiles into discrete hotspot calls. Since all methods operate on the same one-dimensional score array, the detection step serves as a necessary score-to-call conversion; the ANOVA results confirm that the detection family contributes only $\omega^2 = 0.013$ to performance variance, indicating that the choice of conversion method is a minor factor compared to the choice of input information.
+
 The 39 methods arise from 14 algorithm families, each instantiated with different parameter settings (Table~\ref{tab:detection_variants}).
 For example, the Wavelet family is tested with three peak detection thresholds ($t = 1.0, 1.5, 2.0$ standard deviations above the CWT coefficient mean), and FreqThresh is tested with four percentile cutoffs (top 1\%, 3\%, 5\%, 10\%).
 This multi-parameter design ensures that the benchmark evaluates each algorithm family across a range of sensitivity--specificity trade-offs rather than at a single, potentially suboptimal, operating point.
@@ -620,6 +622,44 @@ Sliding window approaches are a standard technique in population genetics and ge
 
 \textbf{Legacy} (MutClust-Orig).
 MutClust-Orig applies the original MutClust logic (CCM seed + adaptive DBSCAN) to MSA-based score profiles, serving as a reference baseline representing the prior state-of-the-art in domain-specific hotspot detection~\cite{youn2025mutclust}.
+
+%% ============================================================
+\subsection{Experimental Design Considerations}
+\label{sec:design_considerations}
+
+The 11 pathogens in this benchmark differ in several structural characteristics that are not controlled across pathogens (Table~\ref{tab:design_characteristics}).
+
+\begin{table}[htbp]
+\centering
+\caption{Structural characteristics of the 11 benchmark pathogens}
+\label{tab:design_characteristics}
+\small
+\begin{tabular}{lrrrr}
+\toprule
+\textbf{Pathogen} & \textbf{Unique seqs} & \textbf{AA length} & \textbf{Time span} & \textbf{Positive rate} \\
+\midrule
+SARS-CoV-2 & 753 & 1,259 & $\sim$2 yr & 2.0\% \\
+H3N2 & 2,562 & 543 & $\sim$50 yr & 4.6\% \\
+Norovirus & 791 & 536 & $\sim$20 yr & 2.8\% \\
+HIV-1 & 2,256 & 450 & $\sim$30 yr & 5.8\% \\
+Dengue & 796 & 490 & $\sim$20 yr & 4.9\% \\
+RSV & 4,779 & 550 & $\sim$10 yr & 3.6\% \\
+Influenza B & 5,019 & 560 & $\sim$10 yr & 3.0\% \\
+MERS & 530 & 1,330 & $\sim$5 yr & 0.7\% \\
+HCV & 1,067 & 340 & $\sim$30 yr & 15.9\% \\
+Rabies & 2,038 & 491 & $\sim$50 yr & 7.9\% \\
+EV-A71 & 662 & 261 & $\sim$20 yr & 10.3\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+These differences---unique sequence count (530--5,019), protein length (261--1,330 AA), temporal coverage ($\sim$2--50 years), and Layer~A positive rate (0.7--15.9\%)---reflect the real-world heterogeneity of available viral sequence data rather than a controlled experimental design. The ``pathogen'' factor in the ANOVA is therefore a composite variable that conflates biological differences with data availability differences.
+
+Three considerations mitigate this limitation:
+(1)~subsampling robustness analysis (Section~\ref{sec:robustness_validation}) shows that MCC values stabilize at approximately 1,000 sequences and vary by less than $\pm 0.002$ at 25--100\% subsampling, indicating that sample size is not a dominant driver of performance differences;
+(2)~the key finding is the \emph{scoring $\times$ pathogen interaction} ($\omega^2 = 0.296$), which operates within each pathogen where sample size and positive rate are held constant;
+and (3)~equalizing sample sizes via subsampling to the minimum ($n = 530$, MERS) would sacrifice statistical power for pathogens with richer data without eliminating other confounds (temporal coverage, protein length).
+A fully controlled design---equal-size, equal-quality MSAs spanning identical time ranges---is infeasible for real viral data but remains a useful benchmark for future synthetic studies.
 
 %% ============================================================
 \section{Evaluation and Statistical Design}
