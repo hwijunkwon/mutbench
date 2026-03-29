@@ -63,7 +63,7 @@ The founder bias problem ($\rho = -0.876$ between H-score and independent origin
 \phantomsection\label{tab:homoplasy_validation}
 
 Cross-pathogen validation revealed pathogen-dependent performance: HIV-1 showed significant discrimination (AUC = 0.706, $p = 0.0002$), H3N2 showed a weak trend (AUC = 0.561, $p = 0.147$), and HCV failed entirely (AUC = 0.390) due to parsimony saturation in its hypervariable regions.
-This mirrors the detection-level finding of the main benchmark: just as the best detection algorithm varies across pathogens ($\omega^2 = 0.296$), the optimal scoring strategy also depends on pathogen-specific characteristics. This extends the algorithm selection problem to encompass scoring methods as well.
+This mirrors the detection-level finding of the main benchmark: the scoring $\times$ pathogen interaction ($\omega^2 = 0.296$) demonstrates that the optimal scoring strategy depends on pathogen-specific characteristics.
 
 %% ============================================================
 \section{Cross-Pathogen Generalization}
@@ -77,7 +77,6 @@ The underlying cause is that pathogen-specific genomic characteristics create fu
 
 These findings are formalizable within Rice's algorithm selection problem~\cite{rice1976algorithm}: the problem space $\mathcal{P}$ consists of pathogens characterized by genomic profiles, the algorithm space $\mathcal{A}$ comprises 780 scoring--detection combinations, and the interaction dominance ($\omega^2 = 0.296$) demonstrates that the mapping $f: \mathcal{P} \to \mathcal{A}$ is non-trivial---consistent with the No Free Lunch theorem~\cite{wolpert1997nfl}---though unlike the theoretical NFL result, which applies to all possible problem distributions, the empirical finding here is grounded in a specific, biologically meaningful problem class (11 RNA viruses with documented functional sites) and therefore provides stronger practical evidence for pathogen-adaptive selection than the abstract theorem alone.
 The ESM-2 cross-paradigm validation (Section~\ref{subsec:esm_validation}) reinforces this: ESM-LLR ranked 1st for SARS-CoV-2 but last for Norovirus, confirming that no single scoring paradigm dominates.
-A notable corollary is that the detection algorithm family contributes only $\omega^2 = 0.013$ to performance variance---an order of magnitude smaller than the scoring main effect ($\omega^2 = 0.063$) and 23-fold smaller than the scoring $\times$ pathogen interaction ($\omega^2 = 0.296$). This means that, given the same input scoring signal, Wavelet, KDE, SWAN, Bayesian change-point detection, and MutClust produce largely similar results. The practical implication is that developing new detection algorithms is unlikely to yield substantial improvements; the dominant lever for improving hotspot detection is \emph{selecting the appropriate biological information source for each pathogen}. This redirects research effort from algorithmic innovation to information-source optimization.
 
 The demonstrated necessity of pathogen-adaptive selection raises the question of how to interpret the absolute performance levels achieved.
 

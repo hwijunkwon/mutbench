@@ -14,13 +14,12 @@ The research contributions of MutBench are summarized in the following three poi
 MutBench introduced the first systematic benchmark framework for viral mutation hotspot detection, designed to answer the question: \emph{which biological information source is most effective for which pathogen?}
 It organizes 10 information types into 20 scoring formulas across 6 categories, defines a three-layer ground truth (Layers A/B/C), introduces the hotspot-score composite metric, and presents a two-stage experimental design combining in-depth SARS-CoV-2 analysis (Stage~1) with large-scale comparison across 11 RNA viruses (Stage~2; see Chapter~\ref{ch:results} for detailed statistics).
 
-\textbf{Contribution 2. Statistical demonstration that information source selection ($\omega^2 = 0.296$) matters 23$\times$ more than algorithm choice ($\omega^2 = 0.013$).}
-Statistical analysis of the large-scale benchmark results across 11 RNA viruses established, through four independent lines of evidence, that the choice of biological information source---not the detection algorithm---is the dominant factor in performance.
-First, the interaction between scoring method and pathogen was the largest source of variance in ANOVA, surpassing the algorithm main effect by over 20-fold.
+\textbf{Contribution 2. Statistical demonstration that the optimal biological information source differs fundamentally across pathogens ($\omega^2_{\text{scoring} \times \text{pathogen}} = 0.296$), with 9 distinct optimal information types across 11 pathogens and no cross-pathogen generalization (LOPO 0/11).}
+Statistical analysis of the large-scale benchmark results across 11 RNA viruses established, through four independent lines of evidence, that the optimal biological information source is pathogen-dependent.
+First, the scoring $\times$ pathogen interaction ($\omega^2 = 0.296$) was the largest source of variance in ANOVA.
 Second, all 11 pathogens exhibited unique best scoring--detection combinations (11/11 unique best combos), with 9 distinct optimal information types.
 Third, the Friedman test confirmed that performance rankings among methods systematically vary across pathogens.
 Fourth, Leave-One-Pathogen-Out (LOPO) cross-validation yielded a 0/11 agreement result, showing that the optimal information source for one pathogen does not generalize to others.
-These results redirect attention from algorithmic innovation to information-source selection as the primary lever for improving hotspot detection.
 
 \textbf{Contribution 3. Evidence that multi-source integration achieves up to 9.36-fold vaccine escape enrichment, and that a compact 4-feature core captures 98\% of full-ensemble performance.}
 A systematic analysis of 10 biological information types (Section~\ref{sec:information_analysis}) reveals that the most informative feature for hotspot prediction differs across pathogens---homoplasy for Norovirus (AUC = 0.944), pLDDT for H3N2 (0.787), ESM-2 LLR for SARS-CoV-2 (0.586)---and that feature ablation identifies a 4-feature core (homoplasy, pLDDT, entropy, frequency) capturing 98\% of integrated performance.
@@ -118,10 +117,10 @@ and (3)~real-time surveillance pipeline development, integrating MutBench-valida
 \label{sec:final_conclusion}
 
 The COVID-19 pandemic revealed that viral mutation hotspot detection is not merely an academic exercise but a public health imperative.
-Rather than developing new detection algorithms, this work demonstrates that the most impactful improvement in hotspot detection comes from selecting the appropriate biological information source for each pathogen. The recommended scoring categories by virus family (Table~\ref{tab:scoring_recommendation}) provide practical guidance for researchers analyzing new viral sequences.
+This work demonstrates that the most impactful factor in hotspot detection is selecting the appropriate biological information source for each pathogen. The recommended scoring categories by virus family (Table~\ref{tab:scoring_recommendation}) provide practical guidance for researchers analyzing new viral sequences.
 
 This dissertation presented MutBench, a benchmark framework that enabled this finding by systematically comparing 10 biological information types across 11 RNA viruses (8{,}580 total evaluations).
-The central result---that information source selection ($\omega^2 = 0.296$) dominates algorithm choice ($\omega^2 = 0.013$) by 23$\times$---empirically confirms the algorithm selection principle~\cite{kerschke2019algorithm} and redirects the field's attention from algorithmic innovation to information-source optimization.
+The central result---that the scoring $\times$ pathogen interaction ($\omega^2 = 0.296$) is the largest performance determinant---empirically confirms the algorithm selection principle~\cite{kerschke2019algorithm} and establishes that the optimal biological information source is fundamentally pathogen-dependent.
 Nine distinct optimal information types were identified across 11 pathogens, from FUBAR phylogenetic selection scores for H3N2 to protein language models for SARS-CoV-2, establishing that no single information source suffices across the viral landscape.
 The concordance between Layer~A benchmark rankings and independent vaccine escape enrichment (up to 9.36-fold) validates that these information-centric rankings translate to practical utility in identifying immune evasion positions.
 Multi-source integration further reduces the experimental search space, with a compact 4-feature core capturing 98\% of full-ensemble performance.

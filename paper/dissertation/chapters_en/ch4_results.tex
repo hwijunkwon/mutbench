@@ -8,7 +8,7 @@ Stage~2 (Section~\ref{sec:9pathogen_results} onwards) extends to 11 RNA viruses 
 
 \noindent\fbox{\parbox{\dimexpr\textwidth-2\fboxsep-2\fboxrule}{%
 \small\textbf{Key Results.}
-(1)~scoring $\times$ pathogen interaction is the largest variance source ($\omega^2 = 0.296$): which information is used matters 23$\times$ more than which algorithm.
+(1)~scoring $\times$ pathogen interaction is the largest variance source ($\omega^2 = 0.296$): which biological information is used is the dominant factor in performance.
 (2)~No universal best method: 11 pathogens all require different optimal combinations (LOPO 0/11).
 (3)~Vaccine escape cross-validation: up to 9.36-fold enrichment ($p < 0.0001$).
 }}
@@ -380,7 +380,7 @@ family & Main effect & 0.013 \\
 \label{fig:variance_decomposition}
 \end{figure}
 
-\textbf{Key finding}: The scoring $\times$ pathogen interaction ($\omega^2 = 0.296$) is the \textbf{largest source of variance, exceeding all main effects and other interactions}. Under Cohen's effect size benchmarks~\cite{cohen1988statistical}, $\omega^2 > 0.14$ constitutes a large effect. Critically, the scoring main effect ($\omega^2 = 0.063$) is 4.8$\times$ larger than the detection family main effect ($\omega^2 = 0.013$), demonstrating that \emph{what biological information is used} matters far more than \emph{which algorithm processes it}.
+\textbf{Key finding}: The scoring $\times$ pathogen interaction ($\omega^2 = 0.296$) is the \textbf{largest source of variance, exceeding all main effects and other interactions}. Under Cohen's effect size benchmarks~\cite{cohen1988statistical}, $\omega^2 > 0.14$ constitutes a large effect. The scoring $\times$ pathogen interaction ($\omega^2 = 0.296$) exceeds all other sources, demonstrating that the optimal information source is pathogen-dependent.
 
 This finding directly resolves the third problem from Chapter~\ref{ch:introduction}: the interaction dominance ($\omega^2 = 0.296$) provides definitive statistical proof that detection performance is fundamentally pathogen-dependent. Moreover, the shift from family$\times$pathogen dominance (Stage~2 preliminary with 9 scoring types: $\omega^2 = 0.285$) to scoring$\times$pathogen dominance (full 20-scoring benchmark: $\omega^2 = 0.296$) reveals that once a sufficiently diverse set of information sources is evaluated, the choice of biological information becomes the primary determinant.
 
@@ -524,7 +524,7 @@ In 5 of 6 pathogens, the best scoring type differs between Layer~A and Layer~C (
 Synthesizing the key results of the cross-pathogen benchmark, the need for pathogen-adaptive method selection is demonstrated by four independent lines of evidence.
 
 \begin{enumerate}
-\item \textbf{Interaction dominance}: The scoring $\times$ pathogen interaction ($\omega^2 = 0.296$) is the largest source of variance, exceeding all main effects and other interactions. Which information source is used matters more than which algorithm processes it.
+\item \textbf{Interaction dominance}: The scoring $\times$ pathogen interaction ($\omega^2 = 0.296$) is the largest source of variance, exceeding all main effects and other interactions. The optimal information source is fundamentally pathogen-dependent.
 \item \textbf{Unique best combinations}: 11 unique best combinations were observed across 11/11 pathogens, with 9 distinct scoring types. No two pathogens share the same best combination.
 \item \textbf{Generalization failure}: LOPO cross-validation yielded 0/11 combination matches with a mean generalization MCC of 0.022. The best combination selected from training pathogens does not generalize to new pathogens.
 \item \textbf{No universally superior combination}: Friedman $\chi^2 = 7.69$, $p = 0.990$. No single combination is reliably distinguishable as superior across all pathogens.

@@ -1,5 +1,5 @@
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {1.1}{\ignorespaces Research overview. The study proceeds from identifying the information limitation (reliance on frequency/entropy) through systematic comparison of 10 information types via MutBench, to the key finding that information source selection dominates algorithm choice, culminating in multi-source integration with practical vaccine escape enrichment.\relax }}{8}{figure.caption.9}%
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Research overview. The study proceeds from identifying the information limitation (reliance on frequency/entropy) through systematic comparison of 10 information types via MutBench, to the key finding that the optimal information source differs by pathogen, culminating in multi-source integration with practical vaccine escape enrichment.\relax }}{8}{figure.caption.9}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {3.1}{\ignorespaces 3-Layer Ground Truth Framework. Layer\nobreakspace {}A (convergent evolution) defines true positives for MCC computation, Layer\nobreakspace {}B (purifying selection) defines true negatives for constrained FPR, and Layer\nobreakspace {}C (DMS fitness) provides independent experimental validation. The three layers capture orthogonal dimensions of mutational importance.\relax }}{33}{figure.caption.14}%
