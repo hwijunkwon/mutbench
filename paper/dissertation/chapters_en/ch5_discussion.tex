@@ -78,6 +78,23 @@ The underlying cause is that pathogen-specific genomic characteristics create fu
 These findings are formalizable within Rice's algorithm selection problem~\cite{rice1976algorithm}: the problem space $\mathcal{P}$ consists of pathogens characterized by genomic profiles, the algorithm space $\mathcal{A}$ comprises 780 scoring--detection combinations, and the interaction dominance ($\omega^2 = 0.296$) demonstrates that the mapping $f: \mathcal{P} \to \mathcal{A}$ is non-trivial---consistent with the No Free Lunch theorem~\cite{wolpert1997nfl}---though unlike the theoretical NFL result, which applies to all possible problem distributions, the empirical finding here is grounded in a specific, biologically meaningful problem class (11 RNA viruses with documented functional sites) and therefore provides stronger practical evidence for pathogen-adaptive selection than the abstract theorem alone.
 The ESM-2 cross-paradigm validation (Section~\ref{subsec:esm_validation}) reinforces this: ESM-LLR ranked 1st for SARS-CoV-2 but last for Norovirus, confirming that no single scoring paradigm dominates.
 
+\subsection{Comparison with Prior Work}
+\label{sec:comparison_prior_work}
+
+The finding that optimal methods differ across pathogens is consistent with several independent lines of evidence from the literature, though each prior study addressed a different aspect of the problem.
+
+\textbf{EVEREST}~\cite{gurev2025everest} benchmarked variant effect prediction (VEP) methods across 45 viral DMS datasets and found that protein language models substantially underperform alignment-based approaches on viral proteins, with prediction reliability varying dramatically across pathogens. This parallels MutBench's finding that the optimal \textit{information source} is pathogen-dependent ($\omega^2 = 0.296$). However, EVEREST evaluates per-mutation fitness prediction (continuous Spearman correlation), whereas MutBench evaluates per-region hotspot detection (binary MCC classification). The convergence of both studies on the pathogen-dependence conclusion---despite addressing fundamentally different problems---strengthens the generality of this finding.
+
+\textbf{Maher et al.}~\cite{maher2022predicting} analyzed multiple feature types (frequency, phylogenetic, structural) for predicting SARS-CoV-2 variant emergence and found that combining features outperformed any single feature. MutBench's EqualWeight integration result (H3N2 escape enrichment 4.012$\times$, $p = 0.0023$, where single features did not reach significance) is consistent with this finding and extends it to 11 pathogens, showing that the benefit of multi-source integration generalizes beyond SARS-CoV-2.
+
+\textbf{Hie et al.}~\cite{hie2021learning} demonstrated that protein language model semantic similarity captures viral escape potential. MutBench confirms this for specific pathogens: semantic change is the best-performing scoring type for EV-A71 (MCC = 0.260), but not for others (e.g., HCV, where frequency dominates). This pathogen-specificity was not observable in Hie et al.'s single-pathogen analysis.
+
+\textbf{Bailey et al.}~\cite{bailey2018comprehensive} established in cancer genomics that different driver detection tools produce substantially different gene lists, motivating comprehensive benchmarking. MutBench's cross-pathogen finding mirrors this at a different biological scale: just as cancer driver tools disagree on which genes are drivers, viral hotspot methods disagree on which positions are hotspots---and this disagreement is structured by pathogen biology rather than being random.
+
+\textbf{ProteinGym}~\cite{notin2023proteingym} showed that VEP model performance varies across the 217 DMS assays in its benchmark. While ProteinGym focuses on human and model organism proteins, MutBench demonstrates the same pattern in viral proteins, with the additional finding that the choice of \textit{input information type}---not just the computational model---is the dominant performance factor.
+
+In summary, the pathogen-dependence of optimal methods is not unique to MutBench but appears to be a general principle across variant effect prediction (EVEREST, ProteinGym), feature analysis (Maher et al.), escape prediction (Hie et al.), and driver detection (Bailey et al.). MutBench's contribution is to quantify this dependence through variance decomposition ($\omega^2 = 0.296$) and to demonstrate its practical consequence through vaccine escape cross-validation (up to 9.36-fold enrichment).
+
 The demonstrated necessity of pathogen-adaptive selection raises the question of how to interpret the absolute performance levels achieved.
 
 %% ============================================================

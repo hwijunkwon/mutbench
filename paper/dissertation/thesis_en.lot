@@ -26,9 +26,9 @@
 \contentsline {table}{\numberline {4.10}{\ignorespaces Ground truth heterogeneity analysis across 12 pathogens. All pathogens are dominated by immune\_escape-tagged positions, yet the best discriminative feature differs across pathogens. ``Consistent'' indicates whether the best feature remains unchanged when restricting to immune\_escape-only positions.\relax }}{124}{table.caption.78}%
 \contentsline {table}{\numberline {4.11}{\ignorespaces Best vaccine escape enrichment per pathogen (20 scoring $\times $ 39 detectors, Fisher's exact test). Enrichment is the ratio of observed to expected overlap. Only the top scoring type per pathogen is shown; all achieve $p < 0.05$.\relax }}{125}{table.caption.79}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {5.1}{\ignorespaces Region-overlap MCC analysis for oracle combinations under three evaluation modes (11 pathogens, 20 scoring types)\relax }}{136}{table.caption.81}%
-\contentsline {table}{\numberline {5.2}{\ignorespaces Vaccine/antibody escape position validation (Stage\nobreakspace {}1 single-scoring analysis; see Table\nobreakspace {}\ref {tab:vaccine_escape_stage3} for the full 20-scoring benchmark results with higher enrichment values)\relax }}{137}{table.caption.82}%
-\contentsline {table}{\numberline {5.3}{\ignorespaces Recommended scoring categories by virus family, based on cross-pathogen benchmark results\relax }}{141}{table.caption.86}%
+\contentsline {table}{\numberline {5.1}{\ignorespaces Region-overlap MCC analysis for oracle combinations under three evaluation modes (11 pathogens, 20 scoring types)\relax }}{138}{table.caption.81}%
+\contentsline {table}{\numberline {5.2}{\ignorespaces Vaccine/antibody escape position validation (Stage\nobreakspace {}1 single-scoring analysis; see Table\nobreakspace {}\ref {tab:vaccine_escape_stage3} for the full 20-scoring benchmark results with higher enrichment values)\relax }}{140}{table.caption.82}%
+\contentsline {table}{\numberline {5.3}{\ignorespaces Recommended scoring categories by virus family, based on cross-pathogen benchmark results\relax }}{143}{table.caption.86}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {6.1}{\ignorespaces Summary of MutBench limitations and mitigation status\relax }}{151}{table.caption.89}%
-\contentsline {table}{\numberline {6.2}{\ignorespaces Prioritized future research roadmap\relax }}{153}{table.caption.90}%
+\contentsline {table}{\numberline {6.1}{\ignorespaces Summary of MutBench limitations and mitigation status\relax }}{153}{table.caption.89}%
+\contentsline {table}{\numberline {6.2}{\ignorespaces Prioritized future research roadmap\relax }}{155}{table.caption.90}%

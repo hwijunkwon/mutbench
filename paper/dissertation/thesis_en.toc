@@ -88,26 +88,27 @@
 \contentsline {subsection}{\numberline {5.2.3}Homoplasy-Based Scoring as an Alternative}{133}{subsection.5.2.3}%
 \contentsline {section}{\numberline {5.3}Cross-Pathogen Generalization}{134}{section.5.3}%
 \contentsline {subsection}{\numberline {5.3.1}Implications of Cross-Pathogen Generalization}{134}{subsection.5.3.1}%
-\contentsline {subsection}{\numberline {5.3.2}Upper Bound of Detection Performance}{135}{subsection.5.3.2}%
-\contentsline {section}{\numberline {5.4}Practical Implications and Fundamental Limitations}{136}{section.5.4}%
-\contentsline {subsection}{\numberline {5.4.1}Vaccine Escape Position Validation}{137}{subsection.5.4.1}%
-\contentsline {subsection}{\numberline {5.4.2}Cross-Validation via Vaccine Escape Enrichment}{138}{subsection.5.4.2}%
-\contentsline {subsection}{\numberline {5.4.3}Practical Considerations for Public Health Surveillance}{139}{subsection.5.4.3}%
-\contentsline {subsection}{\numberline {5.4.4}Practical Application Workflow for New Pathogens}{139}{subsection.5.4.4}%
-\contentsline {paragraph}{Step 1: Sequence collection.}{139}{section*.83}%
-\contentsline {paragraph}{Step 2: Feature computation.}{140}{section*.84}%
-\contentsline {paragraph}{Step 3: Scoring category selection.}{140}{section*.85}%
-\contentsline {paragraph}{Step 4: Detection and evaluation.}{140}{section*.87}%
-\contentsline {paragraph}{Computational requirements.}{141}{section*.88}%
-\contentsline {subsection}{\numberline {5.4.5}Phylogenetic Non-Independence and Scalability Limits}{141}{subsection.5.4.5}%
-\contentsline {subsection}{\numberline {5.4.6}Representativeness and Sampling Bias of GISAID Data}{142}{subsection.5.4.6}%
-\contentsline {subsection}{\numberline {5.4.7}ESM-2 Training Data Overlap}{143}{subsection.5.4.7}%
-\contentsline {subsection}{\numberline {5.4.8}Ground Truth Heterogeneity Across Pathogens}{146}{subsection.5.4.8}%
-\contentsline {subsection}{\numberline {5.4.9}Scope Justification: 11 RNA Viruses}{147}{subsection.5.4.9}%
-\contentsline {chapter}{\numberline {6}Conclusion}{149}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Summary of Research Contributions}{149}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Limitations}{151}{section.6.2}%
-\contentsline {section}{\numberline {6.3}Future Research Directions}{153}{section.6.3}%
-\contentsline {section}{\numberline {6.4}Concluding Remarks}{155}{section.6.4}%
-\contentsline {chapter}{References}{157}{section*.92}%
-\contentsline {chapter}{Abstract (Korean)}{178}{section*.94}%
+\contentsline {subsection}{\numberline {5.3.2}Comparison with Prior Work}{135}{subsection.5.3.2}%
+\contentsline {subsection}{\numberline {5.3.3}Upper Bound of Detection Performance}{137}{subsection.5.3.3}%
+\contentsline {section}{\numberline {5.4}Practical Implications and Fundamental Limitations}{139}{section.5.4}%
+\contentsline {subsection}{\numberline {5.4.1}Vaccine Escape Position Validation}{139}{subsection.5.4.1}%
+\contentsline {subsection}{\numberline {5.4.2}Cross-Validation via Vaccine Escape Enrichment}{140}{subsection.5.4.2}%
+\contentsline {subsection}{\numberline {5.4.3}Practical Considerations for Public Health Surveillance}{141}{subsection.5.4.3}%
+\contentsline {subsection}{\numberline {5.4.4}Practical Application Workflow for New Pathogens}{141}{subsection.5.4.4}%
+\contentsline {paragraph}{Step 1: Sequence collection.}{142}{section*.83}%
+\contentsline {paragraph}{Step 2: Feature computation.}{142}{section*.84}%
+\contentsline {paragraph}{Step 3: Scoring category selection.}{142}{section*.85}%
+\contentsline {paragraph}{Step 4: Detection and evaluation.}{143}{section*.87}%
+\contentsline {paragraph}{Computational requirements.}{143}{section*.88}%
+\contentsline {subsection}{\numberline {5.4.5}Phylogenetic Non-Independence and Scalability Limits}{144}{subsection.5.4.5}%
+\contentsline {subsection}{\numberline {5.4.6}Representativeness and Sampling Bias of GISAID Data}{145}{subsection.5.4.6}%
+\contentsline {subsection}{\numberline {5.4.7}ESM-2 Training Data Overlap}{146}{subsection.5.4.7}%
+\contentsline {subsection}{\numberline {5.4.8}Ground Truth Heterogeneity Across Pathogens}{148}{subsection.5.4.8}%
+\contentsline {subsection}{\numberline {5.4.9}Scope Justification: 11 RNA Viruses}{149}{subsection.5.4.9}%
+\contentsline {chapter}{\numberline {6}Conclusion}{151}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Summary of Research Contributions}{151}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Limitations}{153}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Future Research Directions}{155}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Concluding Remarks}{157}{section.6.4}%
+\contentsline {chapter}{References}{159}{section*.92}%
+\contentsline {chapter}{Abstract (Korean)}{180}{section*.94}%
