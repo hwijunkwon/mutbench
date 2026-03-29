@@ -1,4 +1,4 @@
-\begin{thebibliography}{99}
+\begin{thebibliography}{98}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -632,14 +632,6 @@ Matthew McCallum, Anna De~Marco, Florian~A. Lempp, M.~Alejandra Tortorici, Dora
   for {SARS-CoV-2}.
 \newblock \emph{Cell}, 184\penalty0 (9):\penalty0 2332--2347, 2021.
 \newblock \doi{10.1016/j.cell.2021.03.028}.
-
-\bibitem[Nei and Gojobori(1986)]{nei1986simple}
-Masatoshi Nei and Takashi Gojobori.
-\newblock Simple methods for estimating the numbers of synonymous and
-  nonsynonymous nucleotide substitutions.
-\newblock \emph{Molecular Biology and Evolution}, 3\penalty0 (5):\penalty0
-  418--426, 1986.
-\newblock \doi{10.1093/oxfordjournals.molbev.a040410}.
 
 \bibitem[Murrell et~al.(2013)Murrell, Moola, Mabona, Weighill, Sheward,
   Kosakovsky~Pond, and Scheffler]{murrell2013fubar}

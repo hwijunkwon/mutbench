@@ -5,7 +5,7 @@
 This chapter presents the methodology of MutBench, an experimental framework for analyzing which factors---biological information type, detection method category, and pathogen characteristics---influence viral mutation hotspot detection performance.
 The overall pipeline processes multiple sequence alignment (MSA) data from 11 RNA viruses through 20 scoring types and 14 detection method families spanning 5 categories (threshold-based, signal processing, density/clustering, statistical, and adaptive window), with 39 parameter variants, evaluating results against a 3-layer ground truth system using the hotspot-score composite metric and Matthews Correlation Coefficient (MCC).
 The evaluation follows a two-stage design: Stage~1 conducts in-depth analysis on SARS-CoV-2 to validate the framework components, and Stage~2 extends the evaluation to all 11 pathogens for large-scale cross-pathogen comparison.
-Section~\ref{sec:mutbench_materials} describes the materials (target pathogens, ground truth framework, and DMS data), Sections~\ref{sec:mutbench_methods}--\ref{sec:eval_stat_design} present the methods: Section~\ref{sec:mutbench_methods} covers the benchmark framework design including MutClust variants and the hotspot-score metric, Section~\ref{sec:scoring_detection} describes the scoring types and detection method families, and Section~\ref{sec:eval_stat_design} details the evaluation metrics and statistical analysis design.
+Section~\ref{sec:mutbench_materials} describes the materials (target pathogens, ground truth framework, and DMS data), Sections~\ref{sec:mutbench_methods}--\ref{sec:eval_stat_design} present the methods: Section~\ref{sec:mutbench_methods} covers the benchmark framework design including the MutClust variant comparison and three-component architecture, Section~\ref{sec:scoring_detection} describes the scoring types and detection method families, and Section~\ref{sec:eval_stat_design} details the evaluation metrics and statistical analysis design.
 \label{sec:9pathogen_benchmark}
 
 %% ============================================================
@@ -417,110 +417,28 @@ The genome-wide distribution of these functional regions is visualized in Figure
 
 \subsubsection{Component 2: Detection Methods}
 
-Five MutClust variants and two baseline methods are comparatively evaluated.
-The characteristics of each variant are summarized in Table~\ref{tab:variants}.
-
-\begin{table}[htbp]
-\centering
-\caption{Detection methods evaluated in MutBench}
-\label{tab:variants}
-\footnotesize
-\adjustbox{max width=\textwidth}{
-\begin{tabular}{lp{2.5cm}p{8cm}}
-\toprule
-\textbf{Method} & \textbf{Code Name} & \textbf{Key Characteristic} \\
-\midrule
-MutClust-Original & v1-original & Original expand\_cluster (cumulative decay bug) \\
-MutClust-Fixed & v2a-bugfix & Corrected single-step decay formula \\
-MutClust-dNdS & v2b-bugfix+dnds & Fixed + dN/dS positive selection filter \\
-MutClust-Hybrid & v2c-full & CCM seeds + HDBSCAN boundaries + dN/dS \\
-HDBSCAN-Auto & v3-hdbscan & Pure HDBSCAN automatic clustering \\
-\midrule
-Frequency Baseline & --- & Top 10th percentile H-score threshold + gap-based grouping \\
-Sliding Window & --- & 20-position moving average + 10th percentile threshold \\
-\bottomrule
-\end{tabular}
-}
-\end{table}
+In Stage~1, five MutClust variants and two baseline methods are comparatively evaluated on SARS-CoV-2.
+In Stage~2, the benchmark expands to 14 detection method families (39 parameter variants) spanning five algorithmic categories, as described in Section~\ref{sec:scoring_detection}.
 
 \subsubsection{Component 3: Evaluation Metrics}
 
-Position-level precision, recall, F1, enrichment ratio, subsampling stability, and the hotspot-score newly defined in this study are used as evaluation metrics.
+Position-level precision, recall, F1, enrichment ratio, MCC, and the hotspot-score composite metric are used.
+Stage~1 uses hotspot-score (incorporating subsampling stability); Stage~2 adopts MCC as the primary metric (see Section~\ref{subsec:9pathogen_metrics} for the rationale).
 
-\subsubsection{Five MutClust Variants}
-\label{subsec:variants}
+\phantomsection\label{subsec:variants}
+\phantomsection\label{subsec:mutbench_hscore}
+\phantomsection\label{subsec:improvements}
+\phantomsection\label{subsec:hotspot_score}
 
-\subsubsection{H-score Computation}
-\label{subsec:mutbench_hscore}
+\subsubsection{MutClust and Stage~1 Variant Comparison}
 
-MutClust computes an H-score for each genomic position:
-\begin{equation}
-H_i = \log_2(P_i \times E_i \times 100 + 1)
-\label{eq:mutbench_hscore}
-\end{equation}
-where $P_i$ is the sum of mutation proportions at position $i$ and $E_i$ is the Shannon entropy of mutation types (Eq.~\ref{eq:shannon_entropy}).
-\begin{equation}
-E_i = -\sum_{j=1}^{k} p_{ij} \log_2 p_{ij}
-\label{eq:shannon_entropy}
-\end{equation}
+Among the 14 detection families, MutClust~\cite{youn2025mutclust} is the only virus-specific hotspot detection tool and serves as the starting point for this study.
+MutClust uses the H-score ($H_i = \log_2(P_i \times E_i \times 100 + 1)$, where $P_i$ is mutation frequency and $E_i$ is Shannon entropy) to score each position, followed by adaptive DBSCAN clustering with $\varepsilon = \gamma \times H_i$.\phantomsection\label{eq:mutbench_hscore}\phantomsection\label{eq:shannon_entropy}\phantomsection\label{eq:expand_cluster}
+Five variants were tested in Stage~1: the original implementation (v1, with a cumulative decay bug), the bug-fixed version (v2a), a dN/dS-filtered version (v2b), a CCM-seed + HDBSCAN hybrid (v2c), and a pure HDBSCAN baseline (v3).
+MutClust-Hybrid (v2c) achieved the highest hotspot-score (0.778) in Stage~1 validation.
+In the Stage~2 cross-pathogen benchmark, only MutClust-Orig (v1) is retained as one of the 14 detection families, as the focus shifts from algorithm comparison to information-type analysis.
 
-Positions satisfying the CCM (Core Candidate Mutation) criteria---H-score above a threshold, sufficient neighbor density, and minimum point count---are selected as seeds.
-The expand\_cluster function extends each seed bidirectionally using dependency-based decay:
-\begin{equation}
-D_\epsilon(t) = D_\epsilon^{\text{CCM}} - \frac{t}{d}
-\label{eq:expand_cluster}
-\end{equation}
-where $D_\epsilon^{\text{CCM}} = \lceil \gamma \times H_{\text{seed}} \rceil$ is the initial dependency range, $t$ is the distance from the seed, and $d$ is the decay factor.
-
-\subsubsection{Bug Fix and dN/dS Filter (MutClust-Fixed, MutClust-dNdS)}
-\label{subsec:improvements}
-
-MutClust-Original contained a cumulative decay bug causing 71--95\% loss of theoretical detection range; MutClust-Fixed corrects this by computing the range directly from the seed.
-MutClust-dNdS adds post-detection filtering via the Nei--Gojobori dN/dS ratio~\cite{nei1986simple}, retaining only clusters under positive selection (dN/dS $> 1.0$).
-
-\textbf{Nucleotide vs. amino acid level.}
-Evaluation is performed at the nucleotide level (Spike gene: 3,822 nt). Since ground truth is defined at the amino acid level, each AA position is expanded to 3 codon positions.
-
-\subsubsection{HDBSCAN Hybrid (MutClust-Hybrid)}
-
-MutClust-Hybrid combines CCM seed detection with HDBSCAN's~\cite{campello2013hdbscan} automatic boundary determination: (1)~identify seeds via MutClust's CCM criteria, (2)~collect non-zero H-score positions within each seed's dependency range, (3)~cluster candidates via HDBSCAN in a 2D feature space (normalized position, H-score), and (4)~apply dN/dS filtering.
-The overall complexity is $O(NM + M \log M)$, executing in approximately 2 seconds for $N = 10{,}000$ sequences.
-
-\subsubsection{Pure HDBSCAN (HDBSCAN-Auto)}
-
-HDBSCAN-Auto bypasses MutClust entirely, applying HDBSCAN directly to positions above an adaptive threshold (median of non-zero H-scores) with min\_cluster\_size $= 5$ and min\_samples $= 3$.
-
-\subsubsection{Combined Evaluation Metric (Hotspot-score)}
-\label{subsec:hotspot_score}
-
-The hotspot-score, one of the key methodological features of this study, is a composite evaluation metric that integrates three complementary perspectives:
-
-\begin{equation}
-\text{hotspot-score} = \frac{\text{recall} + \text{precision} + \text{stability}}{3}
 \label{eq:hotspot_score}
-\end{equation}
-
-\begin{itemize}
-\item \textbf{Recall}: The proportion of known functional positions captured within detected hotspot regions. It evaluates biological relevance---does the method find what is important?
-\item \textbf{Precision}: The proportion of detected positions that overlap with ground truth. It evaluates specificity---does the method avoid false positives?
-\item \textbf{Stability}: The mean Jaccard similarity between the full-data detection and 100 subsampling runs (80\% position retention, position-level zeroing). It evaluates reproducibility---does the method produce consistent results under data perturbation?
-\end{itemize}
-
-The three components receive equal weights. In viral surveillance applications, a method with high accuracy but instability under data perturbation is less practical than a method with moderate accuracy and high reproducibility; including stability as an equal component reflects this requirement.
-
-\textbf{Why a composite metric rather than individual metrics?}
-Individual metrics alone cannot determine an overall ``best'' method because they can be trivially maximized at the expense of others.
-A method that declares the entire genome as a hotspot achieves recall $= 1.0$ but precision $\approx 0$.
-Conversely, reporting only the single most confident position yields precision $\approx 1.0$ but recall $\approx 0$.
-The hotspot-score resolves this by requiring simultaneous high performance across all three dimensions.
-Importantly, the hotspot-score does not replace individual metrics---all three components (recall, precision, stability) are reported separately in every results table (Tables~\ref{tab:hotspot_scores}, \ref{tab:hotspot_scores}), allowing readers to examine each dimension independently.
-The composite score serves only for \textit{ranking} methods; the individual components serve for \textit{understanding why} a method ranks where it does.
-
-\textbf{Why not F1 + stability?}
-F1 collapses recall and precision into a single value, thereby obscuring their individual interaction with stability.
-For example, HDBSCAN-Auto has a low F1 (0.146) but high recall (0.944) and stability (0.788).
-Under an F1 + stability structure, this method would be undervalued, whereas under the (recall + precision + stability)/3 structure, the high recall and stability are appropriately reflected.
-The weight sensitivity analysis (Section~\ref{subsec:weight_sensitivity_methods}) confirms that MutClust-Hybrid maintains rank~1 in 71.9\% of 171 weight combinations, demonstrating that the ranking is robust to the specific choice of equal weights.
 
 %% ============================================================
 \subsection{Scoring and Detection Methods}
@@ -776,7 +694,9 @@ Layer B (constrained regions) is not included in MCC computation and is evaluate
 \item \textbf{DMS F1}: F1 score against Layer C DMS ground truth (computed only for 6 pathogens with DMS data).
 \end{itemize}
 
-While Stage~1 uses hotspot-score (which includes stability) for in-depth single-pathogen analysis, Stage~2 adopts MCC as the primary metric because stability has not been validated for cross-pathogen comparability and MCC provides a balanced evaluation for the extreme class imbalance present in multi-pathogen evaluation.
+Stage~1 uses the hotspot-score composite metric, defined as $\text{hotspot-score} = (\text{recall} + \text{precision} + \text{stability}) / 3$, where stability is the mean Jaccard similarity across 100 random 80\% subsampling iterations.
+This metric balances detection accuracy with reproducibility.
+Stage~2 uses MCC as the primary metric instead, because the stability component requires subsampling validation that has not been cross-validated across all 11 pathogens with their varying alignment lengths and MSA sizes.
 This design decision is motivated by three considerations.
 First, the stability component measures bootstrap reproducibility under position-level subsampling, but the subsampling behavior differs fundamentally across pathogens with different alignment lengths (340--1,330 AA) and MSA sizes (530--5,019 unique sequences), making cross-pathogen stability values non-comparable.
 Second, MCC utilizes all four cells of the confusion matrix (TP, TN, FP, FN), providing a balanced evaluation under the extreme class imbalance inherent in hotspot detection (positive rates 1--16\% across the 11 pathogens).

@@ -296,25 +296,13 @@ MSA 서열 (11개 병원체)
 ![SARS-CoV-2 Spike 게놈 핫스팟 지도](figures/genome_hotspot_map.png)
 
 
-#### 3.2.2 Five MutClust Variants
+#### 3.2.2 MutClust와 평가 지표
 
-| 변형 | 설명 |
-|------|------|
-| MutClust-Orig | 원래 CCM + DBSCAN |
-| MutClust-Fixed | 고정 파라미터 DBSCAN |
-| MutClust-HDBSCAN | CCM + HDBSCAN |
-| MutClust-Hybrid | CCM 시드 + HDBSCAN 경계 (최적 균형) |
-| MutClust-Ensemble | 다중 방법 앙상블 |
+**MutClust**: 14개 탐지 패밀리 중 유일한 바이러스 전용 도구. H-score (H = log₂(freq × entropy × 100 + 1))로 점수화 후 적응적 DBSCAN으로 클러스터링. Stage 1에서 5개 변형(원본, 버그수정, dN/dS 필터, HDBSCAN 하이브리드, 순수 HDBSCAN)을 비교하여 Hybrid가 최고 성능(hotspot-score 0.778)을 달성. Stage 2에서는 MutClust-Orig를 14개 패밀리 중 하나로 포함.
 
-#### 3.2.3 Combined Evaluation Metric (Hotspot-score)
-
-Stage 1에서 사용:
-
-```
-hotspot-score = (recall + precision + stability) / 3
-```
-
-Stage 2에서는 **MCC**를 핵심 지표로 사용 (stability는 cross-pathogen 비교에서 제외)
+**평가 지표**:
+- Stage 1: hotspot-score = (recall + precision + stability) / 3 — 탐지 정확도와 재현성을 동시 평가
+- Stage 2: **MCC** (Matthews Correlation Coefficient) — 극심한 클래스 불균형(양성 0.7~15.9%)에서 F1보다 공정. TP/TN/FP/FN 모두 고려. stability는 병원체 간 서열 수/길이 차이로 cross-pathogen 비교에 부적합하여 제외
 
 ### 3.3 Scoring and Detection Methods (점수화 및 탐지 방법)
 
