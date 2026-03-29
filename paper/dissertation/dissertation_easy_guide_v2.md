@@ -279,7 +279,6 @@ DMS Layer C 가용 병원체: SARS-CoV-2, H3N2, HIV-1, RSV, **Rabies**, **EV-A71
 
 #### 3.2.1 MutBench Framework Architecture
 
-![MutBench Pipeline](figures/mutbench_pipeline.png)
 
 
 ```
