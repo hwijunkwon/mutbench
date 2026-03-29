@@ -1,4 +1,4 @@
-# MutBench 학위논문 비전공자용 상세 설명서 (v2, v100 반영)
+# MutBench 학위논문 비전공자용 상세 설명서 (v2, v103 반영)
 
 **한줄 요약**: 바이러스 변이 핫스팟을 찾는 방법이 여러 개 있는데, 어떤 방법이 좋은지 비교할 기준이 없었습니다. 이 논문이 그 기준(MutBench)을 만들고, "만능 방법은 없다"는 것을 증명한 뒤, 10가지 생물학적 정보를 통합 분석하여 어떤 정보가 핵심적인지 밝히고, 실험 탐색 범위를 최대 9.36배 축소(3개 병원체, p<0.0001)할 수 있음을 검증했습니다.
 
@@ -148,6 +148,11 @@ ESM-2 (Meta AI, 6.5억 파라미터), Tranception, EVEscape 등 단백질 언어
 | **ConDor** (2024) | 계통수에서 수렴 변이를 탐지하는 도구 | 단일 탐지 도구. 벤치마크 프레임워크가 아님 |
 
 **공통된 한계**: 위 연구들은 (1) 단일 방법만 제안하거나, (2) 단일 바이러스만 테스트하거나, (3) 탐지 방법 간 비교를 하지 않습니다. **"다수의 탐지 방법을 다수의 바이러스에 대해 표준화된 정답 기준으로 체계적으로 비교"하는 연구는 MutBench가 최초**입니다. 특히 EVEREST(2025)가 "최적 VEP 방법이 바이러스마다 다르다"는 결론을 독립적으로 도출한 것은, MutBench의 "만능 방법 없음" 발견과 상호 보완적 증거를 제공합니다.
+
+**MutBench의 EVEREST 대비 고유 기여 3가지:**
+1. **scoring×pathogen ANOVA**: 정보 유형 선택이 알고리즘보다 23배 중요하다는 정량적 분해 (EVEREST에 없음)
+2. **vaccine escape 교차 검증**: 벤치마크 최적 scoring이 실제 escape 포착도 최대화 (최대 9.36배, EVEREST에 없음)
+3. **바이러스별 scoring 추천 테이블**: DMS 없이도 즉시 적용 가능한 가이드 (EVEREST에 없음)
 
 [테이블: Table 2.1 — Benchmark comparison across related studies]
 
@@ -458,6 +463,19 @@ Stage 1 최적(MutClust-Hybrid)이 다른 바이러스에서는 순위 하락 �
 | MERS | freq | 빈도 기반 | KDE(p=85) | **0.196** |
 
 **11/11 고유 최적 조합**. 9개의 서로 다른 점수화 유형이 최적으로 나타남. 6개 카테고리 전체에 걸쳐 분포.
+
+**각 병원체별 생물학적 근거:**
+- **H3N2 (FUBAR)**: 수십 년 계통수에서 양성선택 신호가 강함. dN/dS 기반 방법에 최적
+- **Norovirus (homoplasy)**: GII.4 에포크 진화 → 수렴 변이가 AUC 0.944로 거의 완벽한 예측
+- **SARS-CoV-2 (Tranception)**: 2019년 이후 얕은 계통 → PLM이 넓은 코로나바이러스 진화 맥락 보상
+- **RSV (ESM-2)**: 제한된 계통 다양성 → PLM이 대안 신호
+- **EV-A71 (semantic change)**: VP1 항원 표면 기능 변화 포착
+- **Rabies (stability)**: G 단백질 pH 의존 구조 전환 제약
+- **HCV (freq)**: 과변이 영역(HVR1/HVR2) quasispecies 포화로 빈도가 직접 신호
+- **HIV-1 (entropy)**: 높은 quasispecies 다양성, 엔트로피가 변이 분포 포착
+- **Dengue (entropy_with_indel)**: 4가지 혈청형 간 변이 + indel이 E 단백질 에피토프에서 중요
+- **MERS (freq)**: 희소 샘플링(<500 서열), 복잡한 방법은 통계적 힘 부족
+- **Influenza B (freq)**: Victoria/Yamagata 이중 계통 구조 → 빈도가 이중 분포 직접 반영
 
 ![20 scoring x 11 pathogen MCC 히트맵](figures/stage3_scoring_pathogen_heatmap.png)
 
