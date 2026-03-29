@@ -142,7 +142,7 @@ MSA의 각 아미노산 위치에 대해, 다양한 생물학적 정보를 활�
 - **한계**: 비용이 높고, pseudovirus 사용 (실제 바이러스와 차이 가능), in vitro ≠ in vivo
 - **가용성 격차**: EVEREST 45개 DMS 포함, WHO 우선순위 바이러스 절반 이상에서 DMS 부재. 본 연구에서는 6개 병원체의 DMS를 Layer C 독립 검증으로 활용
 
-#### 2.1.3 Feature Importance Analysis and Related Benchmarks
+#### 2.1.3 선행 연구와 본 연구의 차이
 
 지금까지 살펴본 정보 유형(빈도, 엔트로피, 계통, PLM, 구조)을 개별적으로 활용한 연구는 있지만, **이들을 체계적으로 비교**한 연구는 없습니다.
 
@@ -182,13 +182,6 @@ EVEREST(Marks lab, 2025)는 MutBench와 가장 가까운 연구이며, "최적 �
 | **DMS 필요 여부** | 필수 (평가 기준 자체가 DMS) | 선택적 (Layer C 보조 검증, DMS 없이도 Layer A로 평가 가능) |
 
 핵심 차이: EVEREST는 **"어떤 예측 모델이 좋은가"**를, MutBench는 **"어떤 정보가 어떤 바이러스에 유효한가"**를 분석합니다. EVEREST는 정보 유형을 고정하고 모델을 비교하지만, MutBench는 정보 유형 자체를 비교 대상으로 삼습니다.
-
-#### 2.1.4 Algorithm Selection and Benchmarking Methodology
-
-위의 공백을 메우기 위해서는 체계적 벤치마크가 필요합니다. 벤치마크 설계에는 다음 원칙이 적용됩니다:
-
-1. **중립 평가 원칙** (Weber et al., 2019): 방법 개발자가 자기 방법을 평가하면 편향
-2. **알고리즘 선택 문제** (Rice, 1976): 문제 특성에 따라 최적 알고리즘이 다름
 
 ### 2.2 MutClust: Adaptive Density-Based Hotspot Detection (MutClust 선행 연구)
 
