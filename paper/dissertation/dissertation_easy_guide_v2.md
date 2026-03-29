@@ -121,39 +121,28 @@ MSA의 각 아미노산 위치에 대해, 다양한 생물학적 정보를 활�
 
 **점수화 공정성에 대한 주의사항:**
 
-점수화 유형 간 비교에서 완전한 공정성이 보장되지는 않습니다:
-- 빈도/엔트로피는 MSA만으로 계산 가능하지만, FUBAR는 코돈 정렬+트리, PLM은 GPU+학습 데이터에 의존합니다.
-- AI 기반이 5가지로 가장 많고 빈도 기반이 3가지 → 카테고리별 기회 불균등. 이를 보정하기 위해 6-카테고리 수준 ANOVA(ω²=0.103)를 추가 수행하여 결론의 견고성을 확인하였습니다.
-- Layer A(정답)가 빈도와 상관(rho=0.973) → Layer C(DMS)로 독립 검증을 수행하였습니다.
+점수화 유형은 서로 다른 스케일(freq: 0~1, homoplasy: 0~53, plddt_inv: 0~100)을 가지나, 탐지 방법 대부분이 내부적으로 스케일을 보정합니다:
+- FreqThresh, AdaptiveKnee: percentile 기반 → 스케일 무관
+- KDE: percentile threshold 적용 → 스케일 무관
+- SlidingTest: t-test 통계량 → 스케일 무관
+- SWAN: 윈도우 내 z-정규화 → 스케일 무관
+
+따라서 외부 정규화 없이도 대부분의 탐지 방법은 공정하게 작동합니다. 추가로:
+- 카테고리별 scoring 수 불균등 → 6-카테고리 수준 ANOVA(ω²=0.103)로 보정 확인
+- Layer A(정답)와 빈도 상관(rho=0.973) → Layer C(DMS)로 독립 검증
 
 본 연구에서는 20가지 점수화 × 14개 탐지 패밀리(39 변형) × 11개 바이러스 = **8,580회** 평가를 수행합니다.
 
-**3단계: 실험 검증 (후속 연구)**
+**3단계: 실험 검증 — DMS(Deep Mutational Scanning)를 활용한 독립 검증**
 
-식별된 핫스팟이 실제로 생물학적으로 중요한지 실험실에서 검증합니다. 본 연구에서는 DMS(Deep Mutational Scanning) 데이터를 활용하여 이 검증을 간접적으로 수행합니다.
+식별된 핫스팟이 생물학적으로 의미 있는지는 궁극적으로 실험실에서 검증해야 합니다. DMS는 단백질의 **모든 가능한 아미노산 치환**을 체계적으로 생성하고, 각 치환의 기능적 영향(결합력, 세포 침입, 복제 효율)을 정량 측정하는 실험으로, 가장 직접적인 실험적 정답 기준입니다.
 
-#### 2.1.2 Deep Mutational Scanning as Ground Truth
+- **왜 정답 기준인가**: 편향 없이 포괄적이며 실험적 (계산 예측이 아닌 직접 측정)
+- **주요 DMS 연구**: Starr 2020 (SARS-CoV-2 RBD), Dadonaite 2024 (전체 Spike), Lee 2018 (H3N2 HA)
+- **한계**: 비용이 높고, pseudovirus 사용 (실제 바이러스와 차이 가능), in vitro ≠ in vivo
+- **가용성 격차**: EVEREST 45개 DMS 포함, WHO 우선순위 바이러스 절반 이상에서 DMS 부재. 본 연구에서는 6개 병원체의 DMS를 Layer C 독립 검증으로 활용
 
-2단계에서 식별된 핫스팟이 **생물학적으로 의미 있는지** 평가하려면 정답 기준이 필요합니다. 가장 직접적인 실험적 정답이 DMS입니다.
-
-DMS는 단백질의 **모든 가능한 아미노산 치환**을 체계적으로 생성하고, 각 치환의 기능적 영향(결합력, 세포 침입, 복제 효율 등)을 정량 측정하는 실험입니다.
-
-- **왜 정답 기준인가**: 편향 없이 포괄적이며 실험적. 계산 예측이 아닌 직접 측정.
-- **주요 연구**: Starr et al. 2020 (SARS-CoV-2 RBD ACE2 결합), Dadonaite et al. 2024 (전체 Spike 세포 침입), Lee et al. 2018 (H3N2 HA 아미노산 선호도)
-- **한계**: 비용이 높고, pseudovirus 시스템 사용 (실제 바이러스와 다를 수 있음), in vitro 결과가 in vivo를 완전히 반영하지 못함
-- **가용성 격차**: EVEREST가 45개 바이러스 DMS 데이터셋을 수집했으나, WHO 우선순위 바이러스의 절반 이상에서 DMS 데이터가 부재. 본 연구에서 6개 병원체의 DMS를 Layer C로 사용.
-
-#### 2.1.3 Protein Language Models for Variant Effect Prediction
-
-빈도/엔트로피/계통 분석은 모두 **관찰된 서열 데이터**에 기반합니다. 이와 달리, 단백질 언어모델(PLM)은 수억 개의 단백질 서열에서 **진화적 제약**을 학습하여 관찰되지 않은 변이의 효과도 예측할 수 있습니다. 본 연구에서는 PLM 점수를 핫스팟 탐지의 추가 정보 유형으로 활용합니다.
-
-- **ESM-2** (Meta AI, 6.5억 파라미터): UniRef에서 학습. Log-Likelihood Ratio(LLR)로 각 위치의 변이 허용도를 측정. 바이러스 단백질은 학습 데이터에서 소수이므로 과적합 위험.
-- **Tranception**: 자기회귀 모델로 서열 전체를 좌→우 순서로 예측. 검색 증강(retrieval augmentation)으로 진화 맥락 보강.
-- **EVEscape**: EVE 적합도 + 구조적 접근성 + 면역 제시를 결합. 팬데믹 이전 데이터로 Omicron 돌파변이를 성공적으로 예측.
-- **AlphaMissense**: AlphaFold 기반, 인간 단백질에 최적화 → 바이러스 적용은 제한적.
-- **EVEREST 발견**: PLM이 바이러스 단백질에서 정렬 기반 방법보다 성능이 낮음 → 본 연구에서도 PLM이 특정 바이러스에서만 최적.
-
-#### 2.1.4 Feature Importance Analysis and Related Benchmarks
+#### 2.1.3 Feature Importance Analysis and Related Benchmarks
 
 지금까지 살펴본 정보 유형(빈도, 엔트로피, 계통, PLM, 구조)을 개별적으로 활용한 연구는 있지만, **이들을 체계적으로 비교**한 연구는 없습니다.
 
@@ -194,7 +183,7 @@ EVEREST(Marks lab, 2025)는 MutBench와 가장 가까운 연구이며, "최적 �
 
 핵심 차이: EVEREST는 **"어떤 예측 모델이 좋은가"**를, MutBench는 **"어떤 정보가 어떤 바이러스에 유효한가"**를 분석합니다. EVEREST는 정보 유형을 고정하고 모델을 비교하지만, MutBench는 정보 유형 자체를 비교 대상으로 삼습니다.
 
-#### 2.1.5 Algorithm Selection and Benchmarking Methodology
+#### 2.1.4 Algorithm Selection and Benchmarking Methodology
 
 위의 공백을 메우기 위해서는 체계적 벤치마크가 필요합니다. 벤치마크 설계에는 다음 원칙이 적용됩니다:
 

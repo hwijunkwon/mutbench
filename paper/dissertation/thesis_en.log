@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2022/dev/Debian) (preloaded format=xelatex 2026.3.7)  29 MAR 2026 18:58
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2022/dev/Debian) (preloaded format=xelatex 2026.3.7)  29 MAR 2026 19:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2054,21 +2054,27 @@ Overfull \hbox (25.28523pt too wide) in paragraph at lines 244--247
 ich is higher for well-characterized
  []
 
-[144] [145] [146]
-Overfull \hbox (13.88629pt too wide) in paragraph at lines 265--266
+[144]
+Overfull \hbox (1.93216pt too wide) in paragraph at lines 248--249
+\TU/TeXGyreTermes(0)/m/n/10.95 benchmark employ internal scale normalization. F
+reqThresh and AdaptiveKnee
+ []
+
+[145] [146]
+Overfull \hbox (13.88629pt too wide) in paragraph at lines 267--268
 \TU/TeXGyreTermes(0)/m/n/10.95 for H3N2 vs. frequency for Influenza B; frequenc
 y for HCV vs. entropy_with_indel
  []
 
 
-Overfull \hbox (15.21571pt too wide) in paragraph at lines 265--266
+Overfull \hbox (15.21571pt too wide) in paragraph at lines 267--268
 \TU/TeXGyreTermes(0)/m/n/10.95 within-family heterogeneity strengthens rather t
 han weakens the pathogen-adaptive
  []
 
-) (./chapters_en/ch6_conclusion.tex [147]
+[147]) (./chapters_en/ch6_conclusion.tex [148]
 Chapter 6.
-[148
+[149
 
 ]
 Overfull \hbox (14.91154pt too wide) in paragraph at lines 17--23
@@ -2088,13 +2094,13 @@ Overfull \hbox (4.85588pt too wide) in paragraph at lines 24--29
 hment analysis across 3 pathogens
  []
 
-[149] [150]
+[150] [151]
 Overfull \hbox (11.78304pt too wide) in paragraph at lines 65--68
 []\TU/TeXGyreTermes(0)/m/n/10.95 The phylogenetic non-independence of frequency
 -based scores (Section [][]5.4.5[][])
  []
 
-[151]
+[152]
 Overfull \hbox (9.62958pt too wide) in paragraph at lines 103--108
 []\TU/TeXGyreTermes(0)/m/n/10.95 The proof-of-concept results reported in Secti
 on [][]4.3[][] establish that homoplasy-
@@ -2112,7 +2118,7 @@ Overfull \hbox (3.6453pt too wide) in paragraph at lines 103--108
 t alternatives such as UShER [[]]
  []
 
-[152]
+[153]
 Overfull \hbox (1.7228pt too wide) in paragraph at lines 111--115
 []\TU/TeXGyreTermes(0)/m/n/10.95 Additional research directions include: (1) ex
 pansion to DNA viruses (HPV,
@@ -2124,7 +2130,7 @@ Overfull \hbox (30.17989pt too wide) in paragraph at lines 111--115
 ation mechanisms (e.g., APOBEC3-
  []
 
-[153]
+[154]
 Overfull \hbox (29.54218pt too wide) in paragraph at lines 122--128
 \TU/TeXGyreTermes(0)/m/n/10.95 scoring $\OMS/cmsy/m/n/10.95 ^^B$ \TU/TeXGyreTer
 mes(0)/m/n/10.95 pathogen interaction ($\OML/cmm/m/it/10.95 ![] \OT1/cmr/m/n/10
@@ -2138,7 +2144,7 @@ Overfull \hbox (3.5978pt too wide) in paragraph at lines 122--128
 damentally pathogen-dependent.
  []
 
-[154])
+[155])
 Overfull \hbox (13.05124pt too wide) in paragraph at lines 131--165
 \TU/TeXGyreTermes(0)/m/n/10.95 (1) feature computation (\TU/lmtt/m/n/10.95 pyth
 on compute_features.py --pathogen H3N2\TU/TeXGyreTermes(0)/m/n/10.95 ),
@@ -2150,13 +2156,13 @@ Overfull \hbox (2.59282pt too wide) in paragraph at lines 131--165
 hon analyze_stage3_stats.py\TU/TeXGyreTermes(0)/m/n/10.95 ). The full 8,580-
  []
 
-[155] (./thesis_en.bbl [156]
+[156] (./thesis_en.bbl [157]
 Underfull \hbox (badness 1009) in paragraph at lines 11--19
 \TU/TeXGyreTermes(0)/m/n/10.95 Gupta, Emma C. Thomson, Ewan M. Harrison, Cather
 ine Ludden,
  []
 
-[157
+[158
 
 ]
 Underfull \hbox (badness 3758) in paragraph at lines 71--76
@@ -2170,13 +2176,13 @@ Underfull \hbox (badness 2753) in paragraph at lines 85--92
 rkas, Stephen F.
  []
 
-[158] [159] [160]
+[159] [160] [161]
 Underfull \hbox (badness 1320) in paragraph at lines 197--201
 \TU/TeXGyreTermes(0)/m/it/10.95 2013, Part II, LNAI 7819\TU/TeXGyreTermes(0)/m/
 n/10.95 , pages 160–172, 2013.  doi: $[][] [] [][][][] []
  []
 
-[161] [162] [163] [164] [165]
+[162] [163] [164] [165] [166]
 Underfull \hbox (badness 2277) in paragraph at lines 385--391
 \TU/TeXGyreTermes(0)/m/n/10.95 Malitsky, Alexandre Fréchette, Holger Hoos, Fran
 k Hutter, Kevin
@@ -2188,25 +2194,25 @@ Underfull \hbox (badness 1194) in paragraph at lines 394--399
 perger, Jost Tobias
  []
 
-[166] [167]
+[167] [168]
 Underfull \hbox (badness 4608) in paragraph at lines 458--467
 []\TU/TeXGyreTermes(0)/m/n/10.95 Alessandro M. Carabelli, Thomas P. Peacock, Lu
 cy G. Thorne,
  []
 
-[168] [169]
+[169] [170]
 Underfull \hbox (badness 1953) in paragraph at lines 534--540
 []\TU/TeXGyreTermes(0)/m/n/10.95 Vicente Mas, Haresh Nair, Harry Campbell, Jose
  A Melero, and
  []
 
-[170] [171] [172] [173]
+[171] [172] [173] [174]
 Underfull \hbox (badness 1281) in paragraph at lines 699--702
 []\TU/TeXGyreTermes(0)/m/n/10.95 Janez Demšar.  Statistical comparisons of clas
 sifiers over multiple
  []
 
-[174] [175]) [176] (./front/abstract_kr.tex
+[175] [176]) [177] (./front/abstract_kr.tex
 Underfull \hbox (badness 10000) in paragraph at lines 178--2
 
  []
@@ -2221,7 +2227,7 @@ Underfull \hbox (badness 1616) in paragraph at lines 3--4
 \TU/NotoSerifCJKKR(0)/m/n/11 필수적이나, 기존 접근법은 변이 빈도와 Shannon 엔트로피에 거의
  []
 
-[177
+[178
 
 ]
 Underfull \hbox (badness 2753) in paragraph at lines 14--19
@@ -2248,13 +2254,13 @@ Underfull \hbox (badness 3557) in paragraph at lines 14--19
 \TU/NotoSerifCJKKR(0)/m/n/11 정보원을 요구하였다(일반화 성공률 0/11). 또한 탐지된 핫스팟이
  []
 
-[178]
+[179]
 Underfull \hbox (badness 1259) in paragraph at lines 20--22
 \TU/NotoSerifCJKKR(0)/m/n/11 변화(EV-A71), 안정성 예측(Rabies), 빈도 기반(HCV, Influenza B
 ,
  []
 
-) [179] (./thesis_en.aux)
+) [180] (./thesis_en.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.5pt have occurred.
@@ -2269,4 +2275,4 @@ Here is how much of TeX's memory you used:
  264 hyphenation exceptions out of 8191
  100i,13n,131p,1012b,892s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on thesis_en.pdf (195 pages).
+Output written on thesis_en.pdf (196 pages).
