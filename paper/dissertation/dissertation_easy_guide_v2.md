@@ -217,7 +217,7 @@ MutClust의 한계 → 벤치마크 필요성:
 - **모기 매개**: Dengue
 - **신경 친화성**: Rabies, EV-A71
 
-[테이블: Table 3.1 — Sequence dataset characteristics for 12 pathogens]
+[테이블: Table 3.1 — Sequence dataset characteristics for 11 pathogens]
 
 | 바이러스 | 단백질 | 서열 수 | 고유 서열 | 길이(AA) |
 |---------|--------|--------|----------|---------|
@@ -365,13 +365,23 @@ MSA 서열 (11개 병원체)
 
 MutClust-Hybrid가 F1=0.785로 최고 균형 (precision 0.968, recall 0.659).
 
+![게놈 핫스팟 분포 지도](figures/genome_hotspot_map.png)
+
 **주의**: 실제 GISAID 데이터에서는 F1이 0.123으로 대폭 하락하였다. 합성 실험은 방법 간 차이 구분 능력을 검증하는 것이 목적.
 
 #### 4.1.2 Multi-Ground Truth Evaluation
 
 [테이블: Table 4.2 — Multi-GT evaluation results]
 
+![Multi-GT 평가 결과 상단](figures/multi_ground_truth_top.png)
+
+![Multi-GT 평가 결과 하단](figures/multi_ground_truth_bottom.png)
+
 **핵심 발견**: 정답 기준에 따라 최적 방법이 달라짐. GT 간 Jaccard 0.006 — 세 GT가 독립적.
+
+![DMS 평가 비교 상단](figures/dms_evaluation_top.png)
+
+![DMS 평가 비교 하단](figures/dms_evaluation_bottom.png)
 
 DMS 검증에서도 Layer A와 Layer C 간 최적 scoring이 상이하여 독립적 평가 차원을 확인하였다.
 
@@ -392,13 +402,19 @@ MutClust variants vs 범용 방법(OPTICS, KDE 등) 비교. 도메인 특화 방
 
 약 1,000개 서열부터 MCC가 안정화됨. 본 벤치마크의 서열 수(662~5,325)는 수렴점 이상.
 
+![서열 수 대비 MCC 수렴 곡선](figures/sample_size_convergence.png)
+
 MutClust-Hybrid가 171가지 가중치 조합 중 71.9%에서 1위를 유지하여 파라미터 민감도가 낮음을 확인.
+
+![파라미터 민감도 히트맵](figures/sensitivity_heatmap.png)
 
 ### 4.3 Cross-Pathogen and Structural Validation
 
 > **이 섹션의 목적**: SARS-CoV-2에서 확인된 프레임워크를 다른 바이러스에 적용해보고, Stage 2 대규모 벤치마크의 필요성을 확인합니다.
 
 SARS-CoV-2 vs H3N2 vs Flu-B 방법 순위를 비교한 결과, Stage 1 최적(MutClust-Hybrid)이 다른 바이러스에서는 순위 하락 → **"범용 방법은 존재하지 않는다"는 첫 번째 직접 증거**.
+
+![교차 병원체 방법 비교](figures/cross_pathogen_comparison.png)
 
 3D 구조 분석: 선형 서열 핫스팟이 공간적으로도 클러스터링됨 (**5.92배** spatial contact enrichment, z=13.34).
 
@@ -446,6 +462,10 @@ SARS-CoV-2 vs H3N2 vs Flu-B 방법 순위를 비교한 결과, Stage 1 최적(Mu
 - **Influenza B (freq)**: Victoria/Yamagata 이중 계통 구조 → 빈도가 이중 분포 직접 반영
 
 ![20 scoring x 11 pathogen MCC 히트맵](figures/stage3_scoring_pathogen_heatmap.png)
+
+![Scoring 카테고리별 MCC 분포](figures/stage3_scoring_category_bar.png)
+
+![FUBAR spotlight 분석](figures/stage3_fubar_spotlight.png)
 
 
 #### 4.4.3 Statistical Analysis
@@ -513,9 +533,9 @@ Precision@k 분석, DMS 임계값 민감도 분석, **Layer A vs Layer C 최적 
 
 #### 4.5.1 Per-Feature Discriminative Power
 
-[테이블: Table 4.9 — Per-feature AUC for 10 features x 9 pathogens]
+[테이블: Table 4.9 — Per-feature AUC for 10 features x 11 pathogens]
 
-![10 feature x 9 pathogen AUC 히트맵](figures/feature_auc_heatmap.png)
+![10 feature x 11 pathogen AUC 히트맵](figures/feature_auc_heatmap.png)
 
 
 | 바이러스 | 가장 효과적인 정보 | AUC |
@@ -547,6 +567,8 @@ Random Forest로 10가지 feature 결합 시 cross-validation AUC:
 
 빈도-엔트로피 상관 0.97 (사실상 동일). homoplasy는 다른 feature와 상관 0.23 이하 (독립적 정보).
 
+![Feature 간 상관관계 히트맵](figures/feature_correlation_heatmap.png)
+
 #### 4.5.4 Feature Ablation Analysis
 
 ![Feature 제거 실험 결과](figures/feature_ablation_bars.png)
@@ -575,6 +597,8 @@ Random Forest로 10가지 feature 결합 시 cross-validation AUC:
 | **H3N2** | FUBAR BF | 계통발생 | Wavelet(t=2.0) | **9.36배** | <0.0001 |
 | **HIV-1** | freq | 빈도 기반 | Wavelet(t=1.5) | **7.19배** | <0.0001 |
 | **SARS-CoV-2** | FUBAR pos.sel. | 계통발생 | FreqThresh(p=85) | **7.63배** | 0.026 |
+
+![탐색 범위 축소 효과](figures/search_space_reduction.png)
 
 **다중 정보 통합 (EqualWeight):**
 
@@ -609,7 +633,9 @@ Layer A 벤치마크에서 최적으로 식별된 scoring 유형 = vaccine escap
 - Correlation-aware: MCC 0.043
 - **EqualWeight: MCC 0.083**
 
-원인: 12개 참조 바이러스로는 13차원 프로파일 공간이 심각하게 부족 (차원-표본 비 약 1.1).
+![AUROC vs MCC 비교](figures/auroc_vs_mcc.png)
+
+원인: 11개 참조 바이러스로는 13차원 프로파일 공간이 심각하게 부족 (차원-표본 비 약 0.85).
 
 단, Oracle MCC = 0.160으로 EqualWeight의 약 2배 → 20~30개 이상 병원체 확보 시 적응적 개선 가능.
 
@@ -762,7 +788,7 @@ Layer A 선정 기준이 병원체마다 다름 (SARS-CoV-2: 수렴 진화, HCV:
 | RNA 바이러스만 | DNA 바이러스(HPV, HBV) 미포함 | 변이 메커니즘이 다르므로 별도 검증 필요 |
 | Founder effect | H-score 파이프라인 내 직접 보정 미통합 | Homoplasy + FUBAR scoring으로 보완 |
 | dN/dS proxy | 단백질 수준 proxy, 빈도와 r=0.87 | FUBAR는 codon alignment 직접 사용 |
-| 적응적 가중치 | 12개 병원체로 학습 부족 | Oracle MCC 0.160 → 확장 시 개선 가능 |
+| 적응적 가중치 | 11개 병원체로 학습 부족 | Oracle MCC 0.160 → 확장 시 개선 가능 |
 
 ### 6.3 Future Research Directions (향후 연구)
 
