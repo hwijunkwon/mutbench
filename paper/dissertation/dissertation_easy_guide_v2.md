@@ -117,19 +117,7 @@ MSA의 각 아미노산 위치에 대해, 다양한 생물학적 정보를 활�
 - **통계 검정**: Sliding window t-test, Bayesian change-point, GradPeak, LocalContrast
 - **적응 윈도우**: SWAN (윈도우 크기 자동 조정)
 
-모든 탐지 방법은 동일한 1차원 점수 배열을 입력으로 받으므로, 탐지 단계의 조건은 공정합니다.
-
-**점수화 공정성에 대한 주의사항:**
-
-점수화 유형은 서로 다른 스케일(freq: 0~1, homoplasy: 0~53, plddt_inv: 0~100)을 가지나, 탐지 방법 대부분이 내부적으로 스케일을 보정합니다:
-- FreqThresh, AdaptiveKnee: percentile 기반 → 스케일 무관
-- KDE: percentile threshold 적용 → 스케일 무관
-- SlidingTest: t-test 통계량 → 스케일 무관
-- SWAN: 윈도우 내 z-정규화 → 스케일 무관
-
-따라서 외부 정규화 없이도 대부분의 탐지 방법은 공정하게 작동합니다. 추가로:
-- 카테고리별 scoring 수 불균등 → 6-카테고리 수준 ANOVA(ω²=0.103)로 보정 확인
-- Layer A(정답)와 빈도 상관(rho=0.973) → Layer C(DMS)로 독립 검증
+모든 탐지 방법은 동일한 1차원 점수 배열을 입력으로 받습니다.
 
 본 연구에서는 20가지 점수화 × 14개 탐지 패밀리(39 변형) × 11개 바이러스 = **8,580회** 평가를 수행합니다.
 
@@ -383,6 +371,15 @@ Stage 2에서는 **MCC**를 핵심 지표로 사용 (stability는 cross-pathogen
 - **Friedman 검정**: 비모수. 상위 20개 조합의 순위 일관성 검정
 - **LOPO**: Leave-One-Pathogen-Out. 10개 학습 → 1개 테스트, 11번 반복
 - **BCa bootstrap CI**: MCC의 신뢰 구간
+
+#### 3.4.3 점수화 공정성 고려사항
+
+점수화 유형 간 비교에서 고려해야 할 사항:
+
+- **스케일 차이**: 점수화 유형마다 값의 범위가 다름 (freq: 0~1, homoplasy: 0~53, plddt: 0~100). 그러나 탐지 방법 대부분이 내부적으로 스케일을 보정 (percentile, t-test, z-정규화 등) → 외부 정규화 없이도 공정하게 작동.
+- **입력 데이터 품질 차이**: 빈도는 MSA만 필요하나, FUBAR는 트리 품질, PLM은 학습 데이터 편향, 구조는 예측 정확도에 의존. 이 차이는 완전히 통제할 수 없으며 Discussion에서 한계로 논의.
+- **카테고리별 scoring 수 불균형**: AI 기반 5개 vs homoplasy 1개 → 6-카테고리 수준 ANOVA(ω²=0.103)로 카테고리 수 보정 후에도 결론 일관.
+- **Layer A와 빈도 상관**: Layer A 정답이 빈도와 상관(rho=0.973) → Layer C(DMS)로 독립 검증 수행.
 
 
 \newpage
