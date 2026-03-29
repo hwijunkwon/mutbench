@@ -125,23 +125,7 @@ DMS는 단백질의 **모든 가능한 아미노산 치환**을 체계적으로 
 - **AlphaMissense**: AlphaFold 기반, 인간 단백질에 최적화 → 바이러스 적용은 제한적.
 - **EVEREST 발견**: PLM이 바이러스 단백질에서 정렬 기반 방법보다 성능이 낮음 → 본 연구에서도 PLM이 특정 바이러스에서만 최적.
 
-#### 2.1.4 Viral Genomic Surveillance Platforms
-
-핫스팟 탐지와 혼동될 수 있는 기존 바이러스 감시 시스템이 존재하지만, 이들과 MutBench는 목적이 근본적으로 다릅니다.
-
-| 시스템 | 목적 | 답하는 질문 |
-|--------|------|-----------|
-| **Nextstrain** | 계통 추적 + 지리적 확산 시각화 | "어떤 변이주가 어디서 퍼지고 있는가?" |
-| **PANGO** | 변이주 분류 체계 | "이 서열은 어떤 변이주(BA.2.86, JN.1 등)인가?" |
-| **MutBench** | 핫스팟 탐지 방법 비교·평가 | "어떤 **위치**에서 중요한 변이가 발생할 가능성이 높은가?" |
-
-이 시스템들이 핫스팟 탐지의 대안이 될 수 없는 이유:
-
-1. **분석 단위가 다릅니다**: Nextstrain/PANGO는 "변이주(lineage)" 단위로 작동합니다. "오미크론이 퍼지고 있다"는 알려주지만, "Spike 484번 위치가 왜 중요한가"는 답하지 못합니다. 핫스팟 탐지는 "위치(position)" 단위 분석입니다.
-2. **시점이 다릅니다**: 감시 플랫폼은 **이미 나타난 변이**를 사후 추적합니다. 핫스팟 탐지는 **앞으로 중요한 변이가 나타날 가능성이 높은 위치**를 사전에 식별하는 것입니다.
-3. **방법 평가를 하지 않습니다**: 감시 플랫폼은 최종 사용자 도구이지, 탐지 알고리즘을 비교·평가하는 프레임워크가 아닙니다.
-
-#### 2.1.5 Feature Importance Analysis and Related Benchmarks
+#### 2.1.4 Feature Importance Analysis and Related Benchmarks
 
 지금까지 살펴본 정보 유형(빈도, 엔트로피, 계통, PLM, 구조)을 개별적으로 활용한 연구는 있지만, **이들을 체계적으로 비교**한 연구는 없습니다. 관련 연구들의 공통 한계를 정리합니다:
 
@@ -164,7 +148,7 @@ DMS는 단백질의 **모든 가능한 아미노산 치환**을 체계적으로 
 
 [테이블: Table 2.1 — Benchmark comparison across related studies]
 
-#### 2.1.6 Algorithm Selection and Benchmarking Methodology
+#### 2.1.5 Algorithm Selection and Benchmarking Methodology
 
 위의 공백을 메우기 위해서는 체계적 벤치마크가 필요합니다. 벤치마크 설계에는 다음 원칙이 적용됩니다:
 
