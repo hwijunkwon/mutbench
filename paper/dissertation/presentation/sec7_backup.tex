@@ -1,0 +1,262 @@
+% Section 7: Backup Slides for Q&A
+\section*{Backup Slides}
+
+%% ============================================================
+%% Slide 1: Layer A vs Frequency Correlation (Fairness Issue)
+%% ============================================================
+\begin{frame}[noframenumbering]{Backup: Layer A vs Frequency --- Fairness Concern}
+  \scriptsize
+  \begin{columns}[T]
+    \begin{column}{0.48\textwidth}
+      \begin{block}{The Concern}
+        \begin{itemize}
+          \item Layer~A positions have \highlight{higher mutation frequency}
+          \item Frequency-based scoring may exploit this
+          \item \textbf{Question:} Is the benchmark circular?
+        \end{itemize}
+      \end{block}
+      \begin{block}{Why \highlight{NOT} Circular}
+        \begin{itemize}
+          \item Convergent evolution requires emergence in $\geq$3 lineages
+          \item D614G: highest freq but \highlight{low} convergence (homoplasy = 2)
+          \item Pos.\ 476: moderate freq but \highlight{highest} homoplasy (53)
+        \end{itemize}
+      \end{block}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{figure}
+        \includegraphics[width=\textwidth,max height=\maxfigheight]{stage3_fairness_scatter.png}
+      \end{figure}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}[noframenumbering]{Backup: Layer C as Independent Validation}
+  \scriptsize
+  \begin{columns}[T]
+    \begin{column}{0.48\textwidth}
+      \begin{block}{Layer C: DMS Ground Truth}
+        \begin{itemize}
+          \item DMS: \highlight{every} substitution tested in lab
+          \item \highlight{Completely independent} of evolutionary frequency
+          \item Available for 6/11 pathogens
+        \end{itemize}
+      \end{block}
+      \begin{block}{Independence from Layer A}
+        \begin{itemize}
+          \item Spearman $\rho$: n.s.\ for \highlight{4/6} pathogens
+          \item 6/6: \highlight{different best scoring type}
+          \item Jaccard = \highlight{0.006}
+        \end{itemize}
+      \end{block}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{figure}
+        \includegraphics[width=\textwidth,max height=\maxfigheight]{stage3_layer_a_vs_c.png}
+      \end{figure}
+      {\scriptsize Layer~C provides \highlight{frequency-independent} validation.}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+%% ============================================================
+%% Slide 2: Detailed ANOVA Table
+%% ============================================================
+\begin{frame}[noframenumbering]{Backup: Full Three-Way ANOVA Results}
+  \footnotesize
+  \begin{table}
+    \centering
+    \caption*{Three-way ANOVA: $\omega^2$ effect sizes on MCC ($n = 2{,}544$)}
+    \adjustbox{max width=\textwidth}{
+    \begin{tabular}{llr}
+      \toprule
+      \textbf{Factor} & \textbf{Type} & \textbf{$\omega^2$} \\
+      \midrule
+      scoring $\times$ pathogen & Two-way interaction & \highlight{0.296} \\
+      pathogen & Main effect & 0.117 \\
+      family $\times$ pathogen & Two-way interaction & 0.082 \\
+      scoring & Main effect & 0.063 \\
+      scoring $\times$ family & Two-way interaction & 0.039 \\
+      family & Main effect & 0.013 \\
+      \midrule
+      \multicolumn{2}{l}{\textbf{Total explained}} & \textbf{0.610} \\
+      \bottomrule
+    \end{tabular}
+    }
+  \end{table}
+  Confirmed by Kruskal-Wallis (all $p < 10^{-12}$).
+\end{frame}
+
+\begin{frame}[noframenumbering]{Backup: ANOVA Robustness --- Category-Level Replication}
+  \footnotesize
+  \begin{block}{Concern: Collinearity Among 20 Scoring Types}
+    Several scoring types share an information source (e.g., freq, freq\_with\_indel, rare\_freq). Could this inflate the interaction effect?
+  \end{block}
+  \begin{columns}[T]
+    \begin{column}{0.48\textwidth}
+      \begin{block}{6-Category ANOVA (aggregated)}
+        \begin{itemize}
+          \item 20 scoring types grouped into 6 categories
+          \item $\omega^2_{\text{cat} \times \text{path}} = \highlight{0.103}$ (medium+)
+          \item Comparable to pathogen main effect ($0.117$)
+        \end{itemize}
+      \end{block}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{block}{Generalization Failure}
+        \begin{itemize}
+          \item Friedman $\chi^2 = 7.69$, $p = 0.990$
+          \item LOPO: \highlight{0/11} generalization
+        \end{itemize}
+      \end{block}
+    \end{column}
+  \end{columns}
+  \centering
+  {\small \textbf{Conclusion:} Pathogen-adaptive finding is \highlight{not} an artifact of correlated scoring types.}
+\end{frame}
+
+%% ============================================================
+%% Slide 3: Why Not Use Method X?
+%% ============================================================
+\begin{frame}[noframenumbering]{Backup: Why Not Use Alternative Approaches?}
+  \scriptsize
+  \begin{columns}[T]
+    \begin{column}{0.48\textwidth}
+      \begin{block}{Why not cancer hotspot tools?}
+        \begin{itemize}
+          \item Cancer tools assume somatic mutation model
+          \item Viral mutations: \highlight{population-level} frequency, not clonality
+        \end{itemize}
+      \end{block}
+      \begin{block}{Why not just use DMS?}
+        \begin{itemize}
+          \item DMS available for only \highlight{6/11} pathogens
+          \item DMS captures function but \highlight{not} convergent evolution
+        \end{itemize}
+      \end{block}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{block}{Why DBSCAN over other clustering?}
+        \begin{itemize}
+          \item DBSCAN: \highlight{no predefined cluster count} required
+          \item Adaptive $\varepsilon$ scales with local score
+        \end{itemize}
+      \end{block}
+      \begin{block}{Why 14 detection families?}
+        \begin{itemize}
+          \item \highlight{No single family dominates}: $\omega^2 = 0.013$
+          \item \textit{Scoring choice} matters far more than detection
+        \end{itemize}
+      \end{block}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+%% ============================================================
+%% Slide 4: Per-Pathogen Best Method Table
+%% ============================================================
+\begin{frame}[noframenumbering]{Backup: Complete Per-Pathogen Best Methods}
+  \footnotesize
+  \begin{table}
+    \centering
+    \caption*{Best scoring--detection combination per pathogen (Layer~A MCC)}
+    \adjustbox{max width=\textwidth}{
+    \scriptsize
+    \begin{tabular}{lllrl}
+      \toprule
+      \textbf{Pathogen} & \textbf{Best Scoring} & \textbf{Best Detection} & \textbf{MCC} & \textbf{Category} \\
+      \midrule
+      HCV           & freq              & SlidingTest ($p$=0.01)     & 0.660 & Frequency \\
+      H3N2          & FUBAR BF          & Wavelet ($t$=1.5)          & 0.534 & Phylogenetic \\
+      Norovirus     & homoplasy         & Bayes (prior=0.15)         & 0.510 & MSA-derived \\
+      Influenza~B   & freq              & KDE ($p$=85)               & 0.392 & Frequency \\
+      HIV-1         & entropy           & Wavelet ($t$=2.0)          & 0.275 & MSA-derived \\
+      Dengue        & entropy\_w/indel  & KDE ($p$=85)               & 0.274 & MSA-derived \\
+      EV-A71        & semantic change   & MutClust-Orig              & 0.260 & AI-based \\
+      Rabies        & stability         & SWAN ($w$=20,$k$=2.0)      & 0.248 & AI-based \\
+      SARS-CoV-2    & Tranception       & KDE ($p$=85)               & 0.211 & AI-based \\
+      RSV           & ESM-2 LLR         & Wavelet ($t$=2.0)          & 0.196 & AI-based \\
+      MERS          & freq              & KDE ($p$=85)               & 0.196 & Frequency \\
+      \midrule
+      \multicolumn{3}{l}{\textbf{Mean oracle MCC}} & \textbf{0.341} & \\
+      \bottomrule
+    \end{tabular}
+    }
+  \end{table}
+\end{frame}
+
+\begin{frame}[noframenumbering]{Backup: Layer A vs Layer C Best Methods}
+  \footnotesize
+  \begin{table}
+    \centering
+    \caption*{Best scoring: Layer~A (convergent evol.) vs.\ Layer~C (DMS fitness)}
+    \adjustbox{max width=\textwidth}{
+    \scriptsize
+    \begin{tabular}{lllll}
+      \toprule
+      \textbf{Pathogen} & \textbf{Best (Layer A)} & \textbf{MCC$_A$} & \textbf{Best (Layer C)} & \textbf{MCC$_C$} \\
+      \midrule
+      SARS-CoV-2 & Tranception       & 0.211 & pLDDT inv       & 0.186 \\
+      H3N2       & FUBAR BF          & 0.534 & semantic change & 0.245 \\
+      HIV-1      & entropy           & 0.275 & FUBAR           & 0.139 \\
+      RSV        & ESM-2 LLR         & 0.196 & EVEscape comp.  & 0.180 \\
+      Rabies     & stability         & 0.248 & homoplasy       & 0.182 \\
+      EV-A71     & semantic change   & 0.260 & pLDDT inv       & 0.322 \\
+      \bottomrule
+    \end{tabular}
+    }
+  \end{table}
+  All \highlight{6/6} pathogens have different best scoring types --- ``best method'' is context-dependent.
+\end{frame}
+
+%% ============================================================
+%% Slide 5: Subsample Robustness
+%% ============================================================
+\begin{frame}[noframenumbering]{Backup: Subsample Robustness}
+  \footnotesize
+  \begin{center}
+    \includegraphics[width=0.55\textwidth]{stability_combined.png}
+  \end{center}
+  \begin{block}{Key Results}
+    \begin{itemize}
+      \item Benchmark repeated at \highlight{25\%, 50\%, 75\%, 100\%} of MSA sequences
+      \item Pathogen-average MCC: \highlight{0.054--0.058} (variation $\pm 0.002$)
+      \item Metrics converge at $\sim$\highlight{1K sequences} (Spearman $\rho > 0.997$)
+      \item Results reflect \highlight{intrinsic mutation structure}, not sample size artifacts
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+%% ============================================================
+%% Slide 6: ESM-2 Data Leakage Concern
+%% ============================================================
+\begin{frame}[noframenumbering]{Backup: ESM-2 Training Data Overlap}
+  \footnotesize
+  \begin{columns}[T]
+    \begin{column}{0.48\textwidth}
+      \begin{block}{The Concern}
+        \begin{itemize}
+          \item ESM-2 trained on UniRef50/90 containing viral proteins
+          \item All 11 proteins \highlight{likely in training corpus}
+          \item LLR scores may reflect \highlight{memorized patterns}
+        \end{itemize}
+      \end{block}
+      \begin{block}{Why This Does Not Invalidate Results}
+        \begin{itemize}
+          \item Concern applies \highlight{uniformly} to all 11 pathogens
+          \item \highlight{Relative cross-pathogen comparisons remain valid}
+          \item Main finding is interaction, not absolute performance
+        \end{itemize}
+      \end{block}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{block}{Mitigating Evidence}
+        \begin{itemize}
+          \item ESM-2 LLR best for only \highlight{1/11} pathogens (RSV)
+          \item Ranks 1st for SARS-CoV-2, last for Norovirus --- memorization would yield consistent dominance
+          \item Future: evaluate PLMs trained \highlight{excluding} viral sequences
+        \end{itemize}
+      \end{block}
+    \end{column}
+  \end{columns}
+\end{frame}

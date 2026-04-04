@@ -1,0 +1,346 @@
+% Section 4: Results
+\section{Results}
+
+%% Slide 1: Benchmark Overview
+\begin{frame}{Benchmark Overview: Scale and Scope}
+  \begin{columns}[T]
+    \begin{column}{0.48\textwidth}
+      \begin{block}{Stage 1: Single-Pathogen Validation}
+        \begin{itemize}
+          \item SARS-CoV-2 Spike protein (1,259 AA)
+          \item 5 MutClust variants + 2 baselines
+          \item 3 ground truths: functional, DMS-escape, convergent evolution
+          \item Synthetic: MutClust-Hybrid best (HS = 0.778)
+          \item Real GISAID: F1 drops to 0.123, but \highlight{enrichment $>$ 6.9-fold}
+        \end{itemize}
+      \end{block}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{block}{Stage 2: Cross-Pathogen Benchmark}
+        \begin{itemize}
+          \item \highlight{11 RNA viruses}, 261--1,330 AA
+          \item \highlight{20 scoring} $\times$ 14 detection families (39 variants)
+          \item \highlight{8,580 total evaluations}
+          \item 6 scoring categories: frequency, MSA-derived, phylogenetic, structural, AI-based, composite
+          \item 5 detection categories: threshold, signal processing, density, statistical, adaptive
+        \end{itemize}
+      \end{block}
+    \end{column}
+  \end{columns}
+  \vspace{0.5em}
+  \centering
+  {\small 11 pathogens: SARS-CoV-2, H3N2, Norovirus, HIV-1, Dengue, RSV, Influenza~B, MERS, HCV, Rabies, EV-A71}
+\end{frame}
+
+%% Slide 2: Stage 1 -- Ground Truth Validation
+\begin{frame}{Stage 1: Ground Truth Validation (SARS-CoV-2)}
+  \begin{columns}[T]
+    \begin{column}{0.48\textwidth}
+      \begin{figure}
+        \includegraphics[width=\textwidth,max height=\maxfigheight]{dms_evaluation_top.png}
+        \caption*{\footnotesize DMS-based evaluation: F1 comparison \& effect sizes}
+      \end{figure}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{figure}
+        \includegraphics[width=\textwidth,max height=\maxfigheight]{dms_evaluation_bottom.png}
+        \caption*{\footnotesize DMS scores vs.\ importance \& PR curves}
+      \end{figure}
+    \end{column}
+  \end{columns}
+  \vspace{0.3em}
+  \begin{block}{Key Findings}
+    \begin{itemize}
+      \item Best method \highlight{differs by ground truth}: TC-freq-v2 for functional, Sat.\ H-score for DMS, CH-score for convergent evolution
+      \item Three ground truths are largely non-overlapping (Jaccard = 0.006)
+      \item Method rankings shift between synthetic and real data $\rightarrow$ \highlight{no universal best}
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+%% Slide 3: Cross-Pathogen Comparison
+\begin{frame}{Cross-Pathogen Comparison: Method Rankings Shift}
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.85\textwidth,max height=0.45\textheight]{cross_pathogen_comparison.png}
+    \caption*{\footnotesize Detection method rankings: SARS-CoV-2 vs.\ H3N2}
+  \end{figure}
+  \vspace{0.3em}
+  \begin{itemize}
+    \item SARS-CoV-2: MutClust-Hybrid best $\rightarrow$ H3N2: MutClust-Fixed best
+    \item H3N2 has nonzero H-scores at \highlight{all} 566 positions $\rightarrow$ HDBSCAN loses advantage
+    \item Phylogenetic analysis: H-score conflates founder effects with positive selection ($\rho = -0.876$)
+    \item \highlight{First evidence} that the optimal method is pathogen-dependent
+  \end{itemize}
+\end{frame}
+
+%% Slide 4: 8,580 Evaluations -- Scoring-Pathogen Heatmap
+\begin{frame}{Stage 2: 8,580 Evaluations --- All 11 Pathogens Differ}
+  \begin{columns}[T]
+    \begin{column}{0.55\textwidth}
+      \begin{figure}
+        \includegraphics[width=\textwidth,max height=\maxfigheight]{stage3_scoring_pathogen_heatmap.png}
+        \caption*{\footnotesize Scoring $\times$ pathogen MCC heatmap}
+      \end{figure}
+    \end{column}
+    \begin{column}{0.42\textwidth}
+      \begin{block}{\highlight{11/11 unique best combinations}}
+        {\footnotesize
+        \begin{tabular}{ll}
+          HCV & freq \\
+          H3N2 & FUBAR BF \\
+          Norovirus & homoplasy \\
+          Inf.\ B & freq \\
+          HIV-1 & entropy \\
+          Dengue & entropy+indel \\
+          EV-A71 & sem.\ change \\
+          Rabies & stability \\
+          SARS-CoV-2 & Tranception \\
+          RSV & ESM-2 LLR \\
+          MERS & freq \\
+        \end{tabular}
+        }
+      \end{block}
+      \vspace{0.3em}
+      {\small \highlight{9 distinct scoring types} across 6 categories --- no single method dominates}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+%% Slide 5: ANOVA Decomposition -- omega-squared
+\begin{frame}{Key Finding: Scoring $\times$ Pathogen Interaction Dominates}
+  \begin{columns}[T]
+    \begin{column}{0.55\textwidth}
+      \begin{figure}
+        \includegraphics[width=\textwidth,max height=\maxfigheight]{stage3_anova_decomposition.png}
+        \caption*{\footnotesize Variance decomposition ($\omega^2$ effect sizes)}
+      \end{figure}
+    \end{column}
+    \begin{column}{0.42\textwidth}
+      \begin{block}{Three-Way ANOVA}
+        {\small
+        \begin{tabular}{lr}
+          \textbf{Factor} & $\omega^2$ \\
+          \hline
+          \highlight{scoring $\times$ path.} & \highlight{0.296} \\
+          pathogen & 0.117 \\
+          family $\times$ path. & 0.082 \\
+          scoring & 0.063 \\
+          scoring $\times$ fam. & 0.039 \\
+          family & 0.013 \\
+        \end{tabular}
+        }
+      \end{block}
+      \vspace{0.3em}
+      \begin{alertblock}{Interpretation}
+        {\small \highlight{$\omega^2 = 0.296$}: \textit{which biological information is used} matters more than \textit{which algorithm processes it}\\[0.3em]
+        Cohen's benchmark: $\omega^2 > 0.14$ = large effect}
+      \end{alertblock}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+%% Slide 6: LOPO Cross-Validation
+\begin{frame}{LOPO Cross-Validation: Complete Generalization Failure}
+  \begin{columns}[T]
+    \begin{column}{0.55\textwidth}
+      \begin{figure}
+        \includegraphics[width=\textwidth,max height=\maxfigheight]{stage3_lopo_crossval.png}
+        \caption*{\footnotesize Predicted vs.\ actual best MCC per pathogen}
+      \end{figure}
+    \end{column}
+    \begin{column}{0.42\textwidth}
+      \begin{block}{LOPO Results}
+        \begin{itemize}
+          \item Combination match: \highlight{0/11} (0\%)
+          \item Mean generalization MCC: \highlight{0.032}
+          \item Mean performance gap: \highlight{0.265}
+        \end{itemize}
+      \end{block}
+      \vspace{0.3em}
+      \begin{block}{Friedman Test}
+        \begin{itemize}
+          \item $\chi^2 = 7.69$, $p = 0.990$
+          \item Kendall's $W = 0.037$
+          \item \highlight{No reliably superior} combination across pathogens
+        \end{itemize}
+      \end{block}
+      \vspace{0.3em}
+      {\small $\Rightarrow$ Training-best never generalizes to a new pathogen}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+%% Slide 7: Feature Analysis -- AUC Heatmap and Importance
+\begin{frame}{Information-Type Analysis: Why Methods Differ by Pathogen}
+  \begin{columns}[T]
+    \begin{column}{0.48\textwidth}
+      \begin{figure}
+        \includegraphics[width=\textwidth,max height=\maxfigheight]{feature_auc_heatmap.png}
+        \caption*{\footnotesize Per-feature AUC for Layer~A (11 pathogens)}
+      \end{figure}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{figure}
+        \includegraphics[width=\textwidth,max height=\maxfigheight]{feature_importance_grid.png}
+        \caption*{\footnotesize RF importance by pathogen (10 features)}
+      \end{figure}
+    \end{column}
+  \end{columns}
+  \vspace{0.3em}
+  \begin{itemize}
+    \item \highlight{5 distinct best features} across 11 pathogens: homoplasy, pLDDT, ESM-2, entropy, dN/dS
+    \item Norovirus: homoplasy AUC = \highlight{0.944}; H3N2: pLDDT = 0.787; MERS: ESM-2 = 0.695
+    \item Inverse associations exist (RSV freq = 0.262); multi-feature RF reaches AUC up to 0.899
+  \end{itemize}
+\end{frame}
+
+%% Slide 8: Feature Correlation and Ablation
+\begin{frame}{Feature Correlation Structure and Ablation}
+  \footnotesize
+  \begin{columns}[T]
+    \begin{column}{0.48\textwidth}
+      \begin{figure}
+        \includegraphics[width=\textwidth,max height=\maxfigheight]{feature_correlation_heatmap.png}
+        \caption*{\footnotesize Mean pairwise Spearman correlation (10 features)}
+      \end{figure}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{figure}
+        \includegraphics[width=\textwidth,max height=0.45\textheight]{feature_ablation_bars.png}
+        \caption*{\footnotesize Leave-one-feature-out $\Delta$MCC}
+      \end{figure}
+    \end{column}
+  \end{columns}
+  \vspace{0.3em}
+  \begin{itemize}
+    \item Correlation clusters: freq--entropy--dN/dS ($\rho = 0.87$--$0.97$); \highlight{homoplasy most independent} ($|\rho| < 0.23$)
+    \item Ablation: homoplasy is \highlight{largest contributor} ($\Delta = -0.028$); 4 features capture \highlight{98\%} of full performance
+    \item ESM-2 and SASA: noise on average, but \highlight{best for specific pathogens} $\rightarrow$ motivates adaptive weighting
+  \end{itemize}
+\end{frame}
+
+%% Slide 9: Fairness Analysis -- Layer A vs C
+\begin{frame}{Fairness Analysis: Layer A vs.\ Layer C Independence}
+  \begin{columns}[T]
+    \begin{column}{0.48\textwidth}
+      \begin{figure}
+        \includegraphics[width=\textwidth,max height=\maxfigheight]{stage3_layer_a_vs_c.png}
+        \caption*{\footnotesize Best scoring: Layer~A vs.\ Layer~C (6 DMS pathogens)}
+      \end{figure}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{block}{Layer A $\neq$ Layer C}
+        {\footnotesize
+        \begin{tabular}{lll}
+          \textbf{Pathogen} & \textbf{Best A} & \textbf{Best C} \\
+          \hline
+          SARS-CoV-2 & Tranception & pLDDT inv \\
+          H3N2 & FUBAR BF & sem.\ chg \\
+          HIV-1 & entropy & FUBAR \\
+          RSV & ESM-2 & EVEscape \\
+          Rabies & stability & homoplasy \\
+          EV-A71 & sem.\ chg & pLDDT inv \\
+        \end{tabular}
+        }
+      \end{block}
+      \vspace{0.3em}
+      \begin{itemize}
+        \item All 6 pathogens: best scoring \highlight{differs} between layers
+        \item Rank correlations non-significant for 4/6
+        \item DMS fitness and evolutionary adaptation capture \highlight{different aspects}
+        \item Validates 3-layer ground truth design
+      \end{itemize}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+%% Slide 10: Search Space Reduction and Practical Impact
+\begin{frame}{Practical Impact: Search Space Reduction}
+  \begin{columns}[T]
+    \begin{column}{0.48\textwidth}
+      \begin{figure}
+        \includegraphics[width=\textwidth,max height=\maxfigheight]{search_space_reduction.png}
+        \caption*{\footnotesize H3N2 vaccine escape enrichment}
+      \end{figure}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{block}{Vaccine Escape Validation}
+        {\small
+        \begin{tabular}{lr}
+          \textbf{Pathogen} & \textbf{Enrichment} \\
+          \hline
+          H3N2 (FUBAR) & \highlight{9.36$\times$} ($p < 0.0001$) \\
+          HIV-1 (freq) & 7.19$\times$ ($p < 0.0001$) \\
+          SARS-CoV-2 & 7.63$\times$ ($p = 0.026$) \\
+          \hline
+          \multicolumn{2}{l}{\textit{Multi-source integration:}} \\
+          H3N2 (EqWt) & 4.01$\times$ ($p = 0.002$) \\
+        \end{tabular}
+        }
+      \end{block}
+      \vspace{0.3em}
+      \begin{alertblock}{Practical Value}
+        {\small
+        500 positions $\rightarrow$ \highlight{top 10\% = 50 candidates}\\
+        Hotspots enriched 4--9$\times$ vs.\ random\\
+        Exhaustive search $\rightarrow$ \highlight{guided investigation}
+        }
+      \end{alertblock}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+%% Slide 11: Adaptive Weighting -- Limits and Potential
+\begin{frame}{Multi-Source Integration: Current Limits and Potential}
+  \begin{columns}[T]
+    \begin{column}{0.48\textwidth}
+      \begin{figure}
+        \includegraphics[width=\textwidth,max height=\maxfigheight]{auroc_vs_mcc.png}
+        \caption*{\footnotesize AUROC vs.\ MCC (12 pathogens incl.\ Zika, extended analysis)}
+      \end{figure}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{block}{Integration Strategies}
+        {\small
+        \begin{tabular}{lr}
+          \textbf{Strategy} & \textbf{Mean MCC} \\
+          \hline
+          Oracle (upper bound) & \highlight{0.160} \\
+          EqualWeight & 0.083 \\
+          Top-3 AUC & 0.049 \\
+          Corr-aware & 0.043 \\
+          kNN-weighted & 0.020 \\
+        \end{tabular}
+        }
+      \end{block}
+      \vspace{0.3em}
+      \begin{itemize}
+        \item Oracle \highlight{doubles} EqualWeight $\rightarrow$ strong adaptive potential
+        \item EqualWeight already achieves \highlight{4.01$\times$} vaccine escape enrichment
+        \item Current 11 pathogens insufficient for $k$NN; scalable to 20--30+
+        \item AUROC up to 0.944 $\rightarrow$ strong \highlight{ranking} capability
+      \end{itemize}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+%% Slide 12: Results Summary
+\begin{frame}{Results Summary: Four Lines of Evidence}
+  \small
+  \begin{block}{1. Interaction Dominance}
+    Scoring $\times$ pathogen: \highlight{$\omega^2 = 0.296$} --- largest variance source. \textit{Which information is used} matters most.
+  \end{block}
+  \begin{block}{2. No Universal Best Method}
+    \highlight{11/11 unique} best combinations, 9 distinct scoring types. Friedman $p = 0.990$, $W = 0.037$.
+  \end{block}
+  \begin{block}{3. Generalization Failure}
+    LOPO match rate: \highlight{0/11}. Mean gap = 0.265. Training-best does not transfer.
+  \end{block}
+  \begin{block}{4. Practical Validation}
+    Vaccine escape enrichment up to \highlight{9.36-fold} ($p < 0.0001$); multi-source: 4.01-fold ($p = 0.002$).
+  \end{block}
+  \vspace{0.3em}
+  \centering
+  $\Rightarrow$ \highlight{Pathogen-adaptive method selection is necessary}, not merely beneficial.
+\end{frame}

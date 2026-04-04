@@ -96,7 +96,7 @@ In a typical DMS experiment, a library of mutant variants---each carrying a sing
 These variants are subjected to a selection assay (e.g., receptor binding, viral entry, or replication), and the relative fitness effect of each mutation is quantified by comparing variant frequencies before and after selection using deep sequencing.
 The result is a comprehensive \textit{fitness landscape}: a matrix of fitness scores for every possible substitution at every position in the protein.
 
-DMS is considered the gold standard for characterizing mutational effects because it is \textbf{unbiased} (every position and substitution is tested, not just those observed in nature), \textbf{comprehensive} (thousands of mutations are measured simultaneously in a single experiment), and \textbf{experimental} (fitness effects are directly measured rather than computationally predicted).
+DMS is the gold standard for characterizing mutational effects because it is \textbf{unbiased} (every position and substitution is tested, not just those observed in nature), \textbf{comprehensive} (thousands of mutations are measured simultaneously in a single experiment), and \textbf{experimental} (fitness effects are directly measured rather than computationally predicted).
 Unlike natural sequence variation, which reflects the combined effects of selection, drift, and sampling bias, DMS directly measures the intrinsic functional consequence of each mutation.
 
 Several landmark DMS studies have shaped our understanding of viral protein fitness landscapes.
@@ -154,6 +154,15 @@ A key question for this dissertation is whether PLM-derived scores can serve as 
 The EVEREST benchmark~\cite{gurev2025everest} found that PLMs substantially underperform alignment-based methods on viral proteins, suggesting that the evolutionary patterns learned from predominantly cellular organism sequences may not transfer well to fast-evolving viral proteins.
 Despite the growing adoption of PLMs in protein engineering and variant effect prediction, no systematic comparison of PLM-derived features exists for viral mutation hotspot detection across multiple pathogens.
 In this dissertation, ESM-2 log-likelihood ratios and embedding-derived semantic change scores are evaluated as two of the 10 positional features in the MutBench information-type analysis (Section~\ref{sec:information_analysis}).
+
+\textbf{PLM benchmarking.}
+The most comprehensive benchmark for PLM-based variant effect prediction is ProteinGym~\cite{notin2023proteingym}, which evaluates over 60 predictors on 217 DMS assays spanning 2.7 million substitution variants, primarily from human and model organism proteins.
+ProteinGym has been instrumental in establishing performance rankings among PLMs and alignment-based methods for the per-mutation fitness prediction task: given a specific amino acid substitution at a specific position, predict its continuous fitness effect (evaluated by Spearman correlation against DMS measurements).
+MutBench differs from ProteinGym in three fundamental respects.
+First, the \textit{task} differs: ProteinGym evaluates per-mutation effect prediction (a continuous regression problem), whereas MutBench evaluates per-region hotspot detection (a binary classification problem over genomic regions).
+Second, the \textit{domain} differs: ProteinGym focuses on human and model organism proteins, while MutBench targets viral proteins across 11 pathogens with distinct evolutionary dynamics.
+Third, the \textit{analysis objective} differs: ProteinGym ranks prediction methods, while MutBench quantifies the scoring--pathogen interaction to determine which biological information source is optimal for each virus.
+These distinctions make ProteinGym and MutBench complementary rather than competing: ProteinGym establishes which PLMs best predict individual mutation effects, while MutBench establishes which information types (including but not limited to PLM-derived scores) best identify mutation-enriched genomic regions across diverse pathogens.
 
 \subsection{Viral Genomic Surveillance Platforms}
 \label{subsec:bg_surveillance}
@@ -246,6 +255,7 @@ Specifically, MutBench provides three capabilities absent in EVEREST and other V
 (2)~independent cross-validation via vaccine escape enrichment, demonstrating that benchmark-optimal scoring types also maximize practical escape capture (up to 9.36$\times$);
 and (3)~a concrete pathogen-to-scoring recommendation table enabling immediate application to new pathogens without requiring DMS experimental data.
 Furthermore, MutBench introduces the vaccine escape cross-validation paradigm: the scoring type identified as optimal by the benchmark (Layer~A) also achieves the highest vaccine escape enrichment (up to 9.36$\times$), providing independent practical validation that neither EVEREST nor ProteinGym has demonstrated.
+Table~\ref{tab:benchmark_comparison} summarizes the key differences between MutBench and these related benchmarks.
 
 \begin{table}[htbp]
 \centering
@@ -268,16 +278,7 @@ Cross-pathogen ANOVA & Yes ($\omega^2$) & Partial & No & No \\
 \footnotesize Direct performance comparison between MutBench and ProteinGym/EVEREST is not possible because the tasks differ fundamentally: VEP benchmarks evaluate Spearman correlation between predicted and measured fitness effects (continuous regression), while MutBench evaluates MCC for binary hotspot classification. The benchmarks are complementary rather than competing.
 \end{table}
 
-These benchmarks address variant effect \textit{prediction} (estimating continuous fitness scores for individual mutations), whereas MutBench addresses hotspot \textit{detection} (identifying genomic regions where mutations cluster with functional significance).
-The two problems differ in both the unit of analysis and the evaluation paradigm.
-VEP operates at the \textit{mutation level}: given a specific amino acid substitution at a specific position, predict its fitness effect (a continuous score evaluated by Spearman correlation against DMS measurements).
-Hotspot detection operates at the \textit{region level}: given a genome, identify contiguous or proximal regions enriched for functionally important mutations (a binary classification evaluated by precision, recall, and MCC against ground truth positions).
-The two problems are complementary: VEP methods predict per-mutation effects, while hotspot detection identifies spatial patterns of mutational enrichment.
-Notably, EVEREST's finding that optimal VEP methods differ across viral families~\cite{gurev2025everest} parallels MutBench's central finding that optimal scoring--detection combinations differ across pathogens, suggesting that pathogen-adaptive method selection is a general principle extending beyond hotspot detection to variant effect prediction.
-
-The difference in DMS dataset count (45 in EVEREST vs.\ 4 in MutBench) reflects the distinct evaluation paradigms: EVEREST evaluates per-mutation fitness predictions, where each DMS assay provides thousands of labeled mutations for supervised evaluation. MutBench evaluates per-position hotspot detection, where DMS data serves as an independent ground truth layer (Layer~C) complementing the literature-based Layer~A. Since MutBench's primary evaluation uses Layer~A (convergent evolution positions curated from published studies for all 11 pathogens), DMS availability is not a limiting factor for the main benchmark; Layer~C provides additional validation for the 4 pathogens where DMS data exist.
-
-This gap is the fundamental motivation for MutBench (Chapter~\ref{ch:mutbench}), the core study of this dissertation.
+This gap---systematic multi-pathogen benchmarking for hotspot detection---is the fundamental motivation for MutBench (Chapter~\ref{ch:mutbench}), the core study of this dissertation.
 
 
 
@@ -338,7 +339,9 @@ Despite the achievements of MutClust, three fundamental limitations serve as the
 
 \textbf{First, implementation-level issues.}
 A bug in the diminishing formula of the cluster expansion function causes cumulative rather than linear radius decay, leading to premature termination of cluster expansion and, in certain edge cases, reversal of the decay direction.
-Specifically, the intended linear decay $\varepsilon' = \varepsilon - \delta \times \text{step}$ was implemented as cumulative subtraction, causing the effective epsilon to shrink faster than designed and occasionally become negative when the step count exceeds the expected range.
+
+Specifically, the intended linear decay $\varepsilon' = \varepsilon - \delta \times \text{step}$ was implemented as cumulative subtraction.
+This causes the effective epsilon to shrink faster than designed and occasionally become negative when the step count exceeds the expected range.
 This affects the boundaries of detected hotspots, potentially splitting genuine hotspots into fragments.
 
 \textbf{Second, hardcoded parameters.}

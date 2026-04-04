@@ -1,0 +1,235 @@
+% Section 2: Background
+\section{Background}
+
+%% --- Slide 1: Mutation Hotspot Detection Overview ---
+\begin{frame}{Mutation Hotspot Detection in Viral Genomics}
+  \begin{block}{What are mutation hotspots?}
+    Genomic regions where mutations concentrate non-uniformly, reflecting sites under \highlight{structural or immunological selective pressure}
+  \end{block}
+  \vspace{0.5em}
+
+  \textbf{Why hotspot detection matters:}
+  \begin{enumerate}
+    \item \textbf{Variant emergence prediction} --- identify positions predisposed to future mutations
+    \item \textbf{Vaccine target selection} --- avoid mutable epitopes; target conserved regions
+    \item \textbf{Therapeutic development} --- target structurally constrained positions
+  \end{enumerate}
+  \vspace{0.5em}
+
+  RNA viruses: mutation rates of $10^{-3}$--$10^{-5}$ substitutions/nucleotide/replication cycle\\
+  $\Rightarrow$ High mutation supply $+$ strong selection $=$ pronounced mutational clustering
+\end{frame}
+
+%% --- Slide 2: Existing Detection Approaches ---
+\begin{frame}{Existing Hotspot Detection Approaches}
+  \scriptsize
+  \begin{tabular}{p{2.8cm}p{4.5cm}p{4.5cm}}
+    \toprule
+    \textbf{Approach} & \textbf{Method} & \textbf{Limitations} \\
+    \midrule
+    Frequency-based & Count mutations per position & Lineage bias; ignores rare variants \\[0.3em]
+    Entropy-based & Shannon entropy $+$ K-means & Requires pre-set $k$; no density structure \\[0.3em]
+    Sliding window & Fixed-length window scan & Arbitrary window size; fixed resolution \\[0.3em]
+    Selection-based & dN/dS ratio (MEME, FUBAR) & Per-site only; requires phylogenetic tree \\
+    \bottomrule
+  \end{tabular}
+  \vspace{0.5em}
+
+  \highlight{No single approach} combines spatial clustering with multi-source biological information across diverse viral pathogens
+\end{frame}
+
+%% --- Slide 3: Ground Truth Construction Challenges ---
+\begin{frame}{Ground Truth Construction: Deep Mutational Scanning}
+  \begin{columns}[T]
+    \column{0.55\textwidth}
+    \textbf{Deep Mutational Scanning (DMS):}
+    \begin{itemize}
+      \item Systematically measures fitness effects of \highlight{all possible} single amino acid substitutions
+      \item Saturation mutagenesis $\rightarrow$ selection assay $\rightarrow$ deep sequencing
+      \item Gold standard: \highlight{unbiased}, comprehensive, experimental
+    \end{itemize}
+
+    \vspace{0.5em}
+    \textbf{Key DMS studies:}
+    \begin{itemize}
+      \item Starr et al. --- SARS-CoV-2 RBD binding
+      \item Dadonaite et al. --- Full Spike entry fitness
+      \item Lee et al. --- Influenza H3N2 HA
+      \item Bloom \& Neher --- All SARS-CoV-2 proteins
+    \end{itemize}
+
+    \column{0.42\textwidth}
+    \textbf{DMS limitations:}
+    \begin{itemize}
+      \item[\xmark] Expensive, labor-intensive
+      \item[\xmark] Pseudovirus systems (not authentic virus)
+      \item[\xmark] In vitro $\neq$ in vivo pressures
+      \item[\xmark] \highlight{Sparse coverage}: EVEREST found only 45 DMS datasets across all WHO priority viruses
+    \end{itemize}
+
+    \vspace{0.5em}
+    $\Rightarrow$ DMS alone cannot be universal ground truth\\
+    $\Rightarrow$ Motivates \highlight{3-layer ground truth} design
+  \end{columns}
+\end{frame}
+
+%% --- Slide 4: Multi-Layer Ground Truth Concept ---
+\begin{frame}{Multi-Source Information and Multi-Layer Concept}
+  \begin{columns}[T]
+    \column{0.48\textwidth}
+    \textbf{10 information types evaluated:}
+    \begin{itemize}
+      \item Mutation frequency, entropy
+      \item H-score (freq $\times$ entropy)
+      \item dN/dS ratio, FUBAR, MEME scores
+      \item Homoplasy scores
+      \item ESM-2 log-likelihood ratio
+      \item ESM-2 semantic change
+      \item PLM-derived features
+    \end{itemize}
+
+    \vspace{0.5em}
+    \textbf{Key insight from prior work:}\\
+    EVEscape showed combining evolutionary fitness $+$ structural $+$ immune features outperforms any single component
+
+    \column{0.48\textwidth}
+    \begin{figure}
+      \centering
+      \includegraphics[width=\textwidth,max height=\maxfigheight]{3layer_gt_concept.png}
+      \caption*{\small Three-layer ground truth concept}
+    \end{figure}
+    \vspace{0.3em}
+    \begin{itemize}
+      \item \textbf{Layer A}: Frequency-based (all 11 pathogens)
+      \item \textbf{Layer B}: Selection-based (dN/dS enrichment)
+      \item \textbf{Layer C}: DMS-based (where available)
+    \end{itemize}
+  \end{columns}
+\end{frame}
+
+%% --- Slide 5: Positive Selection Detection Methods ---
+\begin{frame}{Positive Selection Detection: dN/dS and Beyond}
+  \small
+  \begin{block}{Core concept}
+    $\omega = dN/dS$: ratio of non-synonymous to synonymous substitution rates\\
+    $\omega > 1$ $\Rightarrow$ \highlight{positive selection};\quad $\omega = 1$ $\Rightarrow$ neutral;\quad $\omega < 1$ $\Rightarrow$ purifying selection
+  \end{block}
+  \vspace{0.3em}
+
+  \begin{columns}[T]
+    \column{0.48\textwidth}
+    \textbf{Codon-based methods:}
+    \begin{itemize}
+      \item \textbf{MEME} --- Mixed Effects Model of Evolution; detects \highlight{episodic} positive selection (subset of branches)
+      \item \textbf{FUBAR} --- Bayesian per-site selection pressure estimate
+      \item Both from HyPhy framework
+    \end{itemize}
+
+    \vspace{0.3em}
+    \textbf{Requirements:}
+    \begin{itemize}
+      \item Reliable phylogenetic tree
+      \item Codon-aligned sequences
+      \item Not always available for all pathogens
+    \end{itemize}
+
+    \column{0.48\textwidth}
+    \begin{figure}
+      \centering
+      \includegraphics[width=\textwidth,max height=\maxfigheight]{dnds_enrichment.png}
+      \caption*{\small dN/dS enrichment analysis}
+    \end{figure}
+    \vspace{0.2em}
+    In MutBench: MEME and FUBAR scores serve as information types for cross-pathogen comparison
+  \end{columns}
+\end{frame}
+
+%% --- Slide 6: Density-Based Clustering and MutClust ---
+\begin{frame}{Density-Based Clustering: From DBSCAN to MutClust}
+  \begin{columns}[T]
+    \column{0.50\textwidth}
+    \textbf{DBSCAN limitations for viral data:}
+    \begin{itemize}
+      \item \highlight{Fixed global $\varepsilon$} cannot handle density variation
+      \item SARS-CoV-2: default $\rightarrow$ 99.76\% in 1 cluster; tuned $\rightarrow$ only 4
+      \item HDBSCAN: adaptive density, but no biological info integration
+    \end{itemize}
+    \vspace{0.3em}
+
+    \textbf{MutClust} innovations:
+    \begin{itemize}
+      \item \textbf{H-score}: $H_i = \log_2(P_i \times E_i \times 100 + 1)$
+      \item \textbf{Adaptive $\varepsilon$}: $\varepsilon_i = \gamma \times H_i$
+      \item Detected \highlight{477 hotspots} (vs.\ DBSCAN's 4)
+    \end{itemize}
+
+    \column{0.47\textwidth}
+    \textbf{MutClust limitations} $\Rightarrow$ MutBench:
+    \begin{itemize}
+      \item \highlight{Cumulative radius decay}: premature cluster termination
+      \item \highlight{Hardcoded params}: $\gamma\!=\!10$, $d\!=\!3$ fitted to SARS-CoV-2 only
+      \item \highlight{No independent GT}: self-referential bootstrap
+      \item \highlight{Single info type}: only freq $+$ entropy (H-score)
+    \end{itemize}
+    \vspace{0.3em}
+    $\Rightarrow$ Need systematic benchmark with multi-source ground truth
+  \end{columns}
+\end{frame}
+
+%% --- Slide 7: Benchmarking Gap ---
+\begin{frame}{Benchmarking Gap in Viral Hotspot Detection}
+  \begin{columns}[T]
+    \column{0.48\textwidth}
+    \textbf{Related benchmarks:}
+    \vspace{0.3em}
+
+    \begin{tabular}{p{2cm}cc}
+      \toprule
+      & \textbf{Task} & \textbf{Domain} \\
+      \midrule
+      ProteinGym & VEP & General \\
+      EVEREST & VEP & Viral \\
+      Bailey '18 & Detection & Cancer \\
+      \highlight{MutBench} & \highlight{Detection} & \highlight{Viral} \\
+      \bottomrule
+    \end{tabular}
+    \vspace{0.5em}
+
+    \textbf{EVEREST finding}: PLMs \highlight{underperform} alignment-based methods on viral proteins; performance gap is pathogen-dependent
+    \column{0.48\textwidth}
+    \textbf{What is missing:}
+    \begin{itemize}
+      \item[\xmark] No standardized datasets for viral hotspots
+      \item[\xmark] No composite evaluation metrics
+      \item[\xmark] No cross-pathogen comparison
+      \item[\xmark] No scoring--pathogen interaction analysis
+    \end{itemize}
+
+    \vspace{0.5em}
+    \textbf{MutBench uniquely provides:}
+    \begin{itemize}
+      \item[\cmark] 3-layer ground truth, 11 pathogens
+      \item[\cmark] 780 method combinations (20 scoring $\times$ 39 detection)
+      \item[\cmark] Three-way ANOVA ($\omega^2 = 0.296$)
+      \item[\cmark] Vaccine escape cross-validation (up to 9.36$\times$)
+      \item[\cmark] Pathogen-to-scoring recommendation table
+    \end{itemize}
+  \end{columns}
+\end{frame}
+
+%% --- Slide 8: Key Definitions ---
+% BACKUP SLIDE
+\begin{frame}[noframenumbering]{Appendix: Key Definitions}
+  \small
+  \begin{description}
+    \item[Mutation hotspot] Genomic region with statistically significant concentration of mutations, reflecting functional importance
+    \item[H-score] $H_i = \log_2(P_i \times E_i \times 100 + 1)$; combines mutation frequency ($P$) and diversity ($E$)
+    \item[Adaptive $\varepsilon$] Position-specific clustering radius: $\varepsilon_i = \gamma \times H_i$; wider for biologically significant positions
+    \item[dN/dS ($\omega$)] Ratio of non-synonymous to synonymous substitution rates; $\omega > 1$ indicates positive selection
+    \item[DMS] Deep Mutational Scanning --- experimental measurement of all single-residue fitness effects
+    \item[PLM] Protein Language Model (e.g., ESM-2) --- learns evolutionary plausibility from sequence patterns
+    \item[Hotspot-score] Composite evaluation metric balancing precision, recall, and specificity
+    \item[No Free Lunch] No single algorithm outperforms all others across all problem instances $\Rightarrow$ optimal method is \highlight{pathogen-dependent}
+    \item[Algorithm selection] Rice's framework: map problem features to the best-performing algorithm per instance
+  \end{description}
+\end{frame}

@@ -37,6 +37,11 @@ os.makedirs(FIG_DIR2, exist_ok=True)
 # ── Load data ──────────────────────────────────────────────────────────
 df = pd.read_csv(os.path.join(RESULTS, "stage3_full_results.csv"))
 fairness = pd.read_csv(os.path.join(RESULTS, "fairness_analysis.csv"))
+
+# ── Pathogen display labels (underscore → space) ───────────────────────
+PATHOGEN_DISPLAY = {"Influenza_B": "Influenza B"}
+df["pathogen"] = df["pathogen"].replace(PATHOGEN_DISPLAY)
+fairness["pathogen"] = fairness["pathogen"].replace(PATHOGEN_DISPLAY)
 layer_c = pd.read_csv(os.path.join(RESULTS, "layer_c_evaluation.csv"))
 
 print(f"Loaded {len(df)} evaluations: {df['scoring'].nunique()} scorings × "
@@ -351,7 +356,7 @@ for j, p in enumerate(pivot.columns):
     ax.texts[row_idx * len(pivot.columns) + j].set_fontweight("bold")
     ax.texts[row_idx * len(pivot.columns) + j].set_fontsize(9)
 
-ax.set_title("Stage 3: Mean MCC by Scoring Method × Pathogen", fontsize=14, pad=12)
+ax.set_title("Mean MCC by Scoring Method × Pathogen (11 Pathogens)", fontsize=14, pad=12)
 ax.set_xlabel("Pathogen")
 ax.set_ylabel("Scoring Method")
 plt.yticks(rotation=0)
@@ -374,13 +379,14 @@ bars = ax.bar(cat_mcc["scoring_category"], cat_mcc["mean"],
               yerr=cat_mcc["std"], capsize=5, color=bar_colors,
               edgecolor="black", linewidth=0.8, alpha=0.85)
 
-for bar, val in zip(bars, cat_mcc["mean"]):
-    ax.text(bar.get_x() + bar.get_width() / 2, bar.get_height() + 0.005,
+for bar, val, std in zip(bars, cat_mcc["mean"], cat_mcc["std"]):
+    y_pos = bar.get_height() + std + 0.018  # Well above error bar
+    ax.text(bar.get_x() + bar.get_width() / 2, y_pos,
             f"{val:.4f}", ha="center", va="bottom", fontsize=10, fontweight="bold")
 
 ax.set_ylabel("Mean MCC")
-ax.set_title("Mean MCC by Scoring Category (Stage 3, 11 Pathogens)", fontsize=13)
-ax.set_ylim(bottom=min(0, cat_mcc["mean"].min() - 0.02))
+ax.set_title("Mean MCC by Scoring Category (11 Pathogens)", fontsize=13)
+ax.set_ylim(bottom=min(0, cat_mcc["mean"].min() - 0.02), top=0.22)
 ax.axhline(y=0, color="gray", linestyle="--", alpha=0.5)
 ax.grid(axis="y", alpha=0.3)
 save_fig(fig, "stage3_scoring_category_bar.png")
@@ -412,41 +418,22 @@ s2_resid = 1 - sum(s2_data.values())
 s2_labels = list(s2_data.keys()) + ["Residual"]
 s2_vals = list(s2_data.values()) + [s2_resid]
 
-fig, axes = plt.subplots(1, 2, figsize=(16, 7))
+fig, ax = plt.subplots(1, 1, figsize=(10, 7))
 
-cmap_colors = plt.cm.Set2(np.linspace(0, 1, max(len(s2_labels), len(s3_labels))))
+cmap_colors = plt.cm.Set2(np.linspace(0, 1, len(s3_labels)))
 
-# Stage 2
-ax = axes[0]
-s2_sorted = sorted(zip(s2_vals, s2_labels), reverse=True)
-s2_v, s2_l = zip(*s2_sorted)
-bars = ax.barh(range(len(s2_l)), s2_v, color=cmap_colors[:len(s2_l)],
-               edgecolor="black", linewidth=0.6)
-ax.set_yticks(range(len(s2_l)))
-ax.set_yticklabels(s2_l)
-for i, v in enumerate(s2_v):
-    ax.text(v + 0.005, i, f"{v:.3f}", va="center", fontsize=10)
-ax.set_xlabel("ω² (omega-squared)")
-ax.set_title("Stage 2 (9 pathogens, 9 scoring, 41 det.)", fontsize=12)
-ax.set_xlim(0, max(s2_v) * 1.25)
-ax.invert_yaxis()
-
-# Stage 3
-ax = axes[1]
 s3_sorted = sorted(zip(s3_vals, s3_labels), reverse=True)
 s3_v, s3_l = zip(*s3_sorted)
 bars = ax.barh(range(len(s3_l)), s3_v, color=cmap_colors[:len(s3_l)],
                edgecolor="black", linewidth=0.6)
 ax.set_yticks(range(len(s3_l)))
-ax.set_yticklabels(s3_l)
+ax.set_yticklabels(s3_l, fontsize=11)
 for i, v in enumerate(s3_v):
-    ax.text(v + 0.005, i, f"{v:.3f}", va="center", fontsize=10)
-ax.set_xlabel("ω² (omega-squared)")
-ax.set_title(f"Stage 3 (11 pathogens, 18 scoring, 39 det.)", fontsize=12)
-ax.set_xlim(0, max(s3_v) * 1.25)
+    ax.text(v + 0.005, i, f"{v:.3f}", va="center", fontsize=11)
+ax.set_xlabel("ω² (omega-squared)", fontsize=12)
+ax.set_title("ANOVA Variance Decomposition (11 pathogens, 20 scoring, 39 det.)", fontsize=13, fontweight="bold")
+ax.set_xlim(0, max(s3_v) * 1.2)
 ax.invert_yaxis()
-
-fig.suptitle("ANOVA Variance Decomposition: Stage 2 vs Stage 3", fontsize=14, y=1.02)
 plt.tight_layout()
 save_fig(fig, "stage3_anova_decomposition.png")
 
@@ -699,7 +686,7 @@ ax.set_yticks(y_pos)
 ax.set_yticklabels(lopo_df["pathogen"], fontsize=10)
 ax.set_xlabel("MCC", fontsize=12)
 ax.set_title("Leave-One-Pathogen-Out Cross-Validation: 0/11 Match", fontsize=13)
-ax.legend(fontsize=10)
+ax.legend(fontsize=10, loc='lower right')
 ax.axvline(x=0, color="gray", linestyle="--", alpha=0.5)
 ax.grid(axis="x", alpha=0.3)
 

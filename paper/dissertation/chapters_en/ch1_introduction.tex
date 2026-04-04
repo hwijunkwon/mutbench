@@ -9,6 +9,7 @@ When a new viral pandemic emerges, identifying which positions in the viral geno
 SARS-CoV-2, which emerged in late 2019, caused more than 700 million confirmed cases worldwide, reaffirming the critical importance of viral genome analysis~\cite{harvey2021tracking}.
 Viruses continuously accumulate mutations during replication, and the phenomenon whereby mutations concentrate at specific genomic positions is termed a hotspot.
 Because hotspots are directly associated with major phenotypic changes in viruses---including increased transmissibility, immune evasion (the ability to escape pre-existing immune responses), and drug resistance---accurately detecting them is a core task in vaccine design, antiviral drug development, and real-time genomic surveillance~\cite{youn2025mutclust}.
+Table~\ref{tab:glossary} defines the key biological terms used throughout this dissertation.
 
 \begin{table}[htbp]
 \centering
@@ -32,7 +33,7 @@ MSA & Computational alignment of multiple protein sequences to identify per-posi
 Existing computational approaches for hotspot detection have relied predominantly on two types of information: mutation frequency and Shannon entropy. While these capture the most direct signals of mutational enrichment, they fail to distinguish biologically meaningful hotspots from founder-effect artifacts and cannot leverage the growing wealth of complementary information sources---including phylogenetic selection signals, protein language model predictions, structural features, and deep mutational scanning data. No systematic comparison has evaluated which information types are most effective for which pathogens, leaving researchers to default to frequency-based approaches regardless of the virus under study.
 
 Formally, given a multiple sequence alignment (MSA) of viral protein sequences, the detection task identifies a subset of genomic positions with statistically elevated mutation rates; yet no standardized ground truth, composite evaluation metric, or cross-pathogen validation methodology exists to enable such a comparison, despite partial benchmark studies in cancer genomics~\cite{bailey2018comprehensive}.
-The present author previously developed a systematic benchmark framework for multi-omics integration (MOSD~\cite{han2025mosd}) and an adaptive hotspot detection algorithm (MutClust~\cite{youn2025mutclust}); the experience of developing MutClust without a quantitative evaluation framework directly motivated this research.
+The author previously developed a systematic benchmark framework for multi-omics integration (MOSD~\cite{han2025mosd}) and an adaptive hotspot detection algorithm (MutClust~\cite{youn2025mutclust}); the experience of developing MutClust without a quantitative evaluation framework directly motivated this research.
 
 Current viral genomics platforms such as Nextstrain~\cite{nextstrain2018hadfield} and PANGO lineage classification~\cite{rambaut2020pangolin} monitor variant emergence but do not provide systematic evaluation of which biological information sources are most effective for hotspot detection.
 The absence of standardized benchmarks means that the rich landscape of available information types---from phylogenetic signals to protein language models---remains unexplored, and researchers cannot make informed choices about which information source to prioritize for a given pathogen.
@@ -59,7 +60,8 @@ The bootstrap test, MutClust's sole validation method, is a self-referential app
 
 Second, there is an \textbf{absence of validation based on independent ground truth}.
 Objectively evaluating hotspot detection results requires a ground-truth standard that is independent of the algorithm, yet no such ground truth framework has been defined for viral mutation hotspot detection.
-Although independently obtainable evidence sources exist---such as convergent evolution sites (mutations that independently arise at the same genomic position in multiple lineages within the same viral species---for example, the E484K substitution---where the amino acid glutamic acid (E) at Spike protein position 484 is replaced by lysine (K)---emerged separately in SARS-CoV-2 Alpha, Beta, Gamma, and Omicron lineages), sites under purifying selection (natural selection that removes deleterious mutations), and Deep Mutational Scanning (DMS; a technique that experimentally measures the functional impact of every possible single amino-acid substitution in a protein) data---they have not been systematically integrated.
+Although independently obtainable evidence sources exist---such as convergent evolution sites, sites under purifying selection (natural selection that removes deleterious mutations), and Deep Mutational Scanning (DMS; a technique that experimentally measures the functional impact of every possible single amino-acid substitution in a protein) data---they have not been systematically integrated.
+Convergent evolution sites are mutations that independently arise at the same genomic position in multiple lineages within the same viral species; for example, mutations at Spike position 484 emerged independently across multiple SARS-CoV-2 lineages: E484K (glutamic acid to lysine) in Beta, Gamma, and Mu, and E484A (glutamic acid to alanine) in Omicron.
 
 Third, there is a \textbf{lack of statistical evidence on the pathogen-dependence of best-performing methods}.
 Existing methods use parameters tuned for a single pathogen, and their generalizability has not been statistically established.
@@ -77,14 +79,15 @@ To address the problems above, this study establishes the following three object
   \begin{itemize}
   \item A three-layer ground truth (convergent evolution positives, purifying selection negatives, DMS fitness validation),
   \item The hotspot-score composite metric (recall + precision + stability)/3,
-  \item A two-stage experimental design: Stage~1 for in-depth SARS-CoV-2 analysis; Stage~2 for large-scale comparison across 11 RNA viruses (20 scoring formulas $\times$ 14 detection method families spanning 5 categories, with 39 parameter variants $\times$ 11 pathogens = 8{,}580 evaluations, extended to 12 pathogens in the adaptive integration study).
+  \item A two-stage experimental design: Stage~1 for in-depth SARS-CoV-2 analysis; Stage~2 for large-scale comparison across 11 RNA viruses (20 scoring formulas $\times$ 39 detection parameter variants from 14 families $\times$ 11 pathogens = 8{,}580 evaluations, with information-type analysis across all 11 pathogens).
   \end{itemize}
 
-  \item \textbf{Identify the dominant factor in hotspot detection performance}: Through factorial ANOVA, Friedman test, and Leave-One-Pathogen-Out (LOPO) cross-validation, establish that the scoring method $\times$ pathogen interaction ($\omega^2 = 0.296$) is the largest variance component, with 9 distinct optimal information types across 11 pathogens and no cross-pathogen generalization (LOPO 0/11) (see Chapter~\ref{ch:results}).
+  \item \textbf{Identify the dominant factor in hotspot detection performance}: Through factorial Analysis of Variance (ANOVA), Friedman test, and Leave-One-Pathogen-Out (LOPO) cross-validation, establish that the scoring method $\times$ pathogen interaction ($\omega^2 = 0.296$) is the largest variance component, with 9 distinct optimal information types across 11 pathogens and no cross-pathogen generalization (LOPO 0/11) (see Chapter~\ref{ch:results}).
 
   \item \textbf{Identify pathogen-specific essential information types and verify that multi-source integration reduces the experimental search space}: Systematically analyze 10 biological information types to determine which are essential per pathogen, and demonstrate that integration achieves up to 9.36-fold vaccine escape enrichment (see Chapter~\ref{ch:results}).
 \end{enumerate}
 
+Figure~\ref{fig:research_overview} summarizes the overall research flow: from identifying the information limitation (reliance on frequency/entropy), through systematic comparison of 10 information types via MutBench, to the key finding that the optimal information source differs by pathogen, culminating in multi-source integration with practical vaccine escape enrichment.
 
 \begin{figure}[htbp]
 \centering
@@ -160,7 +163,7 @@ This dissertation comprises six chapters.
 \textbf{Chapter~\ref{ch:mutbench}, Materials and Method} describes in detail the materials and methodology of the MutBench benchmark framework, the core contribution of this dissertation.
 Section~3.1 describes the materials (target pathogens, ground truth framework, and DMS data). Sections~3.2--3.4 present the methods: Section~3.2 covers the benchmark framework design including MutClust variants and the hotspot-score metric, Section~3.3 describes the scoring formulas and detection method families, and Section~3.4 details the evaluation metrics and statistical analysis design.
 
-\textbf{Chapter~\ref{ch:results}, Experimental Results} reports the experimental results organized into five sections: Single-Pathogen Benchmark (synthetic data comparison, multi-ground truth evaluation, real GISAID validation, and external methods comparison on SARS-CoV-2), Robustness Validation (statistical validation, sensitivity analysis, temporal generalization, and indel exclusion), Cross-Pathogen Validation (H3N2 validation, 3D structural analysis, phylogenetic simulation, and ESM-2 cross-paradigm validation), the Cross-Pathogen Large-Scale Benchmark (ANOVA, Friedman test, LOPO cross-validation), and Information-Type Analysis (feature ablation, ground truth heterogeneity, search space reduction, and multi-source integration across 12 pathogens).
+\textbf{Chapter~\ref{ch:results}, Experimental Results} reports the experimental results organized into five sections: Single-Pathogen Benchmark (synthetic data comparison, multi-ground truth evaluation, real GISAID validation, and external methods comparison on SARS-CoV-2), Robustness Validation (statistical validation, sensitivity analysis, temporal generalization, and indel exclusion), Cross-Pathogen Validation (H3N2 validation, 3D structural analysis, phylogenetic simulation, and ESM-2 cross-paradigm validation), the Cross-Pathogen Large-Scale Benchmark (ANOVA, Friedman test, LOPO cross-validation), and Information-Type Analysis (feature ablation, ground truth heterogeneity, search space reduction, and multi-source integration across 11 pathogens).
 
 \textbf{Chapter~\ref{ch:discussion}, Discussion} provides a comprehensive interpretation of the experimental results, discusses the methodological implications of MutBench, its limitations, and future research directions.
 

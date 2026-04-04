@@ -55,7 +55,7 @@ FEATURE_COLORS = {
 
 PATHOGEN_ORDER = [
     "SARS-CoV-2", "H3N2", "Norovirus", "HIV-1", "Dengue",
-    "RSV", "Influenza_B", "MERS", "HCV"
+    "RSV", "Influenza_B", "MERS", "HCV", "Rabies", "EV-A71"
 ]
 
 PATHOGEN_LABELS = {
@@ -68,6 +68,8 @@ PATHOGEN_LABELS = {
     "Influenza_B": "Influenza B",
     "MERS": "MERS",
     "HCV": "HCV",
+    "Rabies": "Rabies",
+    "EV-A71": "EV-A71",
 }
 
 
@@ -76,11 +78,15 @@ def plot_rf_importance_grid():
     imp_df = pd.read_csv(os.path.join(FEAT_DIR, "rf_importance_v2.csv"))
     cv_df = pd.read_csv(os.path.join(FEAT_DIR, "rf_cv_auc_v2.csv"))
 
-    fig, axes = plt.subplots(3, 3, figsize=(16, 14))
+    fig, axes = plt.subplots(3, 4, figsize=(18, 13))
     axes = axes.flatten()
 
-    for idx, pathogen in enumerate(PATHOGEN_ORDER):
-        ax = axes[idx]
+    plotted = 0
+    for pathogen in PATHOGEN_ORDER:
+        if pathogen not in imp_df["pathogen"].values or pathogen not in cv_df["pathogen"].values:
+            continue
+        ax = axes[plotted]
+        plotted += 1
         row = imp_df[imp_df["pathogen"] == pathogen].iloc[0]
         cv_row = cv_df[cv_df["pathogen"] == pathogen].iloc[0]
         cv_auc = cv_row["rf_cv_auc"]
@@ -111,7 +117,11 @@ def plot_rf_importance_grid():
                 ax.text(bar.get_width() + 0.003, bar.get_y() + bar.get_height()/2,
                        f"{val:.3f}", va="center", fontsize=7)
 
-    # Legend
+    # Hide unused panels and use last one for legend
+    for j in range(plotted, len(axes)-1):
+        axes[j].axis('off')
+    ax_legend = axes[len(axes)-1]
+    ax_legend.axis('off')
     from matplotlib.patches import Patch
     legend_items = [
         Patch(facecolor="#4169E1", label="Frequency-based"),
@@ -121,10 +131,13 @@ def plot_rf_importance_grid():
         Patch(facecolor="#FF8C00", label="Structure-based"),
         Patch(facecolor="#DC143C", label="Chemical property"),
     ]
-    fig.legend(handles=legend_items, loc="lower center", ncol=6, fontsize=10,
-              bbox_to_anchor=(0.5, -0.02), frameon=True)
+    ax_legend.text(0.5, 0.5,
+        'Bar colors indicate\nfeature category.\n\nBlue: Frequency\nGreen: Phylogeny\nPurple: Deep learning\nOrange: Structure\nRed: Chemical',
+        transform=ax_legend.transAxes, ha='center', va='center',
+        fontsize=10, color='#555555',
+        bbox=dict(boxstyle='round,pad=0.5', facecolor='#F5F5F5', edgecolor='#CCCCCC'))
 
-    plt.tight_layout(rect=[0, 0.03, 1, 1])
+    plt.tight_layout()
     out_path = os.path.join(FIG_DIR, "feature_importance_grid.png")
     fig.savefig(out_path, dpi=300, bbox_inches="tight")
     plt.close()
@@ -164,7 +177,7 @@ def plot_feature_correlation_heatmap():
                        fontsize=8, color=color, fontweight="bold" if abs(val) > 0.5 else "normal")
 
     cbar = fig.colorbar(im, ax=ax, shrink=0.8, label="Spearman ρ")
-    ax.set_title("Mean Feature Correlation Across 9 Pathogens", fontsize=13, fontweight="bold", pad=15)
+    ax.set_title("Mean Feature Correlation Across 11 Pathogens", fontsize=13, fontweight="bold", pad=15)
 
     plt.tight_layout()
     out_path = os.path.join(FIG_DIR, "feature_correlation_heatmap.png")
@@ -175,9 +188,7 @@ def plot_feature_correlation_heatmap():
 
 def plot_auc_heatmap():
     """Plot per-feature AUC heatmap (9 pathogens × 10 features)."""
-    auc_df = pd.read_csv(os.path.join(FEAT_DIR, "per_feature_auc_v2.csv"))
-
-    pivot = auc_df.pivot_table(index="pathogen", columns="feature", values="auc")
+    pivot = pd.read_csv(os.path.join(FEAT_DIR, "per_feature_auc_11pathogens.csv"), index_col=0)
     feat_order = [f for f in FEATURE_NAMES if f in pivot.columns]
     pivot = pivot[feat_order]
     pivot = pivot.loc[[p for p in PATHOGEN_ORDER if p in pivot.index]]
@@ -209,7 +220,8 @@ def plot_auc_heatmap():
                        fontsize=8, color=color, fontweight=weight)
 
     cbar = fig.colorbar(im, ax=ax, shrink=0.8, label="AUC")
-    ax.set_title("Per-Feature AUC for Layer A Prediction (10 Features × 9 Pathogens)",
+    n_path = pivot.shape[0]
+    ax.set_title(f"Per-Feature AUC for Layer A Prediction (10 Features × {n_path} Pathogens)",
                 fontsize=12, fontweight="bold", pad=15)
 
     plt.tight_layout()

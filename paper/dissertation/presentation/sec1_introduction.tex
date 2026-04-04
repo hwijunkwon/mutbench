@@ -1,0 +1,122 @@
+% Section 1: Introduction
+\section{Introduction}
+
+%% Slide 1: Research Motivation
+\begin{frame}{Research Motivation}
+  \begin{block}{Why Viral Mutation Hotspot Detection Matters}
+    \begin{itemize}
+      \item Viral pandemics demand \highlight{rapid identification} of functionally important mutations
+      \item Mutation hotspots drive key phenotypic changes:
+        \begin{itemize}
+          \item Increased transmissibility
+          \item Immune evasion (escape from existing immunity)
+          \item Drug resistance
+        \end{itemize}
+      \item Accurate hotspot detection is critical for \highlight{vaccine design}, antiviral development, and genomic surveillance
+      \item SARS-CoV-2: 700M+ confirmed cases --- reaffirming urgency of viral genome analysis
+    \end{itemize}
+  \end{block}
+  \vspace{0.3em}
+  \begin{block}{The Filtering Role of Computational Methods}
+    \begin{itemize}
+      \item Experimental validation (DMS, neutralization assays) takes \highlight{weeks--months per position}
+      \item Computational analysis narrows $\sim$1,000 positions $\rightarrow$ 50--100 candidates (top 5--10\%)
+      \item Quality of this filtering directly impacts outbreak response speed
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+%% Slide 2: Problem Statement
+\begin{frame}{Problem Statement}
+  \begin{columns}[T]
+    \begin{column}{0.48\textwidth}
+      \begin{block}{Current Practice}
+        \begin{itemize}
+          \item Existing methods rely on \highlight{frequency} and \highlight{Shannon entropy} only
+          \item Platforms (Nextstrain, PANGO) monitor variants but do not evaluate information sources
+          \item Rich landscape of information types remains \highlight{unexplored}:
+            \begin{itemize}
+              \item Phylogenetic signals
+              \item Protein language models
+              \item Structural features
+              \item Deep mutational scanning
+            \end{itemize}
+        \end{itemize}
+      \end{block}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{block}{Three Specific Problems}
+        \begin{enumerate}
+          \item \highlight{No standardized evaluation framework}\\
+            {\small Each method uses its own dataset \& criteria $\rightarrow$ fair comparison impossible}
+          \item \highlight{No independent ground truth}\\
+            {\small Convergent evolution, purifying selection, DMS data exist but are not integrated}
+          \item \highlight{No cross-pathogen statistical evidence}\\
+            {\small Does the best method differ by pathogen? (Algorithm selection problem)}
+        \end{enumerate}
+      \end{block}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+%% Slide 3: Research Objectives
+\begin{frame}{Research Objectives}
+  \begin{block}{Objective 1: Construct the MutBench Framework}
+    \begin{itemize}
+      \item Standardized comparison of \highlight{10 information types} across \highlight{11 RNA viruses}
+      \item Three-layer ground truth: convergent evolution (\cmark), purifying selection (\xmark), DMS fitness
+      \item Hotspot-score composite metric: (recall + precision + stability) / 3
+      \item Two-stage design: Stage 1 (SARS-CoV-2 in-depth) $\rightarrow$ Stage 2 (11 pathogens, \highlight{8,580 evaluations})
+    \end{itemize}
+  \end{block}
+  \begin{block}{Objective 2: Identify the Dominant Performance Factor}
+    \begin{itemize}
+      \item Factorial ANOVA, Friedman test, Leave-One-Pathogen-Out (LOPO) cross-validation
+      \item Scoring $\times$ pathogen interaction: \highlight{$\omega^2 = 0.296$} (largest variance component)
+      \item 9 distinct optimal information types across 11 pathogens; LOPO generalization: \highlight{0/11}
+    \end{itemize}
+  \end{block}
+  \begin{block}{Objective 3: Multi-Source Integration}
+    \begin{itemize}
+      \item Identify pathogen-specific essential information types
+      \item 4-feature core captures 98\% of full-ensemble performance
+      \item Up to \highlight{9.36$\times$ vaccine escape enrichment} ($p < 0.0001$)
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+%% Slide 4: Research Overview
+\begin{frame}{Research Overview}
+  \begin{center}
+    \includegraphics[height=0.65\textheight]{research_overview.png}
+  \end{center}
+  \vspace{-0.5em}
+  {\small
+  \textbf{Flow}: Information limitation (frequency/entropy only)
+  $\rightarrow$ MutBench systematic comparison (10 types, 11 pathogens)
+  $\rightarrow$ Key finding: optimal source differs by pathogen
+  $\rightarrow$ Multi-source integration with practical enrichment
+  }
+\end{frame}
+%% Slide 5: Dissertation Structure
+\begin{frame}{Dissertation Structure}
+  \begin{center}
+  \begin{tabular}{cl}
+    \toprule
+    \textbf{Chapter} & \textbf{Content} \\
+    \midrule
+    Ch.~1 & Introduction: motivation, problem definition, objectives \\
+    Ch.~2 & Related Research: hotspot detection methods, MutClust background \\
+    Ch.~3 & Materials \& Methods: MutBench design, scoring formulas, evaluation \\
+    Ch.~4 & Results: single-pathogen, robustness, cross-pathogen, information-type analysis \\
+    Ch.~5 & Discussion: interpretation, implications, limitations \\
+    Ch.~6 & Conclusion: contributions summary, future directions \\
+    \bottomrule
+  \end{tabular}
+  \end{center}
+  \vspace{1em}
+  \begin{itemize}
+    \item \textbf{Core experimental scope}: 20 scoring formulas $\times$ 39 parameter variants $\times$ 11 pathogens = \highlight{8,580 evaluations}
+    \item \textbf{Key results in Ch.~4}: ANOVA ($\omega^2$), Friedman test, LOPO, feature ablation, enrichment analysis
+  \end{itemize}
+\end{frame}

@@ -1,0 +1,146 @@
+% Section 6: Conclusion
+\section{Conclusion}
+
+%% Slide 1: Summary of Contributions
+\begin{frame}{Summary of Contributions}
+  \begin{enumerate}
+    \item \textbf{MutBench Framework} \\
+      First systematic experimental framework for viral mutation hotspot detection \\
+      \highlight{20 scoring formulas} $\times$ 39 detectors $\times$ \highlight{11 RNA viruses} \\
+      Three-layer ground truth (Layers A/B/C) + hotspot-score composite metric
+
+    \vspace{0.5em}
+    \item \textbf{Pathogen-Dependence of Optimal Information Source} \\
+      Scoring $\times$ pathogen interaction: \highlight{$\omega^2 = 0.296$} (largest variance source) \\
+      \highlight{9 distinct} optimal information types across 11 pathogens \\
+      LOPO cross-validation: \highlight{0/11} generalization $\rightarrow$ no universal method
+
+    \vspace{0.5em}
+    \item \textbf{Multi-Source Integration \& Practical Validation} \\
+      Vaccine escape enrichment up to \highlight{9.36$\times$} (H3N2, $p < 0.0001$) \\
+      4-feature core captures \highlight{98\%} of full-ensemble performance \\
+      Benchmark rankings validated by independent vaccine escape analysis
+  \end{enumerate}
+\end{frame}
+
+%% Slide 2: Key Quantitative Results
+\begin{frame}{Key Quantitative Results}
+  \begin{columns}[T]
+    \column{0.48\textwidth}
+    \begin{block}{Benchmark Scale}
+      \begin{itemize}
+        \item \highlight{8,580} total evaluations
+        \item 20 scoring $\times$ 39 detectors $\times$ 11 pathogens
+        \item Full benchmark: \highlight{25 seconds} on single workstation
+      \end{itemize}
+    \end{block}
+
+    \vspace{0.5em}
+    \begin{block}{Statistical Evidence}
+      \begin{itemize}
+        \item ANOVA interaction $\omega^2 = \highlight{0.296}$
+        \item 11/11 unique best scoring--detection combos
+        \item LOPO agreement: \highlight{0/11}
+        \item Friedman test: rankings vary systematically
+      \end{itemize}
+    \end{block}
+
+    \column{0.48\textwidth}
+    \begin{block}{Vaccine Escape Enrichment}
+      \begin{itemize}
+        \item H3N2: \highlight{9.36$\times$} ($p < 0.0001$)
+        \item HIV-1: \highlight{7.19$\times$} ($p < 0.0001$)
+        \item Multi-source H3N2: 4.012$\times$ ($p = 0.0023$)
+        \item 2,340 enrichment evaluations
+      \end{itemize}
+    \end{block}
+
+    \vspace{0.5em}
+    \begin{block}{Feature Analysis}
+      \begin{itemize}
+        \item Best per pathogen varies: \\
+              Norovirus homoplasy AUC = \highlight{0.944} \\
+              H3N2 pLDDT AUC = 0.787 \\
+              SARS-CoV-2 ESM-2 LLR AUC = 0.586
+        \item 4-feature core $\geq$ 98\% performance
+      \end{itemize}
+    \end{block}
+  \end{columns}
+\end{frame}
+
+%% Slide 3: Future Work
+\begin{frame}{Future Research Directions}
+  \begin{columns}[T]
+    \column{0.55\textwidth}
+    \begin{block}{Prioritized Roadmap}
+      \begin{enumerate}
+        \item \highlight{Phylogenetic Correction Integration} \\
+              Replace H-score with homoplasy count \\
+              TreeTime / UShER ancestral reconstruction \\
+              Resolves founder-effect bias (e.g., D614G)
+
+        \vspace{0.3em}
+        \item \textbf{Adaptive Method Selection} \\
+              Oracle ceiling: MCC doubles (0.160 vs.\ 0.083) \\
+              Scale to 20+ pathogens \\
+              Meta-learning regression models
+
+        \vspace{0.3em}
+        \item \textbf{DNA Virus Extension} \\
+              HPV, HBV --- lower mutation rates \\
+              APOBEC3-mediated mutation mechanisms
+
+        \vspace{0.3em}
+        \item \textbf{Real-Time Surveillance Pipeline} \\
+              Incremental H-score updates \\
+              Automatic variant emergence alerts
+      \end{enumerate}
+    \end{block}
+
+    \column{0.42\textwidth}
+    \begin{block}{Key Limitations Addressed}
+      \begin{itemize}
+        \item DMS data for 6/11 pathogens \\
+              $\rightarrow$ new DMS experiments
+        \item Phylogenetic non-independence \\
+              $\rightarrow$ full pipeline integration
+        \item Position-level exact matching \\
+              $\rightarrow$ region-overlap metrics
+        \item RNA viruses only \\
+              $\rightarrow$ DNA virus extension
+      \end{itemize}
+    \end{block}
+
+    \vspace{0.5em}
+    \begin{block}{Additional Directions}
+      \begin{itemize}
+        \item Indel handling in H-score
+        \item ESM-2/ESM-3, ProtTrans integration
+        \item Geographic stratification
+      \end{itemize}
+    \end{block}
+  \end{columns}
+\end{frame}
+
+%% Slide 4: Final Takeaway
+\begin{frame}{Concluding Message}
+  \begin{center}
+    \vspace{1em}
+    {\Large\bfseries The most impactful factor in viral mutation hotspot detection is}\\[0.8em]
+    {\LARGE\highlight{selecting the right biological information source}}\\[0.5em]
+    {\LARGE\highlight{for each pathogen.}}\\[1.5em]
+  \end{center}
+
+  \begin{block}{What MutBench Establishes}
+    \begin{itemize}
+      \item \textbf{No universal method exists}: 9 distinct optimal information types across 11 pathogens
+      \item \textbf{Information choice has practical impact}: benchmark-optimal methods yield the highest vaccine escape enrichment (up to 9.36$\times$)
+      \item \textbf{Multi-source integration works}: 4-feature core captures 98\% of ensemble performance
+      \item \textbf{Methodology transfers}: for any new pathogen, MutBench enables rapid identification of the optimal information source
+    \end{itemize}
+  \end{block}
+
+  \vspace{0.5em}
+  \centering
+  \small Transforms hotspot detection from a \highlight{frequency-only} practice into a \highlight{multi-source, evidence-based} discipline.
+\end{frame}

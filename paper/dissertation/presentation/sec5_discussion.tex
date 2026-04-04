@@ -1,0 +1,146 @@
+% Section 5: Discussion
+\section{Discussion}
+
+%% ---- Slide 1: Key Findings Summary ----
+\begin{frame}{Key Findings Summary}
+  \begin{block}{What the Results Mean}
+    \begin{itemize}
+      \item \highlight{No universally best method} exists across 11 pathogens
+        \begin{itemize}
+          \item LOPO cross-validation: \highlight{0/11 match rate}
+          \item Friedman test: $p = 0.990$ --- no method reliably superior
+        \end{itemize}
+      \item Scoring $\times$ pathogen interaction dominates performance variance
+        \begin{itemize}
+          \item $\omega^2 = 0.296$ (large effect), confirmed at 6-category level ($\omega^2 = 0.103$)
+        \end{itemize}
+      \item Multi-source integration recovers positions missed by single-scoring
+        \begin{itemize}
+          \item H3N2 EqualWeight: 4.012$\times$ escape enrichment ($p = 0.0023$)
+          \item 4 core features capture 98\% of full-ensemble performance
+        \end{itemize}
+      \item Dual-benchmark design (synthetic + real) is itself a methodological contribution
+        \begin{itemize}
+          \item Real GISAID: enrichment 6.9--8.0$\times$ above random despite F1 drop
+        \end{itemize}
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+%% ---- Slide 2: Comparison with Existing Approaches ----
+\begin{frame}{Comparison with Existing Approaches}
+  \small
+  \begin{tabular}{p{2.2cm}p{4.5cm}p{5.5cm}}
+    \toprule
+    \textbf{Prior Work} & \textbf{Their Finding} & \textbf{MutBench Extension} \\
+    \midrule
+    EVEREST & VEP performance varies across 45 viral DMS datasets &
+      Convergent finding despite different tasks (fitness prediction vs.\ hotspot detection) \\[3pt]
+    Maher et al. & Combining features outperforms single features (SARS-CoV-2) &
+      Extended to \highlight{11 pathogens}; multi-source benefit generalizes \\[3pt]
+    Hie et al. & PLM semantic similarity captures escape potential &
+      Confirmed for EV-A71 (MCC=0.260), \highlight{not universal} \\[3pt]
+    Bailey et al. & Cancer driver tools disagree on gene lists &
+      Same pattern in virology: disagreement structured by pathogen biology \\[3pt]
+    ProteinGym & VEP varies across 217 DMS assays &
+      \highlight{Information type} (not just model) is the dominant factor \\
+    \bottomrule
+  \end{tabular}
+
+  \vspace{0.5em}
+  \begin{block}{Unifying Principle}
+    Pathogen-dependence of optimal methods is a \highlight{general principle} ---
+    MutBench quantifies it via variance decomposition ($\omega^2 = 0.296$)
+  \end{block}
+\end{frame}
+
+%% ---- Slide 3: Implications for Mutation Analysis / Public Health ----
+\begin{frame}{Implications for Public Health Surveillance}
+  \begin{columns}[T]
+    \column{0.48\textwidth}
+    \begin{block}{Vaccine Escape Validation}
+      \begin{itemize}
+        \item H3N2: \highlight{9.36$\times$} enrichment ($p < 0.0001$)
+        \item HIV-1: 7.19$\times$ enrichment ($p < 0.0001$)
+        \item SARS-CoV-2: 7.63$\times$ ($p = 0.026$)
+        \item Layer~A rankings concordant with escape enrichment --- \highlight{not circular}
+      \end{itemize}
+    \end{block}
+
+    \column{0.48\textwidth}
+    \begin{block}{Practical Workflow for New Pathogens}
+      \begin{enumerate}
+        \item Compute 20 scoring types from MSA
+        \item Use family-level recommendation if available
+        \item Otherwise: EqualWeight ensemble (4 core features)
+        \item Detect with KDE/Wavelet defaults
+      \end{enumerate}
+      \vspace{0.3em}
+      {\footnotesize Runtime: $\sim$15--20 min per pathogen (single GPU)}
+    \end{block}
+  \end{columns}
+
+  \vspace{0.5em}
+  \centering
+  \begin{tabular}{lll}
+    \toprule
+    \textbf{Virus Family} & \textbf{Recommended Scoring} & \textbf{Rationale} \\
+    \midrule
+    Orthomyxoviridae & Phylogenetic (FUBAR) & Diversifying selection \\
+    Coronaviridae    & AI-based (PLM)       & Shallow phylogeny \\
+    Retroviridae     & MSA-derived (entropy) & High diversity \\
+    Flaviviridae     & Frequency-based       & Hypervariable regions \\
+    \bottomrule
+  \end{tabular}
+\end{frame}
+
+%% ---- Slide 4: Limitations and Threats to Validity ----
+\begin{frame}{Limitations and Threats to Validity}
+  \begin{columns}[T]
+    \column{0.48\textwidth}
+    \begin{block}{Methodological Limitations}
+      \begin{itemize}
+        \item \highlight{H-score saturation}: all 1,273 Spike positions nonzero in 2024--2025 (SD = 0.098)
+        \item \highlight{Phylogenetic non-independence}: frequency cannot distinguish selection from founder effects (D614G)
+        \item Bootstrap CIs wide at region level ($n=7$), but pairwise comparisons significant ($p < 0.001$)
+        \item ESM-2 training data overlap with benchmark proteins
+      \end{itemize}
+    \end{block}
+
+    \column{0.48\textwidth}
+    \begin{block}{Data and Scope Limitations}
+      \begin{itemize}
+        \item \highlight{11 RNA viruses} only (DNA viruses need different scoring)
+        \item 3 family pairs not phylogenetically independent (but within-family best methods differ)
+        \item GISAID geographic bias: $>$80\% from high-income countries
+        \item Ground truth heterogeneity across pathogens (convergent evolution vs.\ HVR vs.\ epochal)
+        \item Low recall for short proteins: EV-A71 (0.185), Rabies (0.308)
+      \end{itemize}
+    \end{block}
+  \end{columns}
+\end{frame}
+
+%% ---- Slide 5: Broader Impact and Theoretical Framing ----
+\begin{frame}{Broader Impact}
+  \begin{block}{Theoretical Contribution: Rice's Algorithm Selection Problem}
+    \begin{itemize}
+      \item Problem space $\mathcal{P}$: pathogens with genomic profiles
+      \item Algorithm space $\mathcal{A}$: 780 scoring--detection combinations
+      \item Mapping $f: \mathcal{P} \to \mathcal{A}$ is \highlight{non-trivial} ($\omega^2 = 0.296$)
+      \item Empirically grounded No Free Lunch --- stronger than abstract theorem
+    \end{itemize}
+  \end{block}
+
+  \begin{block}{Three Problems Addressed (from Chapter 1)}
+    \begin{enumerate}
+      \item \highlight{No standardized evaluation} $\to$ 3-layer ground truth + hotspot-score metric
+      \item \highlight{No cross-pathogen evidence} $\to$ 4 independent lines of statistical evidence
+      \item \highlight{Unknown pathogen-dependence} $\to$ $\omega^2 = 0.296$ interaction + LOPO 0/11 failure
+    \end{enumerate}
+  \end{block}
+
+  \begin{block}{Key Takeaway}
+    MutBench enables \highlight{pathogen-adaptive method selection} ---
+    reducing experimental search space rather than achieving perfect prediction
+  \end{block}
+\end{frame}

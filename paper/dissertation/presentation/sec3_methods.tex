@@ -1,0 +1,278 @@
+
+\section{Methods}
+
+%% ---- Slide 1: MutBench Framework Overview ----
+\begin{frame}{MutBench Framework Overview}
+  \begin{columns}[T]
+    \column{0.55\textwidth}
+    \begin{block}{Three-Component Pipeline}
+      \begin{enumerate}
+        \item \textbf{Ground Truth Construction}\\
+              3-layer system from independent biological evidence
+        \item \textbf{Scoring \& Detection}\\
+              \highlight{20 scoring types} $\times$ \highlight{14 detection families} (39 variants)
+        \item \textbf{Evaluation \& Statistics}\\
+              Multi-metric evaluation + factorial ANOVA
+      \end{enumerate}
+    \end{block}
+    \vspace{0.3em}
+    \begin{block}{Two-Stage Evaluation}
+      \begin{itemize}
+        \item \textbf{Stage 1}: SARS-CoV-2 in-depth validation
+        \item \textbf{Stage 2}: \highlight{11 pathogens} $\times$ 20 scoring $\times$ 39 detection\\
+              $= \mathbf{8{,}580}$ total combinations
+      \end{itemize}
+    \end{block}
+
+    \column{0.42\textwidth}
+    \includegraphics[width=\textwidth,max height=\maxfigheight]{mutbench_pipeline.png}
+  \end{columns}
+\end{frame}
+
+%% ---- Slide 2: Target Pathogens ----
+\begin{frame}{11 RNA Virus Benchmark Panel}
+  \footnotesize
+  \begin{tabular}{lllr}
+    \toprule
+    \textbf{Group} & \textbf{Pathogen} & \textbf{Protein} & \textbf{AA len.} \\
+    \midrule
+    \multirow{5}{*}{Respiratory} & SARS-CoV-2 & Spike & 1,259 \\
+    & MERS-CoV & Spike & 1,330 \\
+    & RSV & F protein & 550 \\
+    & H3N2 & HA & 543 \\
+    & Influenza B & HA & 560 \\
+    \midrule
+    Blood-borne & HIV-1 & Env gp120 & 450 \\
+    & HCV & E2 & 340 \\
+    \midrule
+    Enteric & Norovirus & VP1 & 536 \\
+    Arthropod-borne & Dengue & E protein & 490 \\
+    \midrule
+    Neurotropic & Rabies & G protein & 491 \\
+    & EV-A71 & VP1 & 261 \\
+    \bottomrule
+  \end{tabular}
+
+  \vspace{0.5em}
+  \begin{itemize}
+    \item Substitution rates: $\sim 10^{-3}$ (HIV-1, SARS-CoV-2) to $\sim 10^{-4}$ (Rabies) sub/site/yr
+    \item Unique sequences: 530 (MERS) -- 5,019 (Influenza B)
+    \item Positive rate: 0.7\% (MERS) -- 15.9\% (HCV)
+  \end{itemize}
+\end{frame}
+
+%% ---- Slide 3: 3-Layer Ground Truth ----
+\begin{frame}{3-Layer Ground Truth Framework}
+  \footnotesize
+  \begin{columns}[T]
+    \column{0.52\textwidth}
+    \includegraphics[width=\textwidth,max height=0.5\textheight]{3layer_gt_concept.png}
+
+    \column{0.46\textwidth}
+    \begin{block}{Layer A -- Convergent Evolution}
+      \begin{itemize}
+        \item Recurrent mutations in $\geq 3$ independent lineages
+        \item Role: \highlight{True Positives}; e.g., E484K
+      \end{itemize}
+    \end{block}
+    \begin{block}{Layer B -- Purifying Selection}
+      \begin{itemize}
+        \item Structurally essential, dN/dS $< 0.5$
+        \item Role: \highlight{True Negatives} (constrained FPR)
+      \end{itemize}
+    \end{block}
+    \begin{block}{Layer C -- DMS Fitness}
+      \begin{itemize}
+        \item Top 20\% mean absolute fitness effect
+        \item Role: \highlight{Independent validation} (6/11 pathogens)
+      \end{itemize}
+    \end{block}
+  \end{columns}
+\end{frame}
+
+%% ---- Slide 4: Ground Truth Details ----
+\begin{frame}{Ground Truth: Three Orthogonal Dimensions}
+  \begin{block}{Design Rationale \& Key Properties}
+    \begin{itemize}
+      \item \textbf{Layer A}: ``Does this position mutate repeatedly and independently?'' \\
+            $\rightarrow$ \textit{Evolutionary pattern} (phylogenetic convergence)
+      \item \textbf{Layer B}: ``Is this position structurally constrained?'' \\
+            $\rightarrow$ \textit{Structural} question (purifying selection)
+      \item \textbf{Layer C}: ``What is the measurable functional impact?'' \\
+            $\rightarrow$ \textit{Functional} question (DMS experiments)
+      \item Each layer provides \highlight{non-redundant, independent} evidence
+      \item Layer A captures signals DMS cannot; Layer C captures effects evolution has not yet revealed
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+%% ---- Slide 5: Multi-Ground-Truth Integration ----
+\begin{frame}{Ground Truth Integration Across 11 Pathogens}
+  \begin{columns}[T]
+    \column{0.48\textwidth}
+    \includegraphics[width=\textwidth,max height=\maxfigheight]{multi_ground_truth_figure.png}
+
+    \column{0.50\textwidth}
+    \footnotesize
+    \begin{tabular}{lrrrc}
+      \toprule
+      \textbf{Pathogen} & \textbf{A} & \textbf{B} & \textbf{C} & \textbf{DMS?} \\
+      \midrule
+      SARS-CoV-2 & 25 & 154 & 252 & \cmark \\
+      H3N2 & 25 & 10 & 102 & \cmark \\
+      HIV-1 & 23 & 23 & 100 & \cmark \\
+      RSV & 20 & 18 & 101 & \cmark \\
+      Rabies & 39 & 42 & 87 & \cmark \\
+      EV-A71 & 27 & 29 & 55 & \cmark \\
+      \midrule
+      Norovirus & 15 & 229 & --- & \xmark \\
+      Dengue & 24 & 24 & --- & \xmark \\
+      Influenza B & 17 & 10 & --- & \xmark \\
+      MERS & 9 & 110 & --- & \xmark \\
+      HCV & 54 & 0 & --- & \xmark \\
+      \bottomrule
+    \end{tabular}
+
+    \vspace{0.5em}
+    \begin{itemize}
+      \item Primary metric (MCC) uses only Layer A\\
+            $\Rightarrow$ valid for all 11 pathogens
+      \item Layer B/C provide supplementary evaluation
+    \end{itemize}
+  \end{columns}
+\end{frame}
+
+%% ---- Slide 6: 20 Scoring Types ----
+\begin{frame}{20 Scoring Types in 6 Categories}
+  \scriptsize
+  \begin{columns}[T]
+    \column{0.48\textwidth}
+    \begin{block}{Frequency-based (3)}
+      freq, rare\_freq, freq\_with\_indel
+    \end{block}
+    \begin{block}{MSA-derived (3)}
+      entropy, entropy\_with\_indel, \highlight{homoplasy}
+    \end{block}
+    \begin{block}{Phylogenetic (4)}
+      dN/dS proxy, \highlight{FUBAR prob}, FUBAR pos\_sel, FUBAR Bayes factor
+    \end{block}
+
+    \column{0.48\textwidth}
+    \begin{block}{Structural (3)}
+      pLDDT inverse, SASA, Grantham distance
+    \end{block}
+    \begin{block}{AI-based (5)}
+      \highlight{ESM-2 LLR}, Tranception, semantic change, stability, stability\_structural
+    \end{block}
+    \begin{block}{Composite (2)}
+      EVEscape composite, EqualWeight
+    \end{block}
+  \end{columns}
+
+  \vspace{0.5em}
+  \centering
+  Each scoring type assigns a per-position score $\rightarrow$ detection method converts to hotspot calls
+\end{frame}
+
+%% ---- Slide 7: 14 Detection Method Families ----
+\begin{frame}{14 Detection Families (39 Parameter Variants)}
+  \footnotesize
+  \begin{columns}[T]
+    \column{0.48\textwidth}
+    \begin{block}{Threshold \& Signal Processing (6)}
+      FreqThresh (top-$k$\%), AdaptiveKnee, AdaptWin,
+      Wavelet (CWT), Spectral (FFT), CUSUM
+    \end{block}
+    \begin{block}{Density \& Statistical (7)}
+      KDE, ScoreDBSCAN,
+      SlidingTest ($z$-test), LocalContrast,
+      GradPeak, Bayes, SWAN
+    \end{block}
+
+    \column{0.48\textwidth}
+    \begin{block}{Legacy (1)}
+      MutClust-Orig: CCM + adaptive DBSCAN
+      {\scriptsize (domain-specific baseline)}
+    \end{block}
+
+    \vspace{0.5em}
+    Key finding: detection family contributes only \highlight{$\omega^2 = 0.013$} to performance variance --- choice of \textit{input information} matters far more.
+  \end{columns}
+\end{frame}
+
+%% ---- Slide 8: Evaluation Metrics ----
+\begin{frame}{Evaluation Metrics}
+  \begin{columns}[T]
+    \column{0.55\textwidth}
+    \begin{block}{Primary Metric: MCC (Stage 2)}
+      \vspace{-0.5em}
+      \begin{equation*}
+        \text{MCC} = \frac{TP \times TN - FP \times FN}{\sqrt{(TP{+}FP)(TP{+}FN)(TN{+}FP)(TN{+}FN)}}
+      \end{equation*}
+      \begin{itemize}
+        \item Uses all 4 confusion matrix cells
+        \item \highlight{Robust to class imbalance} (positive rate 0.7--15.9\%)
+        \item Range: $[-1, +1]$; $0 =$ random
+      \end{itemize}
+    \end{block}
+
+    \begin{block}{Hotspot-Score (Stage 1)}
+      \vspace{-0.5em}
+      \begin{equation*}
+        \text{hotspot-score} = \frac{\text{recall} + \text{precision} + \text{stability}}{3}
+      \end{equation*}
+      {\small Stability = mean Jaccard similarity over 100 subsampling iterations}
+    \end{block}
+
+    \column{0.43\textwidth}
+    \begin{block}{Supplementary Metrics}
+      \begin{itemize}
+        \item F1 (harmonic mean P/R)
+        \item Precision, Recall
+        \item Enrichment ratio
+        \item \textbf{Constrained FPR}\\
+              {\scriptsize FPR in Layer B regions}
+        \item \textbf{DMS F1}\\
+              {\scriptsize F1 against Layer C\\(6 pathogens only)}
+      \end{itemize}
+    \end{block}
+
+    \vspace{0.3em}
+    {\small Stage 1 $\rightarrow$ hotspot-score (reliability)\\
+    Stage 2 $\rightarrow$ MCC (accuracy)}
+  \end{columns}
+\end{frame}
+
+%% ---- Slide 9: Statistical Framework ----
+\begin{frame}{Statistical Analysis Framework}
+  \begin{block}{Three-Way ANOVA with $\omega^2$}
+    \begin{itemize}
+      \item Factors: \textbf{Scoring} (20) $\times$ \textbf{Detection} (14) $\times$ \textbf{Pathogen} (11)
+      \item All main effects + all two-way interactions
+      \item Partial $\omega^2$: bias-corrected variance explained ($N = 8{,}580$)
+    \end{itemize}
+  \end{block}
+
+  \begin{columns}[T]
+    \column{0.48\textwidth}
+    \begin{block}{LOPO Cross-Validation}
+      \begin{itemize}
+        \item Leave-One-Pathogen-Out (11 folds)
+        \item Select best scoring $\times$ detection on $n{-}1$
+        \item Evaluate on held-out pathogen
+        \item Random baseline: $\sim$0.36\% concordance
+      \end{itemize}
+    \end{block}
+
+    \column{0.48\textwidth}
+    \begin{block}{Additional Tests}
+      \begin{itemize}
+        \item \textbf{Friedman test}: nonparametric ranking across 11 pathogen blocks
+        \item \textbf{BCa bootstrap CI}: performance variability
+        \item \textbf{Subsample robustness}: 25/50/75/100\% MSA size
+        \item \textbf{Kruskal--Wallis}: confirms ANOVA results
+      \end{itemize}
+    \end{block}
+  \end{columns}
+\end{frame}
+

@@ -12,7 +12,7 @@ The research contributions of MutBench are summarized in the following three poi
 
 \textbf{Contribution 1. MutBench: an experimental framework for analyzing which factors influence viral mutation hotspot detection performance across 11 RNA viruses.}
 MutBench introduced the first systematic experimental framework for viral mutation hotspot detection, designed to answer the question: \emph{which biological information source is most effective for which pathogen?}
-It organizes 10 information types into 20 scoring formulas across 6 categories, defines a three-layer ground truth (Layers A/B/C), introduces the hotspot-score composite metric, and presents a two-stage experimental design combining in-depth SARS-CoV-2 analysis (Stage~1) with large-scale comparison across 11 RNA viruses (Stage~2; see Chapter~\ref{ch:results} for detailed statistics).
+It organizes 10 information types into 20 scoring formulas across 6 categories (frequency, MSA-derived, phylogenetic, structural, AI-based, and composite), defines a three-layer ground truth framework (convergent evolution positives as Layer~A, purifying selection negatives as Layer~B, DMS experimental fitness as Layer~C), introduces the hotspot-score composite metric, and presents a two-stage experimental design combining in-depth SARS-CoV-2 analysis (Stage~1) with large-scale comparison across 11 RNA viruses (Stage~2; see Chapter~\ref{ch:results} for detailed statistics).
 
 \textbf{Contribution 2. Statistical demonstration that the optimal biological information source differs fundamentally across pathogens ($\omega^2_{\text{scoring} \times \text{pathogen}} = 0.296$), with 9 distinct optimal information types across 11 pathogens and no cross-pathogen generalization (LOPO 0/11).}
 Statistical analysis of the large-scale benchmark results across 11 RNA viruses established, through four independent lines of evidence, that the optimal biological information source is pathogen-dependent.
@@ -31,6 +31,8 @@ This analysis establishes which biological information is essential for each pat
 \section{Limitations}
 \label{sec:limitations}
 
+Table~\ref{tab:limitations_summary} summarizes the key limitations of MutBench and their current mitigation status.
+
 \begin{table}[htbp]
 \centering
 \caption{Summary of MutBench limitations and mitigation status}
@@ -42,7 +44,7 @@ This analysis establishes which biological information is essential for each pat
 \textbf{Limitation} & \textbf{Severity} & \textbf{Current mitigation} & \textbf{Future work} \\
 \midrule
 Ground truth limited to literature & High & 3-layer GT with DMS validation & Expand to more pathogens \\
-DMS data available for 6/11 pathogens & Medium & Layers A+B for remaining 5 & New DMS experiments \\
+DMS data available for 6/11 pathogens & Medium & Layers A+B for remaining 5 & New DMS experiments (e.g., H5~\cite{dadonaite2024h5}) \\
 Phylogenetic non-independence & High & PoC simulation + TreeTime validation & Full pipeline integration \\
 Synthetic--real performance gap & Medium & Dual benchmark design & Adaptive reference sequences \\
 Position-level exact matching & Medium & Enrichment ratio as complement & Region-overlap metrics \\
@@ -74,6 +76,8 @@ Window-based or region overlap metrics could more leniently reflect the practica
 \section{Future Research Directions}
 \label{sec:future_work}
 
+Table~\ref{tab:future_roadmap} presents the prioritized future research roadmap, organized by expected timeline and impact.
+
 \begin{table}[htbp]
 \centering
 \caption{Prioritized future research roadmap}
@@ -95,7 +99,7 @@ Window-based or region overlap metrics could more leniently reflect the practica
 
 \textbf{Adaptive Method Selection.}
 
-The oracle ceiling analysis (Section~\ref{subsec:adaptive_weighting_limits}) demonstrated that per-pathogen feature weighting can double performance (MCC = 0.160 vs.\ EqualWeight 0.083), but with only 12 reference pathogens the knowledge base is insufficient for reliable adaptive selection.
+The oracle ceiling analysis (Section~\ref{subsec:adaptive_weighting_limits}) demonstrated that per-pathogen feature weighting can double performance (MCC = 0.160 vs.\ EqualWeight 0.083), but with only 11 reference pathogens the knowledge base is insufficient for reliable adaptive selection.
 Scaling to 20+ pathogens, introducing top-$k$ ensemble strategies, and transitioning to meta-learning regression models~\cite{rice1976algorithm,kerschke2019algorithm} are the concrete next steps toward pathogen-adaptive method selection.
 
 \textbf{Integration of Phylogenetic Correction.}
@@ -120,11 +124,12 @@ The COVID-19 pandemic revealed that viral mutation hotspot detection is not mere
 This work demonstrates that the most impactful factor in hotspot detection is selecting the appropriate biological information source for each pathogen. The recommended scoring categories by virus family (Table~\ref{tab:scoring_recommendation}) provide practical guidance for researchers analyzing new viral sequences.
 
 This dissertation presented MutBench, an experimental framework that enabled this finding by systematically comparing 10 biological information types across 11 RNA viruses (8{,}580 total evaluations).
-The central result---that the scoring $\times$ pathogen interaction ($\omega^2 = 0.296$) is the largest performance determinant---empirically confirms the algorithm selection principle~\cite{kerschke2019algorithm} and establishes that the optimal biological information source is fundamentally pathogen-dependent.
+The central result---that the scoring $\times$ pathogen interaction ($\omega^2 = 0.296$) is the largest performance determinant---empirically supports the algorithm selection principle~\cite{kerschke2019algorithm} and establishes that the optimal biological information source is fundamentally pathogen-dependent.
 Nine distinct optimal information types were identified across 11 pathogens, from FUBAR phylogenetic selection scores for H3N2 to protein language models for SARS-CoV-2, establishing that no single information source suffices across the viral landscape.
 The concordance between Layer~A benchmark rankings and independent vaccine escape enrichment (up to 9.36-fold) validates that these information-centric rankings translate to practical utility in identifying immune evasion positions.
 Multi-source integration further reduces the experimental search space, with a compact 4-feature core capturing 98\% of full-ensemble performance.
-As new viral threats emerge, the information-type comparison methodology established here enables rapid identification of optimal information sources tailored to each pathogen's characteristics, transforming hotspot detection from a frequency-only practice into a multi-source, evidence-based discipline.
+As new viral threats emerge, the information-type comparison methodology established here enables rapid identification of optimal information sources tailored to each pathogen's characteristics.
+This transforms hotspot detection from a frequency-only practice into a multi-source, evidence-based discipline.
 
 \section*{Code and Data Availability}
 
@@ -132,5 +137,8 @@ The source code of the MutBench framework, benchmark scripts, ground truth defin
 During the review period, the source code is available to committee members upon request. All detection method implementations, ground truth definitions, and evaluation scripts are organized as a reproducible pipeline with configuration files specifying exact parameters for each experiment.
 The benchmark can be reproduced with three commands: (1)~feature computation (\texttt{python compute\_features.py --pathogen H3N2}), (2)~detection evaluation (\texttt{python run\_stage3\_full\_detectors.py}), and (3)~statistical analysis (\texttt{python analyze\_stage3\_stats.py}). The full 8{,}580-evaluation benchmark (20 scoring types $\times$ 39 detectors $\times$ 11 pathogens) completes in 25 seconds on a single workstation (measured: 24.96s on an Intel i7 with RTX 4090, without GPU dependency for the benchmark itself). Feature computation for a new pathogen requires approximately 15--20 minutes including MSA construction, frequency/entropy calculation, homoplasy inference, and ESM-2 scoring; structural features (pLDDT, SASA) are optional and require an AlphaFold or experimental structure when available.
 All repositories will be made public upon completion of the dissertation review.
+The benchmark was developed using Python~3.10 with NumPy~1.24, SciPy~1.11, Pandas~2.0, Matplotlib~3.7, and Seaborn~0.12.
+MSA construction used MAFFT~v7.505 with the \texttt{--auto} strategy.
+All stochastic processes (bootstrap resampling, subsampling) used a fixed random seed (42) for reproducibility.
 Pathogen sequence data were collected from NCBI GenBank, and SARS-CoV-2 DMS data were obtained from the original data provided by Dadonaite et al.~\cite{dadonaite2023dms}.
 GISAID sequence data were accessed under the GISAID Data Access Agreement. The benchmark framework does not redistribute raw GISAID sequences; instead, computed H-scores and detection results are provided.

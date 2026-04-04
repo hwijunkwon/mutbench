@@ -1,0 +1,48 @@
+\usetheme{Madrid}
+\usecolortheme{default}
+
+% Colors
+\definecolor{mainblue}{RGB}{0,83,155}
+\definecolor{accentred}{RGB}{192,0,0}
+\definecolor{lightgray}{RGB}{240,240,240}
+
+\setbeamercolor{structure}{fg=mainblue}
+\setbeamercolor{title}{fg=white,bg=mainblue}
+\setbeamercolor{frametitle}{fg=white,bg=mainblue}
+\setbeamercolor{block title}{fg=white,bg=mainblue}
+\setbeamercolor{block body}{bg=lightgray}
+\setbeamercolor{item}{fg=mainblue}
+
+% Fonts
+\usefonttheme{professionalfonts}
+\setbeamerfont{title}{size=\Large,series=\bfseries}
+\setbeamerfont{frametitle}{size=\large,series=\bfseries}
+
+% Remove navigation symbols
+\setbeamertemplate{navigation symbols}{}
+
+% Page numbers
+\setbeamertemplate{footline}{
+  \hfill\insertframenumber/\inserttotalframenumber\hspace{1em}\vspace{1em}
+}
+
+% Packages
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{amsmath,amssymb}
+\usepackage{multirow}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage[export]{adjustbox}  % for max height in includegraphics
+
+% Graphics path
+\graphicspath{{../figures/}}
+
+% Prevent images from overflowing frames
+\setkeys{Gin}{keepaspectratio}
+\newcommand{\maxfigheight}{0.55\textheight}
+
+% Custom commands
+\newcommand{\highlight}[1]{\textcolor{accentred}{\textbf{#1}}}
+\newcommand{\cmark}{\textcolor{green!60!black}{\checkmark}}
+\newcommand{\xmark}{\textcolor{red}{\texttimes}}

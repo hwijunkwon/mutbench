@@ -1,0 +1,45 @@
+\documentclass[aspectratio=169,11pt]{beamer}
+
+\input{preamble}
+
+\title{Systematic Benchmarking of Multi-Source Information Types\\for Viral Mutation Hotspot Detection}
+\author{Hwijun Kwon\\[0.3em]{\small Advisor: Prof.\ Inuk Jung}}
+\institute{School of Computer Science and Engineering\\Kyungpook National University}
+\date{August 2026}
+
+\begin{document}
+
+\begin{frame}[plain]
+  \titlepage
+\end{frame}
+
+\begin{frame}{Outline}
+  \tableofcontents
+\end{frame}
+
+\input{sec1_introduction}
+\input{sec2_background}
+\input{sec3_methods}
+\input{sec4_results}
+\input{sec5_discussion}
+\input{sec6_conclusion}
+
+% ============ BACKUP SLIDES ============
+\appendix
+\newcounter{finalframe}
+\setcounter{finalframe}{\value{framenumber}}
+
+\input{sec7_backup}
+
+\setcounter{framenumber}{\value{finalframe}}
+
+\begin{frame}[plain]
+  \centering
+  \vfill
+  {\Huge\bfseries Thank You}\\[1em]
+  {\large Questions?}\\[2em]
+  {\normalsize Hwijun Kwon $\cdot$ \texttt{kksuhj@knu.ac.kr}}
+  \vfill
+\end{frame}
+
+\end{document}
