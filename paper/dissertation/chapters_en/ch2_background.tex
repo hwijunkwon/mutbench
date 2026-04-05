@@ -144,7 +144,7 @@ More recently, ESM-3 extended the ESM family to a multimodal generative model in
 While ProtTrans and ESM-3 represent important advances in protein representation learning, their application to viral variant effect prediction has been less extensively validated than ESM-2.
 
 Beyond single-model predictions, \textbf{EVEscape}~\cite{thadani2023evescape} demonstrated the value of combining PLM-derived features with complementary biological information.
-EVEscape integrates EVE fitness scores (from a Bayesian variational autoencoder trained on MSAs), structural accessibility (solvent-accessible surface area from AlphaFold predictions), and immune presentation features (antibody accessibility) to predict viral immune escape mutations.
+EVEscape integrates three components to predict viral immune escape mutations: (1)~EVE fitness scores from a Bayesian variational autoencoder trained on MSAs, (2)~structural accessibility from experimentally determined structures (PDB) or AlphaFold predictions, and (3)~physicochemical dissimilarity between wildtype and mutant residues (charge and hydrophobicity changes).
 Its success in forecasting SARS-CoV-2 Omicron escape mutations from pre-pandemic data illustrates the potential of multi-source feature integration.
 
 \textbf{AlphaMissense}~\cite{cheng2023alphamissense} adopted an AlphaFold-derived architecture to classify missense variants across the entire human proteome, achieving high accuracy for pathogenicity prediction.
@@ -156,7 +156,7 @@ Despite the growing adoption of PLMs in protein engineering and variant effect p
 In this dissertation, ESM-2 log-likelihood ratios and embedding-derived semantic change scores are evaluated as two of the 10 positional features in the MutBench information-type analysis (Section~\ref{sec:information_analysis}).
 
 \textbf{PLM benchmarking.}
-The most comprehensive benchmark for PLM-based variant effect prediction is ProteinGym~\cite{notin2023proteingym}, which evaluates over 60 predictors on 217 DMS assays spanning 2.7 million substitution variants, primarily from human and model organism proteins.
+The most comprehensive benchmark for PLM-based variant effect prediction is ProteinGym~\cite{notin2023proteingym}, which evaluates over 70 predictors on 217 DMS assays spanning 2.7 million substitution variants, primarily from human and model organism proteins.
 ProteinGym has been instrumental in establishing performance rankings among PLMs and alignment-based methods for the per-mutation fitness prediction task: given a specific amino acid substitution at a specific position, predict its continuous fitness effect (evaluated by Spearman correlation against DMS measurements).
 MutBench differs from ProteinGym in three fundamental respects.
 First, the \textit{task} differs: ProteinGym evaluates per-mutation effect prediction (a continuous regression problem), whereas MutBench evaluates per-region hotspot detection (a binary classification problem over genomic regions).
@@ -200,8 +200,8 @@ This result highlights that mutual information between positions---capturing the
 Hie et al.~\cite{hie2021learning} demonstrated that protein language model embeddings can capture ``semantic change''---the degree to which a mutation alters the functional meaning of a protein as represented in the PLM embedding space.
 They showed that viral sequences that are antigenically distinct but phylogenetically close exhibit large semantic change, suggesting that PLM representations can detect functionally significant mutations that traditional phylogenetic or frequency-based approaches might miss.
 
-EVEscape~\cite{thadani2023evescape} demonstrated that combining evolutionary fitness predictions with structural accessibility and immune presentation features can predict viral escape mutations, providing a practical example of multi-source information integration for viral mutation analysis.
-Its three-component score (evolutionary fitness from EVE, structural accessibility from AlphaFold, and immune presentation) achieved stronger predictive performance than any single component, establishing a precedent for the multi-source approach.
+EVEscape~\cite{thadani2023evescape} demonstrated that combining evolutionary fitness predictions with structural accessibility and physicochemical dissimilarity features can predict viral escape mutations, providing a practical example of multi-source information integration for viral mutation analysis.
+Its three-component score (evolutionary fitness from EVE, structural accessibility, and physicochemical dissimilarity) achieved stronger predictive performance than any single component, establishing a precedent for the multi-source approach.
 
 A critical limitation shared by all these studies is their focus on \textbf{single pathogens}---primarily SARS-CoV-2 or influenza.
 None systematically compares feature importance \textit{across} multiple pathogens to determine whether the same features are universally predictive or whether the optimal feature set is pathogen-dependent.
@@ -230,7 +230,7 @@ MutBench adheres to these principles by evaluating all methods---including the a
 \subsection{Benchmarking Gap in Viral Hotspot Detection}
 \label{subsec:bg_benchmarking_gap}
 
-The absence of benchmark studies for hotspot detection methods in viral genomics stands in contrast to cancer genomics, where the comprehensive driver gene analysis by Bailey et al.~\cite{bailey2018comprehensive} established a standard benchmark with independent ground truth, enabling systematic comparison of 26 detection methods under uniform conditions.
+The absence of benchmark studies for hotspot detection methods in viral genomics stands in contrast to cancer genomics, where Bailey et al.~\cite{bailey2018comprehensive} conducted a comprehensive PanCancer analysis applying 26 computational tools to 9,423 tumor exomes under uniform conditions, producing a widely used catalog of cancer driver genes.
 No analogous benchmark exists for viral mutation hotspot detection: detection methods are evaluated using ad hoc validation against small sets of known functional mutations, without standardized datasets, metrics, or ground truth definitions.
 Related efforts in adjacent domains include:
 (1)~ProteinGym~\cite{notin2023proteingym}, which benchmarks variant effect predictors using 250+ DMS assays but addresses a per-residue regression task rather than hotspot region detection;
@@ -357,7 +357,7 @@ Quantitative evaluation (precision, recall, stability) based on independent grou
 
 \textbf{Fourth, single-information-type limitation.}
 The H-score combines only two types of information: mutation frequency and mutation entropy.
-Since both are derived from the same underlying sequence alignment, the H-score does not incorporate complementary biological signals such as selective pressure (dN/dS), evolutionary fitness (from PLMs or generative models), structural accessibility, or immune presentation.
+Since both are derived from the same underlying sequence alignment, the H-score does not incorporate complementary biological signals such as selective pressure (dN/dS), evolutionary fitness (from PLMs or generative models), structural accessibility, or physicochemical dissimilarity.
 Whether these alternative information types would improve or change the detected hotspots was not investigated.
 
 Additionally, since H-scores are computed at the nucleotide level, they do not distinguish between synonymous and non-synonymous mutations, necessitating integration with selective pressure indicators such as the dN/dS ratio.
