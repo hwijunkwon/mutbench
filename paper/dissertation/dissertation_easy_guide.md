@@ -223,7 +223,7 @@ Layer A와 B가 진화 패턴이나 구조 정보에 기반하는 반면, Layer 
 - H3N2: Oracle MCC = 0.549 (가장 쉬움 — GT가 잘 정의되어 있고 항원 변이 위치가 명확)
 - MERS: Oracle MCC = 0.088 (가장 어려움 — 서열 수 530개, Layer B/C 없음)
 
-PAHD의 목표는 이 Oracle에 최대한 가까운 성능을 달성하는 것입니다 (현재 proof-of-concept 수준에서 48~58% 회복).
+적응적 방법 선택의 목표는 이 Oracle에 최대한 가까운 성능을 달성하는 것입니다 (현재 proof-of-concept 수준에서 48~58% 회복).
 
 ### 3.3 채점 기준: Hotspot-score
 
