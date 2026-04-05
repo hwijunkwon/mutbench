@@ -33,8 +33,8 @@ The synthetic benchmark's ground truth is defined independently of the detection
 A potential concern is that Layer~A positions (convergent evolution) may partially correlate with mutation frequency, which could make frequency-based scoring appear artificially strong.
 However, convergent evolution requires independent emergence in $\geq$3 lineages, which is distinct from high frequency: D614G achieved the highest frequency through a single founder event (homoplasy count~=~2), while position~476 has moderate frequency but the highest homoplasy count (53).
 Crucially, Layer~C (DMS experimental fitness) provides a fully frequency-independent validation dimension, and the vaccine escape enrichment analysis (Section~\ref{sec:vaccine_escape}) confirms that benchmark-optimal scoring types also achieve the highest enrichment for independently curated escape positions, providing external cross-validation against circularity.
-Min-max normalization was used as the default throughout MutBench; z-score and rank transformations were not evaluated as they can introduce artifacts in sparse data distributions.
 The biological validity of detected hotspots was further supported by 3D structural analysis (Section~\ref{sec:structure_analysis}), which showed 5.92-fold spatial contact enrichment, and by the consistent superiority of domain-specific methods (MutClust variants) over general-purpose alternatives (OPTICS, KDE) in Section~\ref{sec:external_comparison}.
+Min-max normalization was used as the default throughout MutBench; z-score and rank transformations were not evaluated as they can introduce artifacts in sparse data distributions.
 With benchmark validity established, the temporal limitations of the underlying H-score metric warrant examination.
 
 %% ============================================================
@@ -195,7 +195,7 @@ This concordance between Layer~A rankings and vaccine escape enrichment is notab
 The fact that optimizing for Layer~A also maximizes escape capture provides strong evidence that the benchmark is not merely a circular evaluation artifact.
 
 This cross-validation is particularly important for the five pathogens without DMS data (Layer~C), where benchmark validity rests primarily on Layer~A.
-The EVEREST study~\cite{gurev2025everest} demonstrated that even with 48 DMS datasets, half of WHO priority viruses cannot be reliably evaluated using DMS alone.
+The EVEREST study~\cite{gurev2025everest} demonstrated that even with 45 DMS datasets, half of WHO priority viruses cannot be reliably evaluated using DMS alone.
 MutBench's combination of Layer~A benchmark rankings with independent vaccine escape validation provides complementary evidence that circumvents DMS data availability constraints, supporting the validity of Layer~A as a ground truth even for pathogens where DMS data are unavailable.
 
 %% ============================================================
