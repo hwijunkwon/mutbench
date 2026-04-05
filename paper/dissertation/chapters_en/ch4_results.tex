@@ -391,7 +391,7 @@ The residual variance ($\omega^2_{\text{residual}} \approx 0.39$) represents wit
 
 Three independent analyses converge on the same conclusion: (1)~factorial ANOVA identifies the scoring $\times$ pathogen interaction as the largest variance component ($\omega^2 = 0.296$); (2)~Friedman test shows no reliably superior combination across pathogens ($\chi^2 = 7.69$, $p = 0.990$, $W = 0.037$); and (3)~LOPO cross-validation demonstrates complete generalization failure (0/11 match rate, mean MCC gap = 0.265). Together, these establish that the optimal information source is fundamentally pathogen-dependent.
 
-This finding directly resolves the third problem from Chapter~\ref{ch:introduction}: the interaction dominance ($\omega^2 = 0.296$) provides definitive statistical proof that detection performance is fundamentally pathogen-dependent. Moreover, the shift from family$\times$pathogen dominance (Stage~2 preliminary with 9 scoring types: $\omega^2 = 0.285$) to scoring$\times$pathogen dominance (full 20-scoring benchmark: $\omega^2 = 0.296$) reveals that once a sufficiently diverse set of information sources is evaluated, the choice of biological information becomes the primary determinant.
+This finding directly resolves the third problem from Chapter~\ref{ch:introduction}: the interaction dominance ($\omega^2 = 0.296$) provides strong statistical evidence that detection performance is fundamentally pathogen-dependent. Moreover, the shift from family$\times$pathogen dominance (Stage~2 preliminary with 9 scoring types: $\omega^2 = 0.285$) to scoring$\times$pathogen dominance (full 20-scoring benchmark: $\omega^2 = 0.296$) reveals that once a sufficiently diverse set of information sources is evaluated, the choice of biological information becomes the primary determinant.
 
 \textbf{LOPO Cross-Validation.}
 \label{subsec:9pathogen_lopo}
@@ -421,7 +421,7 @@ Using the 11 pathogens as blocks, a Friedman test was performed on the performan
 \end{equation}
 
 Kendall's coefficient of concordance $W = \chi^2 / [n(k-1)] = 7.69 / (11 \times 19) = 0.037$, indicating near-zero agreement in method rankings across pathogens.
-With $p = 0.990$ and $W = 0.037$, the result is \textbf{not} statistically significant, meaning that even the top 20 combinations cannot be statistically distinguished from each other across 11 pathogens. This is a stronger result than the previous 9-pathogen analysis: no combination is reliably better than any other, because each pathogen's performance landscape is fundamentally different. Combined with the LOPO 0/11 match rate, this provides definitive evidence that no universal best method exists.
+With $p = 0.990$ and $W = 0.037$, the result is \textbf{not} statistically significant, meaning that even the top 20 combinations cannot be statistically distinguished from each other across 11 pathogens. This is a stronger result than the previous 9-pathogen analysis: no combination is reliably better than any other, because each pathogen's performance landscape is fundamentally different. Combined with the LOPO 0/11 match rate, this provides compelling evidence that no universal best method exists.
 
 \textbf{Pathogen-Level BCa Bootstrap Confidence Intervals.}
 \label{subsec:9pathogen_bootstrap}
