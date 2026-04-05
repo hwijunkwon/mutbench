@@ -1,0 +1,18 @@
+# LaTeX build artifacts
+*.aux
+*.log
+*.toc
+*.lof
+*.lot
+*.bbl
+*.blg
+*.nav
+*.snm
+*.out
+*.synctex.gz
+texput.log
+
+# Keep PDFs (thesis and presentation)
+!thesis_en.pdf
+!presentation/main.pdf
+!dissertation_easy_guide*.pdf

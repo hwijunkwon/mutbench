@@ -1,9 +1,0 @@
-\addvspace {10\p@ }
-\addvspace {10\p@ }
-\addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces SARS-CoV-2 Spike 단백질의 게놈 전체 핫스팟 맵. Ground truth로 사용된 7개의 주석된 기능 영역(RBD, NTD 항원 초과부위, 퓨린 절단 부위, S2' 절단 부위, 융합 펩타이드, HR1, HR2)이 뉴클레오티드 좌표에 매핑되어 있으며, 1,251개의 고유 Spike 뉴클레오티드 위치를 포함한다.\relax }}{33}{figure.caption.10}%
-\addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces 합성 SARS-CoV-2 데이터에 대한 방법 비교. MutClust-Hybrid가 정밀도와 재현율의 최적 균형(F1 = 0.785)을 달성하며, CCM 전용 변이체는 높은 정밀도이지만 중간 재현율을, HDBSCAN-Auto는 높은 재현율이지만 매우 낮은 정밀도를 보인다.\relax }}{62}{figure.caption.32}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces MutClust 파라미터 민감도 히트맵. 64개 파라미터 조합($\gamma \times d \times $ MinPts)에 대한 전인자 격자 탐색 결과, F1 성능이 $\gamma $(엡실론 스케일링 인자)에 가장 민감하고, $d$(감쇠 인자)가 그 다음이며, MinPts의 영향은 미미함을 보여준다.\relax }}{69}{figure.caption.35}%
-\addvspace {10\p@ }
-\addvspace {10\p@ }

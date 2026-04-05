@@ -30,16 +30,16 @@
 }
 \RequirePackage[titles]{tocloft}
 
-%% Geometry: custom paper size 19cm x 26cm, 35mm margins
+%% Geometry: custom paper size 19cm x 26cm, reduced margins
 \RequirePackage[
   paperwidth=19cm,
   paperheight=26cm,
-  left=35mm,
-  right=35mm,
-  top=35mm,
-  bottom=35mm,
-  headheight=15mm,
-  footskip=15mm
+  left=25mm,
+  right=25mm,
+  top=25mm,
+  bottom=25mm,
+  headheight=12mm,
+  footskip=12mm
 ]{geometry}
 
 %% ============================================================
