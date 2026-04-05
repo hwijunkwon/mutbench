@@ -241,7 +241,7 @@ Pneumoviridae    & AI-based (ESM-2)        & Limited phylogenetic signal \\
 \end{table}
 
 \paragraph{Step 4: Detection and evaluation.}
-Apply KDE or Wavelet-based detection as robust defaults (Section~\ref{sec:external_comparison}). If ground truth positions are available (e.g., from DMS experiments or literature), compute the hotspot-score metric. The full detection and evaluation step requires ${\sim}$30 seconds for all 39 detector configurations.
+Apply KDE or Wavelet-based detection as robust defaults (Section~\ref{sec:external_comparison}). If ground truth positions are available (e.g., from DMS experiments or literature), compute the hotspot-score metric. When scoring features are pre-computed, detection and evaluation across all 39 detector configurations completes in under 3~seconds per pathogen (the full 8,580-evaluation benchmark requires approximately 25~seconds).
 
 \paragraph{Computational requirements.}
 The total pipeline runtime per pathogen is approximately 15--20 minutes on a workstation equipped with a single GPU (tested on NVIDIA RTX 3090). The most time-consuming step is ESM-2 inference; all other steps complete in under 10 minutes on a standard CPU. No specialized high-performance computing infrastructure is required.
