@@ -21,10 +21,10 @@ Section~\ref{sec:eval_stat_design} details the evaluation metrics and statistica
 Eleven RNA viruses were selected to cover diverse evolutionary dynamics, transmission routes, and genomic characteristics:
 (1)~\textit{Respiratory viruses}: SARS-CoV-2 (Spike, 1,273 AA), MERS-CoV (Spike, 1,330 AA), RSV (F protein, 574 AA), Influenza A H3N2 (HA, 566 AA), and Influenza B (HA, 584 AA);
 (2)~\textit{Blood-borne/sexually transmitted}: HIV-1 (Env gp120, 480 AA) and HCV (E2, 340 AA);
-\textit{Note: all amino acid lengths refer to post-truncation alignment lengths; full-length protein sequences may differ (e.g., MERS-CoV Spike full length is 1,353 AA).}
 (3)~\textit{Enteric}: Norovirus (VP1, 540 AA);
 (4)~\textit{Arthropod-borne}: Dengue (E protein, 495 AA);
 (5)~\textit{Neurotropic}: Rabies (G protein, 524 AA) and EV-A71 (VP1, 297 AA).
+\textit{Note: all amino acid lengths above refer to post-truncation alignment lengths; full-length protein sequences may differ (e.g., MERS-CoV Spike full length is 1,353 AA).}
 These 11 pathogens span substitution rates from $\sim$10$^{-3}$ (HIV-1, SARS-CoV-2) to $\sim$10$^{-4}$ (Rabies) substitutions/site/year, alignment lengths from 297 to 1,330 AA, and evolutionary patterns from rapid antigenic drift (H3N2) to epochal evolution (Norovirus).
 This diversity ensures that the benchmark evaluates method performance across a representative range of viral evolutionary regimes rather than a single pathogen's characteristics.
 
@@ -565,7 +565,7 @@ Each category captures a distinct biological or computational perspective on mut
  & stability & Thermodynamic predictor & Predicted $\Delta\Delta G$ of folding stability change \\
  & stability\_structural & Structure-aware predictor & $\Delta\Delta G$ from structure-conditioned stability model \\
 \midrule
-\multirow{2}{*}{Composite (2)} & EVEscape composite & Multi-feature combination & Weighted combination of evolutionary and structural features \\
+\multirow{2}{*}{Composite (2)} & EVEscape composite & Multi-feature combination & Weighted combination of fitness, accessibility, and dissimilarity \\
  & EqualWeight & All-feature average & Equal-weighted average of all normalized scoring types \\
 \bottomrule
 \end{tabular}
@@ -590,8 +590,8 @@ ESM-2 log-likelihood ratios and Tranception scores predict mutational effects fr
 Thermodynamic stability changes ($\Delta\Delta G$) were predicted using FoldX 5 with the AlphaFold2 structure as template (BuildModel command, 5 independent runs averaged). The structure-conditioned variant uses RoseTTAFold-based local energy estimation.
 ESM-2 scores were computed using the \texttt{esm2\_t33\_650M\_UR50D} checkpoint (33 layers, 650M parameters).
 
-\textbf{Composite scores} combine multiple information sources: EVEscape integrates evolutionary, structural, and immunological features, while EqualWeight provides a naive baseline averaging all normalized scores.
-EVEscape composite scores were computed following Thadani et al.\ (2023), combining EVE fitness prediction, dissimilarity to training sequences, and structural accessibility with the published default weights.
+\textbf{Composite scores} combine multiple information sources: EVEscape integrates evolutionary fitness, structural accessibility, and physicochemical dissimilarity, while EqualWeight provides a naive baseline averaging all normalized scores.
+EVEscape composite scores were computed following Thadani et al.~\cite{thadani2023evescape}, combining EVE fitness prediction, structural accessibility, and physicochemical dissimilarity between wildtype and mutant residues with the published default weights.
 Each scoring type was $z$-score normalized (zero mean, unit variance) across positions before averaging.
 
 \subsubsection{Detection Method Families}
