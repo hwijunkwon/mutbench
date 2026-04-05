@@ -295,7 +295,7 @@ MERS & freq & KDE ($p$=85) & 0.196 \\
 \end{minipage}
 \end{table}
 
-While the 11/11 unique best combinations is notable, a permutation analysis shows that with $\binom{20 \times 39}{1} = 780$ possible scoring--detection family combinations, the probability of all 11 being unique by chance is $\prod_{i=0}^{10}(780-i)/780 \approx 0.929$ (approximately 93\%).
+While the 11/11 unique best combinations is notable, a permutation analysis shows that with $\binom{20 \times 39}{1} = 780$ possible scoring--detection family combinations, the probability of all 11 being unique by chance is $\prod_{i=0}^{10}(780-i)/780 \approx 0.932$ (approximately 93\%).
 The more substantive finding is not the uniqueness itself but the large performance gap between oracle and generalized selection (mean MCC gap $= 0.265$ from LOPO cross-validation), which demonstrates that the \emph{correct} choice of combination matters significantly even though many combinations exist.
 
 While the finding that different pathogens favor different methods might appear self-evident, the non-trivial contribution lies in three aspects: (1)~quantifying the magnitude of this interaction ($\omega^2 = 0.296$, explaining 29.6\% of variance---far exceeding the scoring main effect of 6.3\%); (2)~demonstrating that the information \textit{type} (not the detection algorithm) is the dominant factor; and (3)~showing that even with only 11~pathogens, no cross-pathogen generalization is achievable (LOPO 0/11), establishing that pathogen-adaptive selection is necessary rather than merely beneficial.

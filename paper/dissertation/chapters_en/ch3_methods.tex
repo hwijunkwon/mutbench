@@ -38,7 +38,7 @@ The following paragraphs describe each pathogen in the order listed above, group
 \paragraph{SARS-CoV-2 (Spike, 1,273 AA).}
 A betacoronavirus (family \textit{Coronaviridae}) that caused the COVID-19 pandemic (2019--present), SARS-CoV-2 serves as the primary reference pathogen for this benchmark.
 The Spike protein mediates ACE2 receptor binding and membrane fusion for cell entry, and is the principal target of vaccines and neutralizing antibodies, making it the most extensively characterized viral surface protein in history.
-SARS-CoV-2 evolves at ${\sim}1 \times 10^{-3}$ substitutions/site/year for the Spike gene, with its shallow pandemic phylogeny ($\sim$2 years in our dataset) creating strong founder effects (e.g., D614G) while convergent evolution at immune evasion sites (E484K, N501Y) provides clear Layer~A ground truth.
+SARS-CoV-2 evolves at ${\sim}1 \times 10^{-3}$ substitutions/site/year for the Spike gene, with its relatively shallow pandemic phylogeny ($\sim$5 years in our dataset, 2019--2024) creating strong founder effects (e.g., D614G) while convergent evolution at immune evasion sites (E484K, N501Y) provides clear Layer~A ground truth.
 The low unique sequence ratio (753/4,982 = 15.1\%) reflects massive sequencing of identical or near-identical lineages during the early pandemic.
 DMS data are available from Dadonaite et al.\ (2024), covering the full Spike protein entry assay.
 SARS-CoV-2 was selected as the anchor pathogen because it offers the richest ground truth data across all three layers.
@@ -711,7 +711,7 @@ The 11 pathogens in this benchmark differ in several structural characteristics 
 \toprule
 \textbf{Pathogen} & \textbf{Unique seqs} & \textbf{AA length} & \textbf{Time span} & \textbf{Positive rate} \\
 \midrule
-SARS-CoV-2 & 753 & 1,259 & $\sim$2 yr & 2.0\% \\
+SARS-CoV-2 & 753 & 1,259 & $\sim$5 yr & 2.0\% \\
 H3N2 & 2,562 & 543 & $\sim$50 yr & 4.6\% \\
 Norovirus & 791 & 536 & $\sim$20 yr & 2.8\% \\
 HIV-1 & 2,256 & 450 & $\sim$30 yr & 5.8\% \\
