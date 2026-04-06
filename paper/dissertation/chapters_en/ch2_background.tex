@@ -368,31 +368,7 @@ Phylogenetic non-independence---the possibility that mutation frequency is the r
 The core of these limitations is that MutClust proposed a new detection method but failed to simultaneously provide a framework for quantitatively evaluating that method's performance.
 This corresponds to the absence of benchmark principles established in cancer genomics~\cite{bailey2018comprehensive} and multi-omics evaluation~\cite{weber2019benchmarking}---neutral evaluation, multiple metrics, and controlled experimental design.
 
-\begin{table}[htbp]
-\centering
-\caption{Comparison of MutBench with existing approaches}
-\label{tab:approach_comparison}
-\small
-\adjustbox{max width=\textwidth}{
-\begin{tabular}{lcccc}
-\toprule
-\textbf{Feature} & \textbf{MutClust} & \textbf{Bailey et al.} & \textbf{MOSD} & \textbf{MutBench} \\
-\midrule
-Domain & Viral & Cancer & Multi-omics & Viral \\
-Independent ground truth & No & Yes & Yes & Yes (3-layer) \\
-Composite metric & No & No & cluster-score & hotspot-score \\
-Multi-pathogen comparison & Partial (2) & N/A & N/A & Yes (11) \\
-Statistical method selection & No & No & ANOVA & ANOVA+Friedman+LOPO \\
-Number of methods compared & 1 & 26 & 10 & 14 families (39 variants) \\
-\bottomrule
-\end{tabular}
-}
-\end{table}
-
-Table~\ref{tab:approach_comparison} summarizes how MutBench compares with existing approaches along key benchmark dimensions.
-The comparison with Bailey et al.\ (2018) highlights a key methodological distinction. Cancer driver benchmarks operate on somatic mutations within a single host genome, where ground truth is defined by recurrence across patient cohorts and functional assays. Viral hotspot benchmarks operate on population-level mutations across thousands of pathogen genomes, where ground truth derives from convergent evolution across phylogenetically independent lineages. This fundamental difference in data structure---intra-host somatic variation versus inter-host population variation---means that cancer benchmark methodologies cannot be directly transferred to viral hotspot detection, necessitating the domain-specific MutBench framework.
-
-Chapter~\ref{ch:mutbench} presents MutBench, which systematically addresses these limitations through implementation improvements, independent ground truth construction, a composite evaluation framework, and parameter sensitivity analysis.
+Chapter~\ref{ch:mutbench} presents MutBench, which systematically addresses these limitations through independent ground truth construction, a composite evaluation framework, and statistical analysis of scoring--pathogen interactions.
 
 \vspace{1em}
 \noindent\textbf{Chapter Summary.}
