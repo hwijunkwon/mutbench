@@ -167,7 +167,7 @@ MSA의 각 아미노산 위치에 대해, 다양한 생물학적 정보를 활�
 | **Hie et al.** (Science, 2021) | AI 언어모델로 바이러스 escape 변이를 예측 | 단일 방법 제안. 다른 방법들과 비교하지 않음 |
 | **Maher et al.** (Sci Transl Med, 2022) | SARS-CoV-2 미래 변이주를 예측하는 feature 분석 | SARS-CoV-2 **하나**에 한정. 다른 바이러스 미검증 |
 | **Obermeyer et al.** (Science, 2022) | 640만 SARS-CoV-2 게놈에서 적합도 관련 변이 식별 | 대규모 분석이지만 SARS-CoV-2 **하나**. 탐지 방법 비교 아님 |
-| **ProteinGym** (NeurIPS, 2023) | 250개 이상 DMS 데이터로 변이 효과 예측 모델 벤치마크 | 개별 변이의 효과 예측 (per-mutation). 핫스팟 **영역** 탐지가 아님 |
+| **ProteinGym** (NeurIPS, 2023) | 217개 DMS assay, 70개 이상 예측 모델 벤치마크 | 개별 변이의 효과 예측 (per-mutation). 핫스팟 **영역** 탐지가 아님 |
 | **ConDor** (2024) | 계통수에서 수렴 변이를 탐지하는 도구 | 단일 탐지 도구. 벤치마크 프레임워크가 아님 |
 
 : 관련 연구와 MutBench의 비교
