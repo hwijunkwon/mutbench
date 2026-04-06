@@ -3,7 +3,7 @@
 \chapter{Related Research}
 \label{ch:background}
 
-This chapter reviews prior work in viral mutation hotspot detection (Section~\ref{sec:bg_hotspot}) and summarizes MutClust (Section~\ref{sec:mutclust_summary}), the precursor study that directly motivated MutBench.
+This chapter reviews prior work in viral mutation hotspot detection (Section~\ref{sec:bg_hotspot}) and identifies the benchmarking gap that motivated MutBench.
 
 
 %% ===================================================================
@@ -86,7 +86,7 @@ This visualization reveals clustering structure at all density levels simultaneo
 The multi-scale perspective of OPTICS is valuable for exploratory analysis, but the additional extraction step introduces subjectivity in cluster boundary determination.
 
 The limitations of standard density-based methods in the viral genomics context motivated the development of adaptive approaches that integrate biological scoring into the clustering framework.
-MutClust~\cite{youn2025mutclust} addressed this by replacing DBSCAN's fixed epsilon with a position-specific radius proportional to the H-score, a mutation importance metric (Section~\ref{subsec:mutclust_hscore}), thereby assigning wider neighborhoods to biologically significant positions and narrower neighborhoods elsewhere.
+MutClust~\cite{youn2025mutclust} addressed this by replacing DBSCAN's fixed epsilon with a position-specific radius proportional to the H-score (a mutation importance metric combining frequency and entropy), thereby assigning wider neighborhoods to biologically significant positions and narrower neighborhoods elsewhere.
 
 \subsection{Deep Mutational Scanning as Ground Truth}
 \label{subsec:bg_dms}
@@ -284,96 +284,12 @@ This gap---systematic multi-pathogen benchmarking for hotspot detection---is the
 
 %% ===================================================================
 %%  SECTION 2: MutClust Summary
-%% ===================================================================
-\section{MutClust: Adaptive Density-Based Hotspot Detection}
-\label{sec:mutclust_summary}
-
-\textit{This section is a summary of the paper published in BioData Mining (2025) 18:61~\cite{youn2025mutclust}.}
-MutClust was the first study to apply density-based clustering specifically to viral mutation hotspot detection, addressing the limitations of frequency-only and entropy-only approaches reviewed in Section~\ref{subsec:bg_hotspot_methods}.
-Its contributions and limitations directly motivate the MutBench benchmark developed in this dissertation.
-
-\subsection{H-score and Adaptive DBSCAN}
-\label{subsec:mutclust_hscore}
-
-MutClust is the first density-based algorithm designed for detecting mutation hotspots in viral genomes.
-Its core innovations are a novel mutation importance metric called the H-score and an adaptive DBSCAN framework built upon it.
-
-The \textbf{H-score} is defined as:
-\begin{equation}
-H_i = \log_2(P_i \times E_i \times 100 + 1)
-\label{eq:hscore}
-\end{equation}
-where $P_i$ is the mutation frequency at position $i$ (the fraction of sequences carrying a mutation at that position) and $E_i$ is the mutation entropy (Shannon entropy computed over the distribution of observed mutant amino acids, conditioned on mutation occurrence).
-Frequency $P_i$ captures how commonly a position mutates across the population, while entropy $E_i$ captures the \textit{diversity} of mutations at that position---a high-entropy position exhibits many different amino acid substitutions, suggesting it is under diversifying selective pressure or is structurally tolerant of change.
-The multiplicative combination $P_i \times E_i$ suppresses two classes of false positives: (1)~lineage-defining mutations with high frequency but low diversity (e.g., D614G, which is nearly fixed but only produces a single substitution, yielding $E \approx 0$), and (2)~noise positions with low frequency but spuriously high diversity (where one or two rare mutations inflate entropy).
-The logarithmic transformation compresses the dynamic range and ensures that H-scores are non-negative (since $P \times E \times 100 + 1 \geq 1$).
-
-Built upon the H-score, \textbf{Adaptive DBSCAN} replaces DBSCAN's fixed global epsilon with a position-specific neighborhood radius:
-\begin{equation}
-\varepsilon_i = \gamma \times H_i
-\label{eq:adaptive_eps}
-\end{equation}
-where $\gamma$ is a scaling parameter. This formulation assigns wider search radii to positions with high H-scores (biologically significant regions where nearby positions are likely to be part of the same functional hotspot) and narrower radii elsewhere, naturally adapting the clustering resolution to local mutation importance.
-
-The algorithm first identifies \textbf{Core Cluster Members (CCMs)} that satisfy four threshold conditions: (1)~the individual H-score $H_i$ exceeds a threshold $t_H$, (2)~the mean H-score within the $\varepsilon_i$-neighborhood exceeds $t_{\text{mean}}$, (3)~the sum of H-scores in the neighborhood exceeds $t_{\text{sum}}$, and (4)~the neighborhood contains at least MinPts points.
-Clusters are then expanded bidirectionally from each CCM with a diminishing radius, and overlapping clusters are merged.
-The key parameters ($\gamma=10$, $d=3$, MinPts$=5$, $t_H=0.03$, $t_{\text{mean}}=0.01$, $t_{\text{sum}}=0.05$) were empirically determined from 224,318 SARS-CoV-2 sequences, and the overall time complexity is $O(N + M \log M)$ where $N$ is genome length and $M$ is the number of mutation positions.
-
-\subsection{SARS-CoV-2 Hotspot Detection Results}
-\label{subsec:mutclust_results_summary}
-
-Analysis of 224,318 GISAID SARS-CoV-2 sequences aligned to the Wuhan-Hu-1 reference genome (NC\_045512.2, 29,903 bp) revealed that MutClust detected \textbf{477} mutation hotspots using parameters $\gamma=10$, $d=3$, and MinPts$=5$.
-This represents a qualitatively different level of resolution compared to standard DBSCAN, which with tuned parameters ($\varepsilon = 0.15$, MinPts $= 5$) produced only 4 undifferentiated clusters, and with default parameters merged 99.76\% of positions into a single cluster.
-The 477 detected hotspots spanned all major viral proteins, with the highest density observed in the Spike protein region---consistent with the known role of Spike as the primary target of antibody-mediated selection.
-
-Of 10 known functional mutations examined for validation, 9 were contained within detected hotspots.
-These included key mutations driving variant emergence: D614G (increased transmissibility), E484K (immune evasion in Beta and Gamma variants), N501Y (enhanced ACE2 binding in Alpha and Omicron), and L452R (immune evasion in Delta).
-The single undetected mutation was located in a low-density genomic region where the adaptive epsilon was too narrow to form a cluster, illustrating the trade-off between sensitivity and specificity inherent in the threshold-based CCM criteria.
-
-Validation on influenza H3N2 hemagglutinin confirmed partial generalizability: MutClust successfully identified hotspots overlapping known antigenic sites, but the substantially smaller genome size ($\sim$1,700 bp for HA vs.\ $\sim$30,000 bp for the full SARS-CoV-2 genome) highlighted the need for parameter readjustment across different genome scales. For H3N2 in particular, Smith et al.~\cite{smith2004antigenic} demonstrated through antigenic cartography that a small number of substitutions in the HA protein drive major antigenic change, underscoring the importance of accurate detection of such key positions.
-
-\subsection{Limitations and Motivation for MutBench Development}
-\label{subsec:mutclust_limitations}
-
-Despite the achievements of MutClust, three fundamental limitations serve as the direct motivation for MutBench development.
-
-\textbf{First, implementation-level issues.}
-A bug in the diminishing formula of the cluster expansion function causes cumulative rather than linear radius decay, leading to premature termination of cluster expansion and, in certain edge cases, reversal of the decay direction.
-
-Specifically, the intended linear decay $\varepsilon' = \varepsilon - \delta \times \text{step}$ was implemented as cumulative subtraction.
-This causes the effective epsilon to shrink faster than designed and occasionally become negative when the step count exceeds the expected range.
-This affects the boundaries of detected hotspots, potentially splitting genuine hotspots into fragments.
-
-\textbf{Second, hardcoded parameters.}
-$\gamma=10$, $d=3$, and the CCM thresholds (0.03, 0.01, 0.05) are empirically determined values fitted to 224,318 SARS-CoV-2 sequences.
-These values may become inappropriate when the number of sequences or genome size differs, yet the sensitivity of detection results to parameter variation has never been systematically analyzed.
-For instance, a pathogen with fewer available sequences will have a different distribution of mutation frequencies, potentially requiring lower thresholds to identify meaningful hotspots.
-Although applying the same parameters was successful in influenza validation, influenza genomes are approximately one-tenth the size of SARS-CoV-2 ($\sim$2,300 bp/segment vs. $\sim$30,000 bp), and the necessity of parameter readjustment for best performance remains unresolved.
-
-\textbf{Third, the absence of systematic benchmarking.}
-MutClust's reliance on self-referential bootstrap validation, without independent ground truth or standardized metrics, exemplifies the broader benchmarking gap identified in Section~\ref{sec:bg_hotspot}.
-The bootstrap approach validates internal consistency (whether repeated runs produce similar clusters) but does not evaluate whether the detected hotspots correspond to biologically meaningful sites.
-Quantitative evaluation (precision, recall, stability) based on independent ground truth has not been conducted, and the absence of standardized evaluation metrics makes fair comparison of results across different methods impossible.
-
-\textbf{Fourth, single-information-type limitation.}
-The H-score combines only two types of information: mutation frequency and mutation entropy.
-Since both are derived from the same underlying sequence alignment, the H-score does not incorporate complementary biological signals such as selective pressure (dN/dS), evolutionary fitness (from PLMs or generative models), structural accessibility, or physicochemical dissimilarity.
-Whether these alternative information types would improve or change the detected hotspots was not investigated.
-
-Additionally, since H-scores are computed at the nucleotide level, they do not distinguish between synonymous and non-synonymous mutations, necessitating integration with selective pressure indicators such as the dN/dS ratio.
-Phylogenetic non-independence---the possibility that mutation frequency is the result of a single founder effect rather than independent positive selection---is also not corrected for.
-
-\vspace{1em}
-
-The core of these limitations is that MutClust proposed a new detection method but failed to simultaneously provide a framework for quantitatively evaluating that method's performance.
-This corresponds to the absence of benchmark principles established in cancer genomics~\cite{bailey2018comprehensive} and multi-omics evaluation~\cite{weber2019benchmarking}---neutral evaluation, multiple metrics, and controlled experimental design.
-
-Chapter~\ref{ch:mutbench} presents MutBench, which systematically addresses these limitations through independent ground truth construction, a composite evaluation framework, and statistical analysis of scoring--pathogen interactions.
+Chapter~\ref{ch:mutbench} presents MutBench, which systematically addresses the benchmarking gap identified above through independent ground truth construction, a composite evaluation framework, and statistical analysis of scoring--pathogen interactions.
 
 \vspace{1em}
 \noindent\textbf{Chapter Summary.}
 This chapter has reviewed the two bodies of prior work that directly inform MutBench.
 Section~\ref{sec:bg_hotspot} surveyed viral mutation hotspot detection methods---from frequency-based and entropy-based scoring through density-based clustering to protein language models and selection-based approaches---and identified a critical benchmarking gap: no standardized framework exists for evaluating and comparing these methods across multiple pathogens with independent ground truth.
-Section~\ref{sec:mutclust_summary} summarized MutClust, which introduced the H-score and adaptive DBSCAN for virus-specific hotspot detection, but whose reliance on a single pathogen, single information type, and self-referential validation left open the question of how different scoring approaches and detection algorithms compare across the diversity of viral pathogens.
+The only virus-specific hotspot detection tool, MutClust~\cite{youn2025mutclust}, relies on a single pathogen, single information type (H-score), and self-referential validation, leaving open the question of how different scoring approaches and detection algorithms compare across diverse viral pathogens.
 Together, these gaps motivate the design of MutBench as a systematic, multi-pathogen benchmark with three-layer ground truth, composite evaluation metrics, and statistical analysis of scoring--pathogen interactions.
 The following chapter presents the MutBench framework in detail, including the construction of multi-layer ground truth datasets for 11 pathogens, the benchmark design comprising 20 scoring types across 6 categories and 14 detection method families, and the factorial ANOVA methodology for quantifying scoring--pathogen interactions.
