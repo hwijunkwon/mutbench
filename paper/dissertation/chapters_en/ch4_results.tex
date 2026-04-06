@@ -460,8 +460,8 @@ In the full 20-scoring benchmark, ESM-2 LLR achieves the best MCC for RSV (0.196
 
 \textbf{ANOVA Diagnostic Tests.}
 \label{subsec:anova_diagnostics}
-The Shapiro-Wilk test (applied to a random subsample of 5,000 observations) rejected residual normality ($W = 0.907$, $p < 10^{-48}$), and Levene's test rejected homoscedasticity for all factors.
-However, with skewness = 1.31 and excess kurtosis = 4.00, the non-normality is moderate, and the large sample size ($N = 8{,}580$) ensures ANOVA robustness via the central limit theorem.
+The Shapiro-Wilk test on ANOVA residuals rejected normality ($W = 0.974$, $p < 10^{-29}$), and Levene's test rejected homoscedasticity for all factors.
+However, the non-normality is mild (residual skewness = 0.14, excess kurtosis = 2.83), and the large sample size ($N = 8{,}580$) ensures ANOVA robustness.
 Kruskal-Wallis non-parametric tests confirmed all effects (pathogen: $H = 1{,}120.8$, $p < 10^{-234}$; detection family: $H = 129.1$, $p < 10^{-21}$; scoring: $H = 277.9$, $p < 10^{-47}$), maintaining the reliability of the ANOVA conclusions.
 
 \textbf{Precision@$k$ Analysis.}
