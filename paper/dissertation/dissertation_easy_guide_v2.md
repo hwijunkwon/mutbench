@@ -534,7 +534,7 @@ Stage 1에서 프레임워크가 작동함을 확인했으므로, 이제 핵심 
 >
 > - 고유 서열 수: MERS 530개 vs Influenza B 5,019개 (9.5배 차이)
 > - 단백질 길이: EV-A71 297 AA vs MERS 1,330 AA (4.5배 차이)
-> - 시간 범위: SARS-CoV-2 약 2년 vs H3N2/Rabies 약 50년
+> - 시간 범위: SARS-CoV-2 약 5년 (2019-2024) vs H3N2/Rabies 약 50년
 > - Layer A 양성률: MERS 0.7% vs HCV 15.9%
 >
 > 이 차이가 결과에 미치는 영향을 세 가지 방법으로 완화합니다:
@@ -1150,7 +1150,7 @@ SARS-CoV-2에서 최고 방법이 34개 중 25개 탐지 (recall 73.5%, 4.9배 e
 1. **서열 수집**: 200개 이상, MAFFT로 MSA 구축 (~5분)
 2. **Feature 계산**: freq/entropy (초), homoplasy (2~5분), ESM-2 (3~5분, GPU), 구조 (AlphaFold2)
 3. **Scoring 카테고리 선택**: 아래 추천표 참고
-4. **탐지 및 평가**: KDE 또는 Wavelet 기본값 적용 (~30초)
+4. **탐지 및 평가**: KDE 또는 Wavelet 기본값 적용 (병원체당 3초 미만, pre-computed features 기준)
 
 전체 소요시간: **15~20분** (GPU 탑재 워크스테이션)
 
