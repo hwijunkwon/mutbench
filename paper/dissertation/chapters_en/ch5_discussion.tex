@@ -226,7 +226,7 @@ Table~\ref{tab:scoring_recommendation} provides empirically grounded recommendat
 \caption{Recommended scoring categories by virus family, based on cross-pathogen benchmark results}
 \label{tab:scoring_recommendation}
 \small
-\begin{tabular}{lll}
+\begin{tabularx}{\textwidth}{llX}
 \toprule
 \textbf{Virus Family} & \textbf{Recommended Scoring} & \textbf{Rationale} \\
 \midrule
@@ -237,7 +237,7 @@ Retroviridae     & MSA-derived (entropy)   & High diversity; entropy captures al
 Flaviviridae     & Frequency-based         & Hypervariable regions dominate signal \\
 Pneumoviridae    & AI-based (ESM-2)        & Limited phylogenetic signal \\
 \bottomrule
-\end{tabular}
+\end{tabularx}
 \end{table}
 
 \paragraph{Step 4: Detection and evaluation.}
