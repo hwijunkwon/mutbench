@@ -1,6 +1,6 @@
 % Chapter 5: Multi-Source Information Integration Analysis
 \chapter{Multi-Source Information Integration Analysis}
-\label{ch:adapt}
+\label{ch:adapt_orphan}
 
 %% ============================================================
 \section{Analysis Objective}
@@ -86,7 +86,7 @@ Three patterns are notable.
 For SARS-CoV-2, ESM-2 LLR dominates (importance = 0.331); for H3N2, pLDDT (0.338); for Norovirus, homoplasy (0.345); for HIV-1, ESM-2 LLR (0.214) and homoplasy (0.143) share importance; for HCV, dN/dS proxy (0.145), homoplasy (0.139), and Grantham distance (0.116) contribute complementary information.
 
 \textbf{Second, multi-feature models achieve substantially higher AUC than any single feature.}
-Norovirus achieves the highest cross-validation AUC (0.899), followed by MERS (0.875), HIV-1 (0.802), H3N2 (0.791), Dengue (0.782), Influenza~B (0.756), RSV (0.737), HCV (0.701), and SARS-CoV-2 (0.606).
+Norovirus achieves the highest cross-validation AUC (0.899), followed by MERS (0.875), HIV-1 (0.802), H3N2 (0.791), Dengue (0.782), Influenza~B (0.756), RSV (0.737), HCV (0.700), and SARS-CoV-2 (0.606).
 These values substantially exceed the best single-feature AUC for most pathogens (e.g., MERS: 0.695 single $\to$ 0.875 combined).
 
 \textbf{Third, the importance rankings differ from univariate AUC rankings.}
@@ -98,23 +98,23 @@ Figure~\ref{fig:feature_importance_grid} (Chapter~\ref{ch:results}) visualizes t
 \subsection{Feature Ablation}
 \label{subsec:feature_ablation_adapt}
 
-To quantify each feature's contribution, three ablation analyses were conducted using the EqualWeight ensemble with LOPO evaluation and a top-10\% threshold (Figure~\ref{fig:feature_ablation}).
+To quantify each feature's contribution, three ablation analyses were conducted using the EqualWeight ensemble with LOPO evaluation and a top-10\% threshold (Figure~\ref{fig:feature_ablation_adapt}).
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.85\textwidth]{feature_ablation_bars.png}
 \caption{Feature ablation analysis: change in mean MCC (12 pathogens) when removing each feature from the 10-feature EqualWeight ensemble. Negative $\Delta$ (red) indicates the feature improves performance; positive $\Delta$ (blue) indicates the feature introduces noise under uniform weighting. Homoplasy is the single most important feature ($\Delta = -0.028$).}
-\label{fig:feature_ablation}
+\label{fig:feature_ablation_adapt}
 \end{figure}
 
-\textbf{Leave-one-feature-out} (Table~\ref{tab:feature_ablation}) reveals that homoplasy contributes the most to ensemble performance: its removal causes the largest MCC decrease ($\Delta = -0.028$), reducing mean MCC from 0.083 to 0.055.
+\textbf{Leave-one-feature-out} (Table~\ref{tab:feature_ablation_adapt}) reveals that homoplasy contributes the most to ensemble performance: its removal causes the largest MCC decrease ($\Delta = -0.028$), reducing mean MCC from 0.083 to 0.055.
 Entropy ($\Delta = -0.015$), frequency ($\Delta = -0.012$), and rare variant frequency ($\Delta = -0.010$) also show substantial contributions.
 In contrast, removing ESM-2 LLR ($\Delta = +0.004$) or SASA ($\Delta = +0.003$) marginally \textit{improves} performance, indicating that these features introduce noise under uniform weighting when averaged across 12 pathogens.
 
 \begin{table}[htbp]
 \centering
 \caption{Leave-one-feature-out ablation results. $\Delta$MCC is the change in mean MCC (12 pathogens) when removing one feature from the 10-feature EqualWeight ensemble. Negative $\Delta$ indicates the feature improves the ensemble.}
-\label{tab:feature_ablation}
+\label{tab:feature_ablation_adapt}
 \footnotesize
 \begin{tabular}{lrrl}
 \toprule
@@ -163,12 +163,12 @@ The correlation structure explains why expanding from 6 to 10 features yields di
 
 A potential confound in interpreting the pathogen-dependent performance patterns is that the Layer~A ground truth definitions may themselves differ across pathogens.
 To assess this, each Layer~A position was tagged with its biological definition type (immune\_escape, functional, or convergent\_evolution), and the composition was analyzed across all 12~pathogens.
-Table~\ref{tab:gt_heterogeneity} presents the results.
+Table~\ref{tab:gt_heterogeneity_adapt} presents the results.
 
 \begin{table}[htbp]
 \centering
 \caption{Ground truth heterogeneity analysis across 12 pathogens. All pathogens are dominated by immune\_escape-tagged positions, yet the best discriminative feature differs across pathogens. ``Consistent'' indicates whether the best feature remains unchanged when restricting to immune\_escape-only positions.}
-\label{tab:gt_heterogeneity}
+\label{tab:gt_heterogeneity_adapt}
 \adjustbox{max width=\textwidth}{
 \footnotesize
 \begin{tabular}{lrrlrl}

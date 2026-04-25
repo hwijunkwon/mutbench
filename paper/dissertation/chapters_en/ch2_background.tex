@@ -140,7 +140,7 @@ Unlike ESM-2's masked (bidirectional) architecture, Tranception's autoregressive
 This retrieval mechanism aligns Tranception more closely with alignment-based methods while retaining the flexibility of deep learning.
 
 \textbf{ProtTrans}~\cite{elnaggar2022prottrans} adopts transformer architectures (including BERT and T5 variants) pretrained on UniRef and BFD databases totaling over 2 billion protein sequences, achieving competitive performance on protein function prediction tasks including secondary structure prediction and localization.
-More recently, ESM-3 extended the ESM family to a multimodal generative model integrating sequence, structure, and function tokens, enabling joint reasoning across these modalities.
+More recently, the ESM-3 generation extended the ESM family to a multimodal generative model integrating sequence, structure, and function tokens, enabling joint reasoning across these modalities (no formal citation key is asserted here as the dissertation does not benchmark ESM-3 directly; ESM-3 is named only for completeness of the protein-language-model landscape).
 While ProtTrans and ESM-3 represent important advances in protein representation learning, their application to viral variant effect prediction has been less extensively validated than ESM-2.
 
 Beyond single-model predictions, \textbf{EVEscape}~\cite{thadani2023evescape} demonstrated the value of combining PLM-derived features with complementary biological information.
@@ -195,7 +195,7 @@ However, their analysis was restricted to SARS-CoV-2, and the feature importance
 
 Rodriguez-Rivas et al.~\cite{rodriguez2022epistatic} took a co-evolutionary approach, applying Direct Coupling Analysis (DCA) to model epistatic interactions between positions in SARS-CoV-2 proteins.
 Their epistatic models achieved AUC = 0.76 for predicting escape mutations, substantially outperforming non-epistatic (independent-site) models (AUC = 0.63).
-This result highlights that mutual information between positions---capturing the constraint network within protein structures---provides predictive power beyond what single-position features can offer.
+This result highlights that mutual information between positions---capturing the constraint network within protein structures---provides predictive power beyond what single-position features can offer. The broader DCA / EVcouplings / GREMLIN family of position-coupling methods is intentionally outside the 20-scoring panel of MutBench (Section~\ref{sec:scoring_detection}), which restricts itself to single-position scorers to enable the orthogonal scoring~$\times$~detection-family ANOVA decomposition; epistasis-aware extensions are flagged as future work in Chapter~\ref{ch:discussion}. This single-position restriction is a design choice, not a neutral simplification: because viral escape and compensatory evolution are both epistasis-driven, the benchmark's biological realism is bounded by this exclusion, and the interaction $\omega^2$ reported in Chapter~\ref{ch:results} should be read as an information-type contrast \emph{within} the single-position regime rather than as an upper bound on what coupling-aware methods can deliver.
 
 Hie et al.~\cite{hie2021learning} demonstrated that protein language model embeddings can capture ``semantic change''---the degree to which a mutation alters the functional meaning of a protein as represented in the PLM embedding space.
 They showed that viral sequences that are antigenically distinct but phylogenetically close exhibit large semantic change, suggesting that PLM representations can detect functionally significant mutations that traditional phylogenetic or frequency-based approaches might miss.
@@ -223,7 +223,7 @@ The parallel to MutBench is direct: just as AutoML selects the optimal machine l
 However, the algorithm selection framework has not previously been applied to viral genomics, where the ``problem instances'' are pathogens with diverse evolutionary characteristics (genome size, mutation rate, population structure, selective pressure regime) and the ``algorithms'' are scoring--detection pipelines.
 
 The benchmarking methodology adopted in this dissertation follows established principles from computational biology.
-Weber et al.~\cite{weber2019benchmarking} proposed guidelines for neutral benchmarking, articulating three core requirements: (1)~\textit{independent evaluation}, where the benchmark designer is distinct from the method developers; (2)~\textit{multiple metrics}, to capture different aspects of performance and avoid optimization for a single criterion; and (3)~\textit{controlled experimental design}, ensuring that all methods are evaluated on identical data under identical conditions.
+Weber et al.~\cite{weber2019benchmarking} proposed guidelines for neutral benchmarking, articulating three core requirements: (1)~\textit{independent evaluation}, where the benchmark designer is distinct from the method developers; (2)~\textit{multiple metrics}, to capture different aspects of performance and avoid optimization for a single criterion; and (3)~\textit{controlled experimental design}, ensuring that all methods are evaluated on identical data under identical conditions. Mangul et al.~\cite{mangul2019systematic} extended these principles to a community-wide audit of omics computational tools, documenting systematic disparities in tool reliability that motivated the present study's emphasis on multi-pathogen rather than single-pathogen evaluation.
 Boulesteix et al.~\cite{boulesteix2017towards} further emphasized the importance of avoiding ``self-assessment bias'' where method developers evaluate their own methods on self-selected datasets, which systematically inflates reported performance.
 MutBench adheres to these principles by evaluating all methods---including the author's own MutClust---under identical conditions with independent ground truth, using a composite metric (hotspot-score) that balances precision, recall, and specificity.
 
@@ -231,9 +231,10 @@ MutBench adheres to these principles by evaluating all methods---including the a
 \label{subsec:bg_benchmarking_gap}
 
 The absence of benchmark studies for hotspot detection methods in viral genomics stands in contrast to cancer genomics, where Bailey et al.~\cite{bailey2018comprehensive} conducted a comprehensive PanCancer analysis applying 26 computational tools to 9,423 tumor exomes under uniform conditions, producing a widely used catalog of cancer driver genes.
-No analogous benchmark exists for viral mutation hotspot detection: detection methods are evaluated using ad hoc validation against small sets of known functional mutations, without standardized datasets, metrics, or ground truth definitions.
+No analogous \emph{detection-task} benchmark exists for viral mutation hotspots: while several recent fitness-regression benchmarks now span comparable virus panels, the region-level hotspot-detection task itself remains unstandardized---detection methods are evaluated using ad hoc validation against small sets of known functional mutations, without standardized datasets, metrics, or ground truth definitions.
 Related efforts in adjacent domains include:
-(1)~ProteinGym~\cite{notin2023proteingym}, which benchmarks variant effect predictors using 250+ DMS assays but addresses a per-residue regression task rather than hotspot region detection;
+(1)~ProteinGym~\cite{notin2023proteingym,notin2025proteingym_v13}, which benchmarks variant effect predictors using 217 DMS assays and 90+ baseline models (as of v1.3) but addresses a per-residue fitness-regression task rather than hotspot region detection;
+(1b)~\textbf{ViroGym}~\cite{virogym2026} (Mar 2026), which benchmarks PLM and alignment-based scorers across 13 viruses, 79 DMS assays, 552{,}937 sequences, and 7 phenotypic categories including immune escape---larger virus count than MutBench, but focused on per-variant fitness rather than per-region detection;
 (2)~ConDor~\cite{morel2024condor}, which detects convergent mutations across phylogenies but is a single tool rather than a benchmark framework;
 (3)~Pons et al.~\cite{pons2020computational}, who reviewed 40+ cancer hotspot detection methods but produced a descriptive survey without a unified benchmark, and cancer-specific models do not transfer to viral evolutionary dynamics;
 and (4)~individual SARS-CoV-2 studies using entropy~\cite{harvey2021tracking} or clustering that validate against small variant sets without standardized ground truth.
@@ -244,17 +245,18 @@ Thus, a systematic benchmark with multi-source ground truth, composite evaluatio
 
 Recent years have seen significant progress in benchmarking variant effect prediction (VEP) methods on proteins. ProteinGym~\cite{notin2023proteingym} established a large-scale benchmark comprising 217 DMS assays and 2.7 million substitution variants, primarily for human and model organism proteins. EVE~\cite{frazer2021eve}, a Bayesian VAE trained on evolutionary sequences, demonstrated that unsupervised generative models can predict disease-associated variants without clinical labels. EVEscape~\cite{thadani2023evescape} extended this framework to viral immune escape prediction by combining EVE fitness scores with structural accessibility and physicochemical dissimilarity, successfully forecasting SARS-CoV-2 Omicron escape mutations from pre-pandemic data.
 
-Most recently, EVEREST~\cite{gurev2025everest} specifically benchmarked VEP methods across WHO priority viruses using 45 viral DMS datasets, finding that protein language models substantially underperform alignment-based approaches on viral proteins and that prediction reliability varies dramatically across pathogens.
+Most recently, EVEREST~\cite{gurev2025everest,gurev2026everest_v3} specifically benchmarked VEP methods across WHO priority viruses; the v3 expansion (Jan 2026) covers 45 viral DMS datasets, 31 forecasting clades across 4 viruses, and reliability assessment across 40 WHO priority RNA viruses spanning 16 viral families. EVEREST finds that protein language models substantially underperform alignment-based approaches on viral proteins, that reliability fails for over half of the WHO-40 panel (especially surface glycoproteins), and that prediction reliability varies dramatically across pathogens---a finding that independently corroborates the LOPO 0/11 non-transferability reported in MutBench Chapter~\ref{ch:results}.
+The PLANT framework~\cite{plant2025antigenic} and Shah et al.~\cite{shah2024h3n2ml} provide PLM-based and ML-based H3N2 antigenic cartography that explicitly competes with WHO vaccine-strain selection, building on the foundational antigenic-cartography paradigm of Smith et al.~\cite{smith2004antigenic}; MutBench's H3N2 self-consistency check (Section~\ref{sec:cross_validation_escape}) is positioned as a detection-side complement to these prediction-side cartographies, not as a competitor.
 A particularly relevant finding from EVEREST is that the performance gap between methods varies by viral family: alignment-based methods such as EVE consistently outperform PLMs across most viral proteins, but the magnitude of this advantage differs substantially between, for example, influenza HA and SARS-CoV-2 Spike.
 This pathogen-dependent performance variation parallels the central finding of MutBench (Chapter~\ref{ch:results}).
 AlphaMissense~\cite{cheng2023alphamissense} demonstrated proteome-wide variant classification using an AlphaFold-derived architecture, though its focus on human proteins limits direct viral applicability.
 
-MutBench's unique contribution is the \textit{scoring $\times$ pathogen interaction analysis}: while EVEREST establishes that method performance varies across viruses, MutBench quantifies this interaction through three-way ANOVA ($\omega^2 = 0.296$) and demonstrates that the choice of \textit{biological information source} (not just the computational method) is the dominant performance factor. This finding---that the optimal information source is fundamentally pathogen-dependent---has no counterpart in EVEREST or ProteinGym, which treat the scoring/feature set as fixed.
+MutBench's unique contribution is the \textit{scoring $\times$ pathogen interaction analysis}: while EVEREST establishes that method performance varies across viruses, MutBench quantifies this interaction through three-way ANOVA ($\omega^2 = 0.296$) and demonstrates that the choice of \textit{biological information source} (not just the computational method) is the dominant performance factor. This finding---that the optimal information source is pathogen-dependent within the 20-type/39-variant design, with the interaction as the largest modeled variance component---has no counterpart in EVEREST or ProteinGym, which treat the scoring/feature set as fixed.
 Specifically, MutBench provides three capabilities absent in EVEREST and other VEP benchmarks:
-(1)~quantification of the scoring--pathogen interaction through three-way ANOVA, revealing that the scoring $\times$ pathogen interaction ($\omega^2 = 0.296$) is the largest variance source;
-(2)~independent cross-validation via vaccine escape enrichment, demonstrating that benchmark-optimal scoring types also maximize practical escape capture (up to 9.36$\times$);
-and (3)~a concrete pathogen-to-scoring recommendation table enabling immediate application to new pathogens without requiring DMS experimental data.
-Furthermore, MutBench introduces the vaccine escape cross-validation paradigm: the scoring type identified as optimal by the benchmark (Layer~A) also achieves the highest vaccine escape enrichment (up to 9.36$\times$), providing independent practical validation that neither EVEREST nor ProteinGym has demonstrated.
+(1)~quantification of the scoring--pathogen interaction through three-way ANOVA, revealing that the scoring $\times$ pathogen interaction ($\omega^2 = 0.296$; 11-pathogen cluster-bootstrap 95\% interval [0.195, 0.333]) is the largest modeled variance component (within-cell residual $\omega^2 \approx 0.39$);
+(2)~cross-validation via vaccine escape enrichment for the 3 of 11 pathogens with curated escape annotations, with HIV-1 (7.19$\times$, Bonferroni-corrected $p = 2.5 \times 10^{-16}$; escape set 82\% disjoint from Layer~A) as the primary external anchor and H3N2 9.36$\times$ reported as a self-consistency check given 69\% Layer~A overlap (circularity audit in Table~\ref{tab:vaccine_escape_stage3});
+and (3)~a concrete pathogen-to-scoring recommendation table enabling application to new pathogens without requiring DMS experimental data.
+Furthermore, MutBench introduces the vaccine escape cross-validation paradigm with a per-pathogen circularity audit: HIV-1 provides the cleanest external validation, while H3N2 and SARS-CoV-2 contribute self-consistency and exploratory evidence respectively---a distinction absent from EVEREST or ProteinGym.
 Table~\ref{tab:benchmark_comparison} summarizes the key differences between MutBench and these related benchmarks.
 
 \begin{table}[htbp]
@@ -262,16 +264,16 @@ Table~\ref{tab:benchmark_comparison} summarizes the key differences between MutB
 \caption{Comparison of MutBench with related benchmarks}
 \label{tab:benchmark_comparison}
 \footnotesize
-\begin{tabular}{lcccc}
+\begin{tabular}{lccccc}
 \toprule
-& \textbf{MutBench} & \textbf{EVEREST} & \textbf{ProteinGym} & \textbf{Bailey 2018} \\
+& \textbf{MutBench} & \textbf{ViroGym} & \textbf{EVEREST v3} & \textbf{ProteinGym v1.3} & \textbf{Bailey 2018} \\
 \midrule
-Domain & Viral hotspot & Viral VEP & General VEP & Cancer driver \\
-Task & Detection & Prediction & Prediction & Detection \\
-Pathogens/proteins & 11 viruses & 4 viruses (45 DMS) & 217 proteins & Cancer genes \\
-Ground truth & 3-layer & DMS & DMS & Patient cohorts \\
-Methods compared & 780 combos & $\sim$20 VEP & $\sim$40 VEP & $\sim$10 tools \\
-Cross-pathogen ANOVA & Yes ($\omega^2$) & No & No & No \\
+Domain & Viral hotspot & Viral VEP & Viral VEP & General VEP & Cancer driver \\
+Task & Detection & Prediction & Prediction & Prediction & Detection \\
+Pathogens/proteins & 11 viruses & 13 viruses (79 DMS) & 4--40 viruses (45 DMS) & 217 proteins & Cancer genes \\
+Ground truth & 3-layer & DMS+escape & DMS & DMS & Patient cohorts \\
+Methods compared & 780 combos & $\sim$10 PLM/MSA & $\sim$20 VEP & 90+ VEP & $\sim$10 tools \\
+Cross-pathogen ANOVA & Yes ($\omega^2$) & No & No & No & No \\
 \bottomrule
 \end{tabular}
 \par\vspace{0.5em}

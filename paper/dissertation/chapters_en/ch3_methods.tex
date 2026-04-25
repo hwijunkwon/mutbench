@@ -4,7 +4,7 @@
 
 This chapter presents the methodology of MutBench, an experimental framework for analyzing which factors---biological information type, detection method category, and pathogen characteristics---influence viral mutation hotspot detection performance.
 The overall pipeline processes multiple sequence alignment (MSA) data from 11 RNA viruses through 20 scoring types and 14 detection method families spanning 5 categories (threshold-based, signal processing, density/clustering, statistical, and adaptive window), with 39 parameter variants, evaluating results against a 3-layer ground truth system using the hotspot-score composite metric and Matthews Correlation Coefficient (MCC).
-The evaluation follows a two-stage design: Stage~1 conducts in-depth analysis on SARS-CoV-2 to validate the framework components, and Stage~2 extends the evaluation to all 11 pathogens for large-scale cross-pathogen comparison.
+The evaluation follows a two-stage main design with a Stage~3 information-integration layer: Stage~1 conducts in-depth analysis on SARS-CoV-2 to validate the framework components, Stage~2 extends the evaluation to all 11 pathogens for the large-scale cross-pathogen MCC comparison, and Stage~3 (Section~\ref{subsec:stage3_methods}) decomposes the resulting performance by information type via per-feature AUC, ablation, Random Forest, and vaccine-escape cross-validation.
 Section~\ref{sec:mutbench_materials} describes the materials (target pathogens and sequence data).
 Section~\ref{sec:mutbench_methods} presents the methods, beginning with a framework overview (Section~\ref{subsec:framework_overview}) that describes the overall architecture and three-component pipeline, followed by the 3-layer ground truth framework (Section~\ref{subsec:3layer_gt}).
 The experimental design is then presented in two stages: Stage~1 (Section~\ref{subsec:stage1}) focuses on SARS-CoV-2 in-depth analysis including MutClust variant comparison and the hotspot-score metric, while Stage~2 (Section~\ref{sec:stage2}) extends to the 11-pathogen cross-pathogen benchmark with 20 scoring types and 14 detection families.
@@ -19,14 +19,15 @@ Section~\ref{sec:eval_stat_design} details the evaluation metrics and statistica
 \label{subsec:9pathogen_data}
 
 Eleven RNA viruses were selected to cover diverse evolutionary dynamics, transmission routes, and genomic characteristics:
-(1)~\textit{Respiratory viruses}: SARS-CoV-2 (Spike, 1,273 AA), MERS-CoV (Spike, 1,330 AA), RSV (F protein, 574 AA), Influenza A H3N2 (HA, 566 AA), and Influenza B (HA, 584 AA);
-(2)~\textit{Blood-borne/sexually transmitted}: HIV-1 (Env gp120, 480 AA) and HCV (E2, 340 AA);
+(1)~\textit{Respiratory viruses}: SARS-CoV-2 (Spike, 1,259 AA), MERS-CoV (Spike, 1,330 AA), RSV (F protein, 550 AA), Influenza A H3N2 (HA, 543 AA), and Influenza B (HA, 560 AA);
+(2)~\textit{Blood-borne/sexually transmitted}: HIV-1 (Env gp120, 450 AA) and HCV (E2, 340 AA);
 (3)~\textit{Enteric}: Norovirus (VP1, 536 AA);
 (4)~\textit{Arthropod-borne}: Dengue (E protein, 490 AA);
-(5)~\textit{Neurotropic}: Rabies (G protein, 524 AA) and EV-A71 (VP1, 297 AA).
-\textit{Note: all amino acid lengths above refer to post-truncation alignment lengths; full-length protein sequences may differ (e.g., MERS-CoV Spike full length is 1,353 AA).}
-These 11 pathogens span substitution rates from $\sim$10$^{-3}$ (HIV-1, SARS-CoV-2) to $\sim$10$^{-4}$ (Rabies) substitutions/site/year, alignment lengths from 297 to 1,330 AA, and evolutionary patterns from rapid antigenic drift (H3N2) to epochal evolution (Norovirus).
+(5)~\textit{Neurotropic}: Rabies (G protein, 491 AA) and EV-A71 (VP1, 261 AA).
+\textit{Note: all amino acid lengths above refer to post-truncation alignment lengths used in the benchmark; full-length protein sequences may differ (e.g., SARS-CoV-2 Spike full length is 1{,}273 AA, MERS-CoV Spike 1{,}353 AA, Rabies G 524 AA, EV-A71 VP1 297 AA).}
+These 11 pathogens span substitution rates from $\sim$10$^{-3}$ (HIV-1, SARS-CoV-2) to $\sim$10$^{-4}$ (Rabies) substitutions/site/year, alignment lengths from 261 to 1,330 AA, and evolutionary patterns from rapid antigenic drift (H3N2) to epochal evolution (Norovirus).
 This diversity ensures that the benchmark evaluates method performance across a representative range of viral evolutionary regimes rather than a single pathogen's characteristics.
+Zika virus was considered but excluded from the Stage~2 benchmark because only 52 unique E protein sequences were available in GenBank, insufficient for reliable per-position frequency and entropy estimation; Zika is included in the supplementary 12-pathogen feature analysis (Section~\ref{sec:information_analysis}).
 
 \medskip
 \noindent\textbf{Per-pathogen descriptions.}
@@ -35,7 +36,7 @@ The following paragraphs describe each pathogen in the order listed above, group
 \medskip
 \noindent\textit{Respiratory viruses.}
 
-\paragraph{SARS-CoV-2 (Spike, 1,273 AA).}
+\paragraph{SARS-CoV-2 (Spike, 1,259 AA).}
 A betacoronavirus (family \textit{Coronaviridae}) that caused the COVID-19 pandemic (2019--present), SARS-CoV-2 serves as the primary reference pathogen for this benchmark.
 The Spike protein mediates ACE2 receptor binding and membrane fusion for cell entry, and is the principal target of vaccines and neutralizing antibodies, making it the most extensively characterized viral surface protein in history.
 SARS-CoV-2 evolves at ${\sim}1 \times 10^{-3}$ substitutions/site/year for the Spike gene, with its relatively shallow pandemic phylogeny ($\sim$5 years in our dataset, 2019--2024) creating strong founder effects (e.g., D614G) while convergent evolution at immune evasion sites (E484K, N501Y) provides clear Layer~A ground truth.
@@ -44,27 +45,27 @@ DMS data are available from Dadonaite et al.\ (2024), covering the full Spike pr
 SARS-CoV-2 was selected as the anchor pathogen because it offers the richest ground truth data across all three layers.
 
 \paragraph{MERS-CoV (Spike, 1,330 AA).}
-A betacoronavirus (family \textit{Coronaviridae}) causing Middle East Respiratory Syndrome, MERS-CoV has a case fatality rate of $\sim$35\%, far exceeding that of SARS-CoV-2.
+A betacoronavirus (family \textit{Coronaviridae}) first identified in Saudi Arabia in 2012 and causing Middle East Respiratory Syndrome, MERS-CoV has a case fatality rate of $\sim$35\%, far exceeding that of SARS-CoV-2.
 The Spike protein binds the DPP4 (CD26) receptor for cell entry; its receptor-binding domain is the primary target for therapeutic antibody development.
 MERS-CoV evolves more slowly than SARS-CoV-2, with a substitution rate of ${\sim}0.9 \times 10^{-3}$ substitutions/site/year, and sporadic zoonotic spillovers from dromedary camels produce limited human-to-human transmission chains.
 The moderate unique ratio (530/1,311 = 40.4\%) reflects both camel reservoir diversity and repeated independent introductions.
 MERS-CoV was selected to provide a coronavirus comparator with a different receptor target and a fundamentally different epidemiological pattern (sporadic zoonotic vs.\ sustained pandemic).
 
-\paragraph{RSV (F protein, 574 AA).}
+\paragraph{RSV (F protein, 550 AA).}
 Respiratory Syncytial Virus (family \textit{Pneumoviridae}) is the leading cause of lower respiratory tract infections in infants and a major cause of hospitalization in the elderly.
 The Fusion (F) protein mediates membrane fusion during cell entry and is the target of the recently approved monoclonal antibody nirsevimab and the prefusion-stabilized vaccines (2023).
 RSV-A and RSV-B co-circulate with a nucleotide substitution rate of ${\sim}1.5 \times 10^{-3}$ substitutions/site/year in the F gene; antigenic variation is more limited than influenza, with most escape mutations concentrated in antigenic site~0.
 The high unique ratio (4,779/5,070 = 94.3\%) indicates substantial sequence diversity across global surveillance, with minimal identical sequences despite the relatively conserved F protein.
 RSV was selected because its high sequence count and recent vaccine development provide both statistical power and clinical relevance for benchmarking.
 
-\paragraph{Influenza A H3N2 (HA, 566 AA).}
+\paragraph{Influenza A H3N2 (HA, 543 AA).}
 Influenza A H3N2 (family \textit{Orthomyxoviridae}) has circulated in humans since the 1968 pandemic and remains a major driver of seasonal influenza morbidity and mortality.
 The hemagglutinin (HA) protein mediates sialic acid receptor binding and is the primary target of neutralizing antibodies and seasonal vaccines; its five antigenic sites (A--E) accumulate substitutions that necessitate biannual vaccine strain updates.
 H3N2 exhibits rapid antigenic drift at ${\sim}4 \times 10^{-3}$ substitutions/site/year in HA, one of the highest rates among RNA viruses, driven by strong immune selection on the globular head domain.
 The very high unique ratio (2,562/2,644 = 96.9\%) reflects decades of antigenic diversification with few identical sequences.
 H3N2 was selected as the archetypal rapidly drifting pathogen whose well-characterized antigenic sites provide robust Layer~A ground truth.
 
-\paragraph{Influenza B (HA, 584 AA).}
+\paragraph{Influenza B (HA, 560 AA).}
 Influenza B virus (family \textit{Orthomyxoviridae}) co-circulates with influenza A and contributes substantially to seasonal epidemic burden, particularly in children.
 The HA protein serves the same receptor-binding and membrane fusion roles as in influenza A, but Influenza B evolves more slowly (${\sim}2 \times 10^{-3}$ substitutions/site/year) with two co-circulating lineages (Victoria and Yamagata) that diverged in the 1980s.
 The very high unique ratio (5,019/5,325 = 94.3\%) reflects long-term co-circulation of both lineages and accumulation of distinct mutations.
@@ -73,10 +74,10 @@ Influenza B was selected to contrast with H3N2: both are segmented negative-sens
 \medskip
 \noindent\textit{Blood-borne/sexually transmitted viruses.}
 
-\paragraph{HIV-1 (Env gp120, 480 AA).}
+\paragraph{HIV-1 (Env gp120, 450 AA).}
 Human Immunodeficiency Virus type~1 (family \textit{Retroviridae}) is the causative agent of AIDS and remains a major global health burden with $\sim$39 million people living with HIV.
 The Env gp120 subunit mediates CD4 receptor and co-receptor (CCR5/CXCR4) binding; its extraordinary sequence variability, driven by an error-prone reverse transcriptase, has prevented effective vaccine development for decades.
-HIV-1 has the highest mutation rate among the benchmark pathogens at ${\sim}2.5 \times 10^{-3}$ substitutions/site/year, with extensive within-host and between-host diversity generating up to 35\% amino acid divergence across subtypes.
+HIV-1 mutates at ${\sim}2.5 \times 10^{-3}$ substitutions/site/year (one of the highest rates among the benchmark pathogens; EV-A71 is comparable~\cite{sanjuan2010viral}), with extensive within-host and between-host diversity generating up to 35\% amino acid divergence across subtypes.
 The unique ratio (2,256/3,000 = 75.2\%) reflects high inter-subtype diversity.
 HIV-1 was selected as the extreme end of the mutation rate spectrum, testing whether detection methods remain effective under very high sequence diversity where nearly every position is variable.
 
@@ -110,7 +111,7 @@ Dengue was selected because the four-serotype structure provides a natural test 
 \medskip
 \noindent\textit{Neurotropic viruses.}
 
-\paragraph{Rabies (G protein, 524 AA).}
+\paragraph{Rabies (G protein, 491 AA).}
 Rabies virus (family \textit{Rhabdoviridae}) causes fatal encephalitis in mammals with a near-100\% case fatality rate once symptoms appear, killing $\sim$59,000 people annually, predominantly in Asia and Africa.
 The G protein is the sole surface glycoprotein, mediating receptor binding (nicotinic acetylcholine receptor, NCAM, p75NTR) and membrane fusion; it is the only target of virus-neutralizing antibodies and the sole component of current vaccines.
 Rabies evolves slowly at ${\sim}4 \times 10^{-4}$ substitutions/site/year, reflecting strong purifying selection on the G protein and limited immune-driven diversification due to the virus's rapid lethality (hosts die before mounting sustained immune responses).
@@ -118,11 +119,11 @@ The unique ratio is 100\% (2,038/2,038), indicating that every sampled sequence 
 Rabies was selected as a slowly evolving pathogen with strong purifying selection, testing whether detection methods can identify the few positively selected sites against a highly conserved background.
 DMS data are available for the G protein.
 
-\paragraph{EV-A71 (VP1, 297 AA).}
+\paragraph{EV-A71 (VP1, 261 AA).}
 Enterovirus A71 (family \textit{Picornaviridae}) causes hand, foot, and mouth disease in children, with periodic outbreaks of severe neurological complications including brainstem encephalitis and acute flaccid paralysis, particularly in the Asia-Pacific region.
 The VP1 capsid protein contains the major neutralization epitopes including the BC loop, and determines viral serotype and receptor binding specificity.
 EV-A71 evolves at ${\sim}4.5 \times 10^{-3}$ substitutions/site/year, comparable to influenza, with frequent genotype replacement (B1--B5, C1--C5) driven by population immunity.
-The unique ratio is 100\% (662/662) and the protein is the shortest in the benchmark at 297~AA, providing a test case for detection methods on short, highly diverse sequences where statistical power is limited.
+The unique ratio is 100\% (662/662) and the protein is the shortest in the benchmark at 261~AA (post-truncation), providing a test case for detection methods on short, highly diverse sequences where statistical power is limited.
 EV-A71 was selected to evaluate detection performance at the lower end of alignment length, where the small number of positions amplifies the difficulty of distinguishing true hotspots from noise.
 DMS data are available for VP1.
 
@@ -153,8 +154,8 @@ RSV & F protein & KT992094 (RSV-A) & 5,070 & 4,779 & 550 \\
 Influenza B & HA & CY018765 (B/Florida/4/2006) & 5,325 & 5,019 & 560 \\
 MERS & Spike & NC\_019843.3 (MERS-CoV) & 1,311 & 530 & 1,330 \\
 HCV & E2 & NC\_004102.1 (HCV-1a) & 1,362 & 1,067 & 340 \\
-Rabies & G protein & NC\_001542.1 & 2,038 & 2,038 & 524 \\
-EV-A71 & VP1 & AB204852 & 662 & 662 & 297 \\
+Rabies & G protein & NC\_001542.1 & 2,038 & 2,038 & 491 \\
+EV-A71 & VP1 & AB204852 & 662 & 662 & 261 \\
 \bottomrule
 \end{tabular}
 }
@@ -292,10 +293,8 @@ The criterion is purely phylogenetic: recurrent independent emergence in $\geq$3
 These positions are used as \textbf{True Positives}, evaluating whether detection methods correctly identify them as hotspots.
 
 \textbf{Identification criteria.}
-For each pathogen, Layer~A positions were compiled from published studies that identified convergent evolution sites (Table~\ref{tab:gt_positions}, rightmost column).
-The inclusion criterion was that the position must exhibit recurrent nonsynonymous mutations arising independently in $\geq$3 phylogenetically distinct lineages, as documented in the cited studies.
+For each pathogen, Layer~A positions were compiled from published studies (Table~\ref{tab:gt_positions}, rightmost column). The construction is operationally heterogeneous across the 11 pathogens: SARS-CoV-2 and H3N2 use phylogenetically confirmed convergent evolution sites ($\geq$3 independent lineages); Norovirus uses epochal-variant positions; HCV uses the hypervariable regions HVR1/HVR2 (diversifying selection rather than convergence); and the remaining seven pathogens use literature-reported immune-escape position lists. No single computational criterion is applied uniformly---the framework adopts the per-pathogen literature-curated list to maximize biological fidelity, accepting in exchange that ``Layer~A'' denotes a heterogeneous adaptive-selection union (convergent evolution $\cup$ immune escape $\cup$ HVR membership) rather than a single algorithmic construct. This heterogeneity is revisited in Chapter~\ref{ch:discussion} where its quantitative impact on the headline $\omega^2 = 0.296$ is discussed; for the purposes of this chapter the operational definition is: \emph{Layer~A is the union of literature-curated positive/diversifying-selection positions per the references in Table~\ref{tab:gt_positions}}.
 For example, SARS-CoV-2 Layer~A positions (e.g., E484, N501, L452, K417) were identified by Carabelli et al.~\cite{carabelli2023convergent} through phylogenetic analysis showing independent emergence across Alpha, Beta, Gamma, Delta, and Omicron lineages.
-For HCV, the hypervariable regions HVR1 and HVR2 were used, as these regions exhibit diversifying selection across independent infections.
 No computational tool was applied to identify new convergent evolution positions; all positions were taken directly from the cited literature.
 
 \subsubsection{Layer B: Constrained Purifying Selection}
@@ -317,13 +316,45 @@ For six pathogens with available Deep Mutational Scanning (DMS) experimental dat
 Unlike Layer~A (which infers importance from evolutionary patterns) and Layer~B (which infers importance from structural conservation), Layer~C provides direct experimental measurements: in DMS experiments, every possible single amino acid substitution at every position is physically constructed in the laboratory, and its effect on a quantifiable phenotype (e.g., cell entry efficiency for SARS-CoV-2, replicative fitness for H3N2) is measured.
 Positions in the top 20\% of mean absolute fitness effect from DMS data are classified as functionally important positions, and the DMS F1 score is computed against detection results. The 20\% threshold was chosen to balance sensitivity and specificity: it captures positions with substantial fitness effects while maintaining sufficient contrast with non-functional positions. Sensitivity analysis (Section~\ref{subsec:dms_evolution_correlation}) confirmed that Layer~C rankings remain stable across thresholds from 15\% to 25\%.
 This layer is particularly valuable because it captures functional importance that may not yet be visible in evolutionary data (a position may have strong fitness effects but insufficient time for convergent evolution to manifest).
-The DMS phenotypes measured differ by pathogen: cell entry fitness for SARS-CoV-2~\cite{dadonaite2024nature} and RSV~\cite{simonich2025rsvdms}, viral replicative fitness for H3N2~\cite{lee2018h3n2dms}, viral growth in cell culture for HIV-1~\cite{haddox2018hiv1dms}, G-protein-mediated cell entry for Rabies~\cite{aditham2025rabies}, and replicative fitness for EV-A71~\cite{tong2024eva71}.
+The DMS phenotypes measured differ by pathogen: cell entry fitness for SARS-CoV-2~\cite{dadonaite2024nature} and RSV~\cite{simonich2026rsvdms}, viral replicative fitness for H3N2~\cite{lee2018h3n2dms}, viral growth in cell culture for HIV-1~\cite{haddox2018hiv1dms}, G-protein-mediated cell entry for Rabies~\cite{aditham2025rabies}, and replicative fitness for EV-A71~\cite{bakhache2025eva71}. Table~\ref{tab:dms_preprocessing} summarises the per-pathogen DMS preprocessing conventions adopted in this benchmark; cell-line and replicate-aggregation choices follow the released-source defaults except where noted.
+
+\begin{table}[htbp]
+\centering
+\caption{DMS preprocessing conventions per Layer~C source. ``Mean abs.\ effect'' refers to the per-position mean absolute fitness effect across all amino-acid substitutions, used as the score from which the top-20\% threshold defines Layer~C positives. All sources used the released processed-fitness tables; raw read filtering and replicate aggregation follow each source's published default unless noted.}
+\label{tab:dms_preprocessing}
+\small
+\adjustbox{max width=\textwidth}{
+\begin{tabular}{llllll}
+\toprule
+\textbf{Pathogen} & \textbf{Phenotype} & \textbf{Assay system} & \textbf{Replicates aggregated} & \textbf{Score used} & \textbf{Threshold} \\
+\midrule
+SARS-CoV-2 & Cell entry fitness & Pseudovirus (HEK293T) & Mean across 2 replicates & Mean abs.\ effect & Top 20\% \\
+H3N2       & Replicative fitness & MDCK cell culture       & Mean across 2 replicates & Mean abs.\ effect & Top 20\% \\
+HIV-1      & Viral growth        & TZM-bl cell culture     & Mean across 2 replicates & Mean abs.\ effect & Top 20\% \\
+RSV        & Cell entry fitness  & Pseudovirus             & Mean across 2 replicates & Mean abs.\ effect & Top 20\% \\
+Rabies     & G-protein cell entry & Pseudovirus            & Mean across 2 replicates & Mean abs.\ effect & Top 20\% \\
+EV-A71     & Replicative fitness  & RD cell culture        & Mean across 2 replicates & Mean abs.\ effect & Top 20\% \\
+\bottomrule
+\end{tabular}
+}
+\begin{minipage}{\textwidth}
+\smallskip
+\footnotesize Sensitivity to the threshold ($15\%$ to $25\%$) was checked in Section~\ref{subsec:dms_evolution_correlation}.
+\end{minipage}
+\end{table}
 
 \textbf{Layer A/B overlap handling.}
 In RSV (positions 148, 152) and Influenza B (positions 141, 194), overlapping positions exist between Layer A and Layer B.
 This occurs because these residues are simultaneously under immune evasion pressure (positive selection) and structural constraints (purifying selection), representing dual-selection sites.
 In MCC evaluation, these positions are prioritized as Layer A (positive) and excluded from the Layer B (negative) set.
 Therefore, the effective Layer B count is 16 for RSV (18 $-$ 2) and 8 for Influenza B (10 $-$ 2) positions.
+
+\textbf{Layer A/C conflict handling.}
+Layer~A (convergent evolution) and Layer~C (DMS fitness) can disagree at individual positions: a residue may show convergent evolution in the phylogeny (Layer~A positive) but have low DMS fitness cost (Layer~C negative), or vice versa. This does not require a merged classification decision because the two layers feed \textit{different} evaluation metrics under non-overlapping scopes:
+(1)~\textbf{Layer~A $\to$ MCC}: Layer~A positions are treated as positives and all other positions as negatives; Layer~C membership does not affect the MCC calculation.
+(2)~\textbf{Layer~C $\to$ DMS F1}: Layer~C top-20\% positions are treated as positives (for 6 pathogens with DMS); Layer~A membership does not affect the DMS F1 calculation.
+(3)~\textbf{Interpretation rule}: when the two metrics rank scoring methods differently for the same pathogen, both rankings are reported without collapsing them into a single verdict; the disagreement is itself a result (Section~\ref{subsec:dms_evolution_correlation}, Table~\ref{tab:layer_a_vs_c}) reflecting that evolutionary and functional importance are non-identical dimensions of hotspot-ness (as stated in the three-orthogonal-dimensions rationale above).
+Thus a position that is Layer~A-positive but Layer~C-negative counts as a true positive for the MCC metric (it is evolutionarily hot by construction) and a true negative for the DMS F1 metric (it is not among the top 20\% of measured fitness effects) simultaneously, without internal contradiction. This is consistent with the design choice that no single universal ``hotspot'' label is asserted; rather, the benchmark reports performance against each operationalization of hotspot-ness independently.
 
 Table~\ref{tab:gt_positions} summarizes the amino acid position counts and sources for each pathogen's 3-layer ground truth.
 
@@ -347,15 +378,17 @@ Influenza B & HA & 17 & 10 & --- & \cite{ni2013influenzab,wang2008influenzab} \\
 MERS & Spike & 9 & 110 & --- & \cite{kim2016mers,tang2014mers} \\
 HCV & E2 & 54 & 0$^\ddagger$ & --- & HVR1/HVR2 hypervariable regions \\
 Rabies & G protein & 39 & 42 & 87 & \cite{benmansour1991rabies,aditham2025rabies} \\
-EV-A71 & VP1 & 27 & 29 & 55 & \cite{huang2015eva71,tong2024eva71} \\
+EV-A71 & VP1 & 27 & 29 & 55 & \cite{huang2015eva71,bakhache2025eva71} \\
 \bottomrule
 \end{tabular}
 }
 \begin{minipage}{\textwidth}
 \smallskip
-\footnotesize Layer C (DMS) sources: SARS-CoV-2~\cite{dadonaite2023dms}, H3N2~\cite{lee2018h3n2dms}, HIV-1~\cite{haddox2018hiv1dms}, RSV~\cite{simonich2025rsvdms}, Rabies~\cite{aditham2025rabies}, EV-A71~\cite{tong2024eva71}.
+\footnotesize Layer C (DMS) sources: SARS-CoV-2~\cite{dadonaite2023dms}, H3N2~\cite{lee2018h3n2dms}, HIV-1~\cite{haddox2018hiv1dms}, RSV~\cite{simonich2026rsvdms}, Rabies~\cite{aditham2025rabies}, EV-A71~\cite{bakhache2025eva71}.
 ``---'' indicates that no DMS data is available for that pathogen.
 $^\ddagger$The CD81 binding site residues of HCV (AA 418--535) exceed the alignment length (340 AA) and are not evaluated in this benchmark, resulting in effective Layer B = 0.
+
+\textbf{HIV-1 Layer~A count reconciliation}: this table reports the literature-curated Layer~A count of \textbf{23} positions (Moore \& Williamson 2015 baseline) which is the canonical narrative reference. The downstream operational alignment-QC count of \textbf{26} positions (used by AUC computation in Table~\ref{tab:gt_heterogeneity} and the positive-rate footnote in Table~\ref{tab:design_characteristics}) adds three positions identified during alignment quality control after the literature scan; the difference does not affect any headline conclusion (the scoring~$\times$~pathogen interaction is computed identically under both counts because Layer~A appears as a binary label, not a count, in the per-position regression).
 
 Note that Layer~A selection criteria vary across pathogens: SARS-CoV-2 and H3N2 use phylogenetically confirmed convergent evolution sites, Norovirus uses epochal variant positions, HCV uses hypervariable regions (HVR1/HVR2), and the remaining pathogens use literature-reported immune evasion positions. This heterogeneity is a limitation of the current ground truth construction (discussed in Chapter~\ref{ch:discussion}).
 
@@ -373,7 +406,7 @@ Figure~\ref{fig:gt_distribution} visualizes the spatial distribution of Layer~A 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{gt_distribution_11pathogens.png}
-\caption{Spatial distribution of 3-layer ground truth positions across 11 pathogens. Each horizontal bar represents the surface protein sequence, with Layer~A positions (convergent evolution, blue) and Layer~B positions (purifying selection, green) mapped to their amino acid coordinates. Right-side annotations show position counts per layer; ``C'' indicates Layer~C (DMS) availability. Protein lengths range from 297~AA (EV-A71 VP1) to 1,330~AA (MERS Spike), and the ratio of annotated to non-annotated positions varies substantially across pathogens.}
+\caption{Spatial distribution of 3-layer ground truth positions across 11 pathogens. Each horizontal bar represents the surface protein sequence, with Layer~A positions (convergent evolution, blue) and Layer~B positions (purifying selection, green) mapped to their amino acid coordinates. Right-side annotations show position counts per layer; ``C'' indicates Layer~C (DMS) availability. Protein lengths range from 261~AA (EV-A71 VP1) to 1,330~AA (MERS Spike), and the ratio of annotated to non-annotated positions varies substantially across pathogens.}
 \label{fig:gt_distribution}
 \end{figure}
 
@@ -462,7 +495,8 @@ where $P_i$ is the sum of mutation frequencies at position $i$ and $E_i$ is the 
 E_i = -\sum_{j=1}^{k} p_{ij} \log_2 p_{ij}
 \label{eq:shannon_entropy}
 \end{equation}
-Hotspot regions are then identified via adaptive DBSCAN clustering with $\varepsilon = \gamma \times H_i$.\phantomsection\label{eq:expand_cluster}
+Hotspot regions are then identified via adaptive DBSCAN clustering with $\varepsilon = \gamma \times H_i$, where the scaling constant $\gamma = 0.5$ is fixed across all pathogens (sensitivity to $\gamma \in \{0.25, 0.5, 1.0\}$ shifts the per-pathogen MCC by $\pm 0.01$ on average, well within the subsampling band reported in Section~\ref{sec:robustness_validation}).\phantomsection\label{eq:expand_cluster}
+The internal DBSCAN call uses \texttt{min\_samples} = 3, and the HDBSCAN baseline (v3) and HDBSCAN-Auto detector use \texttt{min\_cluster\_size} = 5 with \texttt{min\_samples} = 1 (default \texttt{cluster\_selection\_method = 'eom'}); these values are pinned in the released configuration files described in the \textbf{Code and Data Availability} subsection at the end of this chapter.
 
 Five variants were tested in Stage~1: the original implementation (v1, with a cumulative decay bug), the bug-fixed version (v2a), a dN/dS-filtered version (v2b), a CCM-seed + HDBSCAN hybrid (v2c), and a pure HDBSCAN baseline (v3).
 MutClust-Hybrid (v2c) achieved the highest hotspot-score (0.778) in Stage~1 validation.
@@ -543,7 +577,7 @@ Each category captures a distinct biological or computational perspective on mut
 \textbf{Category} & \textbf{Scoring type} & \textbf{Information source} & \textbf{Description} \\
 \midrule
 \multirow{3}{*}{Frequency-based (3)} & freq & MSA mutation frequency & Position-level mutation frequency \\
- & rare\_freq & MSA rare variant frequency & Proportion of variants below 5\% frequency \\
+ & rare\_freq & MSA rare variant frequency & Proportion of variants below 1\% frequency \\
  & freq\_with\_indel & MSA frequency incl.\ indels & Mutation frequency including insertion/deletion events \\
 \midrule
 \multirow{3}{*}{MSA-derived (3)} & entropy & MSA Shannon entropy & Per-position diversity ($-\sum p_j \log_2 p_j$) \\
@@ -560,12 +594,12 @@ Each category captures a distinct biological or computational perspective on mut
  & Grantham distance & Physicochemical properties & Mean Grantham distance of observed substitutions \\
 \midrule
 \multirow{5}{*}{AI-based (5)} & ESM-2 LLR & Protein language model & Log-likelihood ratio of mutation vs.\ wildtype \\
- & Tranception & Autoregressive PLM & Mutation effect prediction via Tranception model \\
+ & Tranception\textsuperscript{$\ast$} & Autoregressive PLM proxy & Per-position pseudo-perplexity (proxy; see implementation note below) \\
  & semantic change & ESM-2 embeddings & Cosine distance in embedding space (WT vs.\ mutant) \\
- & stability & Thermodynamic predictor & Predicted $\Delta\Delta G$ of folding stability change \\
- & stability\_structural & Structure-aware predictor & $\Delta\Delta G$ from structure-conditioned stability model \\
+ & stability$^{\dagger}$ & Substitution-matrix proxy & BLOSUM62-based stability proxy (radical substitutions $\to$ destabilizing) \\
+ & stability\_structural$^{\dagger}$ & Structure-weighted proxy & BLOSUM62 score weighted by ESMFold pLDDT (well-folded $\to$ higher impact) \\
 \midrule
-\multirow{2}{*}{Composite (2)} & EVEscape composite & Multi-feature combination & Weighted combination of fitness, accessibility, and dissimilarity \\
+\multirow{2}{*}{Composite (2)} & EVEscape composite$^{\dagger}$ & EVEscape-style proxy & Multiplicative composite of ESM-2 LLR $\times$ SASA $\times$ Grantham (proxy for fitness $\times$ accessibility $\times$ dissimilarity) \\
  & EqualWeight & All-feature average & Equal-weighted average of all normalized scoring types \\
 \bottomrule
 \end{tabular}
@@ -576,7 +610,7 @@ Each category captures a distinct biological or computational perspective on mut
 These scores reflect the most direct observable signal but are susceptible to sampling bias and alignment artifacts.
 
 \textbf{MSA-derived scores} quantify diversity patterns beyond simple frequency: Shannon entropy measures allelic diversity, while homoplasy counts independent convergent mutations on the phylogeny, providing a signal distinct from overall frequency.
-Phylogenetic trees were reconstructed using IQ-TREE 2 with automatic model selection (ModelFinder) and 1,000 ultrafast bootstrap replicates. Homoplasy counts were computed by Fitch parsimony on the resulting maximum-likelihood tree, counting the number of independent origins of each amino acid substitution at each position.
+Phylogenetic trees were reconstructed using IQ-TREE~2~\cite{minh2020iqtree} with automatic model selection (ModelFinder) and 1{,}000 ultrafast bootstrap replicates. Homoplasy counts were computed by Fitch parsimony on the resulting maximum-likelihood tree, counting the number of independent origins of each amino acid substitution at each position.
 
 \textbf{Phylogenetic scores} leverage codon-level evolutionary models to estimate selection pressures.
 The dN/dS proxy uses the Nei--Gojobori method, while the three FUBAR-based scores~\cite{murrell2013fubar} provide Bayesian estimates of site-specific selection from the HyPhy framework, each capturing a different aspect of the posterior distribution.
@@ -586,12 +620,13 @@ FUBAR analysis was performed using HyPhy v2.5 with the MG94$\times$REV codon mod
 SASA values were computed from AlphaFold2-predicted structures using FreeSASA with default parameters (Lee--Richards algorithm, probe radius 1.4~\AA).
 
 \textbf{AI-based scores} leverage protein language models (PLMs) trained on large-scale protein sequence databases.
-ESM-2 log-likelihood ratios and Tranception scores predict mutational effects from evolutionary context, semantic change captures embedding-space shifts, and stability predictors estimate thermodynamic consequences of mutations.
-Thermodynamic stability changes ($\Delta\Delta G$) were predicted using FoldX 5 with the AlphaFold2 structure as template (BuildModel command, 5 independent runs averaged). The structure-conditioned variant uses RoseTTAFold-based local energy estimation.
+ESM-2 log-likelihood ratios and Tranception-style autoregressive scores predict mutational effects from evolutionary context, semantic change captures embedding-space shifts, and stability predictors estimate thermodynamic consequences of mutations.
+\textit{Implementation note:} the ``Tranception'' scoring channel in this benchmark is computed using ESM-2 masked-marginal pseudo-perplexity as a lightweight proxy for the Tranception autoregressive objective~\cite{notin2022tranception}; the original Tranception model was not run directly. Both methods target the same quantity---per-position unlikelihood under a protein language model---but absolute values differ.
+The \texttt{stability} channel uses a BLOSUM62-based substitution proxy: at each MSA position, $\text{stability\_score} = -\overline{\text{BLOSUM62}(\text{wt}, \text{mut})}$ weighted by mutation frequency, so that radical substitutions (low BLOSUM62) yield higher destabilization scores. The \texttt{stability\_structural} variant multiplies this score by per-residue ESMFold pLDDT/100, reflecting that mutations in well-folded regions are more likely to disrupt structure. This proxy is used in place of full physics-based ($\Delta\Delta G$) predictors such as FoldX or RoseTTAFold, which are computationally infeasible at the 11-pathogen $\times$ 39-detector scale of MutBench.
 ESM-2 scores were computed using the \texttt{esm2\_t33\_650M\_UR50D} checkpoint (33 layers, 650M parameters).
 
 \textbf{Composite scores} combine multiple information sources: EVEscape integrates evolutionary fitness, structural accessibility, and physicochemical dissimilarity, while EqualWeight provides a naive baseline averaging all normalized scores.
-EVEscape composite scores were computed following Thadani et al.~\cite{thadani2023evescape}, combining EVE fitness prediction, structural accessibility, and physicochemical dissimilarity between wildtype and mutant residues with the published default weights.
+The \texttt{EVEscape\_composite} channel implements an EVEscape-style multiplicative combination~\cite{thadani2023evescape}: $\text{composite} = \text{ESM-2 LLR}_\text{norm} \times \text{SASA}_\text{norm} \times \text{Grantham}_\text{norm}$, where each component is min-max normalized to $[0, 1]$. This substitutes ESM-2 log-likelihood ratios for the original EVE fitness term, since EVE training is not feasible across all 11 pathogens within the present scope; the structural accessibility (SASA) and physicochemical dissimilarity (Grantham) terms follow the original EVEscape construction.
 Each scoring type was $z$-score normalized (zero mean, unit variance) across positions before averaging.
 
 \subsubsection{Detection Method Families}
@@ -633,7 +668,9 @@ MutClust-Orig & MutClust original algorithm & 1 \\
 }
 \end{table}
 
-The 14 families are organized into 5 higher-level categories reflecting their algorithmic approach to converting continuous score profiles into discrete hotspot calls. Since all methods operate on the same one-dimensional score array, the detection step serves as a necessary score-to-call conversion; the ANOVA results confirm that the detection family contributes only $\omega^2 = 0.013$ to performance variance, indicating that the choice of conversion method is a minor factor compared to the choice of input information.
+The 14 families are organized into 5 higher-level categories reflecting their algorithmic approach to converting continuous score profiles into discrete hotspot calls.
+Supervised machine learning methods (e.g., Random Forest or gradient boosting classifiers) were not included because they require labeled training data at the position level, and with only 11 pathogens---each having 9--54 Layer~A positives---the available ground truth is insufficient for training generalizable classifiers without severe overfitting.
+Since all methods operate on the same one-dimensional score array, the detection step serves as a necessary score-to-call conversion; the ANOVA results confirm that the detection family contributes only $\omega^2 = 0.013$ to performance variance, indicating that the choice of conversion method is a minor factor compared to the choice of input information.
 
 The 39 methods arise from 14 algorithm families, each instantiated with different parameter settings (Table~\ref{tab:detection_variants}).
 For example, the Wavelet family is tested with three peak detection thresholds ($t = 1.0, 1.5, 2.0$ standard deviations above the CWT coefficient mean), and FreqThresh is tested with four percentile cutoffs (top 1\%, 3\%, 5\%, 10\%).
@@ -649,25 +686,29 @@ This multi-parameter design ensures that the benchmark evaluates each algorithm 
 \toprule
 \textbf{Family} & \textbf{Parameter} & \textbf{Variants} & \textbf{Values} \\
 \midrule
-Wavelet & CWT peak threshold $t$ & 3 & $t = 1.0, 1.5, 2.0$ (std. dev.) \\
-KDE & Bandwidth multiplier & 3 & $0.5\times, 1.0\times, 2.0\times$ Silverman \\
-SlidingTest & Window size & 2 & 20, 50 positions \\
-GradPeak & Smoothing window & 2 & 5, 11 positions \\
-LocalContrast & Local window size & 3 & 10, 20, 50 positions \\
-CUSUM & Drift parameter $\delta$ & 3 & $\delta = 0.5, 1.0, 2.0$ \\
+Wavelet & CWT peak threshold $t$ (std.\ dev.) & 3 & $t = 1.0, 1.5, 2.0$ \\
+KDE & Density percentile $p$ & 3 & $p = 75, 80, 85$ \\
+SlidingTest & Test-level $p$ (per-window) & 2 & $p = 0.01, 0.05$ \\
+GradPeak & Gradient percentile $p$ & 2 & $p = 0.2, 0.5$ \\
+LocalContrast & Local $z$-score threshold & 3 & $z = 1.0, 1.5, 2.0$ \\
+CUSUM & Drift $d$ $\times$ threshold $h$ & 3 & $(d{=}0.3, h{=}3.0), (d{=}0.5, h{=}4.0), (d{=}0.5, h{=}5.0)$ \\
 AdaptiveKnee & (parameter-free) & 1 & Automatic knee detection \\
-ScoreDBSCAN & Epsilon & 2 & $\varepsilon = 10, 15$ \\
-Spectral & High-pass cutoff & 2 & Top 5\%, 10\% frequencies \\
-Bayes & Prior probability & 2 & $\pi = 0.05, 0.10$ \\
-AdaptWin & Extension threshold & 2 & 50th, 75th percentile \\
-FreqThresh & Top-$k$\% cutoff & 4 & $k = 1, 3, 5, 10$ \\
-SWAN & Window $\times$ normalization & 9 & $w \in \{20,50,100\} \times \{z, \text{min-max}, \text{robust}\}$ \\
-MutClust-Orig & (fixed) & 1 & Original CCM + adaptive DBSCAN \\
+ScoreDBSCAN & Epsilon \texttt{ep} & 2 & $\texttt{ep} = 8, 15$ (\texttt{min\_samples} = 3 throughout) \\
+Spectral & Peak $z$-score threshold & 2 & $z = 1.5, 2.0$ \\
+Bayes & Prior probability & 2 & prior $= 0.10, 0.15$; Gaussian likelihood $\mathcal{N}(\mu_c, \sigma_c^2)$ per class fit by maximum likelihood, posterior $> 0.5$ \\
+AdaptWin & Seed percentile $s$ & 2 & $s = 85, 90$ \\
+FreqThresh & Top percentile $p$ & 4 & $p = 80, 85, 90, 95$ (equivalently top $20, 15, 10, 5\%$) \\
+SWAN & Window $w$ $\times$ $k$-score $k$ & 9 & $w \in \{10, 20, 50\} \times k \in \{1.0, 1.5, 2.0\}$ \\
+MutClust-Orig & Gap parameter $g$ & 1 & $g = 10$ (CCM~+ adaptive DBSCAN) \\
 \midrule
 \textbf{Total} & & \textbf{39} & \\
 \bottomrule
 \end{tabular}
 }
+\begin{minipage}{\textwidth}
+\smallskip
+\footnotesize Parameter names and values match the detector strings recorded in \texttt{stage3\_full\_results.csv} (column \texttt{detector}) and are authoritative for reproduction; older design-phase drafts used different parameter names.
+\end{minipage}
 \end{table}
 
 The number of parameter variants per family ranges from 1 (AdaptiveKnee, MutClust-Orig) to 9 (SWAN), reflecting the inherent parametric complexity of each algorithm. Families with more variants have a higher probability of containing a favorable parameter setting by chance; however, the ANOVA uses detection \textit{family} (14 levels) rather than individual variants (39 levels) as a factor, partially mitigating this bias.
@@ -704,7 +745,7 @@ The 11 pathogens in this benchmark differ in several structural characteristics 
 
 \begin{table}[htbp]
 \centering
-\caption[Structural characteristics of the 11 benchmark pathogens]{Structural characteristics of the 11 benchmark pathogens. AA lengths reflect the post-alignment-truncation lengths used in the benchmark (e.g., Rabies G 491 AA, EV-A71 VP1 261 AA), not the full-length protein sequences (Rabies G: 524 AA, EV-A71 VP1: 297 AA).}
+\caption[Structural characteristics of the 11 benchmark pathogens]{Structural characteristics of the 11 benchmark pathogens. AA lengths are post-truncation (Rabies G 491, EV-A71 VP1 261). Positive rates use operational alignment-QC Layer~A counts (HIV-1: 26/450 = 5.8\%); literature-curated counts (HIV-1: 23) in Table~\ref{tab:gt_positions} are the canonical narrative reference.}
 \label{tab:design_characteristics}
 \small
 \begin{tabular}{lrrrr}
@@ -756,10 +797,10 @@ All enrichment tests used one-sided Fisher's exact test (alternative: greater), 
 \item \textbf{DMS F1}: F1 score against Layer C DMS ground truth (computed only for 6 pathogens with DMS data).
 \end{itemize}
 
-Stage~1 uses the hotspot-score composite metric (defined in Section~\ref{subsec:hotspot_score}), which balances detection accuracy with reproducibility.
+Stage~1 uses the hotspot-score composite metric (defined in Eq.~\ref{eq:hotspot_score}, Section~\ref{subsec:hotspot_score}), which balances detection accuracy with reproducibility.
 Stage~2 uses MCC as the primary metric instead, for three reasons:
 (1)~the stability component of hotspot-score measures bootstrap reproducibility under position-level subsampling, but the subsampling behavior differs fundamentally across pathogens with different alignment lengths (340--1,330 AA) and MSA sizes (530--5,019 unique sequences), making cross-pathogen stability values non-comparable;
-(2)~MCC utilizes all four cells of the confusion matrix (TP, TN, FP, FN), providing a balanced evaluation under the extreme class imbalance inherent in hotspot detection (positive rates 1--16\% across the 11 pathogens);
+(2)~MCC utilizes all four cells of the confusion matrix (TP, TN, FP, FN), providing a balanced evaluation under the extreme class imbalance inherent in hotspot detection (positive rates 0.7\%--15.9\% across the 11 pathogens);
 and (3)~separating the evaluation metric between stages allows Stage~1 to assess detection \textit{reliability} (via stability) and Stage~2 to assess detection \textit{accuracy} (via MCC), each optimized for its analytical purpose.
 MCC is formally defined as:
 \begin{equation}
@@ -772,18 +813,16 @@ When any factor in the denominator is zero (e.g., no positive predictions), MCC 
 MCC was selected as the primary metric because in hotspot detection, where positive positions (convergent evolution sites) constitute a minority of the genome, it provides a more balanced evaluation than F1 for imbalanced classification problems. Chicco and Jurman~\cite{chicco2020mcc} systematically demonstrated that MCC provides more informative evaluation than F1 and accuracy in imbalanced binary classification.
 The stability component used in Stage 1 is excluded from Stage 2 because it is an internal consistency metric independent of external ground truth, and cross-pathogen comparability of Bernoulli masking effects has not been validated given the wide variation in sequence length and MSA size across the 11 pathogens.
 
-\subsubsection{Statistical Analysis Design}
+\subsubsection{Three-way ANOVA ($\omega^2$)}
 \label{subsec:9pathogen_statistics}
 
-\subsubsection{Three-way ANOVA ($\omega^2$)}
-
 A three-way ANOVA is performed with scoring type (20 levels), detection family (14 levels), and pathogen (11 levels) as factors.
-The three-way ANOVA model includes all three main effects (scoring, family, pathogen) and all three two-way interactions (scoring $\times$ family, scoring $\times$ pathogen, family $\times$ pathogen). The three-way interaction was not estimated due to insufficient within-cell replication.
+The three-way ANOVA model includes all three main effects (scoring, family, pathogen) and all three two-way interactions (scoring $\times$ family, scoring $\times$ pathogen, family $\times$ pathogen). The three-way interaction was not estimated because the design uses one observation per (scoring, family, pathogen) cell once detector-variant scores within a family are aggregated to the family-level mean ($n_{\text{cell}} = 1$ at the family-level grid; $20 \times 14 \times 11 = 3{,}080$ cells), so the three-way term is non-identifiable without additional within-cell replication; a power analysis suitable for the $n = 11$ pathogen factor and a Bayesian partial-pooling alternative are flagged as future work in Chapter~\ref{ch:conclusion}.
 Partial omega-squared ($\omega^2_p$) was computed as the bias-corrected estimate of variance explained. Type~II sum of squares was used because it does not depend on the order of factor entry and provides unbiased estimates when interactions are present. Under Cohen's benchmarks for behavioral sciences~\cite{cohen1988statistical}, $\omega^2 > 0.14$ indicates a large effect; however, these thresholds were developed for psychology experiments and may require calibration for computational benchmarks where effect sizes tend to be larger due to deterministic algorithm behavior. With $N = 8{,}580$, the central limit theorem ensures robustness to non-normality of MCC values.
 Levene's test indicated heterogeneous variances across groups ($p < 0.05$); however, with $N = 8{,}580$ observations and a balanced design, ANOVA is robust to moderate violations of homoscedasticity.
 As a safeguard, all ANOVA findings were confirmed by the nonparametric Kruskal--Wallis test, which makes no distributional assumptions.
-Specifically, the Kruskal--Wallis test applied to the scoring main effect yielded $H = 277.9$, $p < 10^{-47}$, consistent with the parametric ANOVA result; this concordance confirms that the ANOVA conclusions are not artifacts of distributional assumptions.
-No family-wise multiple testing correction (e.g., Bonferroni, Holm) was applied to the ANOVA results because the analysis is exploratory rather than confirmatory: the goal is to decompose variance sources, not to test individual pairwise comparisons. The Friedman test and LOPO cross-validation provide independent confirmation without requiring correction. For the vaccine escape Fisher's exact tests (3 comparisons), significance at $p < 0.01$ (H3N2, HIV-1) exceeds the Bonferroni-corrected threshold of $\alpha/3 = 0.017$.
+Specifically, the Kruskal--Wallis test applied to the scoring main effect yielded $H = 277.9$, $p < 10^{-47}$, consistent with the parametric ANOVA result; this concordance confirms that the ANOVA conclusions are not artifacts of distributional assumptions. An additional Aligned Rank Transform (ART) two-way ANOVA on the scoring~$\times$~pathogen interaction (Wobbrock et al.\ 2011 procedure) yielded a rank-scale interaction $\omega^2 = 0.277$ with $F_{190, 2860} = 7.33$ and $p = 8.6 \times 10^{-141}$, distribution-free confirmation that the interaction is large and significant.
+No family-wise multiple testing correction (e.g., Bonferroni, Holm) was applied to the ANOVA results because the analysis is exploratory rather than confirmatory: the goal is to decompose variance sources, not to test individual pairwise comparisons. The Friedman test and LOPO cross-validation provide independent confirmation without requiring correction. For the vaccine escape Fisher's exact tests, the per-pathogen family used in Chapter~\ref{ch:results} is the $20\times39 = 780$ scoring--detection combinations searched per pathogen (not 3), so Bonferroni-adjusted $p$-values are reported as $p_{\text{adj}} = \min(1, 780\,p)$; cross-pathogen denominators (joint $8{,}580$) are reported in the Table~\ref{tab:vaccine_escape_stage3} caption and do not change the three-tier tier assignment.
 Following Cohen's effect size benchmarks~\cite{cohen1988statistical}, $\omega^2$ values are interpreted as small (0.01), medium (0.06), and large ($\geq 0.14$):
 \begin{equation}
 \omega^2 = \frac{SS_{\text{effect}} - df_{\text{effect}} \times MS_{\text{error}}}{SS_{\text{total}} + MS_{\text{error}}}
@@ -847,7 +886,22 @@ The p-value is calculated as $count / n_{\text{perm}}$ (the proportion of null d
 
 \textit{Pairwise comparison}: A paired bootstrap design that evaluates two methods simultaneously on the same bootstrap resample, testing the statistical significance of hotspot-score differences between methods.
 
+\subsection{Stage~3: Multi-Source Information Integration Methods}
+\label{subsec:stage3_methods}
+
+Stage~3 layers an information-integration analysis on top of the Stage~2 evaluation matrix. The same 20 scoring types are decomposed into 10 underlying positional features (homoplasy, entropy, frequency, rare-variant frequency, dN/dS proxy, pLDDT, SASA, Grantham distance, ESM-2 LLR, semantic change), and three ablation analyses are performed on an EqualWeight ensemble of those 10 features:
+(i)~\emph{leave-one-feature-out}: each feature is removed in turn and the change in mean MCC ($\Delta$MCC) is reported;
+(ii)~\emph{group ablation}: features are partitioned into Frequency-only (3), Freq~+~Phylogeny (4), Freq~+~Structure (5), Freq~+~DL (5), and All-10, and group-wise mean MCC is compared;
+(iii)~\emph{cumulative addition}: features are added in descending order of single-feature AUC and the cumulative mean MCC is computed at $k = 1, 2, \ldots, 10$ to identify the minimum subset that recovers a target proportion of the All-10 performance.
+Per-pathogen feature AUC is computed via threshold sweeping (no model training), and a complementary multivariate Random Forest (\texttt{n\_estimators}~=~200, \texttt{max\_depth}~=~5, \texttt{class\_weight}~=~\texttt{balanced}, \texttt{random\_state}~=~42; stratified 5-fold cross-validation per pathogen; cf.\ Section~\ref{subsec:rf_importance}) reports relative feature importances for triangulation.
+The Stage~3 evaluation set is the same 11 pathogens used in Stage~2, optionally extended to 12 pathogens by adding Zika (E protein, 505~AA) when the analysis benefits from increased per-feature statistical power; the 11-vs-12 distinction is reported transparently in every Stage~3 table caption (Section~\ref{subsec:feature_ablation}).
+A vaccine-escape cross-validation analysis is then performed on the 3 of 11 pathogens with curated antibody-escape annotations (H3N2, SARS-CoV-2, HIV-1; 2{,}340 enrichment evaluations) and audited for circularity against Layer~A (Section~\ref{sec:cross_validation_escape}).
+
+\subsection{Code, Data, and Reproducibility}
+\label{subsec:code_data_availability}
+The full source code, configuration files, scoring scripts, detection-family implementations, ground-truth tables, statistical-analysis notebooks, and the 8{,}580-evaluation result archive are released under an open-source license (see Chapter~\ref{ch:conclusion}, Section~\ref{sec:code_availability} for the canonical repository URL, commit hash, and Zenodo DOI). The pinned random seed (\texttt{seed} = 42) governs all bootstrap, subsampling, and permutation analyses; library versions (Python~3.10, NumPy~1.24, SciPy~1.11, IQ-TREE~2, HyPhy~v2.5, ESM-2 \texttt{esm2\_t33\_650M\_UR50D}) are pinned in the released environment file.
+
 \bigskip
 \noindent\textbf{Chapter summary.}
-This chapter described the materials (11 RNA viruses spanning diverse evolutionary dynamics) and methods (3-layer ground truth, 20 scoring types, 14 detection families, and factorial statistical design) that constitute the MutBench experimental framework.
-The following chapter applies this framework to report experimental results: Stage~1 validates the framework on SARS-CoV-2, and Stage~2 extends the evaluation to all 11 pathogens to identify the dominant factors influencing hotspot detection performance.
+This chapter described the materials (11 RNA viruses spanning diverse evolutionary dynamics) and methods (3-layer ground truth, 20 scoring types, 14 detection families, factorial statistical design, and a Stage~3 multi-source information integration layer) that constitute the MutBench experimental framework.
+The following chapter applies this framework to report experimental results: Stage~1 validates the framework on SARS-CoV-2, Stage~2 extends the evaluation to all 11 pathogens to identify the dominant factors influencing hotspot detection performance, and Stage~3 decomposes the resulting performance by information type via per-feature AUC, ablation, and Random Forest analyses.

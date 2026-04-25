@@ -30,17 +30,17 @@ MSA & Computational alignment of multiple protein sequences to identify per-posi
 \end{tabularx}
 \end{table}
 
-Existing computational approaches for hotspot detection have relied predominantly on two types of information: mutation frequency and Shannon entropy. While these capture the most direct signals of mutational enrichment, they fail to distinguish biologically meaningful hotspots from founder-effect artifacts and cannot leverage the growing wealth of complementary information sources---including phylogenetic selection signals, protein language model predictions, structural features, and deep mutational scanning data. No systematic comparison has evaluated which information types are most effective for which pathogens, leaving researchers to default to frequency-based approaches regardless of the virus under study.
+Existing computational approaches for hotspot detection have relied predominantly on two types of information: mutation frequency and Shannon entropy. While these capture the most direct signals of mutational enrichment, they fail to distinguish biologically meaningful hotspots from founder-effect artifacts and cannot leverage the growing wealth of complementary information sources---including phylogenetic selection signals, protein language model predictions, structural features, and deep mutational scanning data. Concurrent benchmarks evaluate per-variant fitness regression on overlapping virus panels (notably ViroGym~\cite{virogym2026}, 13 viruses / 79 DMS / 7 phenotypes; EVEREST~v3~\cite{gurev2026everest_v3}, 45 DMS / 31 forecasting clades / 40 WHO priority viruses; ProteinGym~\cite{notin2023proteingym,notin2025proteingym_v13}, 217 DMS / 90+ baselines), but none has performed a region-level hotspot-detection comparison that systematically decomposes which biological information types are most effective for which pathogens, leaving researchers to default to frequency-based approaches regardless of the virus under study.
 
-Formally, given a multiple sequence alignment (MSA) of viral protein sequences, the detection task identifies a subset of genomic positions with statistically elevated mutation rates; yet no standardized ground truth, composite evaluation metric, or cross-pathogen validation methodology exists to enable such a comparison, despite partial benchmark studies in cancer genomics~\cite{bailey2018comprehensive}.
+Formally, given a multiple sequence alignment (MSA) of viral protein sequences, the detection task identifies a subset of genomic positions with statistically elevated mutation rates; yet no standardized ground truth, composite evaluation metric, or cross-pathogen validation methodology has been established for the region-level detection task itself (concurrent benchmarks above target per-variant fitness regression rather than region selection), despite partial benchmark studies in cancer genomics~\cite{bailey2018comprehensive}.
 The author previously developed a systematic benchmark framework for multi-omics integration (MOSD~\cite{han2025mosd}) and an adaptive hotspot detection algorithm (MutClust~\cite{youn2025mutclust}); the experience of developing MutClust without a quantitative evaluation framework directly motivated this research.
 
 Current viral genomics platforms such as Nextstrain~\cite{nextstrain2018hadfield} and PANGO lineage classification~\cite{rambaut2020pangolin} monitor variant emergence but do not provide systematic evaluation of which biological information sources are most effective for hotspot detection.
-The absence of standardized benchmarks means that the rich landscape of available information types---from phylogenetic signals to protein language models---remains unexplored, and researchers cannot make informed choices about which information source to prioritize for a given pathogen.
+The absence of standardized hotspot-detection benchmarks (as opposed to fitness-regression benchmarks) means that the rich landscape of available information types---from phylogenetic signals to protein language models---remains comparatively unexplored at the region level, and researchers cannot make informed choices about which information source to prioritize for a given pathogen.
 
 In practice, mutation hotspot detection follows a three-stage process.
 In the first stage (\textit{sequence collection}), viral genomes from infected individuals are sequenced over weeks to months at research institutions worldwide and deposited in public databases such as GISAID and NCBI GenBank; for SARS-CoV-2, millions of sequences have been accumulated since 2020, while for influenza, tens of thousands of sequences span several decades.
-These sequences are then aligned to a reference genome to produce a multiple sequence alignment (MSA) that enables position-by-position comparison of mutation patterns.
+These sequences are then aligned to a reference genome to produce the MSA that enables position-by-position comparison of mutation patterns.
 In the second stage (\textit{computational analysis}), statistical and algorithmic methods are applied to the MSA to identify positions where mutations are significantly concentrated---the hotspot candidates.
 This stage, which encompasses frequency analysis, entropy computation, density-based clustering, wavelet transforms, and other approaches, is the focus of this dissertation.
 In the third stage (\textit{experimental validation}), the computationally identified hotspot candidates are individually verified through laboratory experiments such as Deep Mutational Scanning (DMS), neutralization assays, and cell infection assays.
@@ -64,7 +64,7 @@ Although independently obtainable evidence sources exist---such as convergent ev
 Convergent evolution sites are mutations that independently arise at the same genomic position in multiple lineages within the same viral species; for example, mutations at Spike position 484 emerged independently across multiple SARS-CoV-2 lineages: E484K (glutamic acid to lysine) in Beta, Gamma, and Mu, and E484A (glutamic acid to alanine) in Omicron.
 
 Third, there is a \textbf{lack of statistical evidence on the pathogen-dependence of best-performing methods}.
-Existing methods use parameters tuned for a single pathogen, and their generalizability has not been statistically established.
+Existing methods use parameters tuned for a single pathogen, and their generalizability has not been rigorously quantified.
 Whether differences in pathogen-specific genomic characteristics (genome length, mutation rate, recombination frequency, etc.) systematically affect the best-performing detection strategy has not been verified.
 This is a specific instance of the algorithm selection problem~\cite{rice1976algorithm}: given a pathogen with particular genomic characteristics, which detection method should be applied? Without systematic cross-pathogen evaluation, this question cannot be answered.
 
@@ -87,7 +87,7 @@ To address the problems above, this study establishes the following three object
   \item \textbf{Identify pathogen-specific essential information types and evaluate multi-source integration}: Systematically analyze 10 biological information types to determine which are most informative per pathogen, and assess whether multi-source integration reduces the experimental search space for hotspot validation through independent vaccine escape enrichment analysis (see Chapter~\ref{ch:results}).
 \end{enumerate}
 
-Figure~\ref{fig:research_overview} summarizes the overall research flow: from identifying the information limitation (reliance on frequency/entropy), through systematic comparison of 10 information types via MutBench, to the key finding that the optimal information source differs by pathogen, culminating in multi-source integration with practical vaccine escape enrichment.
+Figure~\ref{fig:research_overview} summarizes the overall research flow: from identifying the information limitation (reliance on frequency/entropy), through systematic comparison of 10 information types via MutBench, to the key finding that the optimal information source differs by pathogen, culminating in external vaccine-escape validation on a Layer~A-disjoint subset (HIV-1, 7.19$\times$, Bonferroni-significant) as the primary anchor for practical impact.
 
 \begin{figure}[htbp]
 \centering
@@ -114,7 +114,7 @@ Figure~\ref{fig:research_overview} summarizes the overall research flow: from id
 \node[mainbox, fill=green!10, below=2.5cm of mutbench] (stats) {\textbf{Key Finding}: Optimal information source differs by pathogen ($\omega^2_{\text{scoring} \times \text{pathogen}}{=}0.296$, 9 types)};
 
 % Multi-source Integration
-\node[mainbox, fill=orange!10, below=1.5cm of stats] (integration) {\textbf{Practical Impact}: Multi-source integration $\rightarrow$ 9.36$\times$ vaccine escape enrichment};
+\node[mainbox, fill=orange!10, below=1.5cm of stats] (integration) {\textbf{Practical Impact}: HIV-1 vaccine-escape 7.19$\times$ (Bonferroni $p = 2.5 \times 10^{-16}$, Layer\,A-disjoint) --- primary external validation};
 
 % Arrows
 \draw[arrow] (problem) -- (mutbench);
@@ -128,7 +128,7 @@ Figure~\ref{fig:research_overview} summarizes the overall research flow: from id
 
 \end{tikzpicture}
 }% end resizebox
-\caption{Research overview. The study proceeds from identifying the information limitation (reliance on frequency/entropy) through systematic comparison of 10 information types via MutBench, to the key finding that the optimal information source differs by pathogen, culminating in multi-source integration with practical vaccine escape enrichment.}
+\caption{Research overview. The study proceeds from identifying the information limitation (reliance on frequency/entropy) through systematic comparison of 10 information types via MutBench, to the key finding that the optimal information source differs by pathogen, culminating in external vaccine-escape validation on a Layer~A-disjoint subset (HIV-1, Bonferroni-significant) as the primary anchor for practical impact.}
 \label{fig:research_overview}
 \end{figure}
 
@@ -138,20 +138,21 @@ Figure~\ref{fig:research_overview} summarizes the overall research flow: from id
 
 The research contributions of this study are as follows.
 
-\textbf{Contribution 1. MutBench: an experimental framework for analyzing which factors influence viral mutation hotspot detection performance across 11 RNA viruses.}
-MutBench is the first systematic experimental framework for viral mutation hotspot detection, designed to answer the question: \emph{which biological information source is most effective for which pathogen?}
+\textbf{Contribution 1. MutBench: a systematic hotspot-detection benchmark across 11 RNA viruses.}
+MutBench is the broadest hotspot-detection benchmark to date, complementing concurrent fitness-regression benchmarks (ViroGym~\cite{virogym2026}, EVEREST~v3~\cite{gurev2026everest_v3}, ProteinGym v1.3~\cite{notin2025proteingym_v13}) by targeting region-level detection rather than per-variant fitness, and is designed to answer the question: \emph{which biological information source is most effective for which pathogen?}
 It organizes 10 information types into 20 scoring formulas across 6 categories (frequency, MSA-derived, phylogenetic, structural, AI-based, and composite), defines a three-layer ground truth framework (convergent evolution positives as Layer~A, purifying selection negatives as Layer~B, DMS experimental fitness as Layer~C), introduces the hotspot-score composite metric, and presents a two-stage experimental design combining in-depth SARS-CoV-2 analysis with a large-scale comparison across eleven pathogens.
 
-\textbf{Contribution 2. Statistical demonstration that the optimal biological information source differs fundamentally across pathogens ($\omega^2_{\text{scoring} \times \text{pathogen}} = 0.296$), with 9 distinct optimal information types across 11 pathogens and no cross-pathogen generalization (LOPO 0/11).}
+\textbf{Contribution 2. Statistical demonstration that the optimal biological information source differs fundamentally across pathogens ($\omega^2_{\text{scoring} \times \text{pathogen}} = 0.296$), with 9 distinct optimal information types across 11 pathogens; LOPO 0/11 is reported as null-consistent corroboration of the interaction effect, not as independent evidence.}
 All eleven pathogens exhibited different best-performing combinations (LOPO cross-validation: 0/11 matches), with 9 distinct best-performing scoring types observed---including FUBAR phylogenetic selection scores for H3N2, protein language model scores for SARS-CoV-2 and RSV, and homoplasy for Norovirus.
-The Friedman test confirmed that performance rankings among methods vary systematically across pathogens.
-These results statistically establish that the optimal biological information source is pathogen-dependent, with the scoring $\times$ pathogen interaction ($\omega^2 = 0.296$) as the largest source of performance variance (see Chapter~\ref{ch:results}).
+The Friedman test ($p = 0.990$) showed no reliably superior combination across all pathogens, consistent with pathogen-dependent optimality.
+The scoring~$\times$~pathogen interaction is the largest modeled variance component ($\omega^2 = 0.296$, 95\% cluster-bootstrap CI [0.195, 0.333]; 6-category aggregation gives $\omega^2 = 0.103$ as a collinearity-robust lower bound). The conclusion rests on the interaction effect plus the vaccine-escape audit; LOPO 0/11 alone is null-consistent under permutation (Chapter~\ref{ch:results} Table~\ref{tab:stage2_anova}).
 
-\textbf{Contribution 3. Evidence that multi-source integration achieves up to 9.36-fold vaccine escape enrichment, and that a compact 4-feature core captures 98\% of full-ensemble performance.}
-A systematic analysis of 10 biological information types---spanning sequence statistics, phylogenetic signals, protein language models, structural properties, and chemical characteristics---reveals that the most informative feature differs across pathogens (e.g., homoplasy for Norovirus, pLDDT for H3N2, ESM-2 for SARS-CoV-2).
-Feature ablation identifies a 4-feature core (homoplasy, pLDDT, entropy, frequency) that captures 98\% of integrated performance.
-Multi-source integration reduces the experimental search space for hotspot validation, achieving H3N2 vaccine escape enrichment of 4.012$\times$ ($p = 0.0023$), while pathogen-optimized scoring achieves up to 9.36$\times$ enrichment ($p < 0.0001$), demonstrating that selecting the right information source has direct practical impact on identifying immune evasion positions (see Chapter~\ref{ch:results}).
+\textbf{Contribution 3 (two-part).} \textit{(3a) Multi-source integration infrastructure}: a compact 4-feature core (homoplasy, pLDDT, entropy, frequency) retains $\approx$98\% (97.6\%, 0.081/0.083 mean MCC) of the full 10-feature EqualWeight ensemble on the 12-pathogen Stage~3 panel under uniform-weight LOPO top-10\% evaluation (numerical equivalence, no paired-test significance), and the EqualWeight integration achieves a statistically significant 4.012-fold H3N2 enrichment ($p = 0.0023$) where single-feature approaches fail. \textit{(3b) Externally-valid vaccine-escape enrichment, anchored on HIV-1}: the Layer-A-disjoint subset of HIV-1 escape positions (37 of 45) yields a direct novel-only enrichment of $7.16\text{--}8.24\times$ (worst-case Bonferroni-adjusted Fisher $p = 5.0 \times 10^{-12}$); H3N2's 9.36$\times$ is a self-consistency check (69\% Layer~A overlap); SARS-CoV-2 is exploratory after multiple-comparison correction.
+A systematic analysis of 10 biological information types---spanning sequence statistics, phylogenetic signals, protein language models, structural properties, and chemical characteristics---reveals that the most discriminative single feature (per-feature AUC) differs across pathogens (e.g., homoplasy for Norovirus, pLDDT for H3N2, ESM-2 for SARS-CoV-2), complementing the Stage~2 MCC-optimal scoring results in Contribution~2.
+Feature ablation identifies a 4-feature core (homoplasy, pLDDT, entropy, frequency) that captures $\approx$98\% (97.6\%) of integrated performance.
+Multi-source integration reduces the experimental search space for hotspot validation, achieving H3N2 vaccine escape enrichment of 4.012$\times$ ($p = 0.0023$), while pathogen-optimized scoring achieves up to 7.19$\times$ enrichment for HIV-1 on the Layer~A-disjoint (novel) portion of the escape set (Bonferroni-corrected $p = 2.5 \times 10^{-16}$); the headline H3N2 9.36$\times$ is dominated by Layer~A-overlap positions and, restricted to the 9 novel positions, drops to 7.19$\times$ with Fisher $p = 0.132$ (not significant). The benchmark's external validation is therefore primarily carried by HIV-1, with H3N2/SARS-CoV-2 providing self-consistency and exploratory evidence respectively (see Chapter~\ref{ch:results} Table~\ref{tab:vaccine_escape_stage3} for the full circularity audit).
 
+These three contributions form a logical hierarchy: Contribution~1 provides the standardized evaluation infrastructure; Contribution~2 uses it to establish pathogen-dependent optimality; and Contribution~3 builds on this to demonstrate the practical value of pathogen-adaptive information selection.
 
 \section{Dissertation Organization}
 \label{sec:intro_organization}
