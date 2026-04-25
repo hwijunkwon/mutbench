@@ -3,7 +3,7 @@ This dissertation presents \textbf{MutBench}, a hotspot-detection benchmark that
 
 Detecting mutation hotspots in viral genomes is essential for variant surveillance and vaccine design, yet existing approaches have relied almost exclusively on mutation frequency and Shannon entropy, leaving comparatively unexplored a rich landscape of complementary information sources (phylogenetic selection signals, protein language models, structural features). Concurrent fitness-regression benchmarks (ViroGym, EVEREST~v3, ProteinGym~v1.3) target per-variant prediction; MutBench is the broadest \emph{region-level hotspot-detection} benchmark to date.
 MutBench comprises three core components:
-(1) a three-layer ground truth system integrating convergent evolution signatures as positive selection markers (Layer~A), conserved structural regions under purifying selection as negative controls (Layer~B), and Deep Mutational Scanning (DMS) experimental fitness data as functional validation (Layer~C);
+(1) a three-layer ground truth system integrating literature-curated positive markers (Layer~A: a pathogen-specific union of convergent-evolution, immune-escape, and HVR-membership evidence types, with immune-escape positions dominating the curated set), conserved structural regions under purifying selection as negative controls (Layer~B), and Deep Mutational Scanning (DMS) experimental fitness data as functional validation (Layer~C);
 (2) a composite evaluation metric defined as $\text{hotspot-score} = (\text{recall} + \text{precision} + \text{stability}) / 3$; and
 (3) a two-stage experimental design in which Stage~1 conducts in-depth analysis on SARS-CoV-2 and Stage~2 performs the large-scale cross-pathogen comparison.
 

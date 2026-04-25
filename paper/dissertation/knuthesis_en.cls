@@ -243,13 +243,16 @@
 %% ============================================================
 %% Spine page (landscape, for book binding)
 %% ============================================================
+\newcommand{\@spinetitle}{\@title}
+\newcommand{\spinetitle}[1]{\renewcommand{\@spinetitle}{#1}}
+
 \newcommand{\makespinepage}{%
   \thispagestyle{empty}
   \newgeometry{left=0.5cm,top=0.5cm,right=0.5cm,bottom=0.5cm}
   \begin{landscape}
     \vspace*{\fill}
     \noindent\resizebox{\linewidth}{!}{%
-      \textbf{Systematic Benchmarking and Adaptive Clustering Frameworks for Multi-Scale Genomic Data Analysis%
+      \textbf{\@spinetitle%
         \hspace{2cm}%
         \@author%
         \hspace{2cm}%
