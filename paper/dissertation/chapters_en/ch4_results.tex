@@ -833,9 +833,43 @@ esm2\_llr           & 0.087 & $+$0.004 & Noise under uniform $\mathbf{w}$ \\
 \textbf{Feature group ablation} shows that frequency features alone (freq, entropy, rare\_freq; 3 features) achieve mean MCC = 0.069, while adding homoplasy (Freq~+~Phylogeny; 4 features) raises performance to 0.086---slightly above the full 10-feature ensemble (0.083).
 Adding structural features (Freq~+~Structure: pLDDT, SASA; MCC = 0.057) or deep learning features (Freq~+~DL: ESM-2, semantic change; MCC = 0.067) decreases performance relative to frequency alone.
 
-\textbf{Cumulative addition} starting from the most discriminative feature (homoplasy) and adding features in AUC-rank order shows diminishing returns: 4 features (homoplasy, pLDDT, entropy, freq) achieve MCC = 0.081, capturing $\approx$98\% (97.6\%, 0.081/0.083) of the full 10-feature performance (0.083).
-Note that the difference (0.002 MCC) falls within the subsampling variability observed in Section~\ref{sec:robustness_validation} ($\pm$0.002); no paired-sample significance test was performed, so we report the 4-feature and 10-feature ensembles as \emph{numerically equivalent} under uniform weighting rather than as statistically indistinguishable. The practical implication is that the remaining 6 features can be omitted without measurable mean-MCC loss under the EqualWeight top-10\% LOPO protocol.
-Additional features provide no consistent improvement, reinforcing the finding that a compact frequency--phylogeny core matches the full ensemble under uniform weighting.
+\textbf{Cumulative addition} starting from the most discriminative feature (homoplasy) and adding features in AUC-rank order shows diminishing returns: 4 features (homoplasy, pLDDT, entropy, freq) achieve in-sample mean MCC = 0.081, similar to the in-sample full 10-feature mean of 0.083. Because the per-pathogen in-sample protocol fits feature ranking and ensemble normalization on the same pathogen used to score MCC, this ratio (0.081/0.083 $\approx$ 98\%) describes within-pathogen ablation behavior rather than out-of-pathogen generalization.
+A separate \emph{nested-LOPO} re-evaluation tests the same 4-feature core against the 10-feature ensemble under proper held-out-pathogen scoring (script: \texttt{scripts/feature\_ablation\_nested\_lopo.py}; CSV: \texttt{results/mutbench/feature\_analysis/feature\_ablation\_nested\_lopo.csv}; per-fold values in Table~\ref{tab:nested_lopo_4core}). For each held-out pathogen, the per-feature directional sign and the cumulative feature ranking are fit on the other 11 training pathogens, then applied to the held-out pathogen with within-fold z-scoring, uniform averaging over the chosen subset, and the top-10\% MCC threshold. Under this nested protocol, the full 10-feature ensemble has LOPO mean MCC = 0.070 (95\% bootstrap CI [0.017, 0.130]) and the fixed 4-feature core (homoplasy, pLDDT, entropy, freq) has LOPO mean MCC = 0.081 (95\% CI [0.008, 0.166]). The paired (held-out)-fold delta is $+0.011$ (95\% CI [$-0.018$, $+0.042$]; sign-flip permutation $p = 0.61$, two-sided), so the 4-feature core is statistically indistinguishable from the 10-feature ensemble under nested-LOPO. The retention ratio computed on the LOPO scale is 0.081/0.070 = 1.16 (95\% CI [0.44, 1.48]), reflecting that the 6 features removed by the 4-core selection (rare\_freq, dN/dS, ESM-2 LLR, SASA, Grantham, semantic change) on average carry no positive contribution under uniform weighting, consistent with the leave-one-feature-out signs in Table~\ref{tab:feature_ablation}.
+
+Two consequences for Contribution 3a follow. First, the operational claim that ``a compact 4-feature core matches the 10-feature ensemble under uniform weighting'' is supported under nested-LOPO with a permutation $p = 0.61$ on the paired delta and a 95\% CI for the delta that contains zero. Second, the original ``$\approx$98\% retention'' phrasing is not the cleanest summary of the nested-LOPO result: the LOPO ratio is itself centered above 1.0 with a wide CI, so the dissertation hereafter reports the result as ``operational equivalence under nested-LOPO ($p = 0.61$, paired delta CI [$-0.018$, $+0.042$])'' rather than as a percentage retention. The in-sample percentage (97.6\%) is retained only as a within-pathogen ablation descriptor and is no longer used as an out-of-pathogen generalization claim.
+
+\begin{table}[htbp]
+\centering
+\caption{Nested-LOPO comparison of the 10-feature EqualWeight ensemble vs.\ the fixed 4-feature core (homoplasy, pLDDT, entropy, freq). Per-fold MCC on the held-out pathogen using training-pathogen-fit signs and rankings; paired bootstrap (1{,}000 resamples over the 12 folds) for the mean MCC and the paired delta; sign-flip permutation (5{,}000 iterations) for the two-sided $p$-value of the paired delta.}
+\label{tab:nested_lopo_4core}
+\footnotesize
+\begin{tabular}{lrrr}
+\toprule
+\textbf{Held-out pathogen} & \textbf{Full 10-feature MCC} & \textbf{Fixed 4-core MCC} & \textbf{$\Delta$ (4-core $-$ full)} \\
+\midrule
+SARS-CoV-2 &  +0.0284 & $-$0.0095 & $-$0.0379 \\
+H3N2       &  +0.1301 &  +0.1593 & $+$0.0292 \\
+Norovirus  &  +0.2814 &  +0.4318 & $+$0.1504 \\
+HIV-1      &  +0.0572 & $-$0.0101 & $-$0.0673 \\
+Dengue     &  +0.0820 &  +0.1450 & $+$0.0630 \\
+RSV        & $-$0.0648 & $-$0.0648 &  $\phantom{+}$0.0000 \\
+Influenza~B &  +0.2186 &  +0.2186 &  $\phantom{+}$0.0000 \\
+MERS       &  +0.0031 & $-$0.0275 & $-$0.0306 \\
+HCV        &  +0.1234 &  +0.1502 & $+$0.0268 \\
+Zika       & $-$0.0231 & $-$0.0231 &  $\phantom{+}$0.0000 \\
+Rabies     & $-$0.0491 & $-$0.0491 &  $\phantom{+}$0.0000 \\
+EV-A71     &  +0.0499 &  +0.0499 &  $\phantom{+}$0.0000 \\
+\midrule
+\textbf{Mean (12 folds)} & \textbf{+0.0698} & \textbf{+0.0809} & \textbf{$+$0.0111} \\
+\textbf{95\% paired bootstrap CI} & [+0.017, +0.130] & [+0.008, +0.166] & [$-$0.018, $+$0.042] \\
+\textbf{Sign-flip permutation $p$ (two-sided)} & --- & --- & 0.6132 \\
+\bottomrule
+\end{tabular}
+\begin{minipage}{\textwidth}
+\smallskip
+\footnotesize Folds where Full-10 and Fixed-4 MCC are identical (RSV, Influenza~B, Zika, Rabies, EV-A71) reflect held-out pathogens whose top-10\% set is unchanged when the 6 noise-on-average features are dropped after applying training-fit signs. Underlying CSV: \texttt{results/mutbench/feature\_analysis/feature\_ablation\_nested\_lopo.csv}; summary CSV: \texttt{feature\_ablation\_nested\_lopo\_summary.csv}.
+\end{minipage}
+\end{table}
 
 These results further motivate pathogen-adaptive weighting: features that are noise on average (ESM-2, SASA) are the \textit{best} discriminators for specific pathogens (ESM-2 for MERS AUC = 0.695; SASA for Norovirus AUC = 0.747), confirming that a uniform weight vector cannot optimally exploit all 10 features simultaneously.
 
@@ -909,16 +943,17 @@ H3N2 & FUBAR Bayes factor & Phylogenetic & Wavelet($t$=2.0) & \textbf{9.36}$\tim
 HIV-1 & freq & Frequency & Wavelet($t$=1.5) & \textbf{7.19}$\times$ & 23/45 & $< 0.0001$ & $***$ \\
 SARS-CoV-2 & FUBAR pos.\ sel. & Phylogenetic & FreqThresh($p$=85) & \textbf{7.63}$\times$ & 2/30 & 0.026 & $*$ \\
 \midrule
-\multicolumn{8}{l}{\textit{Multi-source integration (EqualWeight, top 5\% threshold):}} \\
-H3N2 & EqualWeight & Composite & top-5\% & 4.012$\times$ & 6/29 & \textbf{0.0023} & $**$ \\
-HIV-1 & EqualWeight & Composite & top-5\% & 4.17$\times$ & --- & 0.0037 & $**$ \\
-SARS-CoV-2 & EqualWeight & Composite & top-5\% & 2.67$\times$ & 2/30 & 0.171 & n.s. \\
+\multicolumn{8}{l}{\textit{Multi-source integration --- fixed top-5\% protocol (\texttt{escape\_validation\_adapt.csv}; SARS-CoV-2 / H3N2):}} \\
+H3N2 & EqualWeight & Composite & top-5\% (fixed) & 4.012$\times$ & 6/29 & \textbf{0.0023} & $**$ \\
+SARS-CoV-2 & EqualWeight & Composite & top-5\% (fixed) & 2.67$\times$ & 2/30 & 0.171 & n.s. \\
+\multicolumn{8}{l}{\textit{Multi-source integration --- best-detector grid (\texttt{vaccine\_escape\_stage3.csv}; HIV-1 not yet in fixed-threshold pipeline):}} \\
+HIV-1 & EqualWeight & Composite & CUSUM($d{=}0.5,h{=}5.0$) & 4.17$\times$ & --- & 0.0037 & $**$ \\
 \bottomrule
 \end{tabular}
 }
 \begin{minipage}{\textwidth}
 \smallskip
-\footnotesize $***$: $p < 0.001$; $**$: $p < 0.01$; $*$: $p < 0.05$; n.s.: not significant. Best-combination enrichment is selected from 780 combinations per pathogen; Bonferroni correction gives H3N2 $p_{\text{adj}} = 2.63 \times 10^{-5}$, HIV-1 $p_{\text{adj}} = 2.47 \times 10^{-16}$, and SARS-CoV-2 $p_{\text{adj}} \to 1.00$. Because escape lists partly overlap Layer~A, practical validation is strongest for HIV-1 (37/45 escape positions Layer-A-disjoint; novel-only enrichment 7.16--8.24$\times$, worst-case Fisher $p = 5.0 \times 10^{-12}$, which yields novel-only $p_{\text{adj}} = 5.0 \times 10^{-12} \times 780 \approx 3.9 \times 10^{-9}$ under the same 780-combination Bonferroni denominator), while H3N2 is mainly a self-consistency check (69\% Layer~A overlap; novel-only $p = 0.132$) and SARS-CoV-2 is exploratory. Top-1 enrichments should be read as upper-envelope estimates; Bonferroni-survivor means are lower (H3N2 $\approx 4.7\times$, HIV-1 $\approx 4$--$5\times$). Tier assignments are unchanged under $\alpha=0.01$ or an 8,580-test cross-pathogen denominator.
+\footnotesize $***$: $p < 0.001$; $**$: $p < 0.01$; $*$: $p < 0.05$; n.s.: not significant. Best-combination enrichment is selected from 780 combinations per pathogen; Bonferroni correction gives H3N2 $p_{\text{adj}} = 2.63 \times 10^{-5}$, HIV-1 $p_{\text{adj}} = 2.47 \times 10^{-16}$, and SARS-CoV-2 $p_{\text{adj}} \to 1.00$. \textbf{Provenance note for the EqualWeight integration block:} the SARS-CoV-2 and H3N2 EqualWeight rows are produced by the fixed top-5\% threshold pipeline in \texttt{scripts/validate\_escape\_adapt.py} ($\to$ \texttt{escape\_validation\_adapt.csv}). The HIV-1 EqualWeight row is taken from the broader 20$\times$39 detector-grid pipeline (\texttt{scripts/run\_vaccine\_escape\_stage3.py} $\to$ \texttt{vaccine\_escape\_stage3.csv}) using the best-detector EqualWeight combination because HIV-1 was not yet integrated into the fixed top-5\% pipeline at the time of these results; the two protocols are therefore reported as separate sub-blocks rather than as a unified comparison. Because escape lists partly overlap Layer~A, practical validation is strongest for HIV-1 (37/45 escape positions Layer-A-disjoint; novel-only enrichment 7.16--8.24$\times$, worst-case Fisher $p = 5.0 \times 10^{-12}$, which yields novel-only $p_{\text{adj}} = 5.0 \times 10^{-12} \times 780 \approx 3.9 \times 10^{-9}$ under the same 780-combination Bonferroni denominator), while H3N2 is mainly a self-consistency check (69\% Layer~A overlap; novel-only $p = 0.132$) and SARS-CoV-2 is exploratory. Top-1 enrichments should be read as upper-envelope estimates; Bonferroni-survivor means are lower (H3N2 $\approx 4.7\times$, HIV-1 $\approx 4$--$5\times$). Tier assignments are unchanged under $\alpha=0.01$ or an 8,580-test cross-pathogen denominator.
 \end{minipage}
 \end{table}
 
@@ -993,7 +1028,7 @@ The multi-source information integration analysis yields four key findings:
 
 \begin{itemize}
 \item \textbf{Feature heterogeneity}: The most discriminative information type differs across pathogens (5~distinct best features among 11 pathogens), providing a mechanistic explanation for the scoring$\,\times\,$pathogen interaction ($\omega^2 = 0.296$) observed in the ANOVA.
-\item \textbf{Compact core}: A 4-feature core (homoplasy, pLDDT, entropy, frequency) captures $\approx$98\% (97.6\%) of the full 10-feature ensemble performance under uniform weighting, while features that are noise on average (ESM-2, SASA) are the best discriminators for specific pathogens.
+\item \textbf{Compact core}: A fixed 4-feature core (homoplasy, pLDDT, entropy, frequency) is statistically indistinguishable from the full 10-feature ensemble under nested-LOPO (paired delta $+0.011$, 95\% CI [$-0.018$, $+0.042$], sign-flip permutation $p = 0.61$; Table~\ref{tab:nested_lopo_4core}), while features that are noise on average (ESM-2, SASA) are the best discriminators for specific pathogens.
 \item \textbf{Practical search space reduction}: Equal-weight 10-feature integration achieves statistically significant H3N2 vaccine escape enrichment (4.012$\times$, $p = 0.0023$) where single-feature approaches fail to reach significance, transforming exhaustive experimental screening into guided investigation.
 \item \textbf{Adaptive weighting potential}: The oracle ceiling (MCC = 0.160 vs.\ EqualWeight 0.083) shows that per-pathogen feature weighting could double performance with labels, but a deployable adaptive algorithm requires expanding the reference database beyond the current 11 pathogens.
 \end{itemize}
@@ -1003,5 +1038,5 @@ The multi-source information integration analysis yields four key findings:
 This chapter reported the experimental results of MutBench in five sections.
 Stage~1 validated the framework on SARS-CoV-2: MutClust-Hybrid achieved hotspot-score 0.778 on synthetic data, though real GISAID data showed F1 = 0.123 while maintaining biological validity (enrichment $>$ 6.9-fold).
 Stage~2 extended evaluation to all 11 pathogens (8,580 evaluations), revealing that the scoring $\times$ pathogen interaction ($\omega^2 = 0.296$; 11-pathogen cluster-bootstrap 95\% interval [0.195, 0.333]) is the largest modeled variance component (within-cell residual $\omega^2 \approx 0.39$), with LOPO cross-validation yielding 0/11 exact matches and a 0.265 MCC oracle-vs-generalized gap, and Friedman test showing no reliably superior combination ($p = 0.990$).
-The information-type analysis identified a 4-feature core (homoplasy, pLDDT, entropy, frequency) capturing $\approx$98\% (97.6\%) of full ensemble performance. Vaccine escape cross-validation was carried primarily by HIV-1 (7.19$\times$, 82\% of escape set disjoint from Layer~A; Bonferroni-adjusted $p = 2.5 \times 10^{-16}$); H3N2's 9.36$\times$ is largely a self-consistency check (69\% Layer~A overlap; novel-only enrichment 7.19$\times$, $p = 0.132$), and SARS-CoV-2 is exploratory after multiple-comparison correction.
+The information-type analysis identified a 4-feature core (homoplasy, pLDDT, entropy, frequency) that is statistically indistinguishable from the full 10-feature ensemble under nested-LOPO (paired delta $+0.011$, $p = 0.61$; Table~\ref{tab:nested_lopo_4core}). Vaccine escape cross-validation was carried primarily by HIV-1 (7.19$\times$, 82\% of escape set disjoint from Layer~A; Bonferroni-adjusted $p = 2.5 \times 10^{-16}$); H3N2's 9.36$\times$ is largely a self-consistency check (69\% Layer~A overlap; novel-only enrichment 7.19$\times$, $p = 0.132$), and SARS-CoV-2 is exploratory after multiple-comparison correction.
 The broader implications for adaptive method selection, including knowledge base scaling requirements and future extensions, are discussed in Chapter~\ref{ch:discussion}.
