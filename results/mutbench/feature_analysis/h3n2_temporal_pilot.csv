@@ -1,0 +1,10 @@
+score,top_k,reference_set,overlap,top_size,ref_size,enrichment_fold,fisher_p_one_sided
+2010-2015 freq,20,"Layer A (Koel 2013, 25 sites)",3,20,25,3.4,0.05276
+2010-2015 freq,30,"Layer A (Koel 2013, 25 sites)",4,30,25,3.02,0.0372
+2010-2015 freq,50,"Layer A (Koel 2013, 25 sites)",6,50,25,2.72,0.01686
+2010-2015 freq,20,Newly emerged 2016-2020 (n=6),0,20,6,0.0,1
+2010-2015 freq,30,Newly emerged 2016-2020 (n=6),0,30,6,0.0,1
+2010-2015 freq,50,Newly emerged 2016-2020 (n=6),0,50,6,0.0,1
+2010-2015 freq,20,Newly emerged 2021-2025 (n=7),0,20,7,0.0,1
+2010-2015 freq,30,Newly emerged 2021-2025 (n=7),0,30,7,0.0,1
+2010-2015 freq,50,Newly emerged 2021-2025 (n=7),1,50,7,1.62,0.4785

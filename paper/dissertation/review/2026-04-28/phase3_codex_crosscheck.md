@@ -1,0 +1,30 @@
+# codex Independent IV&V - P0 10-defect cross-check (2026-04-28)
+
+## Verdict per item
+
+| ID | Verdict (AGREE/DISAGREE/MODIFY) | Verified file:line | Reasoning | Comment on proposed fix |
+|----|----------------------------------|--------------------|-----------|--------------------------|
+| G01 | MODIFY | `chapters_en/ch5_discussion.tex:33`; `chapters_en/ch4_results.tex:696`, `:739` | The two rho quantities are distinct: ch5 reports point-biserial Layer-A-membership vs frequency mean `|rho|=0.12`, while ch4 reports feature-feature freq/entropy `rho=0.97`. ch5 line 33 is technically explicit, but cross-chapter reuse of `rho` can still confuse circularity strength. | Add the sentence, but phrase it as cross-chapter disambiguation: the `0.12` audit is not the same as the feature-feature `freq--entropy rho=0.97`. |
+| G07 | MODIFY | `front_en/abstract.tex:11`, `:14`; `chapters_en/ch6_conclusion.tex:14`; contrast `chapters_en/ch4_results.tex:801-802` | The caveat is present in ch4: `no paired-sample significance test` and `numerically equivalent under uniform weighting`, but abstract and conclusion state the 97.6% retention without that caveat. Abstract line 14 repeats the uncaveated claim. | Proposed fix is appropriate but incomplete: add the caveat at abstract lines 11 and 14, and ch6 line 14. |
+| G08 | MODIFY | `front_en/abstract.tex:8`; `chapters_en/ch1_introduction.tex:82`, `:111`, `:143`; contrast `chapters_en/ch3_methods.tex:7`, `:891-899`, `chapters_en/ch6_conclusion.tex:102` | Abstract and ch1 describe a two-stage design, including the overview node `2-Stage Design`, while ch3 explicitly defines a two-stage main design with a Stage 3 information-integration layer. | Proposed wording is right, but apply it to abstract line 8 and the ch1 overview node/caption area as well as ch1 lines 82 and 143. |
+| G09 | AGREE | `chapters_en/ch1_introduction.tex:150`; `chapters_en/ch4_results.tex:886` | ch1 reports novel-only `p_adj approx 3.9e-9 across 780 combinations`. ch4 gives worst-case Fisher `p=5.0e-12` and full-set Bonferroni values, but does not visibly show `5.0e-12 x 780 = 3.9e-9`. | Proposed fix is appropriate; prefer adding the one-line derivation in ch4 rather than removing the ch1 number. |
+| G10 | DISAGREE | `chapters_en/ch1_introduction.tex:153` | The paragraph already distinguishes the two 7.19x quantities: full HIV-1 escape set with Bonferroni-corrected `p=2.5e-16`, then H3N2 restricted to 9 novel positions with Fisher `p=0.132`. The proposed wording is substantively already present. | No P0 fix required. A minor copyedit could label the second value "H3N2 novel-only 7.19x" for faster scanning. |
+| G12 | AGREE | `chapters_en/ch6_conclusion.tex:15`; contrast `chapters_en/ch4_results.tex:886`, `:921` | ch6 says HIV-1 "yields 7.19-fold enrichment after correction" while ch4 separates full-set 7.19x Bonferroni significance from Layer-A-disjoint novel-only 7.16--8.24x worst-case Fisher `p=5.0e-12`. The conclusion is ambiguous. | Proposed fix is appropriate. |
+| G14a | AGREE | `chapters_en/ch4_results.tex:60`, `:96-104`; figure `multi_ground_truth_bottom.png` | ch4 body and the overlap figure assign Jaccard `0.006` to DMS-escape vs convergent evolution. The `dms_evaluation_top.png` caption instead says `0.006 between functional and DMS-escape positives`, which conflicts with line 60 and the displayed matrix. | Proposed caption fix is appropriate. |
+| G14b | MODIFY | `chapters_en/ch4_results.tex:210`, `:215`, `:280-290`; figure `cross_pathogen_comparison.png` | The figure displays top-5 scoring types with values such as SARS-CoV-2 FUBAR pos `0.078`, while Table 4.5 lists SARS-CoV-2 Tranception/KDE `0.211` as best. Thus the figure is not the best-detector-per-cell/table metric implied by the body/caption. | Clarify both body and caption that the figure shows mean/aggregated MCC by scoring type across detectors, whereas Table 4.5 is best scoring-detection combination per pathogen. |
+| G14c | AGREE | `chapters_en/ch4_results.tex:385-386`; figure `stage3_anova_decomposition.png`; text `chapters_en/ch4_results.tex:390` | The caption says the residual `omega^2 approx 0.39` is "shown for reference", but the figure has only six modeled-effect bars and no residual bar. The text separately reports the residual correctly. | Proposed fix is appropriate: say residual is reported separately in the text. |
+| G02b | AGREE | `chapters_en/ch6_conclusion.tex:13`; contrast `chapters_en/ch4_results.tex:423`, `:431-440`, `:443-446`, `:565-566` | ch6 conflates LOPO and Friedman as "null-consistent corroboration". ch4 distinguishes them: LOPO 0/11 is null-consistent under permutation, while Friedman shows no reliably superior combination / near-zero rank agreement. | Proposed rewrite is appropriate. |
+
+## Disagreements (if any)
+
+- G10: I disagree with the P0 classification because `chapters_en/ch1_introduction.tex:153` already separates HIV-1 full-set 7.19x from H3N2 novel-only 7.19x and gives different statistical interpretations for each. The duplicate number is not ideal prose, but the defect as stated has already been addressed in the cited body text.
+
+## Additional P0 defects discovered
+
+- None found in this pass. I did not identify a new defense-blocking numerical, citation, or figure/text defect beyond the items above. Residual non-P0 cleanup candidates: abstract line 2 uses the full-set HIV-1 7.19x headline before the novel-only caveat appears later; ch1 line 111 still labels the overview box "2-Stage Design" after ch3 has adopted the Stage 3 integration terminology.
+
+## Overall verdict
+
+- Real P0s: 7/10 as written (G09, G12, G14a, G14c, G02b, plus G07 and G08 with expanded repair scope). G01 is a real clarity risk but better treated as MODIFY because the cited line is technically explicit. G10 is not a real P0 in the current text.
+- Proceed with proposed fixes, but expand G07, G08, and G14b as noted above.
+- Prior audit quality is mostly sound: it caught real figure/text and conclusion-caveat defects. Main concern is overclassification of already-caveated prose as P0 in G10, and too-narrow repair scope for abstract/overview-stage terminology.
