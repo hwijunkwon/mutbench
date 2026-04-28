@@ -1,0 +1,2 @@
+protocol,n_observations,posterior_mean_omega2_int,posterior_median,hdi_lo_95,hdi_hi_95,P_gt_0.14,P_gt_0.10,P_gt_0.20,draws,tune,chains,seed,body_target_mean,body_target_hdi,body_target_P_gt_0.14
+bayesian_hierarchical_evaluation_level,8580,0.3185134094237177,0.3196600587873636,0.24565578409767624,0.3964153849625795,0.99975,1.0,0.99475,2000,2000,4,42,0.252,"[0.188, 0.314]",0.996

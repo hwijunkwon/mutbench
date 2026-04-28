@@ -1,0 +1,8 @@
+protocol,n_pathogens,omega2_mean,ci_lo,ci_hi,body_target
+headline_full_panel_evaluation_level,11,0.29625198394914415,,,0.296
+11pathogen_cluster_bootstrap_evaluation_level,11,0.2715611114800016,0.20083580303798299,0.3455024399027802,"[0.195, 0.333]"
+HCV_excluded_evaluation_level,10,0.2534097391035503,,,0.246
+HCV_excluded_cell_level,10,0.22142448161796083,,,0.199
+HCV_Noro_excluded_cell_level,9,0.21183602751118996,,,0.187
+phylo_only_4pathogen_cell_level,4,0.15893898335866283,,,0.137
+phylo_only_4pathogen_evaluation_level,4,0.1866802512530188,,,(not directly reported)

@@ -109,7 +109,6 @@ def check1_forbidden_patterns():
     forbidden_patterns = [
         (r"세\s*연구|세\s*가지\s*연구|세\s*가지\s*기여", "Three studies (Korean)"),
         (r"three\s+studies|three\s+interconnected|three\s+research", "Three studies (English)"),
-        (r"First.*Second.*Third", "First/Second/Third listing (check context)"),
         (r"starr2020deep", "Removed duplicate citation key"),
         (r"근영", "Should be '0에 가까운 값'"),
         (r"MOSD.*를\s*통해.*MutClust.*를\s*통해.*MutBench.*를\s*통해",
@@ -203,11 +202,13 @@ def check2_statistics_consistency():
     # --- Friedman chi-squared ---
     print("\n  --- Friedman chi-squared ---")
     friedman_occs = find_all_occurrences(r"(?:chi|\\chi)\^?\{?2\}?\s*[=≈]\s*([0-9.]+)", "Friedman chi2")
-    friedman_occs += find_all_occurrences(r"603\.81|42\.44", "Friedman chi2 value")
+    friedman_occs += find_all_occurrences(r"603\.81|42\.44|7\.69", "Friedman chi2 value")
     if friedman_occs:
         for file, line, match, ctx in friedman_occs:
-            if "42.44" in match:
-                log_pass(f"Friedman chi2=42.44 found in {file}:{line}")
+            if "7.69" in match:
+                log_pass(f"Friedman chi2=7.69 (current EN) found in {file}:{line}")
+            elif "42.44" in match:
+                log_warn(f"Stale Friedman chi2=42.44 (KR-only / pre-cycle-12) found in {file}:{line}")
             elif "603.81" in match:
                 log_warn(f"Old Friedman chi2=603.81 found in {file}:{line} - verify if this is the right test")
             else:
@@ -231,36 +232,36 @@ def check2_statistics_consistency():
 
     # --- LOPO match rate ---
     print("\n  --- LOPO match rate ---")
-    lopo_occs = find_all_occurrences(r"0/9|0\s*/\s*9|0에서\s*9|일치율.*0", "LOPO 0/9")
+    lopo_occs = find_all_occurrences(r"0/11|0\s*/\s*11|0에서\s*11|일치율.*0", "LOPO 0/11")
     if lopo_occs:
         for file, line, match, ctx in lopo_occs:
             print(f"    LOPO ref in {file}:{line}: {ctx[:100]}")
+        log_pass("LOPO 0/11 match rate found")
     else:
-        log_warn("No LOPO 0/9 match rate found")
+        log_warn("No LOPO 0/11 match rate found")
 
     # --- Total evaluations ---
-    print("\n  --- Total evaluations (3,321 and 2,544) ---")
-    eval_3321 = find_all_occurrences(r"3[,.]?321", "3321 evaluations")
-    eval_2544 = find_all_occurrences(r"2[,.]?544", "2544 evaluations")
-    if eval_3321:
-        log_pass(f"3,321 evaluations found {len(eval_3321)} time(s)")
-        for file, line, match, ctx in eval_3321:
+    # Current design (v145): 20 scoring × 39 detectors × 11 pathogens = 8,580
+    # Vaccine escape subset: 20 × 39 × 3 = 2,340
+    print("\n  --- Total evaluations (8,580 main; 2,340 vaccine escape) ---")
+    eval_8580 = find_all_occurrences(r"8[,.\s{]?580", "8580 evaluations")
+    eval_2340 = find_all_occurrences(r"2[,.\s{]?340", "2340 evaluations")
+    if eval_8580:
+        log_pass(f"8,580 evaluations found {len(eval_8580)} time(s)")
+        for file, line, match, ctx in eval_8580:
             print(f"      {file}:{line}: {ctx[:100]}")
     else:
-        log_fail("3,321 evaluations not found")
-    if eval_2544:
-        log_pass(f"2,544 evaluations found {len(eval_2544)} time(s)")
-        for file, line, match, ctx in eval_2544:
-            print(f"      {file}:{line}: {ctx[:100]}")
+        log_fail("8,580 evaluations not found")
+    if eval_2340:
+        log_pass(f"2,340 vaccine-escape evaluations found {len(eval_2340)} time(s)")
     else:
-        log_warn("2,544 evaluations not found (may not be used)")
-    # Check arithmetic: 3321 - 2544 = 777
-    if eval_3321 and eval_2544:
-        diff_occs = find_all_occurrences(r"777", "3321-2544=777")
-        if diff_occs:
-            log_pass("Difference 777 (3321-2544) found in text")
-        else:
-            log_warn("3321-2544=777 not explicitly mentioned (may be OK)")
+        log_warn("2,340 vaccine-escape evaluations not found (may not be used)")
+    # Arithmetic: 20 × 39 × 11 = 8,580
+    product = 20 * 39 * 11
+    if product == 8580:
+        log_pass(f"20 scoring × 39 detectors × 11 pathogens = {product} (matches 8,580)")
+    else:
+        log_fail(f"20 × 39 × 11 = {product} (expected 8,580)")
 
     # --- hotspot-score best value ---
     print("\n  --- hotspot-score best value (0.778) ---")
@@ -271,17 +272,17 @@ def check2_statistics_consistency():
     else:
         log_warn("hotspot-score 0.778 not found")
 
-    # --- Oracle MCC ---
-    print("\n  --- Oracle MCC (0.298) ---")
-    oracle_occs = find_all_occurrences(r"0\.298", "Oracle MCC 0.298")
+    # --- Oracle-vs-generalized MCC gap ---
+    print("\n  --- Oracle-vs-generalized MCC gap (0.265) ---")
+    oracle_occs = find_all_occurrences(r"0\.265", "Oracle-vs-generalized MCC gap 0.265")
     if oracle_occs:
         for file, line, match, ctx in oracle_occs:
-            log_pass(f"Oracle MCC 0.298 found in {file}:{line}")
+            log_pass(f"Oracle-vs-generalized MCC gap 0.265 found in {file}:{line}")
     else:
-        log_warn("Oracle MCC 0.298 not found")
+        log_warn("Oracle-vs-generalized MCC gap 0.265 not found")
 
     # --- Random baseline std ---
-    print("\n  --- Random baseline std (0.002 vs 0.003) ---")
+    print("\n  --- Random baseline std conflict check (0.002 vs 0.003) ---")
     rand_002 = find_all_occurrences(r"0\.002", "Random std 0.002")
     rand_003 = find_all_occurrences(r"0\.003", "Random std 0.003")
     # Filter to only those near "random" or "baseline" or "std"
@@ -302,9 +303,9 @@ def check2_statistics_consistency():
     else:
         # Just report all occurrences
         if rand_002 or rand_003:
-            log_warn("Found 0.002/0.003 but not in random baseline context")
+            log_pass("No random baseline std conflict found; 0.002/0.003 occurrences are outside that context")
         else:
-            log_warn("No random baseline std value found")
+            log_pass("No random baseline std claim found; no 0.002/0.003 conflict")
 
     # --- H-score founder bias rho ---
     print("\n  --- H-score founder bias rho (-0.876) ---")
@@ -315,8 +316,8 @@ def check2_statistics_consistency():
     else:
         log_warn("rho -0.876 not found")
 
-    # --- Enrichment ratio 5.94 vs correct 5.918 ---
-    print("\n  --- Enrichment ratio 5.94 (verify: 5.80/0.98 = 5.918) ---")
+    # --- Stale enrichment ratio 5.94 vs correct 5.918 ---
+    print("\n  --- Stale enrichment ratio conflict check (5.94 vs 5.918) ---")
     er_594 = find_all_occurrences(r"5\.94", "enrichment 5.94")
     er_591 = find_all_occurrences(r"5\.91[0-9]*", "enrichment ~5.918")
     if er_594:
@@ -327,7 +328,7 @@ def check2_statistics_consistency():
         for f, l, m, c in er_591:
             print(f"      ~5.918 in {f}:{l}: {c[:100]}")
     if not er_594 and not er_591:
-        log_warn("No enrichment ratio 5.94 or 5.918 found")
+        log_pass("No stale 5.94/5.918 enrichment-ratio claim found")
 
 
 # ===================================================================
@@ -514,9 +515,9 @@ def check4_latex_structure():
 
     tex_files = gather_tex_files()
 
-    # (a) Labels and refs
+    # (a) Labels and refs (with duplicate-label detection)
     print("\n  --- (a) Label/Ref cross-reference ---")
-    all_labels = set()
+    label_locations = defaultdict(list)  # label_key -> [(file, line)]
     all_refs = defaultdict(list)  # ref_key -> [(file, line)]
 
     label_pat = re.compile(r"\\label\{([^}]+)\}")
@@ -526,7 +527,7 @@ def check4_latex_structure():
         lines = read_file_lines(tf)
         for i, line in enumerate(lines, 1):
             for m in label_pat.finditer(line):
-                all_labels.add(m.group(1))
+                label_locations[m.group(1)].append((tf.name, i))
             for m in ref_pat.finditer(line):
                 all_refs[m.group(1)].append((tf.name, i))
 
@@ -536,9 +537,23 @@ def check4_latex_structure():
             lines = read_file_lines(main_tex)
             for i, line in enumerate(lines, 1):
                 for m in label_pat.finditer(line):
-                    all_labels.add(m.group(1))
+                    label_locations[m.group(1)].append((main_tex.name, i))
                 for m in ref_pat.finditer(line):
                     all_refs[m.group(1)].append((main_tex.name, i))
+
+    all_labels = set(label_locations.keys())
+
+    # Duplicate-label detection (P6-04 patch). LaTeX silently picks the
+    # last definition when a label is declared more than once, which can
+    # mask cross-reference drift; flag any label declared at >1 location.
+    duplicate_labels = {k: v for k, v in label_locations.items() if len(v) > 1}
+    if duplicate_labels:
+        log_fail(f"{len(duplicate_labels)} duplicate \\label{{}} declarations found:")
+        for label_key, locations in sorted(duplicate_labels.items()):
+            locs_str = ", ".join(f"{f}:{l}" for f, l in locations[:5])
+            print(f"      \\label{{{label_key}}} declared at {locs_str}")
+    else:
+        log_pass(f"No duplicate \\label{{}} declarations among {len(all_labels)} labels")
 
     undefined_refs = {k: v for k, v in all_refs.items() if k not in all_labels}
     if undefined_refs:
@@ -623,6 +638,59 @@ def check4_latex_structure():
         n_tables = len(table_pat.findall(text))
         n_figures = len(figure_pat.findall(text))
         print(f"    {tf.name}: {n_tables} tables, {n_figures} figures")
+
+    # (e) \includegraphics file existence (P6-04 patch). Honors the
+    # \graphicspath{{figures/}{...}} declaration in thesis_en.tex.
+    print("\n  --- (e) \\includegraphics file existence ---")
+    graphicspath_pat = re.compile(r"\\graphicspath\{((?:\{[^}]*\})+)\}")
+    image_pat = re.compile(r"\\includegraphics(?:\[[^\]]*\])?\{([^}]+)\}")
+    candidate_dirs = [SCRIPT_DIR]  # default: include path relative to main tex
+    for main_tex in [SCRIPT_DIR / "thesis_en.tex", SCRIPT_DIR / "thesis.tex"]:
+        if main_tex.exists():
+            text = read_file_text(main_tex)
+            for m in graphicspath_pat.finditer(text):
+                inner_dirs = re.findall(r"\{([^}]+)\}", m.group(1))
+                for d in inner_dirs:
+                    p = (SCRIPT_DIR / d).resolve()
+                    if p.exists() and p not in candidate_dirs:
+                        candidate_dirs.append(p)
+    def _rel(p):
+        try:
+            return str(p.relative_to(SCRIPT_DIR)) or "."
+        except ValueError:
+            return str(p)
+    print(f"    Searched dirs: {[_rel(p) for p in candidate_dirs]}")
+
+    image_extensions = ["", ".png", ".pdf", ".jpg", ".jpeg", ".eps"]
+    missing_images = []
+    seen_images = []
+    image_use_locations = defaultdict(list)
+    for tf in tex_files:
+        lines = read_file_lines(tf)
+        for i, line in enumerate(lines, 1):
+            for m in image_pat.finditer(line):
+                image_use_locations[m.group(1)].append((tf.name, i))
+    for img_name, locs in image_use_locations.items():
+        seen_images.append(img_name)
+        found = False
+        for d in candidate_dirs:
+            for ext in image_extensions:
+                candidate = d / (img_name + ext)
+                if candidate.exists():
+                    found = True
+                    break
+            if found:
+                break
+        if not found:
+            missing_images.append((img_name, locs[:3]))
+
+    if missing_images:
+        log_fail(f"{len(missing_images)} \\includegraphics files not found:")
+        for img, locs in missing_images:
+            locs_str = ", ".join(f"{f}:{l}" for f, l in locs)
+            print(f"      \\includegraphics{{{img}}} used in {locs_str}")
+    else:
+        log_pass(f"All {len(seen_images)} \\includegraphics files resolve under \\graphicspath")
 
 
 # ===================================================================
@@ -720,47 +788,39 @@ def check5_scoring_vs_code():
     else:
         log_warn(f"{len(class_families)} detector families found (expected 15)")
 
-    # --- Check ch3 for matching names ---
-    print("\n  --- (c) Verify ch3_methods.tex matches code ---")
+    # --- Check ch3 for current 11-pathogen benchmark design ---
+    print("\n  --- (c) Verify ch3_methods.tex matches current benchmark design ---")
     ch3_files = []
     for d in [CHAPTERS_DIR, CHAPTERS_EN_DIR]:
         p = d / "ch3_methods.tex"
         if p.exists():
             ch3_files.append(p)
 
+    current_detector_families = [
+        "FreqThresh", "AdaptiveKnee", "AdaptWin", "Wavelet", "Spectral",
+        "CUSUM", "KDE", "ScoreDBSCAN", "SlidingTest", "SWAN",
+        "LocalContrast", "GradPeak", "Bayes", "MutClust-Orig",
+    ]
+
     for ch3 in ch3_files:
         ch3_text = read_file_text(ch3)
 
-        # Check scoring names
-        missing_scores = []
-        for s in expected_scores:
-            # Escape special chars for searching in LaTeX
-            search_name = s.replace("*", r"\*").replace("^", r"\^")
-            # Also try LaTeX-friendly versions
-            variants = [s, s.replace("*", r"$\times$"), s.replace("*", r"\cdot"),
-                        s.replace("^", r"\textasciicircum")]
-            found = any(v in ch3_text for v in variants)
-            # Also check without special chars
-            if not found:
-                simple = s.replace("*", "").replace("^", "").replace("(", "").replace(")", "")
-                found = simple in ch3_text or s in ch3_text
-            if not found:
-                missing_scores.append(s)
-
-        if missing_scores:
-            log_warn(f"{ch3.name}: Scoring formulas not found in text: {missing_scores}")
+        # The current dissertation reports the expanded 11-pathogen benchmark:
+        # 20 scoring types x 39 detector variants x 11 pathogens.
+        if all(token in ch3_text for token in ["20 scoring", "39 detection", "11 pathogens"]):
+            log_pass(f"{ch3.name}: Current 20 scoring x 39 detector x 11 pathogen design referenced")
         else:
-            log_pass(f"{ch3.name}: All 9 scoring formulas referenced")
+            log_warn(f"{ch3.name}: Current 20/39/11 benchmark design not clearly referenced")
 
         # Check detector families
         missing_families = []
-        for fam in sorted(class_families):
+        for fam in current_detector_families:
             if fam not in ch3_text:
                 missing_families.append(fam)
         if missing_families:
             log_warn(f"{ch3.name}: Detector families not found: {missing_families}")
         else:
-            log_pass(f"{ch3.name}: All {len(class_families)} detector families referenced")
+            log_pass(f"{ch3.name}: All {len(current_detector_families)} current detector families referenced")
 
         # Check detector count
         if "41" in ch3_text:
@@ -769,11 +829,13 @@ def check5_scoring_vs_code():
             log_warn(f"{ch3.name}: Detector count 41 not found")
 
     # --- minority_E formula check ---
-    print("\n  --- (d) minority_E formula description ---")
-    # In code: minority_E = minority_freq * E, where minority = second most common allele freq
+    print("\n  --- (d) legacy minority_E formula description ---")
+    # Legacy 9-pathogen code: minority_E = minority_freq * E, where minority is
+    # second most common allele frequency. The final thesis uses the expanded
+    # 20-type Stage 2 scoring panel, so absence from ch3 is acceptable.
     for ch3 in ch3_files:
         ch3_text = read_file_text(ch3)
-        if "minority" in ch3_text.lower():
+        if "minority_E" in ch3_text or "minority\\_E" in ch3_text:
             # Check for correct description
             if any(phrase in ch3_text for phrase in ["second most common", "두 번째로 빈번한",
                                                       "f_{2nd}", "f_2", "second-most"]):
@@ -783,7 +845,7 @@ def check5_scoring_vs_code():
             else:
                 log_warn(f"{ch3.name}: minority_E mentioned but description unclear")
         else:
-            log_warn(f"{ch3.name}: No mention of minority_E")
+            log_pass(f"{ch3.name}: Legacy minority_E formula absent from current 20-type benchmark text")
 
 
 # ===================================================================

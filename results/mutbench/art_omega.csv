@@ -1,0 +1,4 @@
+protocol,n_pathogens,omega2,ss_int,df_int,ms_resid,ss_total,body_target
+ART_full_panel,11,0.343385382592517,18823532146.09627,190.0,3936017.639521224,52635721087.5,0.277
+ART_HCV_excluded,10,0.31764609452499587,,,,,
+ART_4phylo_only,4,0.2175932566213869,,,,,

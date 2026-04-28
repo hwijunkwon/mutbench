@@ -41,7 +41,7 @@ HotMAPS~\cite{tokheim2016hotmaps} maps mutations onto protein three-dimensional 
 While these tools represent sophisticated approaches to hotspot detection, they target somatic mutations in tumor genomes, which are more than 1,000 times larger than viral genomes and involve fundamentally different mutation dynamics and selective pressures (neutral somatic mutation followed by clonal selection vs.\ population-level viral evolution), making direct transfer infeasible.
 
 An important limitation of frequency-based mutation analysis is \textbf{phylogenetic non-in\-de\-pen\-dence}: mutations observed in closely related sequences are not independent events~\cite{felsenstein1985phylogenies}.
-Phylogeny-aware methods such as TreeTime~\cite{sagulenko2018treetime}, BEAST~\cite{suchard2018beast}, and HyPhy~\cite{kosakovsky2020hyphy} can address this but require high-quality phylogenetic trees and have limited reliability in densely sampled datasets~\cite{turakhia2020ultrafast}.
+Phylogeny-aware methods such as TreeTime~\cite{sagulenko2018treetime}, BEAST~\cite{suchard2018beast}, and HyPhy~\cite{kosakovsky2020hyphy} can address this but require high-quality phylogenetic trees and face scaling and placement challenges in densely sampled datasets, motivating ultra-fast tree-placement frameworks such as UShER~\cite{turakhia2020ultrafast}.
 Several tools detect homoplasic (independently recurrent) mutations on phylogenies.
 HomoplasyFinder~\cite{crispell2019homoplasyfinder} identifies positions where the same mutation arises independently on multiple branches of a phylogenetic tree, which provides evidence for convergent evolution driven by positive selection rather than shared ancestry.
 ConDor~\cite{morel2024condor} extends this approach to detect convergent amino acid substitutions across large protein alignments, using statistical tests to distinguish genuine convergence from chance recurrence.
@@ -145,7 +145,7 @@ While ProtTrans and ESM-3 represent important advances in protein representation
 
 Beyond single-model predictions, \textbf{EVEscape}~\cite{thadani2023evescape} demonstrated the value of combining a generative-model fitness signal with complementary biological information.
 EVEscape integrates three components to predict viral immune escape mutations: (1)~EVE fitness scores from a Bayesian variational autoencoder trained on MSAs (i.e., a generative evolutionary model rather than a generic protein language model), (2)~structural accessibility from experimentally determined structures (PDB) or AlphaFold predictions, and (3)~physicochemical dissimilarity between wildtype and mutant residues (charge and hydrophobicity changes).
-Its success in forecasting SARS-CoV-2 Omicron escape mutations from pre-pandemic data illustrates the potential of multi-source feature integration. MutBench's \texttt{EVEscape\_composite} channel adopts the same multiplicative form (fitness $\times$ accessibility $\times$ dissimilarity) but substitutes ESM-2 log-likelihood ratios for the EVE fitness term as a cross-pathogen-feasible proxy (Section~\ref{sec:scoring_detection})---it is therefore an EVEscape-style implementation, not the original EVEscape model.
+Its success in forecasting SARS-CoV-2 Omicron escape mutations from pre-pandemic data illustrates the potential of multi-source feature integration. MutBench's \texttt{EVEscape\_composite} channel adopts the same multiplicative form (fitness $\times$ accessibility $\times$ dissimilarity) but substitutes an ESM-2 masked-marginal mutation-surprise score for the EVE fitness term as a cross-pathogen-feasible proxy (Section~\ref{sec:scoring_detection})---it is therefore an EVEscape-style implementation, not the original EVEscape model.
 
 \textbf{AlphaMissense}~\cite{cheng2023alphamissense} adopted an AlphaFold-derived architecture to classify missense variants across the entire human proteome, achieving high accuracy for pathogenicity prediction.
 However, its training data and evaluation are centered on human genetic variants, and the distinct evolutionary dynamics of viral proteins---rapid evolution, high mutation rates, and population-level rather than individual-level selection---limit the direct applicability of AlphaMissense to viral variant effect prediction.
@@ -153,7 +153,7 @@ However, its training data and evaluation are centered on human genetic variants
 A key question for this dissertation is whether PLM-derived scores can serve as effective features for hotspot detection across diverse pathogens.
 The EVEREST benchmark~\cite{gurev2025everest} found that PLMs substantially underperform alignment-based methods on viral proteins, suggesting that the evolutionary patterns learned from predominantly cellular organism sequences may not transfer well to fast-evolving viral proteins.
 Despite the growing adoption of PLMs in protein engineering and variant effect prediction, no systematic comparison of PLM-derived features exists for viral mutation hotspot detection across multiple pathogens.
-In this dissertation, ESM-2 log-likelihood ratios and embedding-derived semantic change scores are evaluated as two of the 10 positional features in the MutBench information-type analysis (Section~\ref{sec:information_analysis}).
+In this dissertation, the ESM-2 masked-marginal score and embedding-derived semantic change scores are evaluated as two of the 10 positional features in the MutBench information-type analysis (Section~\ref{sec:information_analysis}).
 
 \textbf{PLM benchmarking.}
 The most comprehensive benchmark for PLM-based variant effect prediction is ProteinGym~\cite{notin2023proteingym}, which evaluates over 70 predictors on 217 DMS assays spanning 2.7 million substitution variants drawn from a taxonomically broad protein set (human, other eukaryote, prokaryote, and viral proteins; general-purpose VEP rather than virus-specific surveillance).
@@ -264,6 +264,7 @@ Table~\ref{tab:benchmark_comparison} summarizes the key differences between MutB
 \caption{Comparison of MutBench with related benchmarks}
 \label{tab:benchmark_comparison}
 \footnotesize
+\begin{adjustbox}{max width=\textwidth}
 \begin{tabular}{lccccc}
 \toprule
 & \textbf{MutBench} & \textbf{ViroGym} & \textbf{EVEREST v3} & \textbf{ProteinGym v1.3} & \textbf{Bailey 2018} \\
@@ -276,6 +277,7 @@ Methods compared & 780 combos & $\sim$10 PLM/MSA & $\sim$20 VEP & 90+ VEP & $\si
 Cross-pathogen ANOVA & Yes ($\omega^2$) & No & No & No & No \\
 \bottomrule
 \end{tabular}
+\end{adjustbox}
 \par\vspace{0.5em}
 \footnotesize Direct performance comparison between MutBench and ProteinGym, EVEREST, or ViroGym is not possible because the tasks differ fundamentally: VEP benchmarks (including ViroGym's per-variant fitness/escape regression and forecasting tasks) evaluate Spearman correlation or AUROC between predicted and measured per-variant outcomes, while MutBench evaluates MCC for binary per-region hotspot classification. The benchmarks are complementary rather than competing.
 \end{table}

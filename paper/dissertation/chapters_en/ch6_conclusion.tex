@@ -112,7 +112,10 @@ Core Stage~3 and vaccine-escape numeric claims resolve to CSVs in the archived \
 \item \path{stage3_full_results.csv}: 8{,}580-row Stage~2 evaluation output; source of Tables~\ref{tab:stage2_best} and~\ref{tab:stage2_anova}.
 \item \path{layer_c_evaluation.csv}: Layer~C DMS cross-check.
 \item \path{feature_analysis/per_feature_auc_11pathogens.csv} and \path{feature_analysis/rf_cv_auc_v2.csv}: feature-analysis summaries, including Table~\ref{tab:rf_cv_auc}.
-\item \path{vaccine_escape_stage3.csv}: single-scoring block of Table~\ref{tab:vaccine_escape_stage3}.
-\item \path{escape_validation_adapt.csv}: EqualWeight integration block of Table~\ref{tab:vaccine_escape_stage3} with \path{threshold=top5}.
+\item \path{vaccine_escape_stage3.csv}: source of the single-scoring block of Table~\ref{tab:vaccine_escape_stage3} (20$\times$39 detector grid, all 3 pathogens) and of the best-detector EqualWeight HIV-1 row in the integration sub-block.
+\item \path{escape_validation_adapt.csv}: source of the fixed top-5\% EqualWeight integration sub-block of Table~\ref{tab:vaccine_escape_stage3} for SARS-CoV-2 and H3N2 only; HIV-1 was not included in the fixed-threshold pipeline at the time of the analysis (see Table~\ref{tab:vaccine_escape_stage3} provenance note).
+\item \path{feature_analysis/feature_ablation_nested_lopo.csv} and \path{feature_analysis/feature_ablation_nested_lopo_summary.csv}: source of Table~\ref{tab:nested_lopo_4core} (per-fold MCC, paired bootstrap CIs, sign-flip permutation $p$).
+\item \path{feature_analysis/tranception_esm_correlation.csv}: source of Table~\ref{tab:tranception_esm_correlation} (Tranception channel vs ESM-2 LLR per-pathogen correlation).
+\item \path{feature_analysis/h3n2_temporal_pilot.csv}: source of Table~\ref{tab:h3n2_temporal_pilot} (H3N2 2010-cutoff time-stratified pilot).
 \end{itemize}
 These files and the CSV-row-to-table-cell provenance manifest are bundled with the examiners' archive and mirrored with the Zenodo deposit.
