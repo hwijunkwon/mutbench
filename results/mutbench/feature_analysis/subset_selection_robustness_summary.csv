@@ -1,0 +1,14 @@
+metric,value
+n_subsets,210
+full10_lopo_mean_mcc,0.06975432900383476
+best_subset_mcc,0.09498882718415598
+best_subset_features,"freq,entropy,homoplasy,semantic_change"
+core4_features,"homoplasy,plddt,entropy,freq"
+core4_rank,13
+core4_total,210
+core4_percentile,6.190476190476191
+core4_mcc,0.0808818486287735
+core4_gap_vs_best,0.014106978555382482
+median_subset_mcc,0.05245152826969507
+iqr_lo,0.03771650708316826
+iqr_hi,0.06998409397187413

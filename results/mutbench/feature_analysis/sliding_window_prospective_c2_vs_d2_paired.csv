@@ -1,0 +1,4 @@
+baseline,variant,n_paired_windows,mean_delta_mcc,median_delta_mcc,wilcoxon_stat,wilcoxon_p,paired_t_stat,paired_t_p,n_better,n_worse,n_tied
+freq+entropy,freq+entropy+plddt,73,-0.0052,0.0005,538.5,0.1704,-1.2078,0.2311,38,14,21
+freq+entropy,freq+entropy+homoplasy,73,0.0051,0.0028,203.0,0.0,1.0799,0.2838,44,5,24
+freq+entropy,freq+entropy+plddt+homoplasy,73,-0.0088,0.0026,463.0,0.0161,-1.0853,0.2814,44,10,19

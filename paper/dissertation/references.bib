@@ -11,6 +11,74 @@
   publisher={Oxford University Press}
 }
 
+%% Sequence clustering / dedup tools (cited for methodological completeness)
+@article{fu2012cdhit,
+  title={{CD-HIT}: accelerated for clustering the next-generation sequencing data},
+  author={Fu, Limin and Niu, Beifang and Zhu, Zhengwei and Wu, Sitao and Li, Weizhong},
+  journal={Bioinformatics},
+  volume={28},
+  number={23},
+  pages={3150--3152},
+  year={2012},
+  doi={10.1093/bioinformatics/bts565}
+}
+
+@article{steinegger2017mmseqs2,
+  title={{MMseqs2} enables sensitive protein sequence searching for the analysis of massive data sets},
+  author={Steinegger, Martin and S{\"o}ding, Johannes},
+  journal={Nature Biotechnology},
+  volume={35},
+  number={11},
+  pages={1026--1028},
+  year={2017},
+  doi={10.1038/nbt.3988}
+}
+
+%% Homology / HMM-based sequence search (cited methodologically)
+@article{eddy2011hmmer,
+  title={Accelerated profile {HMM} searches},
+  author={Eddy, Sean R.},
+  journal={PLoS Computational Biology},
+  volume={7},
+  number={10},
+  pages={e1002195},
+  year={2011},
+  doi={10.1371/journal.pcbi.1002195}
+}
+
+%% Structure similarity search (cited methodologically)
+@article{vankempen2024foldseek,
+  title={Fast and accurate protein structure search with {Foldseek}},
+  author={van Kempen, Michel and Kim, Stephanie S. and Tumescheit, Charlotte and Mirdita, Milot and Lee, Jeongjae and Gilchrist, Cameron L. M. and S{\"o}ding, Johannes and Steinegger, Martin},
+  journal={Nature Biotechnology},
+  volume={42},
+  number={2},
+  pages={243--246},
+  year={2024},
+  doi={10.1038/s41587-023-01773-0}
+}
+
+%% AlphaFold-Multimer (cited as a tool not used in the headline benchmark)
+@article{evans2021af2multimer,
+  title={Protein complex prediction with {AlphaFold-Multimer}},
+  author={Evans, Richard and O'Neill, Michael and Pritzel, Alexander and Antropova, Natasha and Senior, Andrew and Green, Tim and {\v Z}{\'\i}dek, Augustin and Bates, Russ and Blackwell, Sam and Yim, Jason and Ronneberger, Olaf and Bodenstein, Sebastian and Zielinski, Michal and Bridgland, Alex and Potapenko, Anna and Cowie, Andrew and Tunyasuvunakool, Kathryn and Jain, Rishub and Clancy, Ellen and Kohli, Pushmeet and Jumper, John and Hassabis, Demis},
+  journal={bioRxiv},
+  pages={2021.10.04.463034},
+  year={2021},
+  doi={10.1101/2021.10.04.463034}
+}
+
+%% Mantel test (cited methodologically; alternate distance-matrix test not used in headline)
+@article{mantel1967nonparametric,
+  title={The detection of disease clustering and a generalized regression approach},
+  author={Mantel, Nathan},
+  journal={Cancer Research},
+  volume={27},
+  number={2 Part 1},
+  pages={209--220},
+  year={1967}
+}
+
 %% 9-pathogen ground truth references
 @article{koel2013substitutions,
   title={Substitutions near the receptor binding site determine major antigenic change during influenza virus evolution},
@@ -1334,4 +1402,128 @@
   pages   = {1530--1534},
   year    = {2020},
   doi     = {10.1093/molbev/msaa015}
+}
+
+% --- Added in cycle 2 cross-chapter sync (2026-04-28) ---
+% These 11 keys are referenced in ch2_background.tex (cycle 2 fix)
+% but were missing from the bibliography. Metadata is canonical
+% per the suggested entries in review/2026-04-28/cycle2/applied_ch2.md
+% (DOI/volume verified against publisher record where possible).
+
+@article{murrell2012meme,
+  title   = {Detecting Individual Sites Subject to Episodic Diversifying Selection},
+  author  = {Murrell, Ben and Wertheim, Joel O. and Moola, Sasha and Weighill, Thomas and Scheffler, Konrad and Kosakovsky Pond, Sergei L.},
+  journal = {PLoS Genetics},
+  volume  = {8},
+  number  = {7},
+  pages   = {e1002764},
+  year    = {2012},
+  doi     = {10.1371/journal.pgen.1002764}
+}
+
+@article{kosakovskypond2005fel,
+  title   = {Not So Different After All: A Comparison of Methods for Detecting Amino Acid Sites Under Selection},
+  author  = {Kosakovsky Pond, Sergei L. and Frost, Simon D. W.},
+  journal = {Molecular Biology and Evolution},
+  volume  = {22},
+  number  = {5},
+  pages   = {1208--1222},
+  year    = {2005},
+  doi     = {10.1093/molbev/msi105}
+}
+
+@article{murrell2015busted,
+  title   = {Gene-Wide Identification of Episodic Selection},
+  author  = {Murrell, Ben and Weaver, Steven and Smith, Martin D. and Wertheim, Joel O. and Murrell, Sasha and Aylward, Anthony and Eren, Kemal and Pollner, Tristan and Martin, Darren P. and Smith, Davey M. and Scheffler, Konrad and Kosakovsky Pond, Sergei L.},
+  journal = {Molecular Biology and Evolution},
+  volume  = {32},
+  number  = {5},
+  pages   = {1365--1371},
+  year    = {2015},
+  doi     = {10.1093/molbev/msv035}
+}
+
+@article{hayes2024esm3,
+  title   = {Simulating 500 Million Years of Evolution with a Language Model},
+  author  = {Hayes, Thomas and Rao, Roshan and Akin, Halil and Sofroniew, Nicholas J. and Oktay, Deniz and Lin, Zeming and Verkuil, Robert and Tran, Vincent Q. and Deaton, Jonathan and Wiggert, Marius and Badkundri, Rohil and Shafkat, Irhum and Gong, Jun and Derry, Alexander and Molina, Raul S. and Thomas, Neil and Khan, Yousuf A. and Mishra, Chetan and Kim, Carolyn and Bartie, Liam J. and Nemeth, Matthew and Hsu, Patrick D. and Sercu, Tom and Candido, Salvatore and Rives, Alexander},
+  journal = {Science},
+  volume  = {387},
+  number  = {6736},
+  pages   = {850--858},
+  year    = {2025},
+  doi     = {10.1126/science.ads0018},
+  note    = {ESM-3: multimodal generative protein language model.}
+}
+
+@inproceedings{hsu2022esmif,
+  title     = {Learning Inverse Folding from Millions of Predicted Structures},
+  author    = {Hsu, Chloe and Verkuil, Robert and Liu, Jason and Lin, Zeming and Hie, Brian and Sercu, Tom and Lerer, Adam and Rives, Alexander},
+  booktitle = {Proceedings of the 39th International Conference on Machine Learning ({ICML})},
+  year      = {2022},
+  doi       = {10.1101/2022.04.10.487779},
+  note      = {ESM-IF: structure-conditioned inverse folding model. Also bioRxiv 2022.04.10.487779.}
+}
+
+@inproceedings{su2024saprot,
+  title     = {{SaProt}: Protein Language Modeling with Structure-Aware Vocabulary},
+  author    = {Su, Jin and Han, Chenchen and Zhou, Yuyang and Shan, Junjie and Zhou, Xibin and Yuan, Fajie},
+  booktitle = {Proceedings of the 12th International Conference on Learning Representations ({ICLR})},
+  year      = {2024},
+  doi       = {10.1101/2023.10.01.560349},
+  note      = {SaProt: structure-aware tokenization PLM. Also bioRxiv 2023.10.01.560349.}
+}
+
+@article{dauparas2022proteinmpnn,
+  title   = {Robust Deep Learning--Based Protein Sequence Design Using {ProteinMPNN}},
+  author  = {Dauparas, J. and Anishchenko, I. and Bennett, N. and Bai, H. and Ragotte, R. J. and Milles, L. F. and Wicky, B. I. M. and Courbet, A. and de Haas, R. J. and Bethel, N. and Leung, P. J. Y. and Huddy, T. F. and Pellock, S. and Tischer, D. and Chan, F. and Koepnick, B. and Nguyen, H. and Kang, A. and Sankaran, B. and Bera, A. K. and King, N. P. and Baker, D.},
+  journal = {Science},
+  volume  = {378},
+  number  = {6615},
+  pages   = {49--56},
+  year    = {2022},
+  doi     = {10.1126/science.add2187}
+}
+
+@article{greaney2021RBD,
+  title   = {Comprehensive Mapping of Mutations in the {SARS-CoV-2} Receptor-Binding Domain that Affect Recognition by Polyclonal Human Plasma Antibodies},
+  author  = {Greaney, Allison J. and Loes, Andrea N. and Crawford, Katharine H. D. and Starr, Tyler N. and Malone, Keara D. and Chu, Helen Y. and Bloom, Jesse D.},
+  journal = {Cell Host \& Microbe},
+  volume  = {29},
+  number  = {3},
+  pages   = {463--476.e6},
+  year    = {2021},
+  doi     = {10.1016/j.chom.2021.02.003}
+}
+
+@article{greaney2022spike,
+  title   = {An Antibody-Escape Estimator for Mutations to the {SARS-CoV-2} Receptor-Binding Domain},
+  author  = {Greaney, Allison J. and Starr, Tyler N. and Bloom, Jesse D.},
+  journal = {Virus Evolution},
+  volume  = {8},
+  number  = {1},
+  pages   = {veac021},
+  year    = {2022},
+  doi     = {10.1093/ve/veac021},
+  note    = {Companion full-Spike polyclonal-sera version: PLoS Pathogens 18:e1010592 (2022).}
+}
+
+@article{luksza2014predictive,
+  title   = {A Predictive Fitness Model for Influenza},
+  author  = {{\L}uksza, Marta and L{\"a}ssig, Michael},
+  journal = {Nature},
+  volume  = {507},
+  number  = {7490},
+  pages   = {57--61},
+  year    = {2014},
+  doi     = {10.1038/nature13087}
+}
+
+@article{huddleston2020integrating,
+  title   = {Integrating Genotypes and Phenotypes Improves Long-Term Forecasts of Seasonal Influenza A/H3N2 Evolution},
+  author  = {Huddleston, John and Barnes, John R. and Rowe, Thomas and Xu, Xiyan and Kondor, Rebecca and Wentworth, David E. and Whittaker, Lynne and Ermetal, Burcu and Daniels, Rodney S. and McCauley, John W. and Fujisaki, Seiichiro and Nakamura, Kazuya and Kishida, Noriko and Watanabe, Shinji and Hasegawa, Hideki and Barr, Ian and Subbarao, Kanta and Barrat-Charlaix, Pierre and Neher, Richard A. and Bedford, Trevor},
+  journal = {eLife},
+  volume  = {9},
+  pages   = {e60067},
+  year    = {2020},
+  doi     = {10.7554/eLife.60067}
 }

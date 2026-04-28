@@ -7,13 +7,13 @@ This chapter summarizes the research contributions of MutBench, analyzes its lim
 \section{Summary of Research Contributions}
 \label{sec:contribution_summary}
 
-This dissertation contributes three results.
-\textbf{First}, MutBench provides a benchmark for viral mutation hotspot detection across 11 RNA viruses, combining 20 scoring formulas, 39 detector variants, and a three-layer ground truth (literature-curated adaptive positives, constrained negatives, and DMS fitness where available).
-\textbf{Second}, the benchmark shows that the optimal biological information source is pathogen-dependent: the scoring~$\times$~pathogen interaction is the largest modeled effect ($\omega^2=0.296$ at 20-type granularity; 0.103 at 6-category granularity), the 11 pathogens have 9 distinct optimal information types, and the oracle-vs-generalized MCC gap is 0.265.
-Friedman $\chi^2=7.69$, $p=0.990$ shows no universally best combination across pathogens; LOPO 0/11 is null-consistent under permutation; both serve as corroborative consistency checks rather than independent evidence.
-\textbf{Third}, multi-source integration supplies a practical cold-start floor: under nested-LOPO on the 12-pathogen Stage~3 panel, the fixed 4-feature core (homoplasy, pLDDT, entropy, frequency) is statistically indistinguishable from the full 10-feature EqualWeight ensemble (full-10 LOPO mean MCC 0.070, fixed-4 LOPO mean MCC 0.081, paired delta $+0.011$, 95\% CI [$-0.018$, $+0.042$], sign-flip permutation $p = 0.61$; see Section~\ref{subsec:feature_ablation}, Table~\ref{tab:nested_lopo_4core}), and the H3N2 integration case yields 4.012-fold escape enrichment.
-External validation is anchored by HIV-1, where the escape set is largely Layer~A-disjoint (82\%) and yields full-set 7.19-fold enrichment ($p_{\text{adj}} = 2.5 \times 10^{-16}$) and a Layer~A-disjoint novel-only enrichment of 7.16--8.24$\times$ (worst-case Fisher $p = 5.0 \times 10^{-12}$); H3N2 is a self-consistency check (69\% Layer~A overlap) and SARS-CoV-2 is exploratory after multiple-comparison correction.
-The PAHD-R redesign translates these findings into a conservative evidence-fusion workflow, confirming the feasibility and audit boundaries of adaptive extension without claiming a completed universal adaptive predictor.
+This dissertation presents four results that map to three contributions, with Contribution~3 reported in two parts (3a and 3b).
+\textbf{First}, to our knowledge, MutBench is the broadest \emph{region-level, single-position} hotspot-detection benchmark to date for RNA viruses, combining 10 biological information types (20 scoring formulas) $\times$ 14 detection families (39 variants) $\times$ 11 RNA viruses = 8{,}580 evaluations, a three-layer ground truth (Layer~A: a pathogen-specific union of convergent-evolution, immune-escape, and HVR-membership evidence types, with immune-escape positions dominating; Layer~B: purifying-selection negatives; Layer~C: DMS experimental fitness where available), and the hotspot-score composite metric within a two-stage main experimental design plus a Stage~3 information-integration layer.
+\textbf{Second}, the benchmark shows that the optimal biological information source is pathogen-dependent: the scoring~$\times$~pathogen interaction is the largest modeled effect ($\omega^2=0.296$ at 20-type granularity, 95\% cluster-bootstrap CI [0.195, 0.333]; 0.103 at 6-category granularity), the 11 pathogens have 9 distinct optimal information types, and the oracle-vs-generalized MCC gap is 0.265.
+Friedman $\chi^2=7.69$, $p=0.990$ (cluster-robust main statistic) shows no universally best combination across pathogens, consistent with the interaction effect; LOPO 0/11 is null-consistent under permutation and is reported as a corroborative consistency check rather than independent evidence.
+\textbf{Third (two-part).} \textit{(3a) Multi-source integration infrastructure}: under nested-LOPO on the 12-pathogen Stage~3 panel, the fixed 4-feature core (homoplasy, pLDDT, entropy, frequency) is statistically indistinguishable from the full 10-feature EqualWeight ensemble (full-10 LOPO mean MCC 0.070, fixed-4 LOPO mean MCC 0.081, paired delta $+0.011$, 95\% CI [$-0.018$, $+0.042$], sign-flip permutation $p = 0.61$; see Section~\ref{subsec:feature_ablation}, Table~\ref{tab:nested_lopo_4core}), and the H3N2 integration case yields 4.012-fold escape enrichment ($p = 0.0023$).
+\textit{(3b) External validation, anchored by HIV-1}: the escape set is largely Layer~A-disjoint (82\%) and yields full-set 7.19-fold enrichment ($p_{\text{adj}} = 2.5 \times 10^{-16}$) and a Layer~A-disjoint novel-only enrichment of 7.16--8.24$\times$ (worst-case Fisher $p = 5.0 \times 10^{-12}$; Bonferroni $p_{\text{adj}} \approx 3.9 \times 10^{-9}$ across 780 combinations); H3N2 ($9.36\times$) is a self-consistency check (69\% Layer~A overlap) and SARS-CoV-2 ($7.63\times$) is exploratory after multiple-comparison correction.
+Building on these contributions, the PAHD-R synthesis (Chapter~\ref{ch:discussion}) demonstrates the feasibility and audit boundaries of an adaptive evidence-fusion workflow without claiming a universal adaptive predictor; it is presented as a discussion-level synthesis, not as an additional benchmark contribution.
 
 
 \section{Limitations}
@@ -36,7 +36,7 @@ Phylogenetic and sampling bias & High & Homoplasy PoC; temporal stratification; 
 Metric stringency and comparability & Medium & Exact MCC paired with $\pm10$, P@20, FPR, coverage & Region/prevalence-adjusted metrics \\
 Small pathogen panel for adaptation & Medium & Oracle gap reported; PAHD-R candidate variants not adopted & 20--30+ pathogens and time-forward validation \\
 Concurrent-benchmark mismatch & Medium & Task orthogonality stated; no model-vs-model leaderboard & Task-aligned subset comparison \\
-Scope constraints & Medium & RNA viruses and surface proteins only; point mutations only & DNA viruses, multi-protein, indel-aware scoring \\
+Scope constraints & High & RNA viruses and surface glycoproteins only; point substitutions only; coding region only (5$'$/3$'$ UTR and non-coding selection out of scope) & DNA viruses, multi-protein, indel-aware scoring, UTR/non-coding extension \\
 \bottomrule
 \end{tabular}
 }
@@ -69,7 +69,7 @@ Table~\ref{tab:future_roadmap} presents the prioritized future research roadmap,
 
 \textbf{Pathogen-Aware Adaptive Method Selection.}
 
-The oracle ceiling (MCC 0.160 vs.\ EqualWeight 0.083) shows that adaptive gains are possible, but 11 reference pathogens are insufficient for reliable selection in a 13-dimensional profile space.
+The oracle ceiling (MCC 0.160 vs.\ EqualWeight 0.083) shows that adaptive gains are possible, but 11 reference pathogens are insufficient for reliable selection in a high-dimensional pathogen profile space.
 PAHD-R is therefore positioned as an auditable intermediate synthesis: Core, Augmented, and Review are adopted global modes; HCV E2 is the only adopted optional repair; SARS-CoV-2, MERS, calibrated, shrinkage, virus-aware, and selective variants remain future-validation candidates.
 The next step is not further tuning on the same 9-pathogen PAHD-R panel, but expansion to larger and time-forward validation panels followed by explicit meta-learning or algorithm-selection models~\cite{rice1976algorithm,kerschke2019algorithm}.
 
@@ -80,21 +80,28 @@ This would mainly affect founder-effect-prone pathogens such as SARS-CoV-2, and 
 
 \textbf{Additional Research Directions.}
 
-Additional directions are DNA-virus extension, multi-protein evaluation, indel-aware scoring, virus-tuned PLM features, and real-time surveillance integration.
+Additional directions are: DNA-virus extension (e.g., HBV polymerase, HSV-1 glycoprotein), multi-protein evaluation beyond surface glycoproteins, indel-aware scoring, virus-tuned PLM features, and real-time surveillance integration via Nextstrain pipelines.
+The MutBench framework, in its current 11-pathogen RNA-virus form, intentionally does not validate against eukaryotic pathogens, bacterial systems, or DNA viruses with substitution rates of ${\sim}10^{-6}$--$10^{-8}$~substitutions/site/year, where mutation-density assumptions of the underlying scoring channels (entropy, frequency, FUBAR, homoplasy) would need to be recalibrated; extension of MutBench to those regimes---including DNA viruses, eukaryotic pathogens, and prokaryotic systems---is therefore explicitly out of scope of this dissertation and remains future work.
+A single-pathogen DNA-virus density pilot on HBV polymerase ($n = 708$ NCBI sequences, 14 literature-curated RT-domain drug-resistance positions) is reported in Chapter~\ref{ch:discussion}, Section~\ref{para:hbv_pilot} as an empirical sanity check on this rate-based scope claim: variable-position fraction $0.69$ vs.\ $1.00$ on three RNA-virus comparators, mean Shannon entropy $0.24$~bits vs.\ $0.61$--$3.15$~bits, and Layer~A entropy enrichment $p = 0.354$ (global) / $p = 0.136$ (RT-domain restricted), $1.64\times$ within-domain fold change. We emphasise that this is a \emph{pilot acquisition + entropy/frequency-only} probe rather than a benchmarked DNA-virus extension; the binding constraint on a full DNA-virus port is not data acquisition (NCBI Entrez query is reproducible) but pipeline integration --- recomputing the full 20-scoring grid (PLM, structural, dN/dS, homoplasy) and re-curating a multi-category Layer~A across DNA-virus pathogens, and re-running cross-pathogen LOPO with HBV-class pathogens included in the training fold.
+
+\textbf{Reproduction and Release.}
+
+The archived CSVs, provenance manifest, and Zenodo tag (Section~\ref{sec:code_availability}) close the reproducibility gap as a defense-time deliverable, instantiating Priority~4 of Table~\ref{tab:future_roadmap}.
 
 \section{Concluding Remarks}
 \label{sec:final_conclusion}
 
 MutBench shows that viral hotspot detection is driven more by the fit between pathogen and biological information source than by detector choice alone.
 Within the single-position scoring regime and modeled ANOVA terms, the scoring~$\times$~pathogen interaction ($\omega^2=0.296$) is the largest identified factor, and nine distinct optimal information types appear across 11 pathogens.
-The practical validation is strongest for HIV-1 escape enrichment (7.19$\times$, 82\% Layer~A-disjoint), while H3N2 is mainly self-consistency evidence and SARS-CoV-2 remains exploratory.
-The 4-feature core and PAHD-R workflow convert these findings into usable prioritization tools, but the adaptive claim remains bounded: the dissertation confirms a feasible direction for adaptive evidence fusion, not a universal adaptive predictor.
-\textbf{Take-home message}: choosing the right biological information source for the pathogen explains more performance variation than choosing among detection algorithms, and MutBench quantifies that asymmetry.
+The practical validation is strongest for HIV-1 escape enrichment (7.19$\times$, 82\% Layer~A-disjoint), while H3N2 is mainly a self-consistency check and SARS-CoV-2 remains exploratory.
+The 4-feature core and PAHD-R workflow convert these findings into usable prioritization tools, but the adaptive claim remains bounded: the dissertation is consistent with a feasible direction for adaptive evidence fusion, not a universal adaptive predictor.
+\textbf{Take-home message}: choosing the right biological information source for the pathogen explains more performance variation than the detection-algorithm main effect alone, and MutBench quantifies that asymmetry.
 
 \paragraph{Dual-use considerations.} MutBench predicts positions that are likely to mutate under selection, including immune-escape-relevant sites on viral surface glycoproteins. The same outputs that inform vaccine-strain selection, surveillance triage, and antibody design can in principle inform engineering of escape variants, so the benchmark outputs are inherently dual-use. Three mitigations were therefore built into the release plan rather than being deferred to downstream users: (i)~raw GISAID sequences are never redistributed---only computed H-scores, detection results, and summary statistics are shared, preserving the provider-side access controls of the underlying data agreement; (ii)~the benchmark publishes \emph{region-level} hotspot rankings, not variant-level engineering recipes, so it raises the signal-to-noise for surveillance without providing a direct uplift to escape-variant design; and (iii)~the public repository release (30~days post-defence) coincides with disclosure to the relevant biosafety review body, and any extension of the benchmark to pathogens on the U.S.\ HHS P3CO/Select Agent lists will go through a dedicated institutional biosafety review prior to publication. These steps do not eliminate dual-use risk, but they keep the benchmark aligned with the \emph{responsible stewardship} expectations now standard for computational pathogen-evolution work.
 
 \paragraph{Code and data availability.}\label{sec:code_availability}
-The MutBench source code, scripts, ground truth definitions, and configuration files are archived at \url{https://github.com/hwijunkwon/mutbench} under tag \texttt{dissertation-v1} (SHA and Zenodo DOI to be inserted at deposit).%
+The MutBench source code, scripts, ground truth definitions, and configuration files are archived at \url{https://github.com/kksuhj/mutbench} under tag \texttt{dissertation-v1} (commit hash recorded in \texttt{provenance/commit.txt}; Zenodo DOI placeholder \texttt{10.5281/zenodo.MUTBENCH-DISS} to be assigned at submission).
+The MutBench implementation code is released under the MIT License; the dissertation text and figures are distributed under the Creative Commons Attribution--NonCommercial 4.0 International license (CC-BY-NC 4.0). External resources used by the benchmark (MAFFT, IQ-TREE, HyPhy, ESM-2, Tranception, AlphaFold-DB structures, GenBank entries, and the Bloom-lab DMS datasets) are governed by their own upstream licenses, summarised in Chapter~\ref{ch:mutbench}, Section~\ref{subsec:code_data_availability} (\emph{Software and data licenses (external resources)} paragraph); MutBench redistributes only computed scores, detection outputs, and summary statistics, never upstream FASTA bundles or external model weights.%
 \footnote{During review, the tagged snapshot is available in the supplementary bundle; public Zenodo mirroring is scheduled within 30~days of defense.}
 The benchmark can be reproduced from three archived components:
 \begin{itemize}[leftmargin=*,itemsep=0pt]

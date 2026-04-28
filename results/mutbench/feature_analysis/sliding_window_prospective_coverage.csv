@@ -1,0 +1,12 @@
+pathogen,status,n_year_tagged,n_positions,year_min,year_max
+H3N2,ok,334,587,1984,2026
+Influenza_B,ok,285,629,2001,2026
+Dengue,ok,285,795,1987,2024
+RSV,ok,185,575,2002,2023
+HCV,ok,405,869,1984,2017
+Norovirus,ok,287,910,2001,2025
+EV-A71,ok,440,429,1981,2024
+Rabies,ok,227,525,2002,2021
+HIV-1,ok,250,1768,2006,2023
+MERS,ok,131,1687,2013,2023
+SARS-CoV-2,ok,263,1294,2020,2025

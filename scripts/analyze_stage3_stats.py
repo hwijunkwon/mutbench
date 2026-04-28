@@ -29,10 +29,8 @@ warnings.filterwarnings("ignore")
 # ── Paths ──────────────────────────────────────────────────────────────
 BASE = "/proj/paper"
 RESULTS = os.path.join(BASE, "results/mutbench")
-FIG_DIR = os.path.join(BASE, "paper/figure")
-FIG_DIR2 = os.path.join(BASE, "paper/dissertation/figures")
+FIG_DIR = os.path.join(BASE, "paper/dissertation/figures")
 os.makedirs(FIG_DIR, exist_ok=True)
-os.makedirs(FIG_DIR2, exist_ok=True)
 
 # ── Load data ──────────────────────────────────────────────────────────
 df = pd.read_csv(os.path.join(RESULTS, "stage3_full_results.csv"))
@@ -328,9 +326,7 @@ plt.rcParams.update({
 
 def save_fig(fig, name):
     p1 = os.path.join(FIG_DIR, name)
-    p2 = os.path.join(FIG_DIR2, name)
     fig.savefig(p1, dpi=300, bbox_inches="tight", facecolor="white")
-    fig.savefig(p2, dpi=300, bbox_inches="tight", facecolor="white")
     plt.close(fig)
     print(f"  Saved: {p1}")
 
@@ -686,8 +682,8 @@ ax.set_yticks(y_pos)
 ax.set_yticklabels(lopo_df["pathogen"], fontsize=10)
 ax.set_xlabel("MCC", fontsize=12)
 ax.set_title("Leave-One-Pathogen-Out Cross-Validation: 0/11 Match", fontsize=13)
-ax.legend(fontsize=10, loc='lower right')
 ax.axvline(x=0, color="gray", linestyle="--", alpha=0.5)
+ax.legend(fontsize=10, loc='lower right', bbox_to_anchor=(1.0, 0.0), framealpha=0.9)
 ax.grid(axis="x", alpha=0.3)
 
 # Annotate gaps

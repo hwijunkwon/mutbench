@@ -1,0 +1,2 @@
+protocol,n_observations,n_scoring,n_pathogen,posterior_mean_omega2_int,posterior_median,hdi_lo_95,hdi_hi_95,P_gt_0.14,P_gt_0.10,P_gt_0.20,rhat_omega,ess_bulk_omega,ess_tail_omega,draws,tune,chains,seed,prior_sigma_factors,prior_sigma_residual,prior_mu
+bayesian_factor_analysis_evaluation_level,8580,20,11,0.31550984105102875,0.3174878587185921,0.24212863935788986,0.38822870135860654,0.99975,1.0,0.993,1.002844,618.13084,1463.214578,2000,2000,4,42,HalfNormal(0.5),HalfNormal(0.2),"Normal(0, 1)"

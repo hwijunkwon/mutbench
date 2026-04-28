@@ -1,0 +1,11 @@
+rank,combo_id,features,f1,f2,f3,f4,lopo_mean_mcc,paired_delta_vs_full10,retention_ratio_vs_full10,is_core_4
+1,12,"freq,entropy,homoplasy,semantic_change",freq,entropy,homoplasy,semantic_change,0.09498882718415598,0.02523449818032121,1.3617624675155853,False
+2,57,"freq,homoplasy,plddt,semantic_change",freq,homoplasy,plddt,semantic_change,0.09262141121698632,0.022867082213151563,1.327823126388248,False
+3,60,"freq,homoplasy,sasa,semantic_change",freq,homoplasy,sasa,semantic_change,0.08762629813949331,0.017871969135658566,1.2562130464286458,False
+4,9,"freq,entropy,homoplasy,sasa",freq,entropy,homoplasy,sasa,0.08695902508164888,0.017204696077814118,1.2466470013189903,False
+5,115,"entropy,homoplasy,sasa,dnds_proxy",entropy,homoplasy,sasa,dnds_proxy,0.08639125362257599,0.016636924618741243,1.2385074138957974,False
+6,11,"freq,entropy,homoplasy,dnds_proxy",freq,entropy,homoplasy,dnds_proxy,0.08569569473334308,0.015941365729508335,1.228535862320917,False
+7,0,"freq,entropy,rare_freq,homoplasy",freq,entropy,rare_freq,homoplasy,0.08559537987992773,0.015841050876092982,1.2270977457932697,False
+8,119,"entropy,homoplasy,dnds_proxy,semantic_change",entropy,homoplasy,dnds_proxy,semantic_change,0.08556677200149922,0.01581244299766446,1.226687622452725,False
+9,54,"freq,homoplasy,plddt,sasa",freq,homoplasy,plddt,sasa,0.08471110014330446,0.014956771139469714,1.2144206869031378,False
+10,63,"freq,homoplasy,dnds_proxy,semantic_change",freq,homoplasy,dnds_proxy,semantic_change,0.08391589840633552,0.01416156940250078,1.203020652692713,False

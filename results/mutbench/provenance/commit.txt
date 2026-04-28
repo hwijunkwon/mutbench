@@ -1,0 +1,8 @@
+# Commit hash of the dissertation snapshot
+# (Filled in at submission; this file is the reference target for ch3:1024 and ch6:103.)
+# Tag: dissertation-v1
+# Repository: https://github.com/kksuhj/mutbench
+# Zenodo DOI: 10.5281/zenodo.MUTBENCH-DISS (placeholder; assigned at submission)
+COMMIT_HASH=PENDING_AT_SUBMISSION
+TAG=dissertation-v1
+ZENODO_DOI=10.5281/zenodo.MUTBENCH-DISS

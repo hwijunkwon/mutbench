@@ -1,0 +1,28 @@
+resource,version,license,license_url,redistributable,used_in_headline_grid,citation_key
+NCBI GenBank,sequences accessed 2024-11 to 2024-12,U.S. public domain,https://www.ncbi.nlm.nih.gov/home/about/policies/,Not redistributed (accession IDs only),Yes (input FASTA),
+MAFFT,7.505,BSD-style,https://mafft.cbrc.jp/alignment/software/license66.txt,Yes,Yes,katoh2013mafft
+CD-HIT,methodological reference,GPL-style,http://weizhong-lab.ucsd.edu/cd-hit/,N/A (cited only; not load-bearing),No (SHA-256 hashing replaces at 100% identity),fu2012cdhit
+MMseqs2,methodological reference,MIT-style,https://github.com/soedinglab/MMseqs2/blob/master/LICENCE.md,N/A (cited only; not load-bearing),No,steinegger2017mmseqs2
+HMMER,methodological reference,BSD-3-Clause,http://eddylab.org/software/hmmer/,N/A (cited only; not run in this cycle),No,eddy2011hmmer
+IQ-TREE,2.2.0,GPL v2,https://github.com/iqtree/iqtree2/blob/master/LICENSE,Yes,Yes,minh2020iqtree
+HyPhy,2.5.46,MIT,https://github.com/veg/hyphy/blob/master/LICENSE,Yes,Yes,murrell2013fubar
+TreeTime,0.11,MIT,https://github.com/neherlab/treetime/blob/master/LICENSE,Yes,Yes,sagulenko2018treetime
+ESM-2 (esm2_t33_650M_UR50D),fair-esm 2.0.1,MIT,https://github.com/facebookresearch/esm/blob/main/LICENSE,Yes,Yes,lin2023esm2
+ESM-3 (esm3_sm_open_v1),Cambrian 1.0,Cambrian non-commercial (academic only),https://www.evolutionaryscale.ai/policies/cambrian-open-license-agreement,No (academic-only license),No (excluded from 8580 grid for license compatibility),hayes2024esm3
+Tranception,methodological reference,MIT,https://github.com/OATML-Markslab/Tranception/blob/main/LICENSE,N/A (proxy implementation via ESM-2 masked-marginal pseudo-perplexity),No (proxy only; not load-bearing as direct call),notin2022tranception
+EVE,methodological reference,academic-only,https://github.com/OATML-Markslab/EVE,No (academic-only license),No (per-pathogen retraining not feasible in scope),frazer2021EVE
+EVEscape,methodological reference,academic-only,https://github.com/OATML-Markslab/EVEscape,No (academic-only license),No (EVEscape_composite implemented as ESM-2 x SASA x Grantham proxy),thadani2023evescape
+EVEREST v3,public release,CC-BY 4.0,https://creativecommons.org/licenses/by/4.0/,Yes (with attribution; cited only),No (cited only; no upstream redistribution),gurev2026everest_v3
+ProteinGym v1.3,public release,open license (attribution required),https://proteingym.org/,Yes (with attribution; cited only),No,notin2025proteingym_v13
+ViroGym,public release,public release notes,N/A,Cited only,No,virogym2026
+AlphaFold-DB structures,DeepMind/EBI,CC-BY 4.0,https://creativecommons.org/licenses/by/4.0/,Yes,Yes (3D contact / SASA inputs),
+ESMFold predictions,fair-esm,MIT,https://github.com/facebookresearch/esm/blob/main/LICENSE,Yes,Yes (per-pathogen 3D),lin2023esm2
+PDB 6VSB,public,public domain,https://www.rcsb.org/,Yes,Yes (3D contact enrichment for SARS-CoV-2 Spike),
+Bloom-lab DMS (Greaney 2021/2022),public deposit,CC-BY 4.0,https://creativecommons.org/licenses/by/4.0/,Yes (derived top-20% indicator only),Layer C only,greaney2021RBD,greaney2022spike
+Haddox 2018 HIV-1 Env DMS,public deposit,CC-BY 4.0,https://creativecommons.org/licenses/by/4.0/,Yes (derived top-20% indicator only),Layer C only,haddox2018hiv1dms
+Lee 2018 H3N2 HA DMS,Dryad deposit,academic-research (per data-availability statement),https://datadryad.org/,Derived indicator only,Layer C only,lee2018h3n2dms
+Dadonaite 2024 SARS-CoV-2 entry DMS,public companion repository,CC-BY 4.0,https://creativecommons.org/licenses/by/4.0/,Yes (derived indicator only),Layer C only,dadonaite2024entry
+Simonich 2026 RSV F DMS,publication-linked,academic-research (per data-availability statement),pending publication,Derived indicator only,Layer C only,simonich2026rsv
+Aditham 2025 Rabies G DMS,publication-linked,academic-research (per data-availability statement),pending publication,Derived indicator only,Layer C only,aditham2025rabies
+Bakhache 2025 EV-A71 VP1 DMS,publication-linked,academic-research (per data-availability statement),pending publication,Derived indicator only,Layer C only,bakhache2025eva71
+ARTool R package,0.11.1,GPL v3,https://cran.r-project.org/web/packages/ARTool/,Yes (cited; load-bearing),Yes (Aligned Rank Transform ANOVA),

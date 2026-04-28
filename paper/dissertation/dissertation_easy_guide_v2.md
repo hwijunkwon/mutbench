@@ -2,9 +2,11 @@
 
 ## 학위논문 요약서
 
-**한줄 요약**: 11개 RNA 바이러스에서 8,580회 평가 결과, 최고의 핫스팟 탐지는 "어떤 알고리즘"보다 "어떤 정보를 쓰는지 + 그 정보가 그 바이러스에 맞는지"가 결정한다 — 정보 유형 × 바이러스 상호작용이 모델된 분산의 최대 성분(ω²=0.296)이며, HIV-1에서 7.19배 백신 회피 enrichment(p=2.5e-16)로 실용성을 입증.
+**한줄 요약**: 바이러스 변이 핫스팟을 잘 찾으려면 “가장 멋진 알고리즘 하나”를 고르는 것보다, **그 바이러스에 맞는 생물학적 정보를 고르는 것**이 더 중요했습니다. 11개 RNA 바이러스에서 8,580번 비교해 보니, 어떤 정보가 유용한지는 바이러스마다 크게 달랐고(정보 유형 × 바이러스 효과가 가장 큰 요인, ω²=0.296), HIV-1에서는 백신 회피 위치를 무작위보다 7.19배 더 잘 모아 찾아 실용 가능성도 확인했습니다. PAHD-R은 이 결론을 바탕으로 후보 위치를 고르는 세 가지 사용 모드(Core/Augmented/Review)로 정리했고, 더 공격적인 변형들은 아직 “가능성은 있지만 추가 검증이 필요한 후보”로 남겼습니다.
 
-**현재 위치 (외부 비교)**: 동시기 벤치마크인 ViroGym(13 바이러스, 79 DMS), EVEREST v3(45 DMS, 31 클레이드 forecasting, WHO 우선 40 바이러스), ProteinGym v1.3(217 DMS, 90+ 모델)은 모두 *변이별 fitness 회귀*를 다루는 반면, MutBench는 *영역별 hotspot 탐지*를 다루며 둘은 보완적이다. EVEREST v3가 WHO-40에서 절반 이상 신뢰도 실패를 보고하는 점은 본 연구의 LOPO 0/11과 외부 정합한다.
+**이 한줄의 쉬운 뜻**: 코로나에서 잘 맞는 방법이 독감이나 HIV에서도 그대로 잘 맞는다고 볼 수 없습니다. 바이러스마다 변이가 생기는 방식과 중요한 단백질 부위가 다르기 때문에, 먼저 “이 바이러스에는 어떤 정보가 믿을 만한가?”를 고르는 절차가 필요합니다.
+
+**현재 위치 (외부 비교)**: ViroGym, EVEREST, ProteinGym 같은 최신 연구는 주로 “개별 변이 하나가 얼마나 해로운가/유리한가”를 예측합니다. 반면 MutBench는 “실험자가 먼저 봐야 할 변이 집중 영역이 어디인가”를 찾습니다. 즉 경쟁 연구라기보다 서로 보완 관계입니다.
 
 **논문 구조**: Ch1 서론 → Ch2 관련 연구 → Ch3 재료 및 방법 → Ch4 실험 결과 → Ch5 논의 → Ch6 결론
 
@@ -76,14 +78,14 @@
 **목표 2: 핫스팟 탐지 성능의 핵심 요인 규명**
 
 - **필요성**: 10가지 정보 유형과 14개 탐지 방법 중 어떤 요인이 성능에 가장 큰 영향을 미치는지 정량적으로 분해해야, 연구 자원의 우선순위를 정할 수 있습니다.
-- **방법**: (1) Factorial ANOVA(3요인 분산분석 — 성능 차이가 어떤 요인 때문인지 분리하는 통계 기법)로 각 요인의 분산 기여도(ω², 오메가 제곱 — 0~1 범위, 클수록 영향 큼)를 산출하고, (2) Friedman 검정(비모수 순위 검정 — 정규분포를 가정하지 않고 순위만으로 판단)으로 상위 조합의 순위 일관성을 검정하며, (3) LOPO 교차 검증(Leave-One-Pathogen-Out — 10개로 학습한 최적을 남은 1개에 적용)으로 일반화 가능성을 테스트합니다.
-- **기대 결과**: scoring × pathogen 상호작용이 모델된 분산의 최대 성분(ω²=0.296)이라는 정량적 증거, HIV-1 vaccine-escape 앵커(7.19배, Bonferroni p=2.5e-16)로 실용성을 뒷받침. LOPO 0/11은 permutation null과 일치하므로 독립 증거가 아닌 상호작용 효과의 corroboration으로 보고.
+- **방법**: 성능 차이가 어디서 생기는지 나누어 봅니다. “점수를 매기는 정보가 중요한가?”, “탐지 알고리즘이 중요한가?”, “바이러스 종류가 중요한가?”, “특정 정보가 특정 바이러스에서만 잘 맞는가?”를 통계적으로 분리합니다.
+- **기대 결과**: 가장 큰 차이는 “정보 유형과 바이러스의 궁합”에서 나왔습니다. 숫자로는 정보 유형 × 바이러스 효과가 가장 큰 요인(ω²=0.296)이었고, HIV-1에서는 실제 백신 회피 위치가 무작위보다 7.19배 더 잘 모였습니다. 즉 단순히 점수가 좋은 알고리즘을 고르는 문제가 아니라, 바이러스에 맞는 정보를 고르는 문제입니다.
 
 **목표 3: 바이러스별 핵심 정보 식별 및 실험 탐색 범위 축소 검증**
 
 - **필요성**: 10가지 정보 유형 중 어떤 것이 핵심이고, 이를 통합하면 실험 탐색 범위를 얼마나 줄일 수 있는지 정량화해야 합니다.
 - **방법**: (1) Per-feature AUC와 Random Forest로 바이러스별 핵심 정보 유형을 식별하고, (2) Feature ablation으로 최소 필수 정보 조합을 규명하며, (3) Vaccine escape enrichment 분석으로 벤치마크 결과가 실제 면역 회피 위치와 일치하는지 독립 검증합니다.
-- **기대 결과**: 4개 핵심 정보(homoplasy, pLDDT, entropy, freq)로 전체 성능의 ≈98% (97.6%, 0.081/0.083)를 달성합니다. Vaccine escape enrichment: HIV-1 7.19배 (82% Layer A-disjoint, Bonferroni p=2.5e-16, primary external validation), H3N2 9.36배 (69% Layer A 중복이라 self-consistency check), SARS-CoV-2 7.63배 (Bonferroni 통과 실패, exploratory).
+- **기대 결과**: 많은 정보를 다 쓰지 않아도 핵심 정보 4개(homoplasy, pLDDT, entropy, freq)만으로 대부분의 성능을 유지했습니다. 다만 외부 검증으로 가장 깨끗하게 말할 수 있는 사례는 HIV-1이며, H3N2와 SARS-CoV-2 결과는 각각 자기 일관성 확인 또는 탐색적 결과로 조심스럽게 해석합니다.
 
 \newpage
 
@@ -186,14 +188,14 @@ EVEREST v3(Marks lab, 2026 Jan)와 ViroGym(2026 Mar)는 MutBench와 가장 가�
 | **평가 단위** | 개별 변이 (A484K 같은 단일 치환) | 게놈 위치/영역 (484번 위치 주변 클러스터) |
 | **정답 기준** | DMS 적합도 점수 (연속값, Spearman 상관) | 3층 정답 기준 (Layer A 이진 분류, MCC) |
 | **입력 정보** | 고정 (정렬 기반 or PLM — 방법 자체를 비교) | **다양한 정보 유형을 비교** (빈도, 계통, 구조, AI 등 20가지) |
-| **핵심 발견** | EVEREST v3: WHO-40에서 50% 이상 신뢰도 실패. ViroGym: 13 바이러스 cross-virus 일반화 한계 | **정보 유형 × 병원체 상호작용이 최대 분산원** (ω²=0.296) |
-| **실용적 검증** | 없음 | vaccine escape enrichment: HIV-1 7.19× (primary, Layer A-disjoint), H3N2 9.36× (self-consistency) |
+| **핵심 발견** | EVEREST v3: 여러 바이러스에서 예측 신뢰도 한계. ViroGym: 바이러스가 바뀌면 일반화가 어려움 | **바이러스마다 잘 맞는 정보가 다르다** (정량 근거: ω²=0.296) |
+| **실용적 검증** | 없음 | HIV-1 백신 회피 위치를 무작위보다 7.19배 잘 모아 찾음. H3N2는 보조 확인으로 해석 |
 | **DMS 필요 여부** | 필수 | 선택적 (Layer C 보조 검증, DMS 없이도 Layer A로 평가 가능) |
 | **바이러스 수** | ViroGym 13, EVEREST v3 4 forecasting + 40 reliability | 11 (그러나 task가 hotspot detection으로 다름) |
 
 : EVEREST vs MutBench 핵심 차이
 
-핵심 차이: ViroGym/EVEREST v3는 **"어떤 예측 모델이 좋은가"**를, MutBench는 **"어떤 정보가 어떤 바이러스에 유효한가"**를 분석합니다. 또한 EVEREST v3가 보고한 "WHO-40 절반 이상 신뢰도 실패"는 MutBench의 LOPO 0/11과 *서로 다른 task에서 같은 패턴*을 보이는 외부 corroboration입니다.
+핵심 차이: ViroGym/EVEREST v3는 **"어떤 예측 모델이 좋은가"**를, MutBench는 **"어떤 정보가 어떤 바이러스에 유효한가"**를 분석합니다. 두 분야 모두 바이러스가 바뀌면 성능이 흔들린다는 비슷한 패턴을 보입니다.
 
 | 특성 | MutClust | Bailey 2018 (암) | MOSD (다중오믹스) | **MutBench** |
 |------|---------|----------------|----------------|------------|
@@ -677,7 +679,9 @@ Stage 2로 확장하기 전에, Stage 1 결과가 데이터 크기나 파라미�
 
 아래 그림의 좌측은 입력 서열 수를 50~5,000개로 변화시킨 결과입니다. 약 1,000개 서열부터 hotspot-score가 약 0.62로 안정화되며, 본 벤치마크의 서열 수(662~5,325)는 모두 이 수렴점 이상이므로 결과가 데이터 부족의 산물이 아님을 확인합니다. 우측은 hotspot-score의 가중치(recall, precision, stability)를 171가지 조합으로 변경한 결과입니다. MutClust-Hybrid가 **71.9%의 조합에서 1위를 유지**하여, 순위가 특정 가중치 설정에 의존하지 않음을 확인합니다.
 
-![안정성 검증. (좌) 표본 크기 수렴 — 약 1,000개 서열부터 hotspot-score 약 0.62로 안정화. 본 벤치마크 서열 수(662~5,325)는 수렴점 이상. (우) 파라미터 민감도 — gamma×d 파라미터 조합별 F1. 171가지 가중치 조합 중 71.9%에서 MutClust-Hybrid 1위 유지.](figures/stability_combined.png){ width=90% }
+![표본 크기 수렴 — 약 1,000개 서열부터 hotspot-score 약 0.62로 안정화. 본 벤치마크 서열 수(662~5,325)는 수렴점 이상.](guide_figures/fig_convergence.png){ width=80% }
+
+![파라미터 민감도 — gamma×d 파라미터 조합별 F1. 171가지 가중치 조합 중 71.9%에서 MutClust-Hybrid 1위 유지.](guide_figures/fig_sensitivity.png){ width=80% }
 
 **Stage 1 요약**: 평가 도구(hotspot-score, 3층 GT)가 작동함을 확인했습니다. 방법 간 차이를 구분할 수 있고, 결과가 안정적이며, 생물학적으로 의미 있는 영역을 탐지합니다. 그리고 첫 번째 힌트를 발견했습니다 — **같은 바이러스 내에서도 정답 기준에 따라 최적 방법이 달라집니다.** 이것이 Stage 2로 나아가는 동기입니다.
 
@@ -861,14 +865,14 @@ Precision-at-k 분석(상위 k개 선택 시 정밀도), DMS 임계값 민감도
 8,580회 평가는 두 개의 1차 분석 + 두 개의 null-consistent 보정으로 정리됩니다:
 
 **1차 (positive evidence)**:
-1. **정보 유형 × 바이러스 상호작용이 모델된 분산의 최대 성분** (ω²=0.296, 11-pathogen cluster-bootstrap 95% interval [0.195, 0.333]; family ω²=0.013의 약 23배). 즉 알고리즘 개발보다 **정보 유형 선택**이 압도적으로 중요합니다.
-2. **HIV-1 백신 회피 enrichment 7.19배** (Bonferroni p=2.5e-16, escape의 82%가 Layer A 외부 = 외부 검증). 직접 Layer A-disjoint 37 위치 재계산 시 **novel-only 7.16~8.24×** (검출-Layer A 중복 sensitivity, k=0~8 범위; 최악 시나리오 k=8에서 7.16× / Fisher p=5×10⁻¹², Bonferroni 9 자릿수 여유). H3N2 9.36배는 자기 일관성 검사(Layer A 69% 중복; novel-only는 7.19배, p=0.132 비유의), SARS-CoV-2 7.63배는 Bonferroni 통과 실패로 탐색적.
+1. **바이러스마다 잘 맞는 정보가 다릅니다.** 같은 알고리즘을 쓰더라도 어떤 정보(빈도, 계통, 구조, AI 예측 등)를 넣느냐에 따라 성능이 크게 달라졌고, 그 차이는 바이러스별로 달랐습니다. 통계적으로도 정보 유형 × 바이러스 효과가 가장 큰 요인이었습니다(ω²=0.296).
+2. **실제 쓸모는 HIV-1 백신 회피 사례에서 가장 깨끗하게 확인했습니다.** HIV-1에서는 예측 후보 안에 백신 회피 위치가 무작위보다 7.19배 더 많이 모였습니다(Bonferroni p=2.5e-16). H3N2는 기존 정답과 겹치는 부분이 많아 자기 일관성 확인에 가깝고, SARS-CoV-2는 탐색적 결과로만 봅니다.
 
 **2차 (null-consistent 보정)**:
-3. LOPO 0/11 일치 — 단 random 할당 null에서도 P(matches=0)≈0.96이라 0/11 자체는 놀라운 결과가 아님. 실질 증거는 ω² interaction + HIV-1 외부 검증의 조합.
-4. Friedman p=0.990 (상위 20 조합 중 일관 우위 없음).
+3. 한 바이러스에서 좋았던 조합이 다른 바이러스에서도 그대로 1등이 되지는 않았습니다. 다만 이 사실 하나만으로 결론을 내리지는 않고, 정보 유형 × 바이러스 효과와 HIV-1 외부 검증을 함께 근거로 삼습니다.
+4. 모든 바이러스에서 항상 우수한 단일 조합은 보이지 않았습니다(Friedman p=0.990).
 
-**3-tier 증거 위계 (조작적 정의)**: HIV-1처럼 (i) Bonferroni 통과 + (ii) Layer A 중복 < 33%를 모두 만족하면 *primary external anchor*; H3N2처럼 (i)만 만족하면 *self-consistency check*; SARS-CoV-2처럼 둘 다 실패하면 *exploratory*. α=0.05 ↔ 0.01 변경에도 tier 배정이 바뀌지 않습니다.
+**증거 등급**: HIV-1은 기존 정답과 독립적인 검증에 가장 가까워 핵심 근거로 사용합니다. H3N2는 이미 알고 있던 정답과 많이 겹치므로 보조 확인입니다. SARS-CoV-2는 통계 보정 후 약해지므로 탐색적 결과입니다.
 
 ### 4.5 Information-Type Analysis (정보 유형 분석)
 
@@ -951,7 +955,7 @@ Table 19는 단일 정보 유형만으로 핫스팟을 구분했을 때 병원�
 
 : 탐색 범위 축소 효과
 
-![탐색 범위 축소 효과 (H3N2). 무정보 1.0배에서 EqualWeight 4.0배, Oracle 7.8배로 단계적 축소.](figures/search_space_reduction.png){ width=80% }
+![탐색 범위 축소 효과 (H3N2). 무정보 1.0배에서 EqualWeight 4.0배, Oracle 7.8배로 단계적 축소.](guide_figures/search_space_reduction.png){ width=80% }
 
 **교차 검증: 벤치마크 순위와 실제 백신 회피가 일치하는가?**
 
@@ -996,6 +1000,92 @@ EqualWeight 통합의 escape enrichment (top-5% threshold):
 - **EqualWeight: MCC 0.083**
 
 원인: 11개 참조 바이러스로는 13차원 프로파일 공간이 심각하게 부족 (차원-표본 비 약 1.1). 단, Oracle MCC = 0.160으로 EqualWeight의 약 2배, 이에 따라 20~30개 이상 병원체 확보 시 적응적 개선 가능.
+
+### 4.6 PAHD-R 재설계 — "그렇다면 실제로는 어떻게 써야 하는가?"
+
+기존 적응형 가중치 실험의 결론은 “적응형 접근이 틀렸다”가 아닙니다. 더 정확히는 **현재 데이터 수로는 새 바이러스에 맞는 가중치를 자동으로 배울 만큼 충분하지 않다**는 뜻입니다. 그래서 PAHD-R(Pathogen-Aware Hotspot Detection and Review)은 “모든 바이러스를 자동으로 맞히는 만능 예측기”가 아니라, 여러 생물학적 증거를 모아 **실험 후보를 우선순위화하는 검수 프레임워크**로 설계했습니다.
+
+PAHD-R의 핵심 흐름은 다음과 같습니다.
+
+1. 서열, 구조, 계통, AI 보조 정보를 모읍니다.
+2. 여러 증거를 한 점수로 합칩니다.
+3. 목적에 맞는 세 가지 사용 모드(Core, Augmented, Review) 중 하나를 고릅니다.
+4. 근거가 충분할 때만 바이러스별 보정을 적용합니다.
+5. 정확도, 주변 영역 일치도, 상위 후보 정밀도, 위양성률을 함께 보고합니다.
+
+중요한 점은 PAHD-R이 **바이러스마다 완전히 다른 알고리즘을 새로 만드는 방식이 아니라는 것**입니다. 기본 알고리즘은 공통이고, 병원체별 보정은 생물학적 근거와 검수 조건을 통과할 때만 얹습니다.
+
+| 모드 | 쉬운 설명 | Exact MCC | ±10 MCC | Precision@20 | Constrained FPR | Coverage | 최종 상태 |
+|------|-----------|----------:|--------:|-------------:|----------------:|---------:|-----------|
+| PAHD-R-Core | AI 의존도를 낮춘 기본형 | 0.1689 | 0.5866 | 0.2111 | 0.1108 | 0.3606 | 채택 |
+| PAHD-R-Augmented | AI/구조 보조 정보까지 쓰는 균형형 | 0.1680 | 0.6079 | 0.1944 | 0.1128 | 0.3656 | 채택 |
+| PAHD-R-Review | 위양성을 줄이는 보수적 검토형 | 0.1666 | 0.6366 | 0.1833 | 0.0696 | 0.4179 | 채택 |
+
+세 모드는 모두 기본 검수는 통과했습니다. 다만 한 숫자만 보고 “완성된 예측기”라고 말하면 안 됩니다. 정확히 맞힌 정도, 주변 영역까지 맞힌 정도, 상위 20개 후보의 정밀도, 위양성률을 함께 봐야 합니다.
+
+#### 4.6.1 왜 세 가지 모드가 필요한가?
+
+PAHD-R는 하나의 숫자로 "최고 알고리즘"을 고르는 대신, 사용 목적에 따라 모드를 나눕니다.
+
+- **Core**: AI 보조 정보에 덜 의존하는 기본형입니다. 설명이 쉽고 검수하기 좋습니다.
+- **Augmented**: AI와 구조 정보를 보조로 사용해 후보 영역의 우선순위를 잡습니다.
+- **Review**: 후보 수가 줄어도 좋으니 틀린 후보를 줄이고 싶을 때 쓰는 보수적 모드입니다.
+
+즉 PAHD-R는 "정답을 맞히는 단일 예측기"라기보다, **실험 검증 후보를 정렬하고 검수하는 운영 프레임워크**입니다. 현재 논문의 결론은 "adaptive 알고리즘을 완성했다"가 아니라, **adaptive 확장이 가능한 방향과 필요한 검증 조건을 확인했다**에 가깝습니다.
+
+#### 4.6.2 병원체별 repair layer는 언제 허용되는가?
+
+repair layer는 성능이 좋아 보인다고 바로 채택하지 않습니다. 다음 조건을 통과해야 합니다.
+
+1. 좌표계가 맞는가? 예: 전체 polyprotein 좌표와 국소 단백질 좌표가 섞이지 않았는가.
+2. 생물학적 prior가 명확한가? 예: receptor-binding site, known epitope, DPP4 contact.
+3. shifted/random decoy control을 통과하는가?
+4. permutation audit 또는 외부 검증에서 과장 신호가 아닌가?
+
+이 기준으로 정리하면:
+
+| Repair | 상태 | 이유 |
+|--------|------|------|
+| HCV E2 repair | 채택 가능한 optional repair | H77 E2 좌표 불일치를 보정한 뒤 Core/Augmented exact MCC 0.5257, constrained FPR 0.0000. permutation/shifted control 통과 |
+| SARS-CoV-2 RBD/ACE2 repair | 후보 | PAHD-R-Review에서 exact MCC 0.2304, ±10 MCC 0.8761까지 개선되지만 Precision@20이 0.1000이고 local DMS Layer C 검증은 보류 |
+| MERS DPP4/contact repair | 후보 | DPP4 contact prior는 타당하지만 Layer A 양성이 희소하고 수동 구조 좌표 검토 필요 |
+| RSV repair | 미채택 | 현재 repair 아이디어가 검수 조건을 충분히 통과하지 못함 |
+
+#### 4.6.3 추가 후보들은 왜 기본값이 아닌가?
+
+추가 sweep에서 몇 가지 좋은 후보가 나왔습니다.
+
+| 후보 | 결과 | 해석 |
+|------|------|------|
+| PAHD-R-Core-Calibrated | 일부 지표가 Core보다 조금 좋아짐 | 병원체별 검수에서 약점이 있어 기본값으로 채택하지 않음 |
+| ShrinkCompact | 위양성률은 낮아짐 | 너무 조심스러워 놓치는 후보가 늘 수 있음 |
+| ShrinkRegion | 주변 영역 기준 성능은 좋음 | 무작위/이동 대조군 검수에서 기본값으로 부족 |
+| Virus-aware hybrid | Core-Calibrated와 비슷한 후보 | 기존 채택 모드를 대체할 만큼 충분히 강하지 않음 |
+| Selective callable-only | 성능이 좋아 보임 | 9개 중 4개 바이러스에만 답하므로 전체 성능으로 볼 수 없음 |
+
+최종 판단은 명확합니다. **Core, Augmented, Review는 현재 사용 가능한 모드로 채택하고, 나머지는 후속 검증 후보로 남깁니다.** 같은 데이터에서 계속 조정하면 숫자는 조금 좋아질 수 있지만, 그것이 진짜 개선인지 과적합인지 구분하기 어렵습니다. 그래서 이지가이드와 논문 모두 “가능성을 확인했다”는 기조로 설명합니다.
+
+#### 4.6.4 발표용 쉬운 설명
+
+PAHD-R를 한 문장으로 설명하면 다음과 같습니다.
+
+> PAHD-R는 바이러스마다 새 AI 모델을 만드는 방법이 아니라, 여러 생물학적 증거를 공통 규칙으로 합쳐 실험 후보를 정렬하고, 검수를 통과한 경우에만 바이러스별 보정을 허용하는 방법입니다.
+
+말하면 안 되는 표현:
+
+- "PAHD-R는 모든 바이러스에 통하는 만능 예측기다."
+- "PAHD-R는 AI가 정답을 내는 예측 모델이다."
+- "SARS-CoV-2와 MERS repair가 최종 채택됐다."
+- "일부 바이러스에만 답한 selective 결과를 전체 9개 바이러스 성능처럼 말한다."
+- "pooled permutation을 통과했으니 병원체별 null도 모두 통과했다."
+
+말해도 되는 표현:
+
+- "PAHD-R는 검수 범위가 정해진 생물학적 증거 통합 프레임워크다."
+- "채택 모드는 Core, Augmented, Review 세 가지다."
+- "HCV repair만 optional adopted repair다."
+- "SARS-CoV-2, MERS repair와 calibrated/shrinkage/virus-aware/selective 변형은 후보로 남긴다."
+- "추가 채택은 외부 검증, time-forward 검증, tree/bootstrap 검증 이후로 미룬다."
 
 \newpage
 
@@ -1156,18 +1246,19 @@ SARS-CoV-2에서 최고 방법이 34개 중 25개 탐지 (recall 73.5%, 4.9배 e
 - 11개 바이러스, 20가지 점수화 유형 (6개 카테고리), 14개 탐지 방법 패밀리 (5개 카테고리, 39개 파라미터 변형), 3층 정답 기준
 - **8,580회** 대규모 평가
 
-**기여 2: 정보 유형 x 병원체 상호작용이 핵심이라는 발견**
+**기여 2: 바이러스마다 맞는 정보가 다르다는 발견**
 
-두 개의 1차 증거 + 두 개의 null-consistent 보정:
-- **1차**: ANOVA scoring × pathogen **ω² = 0.296** (11-pathogen cluster-bootstrap 95% interval [0.195, 0.333], 최대 modeled 분산원), HIV-1 vaccine escape 7.19× (p=2.5e-16, 82% Layer A-disjoint)
-- **null-consistent 보정**: LOPO 0/11 (random null하 P=0.96이라 0/11 자체는 강증거 아님), Friedman χ²=7.69, p=0.990
-- 11/11 고유 최적 조합 (9개 서로 다른 scoring 유형)
+핵심 메시지는 단순합니다.
+- 하나의 만능 알고리즘보다 **바이러스에 맞는 정보 선택**이 더 중요했습니다.
+- 통계적으로도 “정보 유형 × 바이러스” 효과가 가장 큰 요인이었습니다(ω²=0.296).
+- HIV-1에서는 백신 회피 위치가 후보 안에 무작위보다 7.19배 더 많이 모여 실제 활용 가능성을 뒷받침했습니다.
+- 모든 바이러스에서 항상 1등인 조합은 보이지 않았습니다.
 
 **기여 3: 다중 정보 통합 인프라(3a) + 외부 백신 회피 검증(3b)**
 
 **(3a) 통합 인프라**: 4개 핵심 정보(homoplasy, pLDDT, entropy, freq)로 전체 10-feature 성능의 ≈98% (97.6%) 달성. EqualWeight 통합으로 H3N2 vaccine escape **4.012배**(p=0.0023), HIV-1 **4.17배**(p=0.0037) — 단일 정보로는 불가능한 통계 유의 enrichment.
 
-**(3b) 외부 검증**: HIV-1을 primary anchor로 — Layer A-disjoint 37 위치 재계산 결과 **novel-only enrichment 7.16~8.24×** (k=0~8 sensitivity; 최악 7.16× / Fisher p=5×10⁻¹², Bonferroni 9 자릿수 여유). H3N2 9.36×는 self-consistency check (69% Layer A 중복), SARS-CoV-2 7.63×는 Bonferroni 미통과 exploratory. **통계적 외부성은 HIV-1 단일 사례로 robust**하게 입증되며 H3N2/SARS는 보조 근거.
+**(3b) 외부 검증**: 가장 신뢰할 수 있는 외부 검증 사례는 HIV-1입니다. H3N2는 기존 정답과 겹치는 부분이 많아 보조 확인으로, SARS-CoV-2는 통계 보정 후 약해져 탐색적 결과로 해석합니다.
 
 ### 6.2 Limitations (한계)
 
@@ -1179,7 +1270,9 @@ SARS-CoV-2에서 최고 방법이 34개 중 25개 탐지 (recall 73.5%, 4.9배 e
 | Founder effect | H-score 파이프라인 내 직접 보정 미통합 | Homoplasy + FUBAR scoring으로 보완 |
 | dN/dS proxy | 단백질 수준 proxy, 빈도와 r=0.87 | FUBAR는 codon alignment 직접 사용 |
 | 적응적 가중치 | 11개 병원체로 학습 부족 | Oracle MCC 0.160 → 확장 시 개선 가능 |
-| n=11 통계 한계 | mixed-effects 신뢰 어려움; LOPO 0/11은 random null과 구별 약함 | **Bayesian partial-pooling 실제 fit (PyMC, half-Cauchy prior)**: posterior ω² = 0.252, 95% HDI [0.188, 0.314], Pr(>0.14)=99.6% — fixed-effect 0.296 약간 아래지만 Cohen large 99.6% 확률. 방향성 robust. **ART ANOVA**(rank-scale): ω²=0.277, p=8.6×10⁻¹⁴¹ — distribution-free 확인 |
+| PAHD-R 후보 과적합 위험 | calibrated/shrinkage/virus-aware/selective 후보가 일부 지표를 개선하지만 같은 9-pathogen panel에서 반복 선택됨 | Core/Augmented/Review만 채택하고, 후보들은 외부·time-forward·tree/bootstrap 검증 전까지 미채택 |
+| PAHD-R 병원체별 null 약점 | pooled permutation은 통과했지만 일부 병원체별 null은 약함 | ±10 MCC 단독 보고 금지; exact MCC, Precision@20, constrained FPR, coverage 동시 보고 |
+| n=11 통계 한계 | mixed-effects 신뢰 어려움; LOPO 0/11은 random null과 구별 약함 | **Bayesian partial-pooling 실제 fit (PyMC, half-Cauchy prior)**: posterior ω² = 0.252, 95% HDI [0.188, 0.314], Pr(>0.14)=99.6% — fixed-effect 0.296 약간 아래지만 Cohen large 99.6% 확률. 방향성 robust. **ART ANOVA**(rank-scale): ω²=0.277, p=8.6e-141 — distribution-free 확인 |
 | 독립 재현 | 단일 코드베이스·단일 팀·단일 GISAID 스냅숏 | seed/스크립트 공개; multi-tool 재현은 Priority 5 |
 | 동시기 벤치마크 head-to-head 미수행 | ViroGym/EVEREST v3/PLANT와 task가 달라 직접 비교 보류 | task-aligned subset 평가는 defense-week sprint |
 
@@ -1190,7 +1283,7 @@ SARS-CoV-2에서 최고 방법이 34개 중 25개 탐지 (recall 73.5%, 4.9배 e
 | 우선순위 | 방향 | 내용 |
 |------|------|------|
 | 1 | 계통 보정 통합 | TreeTime 파이프라인을 H-score 입력으로 결합 |
-| 2 | 적응적 방법 선택 | 20~30+ 병원체 확장 + meta-learning |
+| 2 | 적응적 방법 선택 | 20~30+ 병원체 확장 + meta-learning. PAHD-R 후보 채택은 외부 검증, time-forward 검증, tree/bootstrap 이후로 보류 |
 | 3 | DNA 바이러스 | HPV, HBV 등으로 벤치마크 확장 |
 | 4 | 실시간 감시 | Nextstrain 통합 |
 | 5 | 통계 robustness 묶음 | Bayesian partial-pooling (n=11), ART ANOVA, ANCOVA(길이/positive rate), α=0.01 sensitivity, HIV-1 novel-only Fisher p (37 위치), multi-tool 독립 재현 |
@@ -1200,8 +1293,8 @@ SARS-CoV-2에서 최고 방법이 34개 중 25개 탐지 (recall 73.5%, 4.9배 e
 
 ### 6.4 Concluding Remarks (맺음말)
 
-**Take-home (한 문장)**: 벤치마크 설계자가 조정할 수 있는 요인 중 *바이러스에 맞는 생물학적 정보를 선택하는 것*이 *탐지 알고리즘 자체의 선택*보다 훨씬 더 큰 성능 변동을 설명한다 — 그 비대칭을 정량화한 것이 MutBench의 핵심 기여이다.
+**Take-home (한 문장)**: 바이러스 변이 핫스팟을 찾을 때 가장 중요한 질문은 “어떤 알고리즘을 쓸까?”보다 **“이 바이러스에는 어떤 생물학적 정보가 믿을 만한가?”**입니다.
 
-11개 바이러스 × 8,580회 평가에서 정보 유형 × 바이러스 상호작용이 모델된 분산의 최대 성분(ω²=0.296, 11-pathogen cluster-bootstrap 95% interval [0.195, 0.333])이며, HIV-1 vaccine escape 7.19배(p=2.5e-16, escape 82%가 Layer A 외부)로 실용성이 입증되었습니다. ViroGym(13 바이러스)·EVEREST v3(WHO-40 reliability) 같은 동시기 *예측* 벤치마크와는 task-orthogonal이며, EVEREST v3의 WHO-40 절반 이상 신뢰도 실패는 본 연구 LOPO 0/11과 외부 정합합니다.
+11개 RNA 바이러스에서 8,580번 비교한 결과, 바이러스마다 잘 맞는 정보가 달랐습니다. 이 차이는 통계적으로도 가장 큰 성능 요인이었고(ω²=0.296), HIV-1에서는 백신 회피 위치를 무작위보다 7.19배 더 잘 모아 찾아 실제 활용 가능성을 확인했습니다. PAHD-R은 이 결론을 바탕으로 실험 후보를 우선순위화하는 세 가지 사용 모드로 정리되었습니다.
 
 앞으로는 바이러스 특성에 맞는 정보 유형을 선택·통합하는 접근이 필요하며, 병원체 참조 데이터베이스의 확장이 적응적 방법 선택의 핵심 과제입니다.

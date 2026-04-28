@@ -1,0 +1,2 @@
+bootstrap_method,block_unit,G_blocks,n_pathogens,B_replicates,omega2_point,omega2_mean,omega2_median,ci_lower_2p5,ci_upper_97p5,ci_width,p_omega2_le_0,p_omega2_le_0p14_cohen,source_csv
+phylogenetic_block_family,viral_family,8,11,1000,0.2963,0.2719,0.2691,0.2022,0.3457,0.1434,0.0,0.008,results/mutbench/block_bootstrap_omega.csv
