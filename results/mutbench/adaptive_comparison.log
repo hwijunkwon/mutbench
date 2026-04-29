@@ -1,0 +1,119 @@
+Initializing NUTS using jitter+adapt_diag...
+Multiprocess sampling (2 chains in 2 jobs)
+NUTS: [sigma_feature, sigma_group, mu, w_raw, gamma_raw]
+==============================================================================
+Adaptive Weighting Comprehensive Comparison (Cycle 7B)
+==============================================================================
+Loaded 12 pathogens
+
+  Fold 1/12: held-out = SARS-CoV-2
+Sampling 2 chains for 600 tune and 600 draw iterations (1_200 + 1_200 draws total) took 19 seconds.
+We recommend running at least 4 chains for robust computation of convergence diagnostics
+Initializing NUTS using jitter+adapt_diag...
+Multiprocess sampling (2 chains in 2 jobs)
+NUTS: [sigma_feature, sigma_group, mu, w_raw, gamma_raw]
+    EQ-4 -0.010  EQ-10 +0.066  XGB -0.010  RF -0.028  LR +0.009  AS(esm2_llr) -0.028  HBFWSp +0.009  Rank(freq,semantic_change,rare_freq) +0.031
+
+  Fold 2/12: held-out = H3N2
+Sampling 2 chains for 600 tune and 600 draw iterations (1_200 + 1_200 draws total) took 18 seconds.
+We recommend running at least 4 chains for robust computation of convergence diagnostics
+Initializing NUTS using jitter+adapt_diag...
+Multiprocess sampling (2 chains in 2 jobs)
+NUTS: [sigma_feature, sigma_group, mu, w_raw, gamma_raw]
+    EQ-4 +0.159  EQ-10 +0.130  XGB +0.072  RF +0.072  LR +0.101  AS(homoplasy) +0.133  HBFWSp +0.101  Rank(semantic_change,freq,rare_freq) +0.101
+
+  Fold 3/12: held-out = Norovirus
+Sampling 2 chains for 600 tune and 600 draw iterations (1_200 + 1_200 draws total) took 17 seconds.
+We recommend running at least 4 chains for robust computation of convergence diagnostics
+The rhat statistic is larger than 1.01 for some parameters. This indicates problems during sampling. See https://arxiv.org/abs/1903.08008 for details
+Initializing NUTS using jitter+adapt_diag...
+Multiprocess sampling (2 chains in 2 jobs)
+NUTS: [sigma_feature, sigma_group, mu, w_raw, gamma_raw]
+    EQ-4 +0.432  EQ-10 +0.319  XGB +0.094  RF +0.056  LR +0.281  AS(homoplasy) +0.441  HBFWSp +0.357  Rank(rare_freq,semantic_change,dnds_proxy) +0.169
+
+  Fold 4/12: held-out = HIV-1
+Sampling 2 chains for 600 tune and 600 draw iterations (1_200 + 1_200 draws total) took 19 seconds.
+We recommend running at least 4 chains for robust computation of convergence diagnostics
+The rhat statistic is larger than 1.01 for some parameters. This indicates problems during sampling. See https://arxiv.org/abs/1903.08008 for details
+Initializing NUTS using jitter+adapt_diag...
+Multiprocess sampling (2 chains in 2 jobs)
+NUTS: [sigma_feature, sigma_group, mu, w_raw, gamma_raw]
+    EQ-4 -0.010  EQ-10 +0.057  XGB +0.057  RF +0.024  LR +0.091  AS(homoplasy) +0.030  HBFWSp +0.124  Rank(dnds_proxy,rare_freq,semantic_change) +0.057
+
+  Fold 5/12: held-out = Dengue
+Sampling 2 chains for 600 tune and 600 draw iterations (1_200 + 1_200 draws total) took 18 seconds.
+We recommend running at least 4 chains for robust computation of convergence diagnostics
+Initializing NUTS using jitter+adapt_diag...
+Multiprocess sampling (2 chains in 2 jobs)
+NUTS: [sigma_feature, sigma_group, mu, w_raw, gamma_raw]
+    EQ-4 +0.145  EQ-10 +0.145  XGB +0.050  RF +0.050  LR -0.013  AS(esm2_llr) +0.113  HBFWSp -0.013  Rank(semantic_change,dnds_proxy,rare_freq) +0.050
+
+  Fold 6/12: held-out = RSV
+Sampling 2 chains for 600 tune and 600 draw iterations (1_200 + 1_200 draws total) took 17 seconds.
+We recommend running at least 4 chains for robust computation of convergence diagnostics
+Initializing NUTS using jitter+adapt_diag...
+Multiprocess sampling (2 chains in 2 jobs)
+NUTS: [sigma_feature, sigma_group, mu, w_raw, gamma_raw]
+    EQ-4 -0.065  EQ-10 -0.065  XGB +0.000  RF +0.000  LR -0.032  AS(homoplasy) -0.012  HBFWSp -0.065  Rank(semantic_change,freq,rare_freq) -0.065
+
+  Fold 7/12: held-out = Influenza_B
+Sampling 2 chains for 600 tune and 600 draw iterations (1_200 + 1_200 draws total) took 17 seconds.
+We recommend running at least 4 chains for robust computation of convergence diagnostics
+Initializing NUTS using jitter+adapt_diag...
+Multiprocess sampling (2 chains in 2 jobs)
+NUTS: [sigma_feature, sigma_group, mu, w_raw, gamma_raw]
+    EQ-4 +0.219  EQ-10 +0.184  XGB -0.024  RF +0.080  LR +0.080  AS(homoplasy) +0.206  HBFWSp +0.149  Rank(semantic_change,rare_freq,dnds_proxy) +0.184
+
+  Fold 8/12: held-out = MERS
+Sampling 2 chains for 600 tune and 600 draw iterations (1_200 + 1_200 draws total) took 21 seconds.
+We recommend running at least 4 chains for robust computation of convergence diagnostics
+The rhat statistic is larger than 1.01 for some parameters. This indicates problems during sampling. See https://arxiv.org/abs/1903.08008 for details
+Initializing NUTS using jitter+adapt_diag...
+Multiprocess sampling (2 chains in 2 jobs)
+NUTS: [sigma_feature, sigma_group, mu, w_raw, gamma_raw]
+    EQ-4 -0.028  EQ-10 +0.003  XGB -0.028  RF -0.028  LR +0.003  AS(homoplasy) -0.025  HBFWSp -0.028  Rank(freq,semantic_change,rare_freq) +0.003
+
+  Fold 9/12: held-out = HCV
+Sampling 2 chains for 600 tune and 600 draw iterations (1_200 + 1_200 draws total) took 17 seconds.
+We recommend running at least 4 chains for robust computation of convergence diagnostics
+The rhat statistic is larger than 1.01 for some parameters. This indicates problems during sampling. See https://arxiv.org/abs/1903.08008 for details
+Initializing NUTS using jitter+adapt_diag...
+Multiprocess sampling (2 chains in 2 jobs)
+NUTS: [sigma_feature, sigma_group, mu, w_raw, gamma_raw]
+    EQ-4 +0.150  EQ-10 +0.177  XGB +0.150  RF +0.177  LR +0.204  AS(semantic_change) -0.091  HBFWSp +0.204  Rank(semantic_change,rare_freq,freq) +0.204
+
+  Fold 10/12: held-out = Zika
+Sampling 2 chains for 600 tune and 600 draw iterations (1_200 + 1_200 draws total) took 19 seconds.
+We recommend running at least 4 chains for robust computation of convergence diagnostics
+Initializing NUTS using jitter+adapt_diag...
+Multiprocess sampling (2 chains in 2 jobs)
+NUTS: [sigma_feature, sigma_group, mu, w_raw, gamma_raw]
+    EQ-4 -0.023  EQ-10 -0.023  XGB -0.023  RF +0.008  LR +0.008  AS(homoplasy) -0.027  HBFWSp -0.023  Rank(freq,rare_freq,semantic_change) +0.008
+
+  Fold 11/12: held-out = Rabies
+Sampling 2 chains for 600 tune and 600 draw iterations (1_200 + 1_200 draws total) took 17 seconds.
+We recommend running at least 4 chains for robust computation of convergence diagnostics
+Initializing NUTS using jitter+adapt_diag...
+Multiprocess sampling (2 chains in 2 jobs)
+NUTS: [sigma_feature, sigma_group, mu, w_raw, gamma_raw]
+    EQ-4 -0.048  EQ-10 -0.048  XGB -0.073  RF -0.073  LR -0.073  AS(homoplasy) -0.090  HBFWSp -0.073  Rank(semantic_change,freq,dnds_proxy) -0.048
+
+  Fold 12/12: held-out = EV-A71
+Sampling 2 chains for 600 tune and 600 draw iterations (1_200 + 1_200 draws total) took 18 seconds.
+We recommend running at least 4 chains for robust computation of convergence diagnostics
+    EQ-4 +0.013  EQ-10 +0.055  XGB -0.071  RF -0.113  LR +0.013  AS(homoplasy) +0.146  HBFWSp +0.013  Rank(freq,dnds_proxy,semantic_change) +0.055
+
+==============================================================================
+Summary
+==============================================================================
+Method                     mean MCC       sd   Δ vs EQ4   Wilcoxon p
+EQ-4 (baseline)          +0.0779    0.1472     ----        ----
+EQ-10                    +0.0834    0.1124   +0.0055     0.2877
+XGBoost                  +0.0163    0.0684   -0.0617     0.9656
+Random Forest            +0.0187    0.0766   -0.0592     0.9088
+Logistic L1              +0.0560    0.1021   -0.0219     0.7031
+Algorithm Selection      +0.0663    0.1525   -0.0117     0.6890
+HBFWS-phylo              +0.0631    0.1280   -0.0149     0.8365
+Rank Aggregation         +0.0625    0.0871   -0.0155     0.5608
+
+Results: /proj/paper/results/mutbench/adaptive_weighting_comparison.csv

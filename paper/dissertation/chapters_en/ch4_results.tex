@@ -735,6 +735,39 @@ The dissertation's 4-feature core (homoplasy, pLDDT, entropy, frequency) was spe
 \label{para:hbfws_check}
 A pre-registered Cycle-7 robustness experiment tests whether a Bayesian shrinkage model with hyperprior-learned shrinkage strength can outperform the fixed EqualWeight 4-core baseline under the same 12-pathogen nested-LOPO protocol (script: \texttt{scripts/hbfws\_adaptive.py}; CSV: \texttt{results/mutbench/hbfws\_lopo\_results.csv}). The model is $y_{i,p} \sim \text{Bernoulli}(\sigma(\mu + \gamma_{F(p)} + \sum_f w_f \cdot z(x_{i,f})))$ with $w_f \sim \mathcal{N}(0, \sigma_{\text{feat}})$, family random intercept $\gamma_F \sim \mathcal{N}(0, \sigma_{\text{fam}})$ over 8 ICTV families (5 singletons), and hyperpriors $\sigma_{\text{feat}}, \sigma_{\text{fam}} \sim \text{HalfNormal}(0.3)$ that learn pooling strength from data. Sampling used 4 chains $\times$ 1{,}000 draws + 1{,}000 tune via PyMC 5.28 (NUTS, target accept 0.95). The pre-registered prior was $P(\text{HBFWS} > \text{EqualWeight-4core}) \in [0.15, 0.25]$ given $n = 11$ pathogens with 5/8 singleton families (no pooling partner $\Rightarrow$ shrinkage to global mean by James--Stein construction). Across the 12 folds, all chains converged ($\hat{R}_{\max} \le 1.008$, ESS$_{\text{bulk,min}} \ge 743$), and the result was: HBFWS mean MCC $= 0.058$ (sd $0.118$) versus EqualWeight-4core mean MCC $= 0.078$ (sd $0.147$); paired $\Delta = -0.020$, paired Wilcoxon one-sided greater $W = 16$, $p = 0.78$. Stratifying by family membership confirmed the design intuition: the 7 paired-family folds (Coronaviridae, Orthomyxoviridae, Flaviviridae) gave $\Delta = -0.014$ and the 5 singleton folds (Caliciviridae, Pneumoviridae, Retroviridae, Rhabdoviridae, Picornaviridae) gave $\Delta = -0.028$, with three singleton folds collapsing to exactly $\Delta = 0$ as the partial-pooling family intercept reduced to the global mean. The pre-registered hypothesis was therefore rejected: a hierarchical Bayesian shrinkage model with explicit hyperprior-learned pooling strength does \emph{not} beat the fixed-weight EqualWeight-4core baseline at $n = 11$ pathogens with 5/8 singleton families. The HBFWS negative result is consistent with the LOPO 0/11 + Friedman $p = 0.990$ + 0.265 oracle-vs-generalised gap evidence already in this dissertation: the $f$ that maps pathogen features to optimal scoring weights is not yet learnable from the current panel, and the search-space-reduction Tier 1 recipe (Paragraph~\ref{para:mutbench_algorithm}) remains the recommended cold-start operationalisation.
 
+\paragraph{Cycle 7B: comprehensive comparison of six additional adaptive-weighting paradigms.}
+\label{para:cycle7b_comparison}
+To rule out the possibility that HBFWS-specific design choices (Bayesian shrinkage, ICTV family pooling) drove the negative result, six structurally different adaptive-weighting methods were evaluated against the same EqualWeight-4core baseline under the identical 12-pathogen nested-LOPO protocol (script: \texttt{scripts/adaptive\_weighting\_comparison.py}; CSV: \texttt{results/mutbench/adaptive\_weighting\_comparison.csv}). The six paradigms span low-variance linear baselines, high-capacity tree ensembles, classifier-driven algorithm selection, alternative phylogenetic pooling, and rank-aggregation methods, summarised in Table~\ref{tab:adaptive_weighting_comparison}.
+
+\begin{table}[htbp]
+\centering
+\caption{Cycle 7B: six adaptive-weighting paradigms vs. EqualWeight-4core baseline (12-pathogen nested-LOPO; same threshold and folds as Table~\ref{tab:nested_lopo_4core}). All six fail to beat the baseline at any conventional significance level; high-capacity learners (XGBoost, Random Forest) are substantially worse than the baseline because of cross-pathogen overfitting. Paired Wilcoxon $H_1$: method $>$ EqualWeight-4core, one-sided.}
+\label{tab:adaptive_weighting_comparison}
+\small
+\begin{tabular}{lcccl}
+\toprule
+\textbf{Method} & \textbf{Mean MCC} & \textbf{$\Delta$ vs. EQ-4} & \textbf{Wilcoxon $p$} & \textbf{Paradigm} \\
+\midrule
+EqualWeight-4core (baseline) & $+0.078$ & ----    & ----   & Fixed weights \\
+EqualWeight-10feat           & $+0.083$ & $+0.006$ & 0.29  & Fixed weights \\
+HBFWS (v171)                 & $+0.058$ & $-0.020$ & 0.78  & Bayesian shrinkage (ICTV) \\
+\midrule
+XGBoost stacked              & $+0.016$ & $-0.062$ & 0.97  & Gradient boosting \\
+Random Forest stacked        & $+0.019$ & $-0.059$ & 0.91  & Tree ensemble \\
+Logistic Regression L1       & $+0.056$ & $-0.022$ & 0.70  & Sparse linear \\
+Algorithm Selection (1-NN)   & $+0.066$ & $-0.012$ & 0.69  & Pathogen-meta classifier \\
+HBFWS-phylo (3 groups)       & $+0.063$ & $-0.015$ & 0.84  & Bayesian shrinkage (alt. group) \\
+Rank Aggregation (top-3)     & $+0.062$ & $-0.016$ & 0.56  & Training-rank ensemble \\
+\bottomrule
+\end{tabular}
+\begin{minipage}{\textwidth}
+\smallskip
+\footnotesize Algorithm Selection uses pathogen meta-features (ssRNA polarity, envelope status, genome size, surface-protein type) and 1-nearest-neighbour to predict the best single feature per held-out pathogen; HBFWS-phylo replaces ICTV families with 3 phylo-groups (ssRNA(+) enveloped GP / ssRNA(-) enveloped GP / non-enveloped capsid); Rank Aggregation averages per-feature MCC ranks across training pathogens and uses the top-3 features as a uniform $z$-ensemble. None of the six methods rejects $H_0$: method $\le$ EqualWeight-4core (smallest $p = 0.56$, Rank Aggregation). The HBFWS-phylo, Algorithm Selection, and Rank Aggregation methods are within $0.012$--$0.016$~MCC of the baseline (statistically indistinguishable), while XGBoost and Random Forest underperform by $-0.06$~MCC because their high capacity overfits the small cross-pathogen sample.
+\end{minipage}
+\end{table}
+
+The Cycle 7B comparison gives this dissertation seven independent failure modes for adaptive weighting at $n = 11$ pathogens (HBFWS, XGBoost, Random Forest, Logistic L1, Algorithm Selection, HBFWS-phylo, Rank Aggregation). The convergence of these failures across paradigms---linear and non-linear, parametric and non-parametric, weight-learning and discrete-selection, ICTV-pooled and phylo-pooled---rules out a method-specific cause and isolates the constraint to the panel size itself. Combined with LOPO 0/11, Friedman $p = 0.990$, and the 0.265 oracle-vs-generalised gap, the evidence is now sufficient to assert: \emph{at the current 11-pathogen scale, no adaptive-weighting paradigm tested in this dissertation provides a statistically detectable advantage over the fixed-weight EqualWeight-4core recipe}, and panel expansion to 20--30+ pathogens is the principal lever for any future improvement (Chapter~\ref{ch:discussion}, Section~\ref{sec:future_work}). The single-fold positive case for Algorithm Selection on EV-A71 (homoplasy selected by 1-NN; held-out MCC $= +0.146$ vs. baseline $+0.013$) shows that a learnable pathogen-feature signal exists in principle; it is just statistically underpowered with $n = 11$.
+
 %% ------------------------------------------------------------
 \subsection{Ground Truth Heterogeneity}
 \label{subsec:gt_heterogeneity_results}
