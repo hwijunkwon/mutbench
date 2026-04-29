@@ -1,32 +1,33 @@
 #!/usr/bin/env python3
-"""Compute pathogen-level meta-features across the expanded 27-pathogen panel.
+"""Compute pathogen-level meta-features across the cross_pathogen subset.
 
-For each pathogen with a position-score CSV in data/cross_pathogen/, derive:
+Scope: every position-score CSV under data/cross_pathogen/ that follows the
+canonical {position, frequency, entropy, hscore, ground_truth} schema. After
+v176 this is 19 entries (3 cross_pathogen members of the original 11-panel:
+dengue_e, hiv1_gp120, norovirus_vp1; 3 Tier 1 pilots: yfv_e, lassa_gpc,
+wnv_e; and 13 Tier 2 features-only targets). The remaining 8 members of
+the original 11-panel keep their position-score artefacts in their own
+pathogen subdirs (e.g. data/zika/, data/rabies/, ...) and are not consumed
+here.
+
+For each consumed CSV derive:
   - n_positions (alignment length)
   - mean_freq, std_freq, mean_entropy, std_entropy, mean_hscore
   - variable_pos_frac (fraction with entropy > 0.1)
   - top10pct_hscore_density (mean h-score within top-decile)
 
-These describe how much of the pathogen-feature space is covered by the
-expanded panel relative to the original 11-pathogen panel — a proxy for
-whether n>=24 unlocks regions of the meta-feature space that n=11 missed.
+These describe coverage of the pathogen-feature space across the
+cross_pathogen subset — a proxy for whether the Tier 1 + Tier 2 expansion
+opens meta-feature regions complementary to the original 11-panel.
 """
 
 import csv
-import json
 import math
 from pathlib import Path
 
 CROSS = Path("/proj/paper/data/cross_pathogen")
 OUT = Path("/proj/paper/results/mutbench/expanded_panel_metafeatures.csv")
 OUT.parent.mkdir(exist_ok=True, parents=True)
-
-EXISTING_11 = {
-    "dengue_e", "hiv1_gp120", "norovirus_vp1",
-    # Sequence-level CSVs for the other 8 (h3n2, sars2, eva71, hcv, mers, rabies, rsv, zika, infb)
-    # live in their pathogen subdirs and are not in cross_pathogen/. The 3 listed above are
-    # the cross_pathogen-canonical members; the remainder are tagged via their slug suffix.
-}
 
 
 def slug_from_csv(path):

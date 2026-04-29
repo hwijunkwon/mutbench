@@ -159,7 +159,15 @@ def process_one(target):
     csv_out = OUT_DIR / f"{s}_position_scores.csv"
     if csv_out.exists():
         print(f"  CACHED {csv_out.name}")
-        return {"slug": s, "status": "cached", "n": None, "L": None}
+        # Re-derive n,L from cached aligned FASTA so reruns do not lose the
+        # informative summary numbers from the first build.
+        n_cached = L_cached = None
+        if aligned.exists():
+            seqs_cached = list(SeqIO.parse(aligned, "fasta"))
+            if seqs_cached:
+                n_cached = len(seqs_cached)
+                L_cached = len(seqs_cached[0].seq)
+        return {"slug": s, "status": "cached", "n": n_cached, "L": L_cached}
 
     signal.signal(signal.SIGALRM, _alarm)
     signal.alarm(PER_TARGET_TIMEOUT)
