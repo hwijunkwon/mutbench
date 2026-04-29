@@ -634,41 +634,9 @@ The cross-pathogen benchmark supports pathogen-adaptive method selection through
 The four lenses are not independent confirmations: only the ANOVA (within the modeled subspace) provides positive evidence of pathogen-dependence; the LOPO permutation test and the Friedman rank test are two failures-to-reject that are \emph{consistent} with pathogen-dependent optimality but do not by themselves constitute independent evidence. The HIV-1 vaccine-escape audit provides a separate external positive line. The next section investigates \textit{why} the ANOVA interaction arises by analysing individual information types.
 \phantomsection\label{subsec:pahd_prototype} % retained for cross-reference compatibility
 
-\subsection{Subgroup Analysis: DMS-Available vs DMS-Unavailable Pathogens}
-\label{subsec:dms_subgroup}
-
-Six pathogens (SARS-CoV-2, H3N2, HIV-1, RSV, Rabies, EV-A71) carry DMS-based Layer~C; five (Dengue, Norovirus, Influenza~B, MERS, HCV) have Layer~A only. The DMS-available subgroup attains best-per-pathogen MCC of $0.287$ (range $0.196$--$0.534$) and the DMS-unavailable subgroup $0.407$ (range $0.196$--$0.660$); Mann--Whitney $U = 10$, $p = 0.43$ (Table~\ref{tab:dms_subgroup}). The DMS-unavailable subgroup is therefore not systematically worse---if anything, slightly higher---which argues against the hypothesis that Layer~A alone is a weaker ground truth than Layer~A$+$C.
-
-\begin{table}[htbp]
-\centering
-\caption{Per-pathogen best MCC under Layer~A by DMS-availability subgroup. Sorted by best MCC within subgroup.}
-\label{tab:dms_subgroup}
-\small
-\begin{tabular}{llcc}
-\toprule
-\textbf{Pathogen} & \textbf{DMS?} & \textbf{Best MCC} & \textbf{Mean MCC over 780 combos} \\
-\midrule
-H3N2        & yes & 0.534 & $+0.056$ \\
-HIV-1       & yes & 0.275 & $+0.023$ \\
-EV-A71      & yes & 0.260 & $-0.017$ \\
-Rabies      & yes & 0.248 & $-0.031$ \\
-SARS-CoV-2  & yes & 0.211 & $+0.024$ \\
-RSV         & yes & 0.196 & $-0.026$ \\
-\midrule
-\textit{Subgroup mean (DMS yes, n=6)} & & \textit{0.287} & \textit{+0.005} \\
-\midrule
-HCV         & no  & 0.660 & $+0.001$ \\
-Norovirus   & no  & 0.510 & $+0.099$ \\
-Influenza~B & no  & 0.392 & $+0.045$ \\
-Dengue      & no  & 0.274 & $+0.020$ \\
-MERS        & no  & 0.196 & $+0.011$ \\
-\midrule
-\textit{Subgroup mean (DMS no, n=5)}  & & \textit{0.407} & \textit{+0.035} \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-Two mechanisms likely explain the higher values in the DMS-unavailable group: HCV's Layer~A is defined by hypervariable-region boundaries (inflating detectability) and Norovirus/Influenza~B have denser Layer~A sets (more abundant true positives), while the DMS-available group contains pathogens (RSV, Rabies, EV-A71) with narrow, sparse Layer~A sets that cap achievable MCC. The Stage~2 conclusions (scoring~$\times$~pathogen interaction dominance, LOPO non-generalisation, Friedman non-significance) are supported by both subgroups; results on DMS-unavailable pathogens should be read as phylogenetic-pattern evidence rather than functional-effect evidence.
+\paragraph{Subgroup sanity check: DMS-Available vs DMS-Unavailable.}
+\phantomsection\label{subsec:dms_subgroup}\phantomsection\label{tab:dms_subgroup}
+The six DMS-available pathogens (SARS-CoV-2, H3N2, HIV-1, RSV, Rabies, EV-A71) attain best-per-pathogen MCC of $0.287$ (range $0.196$--$0.534$); the five DMS-unavailable pathogens (Dengue, Norovirus, Influenza~B, MERS, HCV) attain $0.407$ (range $0.196$--$0.660$). Mann--Whitney $U = 10$, $p = 0.43$: the Layer~A-only subgroup is not systematically weaker than Layer~A$+$C. The higher DMS-unavailable best-MCC reflects denser Layer~A sets in HCV/Norovirus/Influenza~B rather than ground-truth weakness; per-pathogen rows are archived in \texttt{stage3\_full\_results.csv}. Results on DMS-unavailable pathogens should be read as phylogenetic-pattern evidence, not functional-effect evidence.
 
 %% ============================================================
 \section{Information-Type Analysis}
@@ -899,30 +867,7 @@ All three pathogens achieve nominally significant vaccine escape enrichment ($p 
 
 For H3N2, FUBAR Bayes factor captures 9 of 29 antigenic drift sites with 9.36-fold enrichment; 8 of those 9 captured positions are already in Layer~A (the audit paragraph below quantifies the resulting novel-only enrichment of 7.19$\times$ with Fisher $p = 0.132$, not significant). The multi-source EqualWeight integration achieves 4.012-fold enrichment ($p = 0.0023$), capturing positions in both antigenic site~A (position~137) and site~B (positions~155, 159, 160, 186, 188); within this top-5 integration comparison, frequency alone (FreqThresh top-5 $= \{137, 155, 159, 188\}$) recovers the most-frequent site~B positions but additionally misses positions 160 and 186 picked up by the EqualWeight integration. The miss therefore concerns specific within-site~B positions, not site~B as a whole.
 
-A limitation of this analysis is that vaccine escape validation was feasible for only 3 of 11 pathogens (H3N2, HIV-1, SARS-CoV-2). Table~\ref{tab:escape_availability} summarizes, for each of the remaining 8~pathogens, the escape-data source considered and the specific reason that a position-level validation set could not be constructed under the same protocol (curated antibody-escape positions with residue-level mapping to the benchmark's reference sequence).
-
-\begin{table}[htbp]
-\centering
-\caption{Vaccine-escape validation availability audit for the 8 pathogens not included in Table~\ref{tab:vaccine_escape_stage3}. For each pathogen, the candidate escape-data source is listed together with the reason it was not usable as a position-level validation set under the benchmark protocol.}
-\label{tab:escape_availability}
-\footnotesize
-\begin{tabularx}{\textwidth}{l X X}
-\toprule
-\textbf{Pathogen} & \textbf{Escape-data source considered} & \textbf{Exclusion reason} \\
-\midrule
-Dengue & Serotype cross-neutralization studies & No residue-level escape map (studies report serotype-level rather than position-level resistance) \\
-Norovirus & Capsid P2 epitope mapping (Lindesmith et al.) & Partial: variable-loop--level annotation, not curated single-residue escape set across genotypes \\
-Influenza~B & HI-based antigenic distance studies & Few residue-level escape sites publicly curated; antigenic coordinates not mappable 1:1 to the benchmark HA \\
-MERS & Monoclonal antibody escape literature & Sparse escape-site catalog ($<$10 positions across the literature); below the $n \geq 15$ threshold used for the 3 included pathogens \\
-HCV & Drug-resistance mutations in NS3/NS5A/NS5B & Resistance mutations are against direct-acting antivirals, not vaccine/antibody escape; not comparable to H3N2/SARS-CoV-2/HIV-1 \\
-RSV & Neutralizing mAb escape in prefusion F (palivizumab, nirsevimab) & Small curated set; partially overlaps Layer~A (site~II), preventing independent validation readout \\
-Rabies & G-protein neutralizing epitopes (antigenic sites I--IV) & Antigenic sites defined at domain level, not single residues; no public position-level escape list \\
-EV-A71 & Emerging literature on VP1 neutralizing epitopes & Fewer than 10 curated single-residue escape positions; insufficient sample size for Fisher's exact at $\alpha{=}0.05$ after Bonferroni \\
-\bottomrule
-\end{tabularx}
-\end{table}
-
-The exclusion reasons fall into four categories: (i)~annotation granularity too coarse (Dengue, Influenza~B, Rabies, Norovirus); (ii)~sample size below the $n \geq 15$ threshold adopted for the three included pathogens (MERS, EV-A71); (iii)~confound with the benchmark's Layer~A set (RSV); and (iv)~mechanism mismatch (HCV: drug-resistance, not immune escape). No pathogen was excluded because of an expectation of low enrichment; the decision was made on data-availability grounds prior to running any enrichment computation. The generalizability of the enrichment finding to the other 8~pathogens therefore remains to be established, and the three validated pathogens should be read as a data-availability convenience sample rather than a balanced subset.
+Vaccine-escape validation was feasible for only 3 of 11 pathogens (H3N2, HIV-1, SARS-CoV-2)\phantomsection\label{tab:escape_availability}: the remaining 8 were excluded on data-availability grounds prior to enrichment computation, falling into four categories---(i)~annotation granularity too coarse for residue-level mapping (Dengue serotype-level, Influenza~B HI-distance, Rabies antigenic-domain-level, Norovirus loop-level); (ii)~sample size below the $n \geq 15$ threshold (MERS $<$10, EV-A71 $<$10); (iii)~confound with the benchmark's Layer~A set (RSV palivizumab/nirsevimab escape partially overlaps Site~II); (iv)~mechanism mismatch (HCV NS3/NS5A/NS5B drug-resistance is direct-acting antiviral resistance, not immune escape). The generalisability of the enrichment finding to the other 8 pathogens therefore remains to be established, and the three validated pathogens should be read as a data-availability convenience sample rather than a balanced subset.
 
 \textbf{Layer~A / escape-list overlap (circularity audit).}
 Because Layer~A for H3N2, SARS-CoV-2, and HIV-1 is partly constructed from immune-escape-tagged positions (Chapter~\ref{ch:mutbench}, \texttt{layer\_a\_tags.csv} with an \texttt{immune\_escape} evidence tag), the vaccine-escape validation sets used in this section are not fully disjoint from the Layer~A ground truth. Concretely, the set overlap between the Layer~A immune-escape subset and the vaccine-escape validation list is 20/29 for H3N2 (69\% of the escape list is already in Layer~A), 18/30 for SARS-CoV-2 (60\%), and 8/45 for HIV-1 (18\%). A scoring method that excels on Layer~A therefore has a built-in advantage on H3N2 and SARS-CoV-2 escape enrichment, and the 9.36$\times$/7.63$\times$ values should be read as a self-consistency check rather than an independent replication on those two pathogens. HIV-1's 7.19$\times$ is the least affected by this circularity because 37 of 45 escape positions (82\%) are outside Layer~A and are genuinely novel relative to the benchmark ground truth. The qualitative conclusion---that benchmark-optimal scoring also best captures escape positions---holds, but the quantitative enrichment values for H3N2 and SARS-CoV-2 must be interpreted with this overlap in mind.
