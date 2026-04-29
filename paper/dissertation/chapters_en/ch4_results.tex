@@ -188,7 +188,7 @@ Across 73 temporal split windows spanning 11 pathogens (yielding 219 top-$k$ eva
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{sliding_window_prospective_backtest.png}
-\caption{Per-pathogen MCC trajectory across split years for the sliding-window prospective backtest. The two pathogens above chance (EV-A71, Rabies) exhibit positive Top-30 MCC across multiple windows; the remaining nine cluster near zero (grand mean AUROC $0.539$). Per-pathogen window counts and year ranges archived in \texttt{sliding\_window\_prospective\_backtest\_summary.csv}.}
+\caption{Per-pathogen MCC trajectory across split years for the sliding-window prospective backtest. The two pathogens above chance (EV-A71, Rabies) exhibit positive Top-30 MCC across multiple windows; Influenza~B partially exceeds chance (AUROC 0.70) and the remaining eight cluster near zero (grand mean AUROC $0.539$). Per-pathogen window counts and year ranges archived in \texttt{sliding\_window\_prospective\_backtest\_summary.csv}.}
 \label{fig:sliding_window_backtest}
 \end{figure}
 
@@ -689,7 +689,7 @@ EV-A71     &  +0.0499 &  +0.0499 &  $\phantom{+}$0.0000 \\
 \end{minipage}
 \end{table}
 
-Features that are noise on average under uniform weighting (ESM-2, SASA) are the best discriminators for specific pathogens (ESM-2 for MERS, SASA for Norovirus), confirming that uniform weights cannot optimally exploit all 10 features simultaneously. Three adaptive weighting strategies (kNN, Top-3 AUC, correlation-aware ensemble) all underperform EqualWeight (max MCC $0.020$/$0.049$/$0.043$ vs.\ EqualWeight $0.083$) because at $n = 11$ reference pathogens the 13-dimensional pathogen-profile space is severely undersampled; the oracle ceiling (per-pathogen weights with labels) reaches $0.160$, confirming adaptive gains are possible in principle but require $20$--$30$+ pathogens for reliable selection (Chapter~\ref{ch:discussion}, Section~\ref{sec:future_work}).\phantomsection\label{subsec:adaptive_weighting_limits}
+Features that are noise on average under uniform weighting (ESM-2, SASA) are the best discriminators for specific pathogens (ESM-2 for MERS, SASA for Norovirus), confirming that uniform weights cannot optimally exploit all 10 features simultaneously. Three legacy adaptive weighting strategies (kNN, Top-3 AUC, correlation-aware ensemble; archived as \texttt{results/mutbench/adapt\_v2\_summary.csv}) all underperform EqualWeight (max MCC $0.020$/$0.049$/$0.043$ vs.\ EqualWeight $0.083$) because at $n = 11$ reference pathogens the 13-dimensional pathogen-profile space is severely undersampled; the Cycle 7 + 7B audits below extend this to seven independent failure modes for adaptive weighting at this panel size. The oracle ceiling (per-pathogen weights with labels) reaches $0.160$, confirming adaptive gains are possible in principle but require $20$--$30$+ pathogens for reliable selection (Chapter~\ref{ch:discussion}, Section~\ref{sec:future_work}).\phantomsection\label{subsec:adaptive_weighting_limits}
 
 \paragraph{MutBench Cold-Start algorithm: a two-tier search-space reduction recipe.}
 \label{para:mutbench_algorithm}
