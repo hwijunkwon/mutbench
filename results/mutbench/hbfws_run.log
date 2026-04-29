@@ -1,0 +1,99 @@
+Initializing NUTS using jitter+adapt_diag...
+Multiprocess sampling (4 chains in 4 jobs)
+NUTS: [sigma_feature, sigma_family, mu, w_raw, gamma_raw]
+======================================================================
+HBFWS — Hierarchical Bayesian Feature-Weight Shrinkage
+======================================================================
+Pathogens: 12
+Families: 8 (['Caliciviridae', 'Coronaviridae', 'Flaviviridae', 'Orthomyxoviridae', 'Picornaviridae', 'Pneumoviridae', 'Retroviridae', 'Rhabdoviridae'])
+Singletons: 5/8 (5 families)
+
+Loaded 12 pathogens with valid Layer A
+
+  Fold 1/12: held-out = SARS-CoV-2
+Sampling 4 chains for 1_000 tune and 1_000 draw iterations (4_000 + 4_000 draws total) took 19 seconds.
+Initializing NUTS using jitter+adapt_diag...
+Multiprocess sampling (4 chains in 4 jobs)
+NUTS: [sigma_feature, sigma_family, mu, w_raw, gamma_raw]
+    HBFWS: +0.0474  EqualWeight-4core: -0.0095  delta: +0.0569  R-hat: 1.006  singleton: False
+  Fold 2/12: held-out = H3N2
+Sampling 4 chains for 1_000 tune and 1_000 draw iterations (4_000 + 4_000 draws total) took 20 seconds.
+Initializing NUTS using jitter+adapt_diag...
+Multiprocess sampling (4 chains in 4 jobs)
+NUTS: [sigma_feature, sigma_family, mu, w_raw, gamma_raw]
+    HBFWS: +0.1010  EqualWeight-4core: +0.1593  delta: -0.0583  R-hat: 1.004  singleton: False
+  Fold 3/12: held-out = Norovirus
+Sampling 4 chains for 1_000 tune and 1_000 draw iterations (4_000 + 4_000 draws total) took 21 seconds.
+Initializing NUTS using jitter+adapt_diag...
+Multiprocess sampling (4 chains in 4 jobs)
+NUTS: [sigma_feature, sigma_family, mu, w_raw, gamma_raw]
+    HBFWS: +0.2439  EqualWeight-4core: +0.4318  delta: -0.1879  R-hat: 1.005  singleton: True
+  Fold 4/12: held-out = HIV-1
+Sampling 4 chains for 1_000 tune and 1_000 draw iterations (4_000 + 4_000 draws total) took 20 seconds.
+Initializing NUTS using jitter+adapt_diag...
+Multiprocess sampling (4 chains in 4 jobs)
+NUTS: [sigma_feature, sigma_family, mu, w_raw, gamma_raw]
+    HBFWS: +0.1245  EqualWeight-4core: -0.0101  delta: +0.1345  R-hat: 1.003  singleton: True
+  Fold 5/12: held-out = Dengue
+Sampling 4 chains for 1_000 tune and 1_000 draw iterations (4_000 + 4_000 draws total) took 21 seconds.
+Initializing NUTS using jitter+adapt_diag...
+Multiprocess sampling (4 chains in 4 jobs)
+NUTS: [sigma_feature, sigma_family, mu, w_raw, gamma_raw]
+    HBFWS: -0.0126  EqualWeight-4core: +0.1450  delta: -0.1576  R-hat: 1.003  singleton: False
+  Fold 6/12: held-out = RSV
+Sampling 4 chains for 1_000 tune and 1_000 draw iterations (4_000 + 4_000 draws total) took 23 seconds.
+Initializing NUTS using jitter+adapt_diag...
+Multiprocess sampling (4 chains in 4 jobs)
+NUTS: [sigma_feature, sigma_family, mu, w_raw, gamma_raw]
+    HBFWS: -0.0648  EqualWeight-4core: -0.0648  delta: +0.0000  R-hat: 1.004  singleton: True
+  Fold 7/12: held-out = Influenza_B
+Sampling 4 chains for 1_000 tune and 1_000 draw iterations (4_000 + 4_000 draws total) took 21 seconds.
+Initializing NUTS using jitter+adapt_diag...
+Multiprocess sampling (4 chains in 4 jobs)
+NUTS: [sigma_feature, sigma_family, mu, w_raw, gamma_raw]
+    HBFWS: +0.1145  EqualWeight-4core: +0.2186  delta: -0.1041  R-hat: 1.004  singleton: False
+  Fold 8/12: held-out = MERS
+Sampling 4 chains for 1_000 tune and 1_000 draw iterations (4_000 + 4_000 draws total) took 16 seconds.
+Initializing NUTS using jitter+adapt_diag...
+Multiprocess sampling (4 chains in 4 jobs)
+NUTS: [sigma_feature, sigma_family, mu, w_raw, gamma_raw]
+    HBFWS: +0.0031  EqualWeight-4core: -0.0275  delta: +0.0306  R-hat: 1.004  singleton: False
+  Fold 9/12: held-out = HCV
+Sampling 4 chains for 1_000 tune and 1_000 draw iterations (4_000 + 4_000 draws total) took 21 seconds.
+Initializing NUTS using jitter+adapt_diag...
+Multiprocess sampling (4 chains in 4 jobs)
+NUTS: [sigma_feature, sigma_family, mu, w_raw, gamma_raw]
+    HBFWS: +0.2843  EqualWeight-4core: +0.1502  delta: +0.1341  R-hat: 1.008  singleton: False
+  Fold 10/12: held-out = Zika
+Sampling 4 chains for 1_000 tune and 1_000 draw iterations (4_000 + 4_000 draws total) took 21 seconds.
+Initializing NUTS using jitter+adapt_diag...
+Multiprocess sampling (4 chains in 4 jobs)
+NUTS: [sigma_feature, sigma_family, mu, w_raw, gamma_raw]
+    HBFWS: -0.0231  EqualWeight-4core: -0.0231  delta: +0.0000  R-hat: 1.004  singleton: False
+  Fold 11/12: held-out = Rabies
+Sampling 4 chains for 1_000 tune and 1_000 draw iterations (4_000 + 4_000 draws total) took 24 seconds.
+Initializing NUTS using jitter+adapt_diag...
+Multiprocess sampling (4 chains in 4 jobs)
+NUTS: [sigma_feature, sigma_family, mu, w_raw, gamma_raw]
+    HBFWS: -0.0475  EqualWeight-4core: -0.0475  delta: +0.0000  R-hat: 1.004  singleton: True
+  Fold 12/12: held-out = EV-A71
+Sampling 4 chains for 1_000 tune and 1_000 draw iterations (4_000 + 4_000 draws total) took 23 seconds.
+    HBFWS: -0.0710  EqualWeight-4core: +0.0130  delta: -0.0840  R-hat: 1.007  singleton: True
+
+======================================================================
+HBFWS LOPO Results Summary
+======================================================================
+  HBFWS mean MCC:       0.0583 (sd 0.1178)
+  EqualWeight-4core:    0.0779 (sd 0.1472)
+  EqualWeight-10feat:   0.0834 (sd 0.1124)
+  Mean delta (HBFWS - EQ-4): -0.0196
+
+By family-membership:
+  Paired families (7 folds): HBFWS 0.0735, delta -0.0140
+  Singletons      (5 folds): HBFWS 0.0370, delta -0.0275
+
+Paired Wilcoxon (HBFWS > EqualWeight-4core, one-sided):
+  W = 16.00, p = 0.7794
+  ✗ Fail to reject H0: HBFWS does not beat EqualWeight (pre-registered prior 15-25%)
+
+Results saved to: /proj/paper/results/mutbench/hbfws_lopo_results.csv
