@@ -1,0 +1,30 @@
+{
+  "_doc": "30-pathogen scaling targets for MutBench. Tier 1 = full pipeline (Layer A curated). Tier 2 = features-only (Layer A deferred).",
+  "tier1_full_pipeline": [
+    {"name": "Yellow Fever virus E", "taxid": 11089, "target": "envelope E", "expected_len": [480, 510], "layer_a_source": "neutralizing-epitope literature (Rey 2017)"},
+    {"name": "Lassa virus GPC", "taxid": 11620, "target": "glycoprotein precursor GPC", "expected_len": [480, 530], "layer_a_source": "Robinson 2016 escape mAb panel"},
+    {"name": "West Nile virus E", "taxid": 11082, "target": "envelope E", "expected_len": [490, 510], "layer_a_source": "Beasley 2002 / Oliphant 2005 epitope mapping"}
+  ],
+  "tier2_features_only": [
+    {"name": "Chikungunya virus E2", "taxid": 37124, "target": "envelope glycoprotein E2", "expected_len": [410, 440]},
+    {"name": "Japanese encephalitis virus E", "taxid": 11072, "target": "envelope E", "expected_len": [490, 510]},
+    {"name": "Tick-borne encephalitis virus E", "taxid": 11084, "target": "envelope E", "expected_len": [490, 510]},
+    {"name": "Eastern equine encephalitis virus E2", "taxid": 11021, "target": "envelope E2", "expected_len": [410, 440]},
+    {"name": "Venezuelan equine encephalitis virus E2", "taxid": 11036, "target": "envelope E2", "expected_len": [410, 440]},
+    {"name": "Western equine encephalitis virus E2", "taxid": 11039, "target": "envelope E2", "expected_len": [410, 440]},
+    {"name": "Mumps virus HN", "taxid": 1979165, "target": "haemagglutinin-neuraminidase", "expected_len": [550, 600]},
+    {"name": "Measles virus H", "taxid": 11234, "target": "haemagglutinin H", "expected_len": [600, 620]},
+    {"name": "Hantaan virus Gn", "taxid": 11599, "target": "envelope Gn", "expected_len": [625, 670]},
+    {"name": "CCHF virus Gc", "taxid": 1980519, "target": "envelope Gc", "expected_len": [690, 720]},
+    {"name": "Nipah virus G", "taxid": 121791, "target": "attachment G", "expected_len": [600, 620]},
+    {"name": "Hendra virus G", "taxid": 63330, "target": "attachment G", "expected_len": [600, 620]},
+    {"name": "Marburg virus GP", "taxid": 11269, "target": "envelope GP", "expected_len": [670, 700]},
+    {"name": "Rift Valley fever virus Gn", "taxid": 11588, "target": "envelope Gn", "expected_len": [510, 550]},
+    {"name": "Sin Nombre virus Gn", "taxid": 11608, "target": "envelope Gn", "expected_len": [625, 670]},
+    {"name": "HCoV-NL63 spike", "taxid": 277944, "target": "spike S", "expected_len": [1340, 1360]},
+    {"name": "HCoV-229E spike", "taxid": 11137, "target": "spike S", "expected_len": [1170, 1190]},
+    {"name": "Sapovirus VP1", "taxid": 95341, "target": "capsid VP1", "expected_len": [550, 580]},
+    {"name": "Astrovirus capsid", "taxid": 1239572, "target": "capsid", "expected_len": [780, 810]}
+  ],
+  "rationale": "Tier 1 was selected for documented escape epitope literature (3 RNA virus families: Flaviviridae, Arenaviridae, Flaviviridae). Tier 2 covers six additional ICTV families (Togaviridae, Paramyxoviridae, Hantaviridae, Nairoviridae, Filoviridae, Phenuiviridae, Coronaviridae, Caliciviridae, Astroviridae) to test panel-size hypothesis without committing manual Layer A curation."
+}
