@@ -183,42 +183,12 @@ Newly emerged 2021--2025 (prospective)    & 20 & 0 &  7 & 0$\times$    & 1.00 \\
 
 The H3N2 frequency-only pilot (Section~\ref{subsec:h3n2_temporal_pilot}) is generalised to a multi-pathogen sliding-window prospective backtest: for each of the 11 pathogens, year-tagged NCBI~CDS sequences are partitioned at split years $T_0$ ($n_{\text{train}}\geq 30$, $n_{\text{test}}\geq 20$), per-position frequency and entropy are recomputed on the training window, and a uniform-weight $z$-ensemble of (freq, entropy)---the time-varying part of the 4-feature core---is the prospective scorer. The reference set is positions with stable consensus in train (freq~$<5\%$) and a non-consensus allele rising to freq~$\geq 10\%$ in test (same emergence definition as the H3N2 pilot).
 
-Across 219 evaluated windows spanning 11 pathogens (full per-pathogen breakdown in Table~\ref{tab:sliding_window_backtest}, trajectory in Figure~\ref{fig:sliding_window_backtest}), the freq+entropy ensemble exceeds AUROC~0.75 only for EV-A71 (0.77, Top-30 MCC $+0.146$, enrichment $10.8\times$) and Rabies (0.79, MCC $+0.112$, enrichment $4.1\times$), partially exceeds it for Influenza~B (0.70), and clusters near chance for the remaining eight pathogens (grand mean MCC $-0.006$, AUROC $0.539$, enrichment $1.57\times$). Concept-drift slope is small ($-0.006$ to $+0.032$ MCC/yr), so the limited prospective signal is not deteriorating but bounded throughout the observed period. The dissertation's retrospective MCC headline ($0.341$ exact, $0.454$ at $\pm 10$~window; Table~\ref{tab:region_overlap_mcc}) therefore does not directly transfer to the forward-time setting for most pathogens, and the documented forward-time signal is concentrated in EV-A71, Rabies, and partially Influenza~B (Section~\ref{sec:prospective_validation_gap} updates the limitations discussion accordingly).
-
-\begin{table}[htbp]
-\centering
-\caption{Sliding-window prospective backtest summary across 11 pathogens. Score: freq+entropy uniform-weight $z$-ensemble (the time-varying part of the dissertation's 4-feature core). Reference: positions newly emerging in test (train freq~$<5\%$, test freq~$\geq 10\%$). Top-K~$=30$. Mean values are taken across all valid windows for each pathogen. Pathogens with mean AUROC $\geq 0.60$ are highlighted by row order.}
-\label{tab:sliding_window_backtest}
-\footnotesize
-\begin{tabular}{lrrrrrr}
-\toprule
-\textbf{Pathogen} & \textbf{$n_{\text{win}}$} & \textbf{Year range} & \textbf{Mean MCC} & \textbf{Mean AUROC} & \textbf{Mean enrich.} & \textbf{Slope/yr} \\
-\midrule
-Rabies      &  8 & 2008--2021 & $+0.112$ & $0.789$ & $4.10\times$  & $-0.006$ \\
-EV-A71      & 10 & 2014--2023 & $+0.146$ & $0.773$ & $10.78\times$ & $+0.032$ \\
-Influenza~B &  7 & 2020--2026 & $-0.025$ & $0.696$ & $0.00\times$  & $+0.003$ \\
-MERS        &  3 & 2016--2020 & $-0.098$ & $0.604$ & $0.13\times$  & $-0.000$ \\
-RSV         &  2 & 2019--2021 & $-0.014$ & $0.560$ & $0.00\times$  & ---      \\
-SARS-CoV-2  &  1 & 2025       & $-0.013$ & $0.514$ & $0.00\times$  & ---      \\
-Dengue      & 23 & 1998--2023 & $-0.058$ & $0.477$ & $2.30\times$  & $+0.000$ \\
-HIV-1       &  5 & 2014--2018 & $-0.019$ & $0.463$ & $0.00\times$  & $+0.003$ \\
-H3N2        &  4 & 2023--2026 & $-0.029$ & $0.430$ & $0.00\times$  & $+0.004$ \\
-Norovirus   &  6 & 2018--2023 & $-0.056$ & $0.317$ & $0.00\times$  & $+0.008$ \\
-HCV         &  4 & 2001--2004 & $-0.007$ & $0.312$ & $0.00\times$  & $+0.001$ \\
-\midrule
-\textbf{Grand mean} & \textbf{73} & --- & $\mathbf{-0.006}$ & $\mathbf{0.539}$ & $\mathbf{1.57\times}$ & --- \\
-\bottomrule
-\end{tabular}
-\begin{minipage}{\textwidth}
-\smallskip
-\footnotesize Underlying CSVs: \texttt{results/mutbench/feature\_analysis/sliding\_window\_prospective\_backtest.csv} (per-window) and \texttt{sliding\_window\_prospective\_backtest\_summary.csv} (per-pathogen). Coverage manifest: \texttt{sliding\_window\_prospective\_coverage.csv}. ``$n_{\text{win}}$'' counts windows that produced at least one emergent position (test positives); slope is the OLS linear trend of MCC against split year and is reported only where $n_{\text{win}}\geq 3$.
-\end{minipage}
-\end{table}
+Across 219 evaluated windows spanning 11 pathogens (per-pathogen archive: \texttt{sliding\_window\_prospective\_backtest\_summary.csv}; trajectory in Figure~\ref{fig:sliding_window_backtest}), the freq+entropy ensemble exceeds AUROC~0.75 only for EV-A71 (0.77, Top-30 MCC $+0.146$, enrichment $10.8\times$) and Rabies (0.79, MCC $+0.112$, enrichment $4.1\times$), partially exceeds it for Influenza~B (0.70), and clusters near chance for the remaining eight pathogens (grand mean MCC $-0.006$, AUROC $0.539$, enrichment $1.57\times$). Concept-drift slope is small ($-0.006$ to $+0.032$ MCC/yr), so the limited prospective signal is not deteriorating but bounded throughout the observed period. The dissertation's retrospective MCC headline ($0.341$ exact, $0.454$ at $\pm 10$~window; Table~\ref{tab:region_overlap_mcc}) therefore does not directly transfer to the forward-time setting for most pathogens, and the documented forward-time signal is concentrated in EV-A71, Rabies, and partially Influenza~B (Section~\ref{sec:prospective_validation_gap} updates the limitations discussion accordingly).\phantomsection\label{tab:sliding_window_backtest}
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{sliding_window_prospective_backtest.png}
-\caption{Per-pathogen MCC trajectory across split years for the sliding-window prospective backtest. Solid blue line: freq+entropy uniform-weight $z$-ensemble (the time-varying part of the 4-feature core). Dashed orange line: freq-only baseline. The two pathogens above chance (EV-A71, Rabies) exhibit positive Top-30 MCC across multiple windows; the remaining nine cluster near zero. AUROC summaries are listed in Table~\ref{tab:sliding_window_backtest}.}
+\caption{Per-pathogen MCC trajectory across split years for the sliding-window prospective backtest. The two pathogens above chance (EV-A71, Rabies) exhibit positive Top-30 MCC across multiple windows; the remaining nine cluster near zero (grand mean AUROC $0.539$). Per-pathogen window counts and year ranges archived in \texttt{sliding\_window\_prospective\_backtest\_summary.csv}.}
 \label{fig:sliding_window_backtest}
 \end{figure}
 
@@ -470,7 +440,7 @@ First, the 0/11 exact-match rate is itself expected under the null: with 280 com
 Second, the mean generalized MCC under random combo selection is $+0.017$ (SD $\approx 0.034$ for a single combo applied to all pathogens; SD $\approx 0.027$ for an independent random combo per pathogen). The observed training-best generalized MCC of $+0.032$ exceeds this null mean but only by approximately $0.4$--$0.6$ SD, yielding a one-sided $p \approx 0.25$--$0.28$. The 0.265 gap is therefore consistent with, but not statistically distinguishable from, a null in which training-based selection provides no cross-pathogen transfer.
 This tempering does not invalidate the pathogen-adaptive conclusion: the $\omega^2 = 0.296$ interaction effect, the 9 distinct optimal scoring types across 11 pathogens, and the HIV-1 anchor of the vaccine-escape audit together speak to pathogen-specific optimality through complementary routes. But it clarifies that LOPO-0/11 and the 0.265 gap, read in isolation, are weaker evidence than the surface reading suggests, and that independent replication on additional pathogens is needed to sharpen the statistical support for cross-pathogen training's inability to transfer.
 
-\textbf{Selective-reporting probe (supplementary references).} For transparency on what is \emph{not} headline-reported in the main tables, four auxiliary quantities are archived in the provenance bundle (\texttt{results/mutbench/}): (i)~per-pathogen LOPO MCC (\texttt{lopo\_9pathogen\_cv.csv}, with per-held-out \texttt{test\_mcc}/\texttt{oracle\_mcc}; visualised gaps in Figure~\ref{fig:lopo_crossval}); (ii)~per-pathogen second-best scoring--detection MCC and the gap to the best (\texttt{stage3\_full\_results.csv}); (iii)~per-pathogen leave-one-out $\omega^2_{\text{scoring} \times \text{pathogen}}$ (Table~\ref{tab:omega_loo_pathogen_sensitivity} and \texttt{omega\_loo\_pathogen\_sensitivity.csv}; excluding HCV gives 0.246, see Section~\ref{subsec:anova_diagnostics}); and (iv)~$\omega^2$ on the Layer-A immune-escape-only subsets ($n = 10/9/4$, $\omega^2 = 0.199/0.187/0.137$; full discussion in Chapter~\ref{ch:discussion}, Section~\ref{sec:gt_heterogeneity}). Each item carries a small-sample caveat and is therefore not headline-reported, but is recorded to support direct selective-reporting audit.
+For transparency on selective-reporting concerns, four auxiliary quantities are archived in the provenance bundle (\texttt{results/mutbench/}) but not headline-reported: per-pathogen LOPO MCC (\texttt{lopo\_9pathogen\_cv.csv}; visualised in Figure~\ref{fig:lopo_crossval}); per-pathogen second-best scoring--detection MCC (\texttt{stage3\_full\_results.csv}); per-pathogen leave-one-out $\omega^2_{\text{scoring} \times \text{pathogen}}$ (Table~\ref{tab:omega_loo_pathogen_sensitivity}; HCV-excluded yields 0.246, Section~\ref{subsec:anova_diagnostics}); and $\omega^2$ on Layer-A immune-escape-only subsets ($n = 10/9/4$, $\omega^2 = 0.199/0.187/0.137$; Chapter~\ref{ch:discussion}, Section~\ref{sec:gt_heterogeneity}). Each carries a small-sample caveat.
 
 \textbf{Pathogen-Level BCa Bootstrap Confidence Intervals.}
 \label{subsec:9pathogen_bootstrap}
@@ -651,28 +621,7 @@ The preceding sections demonstrated that the best-performing scoring--detection 
 \subsection{Per-Feature Discriminative Power and Multivariate Importance}
 \phantomsection\label{subsec:per_feature_auc}\phantomsection\label{subsec:rf_importance}\phantomsection\label{subsec:feature_correlation}\phantomsection\label{subsec:info_type_implications}
 
-The 20 scoring formulas are derived from 10 underlying biological features spanning 6 categories: frequency-based (\textit{freq}, \textit{entropy}, \textit{rare\_freq}), phylogeny (\textit{homoplasy}), evolutionary rate (\textit{dN/dS proxy}), deep learning (\textit{esm2\_llr}, \textit{semantic change}), structure (\textit{plddt}, \textit{SASA}), and chemical (\textit{Grantham distance}); full feature definitions and exclusion criteria are documented in the supplementary archive. The univariate Layer~A AUC of these features varies sharply across pathogens---Norovirus is best discriminated by homoplasy ($\mathrm{AUC} = 0.944$), H3N2 by pLDDT ($0.787$), SARS-CoV-2 and MERS by the ESM-2 masked-marginal channel ($0.586$ and $0.695$), HIV-1 by entropy ($0.730$), HCV by the dN/dS proxy ($0.680$), and the remaining pathogens cluster around homoplasy or pLDDT---and two pathogens (RSV, MERS) exhibit inverse associations ($\mathrm{AUC} < 0.5$ for several features), confirming that the biological relationship between features and hotspot status is pathogen-dependent. A multivariate Random Forest classifier (200 trees, max depth 5, 5-fold stratified CV; \texttt{scripts/rf\_feature\_importance.py}; archive: \texttt{rf\_cv\_auc\_v2.csv}) reaches cross-validation AUC of $0.742$ on average, with per-pathogen values shown in Table~\ref{tab:rf_cv_auc}. The same correlation structure that drives the per-pathogen univariate variation also explains why expanding from 6 to 10 features helps differentially: frequency, entropy and dN/dS proxy form a highly correlated cluster ($\rho_{\text{freq--entropy}} = 0.97$, $\rho_{\text{freq--dN/dS}} = 0.87$); SASA is genuinely independent of pLDDT ($\rho = -0.19$); and homoplasy is the most decorrelated feature overall ($|\rho| \leq 0.233$ with all others), which is why it dominates per-feature AUC for pathogens with strong convergent-evolution signals (Norovirus, Dengue, Influenza~B). The 5-fold CV is at position level within each pathogen and is therefore subject to spatial-autocorrelation leakage; the AUC values are reported as feature-complementarity illustrations rather than out-of-sample generalisation estimates (region-blocked CV is left to future work). Together these analyses provide a mechanistic explanation for the Stage~2 scoring~$\times$~pathogen interaction ($\omega^2 = 0.296$): different pathogens require different information types, and scoring formulas that surface the relevant information type for a given pathogen produce higher-quality inputs for downstream detection.
-
-\begin{table}[htbp]
-\centering
-\caption{Random Forest cross-validation AUC per pathogen (10 features, 5-fold stratified CV; from \texttt{rf\_cv\_auc\_v2.csv}). Per-pathogen feature-importance rankings (mean decrease in impurity) and the per-feature AUC matrix that drives them are archived in \texttt{feature\_analysis/per\_feature\_auc\_11pathogens.csv} and \texttt{rf\_cv\_auc\_v2.csv}.}
-\label{tab:rf_cv_auc}
-\small
-\begin{tabular}{lr lr}
-\toprule
-\textbf{Pathogen} & \textbf{RF CV AUC} & \textbf{Pathogen} & \textbf{RF CV AUC} \\
-\midrule
-Norovirus    & 0.899 & Influenza~B & 0.756 \\
-MERS         & 0.875 & RSV         & 0.737 \\
-H3N2         & 0.791 & HCV         & 0.700 \\
-HIV-1        & 0.802 & EV-A71      & 0.630 \\
-Dengue       & 0.782 & SARS-CoV-2  & 0.606 \\
-              &       & Rabies       & 0.585 \\
-\midrule
-\multicolumn{4}{l}{\textit{Mean (11 pathogens):} \textbf{0.742}} \\
-\bottomrule
-\end{tabular}
-\end{table}
+The 20 scoring formulas are derived from 10 underlying biological features spanning 6 categories: frequency-based (\textit{freq}, \textit{entropy}, \textit{rare\_freq}), phylogeny (\textit{homoplasy}), evolutionary rate (\textit{dN/dS proxy}), deep learning (\textit{esm2\_llr}, \textit{semantic change}), structure (\textit{plddt}, \textit{SASA}), and chemical (\textit{Grantham distance}); full feature definitions and exclusion criteria are documented in the supplementary archive. The univariate Layer~A AUC of these features varies sharply across pathogens---Norovirus is best discriminated by homoplasy ($\mathrm{AUC} = 0.944$), H3N2 by pLDDT ($0.787$), SARS-CoV-2 and MERS by the ESM-2 masked-marginal channel ($0.586$ and $0.695$), HIV-1 by entropy ($0.730$), HCV by the dN/dS proxy ($0.680$), and the remaining pathogens cluster around homoplasy or pLDDT---and two pathogens (RSV, MERS) exhibit inverse associations ($\mathrm{AUC} < 0.5$ for several features), confirming that the biological relationship between features and hotspot status is pathogen-dependent. A multivariate Random Forest classifier (200 trees, max depth 5, 5-fold stratified CV; \texttt{scripts/rf\_feature\_importance.py}) reaches cross-validation AUC of $0.742$ on average across 11 pathogens (range $0.585$--$0.899$; per-pathogen rows archived in \texttt{rf\_cv\_auc\_v2.csv}).\phantomsection\label{tab:rf_cv_auc} The same correlation structure that drives the per-pathogen univariate variation also explains why expanding from 6 to 10 features helps differentially: frequency, entropy and dN/dS proxy form a highly correlated cluster ($\rho_{\text{freq--entropy}} = 0.97$, $\rho_{\text{freq--dN/dS}} = 0.87$); SASA is genuinely independent of pLDDT ($\rho = -0.19$); and homoplasy is the most decorrelated feature overall ($|\rho| \leq 0.233$ with all others), which is why it dominates per-feature AUC for pathogens with strong convergent-evolution signals (Norovirus, Dengue, Influenza~B). The 5-fold CV is at position level within each pathogen and is therefore subject to spatial-autocorrelation leakage; the AUC values are reported as feature-complementarity illustrations rather than out-of-sample generalisation estimates (region-blocked CV is left to future work). Together these analyses provide a mechanistic explanation for the Stage~2 scoring~$\times$~pathogen interaction ($\omega^2 = 0.296$): different pathogens require different information types, and scoring formulas that surface the relevant information type for a given pathogen produce higher-quality inputs for downstream detection.
 
 %% ------------------------------------------------------------
 \subsection{Feature Ablation Analysis}
@@ -740,7 +689,7 @@ EV-A71     &  +0.0499 &  +0.0499 &  $\phantom{+}$0.0000 \\
 \end{minipage}
 \end{table}
 
-Features that are noise on average under uniform weighting (ESM-2, SASA) are the best discriminators for specific pathogens (ESM-2 for MERS, SASA for Norovirus), confirming that uniform weights cannot optimally exploit all 10 features simultaneously and motivating pathogen-adaptive weighting (Section~\ref{subsec:adaptive_weighting_limits}).
+Features that are noise on average under uniform weighting (ESM-2, SASA) are the best discriminators for specific pathogens (ESM-2 for MERS, SASA for Norovirus), confirming that uniform weights cannot optimally exploit all 10 features simultaneously. Three adaptive weighting strategies (kNN, Top-3 AUC, correlation-aware ensemble) all underperform EqualWeight (max MCC $0.020$/$0.049$/$0.043$ vs.\ EqualWeight $0.083$) because at $n = 11$ reference pathogens the 13-dimensional pathogen-profile space is severely undersampled; the oracle ceiling (per-pathogen weights with labels) reaches $0.160$, confirming adaptive gains are possible in principle but require $20$--$30$+ pathogens for reliable selection (Chapter~\ref{ch:discussion}, Section~\ref{sec:future_work}).\phantomsection\label{subsec:adaptive_weighting_limits}
 
 \paragraph{MutBench Cold-Start algorithm: a two-tier search-space reduction recipe.}
 \label{para:mutbench_algorithm}
@@ -880,25 +829,3 @@ Because Layer~A for H3N2, SARS-CoV-2, and HIV-1 is partly constructed from immun
 For a typical viral protein of 500 positions, the optimal scoring--detection combination narrows the candidate list to 20--80 positions with 7--9-fold enrichment for escape sites. This transforms hotspot detection from an exhaustive search into a guided investigation, providing a ranked candidate list that directs limited experimental resources toward the most promising positions.
 
 %% ------------------------------------------------------------
-\subsection{Adaptive Weighting: Current Limits and Future Potential}
-\label{subsec:adaptive_weighting_limits}
-
-Three adaptive weighting strategies were evaluated against the equal-weight baseline: kNN-weighted ($k{=}3$ inverse-distance interpolation of RF importance weights using a 13-dimensional pathogen profile), Top-3 AUC (equal weight on 3 highest-AUC features from nearest neighbors), and Correlation-aware ensemble (equal weight on 5 lowest-correlation features with AUC $> 0.5$).
-All adaptive strategies performed worse than EqualWeight: kNN-weighted achieved a maximum mean MCC of 0.020, Top-3 AUC 0.049, and Correlation-aware 0.043, compared to EqualWeight's 0.083.
-
-This underperformance is explained by the sparsity of the reference database.
-With only 11 reference pathogens (10 available in each LOPO fold), the 13-dimensional pathogen profile space is severely undersampled (dimensions-to-samples ratio $\approx 1.1$), making $k$NN matching unreliable and introducing noise rather than adaptation.
-
-However, the oracle strategy (mean MCC = 0.160) approximately doubles EqualWeight performance (0.083), confirming that per-pathogen weighting provides genuine improvement when labeled data is available.
-Closing this gap without labels requires expanding the reference database to 20--30+ pathogens for meaningful $k$NN matching in the pathogen profile space.
-This is a finding about the current state of available data, not a failure of the adaptive concept. The oracle ceiling demonstrates that adaptive improvement is possible in principle, but the benchmark currently supports adaptive weighting only as a future algorithmic direction rather than as a validated deployment method.
-
-An exploratory adaptive evidence-fusion redesign (Core/Augmented/Review modes with calibration and repair-layer audits) was developed alongside this dissertation but is not adopted as a contribution: it does not simultaneously satisfy per-pathogen null support, non-abstaining coverage, and external/time-forward validation. Adaptive evidence fusion therefore remains a feasibility direction for follow-up work on a 20--30+ pathogen panel, not a completed predictor.
-
-\bigskip
-\noindent\textbf{Chapter summary.}
-This chapter reported the experimental results of MutBench in five sections.
-Stage~1 validated the framework on SARS-CoV-2: MutClust-Hybrid achieved hotspot-score 0.778 on synthetic data, though real GISAID data showed F1 = 0.123 while maintaining biological validity (enrichment $>$ 6.9-fold).
-Stage~2 extended evaluation to all 11 pathogens (8,580 evaluations), revealing that the scoring $\times$ pathogen interaction ($\omega^2 = 0.296$; 11-pathogen cluster-bootstrap 95\% interval [0.195, 0.333]) is the largest modeled variance component (within-cell residual $\omega^2 \approx 0.39$), with LOPO cross-validation yielding 0/11 exact matches and a 0.265 MCC oracle-vs-generalized gap, and Friedman test showing no reliably superior combination ($p = 0.990$).
-The information-type analysis identified a 4-feature core (homoplasy, pLDDT, entropy, frequency) that is statistically indistinguishable from the full 10-feature ensemble under nested-LOPO (paired delta $+0.011$, $p = 0.61$; Table~\ref{tab:nested_lopo_4core}). Vaccine escape cross-validation was carried primarily by HIV-1 (7.19$\times$, 82\% of escape set disjoint from Layer~A; Bonferroni-adjusted $p = 2.5 \times 10^{-16}$); H3N2's 9.36$\times$ is largely a self-consistency check (69\% Layer~A overlap; novel-only enrichment 7.19$\times$, $p = 0.132$), and SARS-CoV-2 is exploratory after multiple-comparison correction.
-The broader implications for adaptive method selection, including knowledge base scaling requirements and future extensions, are discussed in Chapter~\ref{ch:discussion}.
