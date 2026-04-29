@@ -526,7 +526,7 @@ To test whether the benchmark findings generalize beyond MSA-derived scoring for
 The 650M-parameter ESM-2 model was selected as it represents the largest single-GPU model in the ESM-2 family, balancing computational feasibility with representation capacity. Larger models (ESM-2 3B) require multi-GPU inference, while smaller models (8M, 35M) may lack sufficient capacity for proteins exceeding 1,000 residues.
 ESM-LLR was computed for all 11 pathogens using wild-type marginal scoring: a single forward pass through the model yields $\text{ESM-LLR}[i] = -\log P(a_i \mid \text{context})$, where $a_i$ is the consensus amino acid at position $i$. For proteins exceeding the 1,022-token context window (SARS-CoV-2 Spike: 1,259 AA after MSA trimming; MERS Spike: 1,330 AA), a sliding window with 256-residue overlap was applied and scores were averaged in overlap regions. The resulting ESM-LLR arrays were evaluated through the same 39 detection methods used in the main benchmark.
 
-In the full 20-scoring benchmark, the ESM-2 masked-marginal channel achieves the best MCC for RSV (0.196) and ranks among the top 3 for SARS-CoV-2, but performs poorly for Norovirus and HIV-1, reinforcing the central finding that no single scoring paradigm dominates across all pathogens. Spearman correlation between ESM-2 and MSA-based scores varies substantially across the per-position vectors of each pathogen (sample size $N$ = number of alignment positions, ranging from $N = 340$ for HCV to $N = 1{,}330$ for MERS): Norovirus ($N \approx 540$) shows strong positive correlation ($\rho = 0.63$, $p < 10^{-60}$), while HIV-1 ($N \approx 856$) shows moderate negative correlation ($\rho = -0.35$, $p < 10^{-14}$); per-pathogen $N$ matches the alignment lengths reported in Table~\ref{tab:per_feature_auc} caption. These $\rho$ values confirm that ESM-2 provides a distinct scoring signal for most pathogens.
+In the full 20-scoring benchmark, the ESM-2 masked-marginal channel achieves the best MCC for RSV (0.196) and ranks among the top 3 for SARS-CoV-2, but performs poorly for Norovirus and HIV-1, reinforcing the central finding that no single scoring paradigm dominates across all pathogens. Spearman correlation between ESM-2 and MSA-based scores varies substantially across the per-position vectors of each pathogen (sample size $N$ = number of alignment positions, ranging from $N = 340$ for HCV to $N = 1{,}330$ for MERS): Norovirus ($N \approx 540$) shows strong positive correlation ($\rho = 0.63$, $p < 10^{-60}$), while HIV-1 ($N \approx 856$) shows moderate negative correlation ($\rho = -0.35$, $p < 10^{-14}$); per-pathogen $N$ corresponds to the per-pathogen alignment lengths archived in \texttt{feature\_analysis/per\_feature\_auc\_11pathogens.csv}. These $\rho$ values confirm that ESM-2 provides a distinct scoring signal for most pathogens.
 
 \textbf{ANOVA Diagnostic Tests.}
 \label{subsec:anova_diagnostics}
@@ -710,92 +710,14 @@ The 20 scoring formulas used in the benchmark are derived from 10 underlying bio
 The preceding sections demonstrated that the best-performing scoring--detection combination differs across pathogens ($\omega^2_{\text{scoring}\times\text{pathogen}} = 0.296$). This section investigates \textit{why} this interaction arises by analyzing the discriminative power of individual information types (features) that underlie the scoring formulas, and examines whether pathogen-specific feature importance patterns explain the observed cross-pathogen heterogeneity.
 
 %% ------------------------------------------------------------
-\subsection{Per-Feature Discriminative Power}
-\label{subsec:per_feature_auc}
+\subsection{Per-Feature Discriminative Power and Multivariate Importance}
+\phantomsection\label{subsec:per_feature_auc}\phantomsection\label{subsec:rf_importance}\phantomsection\label{subsec:feature_correlation}\phantomsection\label{subsec:info_type_implications}
 
-Ten positional features were evaluated as individual predictors of Layer~A ground truth across all 11 benchmark pathogens. These features represent six distinct information categories:
-
-\begin{itemize}
-\item \textbf{Frequency-based} (3 features): \textit{freq} (proportion of sequences carrying a non-reference amino acid at each position), \textit{entropy} (Shannon entropy measuring allelic diversity), and \textit{rare\_freq} (frequency of minor alleles below 5\% threshold, capturing low-frequency variants that may signal emerging adaptive mutations).
-\item \textbf{Phylogeny-based} (1 feature): \textit{homoplasy} (number of independent mutation origins inferred by Fitch parsimony on the phylogenetic tree, distinguishing convergent evolution from founder-effect-driven frequency).
-\item \textbf{Evolutionary rate} (1 feature): \textit{dN/dS proxy} (nonsynonymous substitution rate normalized by codon degeneracy of the consensus amino acid; since only protein MSAs were available, this approximates true dN/dS without nucleotide codon alignment).
-\item \textbf{Deep learning-based} (2 features): \textit{esm2\_llr} (ESM-2 masked-marginal mutation-surprise score~\cite{lin2023esm2,rives2021biological}, measuring how surprising a mutation is relative to learned evolutionary constraints from 250M protein sequences) and \textit{semantic change} (mean cosine distance between wild-type and mutant ESM-2 embeddings at each position~\cite{hie2021learning}, measuring how much a mutation alters the protein's functional context).
-\item \textbf{Structure-based} (2 features): \textit{plddt} (AlphaFold2/ESMFold predicted local distance difference test score~\cite{jumper2021alphafold}, indicating structural confidence and disorder propensity) and \textit{SASA} (relative solvent accessible surface area computed from ESMFold-predicted structures using the Shrake--Rupley algorithm~\cite{shrake1973environment}, measuring surface exposure).
-\item \textbf{Chemical property} (1 feature): \textit{Grantham distance} (mean physicochemical distance between the consensus and observed variant amino acids at each position~\cite{grantham1974amino}, capturing whether substitutions are conservative or radical).
-\end{itemize}
-
-These 10 features were selected from a broader set of 22 candidate information types identified from the literature. Features excluded from the analysis include: weighted contact number (WCN, high correlation with SASA, $r > 0.7$), intrinsic disorder prediction (largely redundant with pLDDT $< 50$~\cite{wilson2022alphafold}), co-mutation/mutual information (pairwise rather than per-position feature, incompatible with the univariate per-position analysis framework; additionally $O(L^2)$ computational cost), codon usage bias (weak association with hotspot status), and epitope/glycosylation distance (not uniformly available across all 11 pathogens). The selection criteria were: (1)~independence from existing features, (2)~applicability to all 11 pathogens, and (3)~prior validation in the literature.
-
-Table~\ref{tab:per_feature_auc} and Figure~\ref{fig:feature_auc_heatmap} present the single-feature AUC (area under the ROC curve) for predicting Layer~A membership. Each feature was used as a standalone classifier via threshold sweeping (no model training), providing a direct measure of univariate discriminative power.
+The 20 scoring formulas are derived from 10 underlying biological features spanning 6 categories: frequency-based (\textit{freq}, \textit{entropy}, \textit{rare\_freq}), phylogeny (\textit{homoplasy}), evolutionary rate (\textit{dN/dS proxy}), deep learning (\textit{esm2\_llr}, \textit{semantic change}), structure (\textit{plddt}, \textit{SASA}), and chemical (\textit{Grantham distance}); full feature definitions and exclusion criteria are documented in the supplementary archive. The univariate Layer~A AUC of these features varies sharply across pathogens---Norovirus is best discriminated by homoplasy ($\mathrm{AUC} = 0.944$), H3N2 by pLDDT ($0.787$), SARS-CoV-2 and MERS by the ESM-2 masked-marginal channel ($0.586$ and $0.695$), HIV-1 by entropy ($0.730$), HCV by the dN/dS proxy ($0.680$), and the remaining pathogens cluster around homoplasy or pLDDT---and two pathogens (RSV, MERS) exhibit inverse associations ($\mathrm{AUC} < 0.5$ for several features), confirming that the biological relationship between features and hotspot status is pathogen-dependent. A multivariate Random Forest classifier (200 trees, max depth 5, 5-fold stratified CV; \texttt{scripts/rf\_feature\_importance.py}; archive: \texttt{rf\_cv\_auc\_v2.csv}) reaches cross-validation AUC of $0.742$ on average, with per-pathogen values shown in Table~\ref{tab:rf_cv_auc}. The same correlation structure that drives the per-pathogen univariate variation also explains why expanding from 6 to 10 features helps differentially: frequency, entropy and dN/dS proxy form a highly correlated cluster ($\rho_{\text{freq--entropy}} = 0.97$, $\rho_{\text{freq--dN/dS}} = 0.87$); SASA is genuinely independent of pLDDT ($\rho = -0.19$); and homoplasy is the most decorrelated feature overall ($|\rho| \leq 0.233$ with all others), which is why it dominates per-feature AUC for pathogens with strong convergent-evolution signals (Norovirus, Dengue, Influenza~B). The 5-fold CV is at position level within each pathogen and is therefore subject to spatial-autocorrelation leakage; the AUC values are reported as feature-complementarity illustrations rather than out-of-sample generalisation estimates (region-blocked CV is left to future work). Together these analyses provide a mechanistic explanation for the Stage~2 scoring~$\times$~pathogen interaction ($\omega^2 = 0.296$): different pathogens require different information types, and scoring formulas that surface the relevant information type for a given pathogen produce higher-quality inputs for downstream detection.
 
 \begin{table}[htbp]
 \centering
-\caption{Per-feature AUC for Layer~A prediction across 11 pathogens (10 features). The highest AUC per pathogen is shown in \textbf{bold}. AUC = 0.5 indicates no discriminative power; AUC $< 0.5$ indicates inverse association.}
-\label{tab:per_feature_auc}
-\adjustbox{max width=\textwidth}{
-\footnotesize
-\begin{tabular}{lcccccccccc}
-\toprule
-\textbf{Pathogen} & \textbf{freq} & \textbf{entropy} & \textbf{rare} & \textbf{homoplasy} & \textbf{ESM-2} & \textbf{pLDDT} & \textbf{SASA} & \textbf{Grantham} & \textbf{dN/dS} & \textbf{Sem.~$\Delta$} \\
-\midrule
-SARS-CoV-2    & 0.522 & 0.521 & 0.522 & 0.491 & \textbf{0.586} & 0.513 & 0.504 & 0.522 & 0.523 & 0.523 \\
-H3N2          & 0.548 & 0.533 & 0.535 & 0.639 & 0.405 & \textbf{0.787} & 0.416 & 0.554 & 0.548 & 0.649 \\
-Norovirus     & 0.760 & 0.762 & 0.644 & \textbf{0.944} & 0.763 & 0.674 & 0.747 & 0.569 & 0.756 & 0.613 \\
-HIV-1         & 0.713 & \textbf{0.730} & 0.592 & 0.686 & 0.339 & 0.359 & 0.533 & 0.561 & 0.627 & 0.645 \\
-Dengue        & 0.577 & 0.577 & 0.548 & \textbf{0.770} & 0.521 & 0.678 & 0.474 & 0.603 & 0.558 & 0.495 \\
-RSV           & 0.262 & 0.263 & 0.258 & 0.503 & 0.284 & \textbf{0.561} & 0.508 & 0.329 & 0.257 & 0.340 \\
-Influenza~B   & 0.783 & 0.773 & 0.640 & \textbf{0.805} & 0.587 & 0.486 & 0.599 & 0.529 & 0.750 & 0.630 \\
-MERS          & 0.515 & 0.544 & 0.664 & 0.681 & \textbf{0.695} & 0.162 & 0.579 & 0.470 & 0.477 & 0.665 \\
-HCV           & 0.677 & 0.679 & 0.424 & 0.405 & 0.447 & 0.473 & 0.488 & 0.383 & \textbf{0.680} & 0.379 \\
-Rabies        & 0.370 & 0.369 & 0.411 & 0.408 & 0.415 & \textbf{0.650} & 0.395 & 0.469 & 0.364 & 0.418 \\
-EV-A71        & 0.531 & 0.530 & 0.540 & 0.594 & \textbf{0.596} & 0.315 & 0.595 & 0.560 & 0.529 & 0.507 \\
-\bottomrule
-\end{tabular}
-}
-\begin{minipage}{\textwidth}
-\smallskip
-\footnotesize All AUC values computed on per-pathogen feature matrices using Layer~A as the binary label. $n$ ranges from 340 (HCV) to 1,330 (MERS) positions; Layer~A positive count ranges from 9 (MERS) to 54 (HCV). Column headers: rare = rare variant ratio, ESM-2 = ESM-2 masked-marginal score, dN/dS = dN/dS proxy, Sem.~$\Delta$ = semantic change.
-\end{minipage}
-\end{table}
-
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=\textwidth]{feature_auc_heatmap.png}
-\caption{Per-feature AUC heatmap for Layer~A prediction (11 pathogens, 10 features). Green indicates high discriminative power; red indicates inverse association (AUC $< 0.5$). The best feature per pathogen is shown in bold. No single feature achieves the highest AUC for more than 3 of 11 pathogens.}
-\label{fig:feature_auc_heatmap}
-\end{figure}
-
-The most discriminative feature varies across pathogens with no single feature dominating: homoplasy achieves the highest AUC for Norovirus (0.944), Dengue (0.770), and Influenza~B (0.805); pLDDT dominates for H3N2 (0.787) and RSV (0.561); the ESM-2 masked-marginal channel is best for SARS-CoV-2 (0.586) and MERS (0.695); entropy leads for HIV-1 (0.730); and dN/dS proxy marginally leads for HCV (0.680 vs.\ frequency 0.677). While the HCV difference is small (0.003), the expanded feature set provides measurable improvements in multivariate models (Section~\ref{subsec:rf_importance}).
-
-Two pathogens exhibit inverse feature associations (AUC $< 0.5$): RSV shows AUC = 0.257--0.284 for frequency-based features, dN/dS proxy, and ESM-2, indicating that Layer~A positions in RSV tend to have \textit{lower} mutation frequency than non-hotspot positions. MERS exhibits a pLDDT AUC of 0.162, indicating that its Layer~A positions are located in structurally disordered regions. These inverse associations further demonstrate that the biological relationship between features and hotspot status is pathogen-dependent.
-
-%% ------------------------------------------------------------
-\subsection{Feature Importance by Pathogen}
-\label{subsec:rf_importance}
-
-To assess feature importance in a multivariate context---where features may interact and provide complementary information---a Random Forest classifier~\cite{breiman2001random} (200 trees, max depth 5, balanced class weights, random state 42) was trained for each pathogen using the 10 features as predictors and Layer~A as the binary label. Feature importances were extracted as mean decrease in impurity (Gini importance), and model performance was evaluated via stratified 5-fold cross-validation AUC.\footnote{Caveat on CV design. The 5-fold split is at the position level within each pathogen, so adjacent residues with correlated features can land in different folds. This makes the reported AUC prone to spatial-autocorrelation leakage and should be interpreted as a feature-complementarity illustration rather than a generalisation estimate; a region-blocked or protein-domain-blocked CV is queued for future work.}
-
-Figure~\ref{fig:feature_importance_grid} presents the feature importance distributions across all 11 pathogens. Three patterns are notable.
-
-\textbf{First, the dominant feature differs across pathogens.}
-For SARS-CoV-2, the ESM-2 masked-marginal channel dominates (importance = 0.331), followed by pLDDT (0.286) and the newly added SASA (0.202)---all three are non-frequency features. For H3N2, pLDDT remains the most important feature (0.338), with semantic change (0.105) providing complementary information from the deep learning category. For Norovirus, homoplasy dominates (0.345), consistent with its near-perfect univariate AUC (0.944). For HIV-1, ESM-2 (0.214) and homoplasy (0.143) share importance. For HCV, the dN/dS proxy (0.145), homoplasy (0.139), and Grantham distance (0.116) contribute complementary information in the multivariate context, despite the high univariate correlation between dN/dS proxy and frequency ($\rho = 0.87$).
-
-\textbf{Second, expanding from 6 to 10 features improves cross-validation AUC.}
-Norovirus achieves the highest cross-validation AUC (0.899). SARS-CoV-2 improves from 0.554 (6 features) to 0.606 (10 features), and MERS improves from 0.537 to 0.875, demonstrating that the additional features---particularly SASA and semantic change---capture information relevant to hotspot prediction that was previously missing. RSV improves to 0.737, HCV to 0.700, and the remaining pathogens achieve: H3N2 (0.791), HIV-1 (0.802), Dengue (0.782), Influenza~B (0.756).
-
-\textbf{Third, the importance rankings differ from univariate AUC rankings.}
-For HIV-1, entropy has the highest univariate AUC (0.730) but ranks third in Random Forest (RF) importance (0.127) behind ESM-2 (0.214) and homoplasy (0.143), because entropy and frequency are highly correlated ($\rho = 0.97$, see Figure~\ref{fig:feature_correlation}) and share importance in the RF model while ESM-2 provides non-redundant information. This demonstrates that multivariate analysis reveals complementary feature contributions that univariate analysis cannot capture.
-
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=\textwidth]{feature_importance_grid.png}
-\caption{Random Forest feature importance for Layer~A prediction across 11 pathogens (10 features). Bar colors indicate feature category: blue (frequency-based), green (phylogeny/evolutionary), purple (deep learning), orange (structure), crimson (chemical property). Cross-validation AUC is shown in each panel title. The dominant feature differs across pathogens: ESM-2 for SARS-CoV-2, pLDDT for H3N2 and Rabies, homoplasy for Norovirus and Dengue.}
-\label{fig:feature_importance_grid}
-\end{figure}
-
-\begin{table}[htbp]
-\centering
-\caption{Random Forest cross-validation AUC per pathogen (10 features, 5-fold stratified CV; from \texttt{rf\_cv\_auc\_v2.csv}).}
+\caption{Random Forest cross-validation AUC per pathogen (10 features, 5-fold stratified CV; from \texttt{rf\_cv\_auc\_v2.csv}). Per-pathogen feature-importance rankings (mean decrease in impurity) and the per-feature AUC matrix that drives them are archived in \texttt{feature\_analysis/per\_feature\_auc\_11pathogens.csv} and \texttt{rf\_cv\_auc\_v2.csv}.}
 \label{tab:rf_cv_auc}
 \small
 \begin{tabular}{lr lr}
@@ -815,51 +737,10 @@ Dengue       & 0.782 & SARS-CoV-2  & 0.606 \\
 \end{table}
 
 %% ------------------------------------------------------------
-\subsection{Feature Correlation Structure}
-\label{subsec:feature_correlation}
-
-Understanding the correlation structure among the 10 features is essential for interpreting both the univariate and multivariate results. Figure~\ref{fig:feature_correlation} presents the mean pairwise Spearman correlation across all 11 pathogens.
-
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=0.85\textwidth]{feature_correlation_heatmap.png}
-\caption{Mean pairwise Spearman correlation among 10 features across 11 pathogens. Three clusters are evident: frequency-derived features (freq, entropy, rare variant, dN/dS proxy) are highly correlated ($\rho > 0.54$); deep learning features (ESM-2 masked-marginal score, semantic change) show weak negative correlation ($\rho = -0.09$); and structure-based features (pLDDT, SASA) are weakly anti-correlated ($\rho = -0.19$). Homoplasy is the most independent feature ($|\rho| \leq 0.233$ with all others).}
-\label{fig:feature_correlation}
-\end{figure}
-
-Three key patterns emerge. First, frequency, entropy, and dN/dS proxy form a highly correlated cluster ($\rho_{\text{freq--entropy}} = 0.97$, $\rho_{\text{freq--dN/dS}} = 0.87$), confirming that the protein-level dN/dS proxy shares substantial information with frequency-based features due to the absence of nucleotide-level synonymous substitution data (a limitation discussed in Section~\ref{sec:limitations}). Second, Grantham distance and semantic change show moderate correlation ($\rho = 0.52$), reflecting the relationship between physicochemical dissimilarity and embedding-space distance. Third, homoplasy is the most independent feature ($|\rho| \leq 0.233$ with all other features), explaining its unique discriminative power for pathogens where convergent evolution is a strong signal.
-
-The correlation structure explains why expanding from 6 to 10 features yields differential improvements: SASA ($\rho = -0.19$ with pLDDT) provides genuinely independent structural information, while dN/dS proxy ($\rho = 0.87$ with frequency) adds limited independent signal. The largest improvements from the expanded set occur for pathogens where the new independent features (SASA, semantic change) are informative---notably MERS (CV AUC: 0.537 $\rightarrow$ 0.875) and SARS-CoV-2 (0.554 $\rightarrow$ 0.606).
-
-%% ------------------------------------------------------------
-\subsection{Implications for Pathogen-Aware Method Selection}
-\label{subsec:info_type_implications}
-
-The per-feature, Random Forest, and correlation analyses collectively provide a mechanistic explanation for the scoring $\times$ pathogen interaction ($\omega^2 = 0.296$) observed in the ANOVA (Section~\ref{subsec:9pathogen_statistical}). Different pathogens require different \textit{information types} for effective hotspot discrimination, and scoring formulas that emphasize the relevant information type for a given pathogen will produce higher-quality input signals for downstream detection algorithms.
-
-The cross-pathogen benchmark demonstrated that the best scoring--detection combination differs across pathogens (11/11 unique best combinations, 9 distinct scoring types). These Stage~2 MCC-optimal scoring choices (Table~\ref{tab:stage2_best}) reflect pathogen-specific relationships between biological features and hotspot status: H3N2 hotspots are best detected by FUBAR phylogenetic selection scores, Norovirus hotspots by homoplasy (convergent evolution), SARS-CoV-2 hotspots by protein language model scores (Tranception), RSV by the ESM-2 masked-marginal channel, EV-A71 by semantic change, Rabies by stability predictions, and HCV/Influenza~B/MERS by frequency-based scores.
-The complementary per-feature AUC analysis (Table~\ref{tab:per_feature_auc}) identifies, for each pathogen, which \textit{single biological feature} most discriminates Layer~A positions before any detection algorithm is applied; the two rankings need not agree because MCC further incorporates detection-algorithm interaction with the scoring input.
-
-The Random Forest analysis demonstrates that combining multiple features in a multivariate model achieves cross-validation AUC values up to 0.899 (Norovirus) and 0.875 (MERS), suggesting that the performance ceiling can be raised by integrating complementary information types into the scoring stage rather than relying on a single formula.
-
-The following subsections extend this analysis by quantifying individual feature contributions through ablation, examining ground truth heterogeneity as a potential confound, and evaluating practical search space reduction through multi-source integration. Importantly, the present work establishes the empirical basis for pathogen-aware selection; it does not claim a finished general-purpose adaptive algorithm for unseen pathogens.
-
-%% ------------------------------------------------------------
 \subsection{Feature Ablation Analysis}
 \label{subsec:feature_ablation}
 
-To quantify each feature's contribution, three ablation analyses were conducted using the EqualWeight ensemble with LOPO evaluation and a top-10\% threshold. The feature-ablation evaluation set was extended from the core 11 pathogens to 12 pathogens by adding Zika (E protein, 505 AA) to increase statistical power for per-feature contribution estimates; this scope choice is consistent across Figure~\ref{fig:feature_ablation} and Table~\ref{tab:feature_ablation}. Restricting the same calculation to the core 11 pathogens shifts the baseline mean MCC from 0.083 to 0.093 and preserves all qualitative orderings (homoplasy remains the largest contributor with $\Delta = -0.030$; the ESM-2 masked-marginal channel and SASA remain noise-introducing under uniform weighting).
-
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=0.85\textwidth]{feature_ablation_bars.png}
-\caption{Feature ablation analysis: change in mean MCC (12 pathogens, including Zika; see surrounding text for the core-11 restriction) when removing each feature from the 10-feature EqualWeight ensemble. Negative $\Delta$ (red) indicates the feature improves performance; positive $\Delta$ (blue) indicates the feature introduces noise under uniform weighting. Homoplasy is the single most important feature ($\Delta = -0.028$ over 12 pathogens; $\Delta = -0.030$ when restricted to the core 11).}
-\label{fig:feature_ablation}
-\end{figure}
-
-\textbf{Leave-one-feature-out} (Table~\ref{tab:feature_ablation}) reveals that homoplasy contributes the most to ensemble performance: its removal causes the largest MCC decrease ($\Delta = -0.028$), reducing mean MCC from 0.083 to 0.055.
-Entropy ($\Delta = -0.015$), frequency ($\Delta = -0.012$), and rare variant frequency ($\Delta = -0.010$) also show substantial contributions.
-In contrast, removing the ESM-2 masked-marginal channel ($\Delta = +0.004$) or SASA ($\Delta = +0.003$) marginally \textit{improves} performance, indicating that these features introduce noise under uniform weighting when averaged across 11 pathogens.
+A feature-ablation robustness check was performed under the EqualWeight ensemble with LOPO evaluation and a top-10\% threshold, on the 12-pathogen feature-analysis panel (core 11 + Zika; restricting to the core 11 shifts the baseline 0.083~$\to$~0.093 with the same qualitative ordering). \textbf{Leave-one-feature-out} (Table~\ref{tab:feature_ablation}\phantomsection\label{fig:feature_ablation}) reveals homoplasy as the largest contributor ($\Delta = -0.028$, 0.083~$\to$~0.055), with entropy, frequency, and rare-variant frequency also showing substantial contributions; removing the ESM-2 masked-marginal channel ($\Delta = +0.004$) or SASA ($\Delta = +0.003$) marginally improves performance, indicating that these features introduce noise under uniform weighting when averaged across pathogens.
 
 \begin{table}[htbp]
 \centering
@@ -886,13 +767,7 @@ esm2\_llr           & 0.087 & $+$0.004 & Noise under uniform $\mathbf{w}$ \\
 \end{tabular}
 \end{table}
 
-\textbf{Feature group ablation} shows that frequency features alone (freq, entropy, rare\_freq; 3 features) achieve mean MCC = 0.069, while adding homoplasy (Freq~+~Phylogeny; 4 features) raises performance to 0.086---slightly above the full 10-feature ensemble (0.083).
-Adding structural features (Freq~+~Structure: pLDDT, SASA; MCC = 0.057) or deep learning features (Freq~+~DL: ESM-2, semantic change; MCC = 0.067) decreases performance relative to frequency alone.
-
-\textbf{Cumulative addition} starting from the most discriminative feature (homoplasy) and adding features in AUC-rank order shows diminishing returns: 4 features (homoplasy, pLDDT, entropy, freq) achieve in-sample mean MCC = 0.081, similar to the in-sample full 10-feature mean of 0.083. Because the per-pathogen in-sample protocol fits feature ranking and ensemble normalization on the same pathogen used to score MCC, this ratio (0.081/0.083 $\approx$ 98\%) describes within-pathogen ablation behavior rather than out-of-pathogen generalization.
-A separate \emph{nested-LOPO} re-evaluation tests the same 4-feature core against the 10-feature ensemble under proper held-out-pathogen scoring (script: \texttt{scripts/feature\_ablation\_nested\_lopo.py}; CSV: \texttt{results/mutbench/feature\_analysis/feature\_ablation\_nested\_lopo.csv}; per-fold values in Table~\ref{tab:nested_lopo_4core}). For each held-out pathogen, the per-feature directional sign and the cumulative feature ranking are fit on the other 11 training pathogens, then applied to the held-out pathogen with within-fold z-scoring, uniform averaging over the chosen subset, and the top-10\% MCC threshold. Under this nested protocol, the full 10-feature ensemble has LOPO mean MCC = 0.070 (95\% bootstrap CI [0.017, 0.130]) and the fixed 4-feature core (homoplasy, pLDDT, entropy, freq) has LOPO mean MCC = 0.081 (95\% CI [0.008, 0.166]). The paired (held-out)-fold delta is $+0.011$ (95\% CI [$-0.018$, $+0.042$]; sign-flip permutation $p = 0.61$, two-sided), so the 4-feature core is statistically indistinguishable from the 10-feature ensemble under nested-LOPO. The retention ratio computed on the LOPO scale is 0.081/0.070 = 1.16 (95\% CI [0.44, 1.48]), reflecting that the 6 features removed by the 4-core selection (rare\_freq, dN/dS, ESM-2 LLR, SASA, Grantham, semantic change) on average carry no positive contribution under uniform weighting, consistent with the leave-one-feature-out signs in Table~\ref{tab:feature_ablation}.
-
-Two consequences for Contribution 3a follow. First, the operational claim that ``a compact 4-feature core matches the 10-feature ensemble under uniform weighting'' is supported under nested-LOPO with a permutation $p = 0.61$ on the paired delta and a 95\% CI for the delta that contains zero. Second, the original ``$\approx$98\% retention'' phrasing is not the cleanest summary of the nested-LOPO result: the LOPO ratio is itself centered above 1.0 with a wide CI, so the dissertation hereafter reports the result as ``operational equivalence under nested-LOPO ($p = 0.61$, paired delta CI [$-0.018$, $+0.042$])'' rather than as a percentage retention. The in-sample percentage (97.6\%) is retained only as a within-pathogen ablation descriptor and is no longer used as an out-of-pathogen generalization claim.
+A separate \emph{nested-LOPO} robustness check tests the 4-feature core (homoplasy, pLDDT, entropy, freq) against the full 10-feature ensemble under proper held-out-pathogen scoring (\texttt{scripts/feature\_ablation\_nested\_lopo.py}; per-fold values in Table~\ref{tab:nested_lopo_4core}; archive \texttt{feature\_ablation\_nested\_lopo.csv}). The full 10-feature ensemble has LOPO mean MCC = $0.070$ (95\% bootstrap CI [$0.017$, $0.130$]) and the fixed 4-feature core has LOPO mean MCC = $0.081$ (95\% CI [$0.008$, $0.166$]); the paired delta is $+0.011$ (95\% CI [$-0.018$, $+0.042$]; sign-flip permutation $p = 0.61$, two-sided). The 4-feature core is therefore statistically indistinguishable from the 10-feature ensemble under nested-LOPO. The earlier within-pathogen $\approx$98\% retention figure ($0.081/0.083$ in-sample) is retained only as an ablation descriptor; the dissertation hereafter reports the result as operational equivalence under nested-LOPO ($p = 0.61$) rather than as a percentage retention claim.
 
 \begin{table}[htbp]
 \centering
@@ -927,7 +802,7 @@ EV-A71     &  +0.0499 &  +0.0499 &  $\phantom{+}$0.0000 \\
 \end{minipage}
 \end{table}
 
-These results further motivate pathogen-adaptive weighting: features that are noise on average (ESM-2, SASA) are the \textit{best} discriminators for specific pathogens (ESM-2 for MERS AUC = 0.695; SASA for Norovirus AUC = 0.747), confirming that a uniform weight vector cannot optimally exploit all 10 features simultaneously.
+Features that are noise on average under uniform weighting (ESM-2, SASA) are the best discriminators for specific pathogens (ESM-2 for MERS, SASA for Norovirus), confirming that uniform weights cannot optimally exploit all 10 features simultaneously and motivating pathogen-adaptive weighting (Section~\ref{subsec:adaptive_weighting_limits}).
 
 \paragraph{Subset selection robustness (210-combination exhaustive sweep).}
 \label{para:subset_selection_robustness}
@@ -1100,19 +975,6 @@ Closing this gap without labels requires expanding the reference database to 20-
 This is a finding about the current state of available data, not a failure of the adaptive concept. The oracle ceiling demonstrates that adaptive improvement is possible in principle, but the benchmark currently supports adaptive weighting only as a future algorithmic direction rather than as a validated deployment method.
 
 An exploratory adaptive evidence-fusion redesign (Core/Augmented/Review modes with calibration and repair-layer audits) was developed alongside this dissertation but is not adopted as a contribution: it does not simultaneously satisfy per-pathogen null support, non-abstaining coverage, and external/time-forward validation. Adaptive evidence fusion therefore remains a feasibility direction for follow-up work on a 20--30+ pathogen panel, not a completed predictor.
-
-%% ------------------------------------------------------------
-\subsection{Information-Type Analysis Summary}
-\label{subsec:info_analysis_summary}
-
-The multi-source information integration analysis yields four key findings:
-
-\begin{itemize}
-\item \textbf{Feature heterogeneity}: The most discriminative information type differs across pathogens (5~distinct best features among 11 pathogens), providing a mechanistic explanation for the scoring$\,\times\,$pathogen interaction ($\omega^2 = 0.296$) observed in the ANOVA.
-\item \textbf{Compact core}: A fixed 4-feature core (homoplasy, pLDDT, entropy, frequency) is statistically indistinguishable from the full 10-feature ensemble under nested-LOPO (paired delta $+0.011$, 95\% CI [$-0.018$, $+0.042$], sign-flip permutation $p = 0.61$; Table~\ref{tab:nested_lopo_4core}), while features that are noise on average (ESM-2, SASA) are the best discriminators for specific pathogens.
-\item \textbf{Practical search space reduction}: Equal-weight 10-feature integration achieves statistically significant H3N2 vaccine escape enrichment (4.012$\times$, $p = 0.0023$) where single-feature approaches fail to reach significance, transforming exhaustive experimental screening into guided investigation.
-\item \textbf{Adaptive weighting potential}: The oracle ceiling (MCC = 0.160 vs.\ EqualWeight 0.083) shows that per-pathogen feature weighting could double performance with labels, but a deployable adaptive algorithm requires expanding the reference database beyond the current 11 pathogens.
-\end{itemize}
 
 \bigskip
 \noindent\textbf{Chapter summary.}
