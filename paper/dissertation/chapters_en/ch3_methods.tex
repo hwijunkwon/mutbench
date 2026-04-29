@@ -397,29 +397,18 @@ The genome-wide distribution of these functional regions is visualized in Figure
 \subsubsection{MutClust Variant Comparison}
 \label{subsec:variants}
 
-Among the 14 detection families used in the full benchmark, MutClust~\cite{youn2025mutclust} is the only virus-specific hotspot detection tool and serves as the starting point for this study.
-MutClust scores each genomic position using the H-score:
+Among the 14 detection families in the full benchmark, MutClust~\cite{youn2025mutclust} is the only virus-specific hotspot tool and serves as the starting point. MutClust scores each position using the H-score $H_i = \log_2(P_i \times E_i \times 100 + 1)$~\eqref{eq:mutbench_hscore}\phantomsection\label{subsec:mutbench_hscore} where $P_i$ is the cumulative mutation frequency and $E_i = -\sum_j p_{ij} \log_2 p_{ij}$~\eqref{eq:shannon_entropy} is the Shannon entropy of mutation types, then applies adaptive DBSCAN with $\varepsilon = \gamma \times H_i$ ($\gamma = 0.5$ fixed across pathogens; $\pm 0.01$ MCC sensitivity for $\gamma \in \{0.25, 0.5, 1.0\}$, archived in \texttt{gamma\_sensitivity.csv})\phantomsection\label{eq:expand_cluster}; \texttt{min\_samples} $= 3$ for the DBSCAN call, \texttt{min\_cluster\_size} $= 5$ / \texttt{min\_samples} $= 1$ / EOM cluster selection for the HDBSCAN-Auto detector and v3 HDBSCAN baseline.
+
 \begin{equation}
 H_i = \log_2(P_i \times E_i \times 100 + 1)
 \label{eq:mutbench_hscore}
 \end{equation}
-where $P_i$ is the sum of mutation frequencies at position $i$ and $E_i$ is the Shannon entropy of mutation types:\phantomsection\label{subsec:mutbench_hscore}
 \begin{equation}
 E_i = -\sum_{j=1}^{k} p_{ij} \log_2 p_{ij}
 \label{eq:shannon_entropy}
 \end{equation}
-Hotspot regions are then identified via adaptive DBSCAN clustering with $\varepsilon = \gamma \times H_i$, where $\gamma = 0.5$ is fixed across pathogens.
-Sensitivity to $\gamma \in \{0.25, 0.5, 1.0\}$ shifts per-pathogen MCC by $\pm 0.01$ on average across the 11 pathogens (mean$\pm$SD; \texttt{results/mutbench/gamma\_sensitivity.csv}), within the subsampling band in Section~\ref{sec:robustness_validation}.\phantomsection\label{eq:expand_cluster}
-The internal DBSCAN call uses \texttt{min\_samples} = 3.
-The HDBSCAN baseline (v3) and HDBSCAN-Auto detector use \texttt{min\_cluster\_size} = 5, \texttt{min\_samples} = 1, and the default EOM cluster-selection rule; these values are pinned in the released configuration files described in the \textbf{Code and Data Availability} subsection.
 
-Five variants were tested in Stage~1: the original implementation (v1, with a cumulative decay bug), the bug-fixed version (v2a), a dN/dS-filtered version (v2b), a CCM-seed + HDBSCAN hybrid (v2c), and a pure HDBSCAN baseline (v3).
-MutClust-Hybrid (v2c) achieved the highest hotspot-score (0.778) in Stage~1 validation.
-In the Stage~2 cross-pathogen benchmark, only MutClust-Orig (v1) is retained as one of the 14 detection families, for two reasons.
-First, Stage~2 shifts focus from algorithm comparison to information-type analysis, requiring each detection family to accept \textit{any} of the 20 scoring types as input.
-MutClust-Hybrid (v2c) achieves its advantage through H-score-specific domain knowledge (CCM seed selection assumes H-score-like distributions), making it incompatible with non-H-score inputs such as ESM-2 LLR or pLDDT---its CCM seed logic becomes meaningless for these scoring types.
-MutClust-Orig (v1), in contrast, applies adaptive DBSCAN to any input score array without scoring-specific assumptions, ensuring fair comparison across all 20 scoring types.
-Second, using the published version~\cite{youn2025mutclust} as the baseline ensures reproducibility and represents the prior state-of-the-art as reported in the literature.\phantomsection\label{subsec:improvements}
+Five variants were tested in Stage~1: the original implementation (v1, with a cumulative-decay bug), bug-fixed (v2a), dN/dS-filtered (v2b), CCM-seed + HDBSCAN hybrid (v2c), and pure HDBSCAN (v3). MutClust-Hybrid (v2c) achieves the highest hotspot-score ($0.778$). For Stage~2 cross-pathogen, only the published MutClust-Orig (v1) is retained as one of 14 detection families because the v2c CCM-seed advantage assumes H-score-like input distributions and is incompatible with non-H-score inputs (ESM-2 LLR, pLDDT, etc.); v1's adaptive DBSCAN accepts any score array without scoring-specific assumptions, ensuring fair comparison across all 20 scoring types.\phantomsection\label{subsec:improvements}
 
 \subsubsection{Hotspot-Score Composite Metric}
 \label{subsec:hotspot_score}

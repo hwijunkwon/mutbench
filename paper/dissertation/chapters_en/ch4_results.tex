@@ -22,34 +22,25 @@ Stage~2 (Section~\ref{sec:9pathogen_results} onwards) extends to 11 RNA viruses 
 \subsection{Variant Comparison on Synthetic Data}
 \label{sec:variant_comparison}
 
-As a controlled signal recovery test, synthetic H-scores were generated for a SARS-CoV-2-like genome (29,903 positions) with 1,251 ground truth functional positions.
-Table~\ref{tab:hotspot_scores} summarizes the results.
+As a controlled signal-recovery test, synthetic H-scores were generated for a SARS-CoV-2-like genome (29,903 positions, 1,251 ground-truth functional positions). Among five MutClust variants and three baselines (HDBSCAN-Auto, frequency baseline, sliding window), \textbf{MutClust-Hybrid} (CCM seed detection $+$ HDBSCAN boundary determination) achieves the best balance with $F_1 = 0.785$ and hotspot-score $= 0.778$ ($\sim$43-fold above the $0.018$ random baseline; Table~\ref{tab:hotspot_scores}). All MutClust variants concentrate in $F_1 = 0.67$--$0.78$ with high precision ($> 0.96$) but moderate recall, while HDBSCAN-Auto attains high recall ($0.944$) at very low precision ($0.079$); only MutClust-Hybrid achieves both. On real GISAID data (Section~\ref{sec:real_gisaid_benchmark}) $F_1$ drops to $0.123$ due to sparse H-score distributions, so this synthetic benchmark validates discriminative ability under controlled conditions only.
 
 \begin{table}[htbp]
 \centering
-\caption{Synthetic benchmark results: method comparison with hotspot-score (100 subsamplings, 80\% retention). MutClust-Fixed and MutClust-dNdS produce numerically identical scores in this synthetic SARS-CoV-2 setting; this is a CSV-level identity (not a mechanistic claim about CCM seed dN/dS distributions), and any deeper interpretation requires direct inspection of the per-position dN/dS profile.}
+\caption{Synthetic benchmark headline (100 subsamplings, 80\% retention). Full per-variant breakdown of the five MutClust variants and remaining baselines is archived in the supplementary CSV.}
 \label{tab:hotspot_scores}
-\adjustbox{max width=\textwidth}{
+\small
 \begin{tabular}{lrrrrr}
 \toprule
 \textbf{Method} & \textbf{Precision} & \textbf{Recall} & \textbf{F1} & \textbf{Stability} & \textbf{Hotspot-score} \\
 \midrule
-MutClust-Original & 0.991 & 0.504 & 0.668 & 0.418 & 0.638 \\
-MutClust-Fixed & 0.988 & 0.506 & 0.669 & 0.445 & 0.646 \\
-MutClust-dNdS & 0.988 & 0.506 & 0.669 & 0.445 & 0.646 \\
 \textbf{MutClust-Hybrid} & \textbf{0.968} & \textbf{0.659} & \textbf{0.785} & \textbf{0.706} & \textbf{0.778} \\
+MutClust variants (Original / Fixed / dNdS) & 0.988--0.991 & 0.504--0.506 & 0.668--0.669 & 0.418--0.445 & 0.638--0.646 \\
 HDBSCAN-Auto & 0.079 & 0.944 & 0.146 & 0.788 & 0.604 \\
-\midrule
 Frequency baseline & 0.404 & 0.965 & 0.569 & --- & --- \\
 Sliding window & 0.157 & 0.974 & 0.270 & --- & --- \\
 \bottomrule
 \end{tabular}
-}
 \end{table}
-
-MutClust-Hybrid achieves the best balance (F1 = 0.785, hotspot-score = 0.778) by combining CCM seed detection with HDBSCAN boundary determination.
-For reference, a random baseline (uniform random position selection with $n_{\text{det}} = 200$) yields hotspot-score $\approx 0.018$, making MutClust-Hybrid's score approximately 43-fold above chance.
-However, on actual GISAID data (Section~\ref{sec:real_gisaid_benchmark}) F1 drops to 0.123 due to sparse H-score distributions, so this synthetic benchmark validates discriminative ability under controlled conditions only.
 
 %% ------------------------------------------------------------
 \subsection{Multi-Ground Truth Evaluation}
@@ -646,9 +637,7 @@ The four lenses are not independent confirmations: only the ANOVA (within the mo
 \subsection{Subgroup Analysis: DMS-Available vs DMS-Unavailable Pathogens}
 \label{subsec:dms_subgroup}
 
-Six of the 11 pathogens (SARS-CoV-2, H3N2, HIV-1, RSV, Rabies, EV-A71) have DMS-based Layer~C ground truth while five (Dengue, Norovirus, Influenza~B, MERS, HCV) have only Layer~A. A legitimate concern is whether the benchmark systematically under-performs on DMS-unavailable pathogens---if so, the main findings could reflect ground-truth quality rather than biological signal.
-
-Table~\ref{tab:dms_subgroup} reports per-pathogen best MCC (across the 780 scoring--detection combinations) and subgroup means. The DMS-available subgroup's best-per-pathogen MCC averages 0.287 (range 0.196--0.534); the DMS-unavailable subgroup averages 0.407 (range 0.196--0.660). A Mann--Whitney $U$ test on these two best-MCC sets yields $U = 10$, $p = 0.43$ (two-sided), indicating no statistically significant difference in achievable performance between subgroups at the given sample sizes.
+Six pathogens (SARS-CoV-2, H3N2, HIV-1, RSV, Rabies, EV-A71) carry DMS-based Layer~C; five (Dengue, Norovirus, Influenza~B, MERS, HCV) have Layer~A only. The DMS-available subgroup attains best-per-pathogen MCC of $0.287$ (range $0.196$--$0.534$) and the DMS-unavailable subgroup $0.407$ (range $0.196$--$0.660$); Mann--Whitney $U = 10$, $p = 0.43$ (Table~\ref{tab:dms_subgroup}). The DMS-unavailable subgroup is therefore not systematically worse---if anything, slightly higher---which argues against the hypothesis that Layer~A alone is a weaker ground truth than Layer~A$+$C.
 
 \begin{table}[htbp]
 \centering
@@ -679,9 +668,7 @@ MERS        & no  & 0.196 & $+0.011$ \\
 \end{tabular}
 \end{table}
 
-The DMS-unavailable subgroup is \emph{not} systematically worse; if anything, its best-MCC mean is slightly higher, which argues against the hypothesis that Layer~A alone is a weaker ground truth than Layer~A+C. Two mechanisms likely explain the higher values in the DMS-unavailable group: (i)~HCV's Layer~A is defined by hypervariable-region boundaries rather than point positions, which inflates detectability; (ii)~Norovirus and Influenza~B have denser Layer~A sets, making true positives more abundant and MCC easier to attain. Conversely, the DMS-available group contains pathogens (RSV, Rabies, EV-A71) with narrow, sparse Layer~A sets that cap the achievable MCC.
-
-\textbf{Interpretation}: the main Stage~2 conclusions (scoring $\times$ pathogen interaction dominance, LOPO non-generalization, Friedman non-significance) are supported by both subgroups. The DMS-unavailable pathogens contribute informative signal despite lacking functional validation, and their inclusion does not bias the interaction finding in a direction favorable to the conclusion. However, a mechanistic interpretation of the best scoring type in the DMS-unavailable subgroup remains one step less grounded than in the DMS-available subgroup, since only the latter can be back-checked against independent experimental fitness data; the DMS-unavailable subgroup's results should be treated as phylogenetic-pattern evidence rather than functional-effect evidence.
+Two mechanisms likely explain the higher values in the DMS-unavailable group: HCV's Layer~A is defined by hypervariable-region boundaries (inflating detectability) and Norovirus/Influenza~B have denser Layer~A sets (more abundant true positives), while the DMS-available group contains pathogens (RSV, Rabies, EV-A71) with narrow, sparse Layer~A sets that cap achievable MCC. The Stage~2 conclusions (scoring~$\times$~pathogen interaction dominance, LOPO non-generalisation, Friedman non-significance) are supported by both subgroups; results on DMS-unavailable pathogens should be read as phylogenetic-pattern evidence rather than functional-effect evidence.
 
 %% ============================================================
 \section{Information-Type Analysis}
