@@ -1,0 +1,129 @@
+[
+  {
+    "slug": "chikungunya_virus_e2",
+    "status": "ok",
+    "n": 551,
+    "L": 540,
+    "name": "Chikungunya virus E2"
+  },
+  {
+    "slug": "japanese_encephalitis_virus_e",
+    "status": "ok",
+    "n": 309,
+    "L": 506,
+    "name": "Japanese encephalitis virus E"
+  },
+  {
+    "slug": "tick-borne_encephalitis_virus_e",
+    "status": "ok",
+    "n": 99,
+    "L": 496,
+    "name": "Tick-borne encephalitis virus E"
+  },
+  {
+    "slug": "eastern_equine_encephalitis_virus_e2",
+    "status": "ok",
+    "n": 159,
+    "L": 420,
+    "name": "Eastern equine encephalitis virus E2"
+  },
+  {
+    "slug": "venezuelan_equine_encephalitis_virus_e2",
+    "status": "ok",
+    "n": 65,
+    "L": 520,
+    "name": "Venezuelan equine encephalitis virus E2"
+  },
+  {
+    "slug": "western_equine_encephalitis_virus_e2",
+    "status": "ok",
+    "n": 123,
+    "L": 504,
+    "name": "Western equine encephalitis virus E2"
+  },
+  {
+    "slug": "mumps_virus_hn",
+    "status": "ok",
+    "n": 791,
+    "L": 582,
+    "name": "Mumps virus HN"
+  },
+  {
+    "slug": "measles_virus_h",
+    "status": "ok",
+    "n": 40,
+    "L": 620,
+    "name": "Measles virus H"
+  },
+  {
+    "slug": "hantaan_virus_gn",
+    "status": "low_n",
+    "n_raw": 1,
+    "name": "Hantaan virus Gn"
+  },
+  {
+    "slug": "cchf_virus_gc",
+    "status": "low_n",
+    "n_raw": 0,
+    "name": "CCHF virus Gc"
+  },
+  {
+    "slug": "nipah_virus_g",
+    "status": "ok",
+    "n": 110,
+    "L": 602,
+    "name": "Nipah virus G"
+  },
+  {
+    "slug": "hendra_virus_g",
+    "status": "ok",
+    "n": 77,
+    "L": 604,
+    "name": "Hendra virus G"
+  },
+  {
+    "slug": "marburg_virus_gp",
+    "status": "ok",
+    "n": 121,
+    "L": 871,
+    "name": "Marburg virus GP"
+  },
+  {
+    "slug": "rift_valley_fever_virus_gn",
+    "status": "low_n",
+    "n_raw": 6,
+    "name": "Rift Valley fever virus Gn"
+  },
+  {
+    "slug": "sin_nombre_virus_gn",
+    "status": "low_n",
+    "n_raw": 1,
+    "name": "Sin Nombre virus Gn"
+  },
+  {
+    "slug": "hcov-nl63_spike",
+    "status": "ok",
+    "n": 398,
+    "L": 1356,
+    "name": "HCoV-NL63 spike"
+  },
+  {
+    "slug": "hcov-229e_spike",
+    "status": "ok",
+    "n": 426,
+    "L": 1173,
+    "name": "HCoV-229E spike"
+  },
+  {
+    "slug": "sapovirus_vp1",
+    "status": "low_n",
+    "n_raw": 7,
+    "name": "Sapovirus VP1"
+  },
+  {
+    "slug": "astrovirus_capsid",
+    "status": "low_n",
+    "n_raw": 0,
+    "name": "Astrovirus capsid"
+  }
+]
