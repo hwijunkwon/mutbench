@@ -30,104 +30,8 @@ This diversity ensures that the benchmark evaluates method performance across a 
 Zika virus was considered but excluded from the Stage~2 benchmark because only 52 unique E protein sequences were available in GenBank, insufficient for reliable per-position frequency and entropy estimation; Zika is included in the supplementary 12-pathogen feature analysis (Section~\ref{sec:information_analysis}).
 
 \medskip
-\noindent\textbf{Per-pathogen descriptions.}
-The following paragraphs describe each pathogen in the order listed above, grouped by transmission route.
-
-\medskip
-\noindent\textit{Respiratory viruses.}
-
-\paragraph{SARS-CoV-2 (Spike, 1,259 AA).}
-A betacoronavirus (family \textit{Coronaviridae}) that caused the COVID-19 pandemic (2019--present), SARS-CoV-2 serves as the primary reference pathogen for this benchmark.
-The Spike protein mediates ACE2 receptor binding and membrane fusion for cell entry, and is the principal target of vaccines and neutralizing antibodies, making it the most extensively characterized viral surface protein in history.
-SARS-CoV-2 evolves at ${\sim}1 \times 10^{-3}$ substitutions/site/year for the Spike gene, with its relatively shallow pandemic phylogeny ($\sim$5 years in our dataset, 2019--2024) creating strong founder effects (e.g., D614G) while convergent evolution at immune evasion sites (E484K, N501Y) provides clear Layer~A ground truth.
-The low unique sequence ratio (753/4,982 = 15.1\%) reflects massive sequencing of identical or near-identical lineages during the early pandemic.
-DMS data are available from Dadonaite et al.\ (2024), covering the full Spike protein entry assay.
-SARS-CoV-2 was selected as the anchor pathogen because it offers the richest ground truth data across all three layers.
-
-\paragraph{MERS-CoV (Spike, 1,330 AA).}
-A betacoronavirus (family \textit{Coronaviridae}) first identified in Saudi Arabia in 2012 and causing Middle East Respiratory Syndrome, MERS-CoV has a case fatality rate of $\sim$35\%, far exceeding that of SARS-CoV-2.
-The Spike protein binds the DPP4 (CD26) receptor for cell entry; its receptor-binding domain is the primary target for therapeutic antibody development.
-MERS-CoV evolves more slowly than SARS-CoV-2, with a substitution rate of ${\sim}0.9 \times 10^{-3}$ substitutions/site/year, and sporadic zoonotic spillovers from dromedary camels produce limited human-to-human transmission chains.
-The moderate unique ratio (530/1,311 = 40.4\%) reflects both camel reservoir diversity and repeated independent introductions.
-MERS-CoV was selected to provide a coronavirus comparator with a different receptor target and a fundamentally different epidemiological pattern (sporadic zoonotic vs.\ sustained pandemic).
-
-\paragraph{RSV (F protein, 550 AA).}
-Respiratory Syncytial Virus (family \textit{Pneumoviridae}) is the leading cause of lower respiratory tract infections in infants and a major cause of hospitalization in the elderly.
-The Fusion (F) protein mediates membrane fusion during cell entry and is the target of the recently approved monoclonal antibody nirsevimab and the prefusion-stabilized vaccines (2023).
-RSV-A and RSV-B co-circulate with a nucleotide substitution rate of ${\sim}1.5 \times 10^{-3}$ substitutions/site/year in the F gene; antigenic variation is more limited than influenza, with most escape mutations concentrated in antigenic site~0.
-The high unique ratio (4,779/5,070 = 94.3\%) indicates substantial sequence diversity across global surveillance, with minimal identical sequences despite the relatively conserved F protein.
-RSV was selected because its high sequence count and recent vaccine development provide both statistical power and clinical relevance for benchmarking.
-
-\paragraph{Influenza A H3N2 (HA, 543 AA).}
-Influenza A H3N2 (family \textit{Orthomyxoviridae}) has circulated in humans since the 1968 pandemic and remains a major driver of seasonal influenza morbidity and mortality.
-The hemagglutinin (HA) protein mediates sialic acid receptor binding and is the primary target of neutralizing antibodies and seasonal vaccines; its five antigenic sites (A--E) accumulate substitutions that necessitate biannual vaccine strain updates.
-H3N2 exhibits rapid antigenic drift at ${\sim}4 \times 10^{-3}$ substitutions/site/year in HA, one of the highest rates among RNA viruses, driven by strong immune selection on the globular head domain.
-The very high unique ratio (2,562/2,644 = 96.9\%) reflects decades of antigenic diversification with few identical sequences.
-H3N2 was selected as the archetypal rapidly drifting pathogen whose well-characterized antigenic sites provide robust Layer~A ground truth.
-
-\paragraph{Influenza B (HA, 560 AA; Victoria and Yamagata lineages, mixed).}
-Influenza B virus (family \textit{Orthomyxoviridae}) co-circulates with influenza A and contributes substantially to seasonal epidemic burden, particularly in children.
-The HA protein serves the same receptor-binding and membrane fusion roles as in influenza A, but Influenza B evolves more slowly (${\sim}2 \times 10^{-3}$ substitutions/site/year) with two co-circulating lineages (Victoria and Yamagata) that diverged in the 1980s.
-The reference accession used in this benchmark, \texttt{CY018765} (B/Florida/4/2006), is a Yamagata-lineage HA, but the per-pathogen FASTA download from GenBank (Section~\ref{subsec:9pathogen_data} above and Table~\ref{tab:pathogen_data}) was \emph{not} stratified by lineage: the resulting MSA contains both Victoria and Yamagata sequences pooled together, and per-position frequency/entropy/scoring were computed on this combined alignment.
-This pooling is an explicit modeling choice (the MutBench design treats each pathogen as a single per-position scoring problem) but it has the known consequence that lineage-defining substitutions appear as high-frequency positions in the combined MSA; we revisit this stratification gap as a limitation in Chapter~\ref{ch:discussion} (Section~\ref{sec:gt_heterogeneity}, sub-lineage paragraph), where we note that an Influenza~B Victoria-only and Yamagata-only re-run is queued as a sensitivity analysis but is not part of this dissertation's reported headline.
-The very high unique ratio (5,019/5,325 = 94.3\%) reflects long-term co-circulation of both lineages and accumulation of distinct mutations.
-Influenza B was selected to contrast with H3N2: both are segmented negative-sense RNA viruses targeting HA, but Influenza B's slower drift rate and dual-lineage structure test whether detection methods generalize across different evolutionary tempos within the same virus family.
-
-\medskip
-\noindent\textit{Blood-borne/sexually transmitted viruses.}
-
-\paragraph{HIV-1 (Env gp120, 450 AA).}
-Human Immunodeficiency Virus type~1 (family \textit{Retroviridae}) is the causative agent of AIDS and remains a major global health burden with $\sim$39 million people living with HIV.
-The Env gp120 subunit mediates CD4 receptor and co-receptor (CCR5/CXCR4) binding; its extraordinary sequence variability, driven by an error-prone reverse transcriptase, has prevented effective vaccine development for decades.
-HIV-1 mutates at ${\sim}2.5 \times 10^{-3}$ substitutions/site/year (one of the highest rates among the benchmark pathogens; EV-A71 is comparable~\cite{sanjuan2010viral}), with extensive within-host and between-host diversity generating up to 35\% amino acid divergence across subtypes.
-The unique ratio (2,256/3,000 = 75.2\%) reflects high inter-subtype diversity.
-HIV-1 was selected as the extreme end of the mutation rate spectrum, testing whether detection methods remain effective under very high sequence diversity where nearly every position is variable.
-
-\paragraph{HCV (E2, 340 AA).}
-Hepatitis C Virus (family \textit{Flaviviridae}) causes chronic liver infection affecting $\sim$58 million people worldwide, leading to cirrhosis and hepatocellular carcinoma.
-The E2 glycoprotein mediates CD81 receptor binding and is the primary target of neutralizing antibodies; its hypervariable region~1 (HVR1, residues 384--410) is the most variable segment in the entire HCV genome and serves as a decoy for the immune system.
-HCV evolves at ${\sim}1 \times 10^{-3}$ substitutions/site/year, with diversifying selection concentrated in HVR1 while the CD81 binding residues remain conserved.
-The moderate unique ratio (1,067/1,362 = 78.3\%) reflects inter-genotype diversity across the seven major HCV genotypes.
-HCV was selected because its well-defined hypervariable and conserved regions provide clear positive and negative controls for hotspot detection accuracy.
-
-\medskip
-\noindent\textit{Enteric virus.}
-
-\paragraph{Norovirus (VP1, 536 AA).}
-Norovirus (family \textit{Caliciviridae}) is the leading cause of acute viral gastroenteritis worldwide, responsible for $\sim$685 million cases annually.
-The VP1 capsid protein forms the viral shell and contains the protruding (P) domain that binds histo-blood group antigens (HBGAs) for cell attachment; antigenic variation in the P2 subdomain drives immune escape.
-Norovirus GII.4 exhibits epochal evolution, with long periods of stasis punctuated by the emergence of antigenically novel pandemic variants every 2--4 years, at a substitution rate of ${\sim}2 \times 10^{-3}$ substitutions/site/year.
-The moderate unique ratio (791/1,500 = 52.7\%) reflects this epochal pattern, where many sequences within each epoch are nearly identical.
-Norovirus was selected to test detection method performance under epochal evolutionary dynamics, a qualitatively different regime from the continuous antigenic drift of influenza.
-
-\medskip
-\noindent\textit{Arthropod-borne virus.}
-
-\paragraph{Dengue (E protein, 490 AA).}
-Dengue virus (family \textit{Flaviviridae}) is transmitted by \textit{Aedes} mosquitoes and causes $\sim$390 million infections per year across tropical and subtropical regions, with severe forms including hemorrhagic fever and shock syndrome.
-The E protein mediates receptor binding and membrane fusion; it contains three structural domains (DI--DIII) with domain~III harboring the primary neutralizing epitopes that differ across the four serotypes (DENV-1 through DENV-4).
-Dengue evolves at ${\sim}7.6 \times 10^{-4}$ substitutions/site/year, slower than the respiratory viruses, with inter-serotype divergence reaching $\sim$30\% at the amino acid level while intra-serotype diversity is more limited.
-The moderate unique ratio (796/2,000 = 39.8\%) reflects the inclusion of multiple serotypes with substantial inter-serotype but limited intra-serotype diversity.
-Dengue was selected because the four-serotype structure provides a natural test of whether detection methods can distinguish serotype-defining positions from true adaptive hotspots.
-
-\medskip
-\noindent\textit{Neurotropic viruses.}
-
-\paragraph{Rabies (G protein, 491 AA).}
-Rabies virus (family \textit{Rhabdoviridae}) causes fatal encephalitis in mammals with a near-100\% case fatality rate once symptoms appear, killing $\sim$59,000 people annually, predominantly in Asia and Africa.
-The G protein is the sole surface glycoprotein, mediating receptor binding (nicotinic acetylcholine receptor, NCAM, p75NTR) and membrane fusion; it is the only target of virus-neutralizing antibodies and the sole component of current vaccines.
-Rabies evolves slowly at ${\sim}4 \times 10^{-4}$ substitutions/site/year, reflecting strong purifying selection on the G protein and limited immune-driven diversification due to the virus's rapid lethality (hosts die before mounting sustained immune responses).
-The unique ratio is 100\% (2,038/2,038), indicating that every sampled sequence is distinct, consistent with long-term diversification across geographically isolated reservoir hosts (dogs, bats, raccoons).
-Rabies was selected as a slowly evolving pathogen with strong purifying selection, testing whether detection methods can identify the few positively selected sites against a highly conserved background.
-DMS data are available for the G protein.
-
-\paragraph{EV-A71 (VP1, 261 AA).}
-Enterovirus A71 (family \textit{Picornaviridae}) causes hand, foot, and mouth disease in children, with periodic outbreaks of severe neurological complications including brainstem encephalitis and acute flaccid paralysis, particularly in the Asia-Pacific region.
-The VP1 capsid protein contains the major neutralization epitopes including the BC loop, and determines viral serotype and receptor binding specificity.
-EV-A71 evolves at ${\sim}4.5 \times 10^{-3}$ substitutions/site/year, comparable to influenza, with frequent genotype replacement (B1--B5, C1--C5) driven by population immunity.
-The unique ratio is 100\% (662/662) and the protein is the shortest in the benchmark at 261~AA (post-truncation), providing a test case for detection methods on short, highly diverse sequences where statistical power is limited.
-EV-A71 was selected to evaluate detection performance at the lower end of alignment length, where the small number of positions amplifies the difficulty of distinguishing true hotspots from noise.
-DMS data are available for VP1.
+\noindent\textbf{Per-pathogen biological context.}
+The 11 pathogens span 8 ICTV viral families and four transmission routes (respiratory, blood-borne/sexually transmitted, enteric, arthropod-borne and neurotropic), with substitution rates from $\sim 4 \times 10^{-4}$ (Rabies, slow purifying-selected G protein) to $\sim 4$--$4.5 \times 10^{-3}$ (H3N2 HA antigenic drift, EV-A71 VP1) substitutions/site/year and unique-sequence ratios from $15.1\%$ (SARS-CoV-2 Spike, dominated by near-identical pandemic lineages) to $100\%$ (Rabies G, EV-A71 VP1; Table~\ref{tab:pathogen_data}). Five biological points are load-bearing for the benchmark and re-appear in the Layer~A construction (Section~\ref{subsec:layer_a}, Table~\ref{tab:gt_positions}) and in the discussion of pathogen-specific best-method patterns: (i)~SARS-CoV-2 Spike's shallow pandemic phylogeny ($\sim$5 years) creates strong founder effects (D614G) alongside convergent immune-escape sites (E484K, N501Y), making it the richest three-layer ground-truth pathogen and the Stage~1 anchor; (ii)~H3N2 HA exhibits the canonical five antigenic sites (A--E) under continuous immune-driven drift, providing the most homogeneous Layer~A construction; (iii)~Influenza~B is pooled across the Victoria and Yamagata lineages (reference \texttt{CY018765} is a Yamagata HA), so lineage-defining substitutions appear as high-frequency positions in the combined MSA---a stratification gap revisited in Chapter~\ref{ch:discussion} Section~\ref{sec:gt_heterogeneity}; (iv)~HCV E2 carries the prototypical hypervariable region (HVR1, residues 384--410) under diversifying selection while the CD81-binding residues remain conserved, providing built-in positive/negative controls and motivating the HCV-only ANOVA sensitivity analysis ($\omega^2 = 0.246$, Section~\ref{subsec:anova_diagnostics}); (v)~Norovirus VP1 evolves under epochal selection at the GII.4 P2 subdomain, generating the cleanest convergent-evolution Layer~A signal in the panel (homoplasy AUC 0.944). DMS Layer~C data are available for SARS-CoV-2, H3N2, HIV-1, RSV, Rabies, and EV-A71. Zika was considered but excluded from the Stage~2 benchmark (only $52$ unique E-protein sequences); it is included in the supplementary 12-pathogen feature analysis (Section~\ref{sec:information_analysis}).
 
 \medskip
 FASTA sequences for each pathogen were collected from NCBI GenBank by querying each target protein name (e.g., ``SARS-CoV-2 spike glycoprotein'') with filters for complete coding sequences, excluding partial sequences and laboratory-derived constructs. The benchmark scope is the \emph{single-position regime within the coding region of the surface glycoprotein only}: 5$'$/3$'$ UTRs, IRES elements, polyprotein-cleavage junctions outside the assayed protein boundary (e.g., HCV E2 outside the 340-AA evaluated alignment), pseudogenes, and non-coding selection signals are explicitly out of scope and are not represented in any per-position scoring vector. For HCV the polyprotein structure means only the E2 region under the literature-curated alignment window is evaluated; CD81-binding regions reported in polyprotein numbering outside this window are noted in Table~\ref{tab:gt_positions} but not converted into Layer~A/B labels. No date range restriction was applied; all available sequences as of the per-pathogen query dates listed in Table~\ref{tab:pathogen_data} (column ``Query date''; all queries fell within the 2024-11 to 2024-12 window) were downloaded. As an illustrative example, the SARS-CoV-2 Spike query executed via NCBI E-utilities on 2024-12-09 was \texttt{(``Severe acute respiratory syndrome coronavirus 2''[Organism] OR txid2697049[Organism]) AND spike[Gene Name] AND ``complete cds''[Properties] NOT (partial[Title] OR laboratory[Title])} with a length filter of 3{,}500--4{,}000~nt; analogous query strings for the remaining ten pathogens (organism/taxon ID, gene/product filter, length window, exclusion clauses) are archived verbatim in \texttt{results/mutbench/provenance/genbank\_queries.csv} so that any reader can reproduce the per-pathogen sequence sets to within the inevitable GenBank submission drift after the recorded query date. Sequences with $>$5\% ambiguous bases (N) were removed, and identical (100\% identity) sequences were deduplicated using a self-implemented Python hashing pass (canonical-uppercase amino-acid string $\to$ SHA-256), which is functionally equivalent to running CD-HIT~\cite{fu2012cdhit} or MMseqs2~\cite{steinegger2017mmseqs2} at a 100\% identity threshold for exact-duplicate removal because at the 100\%-identity setting both tools reduce to exact-string deduplication (no partial-match scoring), so the SHA-256 hash and the tool output produce \emph{arithmetically identical} unique-sequence sets and the choice avoids an additional dependency in the reproducibility environment. Clustering at $<$100\% identity (e.g., the 0.95--0.99 thresholds typically used with CD-HIT-EST/MMseqs2 \texttt{easy-cluster}) was \emph{not} applied, so near-duplicate but non-identical sequences were retained intentionally to preserve per-position frequency and entropy estimates. HMM-based homology filtering (HMMER~\cite{eddy2011hmmer}, \texttt{phmmer}/\texttt{hmmsearch}) was likewise \emph{not} applied: the GenBank query already restricts retrieval to gene-name and ``complete cds'' flags, and any frame-shift or partial-domain mis-annotations passing those flags are bounded by the post-MAFFT minimum-length truncation step (Section below); a follow-up HMMER profile-screen pass against a per-pathogen reference HMM is queued for the next data-curation cycle. The ``Unique seq.'' column in Table~\ref{tab:pathogen_data} reflects post-deduplication counts under the 100\% identity threshold. Multiple sequence alignment (MSA) was performed for each surface protein (SARS-CoV-2: Spike, H3N2: HA, HIV-1: Env gp120, etc.) using MAFFT v7.505~\cite{katoh2013mafft} with the \texttt{--auto} mode, followed by computation of per-position mutation frequency and entropy.
@@ -291,6 +195,7 @@ Layer~C asks ``what is the measurable functional impact of mutations at this pos
 This separation means each layer provides a non-redundant perspective: Layer~A captures literature-curated adaptive or diversifying evidence that DMS cannot always provide, while Layer~C captures functional effects that may not yet be visible in surveillance-derived annotations.
 
 \subsubsection{Layer A: Adaptive Positive Selection}
+\label{subsec:layer_a}
 
 Layer~A positions are literature-curated adaptive or diversifying positions treated as hotspot positives.
 For pathogens where convergent-evolution evidence is available, positions where mutations recurrently arose in multiple independent lineages \textit{within the same viral species} are classified as hotspots under positive selection.
