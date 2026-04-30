@@ -28,17 +28,21 @@ A fold (held-out pathogen) is **callable** for a candidate method (3-core primar
 |---|---|---|
 | **D1: top-decile separation** | For each training pathogen, top-decile minus bottom-decile Layer A prevalence with 1{,}000-resample bootstrap CI. Method passes if **the lower CI bound > 0.02 AND the point estimate > 0.05** for ≥7/11 training pathogens. (Inner LOO sweep tests sensitivity to the 7/11 quorum.) | lower CI > 0.02; point > 0.05; quorum ≥ 7/11 |
 | **D2: null-adjusted enrichment** | For each training pathogen, observed top-decile enrichment ÷ mean null top-decile enrichment under 10{,}000 iid prevalence-preserving permutations. 1{,}000-resample bootstrap over training pathogens of this ratio. Method passes if **lower 95% bootstrap bound > 1.10**. | bootstrap lower > 1.10 |
-| **D3: perturbation stability** | For each training pathogen, 200 perturbations: (a) jitter feature z-scores by per-feature SD × 0.10 (training-estimated measurement noise proxy), (b) re-fit signs on bootstrap of training pathogens. Compute Jaccard overlap of top-10% callsets across pairs of perturbations. Method passes if **median Jaccard ≥ 0.60 AND 10th percentile ≥ 0.40** aggregated over the 11 training pathogens. | median ≥ 0.60; 10th pct ≥ 0.40 |
-| **D4: sparse-label red flag (held-out characteristic)** | The held-out pathogen has at least **10 Layer A positives**, at least **200 rankable positions**, and Layer A prevalence between **1% and 20%**. Uses no scores or held-out labels in the decision (just counts + sequence length). | ≥10 pos, ≥200 pos, prev ∈ [1%, 20%] |
+| **D3: perturbation stability** | For each training pathogen, 200 perturbations: (a) jitter feature z-scores by per-feature SD × 0.10 as a **fixed stability stress perturbation** (replace with empirical measurement variance only if available before execution; we do not have such estimates so the stress magnitude is treated as predeclared), (b) re-fit signs on bootstrap of training pathogens. **Both** components are applied jointly per perturbation to capture rank and sign uncertainty. Compute Jaccard overlap of top-10% callsets across pairs of perturbations. Method passes if **median Jaccard ≥ 0.60 AND 10th percentile ≥ 0.40** aggregated over the 11 training pathogens. | median ≥ 0.60; 10th pct ≥ 0.40 |
+| **D4: sparse-label red flag (held-out annotation-density metadata only)** | The held-out pathogen has at least **10 Layer A positives**, at least **200 rankable positions**, and Layer A prevalence between **1% and 20%**. **Uses only held-out annotation-density metadata: positive count, rankable-site count, and prevalence; no held-out scores, ranks, MCC, enrichment, or p-values.** | ≥10 pos, ≥200 pos, prev ∈ [1%, 20%] |
 
-### Inversion guardrail
+### Inversion guardrail (per-method)
 
-For the 11 training pathogens, compute top-vs-bottom decile delta + bootstrap 95% CI per pathogen and median Spearman ρ across decile prevalence. **If ≥2 training pathogens have CI upper bound < 0 OR median Spearman ρ ≤ 0**, the candidate method is **not callable for this fold family** regardless of D1–D4.
+For the 11 training pathogens, compute top-vs-bottom decile delta + bootstrap 95% CI per pathogen and median Spearman ρ across decile prevalence. **If ≥2 training pathogens have CI upper bound < 0 OR median Spearman ρ ≤ 0**, the candidate method is **not callable for this fold-method pair** regardless of D1–D4. The guardrail is applied separately to 3-core and 4-core (a 3-core rule is not forced to abstain merely because the historical 4-core inverts on the same fold). **Also record an interpretive `any_method_inversion` flag for the fold** (1 if either method fired the guardrail) for analysis only — this flag does NOT affect callability.
 
 ### Endpoints
 
-- **Primary:** mean MCC and sum TP@budget=50 on callable held-out pathogens, with the count and identity of abstained pathogens reported in the same table.
-- **Secondary:** coverage-performance tradeoff — callable fraction (n_callable / 12), MCC on callable, TP@50 on callable, vs the alternative of "always-deploy + random allocation on abstained."
+- **Primary:** mean MCC and **sum TP@budget=50** on callable held-out pathogens, with the count and identity of abstained pathogens reported in the same table.
+- **Secondary:**
+  - Decision curves at budgets {**TP@20, TP@50, TP@80**} on callable pathogens (TP@50 primary; TP@20 and TP@80 show whether the conclusion depends on one arbitrary review budget).
+  - Coverage-performance tradeoff — callable fraction (n_callable / 12), MCC on callable, TP@{20,50,80} on callable.
+  - **Policy baseline (not a competing model):** "always-deploy on all 12 + random allocation on abstained" — labelled clearly as a deployment policy comparison, not as model evidence.
+  - **Per-pathogen abstention reason** (which of D1, D2, D3, D4, inversion failed) reported in the per-pathogen CSV.
 
 ---
 
@@ -50,7 +54,7 @@ For the 11 training pathogens, compute top-vs-bottom decile delta + bootstrap 95
 
 **New result subdir (created):** `results/mutbench/codex_wave2/`
 - `p5_diagnostics_per_fold.csv` — 12 folds × 2 methods × 4 diagnostics + guardrail (24 rows × ~20 columns)
-- `p5_callable_decisions.csv` — 24 rows: pathogen, method, D1 pass, D2 pass, D3 pass, D4 pass, inversion fired, callable status, observed MCC, observed TP@50
+- `p5_callable_decisions.csv` — 24 rows: pathogen, method, **d1_pass, d2_pass, d3_pass, d4_pass, inversion_pass** (boolean), **d1_fail, d2_fail, d3_fail, d4_fail, inversion_fail** (boolean negations for clarity), **abstention_reason** (compact string listing failed criteria), callable status, observed MCC, observed_tp20, observed_tp50, observed_tp80, **any_method_inversion** (interpretive flag)
 - `p5_endpoint_summary.csv` — primary + secondary endpoints per method
 - `p5_inner_loo_sweep.csv` — sensitivity sweep (rows: quorum × lower-bound × method, columns: callable count, mean MCC, etc.)
 - `p5_callable_subset.png` — figure: per-fold diagnostic bars + callable status
@@ -177,8 +181,12 @@ For each LOPO fold (held-out p_k, training = 11 others):
             upper<0 OR median <= 0 -> not callable)
       - Callable = D1 AND D2 AND D3 AND D4 AND NOT(inversion)
       - If callable: deploy method on held-out; record observed MCC,
-            top-20 precision, TP@50 (via decision curve), enrichment.
-        If abstained: record D-failure cause; do not deploy.
+            TP@20, TP@50, TP@80 (decision curve at three budgets), and
+            per-pathogen enrichment.
+        If abstained: record D-failure cause via `abstention_reason`;
+            DO NOT short-circuit early — emit ALL diagnostic component
+            values even when an early criterion fails (no hidden
+            short-circuit behavior).
 Aggregate:
   - Primary: mean MCC + sum TP@50 on callable; identity + count on abstained.
   - Secondary: callable fraction; "always-deploy + random on abstained" baseline.
@@ -236,7 +244,7 @@ for m in ['3-core', '4-core']:
 "
 ```
 
-Cross-check against P1: the callable set should overlap meaningfully with P1's 5 iid-significant pathogens (Norovirus, Influenza_B, H3N2, HCV, Dengue), not be wildly different. If the overlap is poor (e.g. 0/5), inspect the diagnostic implementation.
+Cross-check against P1 — **qualitative implementation sanity check only; this is NOT a pass/fail criterion**. The callable set may overlap with P1's 5 iid-significant pathogens (Norovirus, Influenza_B, H3N2, HCV, Dengue), but P5 uses a different operationalisation (callability via training-set diagnostics; P1 used per-pathogen one-sided null tests). If overlap is 0/5, inspect for coding errors or diagnostic mismatch; if the implementation is correct, report the divergence transparently rather than retrofitting thresholds.
 
 - [ ] **Step 5: Document**
 
@@ -258,9 +266,9 @@ git -C /proj/paper commit -m "feat: v188 — Wave 2 P5 callability/abstention ru
 
 ---
 
-## Task 3: Sensitivity sweep over D1 quorum and D2 lower bound (inner LOO)
+## Task 3: Predeclared threshold sensitivity sweep (D1 quorum × D2 lower bound)
 
-**Why:** Codex spec says "thresholds below are fixed defaults unless the inner loop chooses stricter thresholds." The sweep verifies that the default thresholds (7/11, 1.10) are not the only configuration that gives a sensible callable set, and reports robustness.
+**Why:** The 4-of-4 default thresholds are predeclared. This task runs a **predeclared sensitivity sweep** (NOT inner LOO threshold selection — we do not choose stricter thresholds adaptively from inner training data) to report robustness of the callable count + MCC across reasonable threshold neighborhoods. **Per codex Wave 2 review §Q3:** D3 thresholds, D4 prevalence band, and inversion count are NOT swept (would multiply researcher degrees of freedom). Default thresholds are NOT replaced after seeing outer callable performance.
 
 **Files:**
 - Create: `scripts/codex_p5_inner_loo_sweep.py`
