@@ -1,0 +1,63 @@
+MutBench P5: Callability / abstention rule
+============================================================
+Pathogens: ['SARS-CoV-2', 'H3N2', 'Norovirus', 'HIV-1', 'Dengue', 'RSV', 'Influenza_B', 'MERS', 'HCV', 'Zika', 'Rabies', 'EV-A71']
+
+[1/12] Fold: SARS-CoV-2
+  3-core: callable=0 D1=0(5/11) D2=0(lo=1.06) D3=1(med=0.85,p10=0.49) D4=1(npos=25,prev=0.020) INV=1(neg=0,rho=0.50) reason=D1,D2 MCC=0.001 TP@50=1
+  4-core: callable=0 D1=0(4/11) D2=0(lo=0.99) D3=0(med=0.55,p10=0.35) D4=1(npos=25,prev=0.020) INV=1(neg=0,rho=0.37) reason=D1,D2,D3 MCC=-0.010 TP@50=1
+
+[2/12] Fold: H3N2
+  3-core: callable=0 D1=0(5/10) D2=0(lo=0.95) D3=1(med=0.85,p10=0.52) D4=1(npos=25,prev=0.046) INV=1(neg=0,rho=0.47) reason=D1,D2 MCC=0.072 TP@50=5
+  4-core: callable=0 D1=0(3/11) D2=0(lo=0.82) D3=0(med=0.64,p10=0.30) D4=1(npos=25,prev=0.046) INV=1(neg=0,rho=0.13) reason=D1,D2,D3 MCC=0.159 TP@50=7
+
+[3/12] Fold: Norovirus
+  3-core: callable=0 D1=0(4/10) D2=0(lo=0.91) D3=0(med=0.85,p10=0.39) D4=1(npos=15,prev=0.028) INV=1(neg=0,rho=0.47) reason=D1,D2,D3 MCC=0.394 TP@50=12
+  4-core: callable=0 D1=0(3/11) D2=0(lo=0.77) D3=0(med=0.44,p10=0.29) D4=1(npos=15,prev=0.028) INV=1(neg=0,rho=0.13) reason=D1,D2,D3 MCC=0.432 TP@50=13
+
+[4/12] Fold: HIV-1
+  3-core: callable=0 D1=0(4/10) D2=0(lo=1.00) D3=1(med=0.89,p10=0.54) D4=1(npos=23,prev=0.051) INV=1(neg=0,rho=0.47) reason=D1,D2 MCC=0.091 TP@50=7
+  4-core: callable=0 D1=0(4/11) D2=0(lo=0.96) D3=0(med=0.59,p10=0.35) D4=1(npos=23,prev=0.051) INV=1(neg=0,rho=0.13) reason=D1,D2,D3 MCC=-0.010 TP@50=2
+
+[5/12] Fold: Dengue
+  3-core: callable=0 D1=0(4/10) D2=0(lo=0.94) D3=1(med=0.89,p10=0.54) D4=1(npos=24,prev=0.049) INV=1(neg=0,rho=0.47) reason=D1,D2 MCC=0.113 TP@50=6
+  4-core: callable=0 D1=0(3/11) D2=0(lo=0.83) D3=0(med=0.61,p10=0.35) D4=1(npos=24,prev=0.049) INV=1(neg=0,rho=0.13) reason=D1,D2,D3 MCC=0.145 TP@50=8
+
+[6/12] Fold: RSV
+  3-core: callable=0 D1=0(5/10) D2=1(lo=1.29) D3=1(med=0.85,p10=0.51) D4=1(npos=20,prev=0.036) INV=1(neg=0,rho=0.53) reason=D1 MCC=-0.065 TP@50=0
+  4-core: callable=0 D1=0(4/11) D2=0(lo=1.06) D3=0(med=0.57,p10=0.30) D4=1(npos=20,prev=0.036) INV=1(neg=0,rho=0.37) reason=D1,D2,D3 MCC=-0.065 TP@50=0
+
+[7/12] Fold: Influenza_B
+  3-core: callable=0 D1=0(3/10) D2=0(lo=0.92) D3=1(med=0.89,p10=0.52) D4=1(npos=17,prev=0.030) INV=1(neg=0,rho=0.47) reason=D1,D2 MCC=0.219 TP@50=7
+  4-core: callable=0 D1=0(3/11) D2=0(lo=0.79) D3=0(med=0.59,p10=0.37) D4=1(npos=17,prev=0.030) INV=1(neg=0,rho=0.13) reason=D1,D2,D3 MCC=0.219 TP@50=7
+
+[8/12] Fold: MERS
+  3-core: callable=0 D1=0(5/10) D2=1(lo=1.29) D3=1(med=0.93,p10=0.89) D4=0(npos=9,prev=0.007) INV=1(neg=0,rho=0.53) reason=D1,D4 MCC=-0.028 TP@50=0
+  4-core: callable=0 D1=0(5/11) D2=1(lo=1.36) D3=1(med=0.78,p10=0.54) D4=0(npos=9,prev=0.007) INV=0(neg=2,rho=0.37) reason=D1,D4,INV MCC=-0.028 TP@50=0
+
+[9/12] Fold: HCV
+  3-core: callable=0 D1=0(4/10) D2=0(lo=0.98) D3=1(med=0.85,p10=0.49) D4=1(npos=54,prev=0.159) INV=1(neg=0,rho=0.53) reason=D1,D2 MCC=0.257 TP@50=20
+  4-core: callable=0 D1=0(4/11) D2=0(lo=0.91) D3=0(med=0.85,p10=0.31) D4=1(npos=54,prev=0.159) INV=1(neg=0,rho=0.13) reason=D1,D2,D3 MCC=0.150 TP@50=17
+
+[10/12] Fold: Zika
+  3-core: callable=0 D1=0(5/10) D2=1(lo=1.12) D3=1(med=0.89,p10=0.49) D4=1(npos=27,prev=0.060) INV=1(neg=0,rho=0.53) reason=D1 MCC=-0.016 TP@50=2
+  4-core: callable=0 D1=0(4/11) D2=0(lo=1.06) D3=0(med=0.61,p10=0.30) D4=1(npos=27,prev=0.060) INV=1(neg=0,rho=0.37) reason=D1,D2,D3 MCC=-0.023 TP@50=2
+
+[11/12] Fold: Rabies
+  3-core: callable=0 D1=0(4/10) D2=1(lo=1.13) D3=1(med=0.87,p10=0.75) D4=1(npos=39,prev=0.079) INV=1(neg=0,rho=0.53) reason=D1 MCC=-0.049 TP@50=2
+  4-core: callable=0 D1=0(5/11) D2=1(lo=1.24) D3=1(med=0.66,p10=0.44) D4=1(npos=39,prev=0.079) INV=1(neg=1,rho=0.37) reason=D1 MCC=-0.049 TP@50=2
+
+[12/12] Fold: EV-A71
+  3-core: callable=0 D1=0(4/10) D2=0(lo=1.02) D3=1(med=0.85,p10=0.54) D4=1(npos=27,prev=0.103) INV=1(neg=0,rho=0.49) reason=D1,D2 MCC=0.050 TP@50=6
+  4-core: callable=0 D1=0(4/11) D2=0(lo=0.96) D3=0(med=0.57,p10=0.35) D4=1(npos=27,prev=0.103) INV=1(neg=0,rho=0.37) reason=D1,D2,D3 MCC=0.050 TP@50=7
+
+=== Endpoint summary ===
+
+3-core: 0/12 callable
+  callable: []
+  abstained: ['SARS-CoV-2', 'H3N2', 'Norovirus', 'HIV-1', 'Dengue', 'RSV', 'Influenza_B', 'MERS', 'HCV', 'Zika', 'Rabies', 'EV-A71']
+
+4-core: 0/12 callable
+  callable: []
+  abstained: ['SARS-CoV-2', 'H3N2', 'Norovirus', 'HIV-1', 'Dengue', 'RSV', 'Influenza_B', 'MERS', 'HCV', 'Zika', 'Rabies', 'EV-A71']
+
+Done. Outputs: /proj/paper/results/mutbench/codex_wave2/p5_*
