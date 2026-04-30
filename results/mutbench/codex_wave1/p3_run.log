@@ -1,0 +1,51 @@
+MutBench P3: Full 2^10 lattice + formal Shapley
+============================================================
+Loaded 12 pathogens with valid Layer A: ['SARS-CoV-2', 'H3N2', 'Norovirus', 'HIV-1', 'Dengue', 'RSV', 'Influenza_B', 'MERS', 'HCV', 'Zika', 'Rabies', 'EV-A71']
+
+Fitting signs per fold (10 features × 12 folds = 120)...
+
+Computing full-10 baseline...
+  Full-10 mean MCC: 0.069754
+  Full-10 mean enrichment: 2.039459
+
+Enumerating 1023 subsets...
+  100/1023 ...
+  200/1023 ...
+  300/1023 ...
+  400/1023 ...
+  500/1023 ...
+  600/1023 ...
+  700/1023 ...
+  800/1023 ...
+  900/1023 ...
+  1000/1023 ...
+
+Computing formal Shapley over 10 features (v(empty)=0)...
+  [mean_mcc] sum(phi) = 0.069754, v(N) = 0.069754, diff = 0.00e+00
+  [mean_enrichment] sum(phi) = 2.039459, v(N) = 2.039459, diff = 0.00e+00
+
+Shapley table (sorted by MCC contribution):
+        feature  shapley_mcc  shapley_enrichment
+      homoplasy     0.029386            0.555287
+           freq     0.021997            0.342522
+        entropy     0.021886            0.366615
+     dnds_proxy     0.013689            0.233431
+semantic_change     0.003006            0.177958
+           sasa    -0.001115            0.174885
+       grantham    -0.001295            0.091480
+          plddt    -0.001501            0.165038
+      rare_freq    -0.001915            0.090522
+       esm2_llr    -0.014383           -0.158280
+
+4-core (entropy,freq,homoplasy,plddt):
+  mean_mcc = 0.0808818486
+  k = 4, features = freq,entropy,homoplasy,plddt
+  Expected (existing 210-combo CSV): 0.0808818486
+  |diff| = 0.00e+00
+  OK: exact match.
+
+4-core lattice rank: 87 / 1023 (sorted by mean_mcc desc)
+
+Wrote /proj/paper/results/mutbench/codex_wave1/p3_pareto_frontier.png
+
+Done. Lattice CSV: /proj/paper/results/mutbench/codex_wave1/p3_full_lattice_1023.csv (1023 rows)
