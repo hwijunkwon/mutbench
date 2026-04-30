@@ -17,8 +17,9 @@ Outputs:
   results/mutbench/ancova_omega_summary.csv
 
 The dissertation Section 3 ANCOVA paragraph cites this script for the
-claims pathogen main effect omega^2 0.108 -> ~0 and scoring x pathogen
-0.234 -> 0.264 after adjustment.
+claims pathogen main effect omega^2 0.108 -> "not in model" (replaced
+by the two pathogen-constant covariates) and scoring x pathogen
+0.234 -> 0.274, family x pathogen 0.080 -> 0.088 after adjustment.
 """
 
 import math
