@@ -1,0 +1,26 @@
+MutBench P2: Rank reliability + decision curves
+============================================================
+Loaded 12 pathogens
+Scoring all pathogen × method combinations...
+Computing per-decile prevalence + bootstrap CI...
+Fitting isotonic calibration per (method, fold)...
+Computing decision curves...
+
+=== Top-vs-bottom prevalence delta (positive = monotonic) ===
+        method  mean_delta  n_ci_excludes_zero  n_pathogens  mean_spearman
+        3-core    0.083809                   6           12       0.368240
+        4-core    0.063407                   5           12       0.282934
+  entropy-only    0.061690                   5           12       0.257895
+     freq-only    0.063557                   4           12       0.145722
+       full-10    0.042934                   7           12       0.294962
+homoplasy-only    0.039892                   3           12       0.355522
+        random    0.010709                   1           12      -0.040727
+
+Generating reliability figure...
+
+=== Headline numbers ===
+  4-core        : top-bot delta mean = +0.0634, CI excludes 0 in 5/12 pathogens, mean Spearman rho = +0.283, mean ECE = 0.035, sum TP@budget=50 = 66
+  3-core        : top-bot delta mean = +0.0838, CI excludes 0 in 6/12 pathogens, mean Spearman rho = +0.368, mean ECE = 0.037, sum TP@budget=50 = 68
+  full-10       : top-bot delta mean = +0.0429, CI excludes 0 in 7/12 pathogens, mean Spearman rho = +0.295, mean ECE = 0.032, sum TP@budget=50 = 60
+
+Done. Outputs in /proj/paper/results/mutbench/codex_wave1/p2_*
