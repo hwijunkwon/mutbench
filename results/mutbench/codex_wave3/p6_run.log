@@ -1,0 +1,27 @@
+P6 biological-realistic local nulls: n_perm=100000, workers=4
+==================================================================
+Pathogens: ['SARS-CoV-2', 'H3N2', 'Norovirus', 'HIV-1', 'Dengue', 'RSV', 'Influenza_B', 'MERS', 'HCV', 'Zika', 'Rabies', 'EV-A71']
+
+Running 96 jobs (n_perm=100000)...
+
+=== Per-null counts of individually significant pathogens (4-core MCC, p<0.05 one-sided) ===
+  sasa_strat               : 5/12 valid (12 total) — ['H3N2', 'Norovirus', 'Dengue', 'Influenza_B', 'HCV']
+  plddt_strat              : 5/12 valid (12 total) — ['H3N2', 'Norovirus', 'Dengue', 'Influenza_B', 'HCV']
+  sasa_freq_joint          : 4/12 valid (12 total) — ['H3N2', 'Norovirus', 'Dengue', 'Influenza_B']
+  plddt_ent_joint          : 4/12 valid (12 total) — ['H3N2', 'Norovirus', 'Dengue', 'Influenza_B']
+
+=== Per-null counts (3-core MCC, p<0.05 one-sided) ===
+  sasa_strat               : 5/12 valid (12 total) — ['H3N2', 'Norovirus', 'Dengue', 'Influenza_B', 'HCV']
+  plddt_strat              : 3/12 valid (12 total) — ['Norovirus', 'Influenza_B', 'HCV']
+  sasa_freq_joint          : 4/12 valid (12 total) — ['Norovirus', 'Dengue', 'Influenza_B', 'HCV']
+  plddt_ent_joint          : 3/12 valid (12 total) — ['Norovirus', 'Influenza_B', 'HCV']
+
+=== Norovirus survival across all four P6 nulls (4-core MCC, p<0.05 one-sided) ===
+  4-core MCC: 4/4 nulls passed
+    * sasa_strat                p=0.00001 (degen=False)
+    * plddt_strat               p=0.00001 (degen=False)
+    * sasa_freq_joint           p=0.00001 (degen=False)
+    * plddt_ent_joint           p=0.00001 (degen=False)
+  3-core MCC: 4/4 nulls passed
+
+Done. Outputs: /proj/paper/results/mutbench/codex_wave3/p6_null_*
