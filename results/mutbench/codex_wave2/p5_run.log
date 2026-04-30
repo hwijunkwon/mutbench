@@ -61,3 +61,29 @@ Pathogens: ['SARS-CoV-2', 'H3N2', 'Norovirus', 'HIV-1', 'Dengue', 'RSV', 'Influe
   abstained: ['SARS-CoV-2', 'H3N2', 'Norovirus', 'HIV-1', 'Dengue', 'RSV', 'Influenza_B', 'MERS', 'HCV', 'Zika', 'Rabies', 'EV-A71']
 
 Done. Outputs: /proj/paper/results/mutbench/codex_wave2/p5_*
+Predeclared threshold sensitivity sweep (D1 quorum × D2 lower bound)
+==============================================================================
+
+--- 3-core ---
+n_callable (rows: D1 quorum, cols: D2 lower bound)
+d2_lower_bound  1.05  1.10  1.20  1.50
+d1_quorum                             
+5                3.0   2.0   1.0   0.0
+6                0.0   0.0   0.0   0.0
+7                0.0   0.0   0.0   0.0
+8                0.0   0.0   0.0   0.0
+
+  Best config: quorum=5, lower=1.05: 3/12 callable, mean MCC = -0.0267, sum TP@50 = 3, callable: SARS-CoV-2;RSV;Zika
+
+--- 4-core ---
+n_callable (rows: D1 quorum, cols: D2 lower bound)
+d2_lower_bound  1.05  1.10  1.20  1.50
+d1_quorum                             
+5                1.0   1.0   1.0   0.0
+6                0.0   0.0   0.0   0.0
+7                0.0   0.0   0.0   0.0
+8                0.0   0.0   0.0   0.0
+
+  Best config: quorum=5, lower=1.05: 1/12 callable, mean MCC = -0.0491, sum TP@50 = 2, callable: Rabies
+
+Wrote /proj/paper/results/mutbench/codex_wave2/p5_threshold_sensitivity_sweep.csv

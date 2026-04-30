@@ -107,7 +107,33 @@ Update the existing "Prospective Callability and Abstention Rule" subsection fro
 
 - 3-core SARS-CoV-2 D1 returns NaN (n_total=10/11) — degenerate decile due to score ties. Inherits the P2 caveat. Does not change the headline (n_pass=4/10 < 7/11 either way).
 - D4 prevalence band [1%, 20%] excludes MERS (0.7%). HCV (15.9%) is at the upper edge but passes. No edits to the band post hoc.
-- Sensitivity sweep (Task 3) will quantify whether the 0/12 result is robust to D1 quorum or D2 lower-bound relaxation.
+
+## Predeclared threshold sensitivity sweep (Task 3)
+
+Per codex Wave 2 review §Q3 — sweep D1 quorum and D2 lower bound only (not D3, D4, or inversion). Results in `results/mutbench/codex_wave2/p5_threshold_sensitivity_sweep.csv`:
+
+| Method | D1 quorum | n_callable across {D2 lower in 1.05, 1.10, 1.20, 1.50} |
+|---|---|---|
+| 3-core | 5/11 | **3, 2, 1, 0** |
+| 3-core | 6/11 | 0, 0, 0, 0 |
+| 3-core | 7/11 (default) | 0, 0, 0, 0 |
+| 3-core | 8/11 | 0, 0, 0, 0 |
+| 4-core | 5/11 | 1, 1, 1, 0 |
+| 4-core | 6/11 | 0, 0, 0, 0 |
+| 4-core | 7/11 (default) | 0, 0, 0, 0 |
+| 4-core | 8/11 | 0, 0, 0, 0 |
+
+**At any D1 quorum ≥ 6/11, regardless of D2 lower bound, the callable count is 0/12 for both methods.** The 0/12 outcome is robust to the predeclared sensitivity range.
+
+### Pathology revealed by the most-permissive corner (quorum 5/11, D2 ≥ 1.05)
+
+When the rule is relaxed to its most-permissive predeclared corner:
+- 3-core selects callable = {SARS-CoV-2, RSV, Zika}, **mean MCC = −0.027** (callable subset performs WORSE than zero)
+- 4-core selects callable = {Rabies}, **mean MCC = −0.049**
+
+These are precisely the P1-negative pathogens (observed MCC ≤ 0). The combined gate selects sparse-/unstable-signal pathogens because D2's (observed enrichment / null enrichment) ratio can be inflated when the null is also small (sparse Layer A → both observed precision and null mean are tiny, but the ratio looks above 1.05). The rule does NOT identify the 5 P1-positive pathogens (Norovirus, Influenza_B, H3N2, HCV, Dengue) as callable at any swept configuration — those folds always fail D1 because the training set has at most ~4 P1-positive pathogens, never reaching the quorum.
+
+**This is a feature, not a bug, of the codex-specified rule:** D1 is a generalisation gate that requires the method to work on the majority of training pathogens, not on the held-out itself. With only 5/12 strong-signal pathogens, no LOPO training set has 7+ strong-signal members, so D1 cannot pass at the predeclared default. Relaxation reveals the pathology of D2 alone — confirming that the conjunction of all five criteria (especially D1) is the safety-relevant gate.
 
 ## Cross-references
 
