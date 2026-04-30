@@ -693,7 +693,67 @@ Features that are noise on average under uniform weighting (ESM-2, SASA) are the
 
 \paragraph{MutBench Cold-Start algorithm: a two-tier search-space reduction recipe.}
 \label{para:mutbench_algorithm}
-The empirical evidence above operationalises into a deployable algorithm with two tiers, complementary rather than redundant. \textbf{Tier 1 (cold-start, universal, ${\sim}10$~min CPU)} applies the canonical 4-feature ensemble when pathogen identity or family classification is unavailable: compute homoplasy (Fitch parsimony), pLDDT (optional, from AlphaFold/ESMFold), entropy and frequency from the MSA; combine via the uniform z-score ensemble $s_i = (1/4)\sum_{f \in \{\text{hom, pLDDT, ent, freq}\}} \mathrm{sign}(\hat s_f) \cdot z_{i,f}$ where $\hat s_f \in \{-1, +1\}$ is the training-fit directional sign (or pre-defined domain orientation, Section~\ref{subsubsec:equalweight_variants}); threshold at the top 10\% of ranked scores. The empirical anchor is the nested-LOPO mean MCC of $0.081$ vs.\ full-10 ensemble $0.070$ (paired delta $+0.011$, $95\%$~CI [$-0.018$, $+0.042$], sign-flip permutation $p = 0.61$; Table~\ref{tab:nested_lopo_4core}) and a $13/210$ rank under the exhaustive 4-of-10 subset audit (top $6.2\%$-tile; Table~\ref{tab:subset_selection_top10}); on the search-space-reduction task this Tier~1 recipe narrows ${\sim}1{,}000$ alignment positions to $20$--$80$ ($7$--$9\times$ enrichment for escape sites, Section~\ref{subsec:search_space_reduction}). \textbf{Tier 2 (family-adaptive acceleration, optional, requires ICTV family annotation)} substitutes the Tier 1 ensemble with the family-prior single-best scoring category from Table~\ref{tab:scoring_recommendation} (Coronaviridae $\to$ PLM, Orthomyxoviridae $\to$ FUBAR, Caliciviridae $\to$ homoplasy, Retroviridae $\to$ entropy, Flaviviridae $\to$ frequency, Pneumoviridae $\to$ ESM-2). Tier 2 is grounded in the same scoring~$\times$~pathogen interaction effect ($\omega^2 = 0.296$; phylogenetic block bootstrap at family level [0.202, 0.346]; Section~\ref{subsec:anova_diagnostics}) but is reported as \emph{provisional} rather than \emph{prescriptive}: the family priors are descriptive of the current 11-pathogen panel, not yet validated on held-out families, and within-family heterogeneity (SARS-CoV-2 vs.\ MERS within Coronaviridae; H3N2 vs.\ Influenza~B within Orthomyxoviridae) means the prior is a starting hypothesis, not a guarantee. When a novel pathogen's family is absent from Table~\ref{tab:scoring_recommendation}, the algorithm defaults to Tier 1. Validation of Tier 2 on held-out families is reserved as a Priority-3 deliverable contingent on the benchmark expanding beyond the current 11-pathogen Bolker-minimum panel (Chapter~\ref{ch:discussion}, Section~\ref{sec:limitations}).
+The empirical evidence above operationalises into a deployable algorithm with two tiers, complementary rather than redundant. \textbf{Tier 1 (cold-start, universal, ${\sim}10$~min CPU)} applies the canonical 4-feature ensemble when pathogen identity or family classification is unavailable: compute homoplasy (Fitch parsimony), pLDDT (optional, from AlphaFold/ESMFold), entropy and frequency from the MSA; combine via the uniform z-score ensemble $s_i = (1/4)\sum_{f \in \{\text{hom, pLDDT, ent, freq}\}} \mathrm{sign}(\hat s_f) \cdot z_{i,f}$ where $\hat s_f \in \{-1, +1\}$ is the training-fit directional sign (or pre-defined domain orientation, Section~\ref{subsubsec:equalweight_variants}); threshold at the top 10\% of ranked scores. Formal pseudocode is given in Algorithm~\ref{alg:mutbench_coldstart}; the baseline progression from single-feature predictors through ensembles of increasing size is summarised in Table~\ref{tab:cold_start_baseline_progression}. The empirical anchor is the nested-LOPO mean MCC of $0.081$ vs.\ full-10 ensemble $0.070$ (paired delta $+0.011$, $95\%$~CI [$-0.018$, $+0.042$], sign-flip permutation $p = 0.61$; Table~\ref{tab:nested_lopo_4core}) and a $13/210$ rank under the exhaustive 4-of-10 subset audit (top $6.2\%$-tile; Table~\ref{tab:subset_selection_top10}); on the search-space-reduction task this Tier~1 recipe narrows ${\sim}1{,}000$ alignment positions to $20$--$80$ ($7$--$9\times$ enrichment for escape sites, Section~\ref{subsec:search_space_reduction}). The complexity is $\mathcal{O}(L \cdot |\mathcal{F}|)$ per pathogen for the per-position score combination ($|\mathcal{F}|{=}4$), dominated upstream by the per-feature score computation: homoplasy is $\mathcal{O}(L \cdot N)$ for $N$ aligned sequences via a single-pass Fitch traversal, entropy and frequency are $\mathcal{O}(L \cdot N)$, and pLDDT is $\mathcal{O}(L)$ once a single AlphaFold/ESMFold pass is amortised; on the 11-pathogen panel the median end-to-end wall-clock is below ten minutes on a single CPU core. \textbf{Tier 2 (family-adaptive acceleration, optional, requires ICTV family annotation)} substitutes the Tier 1 ensemble with the family-prior single-best scoring category from Table~\ref{tab:scoring_recommendation} (Coronaviridae $\to$ PLM, Orthomyxoviridae $\to$ FUBAR, Caliciviridae $\to$ homoplasy, Retroviridae $\to$ entropy, Flaviviridae $\to$ frequency, Pneumoviridae $\to$ ESM-2). Tier 2 is grounded in the same scoring~$\times$~pathogen interaction effect ($\omega^2 = 0.296$; phylogenetic block bootstrap at family level [0.202, 0.346]; Section~\ref{subsec:anova_diagnostics}) but is reported as \emph{provisional} rather than \emph{prescriptive}: the family priors are descriptive of the current 11-pathogen panel, not yet validated on held-out families, and within-family heterogeneity (SARS-CoV-2 vs.\ MERS within Coronaviridae; H3N2 vs.\ Influenza~B within Orthomyxoviridae) means the prior is a starting hypothesis, not a guarantee. When a novel pathogen's family is absent from Table~\ref{tab:scoring_recommendation}, the algorithm defaults to Tier 1. Validation of Tier 2 on held-out families is reserved as a Priority-3 deliverable contingent on the benchmark expanding beyond the current 11-pathogen Bolker-minimum panel (Chapter~\ref{ch:discussion}, Section~\ref{sec:limitations}).
+
+\begin{algorithm}[htbp]
+\DontPrintSemicolon
+\caption{MutBench Cold-Start (Tier 1, label-free 4-feature recipe)}
+\label{alg:mutbench_coldstart}
+\KwIn{Multiple-sequence alignment $A$ over $L$ alignment columns; $N$ aligned sequences; optional per-residue confidence $q \in \mathbb{R}^L$ from AlphaFold or ESMFold}
+\KwOut{Hotspot call set $H \subseteq \{1, \dots, L\}$ with $|H| = \lceil 0.10\,L \rceil$}
+\BlankLine
+\tcp{Step 1 --- per-feature raw scores (each $\mathcal{O}(L \cdot N)$, pLDDT $\mathcal{O}(L)$)}
+\For{$f \in \{\,\mathrm{homoplasy}, \mathrm{pLDDT}, \mathrm{entropy}, \mathrm{frequency}\,\}$}{
+  Compute $x_{i,f}$ for $i = 1, \dots, L$ (Fitch parsimony for homoplasy; column-wise Shannon for entropy; minor-allele fraction for frequency; pass-through for pLDDT)\;
+  $z_{i,f} \gets (x_{i,f} - \overline{x_f}) / \mathrm{sd}(x_f)$ \tcp*{within-pathogen $z$-score}
+  Set directional sign $\hat{s}_f \in \{-1, +1\}$: $+1$ for homoplasy/entropy/frequency, $-1$ for pLDDT (or training-fit per Section~\ref{subsubsec:equalweight_variants})\;
+}
+\BlankLine
+\tcp{Step 2 --- uniform 4-feature ensemble ($\mathcal{O}(L)$)}
+\For{$i \gets 1$ \KwTo $L$}{
+  $s_i \gets \tfrac{1}{4} \sum_{f} \hat{s}_f \cdot z_{i,f}$\;
+}
+\BlankLine
+\tcp{Step 3 --- top-$10\%$ threshold ($\mathcal{O}(L \log L)$ for sort)}
+$\tau \gets$ 90th percentile of $\{s_i\}_{i=1}^{L}$\;
+$H \gets \{\,i : s_i \ge \tau\,\}$\;
+\Return{$H$}
+\end{algorithm}
+
+\paragraph{Cold-Start baseline progression: why an ensemble is necessary.}
+\label{para:cold_start_baseline_progression}
+A defensible ``minimal viable method'' claim requires showing that the recipe in Algorithm~\ref{alg:mutbench_coldstart} is not redundant with simpler baselines. Table~\ref{tab:cold_start_baseline_progression} reports the nested-LOPO mean MCC for: (i)~the single best feature per fold (top-1), (ii)~cumulative ensembles of the top-$K$ features for $K = 2, \dots, 9$, (iii)~the full 10-feature ensemble, (iv)~the Cold-Start fixed 4-core (Algorithm~\ref{alg:mutbench_coldstart}), and (v)~the oracle-best 4-of-10 subset (label-selected from $\binom{10}{4} = 210$ combinations; Table~\ref{tab:subset_selection_top10}). Three takeaways defend the algorithm as a method rather than a heuristic. \emph{First}, the single-feature mean MCC is $0.015$ --- statistically indistinguishable from zero --- so no individual per-position score crosses the cross-pathogen hotspot bar; an ensemble is empirically required, not stylistic. \emph{Second}, the Cold-Start 4-core ($0.081$) outperforms every cumulative top-$K$ ensemble for $K = 1, \dots, 4$ and beats both the full 10-feature ensemble ($0.070$, $\Delta = +0.011$) and the cumulative top-5 peak ($0.072$, $\Delta = +0.009$) without ever consulting the held-out fold's labels. \emph{Third}, the label-using oracle that picks the best 4-of-10 subset gains only $+0.014$ MCC over the Cold-Start 4-core --- well within the paired bootstrap CI for the 4-core mean MCC ($[+0.008, +0.166]$; Table~\ref{tab:nested_lopo_4core}) --- so the marginal value of label-driven subset tuning is small relative to cross-pathogen noise.
+
+\begin{table}[htbp]
+\centering
+\caption{Baseline progression for the Cold-Start ensemble. Single-feature MCC sits at the cross-pathogen noise floor; the Cold-Start 4-core (Algorithm~\ref{alg:mutbench_coldstart}) dominates every smaller cumulative ensemble, beats the full 10-feature ensemble by $+0.011$ MCC, and is only $+0.014$ MCC behind the oracle 4-of-210 subset that requires labels for selection. Source: \texttt{results/mutbench/feature\_analysis/feature\_ablation\_nested\_lopo.csv} (single feature and \texttt{cumulative\_top\_K} configurations, $n = 12$ folds each); 4-core and oracle from \texttt{subset\_selection\_robustness\_210combos.csv}.}
+\label{tab:cold_start_baseline_progression}
+\footnotesize
+\begin{tabular}{lcc}
+\toprule
+\textbf{Configuration} & \textbf{LOPO mean MCC} & \textbf{$\Delta$ vs.\ 4-core} \\
+\midrule
+Single best feature alone (top-1)               & 0.0147 & $-0.0662$ \\
+Top-2 features cumulative                       & 0.0398 & $-0.0411$ \\
+Top-3 features cumulative                       & 0.0457 & $-0.0352$ \\
+Top-4 features cumulative                       & 0.0715 & $-0.0094$ \\
+Top-5 features cumulative                       & 0.0724 & $-0.0085$ \\
+Top-6 features cumulative                       & 0.0580 & $-0.0229$ \\
+Top-7 features cumulative                       & 0.0627 & $-0.0182$ \\
+Top-8 features cumulative                       & 0.0603 & $-0.0206$ \\
+Top-9 features cumulative                       & 0.0564 & $-0.0245$ \\
+Full 10-feature ensemble                        & 0.0698 & $-0.0111$ \\
+\midrule
+\textbf{Cold-Start 4-core (Algorithm~\ref{alg:mutbench_coldstart})} & \textbf{0.0809} & ----     \\
+\midrule
+Oracle best 4-of-210 (label-selected)           & 0.0950 & $+0.0141$ \\
+\bottomrule
+\end{tabular}
+\begin{minipage}{\textwidth}
+\smallskip
+\footnotesize Cumulative top-$K$ configurations include the $K$ features with highest training-fold importance, applied identically across all 12 held-out folds; the per-fold values underlying the means are in \texttt{feature\_ablation\_nested\_lopo.csv}. The single-feature mean ($0.0147$) is statistically indistinguishable from zero (paired bootstrap CI straddling 0), and the cumulative top-$K$ curve is non-monotone in $K$ (peak at $K{=}5$, $0.0724$), confirming that a fixed domain-knowledge 4-core (Algorithm~\ref{alg:mutbench_coldstart}) avoids both the underfitting of small ensembles and the overfitting of large ones without consulting held-out labels.
+\end{minipage}
+\end{table}
 
 \paragraph{Subset selection robustness (210-combination exhaustive sweep).}
 \label{para:subset_selection_robustness}
