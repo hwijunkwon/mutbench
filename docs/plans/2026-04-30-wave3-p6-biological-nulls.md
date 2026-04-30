@@ -29,9 +29,9 @@ Each null shuffles Layer A labels within strata defined by biological structure 
 
 Each null preserves: (a) the Layer A count per stratum, (b) the strata definitions per pathogen, (c) the score and prediction (which depend on the feature matrix, not on labels). The P1 4-core / 3-core predictions are reused unchanged.
 
-### Comparison against P1's local-burden null
+### Comparison against P1's local-burden null (per codex Wave 3 review §Q4)
 
-P1's `local_burden_preserving` null already stratified by `mean(freq + entropy)` in a ±5 window — that captures local evolutionary burden but NOT explicit biological structure. P6.1 (SASA), P6.2 (pLDDT), and the joint nulls add explicit structural conditioning that P1 did not have.
+P6 is **structurally explicit**, NOT an independent replication of P1 nor a monotone strictness extension. P1's `local_burden_preserving` null conditions on local evolutionary burden (freq+entropy in ±5 window); P6 asks whether the signal survives explicit **structural** (SASA, pLDDT) and **structural-evolutionary joint** (SASA×freq, pLDDT×ent) matching. P6.4 (pLDDT × entropy joint) overlaps conceptually with P1 local-burden via the entropy stratification but adds structural conditioning. Concordance between P1 local-burden and P6 nulls should be reported as **robustness across complementary null definitions**, not as four fully independent tests.
 
 ---
 
@@ -46,7 +46,7 @@ Per the same predeclared-branch discipline as P1 and P5.
 | **5+ pathogens individually significant** under at least one P6 null | Signal is not fully reducible to obvious biological strata; preserve current callable-subset framing. |
 | **Norovirus survives ALL four P6 nulls at p<0.05** | Strongly defensible: Norovirus signal is structurally non-trivial; the dissertation's Tier 1 cold-start claim is bounded but real. |
 | **Norovirus fails all four P6 nulls** | Surprising; the dissertation's strongest signal becomes a candidate for "the most clustering-explicable case" rather than the strongest. Re-examine v176 Norovirus VP1 layer-A construction. |
-| **D-stratum collapse for any pathogen** (e.g., MERS has too few positives in some cells of the 9-cell joint null) | Skip that pathogen for that null type and report it as a no-result; do not impute. |
+| **Degenerate null for any (pathogen, null) pair** (per codex review §Q3): | Skip that (pathogen, null) pair only — report `degenerate_null=True` and `skip_reason=<diagnostic>`; do NOT impute, do NOT pool cells, do NOT switch to pathogen-specific binning. **Cells with zero positives are NOT failures** — they are exactly what stratum-preserving shuffling preserves. **Degeneracy is**: (a) fewer than 2 strata contain BOTH positives AND negatives (no movable labels across cells), OR (b) fewer than 5 total movable positives, OR (c) near-zero null variance (numerical degeneracy). |
 
 ---
 
@@ -56,11 +56,11 @@ Per the same predeclared-branch discipline as P1 and P5.
 - `codex_p6_biological_nulls.py` — implements all 4 P6 null types using the same batched-numpy MCC framework as P1
 
 **New result subdir:** `results/mutbench/codex_wave3/`
-- `p6_null_per_pathogen.csv` — 12 × 4 × 2 × 4 = 384 rows (pathogen × null × method × metric)
+- `p6_null_per_pathogen.csv` — **up to 384 rows** (12 × 4 × 2 × 4 max; degenerate (pathogen, null) pairs report `n_valid`, `degenerate_null=True`, and `skip_reason`); also includes `(b+1)/(n_perm+1)` smoothed p-values per codex review §Q8
 - `p6_null_summary.csv` — Stouffer-aggregated global p across 12
 - `p6_null_distribution.png` — 12-pathogen facet, 4-core MCC null histograms + observed marker
-- `p6_p1_p6_gradient.csv` — combined P1 (4 nulls) + P6 (4 nulls) per-pathogen significance table for the unified gradient figure
-- `p6_p1_p6_gradient.png` — single figure showing the per-pathogen significance gradient across all 8 nulls (P1 iid → circular → block → local-burden → P6 SASA → pLDDT → SASA×freq → pLDDT×ent)
+- `p6_p1_p6_robustness.csv` — combined P1 (4 nulls) + P6 (4 nulls) per-pathogen significance table; **comparative robustness view** (per codex Wave 3 review §Q5), NOT an ordered strictness ladder
+- `p6_p1_p6_robustness.png` — comparative figure showing per-pathogen one-sided p across all 8 nulls; the eight nulls are NOT a single monotone strictness ladder, so labels group them as P1-statistical-structure (iid/circular/block/local-burden) vs P6-biological-structure (SASA/pLDDT/joint-cells)
 
 **Documentation updates:**
 - `NOTES.md` — bullets per task
@@ -158,8 +158,13 @@ NEW shuffle functions:
       3 pLDDT tertiles x 3 entropy tertiles).
 
 Strata computed per pathogen from feature_matrix_*.csv columns.
-Cells with <2 positions or 0 positives are flagged and omitted from
-the shuffle for that perm (no imputation).
+**Cells with no possible label movement are kept fixed in the
+full-length label vector** (zero-positive cells are valid, not
+failures — that's what stratum-preserving shuffling means).
+Only DEGENERATE pathogen-null pairs are reported as no-result with
+`skip_reason ∈ {"<2 strata with both pos and neg", "<5 movable pos",
+"near-zero null variance"}`. p-values use (b+1)/(n_perm+1) smoothing
+to avoid p=0 / p=1 degeneracies in Stouffer aggregation.
 
 Outputs (under results/mutbench/codex_wave3/):
   p6_null_per_pathogen.csv  (12 × 4 × 2 × 4 = 384 rows)
@@ -204,7 +209,7 @@ print(piv.sort_values('observed', ascending=False).to_string())
 "
 ```
 
-Verify: Norovirus should remain strongly significant (was p<1e-5 under P1 iid). If Norovirus fails ALL FOUR P6 nulls, surface immediately — that triggers a strong predeclared failure-mode branch.
+Per codex review §Q8: check Norovirus against the predeclared branches; do NOT treat Norovirus failure as an implementation error unless diagnostics indicate one (e.g., constant scores, NA features, stratum collapse). The predeclared branch handles "Norovirus fails all four" without intervention.
 
 - [ ] **Step 5: Document**
 
@@ -267,11 +272,12 @@ git -C /proj/paper commit -m "feat: v194 — P1+P6 unified per-pathogen signific
 
 - [ ] **Step 1: Insert ch4 paragraph**
 
-Insert `\paragraph{Biologically-realistic null calibration (P6).}` right after `\label{para:null_calibration}` block (i.e., before `\paragraph{Pre-registered callability and abstention rule (P5).}`). ~150 words. Cite:
+Insert `\paragraph{Biologically-realistic null calibration (P6).}` followed immediately by `\label{para:p6_biological_nulls}` (since `para:wave1_codex_audits` in ch5 references it). Place right after `\label{para:null_calibration}` block (i.e., before `\paragraph{Pre-registered callability and abstention rule (P5).}`). ~150 words. Cite:
 - 4 new null types (SASA quintile, pLDDT quintile, SASA×freq joint, pLDDT×ent joint)
-- 100k perms each, same MCC + window-MCC + precision + enrichment metrics
-- Per-pathogen significance counts (n_sig at each null type)
-- Norovirus survival across all four (or not)
+- 100k perms each, (b+1)/(n_perm+1) smoothed p-values, same MCC + window-MCC + precision + enrichment metrics
+- **Per-pathogen significance count under each null with explicit denominator** (n_valid pathogens, accounting for any degenerate (pathogen, null) pairs); distinguish unadjusted per-pathogen p<0.05 counts from Stouffer global summaries
+- Norovirus survival across all four (or not, per the predeclared branch)
+- Concordance with P1 local-burden as **robustness across complementary null definitions**, NOT independent replication
 - Headline conclusion: signal is/is not reducible to local biological patterns
 
 - [ ] **Step 2: Extend ch5 limitations summary paragraph**
