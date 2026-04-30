@@ -1,0 +1,51 @@
+P1 null calibration: n_perm=100000, workers=16
+============================================================
+Pathogens: ['SARS-CoV-2', 'H3N2', 'Norovirus', 'HIV-1', 'Dengue', 'RSV', 'Influenza_B', 'MERS', 'HCV', 'Zika', 'Rabies', 'EV-A71']
+
+Observed metrics:
+   pathogen method   obs_mcc  obs_window_mcc  obs_p20  obs_enrichment    n  base_rate  n_pos
+ SARS-CoV-2 4-core -0.009523        0.557069     0.05        0.799365 1259   0.019857     25
+ SARS-CoV-2 3-core  0.001080        0.497268     0.05        1.015323 1259   0.019857     25
+       H3N2 4-core  0.159252        0.667990     0.15        3.159273  543   0.046041     25
+       H3N2 3-core  0.071875        0.567205     0.20        1.974545  543   0.046041     25
+  Norovirus 4-core  0.431772        0.848430     0.25        8.602469  536   0.027985     15
+  Norovirus 3-core  0.394190        0.813537     0.25        7.940741  536   0.027985     15
+      HIV-1 4-core -0.010091        0.494285     0.05        0.869565  450   0.051111     23
+      HIV-1 3-core  0.090816        0.841139     0.05        2.173913  450   0.051111     23
+     Dengue 4-core  0.144990        0.819178     0.15        2.916667  490   0.048980     24
+     Dengue 3-core  0.113470        0.752436     0.10        2.500000  490   0.048980     24
+        RSV 4-core -0.064752        0.014425     0.00        0.000000  550   0.036364     20
+        RSV 3-core -0.064752        0.045523     0.00        0.000000  550   0.036364     20
+Influenza_B 4-core  0.218572        0.634811     0.20        4.705882  560   0.030357     17
+Influenza_B 3-core  0.218572        0.648507     0.20        4.705882  560   0.030357     17
+       MERS 4-core -0.027514        0.331042     0.00        0.000000 1330   0.006767      9
+       MERS 3-core -0.027514        0.286256     0.00        0.000000 1330   0.006767      9
+        HCV 4-core  0.150206        0.410731     0.30        2.037037  340   0.158824     54
+        HCV 3-core  0.257496        0.729870     0.45        2.777778  340   0.158824     54
+       Zika 4-core -0.023089        0.447183     0.05        0.727858  452   0.059735     27
+       Zika 3-core -0.016288        0.538422     0.05        0.858500  452   0.059735     27
+     Rabies 4-core -0.049099        0.156642     0.05        0.503590  491   0.079430     39
+     Rabies 3-core -0.049099        0.087038     0.05        0.503590  491   0.079430     39
+     EV-A71 4-core  0.049858        0.395060     0.15        1.432099  261   0.103448     27
+     EV-A71 3-core  0.049858        0.362046     0.20        1.432099  261   0.103448     27
+
+Running 96 (pathogen × null × method) jobs with n_perm=100000...
+
+=== P1 Stouffer one-sided p (primary) for MCC ===
+method               null_type metric  n_pathogens  n_significant_at_0.05_one_sided  stouffer_z_one_sided  stouffer_p_one_sided  min_p_one_sided  max_p_one_sided
+4-core                     iid    mcc           12                                5                  -inf                   1.0          0.00001              1.0
+4-core          circular_shift    mcc           12                                3                  -inf                   1.0          0.00206              1.0
+4-core   protein_block_shuffle    mcc           12                                2                  -inf                   1.0          0.00001              1.0
+4-core local_burden_preserving    mcc           12                                1                  -inf                   1.0          0.00006              1.0
+3-core                     iid    mcc           12                                4                  -inf                   1.0          0.00001              1.0
+3-core          circular_shift    mcc           12                                4                  -inf                   1.0          0.00171              1.0
+3-core   protein_block_shuffle    mcc           12                                3                  -inf                   1.0          0.00004              1.0
+3-core local_burden_preserving    mcc           12                                1                  -inf                   1.0          0.00019              1.0
+
+=== HARD STOP gate: 4-core MCC iid one-sided Stouffer p ===
+  Stouffer p = 1.0000
+  TRIGGER: HARD STOP — apply P1 failure-mode branch before Task 5.
+
+Generating null distribution figure (4-core MCC)...
+
+Done. Outputs: /proj/paper/results/mutbench/codex_wave1/p1_null_*
