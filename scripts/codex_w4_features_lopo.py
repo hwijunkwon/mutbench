@@ -9,16 +9,20 @@ from __future__ import annotations
 
 import argparse
 import json
+import math
+import warnings
 from pathlib import Path
 
 import numpy as np
 import pandas as pd
 import scipy.stats as stats
+from sklearn.metrics import matthews_corrcoef
 
 
 random_seed = 42
 RANDOM_SEED = random_seed
 RNG = np.random.default_rng(42)
+warnings.filterwarnings("ignore", category=RuntimeWarning)
 
 ROOT = Path(__file__).resolve().parents[1]
 FEATURE_DIR = ROOT / "results" / "mutbench" / "feature_analysis"
@@ -27,6 +31,9 @@ OUT_DIR = ROOT / "results" / "mutbench" / "codex_wave4"
 
 INVENTORY_CSV = OUT_DIR / "w4_input_inventory.csv"
 SCHEMA_AUDIT_CSV = OUT_DIR / "w4_feature_schema_audit.csv"
+LABELED_LOPO_PER_FOLD_CSV = OUT_DIR / "w4_labeled_lopo_per_fold.csv"
+LABELED_LOPO_SUMMARY_CSV = OUT_DIR / "w4_labeled_lopo_summary.csv"
+LABELED_CALLABILITY_RECHECK_CSV = OUT_DIR / "w4_labeled_callability_recheck.csv"
 
 OVERLAP_SLUGS = {"dengue_e", "hiv1_gp120", "norovirus_vp1"}
 OVERLAP_PAIRS = {
@@ -34,6 +41,30 @@ OVERLAP_PAIRS = {
     "HIV-1": "hiv1_gp120",
     "Norovirus": "norovirus_vp1",
 }
+ALL_PATHOGENS = [
+    "SARS-CoV-2",
+    "H3N2",
+    "Norovirus",
+    "HIV-1",
+    "Dengue",
+    "RSV",
+    "Influenza_B",
+    "MERS",
+    "HCV",
+    "Zika",
+    "Rabies",
+    "EV-A71",
+]
+TWO_CORE_FEATURES = ("freq", "entropy")
+HISTORICAL_4CORE_FEATURES = ("freq", "entropy", "homoplasy", "plddt")
+TOP10_FRAC = 0.10
+WINDOW_RADIUS = 10
+PRECISION_K = 20
+N_DECILES = 10
+D1_QUORUM = 7
+D1_LOWER_CI_MIN = 0.02
+D1_POINT_MIN = 0.05
+D1_BOOT = 1000
 
 
 def slug_label(slug: str) -> str:
@@ -257,14 +288,359 @@ def run_audit_only() -> None:
         raise AssertionError("One or more Wave 4 Task 1 inventory invariants failed.")
 
 
+def safe_mcc(y_true: np.ndarray, y_pred: np.ndarray) -> float:
+    y_true = np.asarray(y_true, dtype=int)
+    y_pred = np.asarray(y_pred, dtype=int)
+    if y_pred.sum() == 0 or y_pred.sum() == len(y_pred):
+        return 0.0
+    if y_true.sum() == 0 or y_true.sum() == len(y_true):
+        return 0.0
+    return float(matthews_corrcoef(y_true, y_pred))
+
+
+def window_mcc(y_true: np.ndarray, y_pred: np.ndarray, radius: int = WINDOW_RADIUS) -> float:
+    y_true = np.asarray(y_true, dtype=int)
+    y_pred = np.asarray(y_pred, dtype=int)
+    n = len(y_true)
+    if y_pred.sum() == 0 or y_pred.sum() == n or y_true.sum() == 0 or y_true.sum() == n:
+        return 0.0
+
+    def dilate(v: np.ndarray) -> np.ndarray:
+        idx = np.where(v == 1)[0]
+        out = np.zeros(n, dtype=int)
+        for i in idx:
+            lo = max(0, i - radius)
+            hi = min(n, i + radius + 1)
+            out[lo:hi] = 1
+        return out
+
+    pred_window = dilate(y_pred)
+    true_window = dilate(y_true)
+    tp = int(((y_pred == 1) & (true_window == 1)).sum())
+    fp = int(((y_pred == 1) & (true_window == 0)).sum())
+    fn = int(((y_true == 1) & (pred_window == 0)).sum())
+    tn = int(((y_pred == 0) & (y_true == 0)).sum())
+    denom = math.sqrt(float(tp + fp) * float(tp + fn) * float(tn + fp) * float(tn + fn))
+    if denom < 1e-12:
+        return 0.0
+    return float((tp * tn - fp * fn) / denom)
+
+
+def load_labeled_data() -> dict[str, dict]:
+    data = {}
+    for pathogen in ALL_PATHOGENS:
+        path = FEATURE_DIR / f"feature_matrix_{pathogen}.csv"
+        df = pd.read_csv(path)
+        require_columns(path, df, ["position", "freq", "entropy", "homoplasy", "plddt", "layer_a"])
+        y = df["layer_a"].values.astype(int)
+        if y.sum() == 0 or y.sum() == len(y):
+            raise ValueError(f"{pathogen} has degenerate layer_a labels")
+        data[pathogen] = {"df": df, "y": y, "n": len(df), "base_rate": float(y.mean())}
+    return data
+
+
+def pearson_sign_for_pathogen(df: pd.DataFrame, y: np.ndarray, feature: str) -> float:
+    x = np.nan_to_num(df[feature].values.astype(float), nan=0.0, posinf=0.0, neginf=0.0)
+    y_float = y.astype(float)
+    if x.std() < 1e-12 or y_float.std() < 1e-12:
+        return 1.0
+    r = np.corrcoef(x, y_float)[0, 1]
+    return -1.0 if np.isfinite(r) and r < 0 else 1.0
+
+
+def fit_median_signs(training_data: dict[str, dict], features: tuple[str, ...]) -> dict[str, float]:
+    signs = {}
+    for feature in features:
+        per_pathogen_signs = [
+            pearson_sign_for_pathogen(d["df"], d["y"], feature)
+            for d in training_data.values()
+        ]
+        median = float(np.median(per_pathogen_signs))
+        signs[feature] = -1.0 if median < 0 else 1.0
+    return signs
+
+
+def signed_zscore_average(df: pd.DataFrame, features: tuple[str, ...], signs: dict[str, float]) -> np.ndarray:
+    if not features:
+        return np.zeros(len(df))
+    score_parts = []
+    for feature in features:
+        col = np.nan_to_num(df[feature].values.astype(float), nan=0.0, posinf=0.0, neginf=0.0)
+        std = col.std()
+        if std <= 1e-10:
+            score_parts.append(np.zeros(len(df)))
+        else:
+            z = (col - col.mean()) / std
+            score_parts.append(z * signs.get(feature, 1.0))
+    return np.vstack(score_parts).mean(axis=0)
+
+
+def topk_pred(scores: np.ndarray, k: int) -> np.ndarray:
+    k = max(1, min(int(k), len(scores)))
+    pred = np.zeros(len(scores), dtype=int)
+    order = np.lexsort((np.arange(len(scores)), -scores))
+    pred[order[:k]] = 1
+    return pred
+
+
+def top_fraction_pred(scores: np.ndarray, fraction: float = TOP10_FRAC) -> np.ndarray:
+    return topk_pred(scores, int(np.ceil(len(scores) * fraction)))
+
+
+def topk_tp(scores: np.ndarray, y: np.ndarray, k: int) -> int:
+    k = min(k, len(scores))
+    order = np.lexsort((np.arange(len(scores)), -scores))
+    return int(y[order[:k]].sum())
+
+
+def precision_at_k(scores: np.ndarray, y: np.ndarray, k: int = PRECISION_K) -> float:
+    k = min(k, len(scores))
+    if k <= 0:
+        return 0.0
+    return float(topk_tp(scores, y, k) / k)
+
+
+def decile_stats(scores: np.ndarray, y: np.ndarray) -> tuple[float, float]:
+    n = len(scores)
+    order = np.lexsort((np.arange(n), scores))
+    decile = np.zeros(n, dtype=int)
+    for rank, idx in enumerate(order):
+        decile[idx] = min(N_DECILES - 1, int(rank * N_DECILES / n))
+    means = np.array([
+        y[decile == d].mean() if (decile == d).any() else np.nan
+        for d in range(N_DECILES)
+    ])
+    top_bottom_delta = float(means[-1] - means[0]) if np.isfinite(means[-1]) and np.isfinite(means[0]) else np.nan
+    valid = np.isfinite(means)
+    if valid.sum() < 3:
+        rho = np.nan
+    else:
+        rho = float(stats.spearmanr(np.where(valid)[0], means[valid]).statistic)
+    return top_bottom_delta, rho
+
+
+def top_bottom_delta_with_ci(scores: np.ndarray, y: np.ndarray, rng: np.random.Generator) -> tuple[float, float, float]:
+    pred_top = top_fraction_pred(scores, TOP10_FRAC).astype(bool)
+    n_top = int(pred_top.sum())
+    order_low = np.lexsort((np.arange(len(scores)), scores))
+    bot_idx = order_low[:n_top]
+    top_idx = np.where(pred_top)[0]
+    if len(top_idx) == 0 or len(bot_idx) == 0:
+        return np.nan, np.nan, np.nan
+    obs = float(y[top_idx].mean() - y[bot_idx].mean())
+    boot = []
+    for _ in range(D1_BOOT):
+        t_samp = rng.choice(top_idx, size=len(top_idx), replace=True)
+        b_samp = rng.choice(bot_idx, size=len(bot_idx), replace=True)
+        boot.append(y[t_samp].mean() - y[b_samp].mean())
+    lo, hi = np.percentile(boot, [2.5, 97.5])
+    return obs, float(lo), float(hi)
+
+
+def d1_recheck_for_fold(
+    held: str,
+    training_data: dict[str, dict],
+    features: tuple[str, ...],
+    signs: dict[str, float],
+    rng: np.random.Generator,
+) -> tuple[dict, list[dict]]:
+    detail_rows = []
+    n_pass = 0
+    n_total = 0
+    for pathogen, d in training_data.items():
+        scores = signed_zscore_average(d["df"], features, signs)
+        obs, lo, hi = top_bottom_delta_with_ci(scores, d["y"], rng)
+        passed = bool(np.isfinite(obs) and np.isfinite(lo) and obs > D1_POINT_MIN and lo > D1_LOWER_CI_MIN)
+        n_total += int(np.isfinite(obs))
+        n_pass += int(passed)
+        detail_rows.append(
+            {
+                "heldout_pathogen": held,
+                "training_pathogen": pathogen,
+                "method": "2-core",
+                "d1_top_bottom_delta": obs,
+                "d1_ci_lo": lo,
+                "d1_ci_hi": hi,
+                "d1_training_pathogen_pass": int(passed),
+            }
+        )
+    aggregate = {
+        "heldout_pathogen": held,
+        "method": "2-core",
+        "d1_n_pass": n_pass,
+        "d1_n_total": n_total,
+        "callability_d1_pass": bool(n_pass >= D1_QUORUM),
+        "d1_quorum": D1_QUORUM,
+        "d1_lower_ci_min": D1_LOWER_CI_MIN,
+        "d1_point_min": D1_POINT_MIN,
+        "training_pathogens_d1_passed": ";".join(
+            row["training_pathogen"] for row in detail_rows if row["d1_training_pathogen_pass"]
+        ),
+        "training_pathogens_d1_failed": ";".join(
+            row["training_pathogen"] for row in detail_rows if not row["d1_training_pathogen_pass"]
+        ),
+    }
+    return aggregate, detail_rows
+
+
+def evaluate_scores(scores: np.ndarray, y: np.ndarray, base_rate: float) -> dict[str, float]:
+    pred10 = top_fraction_pred(scores, TOP10_FRAC)
+    precision10 = float(y[pred10 == 1].mean()) if pred10.sum() else 0.0
+    top_bottom_delta, decile_rho = decile_stats(scores, y)
+    return {
+        "mcc_top10": safe_mcc(y, pred10),
+        "mcc_window10": window_mcc(y, pred10, WINDOW_RADIUS),
+        "precision_at_20": precision_at_k(scores, y, PRECISION_K),
+        "tp_at_20": topk_tp(scores, y, 20),
+        "tp_at_50": topk_tp(scores, y, 50),
+        "tp_at_80": topk_tp(scores, y, 80),
+        "enrichment_top10": precision10 / base_rate if base_rate > 1e-12 else np.nan,
+        "top_bottom_decile_delta": top_bottom_delta,
+        "spearman_decile_rho": decile_rho,
+    }
+
+
+def fold_hypergeom_p(scores: np.ndarray, y: np.ndarray) -> float:
+    pred = top_fraction_pred(scores, TOP10_FRAC)
+    tp = int(y[pred == 1].sum())
+    return float(stats.hypergeom.sf(tp - 1, len(y), int(y.sum()), int(pred.sum())))
+
+
+def run_labeled_only(smoke: bool = False) -> None:
+    OUT_DIR.mkdir(parents=True, exist_ok=True)
+    rng = np.random.default_rng(RANDOM_SEED)
+    data = load_labeled_data()
+    pathogens = ALL_PATHOGENS[:2] if smoke else ALL_PATHOGENS
+    rows = []
+    d1_rows = []
+
+    print("Wave 4 Task 2: labeled-only shared-feature LOPO")
+    print(f"random_seed={RANDOM_SEED}")
+    print("2-core fallback active: features=freq,entropy; hscore dropped")
+    if smoke:
+        print(f"SMOKE mode: held-out folds={pathogens}")
+
+    for held in pathogens:
+        training = {p: d for p, d in data.items() if p != held}
+        held_d = data[held]
+        two_core_signs = fit_median_signs(training, TWO_CORE_FEATURES)
+        four_core_signs = fit_median_signs(training, HISTORICAL_4CORE_FEATURES)
+        two_scores = signed_zscore_average(held_d["df"], TWO_CORE_FEATURES, two_core_signs)
+        four_scores = signed_zscore_average(held_d["df"], HISTORICAL_4CORE_FEATURES, four_core_signs)
+        metrics = evaluate_scores(two_scores, held_d["y"], held_d["base_rate"])
+        four_metrics = evaluate_scores(four_scores, held_d["y"], held_d["base_rate"])
+        d1_agg, d1_detail = d1_recheck_for_fold(held, training, TWO_CORE_FEATURES, two_core_signs, rng)
+        d1_rows.append(d1_agg)
+        notes = f"D1 {d1_agg['d1_n_pass']}/{d1_agg['d1_n_total']} training pathogens pass; quorum={D1_QUORUM}/11"
+        row = {
+            "pathogen": held,
+            "n_positions": int(held_d["n"]),
+            "n_layer_a_pos": int(held_d["y"].sum()),
+            "layer_a_prev": held_d["base_rate"],
+            "sign_freq": int(two_core_signs["freq"]),
+            "sign_entropy": int(two_core_signs["entropy"]),
+            **metrics,
+            "callability_d1_pass": int(d1_agg["callability_d1_pass"]),
+            "callability_like_notes": notes,
+            "historical_4core_mcc_top10": four_metrics["mcc_top10"],
+            "delta_2core_minus_4core": metrics["mcc_top10"] - four_metrics["mcc_top10"],
+            "historical_4core_source": "recomputed in Wave 4",
+            "fold_hypergeom_p_top10": fold_hypergeom_p(two_scores, held_d["y"]),
+        }
+        rows.append(row)
+        print(
+            f"{held}: 2-core MCC={metrics['mcc_top10']:.4f}, "
+            f"4-core MCC={four_metrics['mcc_top10']:.4f}, "
+            f"delta={row['delta_2core_minus_4core']:.4f}, D1={d1_agg['d1_n_pass']}/{d1_agg['d1_n_total']}"
+        )
+
+    per_fold = pd.DataFrame(rows)
+    callability = pd.DataFrame(d1_rows)
+    if not smoke:
+        wilcoxon = stats.wilcoxon(
+            per_fold["mcc_top10"],
+            per_fold["historical_4core_mcc_top10"],
+            alternative="greater",
+            zero_method="wilcox",
+        )
+        wilcoxon_p = float(wilcoxon.pvalue)
+    else:
+        wilcoxon_p = np.nan
+
+    summary = pd.DataFrame(
+        [
+            {
+                "n_folds": int(per_fold.shape[0]),
+                "mean_mcc_top10": float(per_fold["mcc_top10"].mean()),
+                "std_mcc_top10": float(per_fold["mcc_top10"].std(ddof=1)) if per_fold.shape[0] > 1 else 0.0,
+                "min_mcc_top10": float(per_fold["mcc_top10"].min()),
+                "max_mcc_top10": float(per_fold["mcc_top10"].max()),
+                "n_positive_mcc": int((per_fold["mcc_top10"] > 0).sum()),
+                "mean_precision_at_20": float(per_fold["precision_at_20"].mean()),
+                "fold_significance_count_hypergeom_p_lt_0_05": int((per_fold["fold_hypergeom_p_top10"] < 0.05).sum()),
+                "paired_wilcoxon_2core_vs_4core_greater_p": wilcoxon_p,
+                "d1_callability_recheck_pass_count": int(per_fold["callability_d1_pass"].sum()),
+                "historical_4core_source": "recomputed in Wave 4",
+                "random_seed": RANDOM_SEED,
+            }
+        ]
+    )
+
+    if smoke:
+        print("Smoke run complete; output files not overwritten.")
+    else:
+        per_fold_out = per_fold[
+            [
+                "pathogen",
+                "n_positions",
+                "n_layer_a_pos",
+                "layer_a_prev",
+                "sign_freq",
+                "sign_entropy",
+                "mcc_top10",
+                "mcc_window10",
+                "precision_at_20",
+                "tp_at_20",
+                "tp_at_50",
+                "tp_at_80",
+                "enrichment_top10",
+                "top_bottom_decile_delta",
+                "spearman_decile_rho",
+                "callability_d1_pass",
+                "callability_like_notes",
+                "historical_4core_mcc_top10",
+                "delta_2core_minus_4core",
+                "historical_4core_source",
+            ]
+        ]
+        per_fold_out.to_csv(LABELED_LOPO_PER_FOLD_CSV, index=False)
+        summary.to_csv(LABELED_LOPO_SUMMARY_CSV, index=False)
+        callability.to_csv(LABELED_CALLABILITY_RECHECK_CSV, index=False)
+        print(f"Wrote {LABELED_LOPO_PER_FOLD_CSV}")
+        print(f"Wrote {LABELED_LOPO_SUMMARY_CSV}")
+        print(f"Wrote {LABELED_CALLABILITY_RECHECK_CSV}")
+
+    s = summary.iloc[0]
+    print(
+        "2-core MCC across folds: "
+        f"mean={s.mean_mcc_top10:.6f}, std={s.std_mcc_top10:.6f}, "
+        f"min={s.min_mcc_top10:.6f}, max={s.max_mcc_top10:.6f}"
+    )
+    print(f"Positive-MCC folds: {int(s.n_positive_mcc)}/{int(s.n_folds)}")
+    print(f"Paired Wilcoxon one-sided greater p (2-core vs 4-core): {s.paired_wilcoxon_2core_vs_4core_greater_p}")
+    print(f"D1 callability recheck pass count: {int(s.d1_callability_recheck_pass_count)}/{int(s.n_folds)}")
+    if not smoke:
+        print("TASK 2 DONE")
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Wave 4 Tier-2 feature/LOPO scaffold")
     mode = parser.add_mutually_exclusive_group(required=True)
     mode.add_argument("--audit-only", action="store_true", help="write Task 1 inventory/schema audit CSVs")
-    mode.add_argument("--labeled-only", action="store_true", help="reserved for Task 2")
+    mode.add_argument("--labeled-only", action="store_true", help="run Task 2 labeled 12-fold LOPO")
     mode.add_argument("--expanded", action="store_true", help="reserved for Task 3")
-    mode.add_argument("--smoke", action="store_true", help="reserved for Tasks 2-3")
     mode.add_argument("--full", action="store_true", help="reserved for Tasks 2-3")
+    parser.add_argument("--smoke", action="store_true", help="run a two-heldout-pathogen smoke subset")
     return parser.parse_args()
 
 
@@ -272,6 +648,9 @@ def main() -> None:
     args = parse_args()
     if args.audit_only:
         run_audit_only()
+        return
+    if args.labeled_only:
+        run_labeled_only(smoke=args.smoke)
         return
     raise NotImplementedError("Only --audit-only is implemented in Wave 4 Task 1.")
 

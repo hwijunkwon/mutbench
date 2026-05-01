@@ -1,0 +1,13 @@
+heldout_pathogen,method,d1_n_pass,d1_n_total,callability_d1_pass,d1_quorum,d1_lower_ci_min,d1_point_min,training_pathogens_d1_passed,training_pathogens_d1_failed
+SARS-CoV-2,2-core,2,11,False,7,0.02,0.05,Norovirus;HIV-1,H3N2;Dengue;RSV;Influenza_B;MERS;HCV;Zika;Rabies;EV-A71
+H3N2,2-core,2,11,False,7,0.02,0.05,Norovirus;HIV-1,SARS-CoV-2;Dengue;RSV;Influenza_B;MERS;HCV;Zika;Rabies;EV-A71
+Norovirus,2-core,2,11,False,7,0.02,0.05,HIV-1;HCV,SARS-CoV-2;H3N2;Dengue;RSV;Influenza_B;MERS;Zika;Rabies;EV-A71
+HIV-1,2-core,2,11,False,7,0.02,0.05,Norovirus;HCV,SARS-CoV-2;H3N2;Dengue;RSV;Influenza_B;MERS;Zika;Rabies;EV-A71
+Dengue,2-core,2,11,False,7,0.02,0.05,Norovirus;HIV-1,SARS-CoV-2;H3N2;RSV;Influenza_B;MERS;HCV;Zika;Rabies;EV-A71
+RSV,2-core,2,11,False,7,0.02,0.05,Norovirus;HIV-1,SARS-CoV-2;H3N2;Dengue;Influenza_B;MERS;HCV;Zika;Rabies;EV-A71
+Influenza_B,2-core,2,11,False,7,0.02,0.05,Norovirus;HIV-1,SARS-CoV-2;H3N2;Dengue;RSV;MERS;HCV;Zika;Rabies;EV-A71
+MERS,2-core,2,11,False,7,0.02,0.05,Norovirus;HIV-1,SARS-CoV-2;H3N2;Dengue;RSV;Influenza_B;HCV;Zika;Rabies;EV-A71
+HCV,2-core,2,11,False,7,0.02,0.05,Norovirus;HIV-1,SARS-CoV-2;H3N2;Dengue;RSV;Influenza_B;MERS;Zika;Rabies;EV-A71
+Zika,2-core,2,11,False,7,0.02,0.05,Norovirus;HIV-1,SARS-CoV-2;H3N2;Dengue;RSV;Influenza_B;MERS;HCV;Rabies;EV-A71
+Rabies,2-core,3,11,False,7,0.02,0.05,Norovirus;HIV-1;HCV,SARS-CoV-2;H3N2;Dengue;RSV;Influenza_B;MERS;Zika;EV-A71
+EV-A71,2-core,2,11,False,7,0.02,0.05,Norovirus;HIV-1,SARS-CoV-2;H3N2;Dengue;RSV;Influenza_B;MERS;HCV;Zika;Rabies

@@ -1,0 +1,2 @@
+n_folds,mean_mcc_top10,std_mcc_top10,min_mcc_top10,max_mcc_top10,n_positive_mcc,mean_precision_at_20,fold_significance_count_hypergeom_p_lt_0_05,paired_wilcoxon_2core_vs_4core_greater_p,d1_callability_recheck_pass_count,historical_4core_source,random_seed
+12,0.07679846384783952,0.13637726602202746,-0.06475239082381762,0.3647856596866466,8,0.10833333333333335,4,0.36765834531867025,0,recomputed in Wave 4,42

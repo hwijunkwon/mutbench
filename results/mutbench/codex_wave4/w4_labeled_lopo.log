@@ -1,0 +1,23 @@
+Wave 4 Task 2: labeled-only shared-feature LOPO
+random_seed=42
+2-core fallback active: features=freq,entropy; hscore dropped
+SARS-CoV-2: 2-core MCC=0.0474, 4-core MCC=0.0474, delta=0.0000, D1=2/11
+H3N2: 2-core MCC=0.1010, 4-core MCC=0.0719, delta=0.0291, D1=2/11
+Norovirus: 2-core MCC=0.2814, 4-core MCC=0.3566, delta=-0.0752, D1=2/11
+HIV-1: 2-core MCC=0.0908, 4-core MCC=-0.0101, delta=0.1009, D1=2/11
+Dengue: 2-core MCC=0.0189, 4-core MCC=0.0189, delta=0.0000, D1=2/11
+RSV: 2-core MCC=-0.0648, 4-core MCC=-0.0648, delta=0.0000, D1=2/11
+Influenza_B: 2-core MCC=0.1839, 4-core MCC=0.2186, delta=-0.0347, D1=2/11
+MERS: 2-core MCC=0.0031, 4-core MCC=-0.0275, delta=0.0306, D1=2/11
+HCV: 2-core MCC=0.3648, 4-core MCC=0.1502, delta=0.2146, D1=2/11
+Zika: 2-core MCC=-0.0231, 4-core MCC=-0.0231, delta=0.0000, D1=2/11
+Rabies: 2-core MCC=-0.0491, 4-core MCC=-0.0491, delta=0.0000, D1=3/11
+EV-A71: 2-core MCC=-0.0328, 4-core MCC=0.0499, delta=-0.0826, D1=2/11
+Wrote /proj/paper/results/mutbench/codex_wave4/w4_labeled_lopo_per_fold.csv
+Wrote /proj/paper/results/mutbench/codex_wave4/w4_labeled_lopo_summary.csv
+Wrote /proj/paper/results/mutbench/codex_wave4/w4_labeled_callability_recheck.csv
+2-core MCC across folds: mean=0.076798, std=0.136377, min=-0.064752, max=0.364786
+Positive-MCC folds: 8/12
+Paired Wilcoxon one-sided greater p (2-core vs 4-core): 0.36765834531867025
+D1 callability recheck pass count: 0/12
+TASK 2 DONE
