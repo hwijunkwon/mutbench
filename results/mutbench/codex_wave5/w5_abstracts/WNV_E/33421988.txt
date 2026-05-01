@@ -1,0 +1,55 @@
+1. BMC Immunol. 2021 Jan 9;22(1):5. doi: 10.1186/s12865-020-00389-2.
+
+Enhancement of Zika virus infection by antibodies from West Nile virus 
+seropositive individuals with no history of clinical infection.
+
+Garg H(1), Yeh R(2), Watts DM(3), Mehmetoglu-Gurbuz T(4), Resendes R(5), Parsons 
+B(5), Gonzales F(5), Joshi A(6).
+
+Author information:
+(1)Center of Emphasis in Infectious Diseases, Department of Molecular and 
+Translational Medicine, Texas Tech University Health Sciences Center, 5001 El 
+Paso Dr, El Paso, TX, 79905, USA. hgarg75@gmail.com.
+(2)Paul L Foster School of Medicine, Texas Tech University Health Sciences 
+Center, El Paso, TX, USA.
+(3)Department of Biological Sciences, University of Texas at El Paso, El Paso, 
+TX, USA.
+(4)Center of Emphasis in Infectious Diseases, Department of Molecular and 
+Translational Medicine, Texas Tech University Health Sciences Center, 5001 El 
+Paso Dr, El Paso, TX, 79905, USA.
+(5)Department of Public Health, City of El Paso, El Paso, TX, USA.
+(6)Center of Emphasis in Infectious Diseases, Department of Molecular and 
+Translational Medicine, Texas Tech University Health Sciences Center, 5001 El 
+Paso Dr, El Paso, TX, 79905, USA. ajoshi145@yahoo.com.
+
+BACKGROUND: Recent outbreaks of Zika Virus (ZIKV) infection and associated 
+microcephaly has raised multiple scientific questions. The close antigenic 
+relatedness between flaviviruses makes diagnosis of specific infection 
+difficult. This relatedness also raises the potential of Antibody Dependent 
+Enhancement (ADE) via cross reactive antibodies to flaviviruses like West Nile 
+Virus (WNV) and Dengue Virus (DENV). Asymptomatic WNV infections are endemic 
+throughout the US creating a large proportion of the population that is 
+seropositive for WNV antibodies. Whether these sero-positive individuals 
+potentially carry ZIKV enhancing antibodies remains unknown.
+RESULTS: Serum samples obtained from human subjects with symptomatic or 
+asymptomatic WNV infection from a WNV endemic region in Texas were tested for 
+their ability to enhance or neutralize ZIKV infection. Sero-surveillance data 
+demonstrated a ~ 7% prevalence for WNV antibodies in the population. Sera from 
+both symptomatic and asymptomatic WNV seropositive donors effectively 
+neutralized WNV and to some extent DENV infection. Interestingly, WNV+ sera 
+failed to inhibit ZIKV while significantly enhancing infection. Conversely, ZIKV 
+specific sera effectively neutralized ZIKV, with ADE only evident at lower 
+concentrations. The enhancement of ZIKV via WNV antibody positive sera was 
+likely due to non-neutralizing Envelope (E) antibodies as seen with monoclonal 
+ZIKV E antibodies.
+CONCLUSIONS: Overall, our findings suggest that WNV antibodies in the sera 
+significantly enhance ZIKV infection in Fc receptor positive cells with limited 
+neutralization activity. Further studies in more relevant models of ADE will be 
+needed to confirm the relevance of these findings in vivo.
+
+DOI: 10.1186/s12865-020-00389-2
+PMCID: PMC7796652
+PMID: 33421988 [Indexed for MEDLINE]
+
+Conflict of interest statement: The authors declare that they have no competing 
+interests.

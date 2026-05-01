@@ -1,0 +1,44 @@
+1. JCI Insight. 2025 Jul 15;10(16):e191665. doi: 10.1172/jci.insight.191665. 
+eCollection 2025 Aug 22.
+
+Prophylactic and therapeutic neutralizing monoclonal antibody treatment prevents 
+lethal yellow fever infection.
+
+Rust LN(1), Ricciardi MJ(2)(3), Lutz SS(1), Yusova S(1), Louw JJ(3), 
+Yrizarry-Medina A(3), Biswas S(1), Fischer M(4), Barber-Axthelm A(1), Zilverberg 
+G(1), Bailey L(1), Swanson T(1), Tonelli R(1), McElfresh GW(1), Rosen BC(3), 
+Voigt TB(3), Panayiotou C(3), Mauter JT(3), Ghosh N(3), Meanor J(3), Godoy G(3), 
+Axthelm M(1)(4), Smedley J(1)(4), Slifka MK(1), Kallas EG(5)(6), Webb G(1), 
+Zweig R(1), Labriola CS(4), Bimber BN(1), Sacha JB(1)(4), Watkins DI(2)(3), 
+Burwitz BJ(1)(4).
+
+Author information:
+(1)Oregon National Primate Research Center (ONPRC), Oregon Health and Science 
+University, Beaverton, Oregon, USA.
+(2)Mabloc LLC, Washington DC, USA.
+(3)George Washington University, Washington DC, USA.
+(4)Vaccine and Gene Therapy Institute, Oregon Health and Science University, 
+Beaverton, Oregon, USA.
+(5)Department of Infectious Diseases and Tropical Medicine, School of Medicine, 
+University of São Paulo, São Paulo, Brazil.
+(6)Butantan Institute, São Paulo, Brazil.
+
+Yellow fever virus (YFV) infection is fatal in 5%-10% of the 200,000 yearly 
+cases. There is currently no available antiviral treatment. We showed previously 
+that administration of 50 mg/kg of a YFV-specific neutralizing monoclonal 
+antibody (nmAb) at 2 days postinfection (dpi), prior to the onset of severe 
+disease, protected YFV-infected rhesus macaques from death. To further explore 
+the clinical applicability of our nmAb MBL-YFV-01, we treated rhesus macaques 
+with a lower dose (10 mg/kg) of this nmAb prophylactically or therapeutically at 
+3.5 dpi. We show that a single prophylactic or therapeutic i.v. dose of our nmAb 
+protects rhesus macaques from death following challenge. A comprehensive 
+analysis of 167 inflammatory cytokine and chemokines revealed that protection 
+was associated with significantly reduced expression of 125 of these markers, 
+including type I IFN, IL-6, and CCL2. This study further expands the potential 
+clinical use of our YFV-specific nmAb, which could be used during an outbreak 
+for immediate prophylactic immunity or for patients with measurable serum 
+viremia.
+
+DOI: 10.1172/jci.insight.191665
+PMCID: PMC12416903
+PMID: 40663406 [Indexed for MEDLINE]

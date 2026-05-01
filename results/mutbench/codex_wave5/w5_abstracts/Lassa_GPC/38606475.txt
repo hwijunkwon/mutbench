@@ -1,0 +1,45 @@
+1. Expert Opin Drug Discov. 2024 May;19(5):537-551. doi: 
+10.1080/17460441.2024.2340494. Epub 2024 Apr 12.
+
+Treatment of highly virulent mammarenavirus infections-status quo and future 
+directions.
+
+Nuñez IA(1), Crane A(1), Crozier I(2), Worwa G(1), Kuhn JH(1).
+
+Author information:
+(1)Integrated Research Facility at Fort Detrick, Division of Clinical Research, 
+National Institute of Allergy and Infectious Diseases, National Institutes of 
+Health, Frederick, MD, USA.
+(2)Clinical Monitoring Research Program Directorate, Frederick National 
+Laboratory for Cancer Research, Frederick, MD, USA.
+
+INTRODUCTION: Mammarenaviruses are negative-sense bisegmented enveloped RNA 
+viruses that are endemic in Africa, the Americas, and Europe. Several are highly 
+virulent, causing acute human diseases associated with high case fatality rates, 
+and are considered to be significant with respect to public health impact or 
+bioterrorism threat.
+AREAS COVERED: This review summarizes the status quo of treatment development, 
+starting with drugs that are in advanced stages of evaluation in early clinical 
+trials, followed by promising candidate medical countermeasures emerging from 
+bench analyses and investigational animal research.
+EXPERT OPINION: Specific therapeutic treatments for diseases caused by 
+mammarenaviruses remain limited to the off-label use of ribavirin and 
+transfusion of convalescent sera. Progress in identifying novel candidate 
+medical countermeasures against mammarenavirus infection has been slow in part 
+because of the biosafety and biosecurity requirements. However, novel 
+methodologies and tools have enabled increasingly efficient high-throughput 
+molecular screens of regulatory-agency-approved small-molecule drugs and led to 
+the identification of several compounds that could be repurposed for the 
+treatment of infection with several mammarenaviruses. Unfortunately, most of 
+them have not yet been evaluated in vivo. The most promising treatment under 
+development is a monoclonal antibody cocktail that is protective against 
+multiple lineages of the Lassa virus in nonhuman primate disease models.
+
+DOI: 10.1080/17460441.2024.2340494
+PMCID: PMC11069405
+PMID: 38606475 [Indexed for MEDLINE]
+
+Conflict of interest statement: Declaration of Interest: The authors have no 
+other relevant affiliations or financial involvement with any organization or 
+entity with a financial interest in or financial conflict with the subject 
+matter or materials discussed in the manuscript apart from those disclosed.

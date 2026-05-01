@@ -1,0 +1,38 @@
+1. Virology. 1989 Jul;171(1):179-88. doi: 10.1016/0042-6822(89)90525-4.
+
+Protection of guinea pigs from Lassa fever by vaccinia virus recombinants 
+expressing the nucleoprotein or the envelope glycoproteins of Lassa virus.
+
+Morrison HG(1), Bauer SP, Lange JV, Esposito JJ, McCormick JB, Auperin DD.
+
+Author information:
+(1)Division of Viral Diseases, Center for Infectious Diseases, Atlanta, Georgia 
+30333.
+
+A recombinant vaccinia virus that expresses the nucleoprotein gene of Lassa 
+virus (Josiah strain) under the control of the P7.5 promoter was constructed 
+using the lacZ coexpression transfer vector pSC11. Southern blot analysis 
+demonstrated that recombination of the sequences inserted within the thymidine 
+kinase gene of the transfer vector into the HindIII J fragment of vaccina virus 
+genomic DNA occurred properly. A 63-kDa protein identical in electrophoretic 
+mobility to authentic Lassa nucleoprotein was observed in recombinant 
+virus-infected cell lysates. The reactivity of vaccinia-expressed Lassa proteins 
+to a panel of monoclonal antibodies representing multiple epitopes on each of 
+the N, G1, and G2 proteins was determined by indirect immunofluorescence. Lassa 
+proteins expressed in recombinant vaccinia virus-infected cells reacted in a 
+manner indistinguishable from that of the proteins expressed in Lassa 
+virus-infected cells, indicating that there are no significant differences 
+between authentic and recombinant virus-expressed proteins. Vaccine efficacy 
+trials in guinea pigs indicated that both the nucleoprotein and the envelope 
+glycoproteins are capable of eliciting a protective immune response against a 
+lethal dose of Lassa virus. Ninety-four percent of the animals vaccinated with 
+V-LSN, 79% vaccinated with V-LSGPC, and 58% vaccinated with both recombinant 
+viruses survived a Lassa virus challenge in which only 14% of unvaccinated 
+animals and 39% of animals vaccinated with the New York Board of Health (NYBH) 
+strain of vaccinia virus survived. The protection resulting from vaccination 
+with the recombinant virus vaccines did not correlate with the levels of 
+prechallenge serum antibodies, suggesting that a cell-mediated immune response 
+is a critical component of protective immunity to Lassa fever.
+
+DOI: 10.1016/0042-6822(89)90525-4
+PMID: 2741340 [Indexed for MEDLINE]

@@ -1,0 +1,26 @@
+1. Rev Soc Bras Med Trop. 2013 Jan-Feb;46(1):97-9. doi:
+10.1590/0037-868214142013.
+
+Production and diagnostic application of recombinant domain III of West Nile 
+envelope protein in Brazil.
+
+Chávez JH(1), Reis VP, Silva JR, Laure HJ, Rosa JC, Fonseca BA, Figueiredo LT.
+
+Author information:
+(1)Centro de Pesquisa em Virologia, Faculdade de Medicina de Ribeirão Preto, 
+Universidade de São Paulo, Ribeirão Preto, SP, Brasil.
+
+INTRODUCTION: West Nile virus (WNV) is a flavivirus with a natural cycle 
+involving mosquitoes and birds. Over the last 11 years, WNV has spread 
+throughout the Americas with the imminent risk of its introduction in Brazil.
+METHODS: Envelope protein domain III of WNV (rDIII) was bacterially expressed 
+and purified. An enzyme-linked immunosorbent assay with WNV rDIII antigen was 
+standardized against mouse immune fluids (MIAFs) of different flavivirus.
+RESULTS: WNV rDIII reacted strongly with St. Louis encephalitis virus (SLEV) 
+MIAF but not with other flaviviruses.
+CONCLUSIONS: This antigen may be a potentially useful tool for serologic 
+diagnosis and may contribute in future epidemiological surveillance of WNV 
+infections in Brazil.
+
+DOI: 10.1590/0037-868214142013
+PMID: 23563834 [Indexed for MEDLINE]

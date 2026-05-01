@@ -1,0 +1,46 @@
+1. Vet Microbiol. 2017 Jan;198:51-58. doi: 10.1016/j.vetmic.2016.12.008. Epub
+2016  Dec 8.
+
+A recombinant fusion protein consisting of West Nile virus envelope domain III 
+fused in-frame with equine CD40 ligand induces antiviral immune responses in 
+horses.
+
+Liu SA(1), Haque M(1), Stanfield B(1), Andrews FM(2), Roy AA(1), Kousoulas 
+KG(3).
+
+Author information:
+(1)Department of Pathobiological Sciences, School of Veterinary Medicine, 
+Louisiana State University, Baton Rouge, LA, USA.
+(2)Department of Veterinary Clinical Sciences, School of Veterinary Medicine, 
+Louisiana State University, Baton Rouge, LA, USA.
+(3)Department of Pathobiological Sciences, School of Veterinary Medicine, 
+Louisiana State University, Baton Rouge, LA, USA. Electronic address: 
+vtgusk@lsu.edu.
+
+West Nile Virus (WNV) is endemic in the US and causes severe neurologic disease 
+in horses since its introduction in 1999. There is no effective pharmaceutical 
+treatment for WNV infection rendering vaccination as the only approach to 
+prevention and control of disease. The purpose of this study was to evaluate a 
+recombinant vaccine containing domain III (DIII) of the WNV envelope 
+glycoprotein with and without a natural adjuvant equine (CD40L) in producing 
+virus neutralizing antibodies in horses. Serum IgG1 concentration in the groups 
+of horses vaccinated with the DIII-CD40L+TiterMax and DIII-CD40L proteins were 
+significantly increased (p<0.05) after the second booster vaccination compared 
+to other groups. Serum IgG4 and IgG7, IgG3 and IgG5 concentrations were not 
+significantly increased among all groups. Western blot results showed that 
+animals immunized with the DIII-CD40L protein (with or without TiterMax) 
+exhibited the highest specific anti-DIII antibody activities after vaccinations. 
+Moreover, animals immunized with the DIII-CD40L protein (with or without 
+TiterMax) exhibited significantly stronger neutralization activity (p<0.05) 
+compared to other groups starting at week eight. The DIII-CD40L protein (with or 
+without TiterMax) stimulated more CD8+T cells, but not CD4+T cells in equine 
+PMBCs. The results demonstrated that vaccination with recombinant WNV E 
+DIII-CD40L protein induced superior humoral and cellular immune response in 
+healthy horses that may be protective against WNV-associated disease in infected 
+animals. CD40L could be utilized as a non-toxic, alternative adjuvant to boost 
+the immunogenicity of subunit vaccines in horses.
+
+Copyright © 2016. Published by Elsevier B.V.
+
+DOI: 10.1016/j.vetmic.2016.12.008
+PMID: 28062007 [Indexed for MEDLINE]

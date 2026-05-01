@@ -1,0 +1,26 @@
+1. J Infect Dis. 1983 Dec;148(6):1055-60. doi: 10.1093/infdis/148.6.1055.
+
+Dengue 2 vaccine: dose response in volunteers in relation to yellow fever immune 
+status.
+
+Scott RM, Eckels KH, Bancroft WH, Summers PL, McCown JM, Anderson JH, Russell 
+PK.
+
+A live dengue 2 vaccine was tested in 38 volunteers in an evaluation of the 
+safety, infectivity, and immunogenicity of doses of 10(1.8)-10(5.5) 
+plaque-forming units. Twenty yellow fever-immune and 18 yellow fever-nonimmune 
+individuals received 0.5 ml of vaccine sc. Immunization was dose related in 
+yellow fever-immune volunteers, with a 50% immunizing dose of 10(3.3) 
+plaque-forming units. In the group not immune to yellow fever, some but not all 
+recipients of each vaccine dilution were immunized, and no 50% immunizing dose 
+could be estimated. Volunteers immune to yellow fever developed adequate titers 
+of neutralizing antibody to dengue 2 virus and maintained them for at least 
+three years; those not immune to yellow fever developed lower antibody titers 
+that disappeared within six months in half of the cases. More than 40 isolates 
+of dengue 2 virus from 12 volunteers retained the in vitro growth 
+characteristics of the vaccine virus; this result affirmed the genetic stability 
+of the virus. Common clinical signs in immunized individuals were leukopenia 
+(55%), macular rash (15%), and fever (10%).
+
+DOI: 10.1093/infdis/148.6.1055
+PMID: 6655288 [Indexed for MEDLINE]

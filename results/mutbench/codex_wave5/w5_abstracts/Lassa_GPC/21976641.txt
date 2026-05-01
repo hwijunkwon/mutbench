@@ -1,0 +1,28 @@
+1. J Virol. 2011 Dec;85(24):13457-62. doi: 10.1128/JVI.05616-11. Epub 2011 Oct 5.
+
+Substitutions in the glycoprotein (GP) of the Candid#1 vaccine strain of Junin 
+virus increase dependence on human transferrin receptor 1 for entry and 
+destabilize the metastable conformation of GP.
+
+Droniou-Bonzom ME(1), Reignier T, Oldenburg JE, Cox AU, Exline CM, Rathbun JY, 
+Cannon PM.
+
+Author information:
+(1)Department of Molecular Microbiology and Immunology, University of Southern 
+California, Keck School of Medicine, 2011 Zonal Avenue, HMR502, Los Angeles, CA 
+90033, USA.
+
+Candid#1 (Cd1) is an attenuated vaccine strain of Junin virus, the causative 
+agent of Argentine hemorrhagic fever. Although several substitutions are present 
+in Cd1, their importance for attenuation has not been established. We 
+functionally characterized the substitutions present in the Cd1 glycoprotein 
+(GP) and identified F427I in the transmembrane domain of the GP2 subunit as 
+reducing infectivity in a reconstituted viral system. We further showed that 
+this phenotype derives from the destabilization of the GP metastable 
+conformation. Lastly, we identified an increased dependence of Cd1 GP on human 
+transferrin receptor type 1 (hTfR-1) for entry, which may affect the tropism of 
+the attenuated strain in vivo.
+
+DOI: 10.1128/JVI.05616-11
+PMCID: PMC3233171
+PMID: 21976641 [Indexed for MEDLINE]

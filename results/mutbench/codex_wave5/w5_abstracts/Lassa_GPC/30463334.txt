@@ -1,0 +1,83 @@
+1. Viruses. 2018 Nov 20;10(11):655. doi: 10.3390/v10110655.
+
+Recombinant Lassa Virus Expressing Green Fluorescent Protein as a Tool for 
+High-Throughput Drug Screens and Neutralizing Antibody Assays.
+
+Caì Y(1), Iwasaki M(2), Beitzel BF(3), Yú S(4), Postnikova EN(5), Cubitt B(6), 
+DeWald LE(7), Radoshitzky SR(8), Bollinger L(9), Jahrling PB(10), Palacios 
+GF(11), de la Torre JC(12), Kuhn JH(13).
+
+Author information:
+(1)Integrated Research Facility at Fort Detrick (IRF-Frederick), National 
+Institute of Allergy and Infectious Diseases (NIAID), National Institutes of 
+Health (NIH), B-8200 Research Plaza, Fort Detrick, Frederick, MD 21702, USA. 
+caiy@niaid.nih.gov.
+(2)Department of Immunology and Microbial Science, The Scripps Research 
+Institute (TSRI), 10550 North Torrey Pines Rd., La Jolla, CA 92037, USA. 
+miwasaki@biken.osaka-u.ac.jp.
+(3)United States Army Medical Research Institute of Infectious Diseases 
+(USAMRIID), 1425 Porter Street, Fort Detrick, Frederick, MD 21702, USA. 
+brett.f.beitzel.ctr@mail.mil.
+(4)Integrated Research Facility at Fort Detrick (IRF-Frederick), National 
+Institute of Allergy and Infectious Diseases (NIAID), National Institutes of 
+Health (NIH), B-8200 Research Plaza, Fort Detrick, Frederick, MD 21702, USA. 
+Shuiqing.yu@nih.gov.
+(5)Integrated Research Facility at Fort Detrick (IRF-Frederick), National 
+Institute of Allergy and Infectious Diseases (NIAID), National Institutes of 
+Health (NIH), B-8200 Research Plaza, Fort Detrick, Frederick, MD 21702, USA. 
+elena.postnikova2@nih.gov.
+(6)Department of Immunology and Microbial Science, The Scripps Research 
+Institute (TSRI), 10550 North Torrey Pines Rd., La Jolla, CA 92037, USA. 
+bcubitt@scripps.edu.
+(7)Integrated Research Facility at Fort Detrick (IRF-Frederick), National 
+Institute of Allergy and Infectious Diseases (NIAID), National Institutes of 
+Health (NIH), B-8200 Research Plaza, Fort Detrick, Frederick, MD 21702, USA. 
+lmdewald@gmail.com.
+(8)United States Army Medical Research Institute of Infectious Diseases 
+(USAMRIID), 1425 Porter Street, Fort Detrick, Frederick, MD 21702, USA. 
+sheli.r.radoshitzky.ctr@mail.mil.
+(9)Integrated Research Facility at Fort Detrick (IRF-Frederick), National 
+Institute of Allergy and Infectious Diseases (NIAID), National Institutes of 
+Health (NIH), B-8200 Research Plaza, Fort Detrick, Frederick, MD 21702, USA. 
+bollingerl@niaid.nih.gov.
+(10)Integrated Research Facility at Fort Detrick (IRF-Frederick), National 
+Institute of Allergy and Infectious Diseases (NIAID), National Institutes of 
+Health (NIH), B-8200 Research Plaza, Fort Detrick, Frederick, MD 21702, USA. 
+jahrlingp@niaid.nih.gov.
+(11)United States Army Medical Research Institute of Infectious Diseases 
+(USAMRIID), 1425 Porter Street, Fort Detrick, Frederick, MD 21702, USA. 
+gustavo.f.palacios.ctr@mail.mil.
+(12)Department of Immunology and Microbial Science, The Scripps Research 
+Institute (TSRI), 10550 North Torrey Pines Rd., La Jolla, CA 92037, USA. 
+juanct@scripps.edu.
+(13)Integrated Research Facility at Fort Detrick (IRF-Frederick), National 
+Institute of Allergy and Infectious Diseases (NIAID), National Institutes of 
+Health (NIH), B-8200 Research Plaza, Fort Detrick, Frederick, MD 21702, USA. 
+kuhnjens@mail.nih.gov.
+
+Lassa virus (LASV), a mammarenavirus, infects an estimated 100,000⁻300,000 
+individuals yearly in western Africa and frequently causes lethal disease. 
+Currently, no LASV-specific antivirals or vaccines are commercially available 
+for prevention or treatment of Lassa fever, the disease caused by LASV. The 
+development of medical countermeasure screening platforms is a crucial step to 
+yield licensable products. Using reverse genetics, we generated a recombinant 
+wild-type LASV (rLASV-WT) and a modified version thereof encoding a cleavable 
+green fluorescent protein (GFP) as a reporter for rapid and quantitative 
+detection of infection (rLASV-GFP). Both rLASV-WT and wild-type LASV exhibited 
+similar growth kinetics in cultured cells, whereas growth of rLASV-GFP was 
+slightly impaired. GFP reporter expression by rLASV-GFP remained stable over 
+several serial passages in Vero cells. Using two well-characterized 
+broad-spectrum antivirals known to inhibit LASV infection, favipiravir and 
+ribavirin, we demonstrate that rLASV-GFP is a suitable screening tool for the 
+identification of LASV infection inhibitors. Building on these findings, we 
+established a rLASV-GFP-based high-throughput drug discovery screen and an 
+rLASV-GFP-based antibody neutralization assay. Both platforms, now available as 
+a standard tool at the IRF-Frederick (an international resource), will 
+accelerate anti-LASV medical countermeasure discovery and reduce costs of 
+antiviral screens in maximum containment laboratories.
+
+DOI: 10.3390/v10110655
+PMCID: PMC6266387
+PMID: 30463334 [Indexed for MEDLINE]
+
+Conflict of interest statement: The authors declare no conflict of interest.

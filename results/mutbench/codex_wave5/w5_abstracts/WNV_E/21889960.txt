@@ -1,0 +1,38 @@
+1. Virus Res. 2012 Jan;163(1):40-50. doi: 10.1016/j.virusres.2011.08.008. Epub
+2011  Aug 27.
+
+Induction of virus-specific neutralizing immune response against West Nile and 
+Japanese encephalitis viruses by chimeric peptides representing T-helper and 
+B-cell epitopes.
+
+Gangwar RS(1), Shil P, Sapkal GN, Khan SA, Gore MM.
+
+Author information:
+(1)Encephalitis Group, National Institute of Virology, Sus Road Campus, 130/1, 
+Pashan, Pune 411021, India.
+
+West Nile virus (WNV) and Japanese encephalitis virus (JEV), the members of JEV 
+serocomplex group are pathogens of global health concern. The co-circulation of 
+these viruses poses challenges in effective diagnostics due to antigenic 
+similarity between the E-protein of these viruses. The present study aimed to 
+design chimeric peptides and study the immune response against the same. B-cell 
+epitopes were predicted on structural proteins of WNV and JEV based on 
+bioinformatics tools. The peptides representing to these B-cell epitopes were 
+synthesized and subjected to ELISA. Two peptides, one each from WNV (named 
+WE147) and JEV (named JE40) E-protein, showed virus-specific and strong 
+reactivity to the immune mice sera and human clinical samples. The chimeric 
+peptides for WNV and JEV were constructed by synthesizing the B-cell epitope of 
+WNV (WE147) or JEV (JE40) with T-helper epitope (JM17) separated by diglycine 
+spacer in between. The immune response generated against these chimeric peptides 
+was found to be specific to the respective B-cell epitopes. The anti-peptide 
+sera showed virus-specific reactivity in ELISA and in immunofluorescence assay 
+with no cross-reactivity. Also, the anti-peptide sera could neutralize JE and WN 
+viruses in an in vitro virus neutralization assay. The B-cell epitopes 
+identified in the present study may be used as diagnostic markers for 
+differentiating between WN and JE virus infections. The present study can form a 
+basis for future design of vaccines.
+
+Copyright © 2011 Elsevier B.V. All rights reserved.
+
+DOI: 10.1016/j.virusres.2011.08.008
+PMID: 21889960 [Indexed for MEDLINE]

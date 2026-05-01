@@ -1,0 +1,44 @@
+1. J Travel Med. 2021 Dec 29;28(8):taab126. doi: 10.1093/jtm/taab126.
+
+Long-term immunity after a single yellow fever vaccination in travelers 
+vaccinated at 60 years or older: A 10-year follow-up study.
+
+Rosenstein MD(1), de Visser AW(1), Visser LG(1), Roukens AHE(1).
+
+Author information:
+(1)Department of Infectious Diseases, Leiden University Medical Center, Leiden, 
+The Netherlands.
+
+BACKGROUND: In 2013, the World Health Organization (WHO) revised their position 
+on yellow fever vaccination, in which revaccination every 10 years was no longer 
+required, and that a single-dose provided life-long protection. However, 
+research data on the immunogenicity of YF vaccine in people aged 60 years and 
+over are scarce. Indeed, immunosenescence may result in lower virus neutralizing 
+antibody titers after primary vaccination and a more rapid waning immunity. 
+Therefore, we tested the hypothesis that older travelers, vaccinated at 60 years 
+or older are more likely to become seronegative in comparison to young adults 10 
+years after primary YF vaccination.
+METHODS: This is a 10-year follow-up study of an earlier prospective controlled 
+cohort study. In the original trial, the neutralizing antibody response was 
+measured in older travelers (aged 60-81 years, N = 28) and young adults (aged 
+18-28 years, N = 30) up to 28 days after a primary yellow fever vaccination. Ten 
+years later, we collected serum samples of 22/28 (78%) elderly (71-85 years) and 
+14/30 (47%) controls (29-40 years), and determined their neutralizing antibody 
+titers by plaque reduction neutralization test (PRNT80). Seropositivity was 
+defined as plaque formation reduction of 80% at a serum dilution of 10 or more 
+(PRNT80 ≥ 10).
+RESULTS: All participants (36/36) were still seropositive 10 years after primary 
+vaccination. The geometric mean concentrations were not statistically different 
+between the older and younger participants (6.7 IU/mL vs. 8.6 IU/mL, P = 0.5).
+CONCLUSIONS: All older travelers were seropositive, 10 years after a primary YF 
+vaccination at the age of ≥60 years. These data suggest that in older travelers 
+a single vaccination is sufficient to convey long-lasting immunity for at least 
+10 years, and is in support the position of the WHO on a single-dose yellow 
+fever vaccination.
+
+© The Author(s) 2021. Published by Oxford University Press on behalf of 
+International Society of Travel Medicine.
+
+DOI: 10.1093/jtm/taab126
+PMCID: PMC8715414
+PMID: 34401911 [Indexed for MEDLINE]

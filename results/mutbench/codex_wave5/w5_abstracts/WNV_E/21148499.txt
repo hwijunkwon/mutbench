@@ -1,0 +1,39 @@
+1. J Infect Dis. 2011 Jan 1;203(1):75-84. doi: 10.1093/infdis/jiq003.
+
+Phase II, randomized, double-blind, placebo-controlled, multicenter study to 
+investigate the immunogenicity and safety of a West Nile virus vaccine in 
+healthy adults.
+
+Biedenbender R(1), Bevilacqua J, Gregg AM, Watson M, Dayan G.
+
+Author information:
+(1)The Glennan Center for Geriatrics and Gerontology, Eastern Virginia Medical 
+School, Norfolk, USA.
+
+Comment in
+    Expert Rev Vaccines. 2011 May;10(5):601-4. doi: 10.1586/erv.11.47.
+    Curr Neurol Neurosci Rep. 2011 Dec;11(6):517-9. doi: 
+10.1007/s11910-011-0223-x.
+
+BACKGROUND: ChimeriVax-WN02 is a live, attenuated chimeric vaccine for 
+protection against West Nile virus. This Phase II, randomized, double-blind, 
+placebo-controlled, multicenter study assessed the immunogenicity, viremia, and 
+safety of the ChimeriVax-WN02 vaccine.
+METHODS: The 2-part study included adults in general good health. In part 1, 
+subjects aged 18-40 years were randomized to 1 of 4 treatment groups: 
+ChimeriVax-WN02 3.7- × -10(5) plaque-forming units (PFU), 3.7 × 10(4) PFU, 3.7 × 
+10(3) PFU, or placebo. In part 2, subjects aged 41-64 and ≥ 65 years were 
+randomized to receive ChimeriVax-WN02 3.7 × 10(5) PFU or placebo.
+RESULTS: In both part 1 and part 2, seroconversion was achieved at day 28 by 
+>96% of subjects in active treatment groups. In part 1, neutralizing antibody 
+titers at day 28 were higher and viremia levels lower with the highest dose, 
+whereas the adverse event profile was similar between the dose groups. In part 
+2, antibody titers and viremia levels were higher in subjects aged ≥ 65 years, 
+and more subjects in the 41-64 years cohort experienced adverse events.
+CONCLUSIONS: The ChimeriVax-WN02 vaccine was highly immunogenic in younger 
+adults and the elderly, and it was well tolerated at all dose levels and in all 
+age groups investigated. Clinical Trials.gov identifier: NCT00442169.
+
+DOI: 10.1093/infdis/jiq003
+PMCID: PMC3086439
+PMID: 21148499 [Indexed for MEDLINE]

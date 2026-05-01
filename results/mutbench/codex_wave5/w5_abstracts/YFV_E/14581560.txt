@@ -1,0 +1,45 @@
+1. J Virol. 2003 Nov;77(22):12232-42. doi: 10.1128/jvi.77.22.12232-12242.2003.
+
+Neuroadapted yellow fever virus 17D: determinants in the envelope protein govern 
+neuroinvasiveness for SCID mice.
+
+Nickells M(1), Chambers TJ.
+
+Author information:
+(1)Department of Molecular Microbiology and Immunology, St. Louis University 
+Health Sciences Center, St. Louis, Missouri 63104, USA.
+
+A molecular clone of mouse-neuroadapted yellow fever 17D virus (SPYF-MN) was 
+used to identify critical determinants of viral neuroinvasiveness in a SCID 
+mouse model. Virus derived from this clone differs from nonneuroinvasive YF5.2iv 
+virus at 29 nucleotide positions, encoding 13 predicted amino acid substitutions 
+and 2 substitutions in the 3' untranslated region (UTR). The virulence 
+determinants of SPYF-MN for SCID mice were identified by constructing and 
+characterizing intratypic viruses in which the E protein of SPYF-MN was 
+expressed in the YF5.2iv background (SPYF-E) or the E protein of YF5.2iv was 
+expressed in the SPYF-MN background (YF5.2-E). SPYF-E caused lethal encephalitis 
+in young adult SCID mice after intraperitoneal inoculation, with average 
+survival times and tissue virus burdens resembling those of mice inoculated with 
+the parental SPYF-MN virus. To define which domains of the E protein are 
+involved in neuroinvasiveness, two viruses were tested in which the amino acid 
+substitutions in domains I-II and III were segregated. This revealed that 
+substitutions in domain III (residues 305, 326, and 380) were critical for the 
+neuroinvasive phenotype, based on average survival times and tissue burdens of 
+infectious virus. Comparison of growth properties of the various intratypic 
+viruses in cell culture indicated that no inherent defects in replication 
+efficiency were likely to account for the biological differences observed in 
+these experiments. These findings demonstrate that the E protein is a critical 
+factor for yellow fever virus neuropathogenesis in the SCID mouse model and that 
+the neuroinvasive properties depend principally on functions contributed by 
+domain III of this protein. To assess whether critical determinants for 
+neuroinvasion of normal ICR mice by SPYF virus were also in the E protein, 
+sequences of viruses recovered from brains of ICR mice succumbing to 
+encephalitis with the parental SPYF virus were derived. No differences were 
+found in the E protein; however, two substitutions were present in the 3' UTR 
+compared to that of SPYF-MN, one of which is predicted to alter RNA secondary 
+structure in this region. These findings suggest that the 3' UTR may also affect 
+neuroinvasiveness of SPYF virus in the mouse model.
+
+DOI: 10.1128/jvi.77.22.12232-12242.2003
+PMCID: PMC254278
+PMID: 14581560 [Indexed for MEDLINE]

@@ -1,0 +1,44 @@
+1. Antimicrob Agents Chemother. 2014 Nov;58(11):6607-14. doi:
+10.1128/AAC.03368-14.  Epub 2014 Aug 25.
+
+BCX4430, a novel nucleoside analog, effectively treats yellow fever in a Hamster 
+model.
+
+Julander JG(1), Bantia S(2), Taubenheim BR(2), Minning DM(3), Kotian P(2), 
+Morrey JD(4), Smee DF(4), Sheridan WP(2), Babu YS(2).
+
+Author information:
+(1)Institute for Antiviral Research, Utah State University, Logan, Utah, USA 
+justin.julander@usu.edu.
+(2)BioCryst Pharmaceuticals, Inc., Durham, North Carolina, USA.
+(3)MedExpert Consulting, Inc., Indialantic, Florida, USA.
+(4)Institute for Antiviral Research, Utah State University, Logan, Utah, USA.
+
+No effective antiviral therapies are currently available to treat disease after 
+infection with yellow fever virus (YFV). A Syrian golden hamster model of yellow 
+fever (YF) was used to characterize the effect of treatment with BCX4430, a 
+novel adenosine nucleoside analog. Significant improvement in survival was 
+observed after treatment with BCX4430 at 4 mg/kg of body weight per day dosed 
+intraperitoneally (i.p.) twice daily (BID). Treatment with BCX4430 at 12.5 
+mg/kg/day administered i.p. BID for 7 days offered complete protection from 
+mortality and also resulted in significant improvement of other YF disease 
+parameters, including weight loss, serum alanine aminotransferase levels (6 days 
+postinfection [dpi]), and viremia (4 dpi). In uninfected hamsters, BCX4430 at 
+200 mg/kg/day administered i.p. BID for 7 days was well tolerated and did not 
+result in mortality or weight loss, suggesting a potentially wide therapeutic 
+index. Treatment with BCX4430 at 12 mg/kg/day i.p. remained effective when 
+administered once daily and for only 4 days. Moreover, BCX4430 dosed at 200 
+mg/kg/day i.p. BID for 7 days effectively treated YF, even when treatment was 
+delayed up to 4 days after virus challenge, corresponding with peak viral titers 
+in the liver and serum. BCX4430 treatment did not preclude a protective antibody 
+response, as higher neutralizing antibody (nAb) concentrations corresponded with 
+increasing delays of treatment initiation, and greater nAb responses resulted in 
+the protection of animals from a secondary challenge with YFV. In summary, 
+BCX4430 is highly active in a hamster model of YF, even when treatment is 
+initiated at the peak of viral replication.
+
+Copyright © 2014, American Society for Microbiology. All Rights Reserved.
+
+DOI: 10.1128/AAC.03368-14
+PMCID: PMC4249364
+PMID: 25155605 [Indexed for MEDLINE]

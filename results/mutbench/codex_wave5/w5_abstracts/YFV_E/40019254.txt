@@ -1,0 +1,53 @@
+1. J Virol. 2025 Apr 15;99(4):e0177024. doi: 10.1128/jvi.01770-24. Epub 2025 Feb 
+28.
+
+A single residue in domain II of envelope protein of yellow fever virus is 
+critical for neutralization sensitivity.
+
+Lou Y-N(1), Sun M-X(1), Li K(1), Xiong X-C(1), Zhou C(1), Cao T-S(1), Li X-F(1), 
+Qin C-F(1)(2).
+
+Author information:
+(1)State Key Laboratory of Pathogen and Biosecurity, Academy of Military Medical 
+Sciences, Beijing, China.
+(2)Research Unit of Discovery and Tracing of Natural Focus Diseases, Chinese 
+Academy of Medical Sciences, Beijing, China.
+
+The live-attenuated yellow fever (YF) vaccine strain 17D (referred to as YF-17D) 
+is the only commercially available vaccine against YF. Recent yellow fever virus 
+(YFV) isolates of South American genotype I (SAI) showed reduced sensitivity to 
+sera from individuals vaccinated with YF-17D. However, the underlying mechanisms 
+remain inadequately elucidated. Here we conducted a screening of a panel of 
+amino acid changes prevalent in domain II of the envelope protein (EDII) of SAI 
+YFV isolates. Each mutation was introduced into the infectious clone of YF-17D 
+utilizing standard reverse genetics. Subsequent neutralization assays 
+demonstrated that the A83E mutant was more sensitive to sera from 
+YF-17D-vaccinated mice and individuals than YF-17D did. Additionally, the A83E 
+mutant displayed neurovirulence and viscerotropic characteristics comparable to 
+those of the parental YF-17D in murine models. Notably, administration of a 
+single dose of the A83E mutant resulted in an enhanced neutralization response 
+against this variant compared to YF-17D and provided complete protection against 
+lethal YFV challenge in mice. Collectively, these findings not only identify a 
+crucial amino acid residue that influences the neutralization sensitivity of YFV 
+but also provide a promising candidate for the development of an updated YF 
+vaccine.
+IMPORTANCE: The YF-17D vaccine has been used to prevent YF disease. However, 
+recent strains belonging to the SAI displayed reduced sensitivity to the 
+antibodies produced by vaccination, raising concerns about potential future 
+outbreaks. To identify potential amino acid residues responsible for the 
+decreased neutralizing activity of YF-17D-vaccinated sera, we conducted a 
+screening and generated recombinant viruses with amino acid changes specific to 
+the SAI in EDII using the YF-17D genome as a genetic backbone. We found the A83E 
+mutation played a key role in reducing neutralizing sensitivity to 
+YF-17D-vaccinated mouse sera. Importantly, the A83E mutant maintained a 
+comparable attenuation phenotype to YF-17D but elicited enhanced neutralization 
+activity and conferred protection in mice. Together, we identify a key amino 
+acid residue responsible for the neutralization escape of SAI YFV isolates. We 
+propose that this substitution could act as a target for developing an updated 
+YF-17D vaccine.
+
+DOI: 10.1128/jvi.01770-24
+PMCID: PMC11998516
+PMID: 40019254 [Indexed for MEDLINE]
+
+Conflict of interest statement: The authors declare no conflict of interest.

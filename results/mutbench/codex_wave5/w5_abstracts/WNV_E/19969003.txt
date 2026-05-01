@@ -1,0 +1,43 @@
+1. J Mol Biol. 2010 Feb 26;396(3):550-63. doi: 10.1016/j.jmb.2009.11.070. Epub
+2009  Dec 4.
+
+PCP consensus sequences of flaviviruses: correlating variance with vector 
+competence and disease phenotype.
+
+Danecek P(1), Lu W, Schein CH.
+
+Author information:
+(1)Sealy Center for Structural Biology and Molecular Biophysics, Department of 
+Biochemistry and Molecular Biology, University of Texas Medical Branch, 301 
+University Boulevard, Galveston, TX 77555-0857, USA.
+
+BACKGROUND: Computational methods are needed to design multivalent vaccines 
+against flaviviruses (FVs) such as the West Nile virus or the dengue virus 
+(DENV).
+OBJECTIVE: We aimed to use physicochemical property (PCP) consensus sequences of 
+FV strains to delineate conserved motifs, areas of maximum variability, and 
+specific loci that correlate with arthropod vector, serotype, and disease 
+severity.
+METHODS: PCP consensus sequences for 27 species were prepared from 928 annotated 
+sequences catalogued in Flavitrack. Alignments of these correlated well with the 
+known structures of the NS3 protease domain and envelope (E) proteins. The 
+PCPMer suite was used to identify motifs common to all FVs. Areas of PCP 
+variability that correlated with phenotype were plotted on the structures.
+RESULTS: Despite considerable diversity at the amino acid level, PCPs for both 
+proteins were well conserved throughout the FVs. A series of insertions in E 
+separated tick- from mosquito-borne viruses and all arthropod-borne viruses from 
+isolates with no known vector or directly from insects. Comparison of a PCP 
+consensus sequence of E derived from 600 DENV strains (DENV600) with individual 
+ones for DENV1-DENV4 showed that most major serotype-specific variation occurs 
+near these insertions. The DENV600 differed from one prepared from eight 
+hemorrhagic or fatal strains from four DENV serotypes at only three positions, 
+two of which overlap known escape mutant sites.
+CONCLUSIONS: Comparing consensus sequences showed that substantial changes occur 
+in only a few areas of the E protein. PCP consensus sequences can contribute to 
+the design of multivalent vaccines.
+
+Copyright (c) 2009. Elsevier Ltd. All rights reserved.
+
+DOI: 10.1016/j.jmb.2009.11.070
+PMCID: PMC2822003
+PMID: 19969003 [Indexed for MEDLINE]

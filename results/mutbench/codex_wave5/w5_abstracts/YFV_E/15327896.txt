@@ -1,0 +1,31 @@
+1. Virology. 2004 Sep 15;327(1):41-9. doi: 10.1016/j.virol.2004.06.015.
+
+Yellow fever 17D virus: pseudo-revertant suppression of defective virus 
+penetration and spread by mutations in domains II and III of the E protein.
+
+Vlaycheva L(1), Nickells M, Droll DA, Chambers TJ.
+
+Author information:
+(1)Department of Molecular Microbiology and Immunology, Saint Louis University 
+Health Sciences Center, St. Louis, MO 63104, USA.
+
+A yellow fever (YFV) 17D virus variant, which causes persistent infection of 
+mouse neuroblastoma cells associated with defective cell penetration and small 
+plaque size, yielded plaque-revertant viruses from cells transfected with viral 
+transcripts encoding the adaptive mutation (Gly360 in the E protein). 
+Reconstruction of a plaque-purified revertant which contained Gly360 and 
+additional substitutions (Asn for Lys303 and Val for Ala261) yielded a virus 
+whose infectious center size, growth efficiency, and cell penetration rate 
+similar to the parental YF5.2iv virus, whereas viruses with Asn303 or Val261 
+alone with Gly360 yielded either a small-plaque virus or a parental revertant. 
+These data indicate that the YFV E protein is subject to suppression of 
+mutations in domain III that are deleterious for viral entry and spread by a 
+second-site mutation in domain II. Position 261 lies within the hydrophobic 
+ligand-binding pocket at the domain I-II interface, a site believed to be 
+involved in the hinge-like conformational change of domain II during activation 
+of membrane fusion-activity. Results of this study provide genetic data 
+consistent with findings on flavivirus structure and implicate domain III in 
+functions beyond simply cell surface attachment.
+
+DOI: 10.1016/j.virol.2004.06.015
+PMID: 15327896 [Indexed for MEDLINE]

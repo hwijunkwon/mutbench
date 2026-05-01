@@ -1,0 +1,37 @@
+1. J Clin Microbiol. 2006 Aug;44(8):2872-8. doi: 10.1128/JCM.00777-06.
+
+Serotype 1-specific monoclonal antibody-based antigen capture immunoassay for 
+detection of circulating nonstructural protein NS1: Implications for early 
+diagnosis and serotyping of dengue virus infections.
+
+Xu H(1), Di B, Pan YX, Qiu LW, Wang YD, Hao W, He LJ, Yuen KY, Che XY.
+
+Author information:
+(1)Center of Laboratory, Zhujiang Hospital, Southern Medical University, 
+Guangzhou 510282, People's Republic of China.
+
+Rapid diagnosis and serotyping of dengue virus (DV) infections are important for 
+timely clinical management and epidemiological control in areas where multiple 
+flaviviruses are endemic. However, the speed and accuracy of diagnosis must be 
+balanced against test cost and availability, especially in developing countries. 
+We developed a specific antigen capture enzyme-linked immunosorbent assay 
+(ELISA) for early detection and serotyping of DV serotype 1 (DV1) by using 
+well-characterized monoclonal antibodies (MAbs) specific to nonstructural 
+protein 1 (NS1) of DV1. With this assay, a total of 462 serum specimens from 
+clinically probable DV1-infected patients during the DV1 epidemic in Guangdong, 
+China, in 2002 and 2003 were analyzed. DV1 NS1 was detectable in blood 
+circulation from the first day up to day 18 after onset of symptoms, with a peak 
+at days 6 to 10. The sensitivity of DV1 NS1 detection in serum specimens with 
+reference to results from reverse transcriptase PCR was 82%, and the specificity 
+was 98.9% with reference to 469 healthy blood donors. No cross-reactions with 
+any of the other three DV serotypes or other closely related members of the 
+genus Flavivirus (Japanese encephalitis virus and Yellow fever virus) were 
+observed when tested with the clinical specimens or virus cultures. These 
+findings suggest that the serotype-specific MAb-based NS1 antigen capture ELISA 
+may be a valuable tool for early diagnosis and serotyping of DV infections, 
+while also providing a standardized assay for the analysis of a great number of 
+clinical samples with convenience and cost-effectiveness.
+
+DOI: 10.1128/JCM.00777-06
+PMCID: PMC1594623
+PMID: 16891505 [Indexed for MEDLINE]

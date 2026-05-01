@@ -1,0 +1,34 @@
+1. Int J Environ Res Public Health. 2013 Dec 12;10(12):7144-64. doi: 
+10.3390/ijerph10127144.
+
+Increased pathogenicity of West Nile virus (WNV) by glycosylation of envelope 
+protein and seroprevalence of WNV in wild birds in Far Eastern Russia.
+
+Kariwa H(1), Murata R, Totani M, Yoshii K, Takashima I.
+
+Author information:
+(1)Laboratory of Public Health, Department of Environmental Veterinary Sciences, 
+Graduate School of Veterinary Medicine, Hokkaido University, Kita-18, Nishi-9, 
+Kita-Ku, Sapporo 060-0818, Japan. kariwa@vetmed.hokudai.ac.jp.
+
+In this review, we discuss the possibility that the glycosylation of West Nile 
+(WN) virus E-protein may be associated with enhanced pathogenicity and higher 
+replication of WN virus. The results indicate that E-protein glycosylation 
+allows the virus to multiply in a heat-stable manner and therefore, has a 
+critical role in enhanced viremic levels and virulence of WN virus in 
+young-chick infection model. The effect of the glycosylation of the E protein on 
+the pathogenicity of WN virus in young chicks was further investigated. The 
+results indicate that glycosylation of the WN virus E protein is important for 
+viral multiplication in peripheral organs and that it is associated with the 
+strong pathogenicity of WN virus in birds. The micro-focus reduction 
+neutralization test (FRNT) in which a large number of serum samples can be 
+handled at once with a small volume (15 μL) of serum was useful for differential 
+diagnosis between Japanese encephalitis and WN virus infections in infected 
+chicks. Serological investigation was performed among wild birds in the Far 
+Eastern region of Russia using the FRNT. Antibodies specific to WN virus were 
+detected in 21 samples of resident and migratory birds out of 145 wild bird 
+samples in the region.
+
+DOI: 10.3390/ijerph10127144
+PMCID: PMC3881158
+PMID: 24351738 [Indexed for MEDLINE]

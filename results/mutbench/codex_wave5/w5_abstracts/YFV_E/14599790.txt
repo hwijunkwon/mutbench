@@ -1,0 +1,42 @@
+1. Virology. 2003 Nov 10;316(1):55-63. doi: 10.1016/s0042-6822(03)00583-x.
+
+Neurovirulence of yellow fever 17DD vaccine virus to rhesus monkeys.
+
+Marchevsky RS(1), Freire MS, Coutinho ES, Galler R.
+
+Author information:
+(1)Fundação Oswaldo Cruz, Instituto de Tecnologia em Imunobiológicos, 21045-900, 
+Rio de Janeiro, Brazil. march@bio.fiocruz.br
+
+Erratum in
+    Virology. 2004 Jul 20;325(1):165.
+
+The yellow fever 17D virus is attenuated and used for human vaccination. Two of 
+its substrains, 17D-204 and 17DD, are used for vaccine production. One of the 
+remarkable properties of this vaccine is limited viral replication in the host 
+but with significant dissemination of the viral mass, yielding a robust and 
+long-lived neutralizing antibody response. The vaccine has excellent records of 
+efficacy and safety and is cheap, used as a single dose, and there are 
+well-established production methodology and quality control procedures which 
+include the monkey neurovirulence test (MNTV). The present study aims at a 
+better understanding of YF 17DD virus attenuation and immunogenicity in the MNVT 
+with special emphasis on viremia, seroconversion, clinical and histological 
+lesions scores, and their intrinsic variability across the tests. Several MNVTs 
+were performed using the secondary seed lot virus 17DD 102/84 totaling 49 rhesus 
+monkeys. Viremia was never higher than the accepted limits established in 
+international requirements, and high levels of neutralizing antibodies were 
+observed in all animals. None of the animals showed visceral lesions. We found 
+that the clinical scores for the same virus varied widely across the tests. 
+There was a direct correlation between the clinical scores in animals with 
+clinical signs of encephalitis and a higher degree of central nervous system 
+(CNS) histological lesions, with an increase of lesions in areas of the CNS such 
+as the substantia nigra, nucleus caudatus, intumescentia cervicalis, and 
+intumescentia ventralis. The histological scores were shown to be less prone to 
+individual variations and had a more homogeneous value distribution among the 
+tests. Since 17DD 102/84 seed virus has been used for human vaccine production 
+and immunization for 16 years with the vaccine being safe and efficacious, it 
+demonstrates that the observed variations across the MNVTs do not influence its 
+effect on humans.
+
+DOI: 10.1016/s0042-6822(03)00583-x
+PMID: 14599790 [Indexed for MEDLINE]

@@ -1,0 +1,44 @@
+1. J Virol. 1995 Dec;69(12):7423-9. doi: 10.1128/JVI.69.12.7423-7429.1995.
+
+Discriminated selection among viral peptides with the appropriate anchor 
+residues: implications for the size of the cytotoxic T-lymphocyte repertoire and 
+control of viral infection.
+
+Oldstone MB(1), Lewicki H, Borrow P, Hudrisier D, Gairin JE.
+
+Author information:
+(1)Department of Neuropharmacology, Scripps Research Institute, La Jolla, 
+California 92037, USA.
+
+Structural characterization of peptides restricted by major histocompatibility 
+complex (MHC) class I molecules has identified residues critical for MHC class I 
+binding and for T-cell receptor recognition. For example, optimal peptides 
+fitting into the murine MHC class I Db groove are 9 to 11 amino acids long and 
+require as MHC anchor residues an Asn (N) at position 5 and also either a 
+hydrophobic residue, a Met (M) or a Cys (C), at the carboxy terminus. The three 
+known Db-restricted peptides of lymphocytic choriomeningitis virus (LCMV) are 
+glycoproteins GP1 (amino acids [aa] 33 KAVYNFATC), GP2 (aa 276 SGVENPGGYCL), and 
+nucleoprotein NP (aa 396 FQPQNGQFI). In addition to these two GP and one NP 
+peptides, computer search revealed 11 other GP peptide sequences and 20 
+additional NP sequences that contained the Db binding motif. By Db competitive 
+binding analysis, only two of these 11 GP peptides and 1 of these 20 NP peptides 
+bound to the MHC Db molecule with an affinity equivalent to the measured 
+affinities for the three known GP1, GP2, and NP cytotoxic T-lymphocyte (CTL) 
+epitopes. No CTL specific for these three peptides were generated when H-2b mice 
+were inoculated with viral variants in which either the two known GP epitopes 
+(GP1 and GP2; termed GPV) or the GPV and NP epitopes (termed GPV + NPV) were 
+mutated. However, a novel CD8+ anti-LCMV CTL response ordinarily not seen in 
+H-2b mice inoculated with wild-type virus was noted when such mice were 
+inoculated with the GPV + NPV-mutated variant. This result indicates that (i) 
+despite large numbers of peptides containing the appropriate anchor residues 
+within a viral protein, only a restricted number induce CTL, thereby maintaining 
+a limited CTL repertoire, (ii) despite the limited repertoire, the immune system 
+retains the flexibility to generate an immune response(s) to a previously silent 
+protein(s), suggesting a hierarchial control mechanism, and (iii) identification 
+of a primary amino acid sequence is not sufficient, per se, to predict CTL 
+epitopes, and peptide conformations are likely more complex than indicated by 
+simple linear sequence comparisons.
+
+DOI: 10.1128/JVI.69.12.7423-7429.1995
+PMCID: PMC189679
+PMID: 7494247 [Indexed for MEDLINE]

@@ -1,0 +1,60 @@
+1. Vaccine. 2023 Jan 16;41(3):836-843. doi: 10.1016/j.vaccine.2022.12.029. Epub 
+2022 Dec 21.
+
+Neurovirulence, viscerotropism and immunogenicity of live attenuated yellow 
+fever 17D vaccine virus in non-human primates.
+
+Tyagi P(1), Ganguly M(2), Manney S(3), Wadkar K(4), Ingle N(5), Gairola S(6), 
+Dhere R(7), Koide F(8), Grimes S(9).
+
+Author information:
+(1)Serum Institute of India Private Ltd, 212/2, Off Soli Poonawalla Road, 
+Hadapsar, Pune, Maharashtra 411028, India. Electronic address: 
+ptyagi@seruminstitute.com.
+(2)Serum Institute of India Private Ltd, 212/2, Off Soli Poonawalla Road, 
+Hadapsar, Pune, Maharashtra 411028, India. Electronic address: 
+milan.ganguly@seruminstitute.com.
+(3)Serum Institute of India Private Ltd, 212/2, Off Soli Poonawalla Road, 
+Hadapsar, Pune, Maharashtra 411028, India. Electronic address: 
+satyaprasad.manney@seruminstitute.com.
+(4)Serum Institute of India Private Ltd, 212/2, Off Soli Poonawalla Road, 
+Hadapsar, Pune, Maharashtra 411028, India. Electronic address: 
+kuntinath.wadkar@seruminstitute.com.
+(5)Serum Institute of India Private Ltd, 212/2, Off Soli Poonawalla Road, 
+Hadapsar, Pune, Maharashtra 411028, India. Electronic address: 
+nilesh.ingle@seruminstitute.com.
+(6)Serum Institute of India Private Ltd, 212/2, Off Soli Poonawalla Road, 
+Hadapsar, Pune, Maharashtra 411028, India. Electronic address: 
+sunil.gairola@seruminstitute.com.
+(7)Serum Institute of India Private Ltd, 212/2, Off Soli Poonawalla Road, 
+Hadapsar, Pune, Maharashtra 411028, India. Electronic address: 
+rajeev.dhere@seruminstitute.com.
+(8)Department of Infectious Disease Research, CRO Services, Southern Research 
+Institute, 2000 Ninth Avenue South, Birmingham, AL 35205, USA. Electronic 
+address: fkoide@southernresearch.org.
+(9)Department of Infectious Disease Research, CRO Services, Southern Research 
+Institute, 2000 Ninth Avenue South, Birmingham, AL 35205, USA. Electronic 
+address: sgrimes@southernresearch.org.
+
+Yellow fever vaccine associated neurovirulence and viscerotropism have been 
+reported by various countries. In this study, the neurovirulence, viscerotropism 
+and immunogenicity of yellow fever vaccine seed lots (master and working) and 
+final product manufactured at Serum Institute of India (SII) were evaluated in 
+cynomolgus monkeys. WHO reference virus 168-73 and Stamaril™ as a control 
+vaccine was used for comparison. Neurovirulence and viscerotropism scores of the 
+seed lots and final product were lower than Stamaril™. The SII seed virus and 
+vaccine complies to the WHO requirement for neurovirulence, viscerotropism and 
+immunogenicity, when tested in comparison to WHO reference seed virus 168/73. 
+All challenged animals showed 100 % seroconversion as early as day 14 and 
+neutralizing antibody titers were sustainable at day 30 in all animals.
+
+Copyright © 2022. Published by Elsevier Ltd.
+
+DOI: 10.1016/j.vaccine.2022.12.029
+PMID: 36564277 [Indexed for MEDLINE]
+
+Conflict of interest statement: Declaration of Competing Interest The authors 
+declare the following financial interests/personal relationships which may be 
+considered as potential competing interests: PT, MG, SM, KW, NI, SG (Sunil 
+Gairola) and RD are employees of Serum Institute of India Private Limited, Pune, 
+India; FK and SG (Sheila Grimes) are employees of Southern Research, USA.

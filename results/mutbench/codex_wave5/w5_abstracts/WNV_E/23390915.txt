@@ -1,0 +1,60 @@
+1. Mikrobiyol Bul. 2013 Jan;47(1):164-72. doi: 10.5578/mb.4474.
+
+[A case of central nervous system infection due to west nile virus lineage-1 in 
+ankara province, Turkey].
+
+[Article in Turkish]
+
+Ocal M(1), Onder H, Arsava EM, Alp S, Ozkul A, Ergünay K.
+
+Author information:
+(1)Hacettepe University Faculty of Medicine, Department of Medical Microbiology, 
+Virology Unit, Ankara, Turkey. ekoray@hacettepe.edu.tr.
+
+West Nile virus (WNV) is a mosquito-borne Flavivirus (family Flaviviridae), 
+maintained in an enzootic cycle between birds as amplifying hosts and mosquito 
+vectors. While WNV exposure in humans frequently remain subclinical, a febrile 
+illness called West Nile fever occurs in about 20% and neuroinvasive disease in 
+less than 1% of the affected individuals. For the last two decades, WNV has 
+caused outbreaks of severe neuroinvasive disease in humans and horses in Europe, 
+the Mediterranean Basin and emerged in the American continent. Although, 
+previous serosurveillance reports have revealed human WNV exposure in various 
+regions in Turkey; well-characterized clinical cases have only been reported 
+after 2009-2010. In this report, a case of WNV encephalitis caused by a Lineage 
+1 virus strain and identified in Ankara province, Central Anatolia, Turkey, was 
+presented. An 87 year-old woman with a history of hypertension and a recent 
+febrile episode was admitted to Hacettepe University Hospital in late May 2012, 
+with altered consciousness, myoclonic jerks in facial muscles and left 
+extremity. Hyponatremia and increased alanine and aspartate aminotransferase 
+levels were noted in blood analyses. Initial electroencephalogram (EEG) 
+demonstrated diffuse slow waves. Areas of restricted diffusion in right dorsal 
+thalamus was observed in cranial magnetic resonance imaging (MRI). Despite 
+supportive therapy, the patient's neurological condition worsened. Follow-up EEG 
+displayed paroxysmal lateralizing epileptiform discharges (PLEDs) in the right 
+hemisphere and T2-hyperintense lesions in the right temporoparietal cortex, 
+insula and thalamus with components of cytotoxic and vasogenic edema were 
+observed in MRI. A cerebrospinal fluid (CSF)-serum pair was evaluated to 
+identify potential causes of encephalitis. CSF biochemical and microscopic 
+findings were within normal limits except for decreased glucose levels. 
+Bacterial, mycobacterial and fungal cultures, antigen assays and polymerase 
+chain reaction (PCR) employed for Herpes simplex virus types 1 and 2 were 
+negative. Commercial and in house assays for WNV, tick-borne encephalitis virus, 
+Toscana virus (TOSV) antibodies revealed TOSV IgG in serum. Previously described 
+nested PCRs targeting WNV envelope glycoprotein and phlebovirus consensus 
+sequences demonstrated WNV positive results in serum and CSF, which were further 
+characterized via cycle sequencing of amplicons as WNV Lineage 1 Clade 1a. Four 
+serum samples obtained within 23 days after the diagnosis were negative for 
+viral RNA and specific antibodies via commercial assays and WNV plaque reduction 
+neutralization assay. During follow-up with supportive therapy and 
+anti-epileptics, the patient's general and neurological condition improved 
+mildly and control EEG and MRI demonstrated regression of previous lesions. 
+However, the patient passed away on the 10th week of hospital admission due to 
+nosocomial infections. These findings confirmed the inital data which indicated 
+the circulation of WNV Lineage 1 strains in Central Anatolia, Turkey. WNV 
+seroconversion may be delayed or absent in elderly individuals without overt 
+diseases associated with immunosuppression. Thus investigation of WNV RNA 
+together with the specific serological tests may help the accurate diagnosis of 
+suspected cases.
+
+DOI: 10.5578/mb.4474
+PMID: 23390915 [Indexed for MEDLINE]

@@ -1,0 +1,26 @@
+1. Methods Mol Biol. 2016;1435:129-41. doi: 10.1007/978-1-4939-3670-0_11.
+
+ELISA and Neutralization Methods to Measure Anti-West Nile Virus Antibody 
+Responses.
+
+Friedrich BM(1), Beasley DW(2).
+
+Author information:
+(1)Department of Microbiology and Immunology, Sealy Center for Vaccine 
+Development, Institute for Human Infections and Immunity, University of Texas 
+Medical Branch, MRB, Route 0609, 301 University Blvd., Galveston, TX, USA.
+(2)Department of Microbiology and Immunology, Sealy Center for Vaccine 
+Development, Institute for Human Infections and Immunity, University of Texas 
+Medical Branch, Keiller Building, Route 0609, 301 University Blvd., Galveston, 
+TX, USA. dwbeasle@utmb.edu.
+
+Measurements of humoral immune responses to West Nile virus (WNV) infection in 
+mouse or other animal models are valuable components of basic laboratory 
+investigations to assess immunogenicity of candidate vaccines or to evaluate 
+seroconversion following challenge with WNV. Here, we outline the steps for 
+screening or titrating of total antibodies by indirect enzyme linked 
+immunosorbent assay (ELISA) as well as assessment of neutralizing antibody 
+titers by immunofocus detection.
+
+DOI: 10.1007/978-1-4939-3670-0_11
+PMID: 27188555 [Indexed for MEDLINE]

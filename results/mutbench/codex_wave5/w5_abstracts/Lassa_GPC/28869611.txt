@@ -1,0 +1,41 @@
+1. Nat Med. 2017 Oct;23(10):1146-1149. doi: 10.1038/nm.4396. Epub 2017 Sep 4.
+
+Human-monoclonal-antibody therapy protects nonhuman primates against advanced 
+Lassa fever.
+
+Mire CE(1)(2), Cross RW(1)(2), Geisbert JB(1)(2), Borisevich V(1)(2), Agans 
+KN(1)(2), Deer DJ(1)(2), Heinrich ML(3), Rowland MM(3), Goba A(4)(5), Momoh 
+M(4)(5)(6), Boisen ML(3), Grant DS(4)(5), Fullah M(4)(5), Khan SH(4)(5), Fenton 
+KA(1)(2), Robinson JE(7), Branco LM(3), Garry RF(3)(8)(9), Geisbert TW(1)(2).
+
+Author information:
+(1)Department of Microbiology and Immunology, University of Texas Medical Branch 
+at Galveston, Galveston, Texas, USA.
+(2)Galveston National Laboratory, University of Texas Medical Branch at 
+Galveston, Galveston, Texas, USA.
+(3)Zalgen Labs, Germantown, Maryland, USA.
+(4)Viral Hemorrhagic Fever Program, Kenema Government Hospital, Kenema, Sierra 
+Leone.
+(5)Ministry of Health and Sanitation, Freetown, Sierra Leone.
+(6)Polytechnic College, Kenema, Sierra Leone.
+(7)Sections of Infectious Disease, Departments of Pediatrics and Internal 
+Medicine, School of Medicine, Tulane University, New Orleans, Louisiana, USA.
+(8)Department of Microbiology and Immunology, Tulane University, New Orleans, 
+Louisiana, USA.
+(9)Tulane Center of Excellence, Global Viral Network, Tulane University, New 
+Orleans, Louisiana, USA.
+
+There are no approved treatments for Lassa fever, which is endemic to the same 
+regions of West Africa that were recently devastated by Ebola. Here we show that 
+a combination of human monoclonal antibodies that cross-react with the 
+glycoproteins of all four clades of Lassa virus is able to rescue 100% of 
+cynomolgus macaques when treatment is initiated at advanced stages of disease, 
+including up to 8 d after challenge.
+
+DOI: 10.1038/nm.4396
+PMCID: PMC5719877
+PMID: 28869611 [Indexed for MEDLINE]
+
+Conflict of interest statement: COMPETING FINANCIAL INTERESTS The authors 
+declare competing financial interests: details are available in the online 
+version of the paper.

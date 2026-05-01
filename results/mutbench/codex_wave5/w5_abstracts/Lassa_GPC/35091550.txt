@@ -1,0 +1,69 @@
+1. Nat Commun. 2022 Jan 28;13(1):558. doi: 10.1038/s41467-021-27949-3.
+
+Host receptor-targeted therapeutic approach to counter pathogenic New World 
+mammarenavirus infections.
+
+Hickerson BT(#)(1)(2), Daniels-Wells TR(#)(3), Payes C(4), Clark LE(5), 
+Candelaria PV(3), Bailey KW(1), Sefing EJ(1), Zink S(6), Ziegenbein J(6), 
+Abraham J(5)(7), Helguera G(8)(9), Penichet ML(10)(11)(12)(13)(14), Gowen 
+BB(15).
+
+Author information:
+(1)Department of Animal, Dairy and Veterinary Sciences, Utah State University, 
+Logan, UT, USA.
+(2)Division of Biotechnology Review and Research-III, Office of Biotechnology 
+Products, Center for Drug Evaluation and Research, Food and Drug Administration, 
+Silver Spring, MD, USA.
+(3)Division of Surgical Oncology, Department of Surgery, David Geffen School of 
+Medicine at UCLA, Los Angeles, CA, USA.
+(4)Instituto de Biología y Medicina Experimental (IBYME CONICET), Buenos Aires, 
+Argentina.
+(5)Department of Microbiology, Blavatnik Institute, Harvard Medical School, 
+Boston, MA, USA.
+(6)Department of Chemistry and Biochemistry, University of California, Los 
+Angeles (UCLA), Los Angeles, CA, USA.
+(7)Department of Medicine, Division of Infectious Diseases, Brigham and Women's 
+Hospital, Boston, MA, USA.
+(8)Instituto de Biología y Medicina Experimental (IBYME CONICET), Buenos Aires, 
+Argentina. gustavoh@ibyme.conicet.gov.ar.
+(9)Department of Chemistry and Biochemistry, University of California, Los 
+Angeles (UCLA), Los Angeles, CA, USA. gustavoh@ibyme.conicet.gov.ar.
+(10)Division of Surgical Oncology, Department of Surgery, David Geffen School of 
+Medicine at UCLA, Los Angeles, CA, USA. penichet@mednet.ucla.edu.
+(11)Department of Microbiology, Immunology and Molecular Genetics, David Geffen 
+School of Medicine at UCLA, Los Angeles, CA, USA. penichet@mednet.ucla.edu.
+(12)UCLA Molecular Biology Institute, Los Angeles, CA, USA. 
+penichet@mednet.ucla.edu.
+(13)UCLA Jonsson Comprehensive Cancer Center, Los Angeles, CA, USA. 
+penichet@mednet.ucla.edu.
+(14)UCLA AIDS Institute, Los Angeles, CA, USA. penichet@mednet.ucla.edu.
+(15)Department of Animal, Dairy and Veterinary Sciences, Utah State University, 
+Logan, UT, USA. brian.gowen@usu.edu.
+(#)Contributed equally
+
+Five New World mammarenaviruses (NWMs) cause life-threatening hemorrhagic fever 
+(HF). Cellular entry by these viruses is mediated by human transferrin receptor 
+1 (hTfR1). Here, we demonstrate that an antibody (ch128.1/IgG1) which binds the 
+apical domain of hTfR1, potently inhibits infection of attenuated and pathogenic 
+NWMs in vitro. Computational docking of the antibody Fab crystal structure onto 
+the known structure of hTfR1 shows an overlapping receptor-binding region shared 
+by the Fab and the viral envelope glycoprotein GP1 subunit that binds hTfR1, and 
+we demonstrate competitive inhibition of NWM GP1 binding by ch128.1/IgG1 as the 
+principal mechanism of action. Importantly, ch128.1/IgG1 protects 
+hTfR1-expressing transgenic mice against lethal NWM challenge. Additionally, the 
+antibody is well-tolerated and only partially reduces ferritin uptake. Our 
+findings provide the basis for the development of a novel, host 
+receptor-targeted antibody therapeutic broadly applicable to the treatment of HF 
+of NWM etiology.
+
+© 2022. The Author(s).
+
+DOI: 10.1038/s41467-021-27949-3
+PMCID: PMC8799657
+PMID: 35091550 [Indexed for MEDLINE]
+
+Conflict of interest statement: Dr. Manuel Penichet has a financial interest in 
+Stellar Biosciences, Inc. The Regents of the University of California are in 
+discussions with Stellar Biosciences to license a technology invented by Dr. 
+Penichet to this firm. In addition, Dr. Penichet has a financial interest in 
+Klyss Biotech, Inc. All other authors declare no competing interests.

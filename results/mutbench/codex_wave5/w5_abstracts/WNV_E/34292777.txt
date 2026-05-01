@@ -1,0 +1,38 @@
+1. Vector Borne Zoonotic Dis. 2021 Oct;21(10):817-821. doi:
+10.1089/vbz.2021.0013.  Epub 2021 Jul 22.
+
+Frequency of Zika Virus Immunoglobulin M Antibody in Persons with West Nile 
+Virus Infection.
+
+Hills SL(1), Laven J(1), Biggerstaff BJ(1), Kosoy O(1), Staples JE(1), Panella 
+A(1).
+
+Author information:
+(1)Division of Vector-Borne Diseases, Centers for Disease Control and 
+Prevention, Fort Collins, Colorado, USA.
+
+West Nile virus (WNV) and Zika virus (ZIKV) are mosquito-borne viruses in the 
+family Flaviviridae. Residents in, and travelers to, areas where the viruses are 
+circulating are at risk for infection, and both viruses can cause an acute 
+febrile illness. Given known cross-reactivity in flavivirus serologic assays, it 
+is possible a patient with acute WNV infection could be misdiagnosed as having 
+ZIKV infection if appropriate testing is not conducted. To understand how 
+frequently persons with WNV infection have detectable cross-reactive ZIKV 
+immunoglobulin M (IgM) antibody, we used archived serum samples from patients in 
+the United States with recent WNV infection confirmed by a microsphere-based 
+immunoassay test for IgM antibody and neutralizing antibody testing. Samples 
+were tested for ZIKV IgM antibody with the Centers for Disease Control and 
+Prevention (CDC) ZIKV IgM antibody capture enzyme-linked immunosorbent assay. 
+Among 153 sera from patients with acute WNV infection, the ZIKV IgM antibody 
+result was positive in 56 (37%; 95% confidence interval [CI] 29-44%) and 
+equivocal in 28 (18%; 95% CI 13-25%). With 55% of samples having cross-reactive 
+antibodies, it is important for health care providers to request appropriate 
+testing based on the most likely cause of a patient's possible arboviral 
+infection considering their clinical symptoms and signs, travel history, and 
+place of residence. For cases where the epidemiology does not support the 
+preliminary IgM findings, confirmatory neutralizing antibody testing should be 
+performed. These measures will avoid an incorrect diagnosis of ZIKV infection, 
+based on cross-reactive antibodies, in a person truly infected with WNV.
+
+DOI: 10.1089/vbz.2021.0013
+PMID: 34292777 [Indexed for MEDLINE]

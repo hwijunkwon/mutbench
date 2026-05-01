@@ -1,0 +1,22 @@
+1. J Infect Dis. 1984 Jun;149(6):1005-10. doi: 10.1093/infdis/149.6.1005.
+
+Dengue virus type 2 vaccine: reactogenicity and immunogenicity in soldiers.
+
+Bancroft WH, Scott RM, Eckels KH, Hoke CH Jr, Simms TE, Jesrani KD, Summers PL, 
+Dubois DR, Tsoulos D, Russell PK.
+
+A live dengue virus type 2 (dengue-2) vaccine (PR-159/S-1) was tested for 
+reactogenicity and immunogenicity in a placebo-controlled, double-blind clinical 
+trial involving 98 soldiers. Seroconversion rates based on the development of 
+neutralizing antibody to dengue-2 were 90% in 70 recipients with immunity to 
+yellow fever and 61% in 28 vaccinees without such immunity (P less than .01). 
+Peak titers of neutralizing antibody were three times higher in recipients with 
+antibody to yellow fever virus and persisted in most for at least 18 months. 
+Individuals seroconverting to the vaccine virus more frequently experienced 
+systemic symptoms than those who received placebo (P less than .02). Future 
+users of this dengue-2 vaccine may wish to employ immunization schedules that 
+include preliminary immunization against yellow fever and must be prepared to 
+accept mild vaccine-related symptoms in some recipients.
+
+DOI: 10.1093/infdis/149.6.1005
+PMID: 6376649 [Indexed for MEDLINE]

@@ -1,0 +1,60 @@
+1. Vaccines (Basel). 2013 Jul 18;1(3):262-77. doi: 10.3390/vaccines1030262.
+
+Enhanced Efficacy of a Codon-Optimized DNA Vaccine Encoding the Glycoprotein 
+Precursor Gene of Lassa Virus in a Guinea Pig Disease Model When Delivered by 
+Dermal Electroporation.
+
+Cashman KA(1), Broderick KE(2), Wilkinson ER(3), Shaia CI(4), Bell TM(5), 
+Shurtleff AC(6), Spik KW(7), Badger CV(8), Guttieri MC(9), Sardesai NY(10), 
+Schmaljohn CS(11).
+
+Author information:
+(1)Virology Division, United States Army Medical Research Institute of 
+Infectious Diseases, Fort Detrick, MD 21702, USA. kathleen.cashman@us.army.mil.
+(2)Inovio Pharmaceuticals, Inc., Blue Bell, PA 19422, USA. 
+kbroderick@inovio.com.
+(3)Virology Division, United States Army Medical Research Institute of 
+Infectious Diseases, Fort Detrick, MD 21702, USA. eric.r.wilkinson.ctr@mail.mil.
+(4)Pathology Division, United States Army Medical Research Institute of 
+Infectious Diseases, Fort Detrick, MD 21702, USA. carl.i.shaia.mil@mail.mil.
+(5)Pathology Division, United States Army Medical Research Institute of 
+Infectious Diseases, Fort Detrick, MD 21702, USA. todd.m.bell.mil@mail.mil.
+(6)Integrated Toxicology Division, United States Army Medical Research Institute 
+of Infectious Diseases, Fort Detrick, MD 21702, USA. 
+amy.c.shurtleff.ctr@mail.mil.
+(7)Virology Division, United States Army Medical Research Institute of 
+Infectious Diseases, Fort Detrick, MD 21702, USA. 
+kristin.w.ostrowski.civ@mail.mil.
+(8)Virology Division, United States Army Medical Research Institute of 
+Infectious Diseases, Fort Detrick, MD 21702, USA. 
+catherine.v.badger.civ@mail.mil.
+(9)Virology Division, United States Army Medical Research Institute of 
+Infectious Diseases, Fort Detrick, MD 21702, USA. mguttieri@metabiota.com.
+(10)Inovio Pharmaceuticals, Inc., Blue Bell, PA 19422, USA. 
+nsardesai@inovio.com.
+(11)Office of the Chief Scientists, Headquarters, United States Army Medical 
+Research Institute of Infectious Diseases, Fort Detrick, MD 21702, USA. 
+connie.s.schmaljohn.civ@mail.mil.
+
+Lassa virus (LASV) causes a severe, often fatal, hemorrhagic fever endemic to 
+West Africa. Presently, there are no FDA-licensed medical countermeasures for 
+this disease. In a pilot study, we constructed a DNA vaccine (pLASV-GPC) that 
+expressed the LASV glycoprotein precursor gene (GPC). This plasmid was used to 
+vaccinate guinea pigs (GPs) using intramuscular electroporation as the delivery 
+platform. Vaccinated GPs were protected from lethal infection (5/6) with LASV 
+compared to the controls. However, vaccinated GPs experienced transient viremia 
+after challenge, although lower than the mock-vaccinated controls. In a 
+follow-on study, we developed a new device that allowed for both the vaccine and 
+electroporation pulse to be delivered to the dermis. We also codon-optimized the 
+GPC sequence of the vaccine to enhance expression in GPs. Together, these 
+innovations resulted in enhanced efficacy of the vaccine. Unlike the pilot study 
+where neutralizing titers were not detected until after virus challenge, modest 
+neutralizing titers were detected in guinea pigs before challenge, with 
+escalating titers detected after challenge. The vaccinated GPs were never ill 
+and were not viremic at any timepoint. The combination of the codon-optimized 
+vaccine and dermal electroporation delivery is a worthy candidate for further 
+development.
+
+DOI: 10.3390/vaccines1030262
+PMCID: PMC4494234
+PMID: 26344112

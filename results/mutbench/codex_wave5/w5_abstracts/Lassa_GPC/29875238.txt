@@ -1,0 +1,57 @@
+1. J Virol. 2018 Jul 31;92(16):e00093-18. doi: 10.1128/JVI.00093-18. Print 2018
+Aug  15.
+
+TIM-1 Mediates Dystroglycan-Independent Entry of Lassa Virus.
+
+Brouillette RB(1), Phillips EK(1), Patel R(1), Mahauad-Fernandez W(1), 
+Moller-Tank S(1), Rogers KJ(1), Dillard JA(1), Cooney AL(1), Martinez-Sobrido 
+L(2), Okeoma C(1), Maury W(3).
+
+Author information:
+(1)Department of Microbiology and Immunology, University of Iowa, Iowa City, 
+Iowa, USA.
+(2)Department of Microbiology and Immunology, University of Rochester, 
+Rochester, New York, USA.
+(3)Department of Microbiology and Immunology, University of Iowa, Iowa City, 
+Iowa, USA wendy-maury@uiowa.edu.
+
+Lassa virus (LASV) is an Old World arenavirus responsible for hundreds of 
+thousands of infections in West Africa every year. LASV entry into a variety of 
+cell types is mediated by interactions with glycosyltransferase LARGE-modified 
+O-linked glycans present on the ubiquitous receptor α-dystroglycan (αDG). 
+However, cells lacking αDG are permissive to LASV infection, suggesting that 
+alternative receptors exist. Previous studies demonstrated that the 
+phosphatidylserine (PtdSer)-binding receptors Axl and Tyro3 along with C-type 
+lectin receptors mediate αDG-independent entry. Here, we demonstrate that 
+another PtdSer receptor, TIM-1, mediates LASV glycoprotein (GP)-pseudotyped 
+virion entry into αDG-knocked-out HEK 293T and wild-type (WT) Vero cells, which 
+express αDG lacking appropriate glycosylation. To investigate the mechanism by 
+which TIM-1 mediates enhancement of entry, we demonstrate that mutagenesis of 
+the TIM-1 IgV domain PtdSer-binding pocket abrogated transduction. Furthermore, 
+the human TIM-1 IgV domain-binding monoclonal antibody ARD5 blocked transduction 
+of pseudovirions bearing LASV GP in a dose-dependent manner. Finally, as we 
+showed previously for other viruses that use TIM-1 for entry, a chimeric TIM-1 
+protein that substitutes the proline-rich region (PRR) from murine leukemia 
+virus envelope (Env) for the mucin-like domain served as a competent receptor. 
+These studies provide evidence that, in the absence of a functional αDG, TIM-1 
+mediates the entry of LASV pseudoviral particles through interactions of virions 
+with the IgV PtdSer-binding pocket of TIM-1.IMPORTANCE PtdSer receptors, such as 
+TIM-1, are emerging as critical entry factors for many enveloped viruses. Most 
+recently, hepatitis C virus and Zika virus have been added to a growing list. 
+PtdSer receptors engage with enveloped viruses through the binding of PtdSer 
+embedded in the viral envelope, defining them as GP-independent receptors. This 
+GP-independent entry mechanism should effectively mediate the entry of all 
+enveloped viruses, yet LASV GP-pseudotyped viruses were previously found to be 
+unresponsive to PtdSer receptor enhancement in HEK 293T cells. Here, we 
+demonstrate that LASV pseudovirions can utilize the PtdSer receptor TIM-1 but 
+only in the absence of appropriately glycosylated α-dystroglycan (αDG), the 
+high-affinity cell surface receptor for LASV. Our studies shed light on LASV 
+receptor utilization and explain why previous studies performed with 
+α-DG-expressing cells did not find that LASV pseudovirions utilize PtdSer 
+receptors for virus uptake.
+
+Copyright © 2018 American Society for Microbiology.
+
+DOI: 10.1128/JVI.00093-18
+PMCID: PMC6069209
+PMID: 29875238 [Indexed for MEDLINE]

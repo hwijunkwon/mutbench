@@ -1,0 +1,73 @@
+1. Viruses. 2019 Jul 23;11(7):674. doi: 10.3390/v11070674.
+
+Evidence for West Nile Virus and Usutu Virus Infections in Wild and Resident 
+Birds in Germany, 2017 and 2018.
+
+Michel F(1)(2), Sieg M(3), Fischer D(4), Keller M(1), Eiden M(1), Reuschel M(5), 
+Schmidt V(6), Schwehn R(5)(7), Rinder M(8), Urbaniak S(9), Müller K(10), 
+Schmoock M(11)(12), Lühken R(13), Wysocki P(14), Fast C(1), Lierz M(4), Korbel 
+R(8), Vahlenkamp TW(3), Groschup MH(1)(2), Ziegler U(15)(16).
+
+Author information:
+(1)Friedrich-Loeffler Insitut (FLI), Federal Research Institute for Animal 
+Health, Institute of Novel and Emerging Infectious Diseases, Südufer 10, D-17493 
+Greifswald-Insel Riems, Germany.
+(2)German Centre for Infection Research (DZIF), Partner Site 
+Hamburg-Luebeck-Borstel, 17493 Greifswald-Insel Riems, Germany.
+(3)Institute of Virology (Faculty of veterinary medicine), Leipzig University, 
+An den Tierkliniken 29, D-04103 Leipzig, Germany.
+(4)Clinic for Birds, Reptiles, Amphibians and Fish, Justus Liebig University 
+Giessen, Frankfurter Straße 91, D-35392 Giessen, Germany.
+(5)Clinic for Small Mammals, Reptiles and Birds, University of Veterinary 
+Medicine Hannover, Foundation, Bünteweg 9, D-30559 Hannover, Germany.
+(6)Clinic for Birds and Reptiles (Faculty of veterinary medicine), Leipzig 
+University, An den Tierkliniken 17, D-04103 Leipzig, Germany.
+(7)Seehundstation Nationalpark-Haus Norden-Norddeich, Dörper Weg 24, D-26506 
+Norden, Germany.
+(8)Clinic for Birds, Small Mammals, Reptiles and Ornamental Fish, Centre for 
+Clinical Veterinary Medicine, Ludwig Maximilians University Munich, Sonnenstraße 
+18, D-85764 Oberschleißheim, Germany.
+(9)Birds of Prey Rehab Center Rhineland (Greifvogelhilfe 
+Rheinland)/Tierarztpraxis Sudhoff, Hehnerholt 105, D-41069 Mönchengladbach, 
+Germany.
+(10)Department of Veterinary Medicine, Small Animal Clinic, Freie Universität 
+Berlin, Oertzenweg 19 b, D-14163 Berlin, Germany.
+(11)Wildpark Schwarze Berge GmbH & Co. KG, Am Wildpark 1, D-21224 Rosengarten, 
+Germany.
+(12)Tiermedizin am Rothenbaum, Rothenbaumchaussee 195, D-20149 Hamburg, Germany.
+(13)Bernhard-Nocht-Institute for Tropical Medicine, WHO Collaborating Centre for 
+Arbovirus and Hemorrhagic Fever Reference and Research, Bernhardt-Nocht Straße 
+74, D-20359 Hamburg, Germany.
+(14)Friedrich-Loeffler-Institut (FLI), Federal Research Institute for Animal 
+Health, Institute of Epidemiology, Südufer 10, D-17493 Greifswald-Insel Riems, 
+Germany.
+(15)Friedrich-Loeffler Insitut (FLI), Federal Research Institute for Animal 
+Health, Institute of Novel and Emerging Infectious Diseases, Südufer 10, D-17493 
+Greifswald-Insel Riems, Germany. ute.ziegler@fli.de.
+(16)German Centre for Infection Research (DZIF), Partner Site 
+Hamburg-Luebeck-Borstel, 17493 Greifswald-Insel Riems, Germany. 
+ute.ziegler@fli.de.
+
+Wild birds play an important role as reservoir hosts and vectors for zoonotic 
+arboviruses and foster their spread. Usutu virus (USUV) has been circulating 
+endemically in Germany since 2011, while West Nile virus (WNV) was first 
+diagnosed in several bird species and horses in 2018. In 2017 and 2018, we 
+screened 1709 live wild and zoo birds with real-time polymerase chain reaction 
+and serological assays. Moreover, organ samples from bird carcasses submitted in 
+2017 were investigated. Overall, 57 blood samples of the live birds (2017 and 
+2018), and 100 organ samples of dead birds (2017) were positive for USUV-RNA, 
+while no WNV-RNA-positive sample was found. Phylogenetic analysis revealed the 
+first detection of USUV lineage Europe 2 in Germany and the spread of USUV 
+lineages Europe 3 and Africa 3 towards Northern Germany. USUV antibody 
+prevalence rates were high in Eastern Germany in both years. On the contrary, in 
+Northern Germany, high seroprevalence rates were first detected in 2018, with 
+the first emergence of USUV in this region. Interestingly, high WNV-specific 
+neutralizing antibody titers were observed in resident and short-distance 
+migratory birds in Eastern Germany in 2018, indicating the first signs of a 
+local WNV circulation.
+
+DOI: 10.3390/v11070674
+PMCID: PMC6669720
+PMID: 31340516 [Indexed for MEDLINE]
+
+Conflict of interest statement: The authors declare no conflict of interest.

@@ -1,0 +1,60 @@
+1. Virol J. 2010 Nov 9;7:306. doi: 10.1186/1743-422X-7-306.
+
+Shedding of soluble glycoprotein 1 detected during acute Lassa virus infection 
+in human subjects.
+
+Branco LM(1), Grove JN, Moses LM, Goba A, Fullah M, Momoh M, Schoepp RJ, Bausch 
+DG, Garry RF.
+
+Author information:
+(1)Tulane University Health Sciences Center, New Orleans, LA, USA.
+
+BACKGROUND: Lassa hemorrhagic fever (LHF) is a neglected tropical disease with 
+significant impact on the health care system, society, and economy of Western 
+and Central African nations where it is endemic. With a high rate of infection 
+that may lead to morbidity and mortality, understanding how the virus interacts 
+with the host's immune system is of great importance for generating vaccines and 
+therapeutics. Previous work by our group identified a soluble isoform of the 
+Lassa virus (LASV) GP1 (sGP1) in vitro resulting from the expression of the 
+glycoprotein complex (GPC) gene [1, 2]. Though no work has directly been done to 
+demonstrate the function of this soluble isoform in arenaviral infections, 
+evidence points to immunomodulatory effects against the host's immune system 
+mediated by a secreted glycoprotein component in filoviruses, another class of 
+hemorrhagic fever-causing viruses. A significant fraction of shed glycoprotein 
+isoforms during viral infection and biogenesis may attenuate the host's 
+inflammatory response, thereby enhancing viral replication and tissue damage. 
+Such shed glycoprotein mediated effects were previously reported for Ebola virus 
+(EBOV), a filovirus that also causes hemorrhagic fever with nearly 90 percent 
+fatality rates [3 - 5]. The identification of an analogous phenomenon in vivo 
+could establish a new correlate of LHF infection leading to the development of 
+sensitive diagnostics targeting the earliest molecular events of the disease. 
+Additionally, the reversal of potentially untoward immunomodulatory functions 
+mediated by sGP1 could potentiate the development of novel therapeutic 
+intervention. To this end, we investigated the presence of sGP1 in the serum of 
+suspected LASV patients admitted to the Kenema Government Hospital (KGH) Lassa 
+Fever Ward (LFW), in Kenema, Sierra Leone that tested positive for viral antigen 
+or displayed classical signs of Lassa fever.
+RESULTS: It is reasonable to expect that a narrow window exists for detection of 
+sGP1 as the sole protein shed during early arenaviral biogenesis. This 
+phenomenon was clearly distinguishable from virion-associated GP1 only prior to 
+the emergence of de novo viral particles. Despite this restricted time frame, in 
+2/46 suspected cases in two studies performed in late 2009 and early 2010, 
+soluble glycoprotein component shedding was identified. Differential detection 
+of viral antigens GP1, GP2, and NP by western blot yielded five different 
+scenarios: whole LASV virions (GP1, GP2, NP; i.e. active viremia), different 
+combinations of these three proteins, sGP1 only, NP only, and absence of all 
+three proteins. Four additional samples showed inconclusive evidence for sGP1 
+shedding due to lack of detection of GP2 and NP in western blot; however, a 
+sensitive LASV NP antigen capture ELISA generated marginally positive signals.
+CONCLUSIONS: During a narrow window following active infection with LASV, 
+soluble GP1 can be detected in patient sera. This phenomenon parallels other VHF 
+infection profiles, with the actual role of a soluble viral glycoprotein 
+component in vivo remaining largely speculative. The expenditure of energy and 
+cellular resources toward secretion of a critical protein during viral 
+biogenesis without apparent specific function requires further investigation. 
+Future studies will be aimed at systematically identifying the role of LASV sGP1 
+in the infection process and outcome in vitro and in vivo.
+
+DOI: 10.1186/1743-422X-7-306
+PMCID: PMC2993672
+PMID: 21062490 [Indexed for MEDLINE]

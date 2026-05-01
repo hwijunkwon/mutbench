@@ -1,0 +1,99 @@
+1. Viruses. 2019 Dec 16;11(12):1164. doi: 10.3390/v11121164.
+
+Zika Virus Surveillance at the Human-Animal Interface in West-Central Brazil, 
+2017-2018.
+
+Pauvolid-Corrêa A(1), Gonçalves Dias H(2), Marina Siqueira Maia L(3), Porfírio 
+G(4), Oliveira Morgado T(5), Sabino-Santos G(6), Helena Santa Rita P(7), 
+Teixeira Gomes Barreto W(8), Carvalho de Macedo G(4), Marinho Torres J(4), 
+Arruda Gimenes Nantes W(4), Martins Santos F(4), Oliveira de Assis W(4), Castro 
+Rucco A(4), Mamoru Dos Santos Yui R(4), Bosco Vilela Campos J(4), Rodrigues 
+Leandro E Silva R(4), da Silva Ferreira R(3), Aparecido da Silva Neves N(3), 
+Charlles de Souza Costa M(3), Ramos Martins L(3), Marques de Souza E(3), Dos 
+Santos Carvalho M(3), Gonçalves Lima M(7), de Cássia Gonçalves Alves F(7), 
+Humberto Guimarães Riquelme-Junior L(7), Luiz Batista Figueiró L(7), Fernandes 
+Gomes de Santana M(7), Gustavo Rodrigues Oliveira Santos L(8), Serra Medeiros 
+S(8), Lopes Seino L(8), Hime Miranda E(9), Henrique Rezende Linhares J(9), de 
+Oliveira Santos V(9), Almeida da Silva S(9), Araújo Lúcio K(9), Silva Gomes 
+V(9), de Araújo Oliveira A(10), Dos Santos Silva J(10), de Almeida Marques 
+W(10), Schafer Marques M(6), Junior França de Barros J(11), Campos L(11), 
+Couto-Lima D(12), Coutinho Netto C(13), Strüssmann C(14), Panella N(15), Hannon 
+E(15), Cristina de Macedo B(16), Ramos de Almeida J(14), Ramos Ribeiro K(14), 
+Carolina Barros de Castro M(14), Pratta Campos L(14), Paula Rosa Dos Santos 
+A(14), Marino de Souza I(14), de Assis Bianchini M(5), Helena Ramiro Correa 
+S(5), Ordones Baptista Luz R(5), Dos Santos Vieira A(5), Maria de Oliveira Pinto 
+L(2), Azeredo E(2), Tadeu Moraes Figueiredo L(6), Augusto Fonseca Alencar J(10), 
+Maria Barbosa de Lima S(9), Miraglia Herrera H(4), Dezengrini Shlessarenko R(3), 
+Barreto Dos Santos F(2), Maria Bispo de Filippis A(1), Salyer S(17), Montgomery 
+J(17), Komar N(15).
+
+Author information:
+(1)Laboratório de Flavivírus, Instituto Oswaldo Cruz, Fiocruz, Rio de Janeiro 
+21040-900, Brazil.
+(2)Laboratório de Imunologia Viral, Instituto Oswaldo Cruz, Fiocruz, Rio de 
+Janeiro 21040-900, Brazil.
+(3)Laboratório de Virologia, Faculdade de Medicina, Universidade Federal de Mato 
+Grosso (UFMT), Cuiabá 78060-900, Brazil.
+(4)Laboratório de Biologia Parasitária, Programa de Pós-Graduação em Ciências 
+Ambientais e Sustentabilidade Agropecuária, Universidade Católica Dom Bosco 
+(UCDB), Campo Grande 79117-010, Brazil.
+(5)Hospital Veterinário, Universidade Federal de Mato Grosso (UFMT), Cuiabá 
+78060-900, Brazil.
+(6)Centro de Pesquisa em Virologia, Faculdade de Medicina, Universidade de São 
+Paulo (USP), Ribeirão Preto 14025-099, Brazil.
+(7)Biotério, Universidade Católica Dom Bosco (UCDB), Campo Grande 79117-010, 
+Brazil.
+(8)Laboratório de Ecologia de Populações e do Movimento, Programa de Ecologia e 
+Conservação, Universidade Federal de Mato Grosso do Sul (UFMS), Campo Grande 
+79070-900, Brazil.
+(9)Laboratório de Tecnologia Virológica, Bio-Manguinhos, Fiocruz, Rio de Janeiro 
+21040-900, Brazil.
+(10)Laboratório de Diptera, Instituto Oswaldo Cruz, Fiocruz, Rio de Janeiro 
+21040-900, Brazil.
+(11)Laboratório de Virologia Molecular, Instituto Oswaldo Cruz, Fiocruz, Rio de 
+Janeiro 21040-900, Brazil.
+(12)Laboratório de Transmissores de Hematozoários, Instituto Oswaldo Cruz, 
+Fiocruz, Rio de Janeiro 21040-900, Brazil.
+(13)Centro de Reabilitação de Animais Silvestres (CRAS), Campo Grande 79037-109, 
+Brazil.
+(14)Faculdade de Medicina Veterinária, Universidade Federal de Mato Grosso 
+(UFMT), Cuiabá 78060-900, Brazil.
+(15)Laboratory of Arbovirus Ecology, Arboviral Diseases Branch, U.S. Centers for 
+Disease Control and Prevention (CDC), Fort Collins, CO 80521, USA.
+(16)Faculdade de Medicina Veterinária da Universidade de Cuiabá (UNIC), Cuiabá 
+78065-900, Brazil.
+(17)Global Epidemiology, Laboratory, and Surveillance Branch, Division of Global 
+Health Protection, Center for Global Health, CDC, Atlanta, GA 30333, USA.
+
+Zika virus (ZIKV) was first discovered in 1947 in Uganda but was not considered 
+a public health threat until 2007 when it found to be the source of epidemic 
+activity in Asia. Epidemic activity spread to Brazil in 2014 and continued to 
+spread throughout the tropical and subtropical regions of the Americas. Despite 
+ZIKV being zoonotic in origin, information about transmission, or even exposure 
+of non-human vertebrates and mosquitoes to ZIKV in the Americas, is lacking. 
+Accordingly, from February 2017 to March 2018, we sought evidence of sylvatic 
+ZIKV transmission by sampling whole blood from approximately 2000 domestic and 
+wild vertebrates of over 100 species in West-Central Brazil within the active 
+human ZIKV transmission area. In addition, we collected over 24,300 mosquitoes 
+of at least 17 genera and 62 species. We screened whole blood samples and 
+mosquito pools for ZIKV RNA using pan-flavivirus primers in a real-time 
+reverse-transcription polymerase chain reaction (RT-PCR) in a SYBR Green 
+platform. Positives were confirmed using ZIKV-specific envelope gene real-time 
+RT-PCR and nucleotide sequencing. Of the 2068 vertebrates tested, none were ZIKV 
+positive. Of the 23,315 non-engorged mosquitoes consolidated into 1503 pools 
+tested, 22 (1.5%) with full data available showed some degree of homology to 
+insect-specific flaviviruses. To identify previous exposure to ZIKV, 1498 plasma 
+samples representing 62 species of domestic and sylvatic vertebrates were tested 
+for ZIKV-neutralizing antibodies by plaque reduction neutralization test 
+(PRNT90). From these, 23 (1.5%) of seven species were seropositive for ZIKV and 
+negative for dengue virus serotype 2, yellow fever virus, and West Nile virus, 
+suggesting potential monotypic reaction for ZIKV. Results presented here suggest 
+no active transmission of ZIKV in non-human vertebrate populations or in 
+alternative vector candidates, but suggest that vertebrates around human 
+populations have indeed been exposed to ZIKV in West-Central Brazil.
+
+DOI: 10.3390/v11121164
+PMCID: PMC6950091
+PMID: 31888285 [Indexed for MEDLINE]
+
+Conflict of interest statement: The authors declare no conflict of interest.

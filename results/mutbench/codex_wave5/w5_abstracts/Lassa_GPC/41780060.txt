@@ -1,0 +1,50 @@
+1. Emerg Microbes Infect. 2026 Dec;15(1):2640699. doi: 
+10.1080/22221751.2026.2640699. Epub 2026 Apr 15.
+
+Lassa virus live tracking and lineage assignment: how nextstrain can enhance 
+surveillance and public health in Africa and beyond.
+
+Daodu RO(1)(2), Chang J(3), Prescott JB(4), Reinert K(2)(5), Kühnert D(1).
+
+Author information:
+(1)Center for Artificial Intelligence in Public Health Research, Robert Koch 
+Institute, Berlin, Germany.
+(2)Department of Mathematics and Computer Science, Freie Universität Berlin, 
+Berlin, Germany.
+(3)Vaccine and Infectious Disease Division, Fred Hutchinson Cancer Center, 
+Seattle, WA, USA.
+(4)Center for Biological Threats and Special Pathogens, Robert Koch Institute, 
+Berlin, Germany.
+(5)Max-Planck-Institute for Molecular Genetics, Berlin, Germany.
+
+Lassa virus (LASV), a zoonotic, bi-segmented arenavirus endemic to West Africa, 
+causes seasonal epidemics with substantial morbidity and mortality. Increasing 
+frequency of exported cases emphasizes the need for near real-time genomic 
+surveillance to support outbreak response and clinical decision-making. We 
+developed a suite of open-access resources on the Nextstrain and Nextclade 
+platforms tailored to LASV. These include live phylogenetic and phylogeographic 
+visualization, as well as Nextclade builds for rapid mutation detection and 
+lineage assignment based on the L and S segments and the glycoprotein complex 
+(GPC). A dedicated GPC phylogeny enables tracking of clinically relevant 
+mutations, including immunologically relevant variants such as alanine at 
+position 76 (A76), which is prevalent in lineage II and is implicated in reduced 
+binding of monoclonal antibody 25.10C. The Nextclade tools distinguish LASV from 
+other mammarenaviruses and assign lineages with Matthews correlation 
+coefficients exceeding 85%. These tools are available at 
+https://nextstrain.org/lassa for immediate use in surveillance, data annotation, 
+outbreak response, and potentially support clinical decision-making in both 
+endemic regions and exported-case scenarios. A key limitation is dependence on 
+genomic data quality and recency. Although sampling-to-submission delays have 
+decreased over the past 40 years, the average delay in the past five years 
+remains ∼2 years. In many endemic LASV regions, challenges, such as limited 
+resources, infrastructure, and previous experiences of stigmatization and 
+political repercussions linked to outbreak reporting, restrict data sharing. The 
+resulting disparities and delays may hinder comprehensive surveillance and 
+timely response, with implications for global public health.
+
+DOI: 10.1080/22221751.2026.2640699
+PMCID: PMC13084845
+PMID: 41780060 [Indexed for MEDLINE]
+
+Conflict of interest statement: No potential conflict of interest was reported 
+by the author(s).

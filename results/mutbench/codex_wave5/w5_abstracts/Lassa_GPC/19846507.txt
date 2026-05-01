@@ -1,0 +1,38 @@
+1. J Virol. 2010 Jan;84(1):573-84. doi: 10.1128/JVI.01697-09.
+
+Targeting the proteolytic processing of the viral glycoprotein precursor is a 
+promising novel antiviral strategy against arenaviruses.
+
+Rojek JM(1), Pasqual G, Sanchez AB, Nguyen NT, de la Torre JC, Kunz S.
+
+Author information:
+(1)Department of Immunology and Microbial Science, The Scripps Research 
+Institute, La Jolla, California 920371, USA.
+
+A crucial step in the arenavirus life cycle is the biosynthesis of the viral 
+envelope glycoprotein (GP) responsible for virus attachment and entry. 
+Processing of the GP precursor (GPC) by the cellular proprotein convertase site 
+1 protease (S1P), also known as subtilisin-kexin-isozyme 1 (SKI-1), is crucial 
+for cell-to-cell propagation of infection and production of infectious virus. 
+Here, we sought to evaluate arenavirus GPC processing by S1P as a target for 
+antiviral therapy using a recently developed peptide-based S1P inhibitor, 
+decanoyl (dec)-RRLL-chloromethylketone (CMK), and the prototypic arenavirus 
+lymphocytic choriomeningitis virus (LCMV). To control for off-target effects of 
+dec-RRLL-CMK, we employed arenavirus reverse genetics to introduce a furin 
+recognition site into the GPC of LCMV. The rescued mutant virus grew to normal 
+titers, and the processing of its GPC critically depended on cellular furin, but 
+not S1P. Treatment with the S1P inhibitor dec-RRLL-CMK resulted in specific 
+blocking of viral spread and virus production of LCMV. Combination of the 
+protease inhibitor with ribavirin, currently used clinically for treatment of 
+human arenavirus infections, resulted in additive drug effects. In cells 
+deficient in S1P, the furin-dependent LCMV variant established persistent 
+infection, whereas wild-type LCMV underwent extinction without the emergence of 
+S1P-independent escape variants. Together, the potent antiviral activity of an 
+inhibitor of S1P-dependent GPC cleavage, the additive antiviral effect with 
+ribavirin, and the low probability of emergence of S1P-independent viral escape 
+variants make S1P-mediated GPC processing by peptide-derived inhibitors a 
+promising strategy for the development of novel antiarenaviral drugs.
+
+DOI: 10.1128/JVI.01697-09
+PMCID: PMC2798452
+PMID: 19846507 [Indexed for MEDLINE]

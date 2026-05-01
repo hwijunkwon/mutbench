@@ -1,0 +1,31 @@
+1. Viruses. 2021 Aug 25;13(9):1679. doi: 10.3390/v13091679.
+
+Lassa Fever Virus Binds Matriglycan-A Polymer of Alternating Xylose and 
+Glucuronate-On α-Dystroglycan.
+
+Joseph S(1), Campbell KP(1).
+
+Author information:
+(1)Howard Hughes Medical Institute, Senator Paul D. Wellstone Muscular Dystrophy 
+Specialized Research Center, Department of Molecular Physiology and Biophysics 
+and Department of Neurology, Roy J. and Lucille A. Carver College of Medicine, 
+The University of Iowa, Iowa City, IA 52242, USA.
+
+Lassa fever virus (LASV) can cause life-threatening hemorrhagic fevers for which 
+there are currently no vaccines or targeted treatments. The late Prof. Stefan 
+Kunz, along with others, showed that the high-affinity host receptor for LASV, 
+and other Old World and clade-C New World mammarenaviruses, is matriglycan-a 
+linear repeating disaccharide of alternating xylose and glucuronic acid that is 
+polymerized uniquely on α-dystroglycan by like-acetylglucosaminyltransferase-1 
+(LARGE1). Although α-dystroglycan is ubiquitously expressed, LASV preferentially 
+infects vascular endothelia and professional phagocytic cells, which suggests 
+that viral entry requires additional cell-specific factors. In this review, we 
+highlight the work of Stefan Kunz detailing the molecular mechanism of LASV 
+binding and discuss the requirements of receptors, such as tyrosine kinases, for 
+internalization through apoptotic mimicry.
+
+DOI: 10.3390/v13091679
+PMCID: PMC8473316
+PMID: 34578260 [Indexed for MEDLINE]
+
+Conflict of interest statement: The authors declare no conflict of interest.

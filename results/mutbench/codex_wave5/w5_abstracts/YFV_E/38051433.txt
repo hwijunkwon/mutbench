@@ -1,0 +1,62 @@
+1. J Genet Eng Biotechnol. 2023 Dec 5;21(1):161. doi: 10.1186/s43141-023-00621-7.
+
+Exploring structural antigens of yellow fever virus to design multi-epitope 
+subunit vaccine candidate by utilizing an immuno-informatics approach.
+
+Sura K(#)(1), Rohilla H(#)(1), Kumar D(1), Jakhar R(1), Ahlawat V(1)(2), Kaushik 
+D(1), Dangi M(3), Chhillar AK(4).
+
+Author information:
+(1)Centre for Bioinformatics, M.D. University, Rohtak, Haryana, India.
+(2)Centre for Biotechnology, M.D. University, Rohtak, Haryana, India.
+(3)Centre for Bioinformatics, M.D. University, Rohtak, Haryana, India. 
+mehakdangi2007@gmail.com.
+(4)Centre for Biotechnology, M.D. University, Rohtak, Haryana, India. 
+anil.chhillar@gmail.com.
+(#)Contributed equally
+
+BACKGROUND: Yellow fever is a mosquito-borne viral hemorrhagic disease 
+transmitted by several species of virus-infected mosquitoes endemic to tropical 
+regions of Central and South America and Africa. Earlier in the twentieth 
+century, mass vaccination integrated with mosquito control was implemented to 
+eradicate the yellow fever virus. However, regular outbreaks occur in these 
+regions which pose a threat to travelers and residents of Africa and South 
+America. There is no specific antiviral therapy, but there can be an effective 
+peptide-based vaccine candidate to combat infection caused by the virus. 
+Therefore, the study aims to design a multi-epitope-based subunit vaccine (MESV) 
+construct against the yellow fever virus to reduce the time and cost using 
+reverse vaccinology (RV) approach.
+METHODS: Yellow fever virus contains 10,233 nucleotides that encode for 10 
+proteins (C, prM, E, NS1, NS2A, NS2B, NS3, NS4A, NS4B, and NS5) including 3 
+structural and 7 non-structural proteins. Structural proteins-precursor membrane 
+protein (prM) and envelope protein (E)-were taken as a target for B cell and T 
+cell epitope screening. Further, various immunoinformatics approaches were 
+employed to FASTA sequences of structural proteins to retrieve B cell and T cell 
+epitopes. MESV was constructed from these epitopes based on allergenicity, 
+antigenicity and immunogenicity, toxicity, conservancy, and population coverage 
+followed by structure prediction. The efficacy of the MESV construct to bind 
+with human TLR-3, TLR-4, and TLR-8 were evaluated using molecular docking and 
+simulation studies. Finally, in-silico cloning of vaccine construct was 
+performed withpBR322 Escherichia coli expression system using codon 
+optimization.
+RESULTS: Predicted epitopes evaluated and selected for MESV construction were 
+found stable, non-allergenic, highly antigenic, and global population coverage 
+of 68.03% according to in-silico analysis. However, this can be further tested 
+in in-vitro and in-vivo investigations. Epitopes were sequentially merged to 
+construct a MESV consisting of 393 amino acids using adjuvant and linkers. 
+Molecular docking and simulation studies revealed stable and high-affinity 
+interactions. Furthermore, in-silico immune response graphs showed effective 
+immune response generation. Finally, higher CAI value ensured high gene 
+expression of vaccine in the host cell.
+CONCLUSION: The designed MESV construct in the present in-silico study can be 
+effective in generating an immune response against the yellow fever virus. 
+Therefore, to prevent yellow fever, it can be an effective vaccine candidate. 
+However, further downstream, in-vitro study is required.
+
+© 2023. The Author(s).
+
+DOI: 10.1186/s43141-023-00621-7
+PMCID: PMC10697922
+PMID: 38051433
+
+Conflict of interest statement: The authors declare no competing interests.

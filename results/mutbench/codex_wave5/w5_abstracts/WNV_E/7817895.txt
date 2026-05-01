@@ -1,0 +1,29 @@
+1. Acta Virol. 1994 Jun;38(3):141-9.
+
+Monoclonal antibodies directed against tick-borne encephalitis virus with 
+neutralizing activity in vivo.
+
+Niedrig M(1), Klockmann U, Lang W, Roeder J, Burk S, Modrow S, Pauli G.
+
+Author information:
+(1)Behringwerke AG, Marburg, FRG.
+
+Monoclonal antibodies (MoAbs) were raised against the tick-borne encephalitis 
+(TBE) virus, strain K23. The reactivities of 14 selected MoAbs were 
+characterized by ELISA, Western blot analysis, haemagglutination inhibition, 
+immunoprecipitation, in vivo protection and in vitro neutralization tests. All 
+MoAbs reacted only with the glycoprotein E. The binding epitope of one MoAb 
+could be delimited by a synthetic peptide to amino acids 306-339 representing 
+one immunodominant loop structure of the glycoprotein E. The MoAbs exhibited 
+individual reactivities against 13 different TBE virus isolates in ELISA and 
+immunoblot test ranging from type-specific reactions to a broad reactivity with 
+all isolates. Four MoAbs also showed a cross-reaction with other flaviviruses 
+like West Nile virus and/or Yellow fever virus in immunoblot analysis. By 
+competition ELISA the MoAbs could be divided into five different reaction 
+patterns. Four MoAbs showed neutralizing activity with titers in the range 1:140 
+to 1:5,000 in an in vitro assay. These neutralizing activities could be 
+confirmed by an in vivo mouse challenge model. The MoAbs are useful for 
+diagnostic purposes and for differentiation of TBE virus strains and other 
+flaviviruses.
+
+PMID: 7817895 [Indexed for MEDLINE]

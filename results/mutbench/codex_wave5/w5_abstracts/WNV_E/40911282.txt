@@ -1,0 +1,49 @@
+1. MSMR. 2025 Aug 20;32(8):9-17.
+
+Potential high arbovirus exposure in INDOPACOM during U.S. service member 
+deployment or exercises in Papua New Guinea.
+
+Kizu J(1), Graham M(1)(2), Izuagbe R(1), McPherson B(1), Kaminiel P(3), Liu 
+W(1).
+
+Author information:
+(1)Australian Defense Force Malaria and Infectious Disease Institute, Gallipoli 
+Barracks, Enoggera, Queensland.
+(2)Queensland Institute of Medical Research, Berghofer Medical Research 
+Institute, Brisbane, Australia.
+(3)Health Services, Papua New Guinea Defence Force, Port Moresby.
+
+Arboviruses pose a significant health threat to U.S. military personnel deployed 
+in the U.S. Indo-Pacific Command (INDOPACOM) region. In 2023 we conducted a 
+sero-epidemiological study to determine the arboviruses circulating in 185 Papua 
+New Guinea military personnel (PNGMP), using the neutralizing antibody (NAb) 
+assay. Overall, sero-positivity rates among the 185 PNGMP tested were: anti-Zika 
+virus (ZIKV), 87% (n=161); anti-Japanese encephalitis virus (JEV), 62.2% 
+(n=115); anti-Ross River virus (RRV), 44.3% (n=82); anti-Murray Valley 
+encephalitis virus (MVEV), 39.5% (n=73); anti-chikungunya virus (CHIKV), 33.5% 
+(n=62); anti-Barmah Forest virus (BFV), 10.8% (n=20); and anti-West Nile virus 
+(WNV), 5.9% (n=11). The monotypic NAb sero-positivity rates for dengue virus 
+(DENV) serotypes were: anti-DENV-1 94.6% (n=175), anti-DENV-2 93% (n=172), 
+anti-DENV-3 95.1% (n=176), and anti-DENV-4 31.4% (n=57). These findings indicate 
+that the majority of PNGMP had prior exposure to DENV and ZIKV, with a notable 
+proportion exposed to CHIKV, RRV, JEV, and MVEV, and lower levels of exposure to 
+BFV and WNV. Low or moderate prior exposure may leave individual PNGMP 
+immunologically naïve and more susceptible to infection and disease upon first 
+exposure. Furthermore, secondary DENV infections with a different serotype can 
+increase risk of severe disease due to immune enhancement mechanisms such as 
+antibody-dependent enhancement. Understanding these exposure patterns is crucial 
+for assessing population risk and informing surveillance and prevention 
+strategies. U.S. soldiers exercising or deploying to Papua New Guinea should 
+adhere to strict preventive measures for minimizing mosquito bites and reducing 
+their risk of arboviral infections. To our knowledge, this study provides the 
+first comprehensive examination of arbovirus sero-positivity rates in Papua New 
+Guinea military personnel (PNGMP) following the COVID-19 pandemic. After 
+examining sero-positivity of 11 arboviruses, we found a majority of PNGMP with 
+neutralizing antibodies (NAb) to dengue and Zika viruses, with some NAb to 
+chikungunya, Japanese encephalitis, Ross River, and Murray Valley encephalitis 
+viruses. Sero-prevalence to Barmah Forest and West Nile viruses was less common.
+
+PMCID: PMC12453116
+PMID: 40911282 [Indexed for MEDLINE]
+
+Conflict of interest statement: The authors declare no conflict of interest.

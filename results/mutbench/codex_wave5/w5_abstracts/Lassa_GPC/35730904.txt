@@ -1,0 +1,49 @@
+1. mBio. 2022 Aug 30;13(4):e0127822. doi: 10.1128/mbio.01278-22. Epub 2022 Jun
+22.
+
+Neutralizing Antibodies against Lassa Virus Lineage I.
+
+Buck TK(#)(1), Enriquez AS(#)(1), Schendel SL(1), Zandonatti MA(1), Harkins 
+SS(1), Li H(1), Moon-Walker A(1)(2)(3), Robinson JE(4), Branco LM(5), Garry 
+RF(5)(6), Saphire EO(1), Hastie KM(1).
+
+Author information:
+(1)La Jolla Institute for Immunology, La Jolla, California, USA.
+(2)Program in Virology, Harvard University, Boston, Massachusetts, USA.
+(3)Department of Molecular Microbiology, Washington University in Saint Louis, 
+St. Louis, Missouri, USA.
+(4)Department of Pediatrics, Tulane Universitygrid.265219.b School of Medicine, 
+New Orleans, Louisiana, USA.
+(5)Zalgen Labs, LLC, Germantown, Maryland, USA.
+(6)Department of Microbiology and Immunology, Tulane Universitygrid.265219.b 
+School of Medicine, New Orleans, Louisiana, USA.
+(#)Contributed equally
+
+Lassa virus (LASV) is the causative agent of the deadly Lassa fever (LF). Seven 
+distinct LASV lineages circulate through western Africa, among which lineage I 
+(LI), the first to be identified, is particularly resistant to antibody 
+neutralization. Lineage I LASV evades neutralization by half of known antibodies 
+in the GPC-A antibody competition group and all but one of the antibodies in the 
+GPC-B competition group. Here, we solve two cryo-electron microscopy (cryo-EM) 
+structures of LI GP in complex with a GPC-A and a GPC-B antibody. We used 
+complementary structural and biochemical techniques to identify 
+single-amino-acid substitutions in LI that are responsible for immune evasion by 
+each antibody group. Further, we show that LI infection is more dependent on the 
+endosomal receptor lysosome-associated membrane protein 1 (LAMP1) for viral 
+entry relative to LIV. In the absence of LAMP1, LI requires a more acidic fusion 
+pH to initiate membrane fusion with the host cell relative to LIV. IMPORTANCE No 
+vaccine or therapeutics are approved to prevent LASV infection or treat LF. All 
+vaccine platforms currently under development present only the LIV GP sequence. 
+However, our data suggest that the high genetic diversity of LASV may be 
+problematic for designing both a broadly reactive immunogen and therapeutic. 
+Here, we examine antibodies that are highly potent against LIV yet are 
+ineffective against LI. By pinpointing LI mutations responsible for this 
+decrease in antibody efficacy, we suggest that future vaccine platforms may need 
+to incorporate specific LI-like mutations in order to generate a broadly 
+neutralizing antibody response against all LASV lineages.
+
+DOI: 10.1128/mbio.01278-22
+PMCID: PMC9426445
+PMID: 35730904 [Indexed for MEDLINE]
+
+Conflict of interest statement: The authors declare no conflict of interest.

@@ -1,0 +1,37 @@
+1. Zoonoses Public Health. 2019 Mar;66(2):248-253. doi: 10.1111/zph.12532. Epub 
+2018 Nov 6.
+
+West Nile virus infection in horses in Saudi Arabia (in 2013-2015).
+
+Hemida MG(1)(2), Perera RAPM(3), Chu DKW(3), Ko RLW(3), Alnaeem AA(4), Peiris 
+M(3).
+
+Author information:
+(1)Department of Microbiology and Parasitology, College of Veterinary Medicine, 
+King Faisal University, Al-Hasa, Saudi Arabia.
+(2)Department of Virology, Faculty of Veterinary Medicine, Kafrelsheikh 
+University, Kafrelsheikh, Egypt.
+(3)School of Public Health, The University of Hong Kong, Hong Kong, China.
+(4)Department of Clinical studies, College of Veterinary Medicine, King Faisal 
+University, Al-Hasa, Saudi Arabia.
+
+West Nile virus (WNV) is an important emerging zoonotic arbovirus giving rise to 
+clinical syndromes of varying severity in humans and horses. Culex mosquitoes 
+are the main vector. Although WNV has been reported in many countries in the 
+Middle East and Asia, little is known about its prevalence in equine populations 
+in the Arabian Peninsula. We have carried out a serological study on 200 horses 
+to assess WNV infection in the Eastern and Central regions of Saudi Arabia in 
+2013-2015. Sera were tested for the presence of WNV antibodies in parallel using 
+a commercial enzyme-linked immunosorbent assay (ELISA) kit and 
+microneutralization (MN) tests. In comparison with the MN assay used as "gold 
+standard," we find the ELISA had a sensitivity of 94.7% and specificity of 
+80.1%. The prevalence of WNV neutralizing antibody ranged from 5 (17.3%) of 29 
+sera collected in Riyadh up to 15 (55.6%) of 27 sera collected from Al-Qateef. 
+These findings highlight the need to be aware of the possibility of WNV disease 
+in humans and horses presenting with central nervous system disease in the 
+Kingdom of Saudi Arabia.
+
+© 2018 Blackwell Verlag GmbH.
+
+DOI: 10.1111/zph.12532
+PMID: 30402969 [Indexed for MEDLINE]

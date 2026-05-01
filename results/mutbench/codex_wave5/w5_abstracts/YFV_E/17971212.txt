@@ -1,0 +1,44 @@
+1. Virol J. 2007 Oct 30;4:115. doi: 10.1186/1743-422X-4-115.
+
+Construction and characterization of recombinant flaviviruses bearing insertions 
+between E and NS1 genes.
+
+Bonaldo MC(1), Mello SM, Trindade GF, Rangel AA, Duarte AS, Oliveira PJ, Freire 
+MS, Kubelka CF, Galler R.
+
+Author information:
+(1)Fundação Oswaldo Cruz, Instituto Oswaldo Cruz, Laboratório de Biologia 
+Molecular, de Flavivírus, Rio de Janeiro, Fundação Oswaldo Cruz, Avenida Brasil 
+4365, Manguinhos, Rio de Janeiro, RJ 21045-900, Brazil. mbonaldo@ioc.fiocruz.br
+
+BACKGROUND: The yellow fever virus, a member of the genus Flavivirus, is an 
+arthropod-borne pathogen causing severe disease in humans. The attenuated yellow 
+fever 17D virus strain has been used for human vaccination for 70 years and has 
+several characteristics that are desirable for the development of new, live 
+attenuated vaccines. We described here a methodology to construct a viable, and 
+immunogenic recombinant yellow fever 17D virus expressing a green fluorescent 
+protein variant (EGFP). This approach took into account the presence of 
+functional motifs and amino acid sequence conservation flanking the E and NS1 
+intergenic region to duplicate and fuse them to the exogenous gene and thereby 
+allow the correct processing of the viral polyprotein precursor.
+RESULTS: YF 17D EGFP recombinant virus was grew in Vero cells and reached a peak 
+titer of approximately 6.45 +/- 0.4 log10 PFU/mL at 96 hours post-infection. 
+Immunoprecipitation and confocal laser scanning microscopy demonstrated the 
+expression of the EGFP, which was retained in the endoplasmic reticulum and not 
+secreted from infected cells. The association with the ER compartment did not 
+interfere with YF assembly, since the recombinant virus was fully competent to 
+replicate and exit the cell. This virus was genetically stable up to the tenth 
+serial passage in Vero cells. The recombinant virus was capable to elicit a 
+neutralizing antibody response to YF and antibodies to EGFP as evidenced by an 
+ELISA test. The applicability of this cloning strategy to clone gene foreign 
+sequences in other flavivirus genomes was demonstrated by the construction of a 
+chimeric recombinant YF 17D/DEN4 virus.
+CONCLUSION: This system is likely to be useful for a broader live attenuated YF 
+17D virus-based vaccine development for human diseases. Moreover, insertion of 
+foreign genes into the flavivirus genome may also allow in vivo studies on 
+flavivirus cell and tissue tropism as well as cellular processes related to 
+flavivirus infection.
+
+DOI: 10.1186/1743-422X-4-115
+PMCID: PMC2173888
+PMID: 17971212 [Indexed for MEDLINE]

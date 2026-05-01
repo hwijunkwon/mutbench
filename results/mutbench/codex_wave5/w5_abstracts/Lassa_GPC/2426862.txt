@@ -1,0 +1,33 @@
+1. Virology. 1986 Sep;153(2):168-78. doi: 10.1016/0042-6822(86)90020-6.
+
+Proteins of lymphocytic choriomeningitis virus: antigenic topography of the 
+viral glycoproteins.
+
+Parekh BS, Buchmeier MJ.
+
+Topographical relationships among antigenic sites on the envelope glycoproteins 
+of lymphocytic choriomeningitis virus (LCMV) were established using a panel of 
+monoclonal antibodies (MAb) directed against viral GP-1 and GP-2. Purified MAb 
+were radioiodinated and used as probes in a solid phase competitive binding 
+assay. Epitopes on LCMV GP-1 were found to cluster in four antigenic sites. Five 
+neutralizing MAb raised by immunization with the WE strain of LCMV reacted with 
+a single topographic site, termed GP-1A, which was present on four strains of 
+LCMV examined in this study. A second site, GP-1B, was characterized by two MAb 
+which partially competed with one another and with a subset of neutralizing 
+antibodies. This site appeared to be close to site A and was found to be 
+nonneutralizing. The third site, GP-1C, contained sequential epitopes and was 
+also nonneutralizing. Antibodies binding to site B enhanced the binding of MAb 
+at site C, presumably through a conformational change. In addition to the common 
+neutralizing site A, LCMV Armstrong strain (LCMV-Arm) GP-1 contained a second 
+topographically related neutralizing site, GP-1D, which was specific for 
+LCMV-Arm, absent in WE, and appeared to be the major immunogenic epitope on GP-1 
+of this virus. Analysis of MAb binding to LCMV GP-2 demonstrated the presence of 
+three overlapping binding sites. GP-2A was defined by two antibodies while GP-2B 
+and C represented binding sites of one antibody each. Guinea pigs primed with 
+LCMV-Arm and challenged with LCMV-WE developed a significant immune response 
+which was directed toward the common major neutralizing site, GP-1A, but had 
+poor responses to the LCMV-Arm specific neutralizing site GP-1D. Immune sera 
+contained antibody to site GP-1B but lacked detectable antibody to GP-1C.
+
+DOI: 10.1016/0042-6822(86)90020-6
+PMID: 2426862 [Indexed for MEDLINE]

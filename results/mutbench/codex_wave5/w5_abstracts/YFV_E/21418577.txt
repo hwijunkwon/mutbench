@@ -1,0 +1,46 @@
+1. Virol J. 2011 Mar 18;8:127. doi: 10.1186/1743-422X-8-127.
+
+Biological and immunological characterization of recombinant Yellow Fever 17D 
+viruses expressing a Trypanosoma cruzi Amastigote Surface Protein-2 CD8+ T cell 
+epitope at two distinct regions of the genome.
+
+Nogueira RT(1), Nogueira AR, Pereira MC, Rodrigues MM, Galler R, Bonaldo MC.
+
+Author information:
+(1)Fundação Oswaldo Cruz, Instituto Oswaldo Cruz, Laboratório de Biologia 
+Molecular de Flavivírus, Rio de Janeiro, Fundação Oswaldo Cruz, Avenida Brasil 
+4365, Manguinhos, Rio de Janeiro, RJ, 21045-900, Brazil.
+
+BACKGROUND: The attenuated Yellow fever (YF) 17D vaccine virus is one of the 
+safest and most effective viral vaccines administered to humans, in which it 
+elicits a polyvalent immune response. Herein, we used the YF 17D backbone to 
+express a Trypanosoma cruzi CD8+ T cell epitope from the Amastigote Surface 
+Protein 2 (ASP-2) to provide further evidence for the potential of this virus to 
+express foreign epitopes. The TEWETGQI CD8+ T cell epitope was cloned and 
+expressed based on two different genomic insertion sites: in the fg loop of the 
+viral Envelope protein and the protease cleavage site between the NS2B and NS3. 
+We investigated whether the site of expression had any influence on 
+immunogenicity of this model epitope.
+RESULTS: Recombinant viruses replicated similarly to vaccine virus YF 17D in 
+cell culture and remained genetically stable after several serial passages in 
+Vero cells. Immunogenicity studies revealed that both recombinant viruses 
+elicited neutralizing antibodies to the YF virus as well as generated an 
+antigen-specific gamma interferon mediated T-cell response in immunized mice. 
+The recombinant viruses displayed a more attenuated phenotype than the YF 17DD 
+vaccine counterpart in mice. Vaccination of a mouse lineage highly susceptible 
+to infection by T. cruzi with a homologous prime-boost regimen of recombinant YF 
+viruses elicited TEWETGQI specific CD8+ T cells which might be correlated with a 
+delay in mouse mortality after a challenge with a lethal dose of T. cruzi.
+CONCLUSIONS: We conclude that the YF 17D platform is useful to express T. cruzi 
+(Protozoan) antigens at different functional regions of its genome with minimal 
+reduction of vector fitness. In addition, the model T. cruzi epitope expressed 
+at different regions of the YF 17D genome elicited a similar T cell-based immune 
+response, suggesting that both expression sites are useful. However, the epitope 
+as such is not protective and it remains to be seen whether expression of larger 
+domains of ASP-2, which include the TEWETGQI epitope, will elicit better T-CD8+ 
+responses to the latter. It is likely that additional antigens and recombinant 
+virus formulations will be necessary to generate a protective response.
+
+DOI: 10.1186/1743-422X-8-127
+PMCID: PMC3066119
+PMID: 21418577 [Indexed for MEDLINE]

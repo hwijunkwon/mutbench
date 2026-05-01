@@ -1,0 +1,42 @@
+1. Kansenshogaku Zasshi. 2002 Sep;76(9):738-46. doi: 
+10.11150/kansenshogakuzasshi1970.76.738.
+
+[Antibody responses in Japanese volunteers after immunization with yellow fever 
+vaccine].
+
+[Article in Japanese]
+
+Taga K(1), Imura S, Hayashi A, Kamakura K, Hashimoto S, Takasaki T, Kurane I, 
+Uchida Y.
+
+Author information:
+(1)Kobe Quarantine Station, Japan.
+
+To monitor the development of specific and cross-reactive antibody response in 
+twenty Japanese volunteers after vaccination with live yellow fever vaccine. 
+Serum samples were collected on various days after vaccination and examined for 
+hemagglutination inhibition (HI) antibodies against yellow fever virus (YFV), 
+Japanese encephalitis virus (JEV) and dengue virus (DV), neutralizing antibodies 
+against YFV and JEV, and IgM antibodies against YFV. None of the volunteers had 
+been previously immunized with this vaccine. Fifteen of 20 had pre-vaccinated 
+with JEV 7 to 40 years before. Ten of the 20 had neutralizing antibodies against 
+JEV before immunization. None of the 20 had detectable antibodies against YFV or 
+DV before vaccination. On day 10th after the vaccination, neutralizing 
+antibodies to YFV were detected in 6 of 19 volunteers and IgM antibodies against 
+YFV were detected in 7 of 19. On day 14th, HI, neutralizing, and IgM antibodies 
+against YFV were detected in all the tested sera. Neutralizing antibodies 
+against JEV were developed in 2 volunteers and HI antibodies against JEV were 
+increased in 3 of 6 volunteers respectively. On day 29th, cross-reactive HI 
+antibodies for JEV and DV were detected in all the tested sera. The results 
+indicate that YF vaccine induces YFV-specific antibodies in all the tested 
+volunteers and that it also induces HI antibodies cross-reactive for JEV and DV. 
+The YF vaccine has a strong immunogenicity because it is a live vaccine, and 
+induces antibody against YFV predominantly. The international certificate of 
+yellow fever vaccination becomes valid 10 days after vaccination. On day 14th 
+after vaccination, we detected neutralizing antibodies against YFV from all 
+tested volunteers, however, only 6 of 19 volunteers had detectable neutralizing 
+antibody on the 10th day after vaccination. Therefore, the vaccine may not be 
+perfectly effective on day 10th after the vaccination.
+
+DOI: 10.11150/kansenshogakuzasshi1970.76.738
+PMID: 12391677 [Indexed for MEDLINE]

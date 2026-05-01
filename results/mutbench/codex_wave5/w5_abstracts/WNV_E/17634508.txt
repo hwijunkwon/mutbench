@@ -1,0 +1,36 @@
+1. Clin Vaccine Immunol. 2007 Sep;14(9):1117-26. doi: 10.1128/CVI.00070-07. Epub 
+2007 Jul 18.
+
+Complex adenovirus-mediated expression of West Nile virus C, PreM, E, and NS1 
+proteins induces both humoral and cellular immune responses.
+
+Schepp-Berglind J(1), Luo M, Wang D, Wicker JA, Raja NU, Hoel BD, Holman DH, 
+Barrett AD, Dong JY.
+
+Author information:
+(1)Department of Microbiology and Immunology, Medical University of South 
+Carolina, 173 Ashley Avenue, Charleston, SC 29403, USA.
+
+West Nile Virus (WNV), a member of the family Flaviviridae, was first identified 
+in Africa in 1937. In recent years, it has spread into Europe and North America. 
+The clinical manifestations of WNV infection range from mild febrile symptoms to 
+fatal encephalitis. Two genetic lineages (lineages I and II) are recognized; 
+lineage II is associated with mild disease, while lineage I has been associated 
+with severe disease, including encephalitis. WNV has now spread across North 
+America, significantly affecting both public and veterinary health. In the 
+efforts to develop an effective vaccine against all genetic variants of WNV, we 
+have studied the feasibility of inducing both neutralizing and cellular immune 
+responses by de novo synthesis of WNV antigens using a complex adenoviral 
+vaccine (CAdVax) vector. By expressing multiple WNV proteins from a single 
+vaccine vector, we were able to induce both humoral and cellular immune 
+responses in vaccinated mice. Neutralization assays demonstrated that the 
+antibodies were broadly neutralizing against both lineages of WNV, with a 
+significant preference for the homologous lineage II virus. The results from 
+this study show that multiple antigens synthesized de novo from a CAdVax vector 
+are capable of inducing both humoral and cellular immune responses against WNV 
+and that a multiantigen approach may provide broad protection against multiple 
+genetic variants of WNV.
+
+DOI: 10.1128/CVI.00070-07
+PMCID: PMC2043313
+PMID: 17634508 [Indexed for MEDLINE]

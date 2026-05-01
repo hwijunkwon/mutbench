@@ -1,0 +1,40 @@
+1. Infect Genet Evol. 2019 Mar;68:91-97. doi: 10.1016/j.meegid.2018.11.023. Epub 
+2018 Dec 2.
+
+Antigenic relationship among zoonotic flaviviruses from Italy.
+
+Lorusso A(1), Marini V(2), Di Gennaro A(2), Ronchi GF(2), Casaccia C(2), Carelli 
+G(3), Passantino G(3), D'Alterio N(2), D'Innocenzo V(2), Savini G(2), Monaco 
+F(2), Horton DL(4).
+
+Author information:
+(1)Istituto Zooprofilattico Sperimentale dell'Abruzzo e Molise (IZSAM), Teramo, 
+Italy. Electronic address: a.lorusso@izs.it.
+(2)Istituto Zooprofilattico Sperimentale dell'Abruzzo e Molise (IZSAM), Teramo, 
+Italy.
+(3)Department of Veterinary Medicine, University of Bari, Valenzano, Italy.
+(4)School of Veterinary Medicine, University of Surrey, Guildford, UK.
+
+Here we report studies of the antigenic relationship of West Nile virus (WNV) 
+and Usutu virus (USUV), two zoonotic flaviviruses from Italy, together with a 
+Japanese encephalitis virus (JEV) strain and compared them with their genetic 
+relationship using the immunodominant viral E protein. Thirty-nine isolates and 
+reference strains were inactivated and used to immunize rabbits to produce hyper 
+immune sera. Serum samples were tested by neutralization against all isolates 
+and results visualized by generating antigenic map. Strains of WNV, USUV, and 
+JEV grouped in separate clusters on the antigenic map. JEV was closer 
+antigenically to USUV (mean of 3.5 Antigenic Unit, AU, equivalent to a 2-fold 
+change in antibody titer) than to WNV strains (mean of 6 AU). A linear 
+regression model predicted, on average, one unit of antigenic change, equivalent 
+to a 2-fold change in antibody titer, for every 22 amino acid substitutions in 
+the E protein ectodomain. Overall, antigenic map was demonstrated to be robust 
+and consistent with phylogeny of the E protein. Indeed, the map provided a 
+reliable means of visualizing and quantifying the relationship between these 
+flaviviruses. Further antigenic analyses employing representative strains of 
+extant serocomplexes are currently underway. This will provide a more in deep 
+knowledge of antigenic relationships between flaviviruses.
+
+Copyright © 2018 Elsevier B.V. All rights reserved.
+
+DOI: 10.1016/j.meegid.2018.11.023
+PMID: 30517880 [Indexed for MEDLINE]

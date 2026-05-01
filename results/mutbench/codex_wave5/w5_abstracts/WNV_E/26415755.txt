@@ -1,0 +1,42 @@
+1. Virus Res. 2016 Jan 4;211:17-24. doi: 10.1016/j.virusres.2015.09.015. Epub
+2015  Sep 28.
+
+Generation of a recombinant West Nile virus stably expressing the Gaussia 
+luciferase for neutralization assay.
+
+Zhang PT(1), Shan C(2), Li XD(1), Liu SQ(2), Deng CL(2), Ye HQ(2), Shang BD(1), 
+Shi PY(3), Lv M(4), Shen BF(4), Qin CF(5), Zhang B(6).
+
+Author information:
+(1)Key Laboratory of Special Pathogens and Biosafety, Wuhan Institute of 
+Virology, Chinese Academy of Science, Wuhan 430071, China; University of Chinese 
+Academy of Sciences, Beijing 100049, China.
+(2)Key Laboratory of Special Pathogens and Biosafety, Wuhan Institute of 
+Virology, Chinese Academy of Science, Wuhan 430071, China.
+(3)Novartis Institute for Tropical Diseases, Singapore.
+(4)Beijing Institute of Basic Medical Sciences, Beijing 100850, China.
+(5)State Key Laboratory of Pathogen and Biosecurity, Beijing Institute of 
+Microbiology and Epidemiology, Beijing 100071, China.
+(6)Key Laboratory of Special Pathogens and Biosafety, Wuhan Institute of 
+Virology, Chinese Academy of Science, Wuhan 430071, China. Electronic address: 
+zhangbo@wh.iov.cn.
+
+West Nile virus (WNV) is a neurotropic human pathogen that has caused increasing 
+infected cases over recent years. There is currently no licensed vaccine or 
+effective drug for prevention and treatment of WNV infection in humans. To 
+facilitate antiviral drug discovery and neutralizing antibody detection, a WNV 
+cDNA clone containing a luciferase reporter gene was constructed through 
+incorporating Gaussia luciferase (Gluc) gene within the capsid-coding region of 
+WNV genome. Transfection of BHK-21 cells with the cDNA clone-derived RNA 
+generated luciferase reporter WNV (WNV-Gluc) and the stable WNV-Gluc with high 
+titers (>10(7)PFU/ml) was obtained through plaque purification. Luciferase 
+activity was used to effectively quantify the viral production of WNV-Gluc. 
+Using the reporter virus WNV-Gluc, we developed a luciferase based assay in a 
+12-well format for evaluating neutralizing antibodies. The reporter virus could 
+be a powerful tool for epidemiological investigation of WNV, vaccine evaluation, 
+antiviral drug screening, and the study of WNV replication and pathogenesis.
+
+Copyright © 2015 Elsevier B.V. All rights reserved.
+
+DOI: 10.1016/j.virusres.2015.09.015
+PMID: 26415755 [Indexed for MEDLINE]

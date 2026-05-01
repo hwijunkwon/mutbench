@@ -1,0 +1,37 @@
+1. J Virol. 1995 Apr;69(4):2297-305. doi: 10.1128/JVI.69.4.2297-2305.1995.
+
+Optimal lymphocytic choriomeningitis virus sequences restricted by H-2Db major 
+histocompatibility complex class I molecules and presented to cytotoxic T 
+lymphocytes.
+
+Gairin JE(1), Mazarguil H, Hudrisier D, Oldstone MB.
+
+Author information:
+(1)Laboratoire de Pharmacologie et Toxicologie Fondamentales, Centre National de 
+la Recherche Scientifique, Toulouse, France.
+
+Infection with lymphocytic choriomeningitis virus induces the generation of CD8+ 
+cytotoxic T lymphocytes (CTL). In the H-2b mouse, this cellular immune response 
+is directed against three viral structural epitopes (GP1, GP2, and NP) presented 
+by the major histocompatibility complex (MHC) class I H-2Db molecules. This 
+study was undertaken to delineate which sequence of each of these three epitopes 
+is optimal for MHC binding and CTL recognition. The first step was to synthesize 
+the relevant peptides truncated at the N or C terminus and flanking the crucial 
+H-2Db-anchoring Asn residue in position 5. These peptides were then tested (i) 
+for their binding properties in two H-2Db-specific assays with viable cells 
+(upregulation of H-2Db expression on the surface of RMA-S cells and competition 
+against the Db-restricted peptide 125I-gp276-286 on T2-Db cells) and (ii) for 
+their abilities to sensitize H-2b target cells for CTL lysis in vitro. For 
+optimal antigenic presentation, all three epitopes required the MHC-anchoring 
+Asn residue at position 5 of their sequences. The results clearly and 
+unambiguously delineated optimal lengths for two of the epitopes and two options 
+for the third. NP appeared as a conventional 9-amino-acid (aa)-long peptide, 
+np396-404 (FQPQNGQFI). GP2 was defined as a longer peptide (11 aa), gp276-286 
+(SGVENPGGYCL). Characterization of the GP1 epitope was more complex: the 
+9-aa-long peptide gp33-41 (KAVYNFATC) and the carboxyl-extended 11-aa-long 
+peptide gp33-43 (KAVYN FATCGI) were both established as possible optimal 
+sequences depending on the cell line used to test binding and lysis.
+
+DOI: 10.1128/JVI.69.4.2297-2305.1995
+PMCID: PMC188900
+PMID: 7533855 [Indexed for MEDLINE]

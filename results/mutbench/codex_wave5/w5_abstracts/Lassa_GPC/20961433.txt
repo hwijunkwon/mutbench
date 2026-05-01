@@ -1,0 +1,60 @@
+1. Virol J. 2010 Oct 20;7:279. doi: 10.1186/1743-422X-7-279.
+
+Lassa virus-like particles displaying all major immunological determinants as a 
+vaccine candidate for Lassa hemorrhagic fever.
+
+Branco LM(1), Grove JN, Geske FJ, Boisen ML, Muncy IJ, Magliato SA, Henderson 
+LA, Schoepp RJ, Cashman KA, Hensley LE, Garry RF.
+
+Author information:
+(1)Tulane University Health Sciences Center, New Orleans, LA, USA.
+
+BACKGROUND: Lassa fever is a neglected tropical disease with significant impact 
+on the health care system, society, and economy of Western and Central African 
+nations where it is endemic. Treatment of acute Lassa fever infections has 
+successfully utilized intravenous administration of ribavirin, a nucleotide 
+analogue drug, but this is not an approved use; efficacy of oral administration 
+has not been demonstrated. To date, several potential new vaccine platforms have 
+been explored, but none have progressed toward clinical trials and 
+commercialization. Therefore, the development of a robust vaccine platform that 
+could be generated in sufficient quantities and at a low cost per dose could 
+herald a subcontinent-wide vaccination program. This would move Lassa endemic 
+areas toward the control and reduction of major outbreaks and endemic 
+infections. To this end, we have employed efficient mammalian expression systems 
+to generate a Lassa virus (LASV)-like particle (VLP)-based modular vaccine 
+platform.
+RESULTS: A mammalian expression system that generated large quantities of LASV 
+VLP in human cells at small scale settings was developed. These VLP contained 
+the major immunological determinants of the virus: glycoprotein complex, 
+nucleoprotein, and Z matrix protein, with known post-translational 
+modifications. The viral proteins packaged into LASV VLP were characterized, 
+including glycosylation profiles of glycoprotein subunits GP1 and GP2, and 
+structural compartmentalization of each polypeptide. The host cell protein 
+component of LASV VLP was also partially analyzed, namely glycoprotein 
+incorporation, though the identity of these proteins remain unknown. All 
+combinations of LASV Z, GPC, and NP proteins that generated VLP did not 
+incorporate host cell ribosomes, a known component of native arenaviral 
+particles, despite detection of small RNA species packaged into pseudoparticles. 
+Although VLP did not contain the same host cell components as the native virion, 
+electron microscopy analysis demonstrated that LASV VLP appeared structurally 
+similar to native virions, with pleiomorphic distribution in size and shape. 
+LASV VLP that displayed GPC or GPC+NP were immunogenic in mice, and generated a 
+significant IgG response to individual viral proteins over the course of three 
+immunizations, in the absence of adjuvants. Furthermore, sera from convalescent 
+Lassa fever patients recognized VLP in ELISA format, thus affirming the presence 
+of native epitopes displayed by the recombinant pseudoparticles.
+CONCLUSIONS: These results established that modular LASV VLP can be generated 
+displaying high levels of immunogenic viral proteins, and that small laboratory 
+scale mammalian expression systems are capable of producing multi-milligram 
+quantities of pseudoparticles. These VLP are structurally and morphologically 
+similar to native LASV virions, but lack replicative functions, and thus can be 
+safely generated in low biosafety level settings. LASV VLP were immunogenic in 
+mice in the absence of adjuvants, with mature IgG responses developing within a 
+few weeks after the first immunization. These studies highlight the relevance of 
+a VLP platform for designing an optimal vaccine candidate against Lassa 
+hemorrhagic fever, and warrant further investigation in lethal challenge animal 
+models to establish their protective potential.
+
+DOI: 10.1186/1743-422X-7-279
+PMCID: PMC2984592
+PMID: 20961433 [Indexed for MEDLINE]

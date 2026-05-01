@@ -1,0 +1,39 @@
+1. Vaccines (Basel). 2023 Jan 17;11(2):197. doi: 10.3390/vaccines11020197.
+
+Antibody-Dependent Enhancement Activity of a Plant-Made Vaccine against West 
+Nile Virus.
+
+Sun H(1), Acharya D(2), Paul AM(2), Lai H(1), He J(1), Bai F(2), Chen Q(1).
+
+Author information:
+(1)The Biodesign Institute and School of Life Sciences, Arizona State 
+University, Tempe, AZ 85287, USA.
+(2)Department of Cell and Molecular Biology, University of Southern Mississippi, 
+Hattiesburg, MS 39406, USA.
+
+West Nile virus (WNV) causes annual outbreaks globally and is the leading cause 
+of mosquito-borne disease in Unite States. In the absence of licensed 
+therapeutics, there is an urgent need to develop effective and safe human 
+vaccines against WNV. One of the major safety concerns for WNV vaccine 
+development is the risk of increasing infection by related flaviviruses in 
+vaccinated subjects via antibody-dependent enhancement of infection (ADE). 
+Herein, we report the development of a plant-based vaccine candidate that 
+provides protective immunity against a lethal WNV challenge mice, while 
+minimizes the risk of ADE for infection by Zika (ZIKV) and dengue (DENV) virus. 
+Specifically, a plant-produced virus-like particle (VLP) that displays the WNV 
+Envelope protein domain III (wDIII) elicited both high neutralizing antibody 
+titers and antigen-specific cellular immune responses in mice. Passive transfer 
+of serum from VLP-vaccinated mice protected recipient mice from a lethal 
+challenge of WNV infection. Notably, VLP-induced antibodies did not enhance the 
+infection of Fc gamma receptor-expressing K562 cells by ZIKV or DENV through 
+ADE. Thus, a plant-made wDIII-displaying VLP presents a promising WNV vaccine 
+candidate that induces protective immunity and minimizes the concern of inducing 
+ADE-prone antibodies to predispose vaccinees to severe infection by DENV or 
+ZIKV.
+
+DOI: 10.3390/vaccines11020197
+PMCID: PMC9966755
+PMID: 36851075
+
+Conflict of interest statement: The authors declare that there is no conflict of 
+interests regarding the publication of this article.

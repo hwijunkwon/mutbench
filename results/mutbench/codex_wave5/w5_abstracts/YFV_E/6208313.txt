@@ -1,0 +1,24 @@
+1. J Gen Virol. 1984 Oct;65 ( Pt 10):1637-44. doi: 10.1099/0022-1317-65-10-1637.
+
+Analysis of 17D yellow fever virus envelope protein epitopes using monoclonal 
+antibodies.
+
+Schlesinger JJ, Walsh EE, Brandriss MW.
+
+Sixteen monoclonal antibodies that reacted with the envelope glycoprotein (E) of 
+17D vaccine strain yellow fever virus (17D YF), including two antibodies 
+produced against dengue 2 virus, were used in a solid phase competitive binding 
+assay (CBA) to define spatial relationships among antigenic determinants on 17D 
+YF E. The antibodies showed YF strain, type or flavivirus group specificities 
+and nine epitopes were identified on 17D YF E by patterns of neutralization, 
+haemagglutination inhibition and competition of antibody binding. Epitopes 
+defined by neutralizing antibodies with strain and type specificities appeared 
+spatially distant but competition between type-specific neutralizing antibodies 
+and some non-neutralizing antibodies against type and group determinants 
+suggested close proximity among epitopes in these regions. Despite competition 
+between some neutralizing and non-neutralizing monoclonal antibodies in CBA, 
+plaque assays revealed no interference with neutralization by non-neutralizing 
+antibody.
+
+DOI: 10.1099/0022-1317-65-10-1637
+PMID: 6208313 [Indexed for MEDLINE]

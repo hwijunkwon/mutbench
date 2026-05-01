@@ -1,0 +1,33 @@
+1. Viral Immunol. 1993 Summer;6(2):143-51. doi: 10.1089/vim.1993.6.143.
+
+Dengue virus-specific, human CD4+ cytotoxic T lymphocytes generated in 
+short-term culture.
+
+Zivny J(1), Kurane I, Tacket CO, Edelman R, Ennis FA.
+
+Author information:
+(1)Department of Medicine, University of Massachusetts Medical Center, 
+Worcester.
+
+We previously reported cytotoxic activity of dengue virus-specific CD4+ CD8- T 
+cell clones established in long-term in vitro culture. In the present 
+experiments we tried to determine whether dengue virus-specific CD4+ CD8- CTL3 
+are present in short-term bulk cultures. Peripheral blood mononuclear cells 
+(PBMC)3 from a donor who had been immunized with an experimental live attenuated 
+dengue 1 vaccine 8 months earlier were used. PBMC were incubated with 
+noninfectious dengue 1 antigen (Ag)3 for 7 days, and were examined for dengue 
+1-specific cytotoxic activity. PBMC cultured with dengue 1 Ag lysed autologous 
+lymphoblastoid cell line (LCL)3 pulsed with noninfectious dengue 1 Ag, but did 
+not lyse LCL pulsed with Ag of other dengue serotype, West Nile virus, or yellow 
+fever virus, or control Ag. Treatment of cultured PBMC with monoclonal antibody 
+to CD3 or CD4 and complement abrogated the cytotoxic activity but treatment with 
+a monoclonal antibody to CD8 and complement did not. A time course study showed 
+that dengue 1 Ag-specific CTL were first detected in 5 day cultures. Lysis of 
+target cells by these CD4+ CTL were restricted by HLA class II, and HLA DQw1 and 
+HLA DRw52 were determined to be the restriction molecules. These results 
+indicate that dengue virus-specific CD4+ CD8- CTL are generated in short-term 
+bulk cultures as well as in long-term-cultured cell lines, and support the 
+concept that CD4+ CTL may be generated in vivo during infection.
+
+DOI: 10.1089/vim.1993.6.143
+PMID: 8105794 [Indexed for MEDLINE]

@@ -1,0 +1,35 @@
+1. Sci Rep. 2016 Nov 8;6:36288. doi: 10.1038/srep36288.
+
+Identification of a New Broadly Cross-reactive Epitope within Domain III of the 
+Duck Tembusu Virus E Protein.
+
+Li C(1), Bai X(1), Meng R(1), Shaozhou W(1), Zhang Q(1), Hua R(1), Liu JH(2), 
+Liu M(1), Zhang Y(1).
+
+Author information:
+(1)State Key Laboratory of Veterinary Biotechnology, Harbin Veterinary Research 
+Institute of Chinese Academy of Agricultural Sciences, Harbin, 150001, China.
+(2)Institute of Genomics and Bioinformatics, National Chung Hsing University. 
+Taiwan.
+
+In 2010, a pathogenic flavivirus termed duck Tembusu virus (DTMUV) caused 
+widespread outbreak of egg-drop syndrome in domesticated ducks in China. 
+Although the glycoprotein E of DTMUV is an important structural component of the 
+virus, the B-cell epitopes of this protein remains uncharacterized. Using phage 
+display and mutagenesis, we identified a minimal B-cell epitope, 
+374EXE/DPPFG380, that mediates binding to a nonneutralizing monoclonal antibody. 
+DTMUV-positive duck serum reacted with the epitope, and amino acid substitutions 
+revealed the specific amino acids that are essential for antibody binding. 
+Dot-blot assays of various flavivirus-positive sera indicated that EXE/DPPFG is 
+a cross-reactive epitope in most flaviviruses, including Zika, West Nile, Yellow 
+fever, dengue, and Japanese encephalitis viruses. These findings indicate that 
+the epitope sequence is conserved among many strains of mosquito-borne 
+flavivirus. Protein structure modeling revealed that the epitope is located in 
+domain III of the DTMUV E protein. Together, these results provide new insights 
+on the broad cross-reactivity of a B-cell binding site of the E protein of 
+flaviviruses, which can be exploited as a diagnostic or therapeutic target for 
+identifying, studying, or treating DTMUV and other flavivirus infections.
+
+DOI: 10.1038/srep36288
+PMCID: PMC5099753
+PMID: 27824100 [Indexed for MEDLINE]

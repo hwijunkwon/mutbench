@@ -1,0 +1,61 @@
+1. Sci Rep. 2025 Aug 6;15(1):28752. doi: 10.1038/s41598-025-14448-4.
+
+Serological differentiation of West Nile, Usutu, and tick-borne encephalitis 
+virus antibodies in birds and horses using mutant E protein ELISAs.
+
+Schwarzer A(1), Ziegler U(1), Fertey J(2), Kreuz M(3), Vahlenkamp TW(4), 
+Groschup MH(1), Ulbert S(5).
+
+Author information:
+(1)Federal Research Institute for Animal Health, Institute of Novel and Emerging 
+Infectious Diseases, Friedrich-Loeffler Institut, Südufer 10, 17493, 
+Greifswald-Insel Riems, Germany.
+(2)Fraunhofer Institute for Cell Therapy and Immunology, Department of Infection 
+Research and Diagnostics, Perlickstraße 1, 04103, Leipzig, Germany.
+(3)Fraunhofer Institute for Cell Therapy and Immunology, Department of Medical 
+Bioinformatics,, Perlickstraße 1, 04103, Leipzig, Germany.
+(4)Institute of Virology, Faculty of Veterinary Medicine, Leipzig University, An 
+den Tierkliniken 29, 04103, Leipzig, Germany.
+(5)Fraunhofer Institute for Cell Therapy and Immunology, Department of Infection 
+Research and Diagnostics, Perlickstraße 1, 04103, Leipzig, Germany. 
+sebastian.ulbert@izi.fraunhofer.de.
+
+West Nile virus (WNV), Usutu virus (USUV) and tick-borne encephalitis virus 
+(TBEV) are worldwide endemic zoonotic orthoflaviviruses, often co-circulating in 
+the same areas. Serological studies in animals, mostly birds and horses, are 
+important means to monitor the spread of these viruses and the infection risks 
+for humans. However, cross-reactive antibodies to these structurally similar 
+flaviviruses frequently impact serological differentiation in enzyme-linked 
+immunosorbent assays (ELISAs), hence time-consuming virus neutralization tests 
+(VNTs) have to be employed in laboratories with high biosafety level. This study 
+presents ELISAs using recombinant flavivirus E proteins with point mutations in 
+the conserved fusion loop domain (Equad proteins) for differentiating IgY or IgG 
+antibodies against WNV, USUV or TBEV in ducks, geese, chickens and horses. 
+Panels of 169 duck and goose sera, 101 chicken sera and 136 horse sera were 
+tested in Equad ELISAs, which resulted in high sensitivity and specificity, 
+further improved by a pre-absorption step for the differentiation of WNV and 
+USUV antibodies. Equad ELISAs for poultry and horse sera enable the reliable 
+differentiation of WNV, USUV and TBEV specific antibodies without the need for 
+VNTs, which has important implications for conducting seroprevalence studies as 
+well as for veterinary routine diagnosis.
+
+© 2025. The Author(s).
+
+DOI: 10.1038/s41598-025-14448-4
+PMCID: PMC12328586
+PMID: 40770485 [Indexed for MEDLINE]
+
+Conflict of interest statement: Declarations. Competing interests: S.U. is on a 
+patent application that includes the proteins described in this study. This does 
+not alter his adherence to policies on sharing data and materials. The funder 
+had no role in the design of the study; in the collection, analyses, or 
+interpretation of data; in the writing of the manuscript; or in the decision to 
+publish the results. A.S., U.Z., J.F., M.K., T.W.V. and M.H.G. declare no 
+potential conflict of interest. Ethics approval: Duck, goose and chicken sera 
+were used according to the ethical approvals by the administration of the 
+federal state of Mecklenburg-Western Pomerania, Germany (LALLF reference numbers 
+7221.3-2-042/17, 7221.3-2-003/23, 7221.3-1-075/16, 7221.3-1.1-018/18 and 
+7221.3-1-031/20) and in accordance with the relevant guidelines. All methods are 
+reported in accordance with ARRIVE guidelines. Blood samples from horses were 
+collected during routine diagnostic testing by veterinarians for which, 
+according to German law, ethical approval was not required.

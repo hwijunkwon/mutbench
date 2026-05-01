@@ -1,0 +1,38 @@
+1. Korean J Parasitol. 2019 Jun;57(3):283-290. doi: 10.3347/kjp.2019.57.3.283.
+Epub  2019 Jun 30.
+
+Development and Clinical Evaluation of a Rapid Diagnostic Test for Yellow Fever 
+Non-Structural Protein 1.
+
+Kim YH(1), Kim TY(2), Park JS(2), Park JS(2), Lee J(2), Moon J(2), Chong CK(2), 
+Junior IN(3), Ferry FR(3), Ahn HJ(4), Bhatt L(4), Nam HW(4).
+
+Author information:
+(1)Department of Ophthalmology, College of Medicine, The Catholic University of 
+Korea, Seoul 06591, Korea.
+(2)Genbody Inc., Cheonan 31116, Korea.
+(3)Gafreé and Guinle University Hospital of the Federal University of Rio de 
+Janeiro, Del Castilho, Rio de Janeiro, Brazil.
+(4)Department of Parasitology, College of Medicine, The Catholic University of 
+Korea, Seoul 06591, Korea.
+
+A rapid diagnostic test (RDT) kit was developed to detect non-structural protein 
+1 (NS1) of yellow fever virus (YFV) using monoclonal antibody. NS1 protein was 
+purified from the cultured YFV and used to immunize mice. Monoclonal antibody to 
+NS1 was selected and conjugated with colloidal gold to produce the YFV NS1 RDT 
+kit. The YFV RDTs were evaluated for sensitivity and specificity using positive 
+and negative samples of monkeys from Brazil and negative human blood samples 
+from Korea. Among monoclonal antibodies, clones 3A11 and 3B7 proved most 
+sensitive, and used for YFV RDT kit. Diagnostic accuracy of YFV RDT was fairly 
+high; Sensitivity was 0.0% and specificity was 100% against Dengue viruses type 
+2 and 3, Zika, Chikungunya and Mayaro viruses. This YFV RDT kit could be 
+employed as a test of choice for point-of-care diagnosis and large scale surveys 
+of YFV infection under clinical or field conditions in endemic areas and on the 
+globe.
+
+DOI: 10.3347/kjp.2019.57.3.283
+PMCID: PMC6616167
+PMID: 31284351 [Indexed for MEDLINE]
+
+Conflict of interest statement: CONFLICT OF INTEREST The authors declare that 
+there is no conflict of interest.

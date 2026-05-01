@@ -1,0 +1,33 @@
+1. Virol J. 2010 May 12;7:95. doi: 10.1186/1743-422X-7-95.
+
+Enhancement of anti-DIII antibodies by the C3d derivative P28 results in lower 
+viral titers and augments protection in mice.
+
+Dunn MD(1), Rossi SL, Carter DM, Vogt MR, Mehlhop E, Diamond MS, Ross TM.
+
+Author information:
+(1)Center for Vaccine Research, University of Pittsburgh, 9047 Biomedical 
+Science Tower 3, Pittsburgh, PA 15261, USA.
+
+Antibodies generated against West Nile virus (WNV) during infection are 
+essential for controlling dissemination. Recent studies have demonstrated that 
+epitopes in all three domains of the flavivirus envelope protein (E) are targets 
+for neutralizing antibodies, with determinants in domain III (DIII) eliciting 
+antibodies with strong inhibitory properties. In order to increase the magnitude 
+and quality of the antibody response against the WNV E protein, DNA vaccines 
+with derivatives of the WNV E gene (full length E, truncated E, or DIII region, 
+some in the context of the pre-membrane [prM] gene) were conjugated to the 
+molecular adjuvant P28. The P28 region of the complement protein C3d is the 
+minimum CR2-binding domain necessary for the adjuvant activity of C3d. Delivery 
+of DNA-based vaccines by gene gun and intramuscular routes stimulated production 
+of IgG antibodies against the WNV DIII region of the E protein. With the 
+exception of the vaccine expressing prM/E given intramuscularly, only mice that 
+received DNA vaccines by gene gun produced protective neutralizing antibody 
+titers (FRNT80 titer >1/40). Correspondingly, mice vaccinated by the gene gun 
+route were protected to a greater level from lethal WNV challenge. In general, 
+mice vaccinated with P28-adjuvated vaccines produced higher IgG titers than mice 
+vaccinated with non-adjuvanted vaccines.
+
+DOI: 10.1186/1743-422X-7-95
+PMCID: PMC2885341
+PMID: 20462412 [Indexed for MEDLINE]

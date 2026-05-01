@@ -1,0 +1,45 @@
+1. Vaccines (Basel). 2021 Feb 16;9(2):157. doi: 10.3390/vaccines9020157.
+
+A Bacterially-Expressed Recombinant Envelope Protein from Usutu Virus Induces 
+Neutralizing Antibodies in Rabbits.
+
+Böszörményi K(1), Hirsch J(2), Kiemenyi Kayere G(1), Fagrouch Z(1), Heijmans 
+N(3), Rodriguez Garcia R(3), Dwarka S(3), van Dijke A(3), Aaldijk B(3), Limpens 
+R(4), Barcena M(4), Koster B(4), Verstrepen B(1), Bogers W(1), Kocken C(3), 
+Cornellissen G(2), Verschoor E(1), Faber B(3).
+
+Author information:
+(1)Department of Virology, Biomedical Primate Research Centre, Lange Kleiweg 
+161, 2288 GJ Rijswijk, The Netherlands.
+(2)Department of Biotechnology, Hamburg University of Applied Sciences, 
+Ulmenliet 20, 21033 Hamburg, Germany.
+(3)Department of Parasitology, Biomedical Primate Research Centre, Lange Kleiweg 
+161, 2288 GJ Rijswijk, The Netherlands.
+(4)Section Electron Microscopy, Leiden University Medical Center, Einthovenweg 
+20, 2300 RC Leiden, The Netherlands.
+
+BACKGROUND: Recently, an emerging flavivirus, Usutu virus (USUV), has caused an 
+epidemic among birds in Europe, resulting in a massive die-off in Eurasian 
+blackbirds. Currently found only in Europe and Africa, it can be envisioned that 
+Usutu virus will follow the path of other flaviviruses, like West Nile virus and 
+Zika virus, and will spread via its mosquito vectors and bird hosts to other 
+parts of the world. Several cases of human infections by Usutu virus have 
+already been published. Anticipating this spread, development of an efficacious 
+vaccine would be highly desirable.
+METHOD: This study describes the production in E. coli, purification, and 
+refolding of a partial USUV envelope protein. Prior to immunization, the protein 
+was characterized using size exclusion chromatography, transmission electron 
+microscopy and dynamic light scattering, showing the limited presence of 
+virus-like structures, indicating that the protein solution is probably a 
+mixture of mono and multimeric envelope proteins.
+RESULTS: Immunizations of two rabbits with the refolded E-protein fraction, 
+mixed with a strong adjuvant, resulted in the generation of neutralizing 
+antibodies, as evidenced in an in vitro assay.
+DISCUSSION: The way forward towards a subunit vaccine against Usutu virus 
+infection is discussed.
+
+DOI: 10.3390/vaccines9020157
+PMCID: PMC7920429
+PMID: 33669414
+
+Conflict of interest statement: The authors declare no conflict of interest.

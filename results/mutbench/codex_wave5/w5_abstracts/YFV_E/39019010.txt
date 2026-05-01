@@ -1,0 +1,67 @@
+1. Cell Rep Med. 2024 Jul 16;5(7):101655. doi: 10.1016/j.xcrm.2024.101655.
+
+Development of a hydrogen peroxide-inactivated vaccine that protects against 
+viscerotropic yellow fever in a non-human primate model.
+
+Amanna IJ(1), Thomas A(2), Engelmann F(3), Hammarlund E(2), Raué HP(2), Bailey 
+AL(4), Poore EA(1), Quintel BK(1), Lewis AD(5), Axthelm MK(6), Johnson AL(5), 
+Colgin LMA(5), Diamond MS(7), Messaoudi I(3), Slifka MK(8).
+
+Author information:
+(1)Najít Technologies, Inc., Beaverton, OR 97006, USA.
+(2)Division of Neuroscience, Oregon National Primate Research Center, Oregon 
+Health & Science University, Beaverton, OR 97006, USA.
+(3)Department of Microbiology, Immunology and Molecular Genetics, University of 
+Kentucky, College of Medicine, Lexington, KY 40506, USA.
+(4)Department of Pathology & Laboratory Medicine, University of Wisconsin - 
+Madison, Madison, WI 53706, USA.
+(5)Division of Comparative Medicine, Oregon National Primate Research Center, 
+Oregon Health & Science University, Beaverton, OR 97006, USA.
+(6)Division of Pathobiology & Immunology, Oregon National Primate Research 
+Center, and The Vaccine & Gene Therapy Institute, Oregon Health & Science 
+University, Beaverton, OR 97006, USA.
+(7)Departments of Medicine, Molecular Microbiology, Pathology & Immunology, 
+Washington University School of Medicine, St. Louis, MO 63110, USA.
+(8)Division of Neuroscience, Oregon National Primate Research Center, Oregon 
+Health & Science University, Beaverton, OR 97006, USA. Electronic address: 
+slifkam@ohsu.edu.
+
+Yellow fever virus (YFV) is endemic in >40 countries and causes viscerotropic 
+disease with up to 20%-60% mortality. Successful live-attenuated yellow fever 
+(YF) vaccines were developed in the mid-1930s, but their use is restricted or 
+formally contraindicated in vulnerable populations including infants, the 
+elderly, and people with compromised immune systems. In these studies, we 
+describe the development of a next-generation hydrogen peroxide-inactivated YF 
+vaccine and determine immune correlates of protection based on log neutralizing 
+index (LNI) and neutralizing titer-50% (NT50) studies. In addition, we compare 
+neutralizing antibody responses and protective efficacy of hydrogen 
+peroxide-inactivated YF vaccine candidates to live-attenuated YFV-17D (YF-VAX) 
+in a rhesus macaque model of viscerotropic YF. Our results indicate that an 
+optimized, inactivated YF vaccine elicits protective antibody responses that 
+prevent viral dissemination and lethal infection in rhesus macaques and may be a 
+suitable alternative for vaccinating vulnerable populations who are not eligible 
+to receive replicating live-attenuated YF vaccines.
+
+Copyright © 2024 The Authors. Published by Elsevier Inc. All rights reserved.
+
+DOI: 10.1016/j.xcrm.2024.101655
+PMCID: PMC11293362
+PMID: 39019010 [Indexed for MEDLINE]
+
+Conflict of interest statement: Declaration of interests Oregon Health & Science 
+University (OHSU), M.K.S., E.H., and I.J.A. have a financial interest in Najít 
+Technologies, Inc., a company that may have a commercial interest in the results 
+of this research and technology. This potential individual and institutional 
+conflict of interest has been reviewed and managed by OHSU and Najít 
+Technologies, Inc. M.S.D. is a consultant or member of a scientific advisory 
+board for InBios, Ocugen, Vir Biotechnology, Topspin Therapeutics, and Moderna. 
+The Diamond laboratory has received unrelated funding support in sponsored 
+research agreements from Emergent BioSolutions, Moderna, and Vir Biotechnology. 
+I.J.A. and E.A.P. are inventors on US patent no. 10,744,198 entitled “Inorganic 
+polyatomic oxyanions for protecting against antigenic damage during pathogen 
+inactivation for vaccine production” and US patent nos. 11,141,475 and 
+11,633,470 entitled “Inactivating pathogens and producing highly immunogenic 
+inactivated vaccines using a dual oxidation process.” M.K.S. and E.H. are 
+inventors on US patent nos. 8,124,397 and 8,716,000 entitled “Inactivating 
+pathogens with oxidizing agents for vaccine production.” No writing assistance 
+was utilized in the production of this manuscript.

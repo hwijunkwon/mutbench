@@ -1,0 +1,48 @@
+1. J Med Virol. 2025 Apr;97(4):e70338. doi: 10.1002/jmv.70338.
+
+Seropositivity to Dengue, Zika, Yellow Fever, and West Nile Viruses in Senegal, 
+West Africa.
+
+Gallon S(1)(2), Sy M(3), Tonto PB(1)(2), Ndiaye IM(3), Toure M(3), Gaye A(3), 
+Aidara M(3), Mbaye AM(3), Dia AK(3)(4), Diallo MA(3), Gomis JF(3), Yade MS(3), 
+Diedhiou Y(3), Dieye B(3), Diongue K(3), Seck MC(3), Badiane AS(3), Ndiaye D(3), 
+Herrera BB(1)(2).
+
+Author information:
+(1)Rutgers Global Health Institute, Rutgers University, New Brunswick, New 
+Jersey, USA.
+(2)Department of Medicine, Division of Allergy, Immunology, and Infectious 
+Diseases and Child Health Institute of New Jersey, Rutgers Robert Wood Johnson 
+Medical School, New Brunswick, New Jersey, USA.
+(3)International Research Training Center on Genomics and Health Surveillance 
+(CIGASS), Cheikh Anta Diop University, Dakar, Senegal.
+(4)Laboratoire d'Ecologie Vectorielle et Parasitaire, Cheikh Anta Diop 
+University, Dakar, Senegal.
+
+West Africa serves as a critical region for the co-circulation of mosquito-borne 
+flaviviruses, which often precipitate sporadic outbreaks. This study 
+investigated the seropositivity to dengue virus serotypes 1-4 (DENV-1-4), Zika 
+virus (ZIKV), yellow fever virus (YFV), and West Nile virus (WNV) in three 
+regions of Senegal: Sindia, Thies, and Kedougou. We retrospectively analyzed 470 
+serum samples for flavivirus immunoglobulin G (IgG) using a DENV-2 envelope (E) 
+ELISA. Our findings revealed an overall flavivirus seroprevalence of 37.23%. 
+Among the DENV-2 E IgG positive samples, the proportion of subjects with IgG to 
+DENV-1-4, ZIKV, YFV, or WNV NS1 was 57.14%, 12.57%, 80.57%, and 17.14%, 
+respectively, with 66.86% harboring neutralizing antibodies against two or more 
+flaviviruses. We also identified that residents in Sindia (ZIKV, aOR, 9.428; 95% 
+CI: 1.882-47.223 and WNV, aOR, 6.039; 95% CI: 1.855-19.658) and Kedougou (ZIKV, 
+aOR, 7.487; 95% CI: 1.658-33.808 and WNV, aOR, 1.142; 95% CI: 0.412-3.164) were 
+at significant risk for ZIKV and WNV exposure. This study underscores the 
+complexity of flavivirus epidemiology in West Africa and the necessity for 
+enhanced surveillance to inform public health strategies.
+
+© 2025 The Author(s). Journal of Medical Virology published by Wiley Periodicals 
+LLC.
+
+DOI: 10.1002/jmv.70338
+PMCID: PMC11984064
+PMID: 40207881 [Indexed for MEDLINE]
+
+Conflict of interest statement: B.B.H. is a cofounder of Mir Biosciences Inc., a 
+biotechnology company focused on T cell‐based diagnostics and vaccines for 
+infectious diseases, cancer, and autoimmunity.

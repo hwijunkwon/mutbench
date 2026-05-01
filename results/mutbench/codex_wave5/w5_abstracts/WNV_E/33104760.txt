@@ -1,0 +1,42 @@
+1. PLoS Pathog. 2020 Oct 26;16(10):e1009009. doi: 10.1371/journal.ppat.1009009. 
+eCollection 2020 Oct.
+
+MAVS regulates the quality of the antibody response to West-Nile Virus.
+
+O'Ketch M(1), Williams S(1), Larson C(1), Uhrlaub JL(1), Wong R(1)(2), Hall 
+B(1), Deshpande NR(1), Schenten D(1).
+
+Author information:
+(1)Department of Immunobiology, University of Arizona, Tucson, Arizona, United 
+States of America.
+(2)Division of Biological and Biomedical Sciences, Washington University in St. 
+Louis, Saint Louis, Missouri, United States of America.
+
+A key difference that distinguishes viral infections from protein immunizations 
+is the recognition of viral nucleic acids by cytosolic pattern recognition 
+receptors (PRRs). Insights into the functions of cytosolic PRRs such as the 
+RNA-sensing Rig-I-like receptors (RLRs) in the instruction of adaptive immunity 
+are therefore critical to understand protective immunity to infections. West 
+Nile virus (WNV) infection of mice deficent of RLR-signaling adaptor MAVS 
+results in a defective adaptive immune response. While this finding suggests a 
+role for RLRs in the instruction of adaptive immunity to WNV, it is difficult to 
+interpret due to the high WNV viremia, associated exessive antigen loads, and 
+pathology in the absence of a MAVS-dependent innate immune response. To overcome 
+these limitations, we have infected MAVS-deficient (MAVSKO) mice with a 
+single-round-of-infection mutant of West Nile virus. We show that MAVSKO mice 
+failed to produce an effective neutralizing antibody response to WNV despite 
+normal antibody titers against the viral WNV-E protein. This defect occurred 
+independently of antigen loads or overt pathology. The specificity of the 
+antibody response in infected MAVSKO mice remained unchanged and was still 
+dominated by antibodies that bound the neutralizing lateral ridge (LR) epitope 
+in the DIII domain of WNV-E. Instead, MAVSKO mice produced IgM antibodies, the 
+dominant isotype controlling primary WNV infection, with lower affinity for the 
+DIII domain. Our findings suggest that RLR-dependent signals are important for 
+the quality of the humoral immune response to WNV.
+
+DOI: 10.1371/journal.ppat.1009009
+PMCID: PMC7644103
+PMID: 33104760 [Indexed for MEDLINE]
+
+Conflict of interest statement: The authors have declared that no competing 
+interests exist.

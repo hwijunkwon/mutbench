@@ -1,0 +1,26 @@
+1. Am J Trop Med Hyg. 1999 Aug;61(2):220-5. doi: 10.4269/ajtmh.1999.61.220.
+
+Sequence analysis of the small RNA segment of guinea pig-passaged Pichinde virus 
+variants.
+
+Zhang L(1), Marriott K, Aronson JF.
+
+Author information:
+(1)Department of Pathology and Center for Tropical Diseases, University of Texas 
+Medical Branch, Galveston 77555-0609, USA.
+
+The established animal model for Lassa fever is based on the new world 
+arenavirus Pichinde (PIC). Natural isolates of PIC virus are attenuated in 
+guinea pigs, but serial guinea pig passage renders them extremely virulent in 
+that host. We have compared the nucleotide sequences of the small RNA segments 
+of two attenuated, low-passage variants of the PIC virus Munchique strain (CoAn 
+4763) and two virulent, high-passage derivatives. Missense mutations in the 
+glycoprotein precursor (GPC) gene at codons GPC-119, GPC-140, and GPC-164 and 
+the nucleoprotein gene (NP) codons NP-35 and NP-374 were most closely associated 
+with virulence. Codon GPC-140 is predicted to represent a region of peak 
+hydrophilicity of the glycoprotein 1 (GP1); it is conceivable that mutations at 
+this site could influence virulence by altering B cell epitopes or virus 
+attachment protein conformation.
+
+DOI: 10.4269/ajtmh.1999.61.220
+PMID: 10463670 [Indexed for MEDLINE]

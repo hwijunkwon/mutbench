@@ -1,0 +1,35 @@
+1. Viruses. 2023 Oct 30;15(11):2177. doi: 10.3390/v15112177.
+
+Development of Therapeutic Monoclonal Antibodies for Emerging Arbovirus 
+Infections.
+
+Ormundo LF(1)(2), Barreto CT(1)(2), Tsuruta LR(1).
+
+Author information:
+(1)Biopharmaceuticals Laboratory, Instituto Butantan, São Paulo 05503-900, 
+Brazil.
+(2)The Interunits Graduate Program in Biotechnology, University of São Paulo, 
+São Paulo 05503-900, Brazil.
+
+Antibody-based passive immunotherapy has been used effectively in the treatment 
+and prophylaxis of infectious diseases. Outbreaks of emerging viral infections 
+from arthropod-borne viruses (arboviruses) represent a global public health 
+problem due to their rapid spread, urging measures and the treatment of infected 
+individuals to combat them. Preparedness in advances in developing antivirals 
+and relevant epidemiological studies protect us from damage and losses. 
+Immunotherapy based on monoclonal antibodies (mAbs) has been shown to be very 
+specific in combating infectious diseases and various other illnesses. Recent 
+advances in mAb discovery techniques have allowed the development and approval 
+of a wide number of therapeutic mAbs. This review focuses on the technological 
+approaches available to select neutralizing mAbs for emerging arbovirus 
+infections and the next-generation strategies to obtain highly effective and 
+potent mAbs. The characteristics of mAbs developed as prophylactic and 
+therapeutic antiviral agents for dengue, Zika, chikungunya, West Nile and 
+tick-borne encephalitis virus are presented, as well as the protective effect 
+demonstrated in animal model studies.
+
+DOI: 10.3390/v15112177
+PMCID: PMC10675117
+PMID: 38005854 [Indexed for MEDLINE]
+
+Conflict of interest statement: The authors declare no conflict of interest.

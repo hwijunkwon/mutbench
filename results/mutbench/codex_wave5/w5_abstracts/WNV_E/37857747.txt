@@ -1,0 +1,72 @@
+1. Commun Med (Lond). 2023 Oct 19;3(1):148. doi: 10.1038/s43856-023-00378-7.
+
+Neutralizing antibodies from prior exposure to dengue virus negatively correlate 
+with viremia on re-infection.
+
+Anantharaj A(1), Agrawal T(1), Shashi PK(1), Tripathi A(#)(1), Kumar P(#)(1), 
+Khan I(1), Pareek M(1), Singh B(1), Pattabiraman C(2), Kumar S(1), Pandey R(3), 
+Chandele A(4), Lodha R(5), Whitehead SS(6), Medigeshi GR(7).
+
+Author information:
+(1)Bioassay laboratory and Clinical and Cellular Virology lab, Translational 
+Health Science and Technology Institute, Faridabad, Haryana, India.
+(2)Independent researcher, Bengaluru, India.
+(3)INtegrative GENomics of HOst-PathogEn (INGEN-HOPE) laboratory, Division of 
+Immunology and Infectious Disease Biology, CSIR-Institute of Genomics and 
+Integrative Biology, Delhi, India.
+(4)ICGEB-Emory Vaccine Center, International Center for Genetic Engineering and 
+Biotechnology, Aruna Asaf Ali Marg, New Delhi, India.
+(5)Department of Pediatrics, All India Institute of Medical Sciences, Ansari 
+Nagar, New Delhi, India.
+(6)Laboratory of Viral Diseases, National Institute of Allergy and Infectious 
+Diseases, National Institutes of Health, Bethesda, MD, 20892, USA.
+(7)Bioassay laboratory and Clinical and Cellular Virology lab, Translational 
+Health Science and Technology Institute, Faridabad, Haryana, India. 
+gmedigeshi@thsti.res.in.
+(#)Contributed equally
+
+BACKGROUND: India is hyperendemic to dengue and over 50% of adults are 
+seropositive. There is limited information on the association between 
+neutralizing antibody profiles from prior exposure and viral RNA levels during 
+subsequent infection.
+METHODS: Samples collected from patients with febrile illness was used to assess 
+seropositivity by indirect ELISA. Dengue virus (DENV) RNA copy numbers were 
+estimated by quantitative RT-PCR and serotype of the infecting DENV was 
+determined by nested PCR. Focus reduction neutralizing antibody titer (FRNT) 
+assay was established using Indian isolates to measure the levels of 
+neutralizing antibodies and also to assess the cross-reactivity to related 
+flaviviruses namely Zika virus (ZIKV), Japanese encephalitis virus (JEV) and 
+West Nile virus (WNV).
+RESULTS: In this cross-sectional study, we show that dengue seropositivity 
+increased from 52% in the 0-15 years group to 89% in >45 years group. Antibody 
+levels negatively correlate with dengue RNAemia on the day of sample collection 
+and higher RNAemia is observed in primary dengue as compared to secondary 
+dengue. The geometric mean FRNT50 titers for DENV-2 is significantly higher as 
+compared to the other three DENV serotypes. We observe cross-reactivity with 
+ZIKV and significantly lower or no neutralizing antibodies against JEV and WNV. 
+The FRNT50 values for international isolates of DENV-1, DENV-3 and DENV-4 is 
+significantly lower as compared to Indian isolates.
+CONCLUSIONS: Majority of the adult population in India have neutralizing 
+antibodies to all the four DENV serotypes which correlates with reduced RNAemia 
+during subsequent infection suggesting that antibodies can be considered as a 
+good correlate of protection.
+
+Plain Language Summary: India is one of the hotspots of dengue infection. The 
+objective of the study was to assess whether having previous exposure to dengue 
+virus could influence how the body will respond to repeat infections with dengue 
+virus. Here, we analysed samples from febrile patients to measure the amount of 
+dengue virus genetic material in the blood, the type of virus and the amount of 
+antibodies, which are proteins produced by the host in response to dengue virus 
+infection. The majority of patient samples demonstrated the capability to 
+restrict all four types of dengue virus in circulation within the country, but 
+reduced capacity to restrict when it comes to international dengue virus types. 
+These data will help to inform future dengue vaccine design and clinical studies 
+in India.
+
+© 2023. Springer Nature Limited.
+
+DOI: 10.1038/s43856-023-00378-7
+PMCID: PMC10587183
+PMID: 37857747
+
+Conflict of interest statement: The authors declare no competing interests.

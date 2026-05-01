@@ -1,0 +1,37 @@
+1. Diagn Microbiol Infect Dis. 2018 Jul;91(3):233-238. doi: 
+10.1016/j.diagmicrobio.2018.02.003. Epub 2018 Feb 10.
+
+Diagnostic aptitude of West Nile virus-like particles expressed in insect cells.
+
+Rebollo B(1), Sarraseca J(2), Rodríguez MJ(2), Sanz A(2), Jiménez-Clavero MÁ(3), 
+Venteo Á(2).
+
+Author information:
+(1)INGENASA (Inmunología y Genética Aplicada, S.A), c/Hermanos García Noblejas 
+39, 28037 Madrid, Spain. Electronic address: brebollo@ingenasa.com.
+(2)INGENASA (Inmunología y Genética Aplicada, S.A), c/Hermanos García Noblejas 
+39, 28037 Madrid, Spain.
+(3)INIA-CISA (Instituto Nacional de Investigación y Tecnología Agraria y 
+Alimentaria - Centro de Investigación en Sanidad Animal), Carretera de Algete a 
+El Casar s/n., 28130 Valdeolmos, Madrid, Spain; CIBER Epidemiología y Salud 
+Pública (CIBERESP), Spain.
+
+West Nile virus is a globally spread zoonotic arbovirus. The laboratory 
+diagnosis of WNV infection relies on virus identification by RT-PCR or on 
+specific antibody detection by serological tests, such as ELISA or 
+virus-neutralization. These methods usually require a preparation of the whole 
+virus as antigen, entailing biosafety issues and therefore requiring BSL-3 
+facilities. For this reason, recombinant antigenic structures enabling effective 
+antibody recognition comparable to that of the native virions, would be 
+advantageous as diagnostic reagents. WNV virions are enveloped spherical 
+particles made up of 3 structural proteins (C, capsid; M, membrane and E, 
+envelope) enclosing the viral RNA. This study describes the co-expression of 
+these 3 proteins yielding non-infectious virus-like particles (VLPs) and the 
+results of the initial assessment of these VLPs, used instead of the whole 
+virus, that were shown to perform correctly in two different ELISAs for WNV 
+diagnosis.
+
+Copyright © 2018. Published by Elsevier Inc.
+
+DOI: 10.1016/j.diagmicrobio.2018.02.003
+PMID: 29530349 [Indexed for MEDLINE]

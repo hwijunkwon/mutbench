@@ -1,0 +1,25 @@
+1. Virology. 2006 Sep 15;353(1):35-40. doi: 10.1016/j.virol.2006.05.025. Epub
+2006  Jun 27.
+
+A mutation in the envelope protein fusion loop attenuates mouse 
+neuroinvasiveness of the NY99 strain of West Nile virus.
+
+Zhang S(1), Li L, Woodson SE, Huang CY, Kinney RM, Barrett AD, Beasley DW.
+
+Author information:
+(1)Department of Microbiology and Immunology, University of Texas Medical 
+Branch, 301 University Blvd., Galveston, TX 77555-0609, USA.
+
+Substitutions were engineered individually and in combinations at the fusion 
+loop, receptor-binding domain and a stem-helix structure of the envelope protein 
+of a West Nile virus strain, NY99, and their effects on mouse virulence and 
+presentation of epitopes recognized by monoclonal antibodies (MAbs) were 
+assessed. A single substitution within the fusion loop (L107F) attenuated mouse 
+neuroinvasiveness of NY99. No substitutions attenuated NY99 neurovirulence. The 
+L107F mutation also abolished binding of a non-neutralizing MAb, 3D9, whose 
+epitope had not been previously identified. MAb 3D9 was subsequently shown to be 
+broadly cross-reactive with other flaviviruses, consistent with binding near the 
+highly conserved fusion loop.
+
+DOI: 10.1016/j.virol.2006.05.025
+PMID: 16806383 [Indexed for MEDLINE]

@@ -1,0 +1,28 @@
+1. Science. 1998 Dec 11;282(5396):2079-81. doi: 10.1126/science.282.5396.2079.
+
+Identification of alpha-dystroglycan as a receptor for lymphocytic 
+choriomeningitis virus and Lassa fever virus.
+
+Cao W(1), Henry MD, Borrow P, Yamada H, Elder JH, Ravkov EV, Nichol ST, Compans 
+RW, Campbell KP, Oldstone MB.
+
+Author information:
+(1)Division of Virology, Department of Neuropharmacology, The Scripps Research 
+Institute, 10550 North Torrey Pines Road, La Jolla, CA 92037, USA.
+
+Comment in
+    Science. 1998 Dec 11;282(5396):1999-2000. doi: 
+10.1126/science.282.5396.1999.
+
+A peripheral membrane protein that is interactive with lymphocytic 
+choriomeningitis virus (LCMV) was purified from cells permissive to infection. 
+Tryptic peptides from this protein were determined to be alpha-dystroglycan 
+(alpha-DG). Several strains of LCMV and other arenaviruses, including Lassa 
+fever virus (LFV), Oliveros, and Mobala, bound to purified alpha-DG protein. 
+Soluble alpha-DG blocked both LCMV and LFV infection. Cells bearing a null 
+mutation of the gene encoding DG were resistant to LCMV infection, and 
+reconstitution of DG expression in null mutant cells restored susceptibility to 
+LCMV infection. Thus, alpha-DG is a cellular receptor for both LCMV and LFV.
+
+DOI: 10.1126/science.282.5396.2079
+PMID: 9851928 [Indexed for MEDLINE]

@@ -1,0 +1,38 @@
+1. PLoS Pathog. 2016 Jul 27;12(7):e1005786. doi: 10.1371/journal.ppat.1005786. 
+eCollection 2016 Jul.
+
+The 17D-204 Vaccine Strain-Induced Protection against Virulent Yellow Fever 
+Virus Is Mediated by Humoral Immunity and CD4+ but not CD8+ T Cells.
+
+Watson AM(1), Lam LK(1), Klimstra WB(1), Ryman KD(1).
+
+Author information:
+(1)Center for Vaccine Research, Department of Microbiology and Molecular 
+Genetics, University of Pittsburgh, Pittsburgh, Pennsylvania, United States of 
+America.
+
+A gold standard of antiviral vaccination has been the safe and effective 
+live-attenuated 17D-based yellow fever virus (YFV) vaccines. Among more than 500 
+million vaccinees, only a handful of cases have been reported in which vaccinees 
+developed a virulent wild type YFV infection. This efficacy is presumed to be 
+the result of both neutralizing antibodies and a robust T cell response. 
+However, the particular immune components required for protection against YFV 
+have never been evaluated. An understanding of the immune mechanisms that 
+underlie 17D-based vaccine efficacy is critical to the development of 
+next-generation vaccines against flaviviruses and other pathogens. Here we have 
+addressed this question for the first time using a murine model of disease. 
+Similar to humans, vaccination elicited long-term protection against challenge, 
+characterized by high neutralizing antibody titers and a robust T cell response 
+that formed long-lived memory. Both CD4+ and CD8+ T cells were polyfunctional 
+and cytolytic. Adoptive transfer of immune sera or CD4+ T cells provided partial 
+protection against YFV, but complete protection was achieved by transfer of both 
+immune sera and CD4+ T cells. Thus, robust CD4+ T cell activity may be a 
+critical contributor to protective immunity elicited by highly effective live 
+attenuated vaccines.
+
+DOI: 10.1371/journal.ppat.1005786
+PMCID: PMC4962991
+PMID: 27463517 [Indexed for MEDLINE]
+
+Conflict of interest statement: The authors have declared that no competing 
+interests exist.

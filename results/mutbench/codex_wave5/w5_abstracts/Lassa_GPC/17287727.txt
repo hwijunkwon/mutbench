@@ -1,0 +1,34 @@
+1. Nature. 2007 Mar 1;446(7131):92-6. doi: 10.1038/nature05539. Epub 2007 Feb 7.
+
+Transferrin receptor 1 is a cellular receptor for New World haemorrhagic fever 
+arenaviruses.
+
+Radoshitzky SR(1), Abraham J, Spiropoulou CF, Kuhn JH, Nguyen D, Li W, Nagel J, 
+Schmidt PJ, Nunberg JH, Andrews NC, Farzan M, Choe H.
+
+Author information:
+(1)Department of Microbiology and Molecular Genetics, Harvard Medical School, 
+New England Primate Research Center, Southborough, Massachusetts 01772, USA.
+
+At least five arenaviruses cause viral haemorrhagic fevers in humans. Lassa 
+virus, an Old World arenavirus, uses the cellular receptor alpha-dystroglycan to 
+infect cells. Machupo, Guanarito, Junin and Sabia viruses are New World 
+haemorrhagic fever viruses that do not use alpha-dystroglycan. Here we show a 
+specific, high-affinity association between transferrin receptor 1 (TfR1) and 
+the entry glycoprotein (GP) of Machupo virus. Expression of human TfR1, but not 
+human transferrin receptor 2, in hamster cell lines markedly enhanced the 
+infection of viruses pseudotyped with the GP of Machupo, Guanarito and Junin 
+viruses, but not with those of Lassa or lymphocytic choriomeningitis viruses. An 
+anti-TfR1 antibody efficiently inhibited the replication of Machupo, Guanarito, 
+Junin and Sabia viruses, but not that of Lassa virus. Iron depletion of culture 
+medium enhanced, and iron supplementation decreased, the efficiency of infection 
+by Junin and Machupo but not Lassa pseudoviruses. These data indicate that TfR1 
+is a cellular receptor for New World haemorrhagic fever arenaviruses.
+
+DOI: 10.1038/nature05539
+PMCID: PMC3197705
+PMID: 17287727 [Indexed for MEDLINE]
+
+Conflict of interest statement: Reprints and permissions information is 
+available at www.nature.com/reprints. The authors declare no competing financial 
+interests.

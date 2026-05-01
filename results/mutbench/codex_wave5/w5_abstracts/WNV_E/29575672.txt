@@ -1,0 +1,53 @@
+1. Zoonoses Public Health. 2018 Aug;65(5):505-511. doi: 10.1111/zph.12460. Epub 
+2018 Mar 25.
+
+Serological evidence of widespread exposure of Grenada fruit bats to chikungunya 
+virus.
+
+Stone D(1), Lyons AC(2)(3), Huang YS(2)(3), Vanlandingham DL(2)(3), Higgs 
+S(2)(3), Blitvich BJ(4), Adesiyun AA(5), Santana SE(6), Leiser-Miller L(6), 
+Cheetham S(1).
+
+Author information:
+(1)Pathobiology, School of Veterinary Medicine, St. George's University, St. 
+George, Grenada.
+(2)Department of Diagnostic Medicine, College of Veterinary Medicine, Kansas 
+State University, Manhattan, KS, USA.
+(3)Biosecurity Research Institute, Kansas State University, Manhattan, KS, USA.
+(4)Department of Veterinary Microbiology and Preventive Medicine, College of 
+Veterinary Medicine, Iowa State University, Ames, IA, USA.
+(5)Department of Basic Veterinary Sciences, School of Veterinary Medicine, 
+University of the West Indies, St. Augustine, Trinidad and Tobago.
+(6)Department of Biology and Burke Museum of Natural History and Culture, 
+University of Washington, Seattle, WA, USA.
+
+Antibody detection against selected potentially zoonotic vector-borne 
+alphaviruses and flaviviruses was conducted on sera from bats from all six 
+parishes in Grenada, West Indies. Sera were tested for (i) antibodies to 
+flaviviruses West Nile virus, St. Louis encephalitis virus, Ilhéus virus, 
+Bussuquara virus (BSQV), Rio Bravo virus and all four serotypes of dengue virus 
+(DENV) by plaque reduction neutralization test (PRNT); (ii) antibodies to 
+alphaviruses western equine encephalitis virus, Venezuelan equine encephalitis 
+virus and eastern equine encephalitis virus by epitope-blocking enzyme-linked 
+immunosorbent assay (ELISA); and (iii) antibodies to the alphavirus chikungunya 
+(CHIKV) by PRNT. Two species of fruit bats were sampled, Artibeus jamaicensis 
+and Artibeus lituratus, all roosting in or within 1,000 m of human settlements. 
+Fifteen (36%) of the 42 bats tested for neutralizing antibodies to CHIKV were 
+positive. The CHIKV-seropositive bats lived in localities spanning five of the 
+six parishes. All 43 bats tested for epitope-blocking ELISA antibody to the 
+other alphaviruses were negative, except one positive for Venezuelan equine 
+encephalitis virus. All 50 bats tested for neutralizing antibody to flaviviruses 
+were negative, except one that had a BSQV PRNT80 titre of 20. The CHIKV serology 
+results indicate that bats living close to and within human settlements were 
+exposed to CHIKV in multiple locations. Importantly, bats for this study were 
+trapped a year after the introduction and peak of the human CHIKV epidemic in 
+Grenada. Thus, our data indicate that bats were exposed to CHIKV possibly during 
+a time of marked decline in human cases.
+
+© 2018 Blackwell Verlag GmbH.
+
+DOI: 10.1111/zph.12460
+PMCID: PMC7165682
+PMID: 29575672 [Indexed for MEDLINE]
+
+Conflict of interest statement: None.

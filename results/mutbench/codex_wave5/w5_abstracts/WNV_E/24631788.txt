@@ -1,0 +1,51 @@
+1. Virus Res. 2014 Jun 24;185:103-9. doi: 10.1016/j.virusres.2014.03.001. Epub
+2014  Mar 11.
+
+Comprehensive mapping of a novel NS1 epitope conserved in flaviviruses within 
+the Japanese encephalitis virus serocomplex.
+
+Hua RH(1), Liu LK(2), Huo H(2), Li YN(2), Guo LP(2), Wang XL(2), Qin CF(3), Bu 
+ZG(4).
+
+Author information:
+(1)State Key Laboratory of Veterinary Biotechnology, Harbin Veterinary Research 
+Institute, Chinese Academy of Agricultural Sciences, Harbin 150001, PR China. 
+Electronic address: huaronghong@163.com.
+(2)State Key Laboratory of Veterinary Biotechnology, Harbin Veterinary Research 
+Institute, Chinese Academy of Agricultural Sciences, Harbin 150001, PR China.
+(3)State Key Laboratory of Pathogen and Biosecurity, Beijing Institute of 
+Microbiology and Epidemiology, Beijing 100071, China.
+(4)State Key Laboratory of Veterinary Biotechnology, Harbin Veterinary Research 
+Institute, Chinese Academy of Agricultural Sciences, Harbin 150001, PR China. 
+Electronic address: buzhigao@caas.cn.
+
+Nonstructural protein-1 (NS1) of the Japanese encephalitis virus (JEV) is an 
+immunogenic protein that is a potential candidate for the development of 
+vaccines and diagnostic reagents. NS1 is known to be more specific than the E 
+protein in serological testing of flavivirus infections. However, NS1 exhibits 
+cross-reactivity among flaviviruses even within the same genus and more so 
+within a serocomplex. However, the cross-reactive epitopes on JEV NS1 are poorly 
+characterized. The present study describes the full mapping of a linear B-cell 
+epitope that is common and specific to the JEV serocomplex of Flaviviridae. We 
+generated an NS1-specific monoclonal antibody that cross-reacts with the West 
+Nile virus (WNV) NS1 protein by immunizing mice with recombinant JEV NS1. For 
+epitope mapping, 51 partially overlapping peptides spanning the entire NS1 
+protein were expressed with a glutathione S-transferase (GST) tag and screened 
+using monoclonal antibodies. Two linear epitope-containing peptides were 
+identified using enzyme-linked immunosorbent assay (ELISA). By sequentially 
+removing amino acid residues from the carboxy and amino terminal of peptides, we 
+successfully identified the smallest unit of the linear epitope required to 
+react with the monoclonal antibody. The linear epitope was located in amino 
+acids residues ²²⁷ETHTLW²³². Furthermore, results of the sequence alignment 
+revealed that the epitope was highly conserved among JEV strains. Notably, the 
+epitope is highly conserved among viruses of the JEV serocomplex. Furthermore, 
+the homologous regions on NS1 proteins from dengue viruses showed no 
+cross-reactivity with the monoclonal antibodies. The epitope was recognized by 
+antisera against the WNV but not against the dengue virus. This novel JEV 
+serocomplex-specific linear B-cell epitope of NS1 would be helpful in the 
+development of new vaccines and diagnostic assays.
+
+Copyright © 2014 Elsevier B.V. All rights reserved.
+
+DOI: 10.1016/j.virusres.2014.03.001
+PMID: 24631788 [Indexed for MEDLINE]

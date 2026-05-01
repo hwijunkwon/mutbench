@@ -1,0 +1,47 @@
+1. Front Microbiol. 2022 Feb 18;13:840885. doi: 10.3389/fmicb.2022.840885. 
+eCollection 2022.
+
+Inhibition of Arenavirus Entry and Replication by the Cell-Intrinsic Restriction 
+Factor ZMPSTE24 Is Enhanced by IFITM Antiviral Activity.
+
+Stott-Marshall RJ(1), Foster TL(1).
+
+Author information:
+(1)Faculty of Medicine and Health Sciences, School of Veterinary Medicine and 
+Science, Wolfson Centre for Global Virus Research, University of Nottingham, 
+Loughborough, United Kingdom.
+
+In the absence of effective vaccines and treatments, annual outbreaks of severe 
+human haemorrhagic fever caused by arenaviruses, such as Lassa virus, continue 
+to pose a significant human health threat. Understanding the balance of cellular 
+factors that inhibit or promote arenavirus infection may have important 
+implications for the development of effective antiviral strategies. Here, we 
+identified the cell-intrinsic zinc transmembrane metalloprotease, ZMPSTE24, as a 
+restriction factor against arenaviruses. Notably, CRISPR-Cas9-mediated knockout 
+of ZMPSTE24 in human alveolar epithelial A549 cells increased arenavirus 
+glycoprotein-mediated viral entry in pseudoparticle assays and live virus 
+infection models. As a barrier to viral entry and replication, ZMPSTE24 may act 
+as a downstream effector of interferon-induced transmembrane protein (IFITM) 
+antiviral function; though through a yet poorly understood mechanism. 
+Overexpression of IFITM1, IFITM2, and IFITM3 proteins did not restrict the entry 
+of pseudoparticles carrying arenavirus envelope glycoproteins and live virus 
+infection. Furthermore, gain-of-function studies revealed that IFITMs augment 
+the antiviral activity of ZMPSTE24 against arenaviruses, suggesting a 
+cooperative effect of viral restriction. We show that ZMPSTE24 and IFITMs affect 
+the kinetics of cellular endocytosis, suggesting that perturbation of membrane 
+structure and stability is likely the mechanism of ZMPSTE24-mediated restriction 
+and cooperative ZMPSTE24-IFITM antiviral activity. Collectively, our findings 
+define the role of ZMPSTE24 host restriction activity in the early stages of 
+arenavirus infection. Moreover, we provide insight into the importance of 
+cellular membrane integrity for productive fusion of arenaviruses and highlight 
+a novel avenue for therapeutic development.
+
+Copyright © 2022 Stott-Marshall and Foster.
+
+DOI: 10.3389/fmicb.2022.840885
+PMCID: PMC8915953
+PMID: 35283811
+
+Conflict of interest statement: The authors declare that the research was 
+conducted in the absence of any commercial or financial relationships that could 
+be construed as a potential conflict of interest.

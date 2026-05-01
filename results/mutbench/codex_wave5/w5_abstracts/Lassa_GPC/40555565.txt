@@ -1,0 +1,38 @@
+1. Trends Immunol. 2025 Jul;46(7):512-524. doi: 10.1016/j.it.2025.05.006. Epub
+2025  Jun 24.
+
+Infusion of neutralization into Lassa vaccine design.
+
+Li H(1), Hastie KM(1), Saphire EO(2).
+
+Author information:
+(1)Center for Vaccine Innovation, La Jolla Institute for Immunology, 9420 Athena 
+Circle, La Jolla, CA 92037, USA.
+(2)Center for Vaccine Innovation, La Jolla Institute for Immunology, 9420 Athena 
+Circle, La Jolla, CA 92037, USA; Department of Medicine, University of 
+California San Diego, La Jolla, CA 92037, USA. Electronic address: 
+erica@lji.org.
+
+Lassa virus (LASV), which causes deadly Lassa fever (endemic in Western Africa), 
+is a priority pathogen and a global health threat. Current vaccine candidates 
+protect LASV-challenged animals through T cell immunity or non-neutralizing 
+IgG/Fc receptor-mediated functions in the absence of potent neutralization. 
+Neutralizing antibodies (nAbs), applied through passive immunization, also 
+provide broad and complete protection against LASV. Rational design of LASV 
+glycoprotein complex (GPC), the primary target for adaptive immunity, overcomes 
+prior challenges to elicitation of nAbs caused by the dense glycan shield, 
+metastability, and heterogeneity of GPC. Well-engineered GPC immunogens, in 
+combination with advanced immunization methods and existing clinical trial phase 
+vaccine candidates, provide a possibility to infuse neutralizing activity into 
+complementary mechanisms of immune protection delivered by LASV vaccination.
+
+Copyright © 2025 The Authors. Published by Elsevier Ltd.. All rights reserved.
+
+DOI: 10.1016/j.it.2025.05.006
+PMCID: PMC12270039
+PMID: 40555565 [Indexed for MEDLINE]
+
+Conflict of interest statement: Declaration of interests The engineered GPCs are 
+described in a patent (PCT/US2021/046380, published as WO2022040238A2), as well 
+as pending provisional patent applications held by H.L., K.M.H., and E.O.S. The 
+authors declare no other competing interests.

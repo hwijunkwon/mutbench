@@ -1,0 +1,39 @@
+1. J Immunol. 2010 Apr 15;184(8):4423-30. doi: 10.4049/jimmunol.0903955. Epub
+2010  Mar 8.
+
+Single-chain HLA-A2 MHC trimers that incorporate an immundominant peptide elicit 
+protective T cell immunity against lethal West Nile virus infection.
+
+Kim S(1), Li L, McMurtrey CP, Hildebrand WH, Weidanz JA, Gillanders WE, Diamond 
+MS, Hansen TH.
+
+Author information:
+(1)Department of Pathology and Immunology, Washington University School of 
+Medicine, St. Louis, MO 63110, USA.
+
+The generation of a robust CD8(+) T cell response is an ongoing challenge for 
+the development of DNA vaccines. One problem encountered with classical DNA 
+plasmid immunization is that peptides produced are noncovalently and transiently 
+associated with MHC class I molecules and thus may not durably stimulate CD8(+) 
+T cell responses. To address this and enhance the expression and presentation of 
+the antigenic peptide/MHC complexes, we generated single-chain trimers (SCTs) 
+composed of a single polypeptide chain with a linear composition of antigenic 
+peptide, beta(2)-microglobulin, and H chain connected by flexible linkers. In 
+this study, we test whether the preassembled nature of the SCT makes them 
+effective for eliciting protective CD8(+) T cell responses against pathogens. A 
+DNA plasmid was constructed encoding an SCT incorporating the human MHC class I 
+molecule HLA-A2 and the immunodominant peptide SVG9 derived from the envelope 
+protein of West Nile virus (WNV). HLA-A2 transgenic mice vaccinated with the DNA 
+encoding the SVG9/HLA-A2 SCT generated a robust epitope-specific CD8(+) T cell 
+response and showed enhanced survival rate and lower viral burden in the brain 
+after lethal WNV challenge. Inclusion of a CD4(+) Th cell epitope within the SCT 
+did not increase the frequency of SVG9-specific CD8(+) T cells, but did enhance 
+protection against WNV challenge. Overall, these findings demonstrate that the 
+SCT platform can induce protective CD8(+) T cell responses against lethal virus 
+infection and may be paired with immunogens that elicit robust neutralizing Ab 
+responses to generate vaccines that optimally activate all facets of adaptive 
+immunity.
+
+DOI: 10.4049/jimmunol.0903955
+PMCID: PMC3628725
+PMID: 20212098 [Indexed for MEDLINE]

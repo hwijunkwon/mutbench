@@ -1,0 +1,64 @@
+1. J Virol. 2018 Feb 12;92(5):e01613-17. doi: 10.1128/JVI.01613-17. Print 2018
+Mar  1.
+
+Axl Can Serve as Entry Factor for Lassa Virus Depending on the Functional 
+Glycosylation of Dystroglycan.
+
+Fedeli C(#)(1), Torriani G(#)(1), Galan-Navarro C(1)(2), Moraz ML(1), Moreno 
+H(1), Gerold G(3), Kunz S(4).
+
+Author information:
+(1)Institute of Microbiology, Lausanne University Hospital, Lausanne, 
+Switzerland.
+(2)Laboratory of Lymphatic and Cancer Bioengineering, Institute of 
+Bioengineering, École Polytechnique Féderale de Lausanne (EPFL), Lausanne, 
+Switzerland.
+(3)TWINCORE, Center for Experimental and Clinical Infection Research, Institute 
+for Experimental Virology, Hannover, Germany.
+(4)Institute of Microbiology, Lausanne University Hospital, Lausanne, 
+Switzerland Stefan.Kunz@chuv.ch.
+(#)Contributed equally
+
+Fatal infection with the highly pathogenic Lassa virus (LASV) is characterized 
+by extensive viral dissemination, indicating broad tissue tropism. The major 
+cellular receptor for LASV is the highly conserved extracellular matrix receptor 
+dystroglycan (DG). Binding of LASV depends on DG's tissue-specific 
+posttranslational modification with the unusual O-linked polysaccharide 
+matriglycan. Interestingly, functional glycosylation of DG does not always 
+correlate with viral tropism observed in vivo The broadly expressed 
+phosphatidylserine (PS) receptors Axl and Tyro3 were recently identified as 
+alternative LASV receptor candidates. However, their role in LASV entry is not 
+entirely understood. Here, we examine LASV receptor candidates in primary human 
+cells and found coexpression of Axl with differentially glycosylated DG. To 
+study LASV receptor use in the context of productive arenavirus infection, we 
+employed recombinant lymphocytic choriomeningitis virus expressing LASV 
+glycoprotein (rLCMV-LASV GP) as a validated biosafety level 2 (BSL2) model. We 
+confirm and extend previous work showing that Axl can contribute to LASV entry 
+in the absence of functional DG using "apoptotic mimicry" in a way similar to 
+that of other enveloped viruses. We further show that Axl-dependent LASV entry 
+requires receptor activation and involves a pathway resembling macropinocytosis. 
+Axl-mediated LASV entry is facilitated by heparan sulfate and critically depends 
+on the late endosomal protein LAMP-1 as an intracellular entry factor. In 
+endothelial cells expressing low levels of functional DG, both receptors are 
+engaged by the virus and can contribute to productive entry. In sum, we 
+characterize the role of Axl in LASV entry and provide a rationale for targeting 
+Axl in antiviral therapy.IMPORTANCE The highly pathogenic arenavirus Lassa virus 
+(LASV) represents a serious public health problem in Africa. Although the 
+principal LASV receptor, dystroglycan (DG), is ubiquitously expressed, virus 
+binding critically depends on DG's posttranslational modification, which does 
+not always correlate with tissue tropism. The broadly expressed 
+phosphatidylserine receptor Axl was recently identified as an alternative LASV 
+receptor candidate, but its role in LASV entry is unclear. Here, we investigate 
+the exact role of Axl in LASV entry as a function of DG's posttranslational 
+modification. We found that in the absence of functional DG, Axl can mediate 
+LASV entry via apoptotic mimicry. Productive entry requires virus-induced 
+receptor activation, involves macropinocytosis, and critically depends on 
+LAMP-1. In endothelial cells that express low levels of glycosylated DG, both 
+receptors can promote LASV entry. In sum, our study defines the roles of Axl in 
+LASV entry and provides a rationale for targeting Axl in antiviral therapy.
+
+Copyright © 2018 American Society for Microbiology.
+
+DOI: 10.1128/JVI.01613-17
+PMCID: PMC5809728
+PMID: 29237830 [Indexed for MEDLINE]

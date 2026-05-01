@@ -1,0 +1,36 @@
+1. Virol J. 2010 Sep 22;7:249. doi: 10.1186/1743-422X-7-249.
+
+Identification and characterization of a virus-specific continuous B-cell 
+epitope on the PrM/M protein of Japanese Encephalitis Virus: potential 
+application in the detection of antibodies to distinguish Japanese Encephalitis 
+Virus infection from West Nile Virus and Dengue Virus infections.
+
+Hua RH(1), Chen NS, Qin CF, Deng YQ, Ge JY, Wang XJ, Qiao ZJ, Chen WY, Wen ZY, 
+Liu WX, Hu S, Bu ZG.
+
+Author information:
+(1)State Key Laboratory of Veterinary Biotechnology, Harbin Veterinary Research 
+Institute, Chinese Academy of Agricultural Sciences, Harbin 150001, PR China.
+
+BACKGROUND: Differential diagnose of Japanese encephalitis virus (JEV) infection 
+from other flavivirus especially West Nile virus (WNV) and Dengue virus (DV) 
+infection was greatly hindered for the serological cross-reactive. Virus 
+specific epitopes could benefit for developing JEV specific antibodies detection 
+methods. To identify the JEV specific epitopes, we fully mapped and 
+characterized the continuous B-cell epitope of the PrM/M protein of JEV.
+RESULTS: To map the epitopes on the PrM/M protein, we designed a set of 20 
+partially overlapping fragments spanning the whole PrM, fused them with GST, and 
+expressed them in an expression vector. Linear epitope M14 
+(105VNKKEAWLDSTKATRY120) was detected by enzyme-linked immunosorbent assay 
+(ELISA). By removing amino acid residues individually from the carboxy and amino 
+terminal of peptide M14, we confirmed that the minimal unit of the linear 
+epitope of PrM/M was M14-13 (108KEAWLDSTKAT118). This epitope was highly 
+conserved across different JEV strains. Moreover, this epitope did not 
+cross-react with WNV-positive and DENV-positive sera.
+CONCLUSION: Epitope M14-13 was a JEV specific lineal B-cell epitpe. The results 
+may provide a useful basis for the development of epitope-based virus specific 
+diagnostic clinical techniques.
+
+DOI: 10.1186/1743-422X-7-249
+PMCID: PMC2954857
+PMID: 20858291 [Indexed for MEDLINE]

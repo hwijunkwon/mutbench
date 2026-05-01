@@ -1,0 +1,47 @@
+1. PLoS One. 2020 Nov 30;15(11):e0242889. doi: 10.1371/journal.pone.0242889. 
+eCollection 2020.
+
+Serosurvey for dengue virus infection among pregnant women in the West Nile 
+virus enzootic community of El Paso Texas.
+
+Watts DM(1), Rodriguez CM(1), Palermo PM(1), Suarez V(1), Wong SJ(2), Orbegozo 
+J(1), Dupuis AP(3), Kramer LD(3), Gonzalez FJ(4), Handel GA(5).
+
+Author information:
+(1)Department of Biological Science, University of Texas at El Paso, El Paso, 
+Texas, United States of America.
+(2)Diagnostic Immunology Laboratory, Wadsworth Center, New York State Department 
+of Health, Albany, NY, United States of America.
+(3)Arbovirus Laboratory, Wadsworth Center, New York State Department of Health, 
+Slingerlands, NY, United States of America.
+(4)Department of Public Health, El Paso, Texas, United States of America.
+(5)Paul L. Foster School of Medicine, El Paso, Texas, United States of America.
+
+All 4 dengue viruses (DENV) cause sporadic outbreaks of human disease in the Rio 
+Grande Valley along the US-Mexico border. In addition, West Nile virus (WNV) is 
+enzootic in most border communities, and is the only arbovirus known to cause 
+human disease in the El Paso, Texas community. In an effort to determine if DENV 
+were also endemic in the El Paso community, a serosurvey was conducted among 
+mothers at the time of delivery of their babies in selected hospitals. 
+Cord-blood plasma samples obtained from mothers were tested for DENV antibody by 
+an enzyme-linked immuno-sorbent assay (ELISA), plaque reduction neutralization 
+test (PRNT) and a multiplex microsphere immunoassay. All DENV antibody positive 
+plasma samples were also tested for WNV antibody by the same assays to consider 
+the possibility that DENV antibody positive samples reflected WNV cross reactive 
+antibody. The results indicated that 0.74% (11/1,472) of the mothers had a 
+previous DENV infection and that 3.3% (48/1,472) had a previous WNV infection. 
+Of these mothers, 0.20% (3/1,472) had antibody to both DENV and WNV as evidence 
+of infection by both viruses. The results indicated that 0.2% (3/1472) of the 
+mothers were positive for antibody to only WNV envelope, thus suggesting an 
+undetermined flavivirus infection. Although 6 of the 11 DENV antibody positive 
+mothers did not have a history of travel to a DENV endemic country, the findings 
+of this survey provided further evidence of local transmission of WNV and 
+suggested the possibility of focal autochthonous transmission of DENV in the El 
+Paso community.
+
+DOI: 10.1371/journal.pone.0242889
+PMCID: PMC7703982
+PMID: 33253280 [Indexed for MEDLINE]
+
+Conflict of interest statement: The authors have declared that no competing 
+interests exist.

@@ -1,0 +1,32 @@
+1. J Virol. 2008 Jun;82(12):6024-33. doi: 10.1128/JVI.02509-07. Epub 2008 Apr 9.
+
+E protein domain III determinants of yellow fever virus 17D vaccine strain 
+enhance binding to glycosaminoglycans, impede virus spread, and attenuate 
+virulence.
+
+Lee E(1), Lobigs M.
+
+Author information:
+(1)Division of Immunology and Genetics, John Curtin School of Medical Research, 
+Australian National University. P.O. Box 334, Canberra, ACT 2600, Australia. 
+Eva.Lee@anu.edu.au
+
+The yellow fever virus (YFV) 17D strain is one of the most effective live 
+vaccines for human use, but the in vivo mechanisms for virulence attenuation of 
+the vaccine and the corresponding molecular determinants remain elusive. The 
+vaccine differs phenotypically from wild-type YFV by the loss of viscerotropism, 
+despite replicative fitness in cell culture, and genetically by 20 amino acid 
+changes predominantly located in the envelope (E) protein. We show that three 
+residues in E protein domain III inhibit spread of 17D in extraneural tissues 
+and attenuate virulence in type I/II interferon-deficient mice. One of these 
+residues (Arg380) is a dominant glycosaminoglycan-binding determinant, which 
+mainly accounts for more rapid in vivo clearance of 17D from the bloodstream in 
+comparison to 17D-derived variants with wild-type-like E protein. While other 
+mutations will account for loss of neurotropism and phenotypic stability, the 
+described impact of E protein domain III changes on virus dissemination and 
+virulence is the first rational explanation for the safety of the 17D vaccine in 
+humans.
+
+DOI: 10.1128/JVI.02509-07
+PMCID: PMC2395160
+PMID: 18400851 [Indexed for MEDLINE]

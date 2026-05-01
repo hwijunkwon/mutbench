@@ -1,0 +1,48 @@
+1. J Infect Chemother. 2023 May;29(5):469-474. doi: 10.1016/j.jiac.2023.01.015. 
+Epub 2023 Jan 24.
+
+Analysis of cross-reactivity among flaviviruses using sera of patients with 
+dengue showed the importance of neutralization tests with paired serum samples 
+for the correct interpretations of serological test results for dengue.
+
+Maeki T(1), Tajima S(2), Ando N(3), Wakimoto Y(3), Hayakawa K(3), Kutsuna S(3), 
+Kato F(2), Taniguchi S(2), Nakayama E(2), Lim CK(2), Saijo M(2).
+
+Author information:
+(1)Department of Virology I, National Institute of Infectious Diseases, 1-23-1 
+Toyama, Shinjuku, Tokyo, 162-8640, Japan. Electronic address: 
+tomaeki@niid.go.jp.
+(2)Department of Virology I, National Institute of Infectious Diseases, 1-23-1 
+Toyama, Shinjuku, Tokyo, 162-8640, Japan.
+(3)National Center for Global Health and Medicine, 1-21-1 Toyama, Shinjuku, 
+Tokyo, 162-8655, Japan.
+
+Dengue is a febrile illness caused by the dengue virus (DENV) that belongs to 
+the genus Flavivirus in the family Flaviviridae. Cross-reactivity between 
+flaviviruses poses a challenge while interpreting serological test results. In 
+the present study, the cross-reactivity of sera of the patients with dengue, who 
+traveled from Japan to DENV-endemic countries, was analyzed by using an 
+enzyme-linked immunosorbent assay (ELISA) and neutralization test (NT). Sixteen 
+serum samples were collected from patients with dengue and were tested for: i) 
+IgM antibodies against Zika virus (ZIKV), West Nile virus (WNV), Japanese 
+encephalitis virus (JEV), and tick-borne encephalitis virus (TBEV) using IgM 
+ELISA, ii) IgG antibody against TBEV using IgG ELISA, and iii) neutralizing 
+antibody against ZIKV, WNV, TBEV, and JEV. Among the 16 samples tested using 
+ELISA, seven samples were IgM-positive for at least one of the other 
+flaviviruses, and nine samples were IgG-positive for TBEV. Neutralizing antibody 
+titers (NATs) against ZIKV, WNV, and TBEV were one-fourth or lower than those 
+against the causative DENV in all samples. The NATs against JEV were one-fourth 
+or lower than those against the causative DENV in six convalescent-phase serum 
+sample among the seven convalescent-phase serum samples. The NAT against DENV of 
+the residual one convalescent-phase serum was similar to that against JEV and 
+that against JEV of its relevant acute-phase serum sample. These results showed 
+that NTs with paired serum samples are important to correctly interpret the 
+serological test results for DENV.
+
+Copyright © 2023 Japanese Society of Chemotherapy and The Japanese Association 
+for Infectious Diseases. Published by Elsevier Ltd. All rights reserved.
+
+DOI: 10.1016/j.jiac.2023.01.015
+PMID: 36702208 [Indexed for MEDLINE]
+
+Conflict of interest statement: Declaration of competing interest None.

@@ -1,0 +1,36 @@
+1. Virol J. 2014 Mar 29;11:60. doi: 10.1186/1743-422X-11-60.
+
+Mutagenesis analysis of T380R mutation in the envelope protein of yellow fever 
+virus.
+
+Huang YJ, Nuckols JT, Horne KM, Vanlandingham D, Lobigs M, Higgs S(1).
+
+Author information:
+(1)Biosecurity Research Institute, Kansas State University, Manhattan, KS 66506, 
+USA. shiggs@bri.ksu.edu.
+
+BACKGROUND: The RGD motif in the mosquito-borne flaviviruses envelope protein 
+domain III (EDIII) FG loop was shown to bind negatively charged cellular 
+molecules and mediate virus entry in mammals. However, its importance in virus 
+entry in the mosquito has not yet been defined. The sequences of RGD motifs are 
+conserved in JEV-serocomplex members primarily transmitted by Culex mosquitoes 
+but absent from members of the DENV serocomplex, which utilize Aedes mosquitoes 
+as vectors. Interestingly, the RGD sequence is present in the attenuated 17D 
+strain of yellow fever virus as a result of the T380R mutation in the EDIII of 
+Asibi strain following extensive in vitro passage in mice and chicken embryos 
+and was found to contribute to the more rapid clearance in mice challenged with 
+17D. However, viral infectivity and dissemination in mosquitoes had not been 
+evaluated for this mutant.
+FINDINGS: The study utilized the reverse genetics system of YFV and Ae. aegypti 
+RexD WE mosquitoes to assess the impact of a T380R mutation in YFV Asibi and 
+17D/Asibi M-E chimera. The T380R mutation led to higher infection rates but 
+similar dissemination rates when introduced into the YFV Asibi strain and 
+17D/Asibi M-E chimera.
+CONCLUSIONS: While the increase of the positive charge in EDIII may reduce the 
+virulence of YFV in mice, this mutation favored the establishment of the viral 
+infection in Ae. aegypti. However, such gain in viral infectivity did not 
+increase dissemination in infected mosquitoes.
+
+DOI: 10.1186/1743-422X-11-60
+PMCID: PMC3974419
+PMID: 24678844 [Indexed for MEDLINE]

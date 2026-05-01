@@ -1,0 +1,51 @@
+1. Clin Microbiol Infect. 2024 Feb;30(2):206-210. doi: 10.1016/j.cmi.2023.09.025.
+ Epub 2023 Oct 5.
+
+Severe zoonotic viruses carried by different species of bats and their regional 
+distribution.
+
+Liu Z(1), Liu Q(1), Wang H(1), Yao X(2).
+
+Author information:
+(1)Department of Immunology, Center of Immunomolecular Engineering, Innovation & 
+Practice Base for Graduate Students Education, Zunyi Medical University, Zunyi 
+City, China.
+(2)Department of Immunology, Center of Immunomolecular Engineering, Innovation & 
+Practice Base for Graduate Students Education, Zunyi Medical University, Zunyi 
+City, China. Electronic address: immunology@126.com.
+
+BACKGROUND: Bats have garnered increased attention in the field of life sciences 
+for their typical biological characteristics of carrying a variety of zoonotic 
+viruses without disease, long lifespans, low tumorigenesis rates, and high 
+metabolism. When it was found that bats can carry the rabies virus, over 
+60 years of research revealed that bats host over 4100 distinct viruses, 
+including Ebola virus and SARS-CoV.
+OBJECTIVES: This paper primarily reviews the profiles of zoonotic viruses 
+carried by bats across various regions globally. The review aims to provide a 
+foundation and reference for future research on monitoring zoonotic viruses in 
+diverse global regions and bat species, exploring the coevolutionary 
+relationship between bats and viruses, understanding the tolerance mechanisms of 
+bat B cells, prevention, and treatment of zoonotic diseases caused by bats.
+SOURCES: The search used 'bat', 'bats', 'rabies virus', 'Dengue virus', 'West 
+Nile virus', 'Zika virus', 'St. Louis encephalitis virus', 'Japanese 
+encephalitis virus', 'Hantavirus', 'Novel hantavirus', 'Rift Valley fever 
+virus', 'Crimean Congo hemorrhagic fever virus', 'Paramyxovirus', 'Nipah virus', 
+'Hendra virus', 'Menangle virus', 'Tioman virus', 'Marburg Virus', 'Bombali 
+virus', 'Ebola virus', 'Influenza A virus', 'coronavirus', 'Hepatitis B virus', 
+and 'Hepatitis E virus' as text in PubMed.
+CONTENT: A total of 147 references were obtained. Surveys on severe zoonotic 
+virus carriage have been limited to only 83 bat species belonging to nine 
+families, which are distributed all over the world. We also briefly describe the 
+antibody responses and B-cell molecules in bats.
+IMPLICATIONS: Several viruses have been found in different species of bats. This 
+suggests that bats may be important hosts for future viral infectious diseases. 
+Particularly in recent years, the close correlation between human infection 
+pandemics caused by coronaviruses and bats highlights the pressing need to 
+comprehend the species, tolerance, and coevolutionary mechanisms of zoonotic 
+viruses carried by different bat species.
+
+Copyright © 2023 European Society of Clinical Microbiology and Infectious 
+Diseases. Published by Elsevier Ltd. All rights reserved.
+
+DOI: 10.1016/j.cmi.2023.09.025
+PMID: 37805032 [Indexed for MEDLINE]

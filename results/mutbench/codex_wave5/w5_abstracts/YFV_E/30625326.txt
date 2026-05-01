@@ -1,0 +1,50 @@
+1. Cell Rep. 2019 Jan 8;26(2):438-446.e5. doi: 10.1016/j.celrep.2018.12.065.
+
+Double Lock of a Human Neutralizing and Protective Monoclonal Antibody Targeting 
+the Yellow Fever Virus Envelope.
+
+Lu X(1), Xiao H(1), Li S(2), Pang X(1), Song J(2), Liu S(2), Cheng H(3), Li 
+Y(2), Wang X(4), Huang C(1), Guo T(1), Ter Meulen J(5), Daffis S(5), Yan J(6), 
+Dai L(3), Rao Z(4), Klenk HD(5), Qi J(2), Shi Y(2), Gao GF(7).
+
+Author information:
+(1)Laboratory of Protein Engineering and Vaccines, Tianjin Institute of 
+Industrial Biotechnology, Chinese Academy of Sciences, Tianjin 300308, China.
+(2)CAS Key Laboratory of Pathogenic Microbiology and Immunology, Institute of 
+Microbiology, Chinese Academy of Sciences, Beijing 100101, China.
+(3)Research Network of Immunity and Health (RNIH), Beijing Institutes of Life 
+Science, Chinese Academy of Sciences, Beijing 100101, China.
+(4)National Laboratory of Macromolecules, Institute of Biophysics, Chinese 
+Academy of Sciences, Beijing 100101, China.
+(5)Institut für Virologie, Philipps-Universität, Robert-Koch-Strasse 17, Marburg 
+35037, Germany.
+(6)CAS Key Laboratory of Microbial Physiological and Metabolic Engineering, 
+Institute of Microbiology, Chinese Academy of Sciences, Beijing 100101, China.
+(7)Laboratory of Protein Engineering and Vaccines, Tianjin Institute of 
+Industrial Biotechnology, Chinese Academy of Sciences, Tianjin 300308, China; 
+CAS Key Laboratory of Pathogenic Microbiology and Immunology, Institute of 
+Microbiology, Chinese Academy of Sciences, Beijing 100101, China; Research 
+Network of Immunity and Health (RNIH), Beijing Institutes of Life Science, 
+Chinese Academy of Sciences, Beijing 100101, China; National Institute for Viral 
+Disease Control and Prevention, Chinese Center for Disease Control and 
+Prevention, Beijing 102206, China. Electronic address: gaof@im.ac.cn.
+
+Yellow fever virus (YFV), a deadly human pathogen, is the prototype of the genus 
+Flavivirus. Recently, YFV re-emerged in Africa and Brazil, leading to hundreds 
+of deaths, with some cases imported to China. Prophylactic or therapeutic 
+countermeasures are urgently needed. Previously, several human monoclonal 
+antibodies against YFV were screened out by phage display. Here, we find that 
+one of them, 5A, exhibits high neutralizing potency and good protection. 
+Crystallographic analysis of the YFV envelope (E) protein in its pre- and 
+post-fusion states shows conformations similar to those observed in other E 
+proteins of flaviviruses. Furthermore, the structures of 5A in complex with the 
+E protein in both states are resolved, revealing an invariant recognition site. 
+Structural analysis and functional data suggest that 5A has high neutralization 
+potency because it interferes with virus entry by preventing both virus 
+attachment and fusion. These findings will be instrumental for immunogen or 
+inhibitor design.
+
+Copyright © 2018 The Authors. Published by Elsevier Inc. All rights reserved.
+
+DOI: 10.1016/j.celrep.2018.12.065
+PMID: 30625326 [Indexed for MEDLINE]

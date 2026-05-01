@@ -1,0 +1,40 @@
+1. Emerg Microbes Infect. 2018 Sep 26;7(1):161. doi: 10.1038/s41426-018-0161-7.
+
+Live Zika virus chimeric vaccine candidate based on a yellow fever 17-D 
+attenuated backbone.
+
+Touret F(1), Gilles M(2), Klitting R(2), Aubry F(2), de Lamballerie X(2), 
+Nougairède A(3).
+
+Author information:
+(1)Unité des Virus Émergents (UVE: Aix-Marseille Univ-IRD 190-Inserm 1207-IHU 
+Méditerranée Infection), Marseille, France. franck.touret@hotmail.fr.
+(2)Unité des Virus Émergents (UVE: Aix-Marseille Univ-IRD 190-Inserm 1207-IHU 
+Méditerranée Infection), Marseille, France.
+(3)Unité des Virus Émergents (UVE: Aix-Marseille Univ-IRD 190-Inserm 1207-IHU 
+Méditerranée Infection), Marseille, France. antoine.nougairede@univ-amu.fr.
+
+Zika virus (ZIKV) has recently become dispersed throughout the tropics and 
+sub-tropics, causing epidemics associated with congenital disease and 
+neurological complications. There is currently no commercial vaccine for ZIKV. 
+In this study, we describe the initial development of a chimeric virus 
+containing the prM/E proteins of a ZIKV epidemic strain incorporated into a 
+yellow fever 17-D attenuated backbone. Using the versatile and rapid ISA 
+(Infectious Subgenomic Amplicons) reverse genetics method, we compared different 
+constructs and confirmed the need to modify the cleavage site between the 
+pre-peptide and prM protein. Genotypic characterization of the chimeras 
+indicated that the emergence of compensatory mutations in the E protein was 
+required to restore viral replicative fitness. Using an immunocompromised mouse 
+model, we demonstrated that mice infected with the chimeric virus produced 
+levels of neutralizing antibodies that were close to those observed following 
+infection with ZIKV. Furthermore, pre-immunized mice were protected against 
+viscerotropic and neuroinvasive disease following challenge with a heterologous 
+ZIKV strain. These data provide a sound basis for the future development of this 
+ZIKV vaccine candidate.
+
+DOI: 10.1038/s41426-018-0161-7
+PMCID: PMC6156337
+PMID: 30254297 [Indexed for MEDLINE]
+
+Conflict of interest statement: The authors declare that they have no conflict 
+of interest.

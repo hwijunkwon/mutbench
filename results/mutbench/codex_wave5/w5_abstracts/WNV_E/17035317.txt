@@ -1,0 +1,38 @@
+1. J Virol. 2006 Dec;80(24):12149-59. doi: 10.1128/JVI.01732-06. Epub 2006 Oct
+11.
+
+Antibody recognition and neutralization determinants on domains I and II of West 
+Nile Virus envelope protein.
+
+Oliphant T(1), Nybakken GE, Engle M, Xu Q, Nelson CA, Sukupolvi-Petty S, Marri 
+A, Lachmi BE, Olshevsky U, Fremont DH, Pierson TC, Diamond MS.
+
+Author information:
+(1)Department of Medicine, Washington University School of Medicine, 660 South 
+Euclid Ave., Box 8051, Saint Louis, MO 63110, USA.
+
+Previous studies have demonstrated that monoclonal antibodies (MAbs) against an 
+epitope on the lateral surface of domain III (DIII) of the West Nile virus (WNV) 
+envelope (E) strongly protect against infection in animals. Herein, we observed 
+significantly less efficient neutralization by 89 MAbs that recognized domain I 
+(DI) or II (DII) of WNV E protein. Moreover, in cells expressing Fc gamma 
+receptors, many of the DI- and DII-specific MAbs enhanced infection over a broad 
+range of concentrations. Using yeast surface display of E protein variants, we 
+identified 25 E protein residues to be critical for recognition by DI- or 
+DII-specific neutralizing MAbs. These residues cluster into six novel and one 
+previously characterized epitope located on the lateral ridge of DI, the linker 
+region between DI and DIII, the hinge interface between DI and DII, and the 
+lateral ridge, central interface, dimer interface, and fusion loop of DII. 
+Approximately 45% of DI-DII-specific MAbs showed reduced binding with mutations 
+in the highly conserved fusion loop in DII: 85% of these (34 of 40) 
+cross-reacted with the distantly related dengue virus (DENV). In contrast, MAbs 
+that bound the other neutralizing epitopes in DI and DII showed no apparent 
+cross-reactivity with DENV E protein. Surprisingly, several of the neutralizing 
+epitopes were located in solvent-inaccessible positions in the context of the 
+available pseudoatomic model of WNV. Nonetheless, DI and DII MAbs protect 
+against WNV infection in mice, albeit with lower efficiency than DIII-specific 
+neutralizing MAbs.
+
+DOI: 10.1128/JVI.01732-06
+PMCID: PMC1676294
+PMID: 17035317 [Indexed for MEDLINE]

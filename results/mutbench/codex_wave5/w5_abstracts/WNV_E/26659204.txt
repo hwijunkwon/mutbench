@@ -1,0 +1,57 @@
+1. J Clin Microbiol. 2016 Feb;54(2):412-22. doi: 10.1128/JCM.02469-15. Epub 2015 
+Dec 9.
+
+Establishment of an Algorithm Using prM/E- and NS1-Specific IgM Antibody-Capture 
+Enzyme-Linked Immunosorbent Assays in Diagnosis of Japanese Encephalitis Virus 
+and West Nile Virus Infections in Humans.
+
+Galula JU(1), Chang GJ(2), Chuang ST(3), Chao DY(4).
+
+Author information:
+(1)Department of Veterinary Medicine, College of Veterinary Medicine, National 
+Chung Hsing University, Taichung, Taiwan.
+(2)Division of Vector-Borne Infectious Diseases, Centers for Disease Control and 
+Prevention, Public Health Service, U.S. Department of Health and Human Services, 
+Fort Collins, Colorado, USA.
+(3)Department of Veterinary Medicine, College of Veterinary Medicine, National 
+Chung Hsing University, Taichung, Taiwan stchuang@dragon.nchu.edu.tw 
+dychao@nchu.edu.tw.
+(4)Graduate Institute of Microbiology and Public Health, College of Veterinary 
+Medicine, National Chung Hsing University, Taichung, Taiwan 
+stchuang@dragon.nchu.edu.tw dychao@nchu.edu.tw.
+
+The front-line assay for the presumptive serodiagnosis of acute Japanese 
+encephalitis virus (JEV) and West Nile virus (WNV) infections is the 
+premembrane/envelope (prM/E)-specific IgM antibody-capture enzyme-linked 
+immunosorbent assay (MAC-ELISA). Due to antibody cross-reactivity, 
+MAC-ELISA-positive samples may be confirmed with a time-consuming plaque 
+reduction neutralization test (PRNT). In the present study, we applied a 
+previously developed anti-nonstructural protein 1 (NS1)-specific MAC-ELISA 
+(NS1-MAC-ELISA) on archived acute-phase serum specimens from patients with 
+confirmed JEV and WNV infections and compared the results with prM/E containing 
+virus-like particle-specific MAC-ELISA (VLP-MAC-ELISA). Paired-receiver 
+operating characteristic (ROC) curve analyses revealed no statistical 
+differences in the overall assay performances of the VLP- and NS1-MAC-ELISAs. 
+The two methods had high sensitivities of 100% but slightly lower specificities 
+that ranged between 80% and 100%. When the NS1-MAC-ELISA was used to confirm 
+positive results in the VLP-MAC-ELISA, the specificity of serodiagnosis, 
+especially for JEV infection, was increased to 90% when applied in areas where 
+JEV cocirculates with WNV, or to 100% when applied in areas that were endemic 
+for JEV. The results also showed that using multiple antigens could resolve the 
+cross-reactivity in the assays. Significantly higher positive-to-negative (P/N) 
+values were consistently obtained with the homologous antigens than those with 
+the heterologous antigens. JEV or WNV was reliably identified as the currently 
+infecting flavivirus by a higher ratio of JEV-to-WNV P/N values or vice versa. 
+In summary of the above-described results, the diagnostic algorithm combining 
+the use of multiantigen VLP- and NS1-MAC-ELISAs was developed and can be 
+practically applied to obtain a more specific and reliable result for the 
+serodiagnosis of JEV and WNV infections without the need for PRNT. The developed 
+algorithm should provide great utility in diagnostic and surveillance activities 
+in which test accuracy is of utmost importance for effective disease 
+intervention.
+
+Copyright © 2016, American Society for Microbiology. All Rights Reserved.
+
+DOI: 10.1128/JCM.02469-15
+PMCID: PMC4733197
+PMID: 26659204 [Indexed for MEDLINE]

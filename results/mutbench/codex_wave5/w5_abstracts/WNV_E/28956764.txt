@@ -1,0 +1,53 @@
+1. J Virol. 2017 Nov 14;91(23):e01181-17. doi: 10.1128/JVI.01181-17. Print 2017
+Dec  1.
+
+An Envelope-Modified Tetravalent Dengue Virus-Like-Particle Vaccine Has 
+Implications for Flavivirus Vaccine Design.
+
+Urakami A(1), Ngwe Tun MM(2), Moi ML(2), Sakurai A(1), Ishikawa M(1), Kuno S(1), 
+Ueno R(1), Morita K(2), Akahata W(3).
+
+Author information:
+(1)VLP Therapeutics, Gaithersburg, Maryland, USA.
+(2)Department of Virology, Institute of Tropical Medicine, Nagasaki University, 
+Nagasaki, Japan.
+(3)VLP Therapeutics, Gaithersburg, Maryland, USA wakahata@vlptherapeutics.com.
+
+Dengue viruses (DENV) infect 50 to 100 million people each year. The spread of 
+DENV-associated infections is one of the most serious public health problems 
+worldwide, as there is no widely available vaccine or specific therapeutic for 
+DENV infections. To address this, we developed a novel tetravalent dengue 
+vaccine by utilizing virus-like particles (VLPs). We created recombinant DENV1 
+to -4 (DENV1-4) VLPs by coexpressing precursor membrane (prM) and envelope (E) 
+proteins, with an F108A mutation in the fusion loop structure of E to increase 
+the production of VLPs in mammalian cells. Immunization with DENV1-4 VLPs as 
+individual, monovalent vaccines elicited strong neutralization activity against 
+each DENV serotype in mice. For use as a tetravalent vaccine, DENV1-4 VLPs 
+elicited high levels of neutralization activity against all four serotypes 
+simultaneously. The neutralization antibody responses induced by the VLPs were 
+significantly higher than those with DNA or recombinant E protein immunization. 
+Moreover, antibody-dependent enhancement (ADE) was not observed against any 
+serotype at a 1:10 serum dilution. We also demonstrated that the Zika virus 
+(ZIKV) VLP production level was enhanced by introducing the same F108A mutation 
+into the ZIKV envelope protein. Taken together, these results suggest that our 
+strategy for DENV VLP production is applicable to other flavivirus VLP vaccine 
+development, due to the similarity in viral structures, and they describe the 
+promising development of an effective tetravalent vaccine against the prevalent 
+flavivirus.IMPORTANCE Dengue virus poses one of the most serious public health 
+problems worldwide, and the incidence of diseases caused by the virus has 
+increased dramatically. Despite decades of effort, there is no effective 
+treatment against dengue. A safe and potent vaccine against dengue is still 
+needed. We developed a novel tetravalent dengue vaccine by using virus-like 
+particles (VLPs), which are noninfectious because they lack the viral genome. 
+Previous attempts of other groups to use dengue VLPs resulted in generally poor 
+yields. We found that a critical amino acid mutation in the envelope protein 
+enhances the production of VLPs. Our tetravalent vaccine elicited potent 
+neutralizing antibody responses against all four DENV serotypes. Our findings 
+can also be applied to vaccine development against other flaviviruses, such as 
+Zika virus or West Nile virus.
+
+Copyright © 2017 American Society for Microbiology.
+
+DOI: 10.1128/JVI.01181-17
+PMCID: PMC5686733
+PMID: 28956764 [Indexed for MEDLINE]

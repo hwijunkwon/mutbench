@@ -1,0 +1,36 @@
+1. Front Immunol. 2018 Aug 2;9:1756. doi: 10.3389/fimmu.2018.01756. eCollection 
+2018.
+
+Immunogenicity and Protection After Vaccination With a Modified Vaccinia Virus 
+Ankara-Vectored Yellow Fever Vaccine in the Hamster Model.
+
+Julander JG(1), Testori M(2), Cheminay C(2), Volkmann A(2).
+
+Author information:
+(1)Institute for Antiviral Research, Utah State University, Logan, UT, United 
+States.
+(2)Bavarian Nordic GmbH, Martinsried, Germany.
+
+The highly efficacious live-attenuated 17D yellow fever (YF) vaccine is 
+occasionally associated with rare life-threatening adverse events. Modified 
+vaccinia virus Ankara (MVA), a non-replicating poxvirus, has been used as a 
+vaccine platform to safely deliver various antigens. A MVA-based YF vaccine 
+(MVA-BN-YF) was tested with and without a non-mineral oil adjuvant in a hamster 
+model of lethal YF disease and protective efficacy of this vaccine was compared 
+with the 17D vaccine. The vaccine candidate MVA-BN-YF generated a protective 
+response in hamsters infected with YFV that was comparable to protection by the 
+live 17D vaccine. Similar levels of neutralizing antibody were observed in 
+animals vaccinated with either vaccine alone or vaccine with adjuvant. 
+Significant improvement in survival, weight change, and serum alanine 
+aminotransferase levels were observed in vaccinated hamsters when administered 
+42 and 14 days prior to challenge with Jimenez YF virus (YFV). Neutralizing 
+antibodies induced by MVA-BN-YF were transferred to naïve hamsters prior to 
+virus challenge. Passive administration of neutralizing antibody 24 h prior to 
+virus infection resulted in significantly improved survival and weight change. A 
+trend toward reduced liver enzyme levels was also observed. MVA-BN-YF, 
+therefore, represents a safe alternative to vaccination with live-attenuated 
+YFV.
+
+DOI: 10.3389/fimmu.2018.01756
+PMCID: PMC6082969
+PMID: 30116244 [Indexed for MEDLINE]

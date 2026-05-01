@@ -1,0 +1,57 @@
+1. Microbiol Spectr. 2024 Jun 4;12(6):e0075824. doi: 10.1128/spectrum.00758-24. 
+Epub 2024 Apr 30.
+
+In vitro enhancement of Zika virus infection by preexisting West Nile virus 
+antibodies in human plasma-derived immunoglobulins revealed after P2 binding 
+site-specific enrichment.
+
+He Y(1), Zhong L(1), Yan H(1), Virata ML(1), Deng L(1), Mishra AK(1), Struble 
+E(1), Scott D(1), Zhang P(1).
+
+Author information:
+(1)Division of Plasma Derivatives, Office of Plasma Protein Therapeutics CMC, 
+Center for Biologics Evaluation and Research, U.S. Food and Drug Administration, 
+Silver Spring, Maryland, USA.
+
+Human immunoglobulin preparations contain a diverse range of polyclonal 
+antibodies that reflect past immune responses against pathogens encountered by 
+the blood donor population. In this study, we examined a panel of intravenous 
+immunoglobulins (IGIVs) manufactured over the past two decades (1998-2020) for 
+their capacity to neutralize or enhance Zika virus (ZIKV) infection in vitro. 
+These IGIVs were selected specifically based on their production dates in 
+relation to the occurrences of two flavivirus outbreaks in the U.S.: the West 
+Nile virus (WNV) outbreak in 1999 and the ZIKV outbreak in 2015. As demonstrated 
+by enzyme-linked immunosorbent assay (ELISA) experiments, IGIVs made before the 
+ZIKV outbreak already harbored antibodies that bind to various peptides across 
+the envelope protein of ZIKV because of the WNV outbreak. Using phage display, 
+the most dominant binding site was mapped precisely to the P2 peptide between 
+residues 211 and 230 within domain II, where BF1176-56, an anti-ZIKV monoclonal 
+antibody, also binds. When tested in permissive Vero E6 cells for ZIKV 
+neutralization, the IGIVs, even after undergoing rigorous enrichment for P2 
+binding specificity, failed, as did BF1176-56. Meanwhile, BF1176-56 enhanced 
+ZIKV infection in both FcγRII-expressing K562 cells and human peripheral blood 
+mononuclear cells. However, for enhancement by the IGIVs to be detected in these 
+cells, a substantial increase in their P2 binding specificity was required, thus 
+linking the P2 site with ZIKV enhancement in vitro. Our findings warrant further 
+study of the significance of elevated levels of anti-WNV antibodies in IGIVs, 
+considering that various mechanisms operating in vivo may modulate ZIKV 
+infection outcomes.IMPORTANCEWe investigated the capacity of intravenous 
+immunoglobulins manufactured previously over two decades (1998-2020) to 
+neutralize or enhance Zika virus infection in vitro. West Nile virus antibodies 
+in IGIVs could not neutralize Zika virus initially; however, once the IGIVs were 
+concentrated further, they enhanced its infection. These findings lay the 
+groundwork for exploring how preexisting WNV antibodies in IGIVs could impact 
+Zika infection, both in vitro and in vivo. Our observations are historically 
+significant, since we tested a panel of IGIV lots that were carefully selected 
+based on their production dates which covered two major flavivirus outbreaks in 
+the U.S.: the WNV outbreak in 1999 and the ZIKV outbreak in 2015. These findings 
+will facilitate our understanding of the interplay among closely related viral 
+pathogens, particularly from a historical perspective regarding large blood 
+donor populations. They should remain relevant for future outbreaks of emerging 
+flaviviruses that may potentially affect vulnerable populations.
+
+DOI: 10.1128/spectrum.00758-24
+PMCID: PMC11237622
+PMID: 38687079 [Indexed for MEDLINE]
+
+Conflict of interest statement: The authors declare no conflict of interest.

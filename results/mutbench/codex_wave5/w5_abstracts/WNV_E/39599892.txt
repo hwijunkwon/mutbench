@@ -1,0 +1,42 @@
+1. Viruses. 2024 Nov 15;16(11):1778. doi: 10.3390/v16111778.
+
+Arbovirus in Solid Organ Transplants: A Narrative Review of the Literature.
+
+Gajurel K(1), Dhakal R(2), Deresinski S(3).
+
+Author information:
+(1)Division of Infectious Diseases, Carolinas Medical Center, Atrium Health, 
+Charlotte, NC 28204, USA.
+(2)Labcorp, Indianapolis, IN 46214, USA.
+(3)Division of Infectious Diseases and Geographic Medicine, Stanford University, 
+Stanford, CA 94305, USA.
+
+Erratum in
+    Viruses. 2025 Feb 20;17(3):292. doi: 10.3390/v17030292.
+
+The incidence of arbovirus infections has increased in recent decades. Other 
+than dengue, chikungunya, and West Nile viruses, the data on arbovirus in solid 
+organ transplant (SOT) are limited to case reports, and infections in renal 
+transplant recipients account for most of the reported cases. Dengue and West 
+Nile infections seem to be more severe with higher mortality in SOT patients 
+than in the general population. Acute kidney injury is more frequent in patients 
+with dengue and chikungunya although persistent arthralgia with the latter is 
+less frequent. There is no clear relationship between arboviral infection and 
+acute cellular rejection. Pre-transplant screening of donors should be 
+implemented during increased arboviral activity but, despite donor screening and 
+negative donor nucleic acid amplification test (NAT), donor derived infection 
+can occur. NAT may be transiently positive. IgM tests lack specificity, and 
+neutralizing antibody assays are more specific but not readily available. Other 
+tests, such as immunohistochemistry, antigen tests, PCR, metagenomic assays, and 
+viral culture, can also be performed. There are a few vaccines available against 
+some arboviruses, but live vaccines should be avoided. Treatment is largely 
+supportive. More data on arboviral infection in SOT are needed to understand its 
+epidemiology and clinical course.
+
+DOI: 10.3390/v16111778
+PMCID: PMC11599096
+PMID: 39599892 [Indexed for MEDLINE]
+
+Conflict of interest statement: S.D.-none; K.G.-consultant to Karius (but not 
+relevant to this manuscript). R.D. is an employee of labcorp, but this study is 
+performed independently.

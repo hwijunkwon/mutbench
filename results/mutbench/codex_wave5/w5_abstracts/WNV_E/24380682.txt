@@ -1,0 +1,48 @@
+1. Vaccine. 2014 Feb 7;32(7):800-8. doi: 10.1016/j.vaccine.2013.12.030. Epub 2013
+ Dec 28.
+
+Matrix-M™ adjuvanted envelope protein vaccine protects against lethal lineage 1 
+and 2 West Nile virus infection in mice.
+
+Magnusson SE(1), Karlsson KH(2), Reimer JM(2), Corbach-Söhle S(3), Patel S(3), 
+Richner JM(4), Nowotny N(5), Barzon L(6), Bengtsson KL(2), Ulbert S(7), Diamond 
+MS(4), Stertman L(2).
+
+Author information:
+(1)Novavax AB, Uppsala, Sweden. Electronic address: smagnusson@novavax.com.
+(2)Novavax AB, Uppsala, Sweden.
+(3)University of Zürich, Institute of Virology, Switzerland.
+(4)Departments of Medicine, Molecular Microbiology, Pathology & Immunology, 
+Washington University School of Medicine, St Louis, USA.
+(5)Institute of Virology, University of Veterinary Medicine, Vienna, Austria; 
+Department of Microbiology and Immunology, College of Medicine and Health 
+Sciences, Sultan Qaboos University, Muscat, Oman.
+(6)Department of Molecular Medicine, University of Padova, Italy.
+(7)Fraunhofer Institute for Cell Therapy and Immunology, Leipzig, Germany.
+
+West Nile virus (WNV) is a mosquito-transmitted flavivirus and an emerging 
+pathogen in many parts of the world. In the elderly and immunosuppressed, 
+infection can progress rapidly to debilitating and sometimes fatal neuroinvasive 
+disease. Currently, no WNV vaccine is approved for use in humans. As there have 
+been several recent outbreaks in the United States and Europe, there is an 
+increasing need for a human WNV vaccine. In this study, we formulated the 
+ectodomain of a recombinant WNV envelope (E) protein with the particulate 
+saponin-based adjuvant Matrix-M™ and studied the antigen-specific immune 
+responses in mice. Animals immunized with Matrix-M™ formulated E protein 
+developed higher serum IgG1 and IgG2a and neutralizing antibody titers at 
+antigen doses ranging from 0.5 to 10 μg compared to those immunized with 3 or 10 
+μg of E alone, E adjuvanted with 1% Alum, or with the inactivated virion 
+veterinary vaccine, Duvaxyn(®) WNV. This phenotype was accompanied by strong 
+cellular recall responses as splenocytes from mice immunized with Matrix-M™ 
+formulated vaccine produced high levels of Th1 and Th2 cytokines. Addition of 
+Matrix-M™ prolonged the duration of the immune response, as elevated humoral and 
+cellular responses were maintained for more than 200 days. Importantly, mice 
+vaccinated with Matrix-M™ formulated E protein were protected from lethal 
+challenge with both lineage 1 and 2 WNV strains. In summary, Matrix-M™ 
+adjuvanted E protein elicited potent and durable immune responses that prevented 
+lethal WNV infection, and thus is a promising vaccine candidate for humans.
+
+Copyright © 2013 Elsevier Ltd. All rights reserved.
+
+DOI: 10.1016/j.vaccine.2013.12.030
+PMID: 24380682 [Indexed for MEDLINE]

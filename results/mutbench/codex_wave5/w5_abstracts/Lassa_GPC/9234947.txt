@@ -1,0 +1,36 @@
+1. Virology. 1997 Jul 21;234(1):62-73. doi: 10.1006/viro.1997.8627.
+
+The signal sequence of lymphocytic choriomeningitis virus contains an 
+immunodominant cytotoxic T cell epitope that is restricted by both H-2D(b) and 
+H-2K(b) molecules.
+
+Hudrisier D(1), Oldstone MB, Gairin JE.
+
+Author information:
+(1)Institut de Pharmacologie et de Biologie Structurale, UPR 9062 CNRS, 
+Toulouse, France.
+
+Infection of H-2b mice with lymphocytic choriomeningitis virus (LCMV) generates 
+three well-characterized H-2D(b)-restricted immunodominant epitopes delineated 
+in the NP, GP1, and GP2 proteins. Here we report that the H-2D(b)-restricted GP1 
+epitope GP33-41/43 (KAVYNFATC/GI) located in the signal sequence of LCMV is also 
+the immunodominant epitope recognized by CTL at the surface of the same infected 
+cells in the context of H-2K(b) restriction. The GP1 epitope bound to H-2D(b) 
+and H-2K(b) molecules with comparable affinities. The respective binding 
+processes involved different sets of peptide anchoring residues and required 
+dramatically different conformations of the peptide backbone as well as 
+rearrangement of residue side chains. The 10-mer peptide GP34-43 (AVYNFATCGI) 
+was the optimal H-2K(b)-binding sequence and the 8-mer peptide GP34-41 
+(AVYNFATC) the minimal sequence for optimal H-2K(b)-restricted CTL recognition. 
+Comparison of lytic activities of primary splenic anti-LCMV CTL from C57BL/6 
+(D(b+)/K(b+)), B10A.[5R] (D(b-)/K(b+)), and B10A.[2R] (D(b+)/K(b-)) mice against 
+LCMV-infected or peptide-coated target cells expressing either one or the two 
+MHC alleles revealed that the H-2K(b)-restricted component of the anti-GP1 CTL 
+response was mounted independently of but as efficiently as its H-2D(b) 
+counterpart. Analysis of the immune response against a GP1 variant that escapes 
+CTL recognition showed that the GP1 epitope: (i) was likely the only 
+immunodominant LCMV epitope in the context of H-2K(b), and (ii) could 
+efficiently evade H-2D(b) and H-2K(b)-restricted CTL mediated lysis.
+
+DOI: 10.1006/viro.1997.8627
+PMID: 9234947 [Indexed for MEDLINE]

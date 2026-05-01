@@ -1,0 +1,36 @@
+1. PLoS One. 2016 Oct 6;11(10):e0164245. doi: 10.1371/journal.pone.0164245. 
+eCollection 2016.
+
+Complete Protection against Influenza Virus H1N1 Strain A/PR/8/34 Challenge in 
+Mice Immunized with Non-Adjuvanted Novirhabdovirus Vaccines.
+
+Rouxel RN(1), Mérour E(1), Biacchesi S(1), Brémont M(1).
+
+Author information:
+(1)VIM, INRA, Université Paris-Saclay, 78350, Jouy-en-Josas, France.
+
+Novirhabdoviruses like Viral Hemorrhagic Septicemia Virus (VHSV) and Infectious 
+Hematopoietic Necrosis Virus (IHNV) are fish-infecting Rhabdoviruses belonging 
+to the Mononegavirales order. By reverse genetics, we previously showed that a 
+recombinant VHSV expressing the West Nile Virus (WNV) E glycoprotein could serve 
+as a vaccine platform against WNV. In the current study, we aimed to evaluate 
+the potential of the Novirhabdovirus platform as a vaccine against influenza 
+virus. Recombinant Novirhabdoviruses, rVHSV-HA and rIHNV-HA, expressing at the 
+viral surface the hemagglutinin HA ectodomain were generated and used to 
+immunized mice. We showed that mice immunized with either, rVHSV-HA or rIHNV-HA, 
+elicited a strong neutralizing antibody response against influenza virus. A 
+complete protection was conferred to the immunized mice when challenged with a 
+lethal dose of influenza H1N1 A/PR/8/34 virus. Furthermore we showed that 
+although acting as inert antigen in mice, since naturally inactivated over 20°C, 
+mice immunized with rVHSV-HA or rIHNV-HA in the absence of adjuvant were also 
+completely protected from a lethal challenge. Novirhabdoviruses platform are of 
+particular interest as vaccines for mammals since they are cost effective to 
+produce, relatively easy to generate and very effective to protect immunized 
+animals.
+
+DOI: 10.1371/journal.pone.0164245
+PMCID: PMC5053517
+PMID: 27711176 [Indexed for MEDLINE]
+
+Conflict of interest statement: The authors have declared that no competing 
+interests exist.

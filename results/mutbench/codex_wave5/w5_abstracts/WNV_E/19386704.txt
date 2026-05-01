@@ -1,0 +1,35 @@
+1. J Virol. 2009 Jul;83(13):6494-507. doi: 10.1128/JVI.00286-09. Epub 2009 Apr
+22.
+
+Human monoclonal antibodies against West Nile virus induced by natural infection 
+neutralize at a postattachment step.
+
+Vogt MR(1), Moesker B, Goudsmit J, Jongeneelen M, Austin SK, Oliphant T, Nelson 
+S, Pierson TC, Wilschut J, Throsby M, Diamond MS.
+
+Author information:
+(1)Department of Pathology and Immunology, Washington University School of 
+Medicine, St. Louis, Missouri 63110, USA.
+
+West Nile virus (WNV) is a neurotropic flavivirus that is now a primary cause of 
+epidemic encephalitis in North America. Studies of mice have demonstrated that 
+the humoral immune response against WNV limits primary infection and protects 
+against a secondary challenge. The most-potent neutralizing mouse monoclonal 
+antibodies (MAbs) recognize an epitope on the lateral ridge of domain III 
+(DIII-lr) of the envelope (E) protein. However, studies with serum from human 
+patients show that antibodies against the DIII-lr epitope comprise, at best, a 
+minor component of the human anti-WNV antibody response. Herein, we characterize 
+in detail two WNV-specific human MAbs, CR4348 and CR4354, that were isolated 
+from B-cell populations of convalescent patients. These MAbs strongly neutralize 
+WNV infection of cultured cells, protect mice against lethal infection in vivo, 
+and yet poorly recognize recombinant forms of the E protein. Instead, CR4348 and 
+CR4354 bind determinants on intact WNV virions and subviral particles in a 
+pH-sensitive manner, and neutralization is altered by mutations at the dimer 
+interface in domain II and the hinge between domains I and II, respectively. 
+CR4348 and CR4354 human MAbs neutralize infection at a postattachment step in 
+the viral life cycle, likely by inhibiting acid-induced fusion within the 
+endosome.
+
+DOI: 10.1128/JVI.00286-09
+PMCID: PMC2698525
+PMID: 19386704 [Indexed for MEDLINE]

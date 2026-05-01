@@ -1,0 +1,36 @@
+1. Vaccines (Basel). 2025 Sep 29;13(10):1015. doi: 10.3390/vaccines13101015.
+
+Orthoflavivirus Vaccine Platforms: Current Strategies and Challenges.
+
+Unali G(1)(2), Douam F(1)(2).
+
+Author information:
+(1)Department of Virology, Immunology and Microbiology, Boston University 
+Chobanian and Avedisian School of Medicine, Boston, MA 02118, USA.
+(2)National Emerging Infectious Diseases Laboratories, Boston University, 
+Boston, MA 02118, USA.
+
+The orthoflaviviruses genus belongs to the Flaviviridae family. 
+Orthoflaviviruses include major clinically relevant arthropod-borne human 
+viruses such as Dengue, Zika, yellow fever, West Nile and tick-borne 
+encephalitis virus. These viruses pose an increasing threat to global health due 
+to the expansion of arthropod habitats, urbanization, and climate change. While 
+vaccines have been developed for certain orthoflaviviruses with varying levels 
+of success, critical challenges remain in achieving broadly deployable vaccines 
+that combine a robust safety profile with durable immunity against many current 
+and emerging orthoflaviviruses. This review provides a snapshot of established 
+and emerging vaccine platforms against orthoflaviviruses, with a particular 
+emphasis on those leveraging the envelope glycoprotein E as the primary antigen. 
+We examine the strengths and disadvantages of these different platforms in 
+eliciting safe, durable, and robust orthoflavivirus immunity, and discuss how 
+specific attributes such as multivalency, authentic epitope presentations, and 
+logistical practicality can enhance their value in preventing orthoflavivirus 
+infection and disease.
+
+DOI: 10.3390/vaccines13101015
+PMCID: PMC12568211
+PMID: 41150403
+
+Conflict of interest statement: The authors would like to report that they are 
+inventors on provisional patents associated with the development and application 
+of modified-nucleotide saRNA vaccines.

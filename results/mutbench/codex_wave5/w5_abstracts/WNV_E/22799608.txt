@@ -1,0 +1,36 @@
+1. Virol J. 2012 Jul 16;9:132. doi: 10.1186/1743-422X-9-132.
+
+Induction of antigen-specific immune responses in mice by recombinant 
+baculovirus expressing premembrane and envelope proteins of West Nile virus.
+
+Zhu B(1), Ye J, Lu P, Jiang R, Yang X, Fu ZF, Chen H, Cao S.
+
+Author information:
+(1)State Key Laboratory of Agricultural Microbiology, Huazhong Agricultural 
+University, Wuhan, Hubei, People's Republic of China.
+
+BACKGROUND: West Nile Virus (WNV) is an emerging arthropod-born flavivirus with 
+increasing distribution worldwide that is responsible for a large proportion of 
+viral encephalitis in humans and horses. Given that there are no effective 
+antiviral drugs available for treatment of the disease, efforts have been 
+directed to develop vaccines to prevent WNV infection. Recently baculovirus has 
+emerged as a novel and attractive gene delivery vehicle for mammalian cells.
+RESULTS: In the present study, recombinant baculoviruses expressing WNV 
+premembrane (prM) and envelope (E) proteins under the cytomegalovirus (CMV) 
+promoter with or without vesicular stomatitis virus glycoprotein (VSV/G) were 
+constructed. The recombinant baculoviruses designated Bac-G-prM/E and Bac-prM/E, 
+efficiently express E protein in mammalian cells. Intramuscular injection of the 
+two recombinant baculoviruses (at doses of 108 or 109 PFU/mouse) induced the 
+production of WNV-specific antibodies, neutralizing antibodies as well as gamma 
+interferon (IFN-γ) in a dose-dependent pattern. Interestingly, the recombinant 
+baculovirus Bac-G-prM/E was found to be a more efficient immunogen than 
+Bac-prM/E to elicit a robust immune response upon intramuscular injection. In 
+addition, inoculation of baculovirus resulted in the secretion of inflammatory 
+cytokines, such as TNF-α, IL-2 and IL-6.
+CONCLUSIONS: These recombinant baculoviruses are capable of eliciting robust 
+humoral and cellular immune responses in mice, and may be considered as novel 
+vaccine candidates for West Nile Virus.
+
+DOI: 10.1186/1743-422X-9-132
+PMCID: PMC3424137
+PMID: 22799608 [Indexed for MEDLINE]

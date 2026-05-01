@@ -1,0 +1,38 @@
+1. Vector Borne Zoonotic Dis. 2012 May;12(5):372-9. doi: 10.1089/vbz.2011.0709. 
+Epub 2012 Jan 4.
+
+A diagnostic algorithm to serologically differentiate West Nile virus from 
+Japanese encephalitis virus infections and its validation in field surveillance 
+of poultry and horses.
+
+Yeh JY(1), Lee JH, Park JY, Seo HJ, Moon JS, Cho IS, Kim HP, Yang YJ, Ahn KM, 
+Kyung SG, Choi IS, Lee JB.
+
+Author information:
+(1)Foreign Animal Disease Division, National Veterinary Research and Quarantine 
+Service, Anyang-city, Gyeonggi-do, Republic of Korea. malvab2848@gmail.com
+
+The detection of West Nile virus (WNV) in areas endemic for Japanese 
+encephalitis virus (JEV) is complicated by the extensive serological 
+cross-reactivity between the two viruses. A testing algorithm was developed and 
+employed for the detection of anti-WNV antibody in areas endemic for JEV. Using 
+this differentiation algorithm, a serological survey of poultry (2004 through 
+2009) and horses (2007 through 2009) was performed. Among 2681 poultry sera, 125 
+samples were interpreted as being positive for antibodies against JEV, and 14 
+were suspected to be positive for antibodies against undetermined flaviviruses 
+other than WNV and JEV. Of the 2601 horse sera tested, a total of 1914 (73.6%) 
+were positive to the initial screening test. Of these positive sera, 132 sera 
+(5.1%) had been collected from horses that had been imported from the United 
+States, where WNV is endemic. These horses had WNV vaccination records, and no 
+significant pattern of increasing titer was observed in paired sera tests. Of 
+the remaining 1782 positive sera 1468 sera (56.4%) were also found to contain 
+anti-JEV antibodies, and were interpreted to be JEV-specific antibodies by the 
+differentiation algorithm developed in this study. The remaining 314 horses 
+(12.1%) for which a fourfold difference in neutralizing antibody titer could not 
+be demonstrated, were determined to contain an antibody against an unknown 
+(unidentified or undetermined) flavivirus. No evidence of WNV infections were 
+found during the period of this study.
+
+DOI: 10.1089/vbz.2011.0709
+PMCID: PMC3353748
+PMID: 22217162 [Indexed for MEDLINE]

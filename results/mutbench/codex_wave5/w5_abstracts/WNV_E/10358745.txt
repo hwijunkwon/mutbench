@@ -1,0 +1,30 @@
+1. Acta Virol. 1998 Dec;42(6):389-95.
+
+Strain analysis and epitope mapping of West Nile virus using monoclonal 
+antibodies.
+
+Damle RG(1), Yeolekar LR, Rao BL.
+
+Author information:
+(1)National Institute of Virology, Maharashtra, India.
+
+Monoclonal antibodies (MAbs) against an Indian strain (804994) and an Egyptian 
+strain (E 101) of West Nile virus (WNV) were prepared in mice. Nine MAbs against 
+the 804994 strain and 5 MAbs against E 101 strain were obtained. All 14 MAbs 
+reacted with the envelope (E) protein of WNV in an immunoblot assay. They were 
+tested by an enzyme-linked immunosorbent assay (ELISA) for their 
+cross-reactivity with WNV, Japanese encephalitis virus (JEV) and Dengue-2 virus 
+(DEN-2), and for their reactivity in haemagglutination-inhibition (HAI) test. 
+Based on these results MAbs were broadly grouped into three groups, namely 
+WNV-specific HAI-positive, WNV-JEV cross-reactive HAI-positive, and WNV-JEV 
+cross-reactive HAI-negative MAbs. The antigenic cross-reactivity between twelve 
+WNV strains isolated from different geographical regions and their respective 
+hosts was assessed using these MAbs in HAI and complement fixation (CF) tests. 
+The strain analysis by CF distinguished Indian from South African strains. 
+However, a similarity between some Indian and South African strains in HAI was 
+observed. E 101 strain appeared to have antigenic similarity with Indian as well 
+as South African strains. Overall it appears that antigenically similar strains 
+of WNV are prevalent in India. A single heterogenous domain was apparent on the 
+epitope map of WNV deduced by ELISA additivity test.
+
+PMID: 10358745 [Indexed for MEDLINE]

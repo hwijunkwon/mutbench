@@ -1,0 +1,47 @@
+1. Rev Inst Med Trop Sao Paulo. 2017 Apr 3;59:e2. doi:
+10.1590/S1678-9946201759002.
+
+Prevalence and titers of yellow fever virus neutralizing antibodies in 
+previously vaccinated adults.
+
+Miyaji KT(1), Avelino-Silva VI(1), Simões M(2), Freire MD(2), Medeiros CR(3), 
+Braga PE(4), Neves MA(5), Lopes MH(1), Kallas EG(5), Sartori AM(1).
+
+Author information:
+(1)Universidade de São Paulo, Faculdade de Medicina, Departamento de Moléstias 
+Infecciosas e Parasitárias, São Paulo, SP, Brazil.
+(2)Fundação Oswaldo Cruz, Laboratório de Tecnologia Virológica Bio-Manguinhos, 
+Rio de Janeiro, RJ, Brazil.
+(3)Instituto Butantan, Hospital Vital Brazil, São Paulo, SP, Brazil.
+(4)Universidade de São Paulo, Faculdade de Medicina, Departamento de Medicina 
+Preventiva, São Paulo, SP, Brazil.
+(5)Universidade de São Paulo, Faculdade de Medicina, Divisão de Imunologia 
+Clínica e Alergia, São Paulo, SP, Brazil.
+
+INTRODUCTION: The World Health Organization (WHO) recommends one single dose of 
+the Yellow Fever (YF) vaccine based on studies of antibody persistency in 
+healthy adults. We assessed the prevalence and titers of YF virus neutralizing 
+antibodies in previously vaccinated persons aged  60 years, in comparison to 
+younger adults. We also evaluated the correlation between antibody titers and 
+the time since vaccination among participants who received one vaccine dose, and 
+the seropositivity among participants vaccinated prior to or within the past 10 
+years.
+METHODS: previously vaccinated healthy persons aged  18 years were included. YF 
+virus neutralizing antibody titers were determined by means of the 50% Plaque 
+Reduction Neutralization Test.
+RESULTS: 46 persons aged  60 years and 48 persons aged 18 to 59 years were 
+enrolled. There was no significant difference in the prevalence of YF virus 
+neutralizing antibodies between the two groups (p = 0.263). However, titers were 
+significantly lower in the elderly (p = 0.022). There was no correlation between 
+YF virus neutralizing antibody titers and the time since vaccination. There was 
+no significant difference in seropositivity among participants vaccinated prior 
+to or within the past 10 years.
+CONCLUSIONS: the clinical relevance of the observed difference in YF virus 
+neutralizing antibody titers between the two groups is not clear.
+
+DOI: 10.1590/S1678-9946201759002
+PMCID: PMC5441153
+PMID: 28380113 [Indexed for MEDLINE]
+
+Conflict of interest statement: CONFLICT OF INTEREST AMCS received speaker fees 
+from Sanofi Pasteur. The other authors declared no conflicts of interest.

@@ -1,0 +1,47 @@
+1. Transbound Emerg Dis. 2022 Sep;69(5):2779-2787. doi: 10.1111/tbed.14429. Epub 
+2022 Jan 10.
+
+Serological differentiation of West Nile virus- and Usutu virus-induced 
+antibodies by envelope proteins with modified cross-reactive epitopes.
+
+Berneck BS(1), Rockstroh A(1), Barzon L(2), Sinigaglia A(2), Vocale C(3), 
+Landini MP(4), Rabenau HF(5), Schmidt-Chanasit J(6), Ulbert S(1).
+
+Author information:
+(1)Fraunhofer Institute for Cell Therapy and Immunology, Leipzig, Germany.
+(2)Department of Molecular Medicine, University of Padova, Padova, Italy.
+(3)CRREM. Unità Operativa di Microbiologia, IRCCS Policlinico di S. Orsola, 
+Bologna, Italy.
+(4)Clinical Microbiology Unit, Regional Reference Centre for Microbiological 
+Emergencies-CRREM, St. Orsola-Malpighi University Hospital, University of 
+Bologna, Bologna, Italy.
+(5)Institute of Medical Virology, University Hospital Frankfurt, Frankfurt, 
+Germany.
+(6)Bernhard Nocht Institute for Tropical Medicine, Hamburg, Germany.
+
+West Nile virus (WNV) and Usutu virus (USUV) are mosquito-borne viruses that 
+belong to the Japanese encephalitis virus serocomplex within the genus 
+Flavivirus. Due to climate change and the expansion of mosquito vectors, 
+flaviviruses are becoming endemic in increasing numbers of countries. WNV 
+infections are reported with symptoms ranging from mild fever to severe 
+neuro-invasive disease. Until now, only a few USUV infections have been reported 
+in humans, mostly with mild symptoms. The serological diagnosis and 
+differentiation between flavivirus infections, in general, and between WNV and 
+USUV, in particular, are challenging due to the high degree of cross-reacting 
+antibodies, especially of those directed against the conserved fusion loop (FL) 
+domain of the envelope (E) protein. We have previously shown that E proteins 
+containing four amino-acid mutations in and near the FL strongly reduce the 
+binding of cross-reactive antibodies leading to diagnostic technologies with 
+improved specificities. Here, we expanded the technology to USUV and analyzed 
+the differentiation of USUV- and WNV-induced antibodies in humans. IgG ELISAs 
+modified by an additional competition step with the heterologous antigen 
+resulted in overall specificities of 93.94% for WNV Equad and 92.75% for USUV 
+Equad. IgM antibodies against WNV could be differentiated from USUV IgM in a 
+direct comparison using both antigens. The data indicate the potential of the 
+system to diagnose antigenically closely related flavivirus infections.
+
+© 2021 The Authors. Transboundary and Emerging Diseases published by Wiley-VCH 
+GmbH.
+
+DOI: 10.1111/tbed.14429
+PMID: 34919790 [Indexed for MEDLINE]

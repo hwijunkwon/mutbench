@@ -1,0 +1,68 @@
+1. Cell Host Microbe. 2022 Dec 14;30(12):1759-1772.e12. doi: 
+10.1016/j.chom.2022.10.018. Epub 2022 Nov 17.
+
+Lassa virus glycoprotein nanoparticles elicit neutralizing antibody responses 
+and protection.
+
+Brouwer PJM(1), Antanasijevic A(2), Ronk AJ(3), Müller-Kräuter H(4), Watanabe 
+Y(5), Claireaux M(6), Perrett HR(7), Bijl TPL(6), Grobben M(6), Umotoy JC(6), 
+Schriek AI(6), Burger JA(6), Tejjani K(6), Lloyd NM(3), Steijaert TH(6), van 
+Haaren MM(6), Sliepen K(6), de Taeye SW(6), van Gils MJ(6), Crispin M(5), 
+Strecker T(4), Bukreyev A(3), Ward AB(8), Sanders RW(9).
+
+Author information:
+(1)Department of Medical Microbiology and Infection Prevention, Amsterdam 
+University Medical Centers, Location AMC, University of Amsterdam, Amsterdam 
+Infection & Immunity Institute, 1105 AZ Amsterdam, the Netherlands; Department 
+of Integrative, Structural and Computational Biology, The Scripps Research 
+Institute, La Jolla, CA 92037, USA.
+(2)Department of Integrative, Structural and Computational Biology, The Scripps 
+Research Institute, La Jolla, CA 92037, USA; International AIDS Vaccine 
+Initiative Neutralizing Antibody Center, The Scripps Research Institute, La 
+Jolla, CA 92037, USA.
+(3)Department of Pathology, University of Texas Medical Branch, Galveston, TX 
+77550, USA; Galveston National Laboratory, University of Texas Medical Branch, 
+Galveston, TX 77550, USA.
+(4)Institute of Virology, Philipps University Marburg, 35043 Marburg, Germany.
+(5)School of Biological Sciences, University of Southampton, Southampton SO17 
+1BJ, UK.
+(6)Department of Medical Microbiology and Infection Prevention, Amsterdam 
+University Medical Centers, Location AMC, University of Amsterdam, Amsterdam 
+Infection & Immunity Institute, 1105 AZ Amsterdam, the Netherlands.
+(7)Department of Integrative, Structural and Computational Biology, The Scripps 
+Research Institute, La Jolla, CA 92037, USA.
+(8)Department of Integrative, Structural and Computational Biology, The Scripps 
+Research Institute, La Jolla, CA 92037, USA; International AIDS Vaccine 
+Initiative Neutralizing Antibody Center, The Scripps Research Institute, La 
+Jolla, CA 92037, USA. Electronic address: andrew@scripps.edu.
+(9)Department of Medical Microbiology and Infection Prevention, Amsterdam 
+University Medical Centers, Location AMC, University of Amsterdam, Amsterdam 
+Infection & Immunity Institute, 1105 AZ Amsterdam, the Netherlands; Department 
+of Microbiology and Immunology, Weill Medical College of Cornell University, New 
+York, NY 10021, USA. Electronic address: r.w.sanders@amsterdamumc.nl.
+
+The Lassa virus is endemic in parts of West Africa, and it causes hemorrhagic 
+fever with high mortality. The development of a recombinant protein vaccine has 
+been hampered by the instability of soluble Lassa virus glycoprotein complex 
+(GPC) trimers, which disassemble into monomeric subunits after expression. Here, 
+we use two-component protein nanoparticles consisting of trimeric and pentameric 
+subunits to stabilize GPC in a trimeric conformation. These GPC nanoparticles 
+present twenty prefusion GPC trimers on the surface of an icosahedral particle. 
+Cryo-EM studies of GPC nanoparticles demonstrated a well-ordered structure and 
+yielded a high-resolution structure of an unliganded GPC. These nanoparticles 
+induced potent humoral immune responses in rabbits and protective immunity 
+against the lethal Lassa virus challenge in guinea pigs. Additionally, we 
+isolated a neutralizing antibody that mapped to the putative receptor-binding 
+site, revealing a previously undefined site of vulnerability. Collectively, 
+these findings offer potential approaches to vaccine and therapeutic design for 
+the Lassa virus.
+
+Copyright © 2022 The Author(s). Published by Elsevier Inc. All rights reserved.
+
+DOI: 10.1016/j.chom.2022.10.018
+PMCID: PMC9794196
+PMID: 36400021 [Indexed for MEDLINE]
+
+Conflict of interest statement: Declaration of interests Y.W. has taken up a 
+position at AstraZeneca; all experimental work was performed prior to this 
+development.

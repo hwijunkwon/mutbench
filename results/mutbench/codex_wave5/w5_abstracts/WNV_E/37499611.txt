@@ -1,0 +1,59 @@
+1. Poult Sci. 2023 Oct;102(10):102926. doi: 10.1016/j.psj.2023.102926. Epub 2023 
+Jul 7.
+
+Linear epitope identification of monoclonal antibodies against the duck Tembusu 
+virus NS1.
+
+Tan H(1), Zhang S(1), Tan W(1), Hu T(1), He Y(2), Wu Z(2), Wang M(2), Jia R(2), 
+Zhu D(2), Liu M(2), Zhao X(2), Yang Q(2), Wu Y(2), Zhang S(2), Huang J(2), Ou 
+X(2), Gao Q(2), Sun D(2), Cheng A(2), Chen S(3).
+
+Author information:
+(1)Institute of Preventive Veterinary Medicine, Sichuan Agricultural University, 
+Chengdu, Sichuan 611130, China.
+(2)Institute of Preventive Veterinary Medicine, Sichuan Agricultural University, 
+Chengdu, Sichuan 611130, China; Research Center of Avian Disease, College of 
+Veterinary Medicine, Sichuan Agricultural University, Chengdu, Sichuan 611130, 
+China; Engineering Research Center of Southwest Animal Disease Prevention and 
+Control Technology, Ministry of Education of the People's Republic of China, 
+Chengdu 611130, China; Key Laboratory of Animal Disease and Human Health of 
+Sichuan Province, Sichuan Agricultural University, Chengdu, Sichuan 611130, 
+China.
+(3)Institute of Preventive Veterinary Medicine, Sichuan Agricultural University, 
+Chengdu, Sichuan 611130, China; Research Center of Avian Disease, College of 
+Veterinary Medicine, Sichuan Agricultural University, Chengdu, Sichuan 611130, 
+China; Engineering Research Center of Southwest Animal Disease Prevention and 
+Control Technology, Ministry of Education of the People's Republic of China, 
+Chengdu 611130, China; Key Laboratory of Animal Disease and Human Health of 
+Sichuan Province, Sichuan Agricultural University, Chengdu, Sichuan 611130, 
+China. Electronic address: shunchen@sicau.edu.cn.
+
+Since 2010, the duck Tembusu virus (DTMUV) has caused a severe outbreak of egg 
+drop syndrome in laying ducks in China, which has resulted in substantial 
+financial losses in the poultry industry. DTMUV nonstructural protein 1 (NS1), 
+as the only secreted protein, could aid in the development of therapeutic 
+antibodies and diagnostic techniques; however, there are few studies on the 
+preparation and epitope identification of monoclonal antibodies (mAbs) against 
+DTMUV NS1. In this study, by indirect enzyme-linked immunosorbent assay (ELISA), 
+Western blotting, and indirect immunofluorescence assay, we screened 6 mAbs 
+(8A4, 8E6, 10F12, 1H11, 3D5, 5C11) that could specifically recognize DTMUV NS1. 
+For epitope mapping of mAbs, a series of GST-tagged truncated fusion proteins of 
+DTMUV NS1 were constructed by prokaryotic expression. Finally, the 4 shortest 
+linear epitopes were identified by indirect ELISA and Western blotting. The 
+epitope 133FVIDGPK139 was recognized by 8A4, the epitope 243IPKTLGGP250 was 
+recognized by 8E6, the epitope 267PWDEK271 was recognized by 10F12, and 
+156EDFGFGVL163 was recognized by 1H11, 3D5, and 5C11. By sequence alignment and 
+cross-reaction tests, we found that 8A4 and 8E6 had high specificity for DTMUV 
+NS1 compared with that of other mAbs, but 10F12, 1H11, 3D5, and 5C11 exhibited a 
+clear degree of cross-reaction with dengue virus (DENV), Japanese encephalitis 
+virus (JEV), West Nile virus (WNV), and Zika virus (ZIKV) NS1. Finally, the 
+predicted crystal structure analysis showed the approximate spatial positions of 
+the 4 epitopes on the NS1 dimer. In summary, our study revealed 2 specific mAbs 
+for DTMUV NS1 recognition and 4 multiflavivirus mAbs for DENV, JEV, WNV, and 
+ZIKV NS1 recognition.
+
+Copyright © 2023 The Authors. Published by Elsevier Inc. All rights reserved.
+
+DOI: 10.1016/j.psj.2023.102926
+PMCID: PMC10413195
+PMID: 37499611 [Indexed for MEDLINE]

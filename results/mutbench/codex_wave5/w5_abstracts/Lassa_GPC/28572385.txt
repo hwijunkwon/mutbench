@@ -1,0 +1,41 @@
+1. Science. 2017 Jun 2;356(6341):923-928. doi: 10.1126/science.aam7260.
+
+Structural basis for antibody-mediated neutralization of Lassa virus.
+
+Hastie KM(1), Zandonatti MA(1), Kleinfelter LM(2), Heinrich ML(3), Rowland 
+MM(3), Chandran K(2), Branco LM(3), Robinson JE(4), Garry RF(3)(5), Saphire 
+EO(6)(7).
+
+Author information:
+(1)Department of Immunology and Microbial Science, The Scripps Research 
+Institute, La Jolla, CA 92037, USA.
+(2)Department of Microbiology and Immunology, Albert Einstein College of 
+Medicine, Bronx, NY, USA.
+(3)Zalgen Labs, Germantown, MD, USA.
+(4)Department of Pediatrics, School of Medicine, Tulane University, New Orleans, 
+LA, USA.
+(5)Department of Microbiology and Immunology, Tulane University, New Orleans, 
+LA, USA.
+(6)Department of Immunology and Microbial Science, The Scripps Research 
+Institute, La Jolla, CA 92037, USA. erica@scripps.edu.
+(7)Skaggs Institute for Chemical Biology, The Scripps Research Institute, La 
+Jolla, CA, USA.
+
+The arenavirus Lassa causes severe hemorrhagic fever and a significant disease 
+burden in West Africa every year. The glycoprotein, GPC, is the sole antigen 
+expressed on the viral surface and the critical target for antibody-mediated 
+neutralization. Here we present the crystal structure of the trimeric, prefusion 
+ectodomain of Lassa GP bound to a neutralizing antibody from a human survivor at 
+3.2-angstrom resolution. The antibody extensively anchors two monomers together 
+at the base of the trimer, and biochemical analysis suggests that it neutralizes 
+by inhibiting conformational changes required for entry. This work illuminates 
+pH-driven conformational changes in both receptor-binding and fusion subunits of 
+Lassa virus, illustrates the unique assembly of the arenavirus glycoprotein 
+spike, and provides a much-needed template for vaccine design against these 
+threats to global health.
+
+Copyright © 2017, American Association for the Advancement of Science.
+
+DOI: 10.1126/science.aam7260
+PMCID: PMC6007842
+PMID: 28572385 [Indexed for MEDLINE]

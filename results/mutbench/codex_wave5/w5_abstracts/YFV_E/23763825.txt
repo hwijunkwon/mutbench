@@ -1,0 +1,31 @@
+1. Biologicals. 2013 Jul;41(4):238-46. doi: 10.1016/j.biologicals.2013.04.005.
+Epub  2013 Jun 10.
+
+Yellow fever vaccine: comparison of the neurovirulence of new 17D-204 Stamaril™ 
+seed lots and RK 168-73 strain.
+
+Moulin JC(1), Silvano J, Barban V, Riou P, Allain C.
+
+Author information:
+(1)Sanofi Pasteur, 1541 Avenue Marcel Mérieux, 69280 Marcy l'Etoile, France. 
+Jean-Claude.Moulin@sanofipasteur.com
+
+The neurovirulence of two new candidate 17D-204 Stamaril™ working seed lots and 
+that of two reference preparations were compared. The Stamaril™ working seed 
+lots have been used for more than twenty years for the manufacturing of vaccines 
+of acceptable safety and efficacy. The preparation designated RK 168-73 and 
+provided by the Robert Koch Institute was used as a reference. It was confirmed 
+that RK 168-73 strain was not a good virus control in our study because it has a 
+very low neurovirulence regarding both the clinical and histopathological scores 
+in comparison with Stamaril™ strain and is not representative of a vaccine known 
+to be satisfactory in use. The results were reinforced by the phenotypic 
+characterization by plaque assay demonstrating that RK 168-73 was very different 
+from the Stamaril™ vaccine, and by sequencing results showing 4 mutations 
+between Stamaril™ and RK 168-73 viruses leading to amino acid differences in the 
+NS4B and envelop proteins.
+
+Copyright © 2013 The International Alliance for Biological Standardization. 
+Published by Elsevier Ltd. All rights reserved.
+
+DOI: 10.1016/j.biologicals.2013.04.005
+PMID: 23763825 [Indexed for MEDLINE]

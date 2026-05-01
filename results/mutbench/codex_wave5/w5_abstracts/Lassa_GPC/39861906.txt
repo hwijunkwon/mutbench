@@ -1,0 +1,50 @@
+1. Viruses. 2025 Jan 16;17(1):117. doi: 10.3390/v17010117.
+
+Flunarizine as a Candidate for Drug Repurposing Against Human Pathogenic 
+Mammarenaviruses.
+
+Ofodile CA(1)(2)(3), Uzochukwu IC(4), Ezebuo FC(4)(5), Ejiofor I(6), Adebola 
+M(4), Okpoli I(4), Cubitt B(2), Witwit H(2), Okwuanaso CB(1), Onyemelukwe N(3), 
+de la Torre JC(2).
+
+Author information:
+(1)Department of Medical Laboratory Science, Faculty of Health Sciences and 
+Technology, Nnamdi Azikiwe University, Awka 420218, Anambra, Nigeria.
+(2)Department of Immunology and Microbiology, Scripps Research Institute, La 
+Jolla, CA 92037, USA.
+(3)Department of Medical Laboratory Sciences, Faculty of Health Sciences and 
+Technology, University of Nigeria, Nsukka 401105, Enugu, Nigeria.
+(4)Department of Pharmaceutical & Medicinal Chemistry, Faculty of Pharmaceutical 
+Sciences, Nnamdi Azikiwe University, Awka 420218, Anambra, Nigeria.
+(5)Department of Biochemistry, Graduate Center, City University of New York 
+(CUNY), New York, NY 10016, USA.
+(6)Department of Pharmacognosy & Traditional Medicine, Faculty of Pharmaceutical 
+Sciences, Nnamdi Azikiwe University, Awka 420218, Anambra, Nigeria.
+
+Lassa fever (LF), a viral hemorrhagic fever disease with a case fatality rate 
+that can be over 20% among hospitalized LF patients, is endemic to many West 
+African countries. Currently, no vaccines or therapies are specifically licensed 
+to prevent or treat LF, hence the significance of developing therapeutics 
+against the mammarenavirus Lassa virus (LASV), the causative agent of LF. We 
+used in silico docking approaches to investigate the binding affinities of 2015 
+existing drugs to LASV proteins known to play critical roles in the formation 
+and activity of the virus ribonucleoprotein complex (vRNP) responsible for 
+directing replication and transcription of the viral genome. Validation of 
+docking protocols were achieved with reference inhibitors of the respective 
+targets. Our in silico docking screen identified five drugs (dexamethasone, 
+tadalafil, mefloquine, ergocalciferol, and flunarizine) with strong predicted 
+binding affinity to LASV proteins involved in the formation of the vRNP. We used 
+cell-based functional assays to evaluate the antiviral activity of the five 
+selected drugs. We found that flunarizine, a calcium-entry blocker, inhibited 
+the vRNP activity of LASV and LCMV and virus surface glycoprotein fusion 
+activity required for mammarenavirus cell entry. Consistently with these 
+findings, flunarizine significantly reduced peak titers of LCMV in a multi-step 
+growth kinetics assay in human A549 cells. Flunarizine is being used in several 
+countries worldwide to treat vertigo and migraine, supporting the interest in 
+exploring its repurposing as a candidate drug to treat LASV infections.
+
+DOI: 10.3390/v17010117
+PMCID: PMC11768584
+PMID: 39861906 [Indexed for MEDLINE]
+
+Conflict of interest statement: The authors declare no conflicts of interest.

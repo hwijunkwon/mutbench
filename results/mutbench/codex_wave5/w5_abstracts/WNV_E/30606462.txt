@@ -1,0 +1,53 @@
+1. Vaccine. 2019 Jul 9;37(30):4214-4221. doi: 10.1016/j.vaccine.2018.12.020. Epub
+ 2018 Dec 31.
+
+Advanced oxidation technology for the development of a next-generation 
+inactivated West Nile virus vaccine.
+
+Quintel BK(1), Thomas A(2), Poer DeRaad DE(1), Slifka MK(2), Amanna IJ(3).
+
+Author information:
+(1)Najít Technologies, Inc., Beaverton, OR, USA.
+(2)Division of Neuroscience, Oregon National Primate Research Center, Department 
+of Molecular Microbiology and Immunology, Oregon Health & Science University, 
+Beaverton, OR, USA.
+(3)Najít Technologies, Inc., Beaverton, OR, USA. Electronic address: 
+iamanna@najittech.com.
+
+West Nile virus (WNV) is the most frequent mosquito-borne disease reported in 
+the continental United States and although an effective veterinary vaccine 
+exists for horses, there is still no commercial vaccine approved for human use. 
+We have previously tested a 3% hydrogen peroxide (H2O2)-based WNV inactivation 
+approach termed, HydroVax, in Phase I clinical trials and the vaccine was found 
+to be safe and modestly immunogenic. Here, we describe an advanced, 
+next-generation oxidation approach (HydroVax-II) for the development of 
+inactivated vaccines that utilizes reduced concentrations of H2O2 in combination 
+with copper (cupric ions, Cu2+) complexed with the antiviral compound, 
+methisazone (MZ). Further enhancement of this oxidative approach included the 
+addition of a low percentage of formaldehyde, a cross-linking reagent with a 
+different mechanism of action that, together with H2O2/Cu/MZ, provides a robust 
+two-pronged approach to virus inactivation. Together, this new approach results 
+in rapid virus inactivation while greatly improving the maintenance of 
+WNV-specific neutralizing epitopes mapped across the three structural domains of 
+the WNV envelope protein. In combination with more refined manufacturing 
+techniques, this inactivation technology resulted in vaccine-mediated 
+WNV-specific neutralizing antibody responses that were 130-fold higher than that 
+observed using the first generation, H2O2-only vaccine approach and provided 
+100% protection against lethal WNV infection. This new approach to vaccine 
+development represents an important area for future investigation with the 
+potential not only for improving vaccines against WNV, but other clinically 
+relevant viruses as well.
+
+Copyright © 2018 Elsevier Ltd. All rights reserved.
+
+DOI: 10.1016/j.vaccine.2018.12.020
+PMCID: PMC6599721
+PMID: 30606462 [Indexed for MEDLINE]
+
+Conflict of interest statement: Conflict of Interest Statement: OHSU and MKS 
+have a financial interest in Najít Technologies, Inc., a company that may have a 
+commercial interest in the results of this research and technology. This 
+potential individual and institutional conflict of interest has been reviewed 
+and managed by OHSU. BKQ, DEPD and IJA are employees of Najít Technologies, Inc. 
+AT declares no relevant conflicts of interest. No writing assistance was 
+utilized in the production of this manuscript.

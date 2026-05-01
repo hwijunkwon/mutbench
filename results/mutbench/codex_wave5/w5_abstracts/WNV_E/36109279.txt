@@ -1,0 +1,53 @@
+1. Vaccine. 2022 Oct 6;40(42):6004-6011. doi: 10.1016/j.vaccine.2022.09.012. Epub
+ 2022 Sep 13.
+
+Engineered flavivirus vaccines control induction of crossreactive 
+infection-enhancing and -neutralizing antibodies.
+
+Yamanaka A(1), Rattanaamnuaychai P(2), Matsuda M(3), Suzuki R(3), Matsuura Y(4), 
+Tatsumi M(2), Konishi E(5).
+
+Author information:
+(1)Thailand-Japan Research Collaboration Center on Emerging and Re-emerging 
+Infections (RCC-ERI), Department of Medical Sciences, Ministry of Public Health, 
+Nonthaburi, Thailand; Mahidol-Osaka Center for Infectious Diseases, Faculty of 
+Tropical Medicine, Mahidol University, Bangkok, Thailand; BIKEN Endowed 
+Department of Dengue Vaccine Development, Faculty of Tropical Medicine, Mahidol 
+University, Bangkok, Thailand. Electronic address: knmya@biken.osaka-u.ac.jp.
+(2)Thailand-Japan Research Collaboration Center on Emerging and Re-emerging 
+Infections (RCC-ERI), Department of Medical Sciences, Ministry of Public Health, 
+Nonthaburi, Thailand.
+(3)Department of Virology II, National Institute of Infectious Diseases, Tokyo, 
+Japan.
+(4)Laboratory of Virus Control, Center for Infectious Disease Education and 
+Research, Osaka University, Suita, Osaka, Japan; Research Institute for 
+Microbial Diseases, Osaka University, Suita, Osaka, Japan.
+(5)BIKEN Endowed Department of Dengue Vaccine Development, Faculty of Tropical 
+Medicine, Mahidol University, Bangkok, Thailand.
+
+Flaviviruses are important human pathogens because of their global distribution 
+and disease severity. The high structural similarity among flaviviruses induces 
+cross-immunity, with individual flaviviruses exhibiting crossreactive 
+infection-enhancing and/or -neutralizing activities against other flaviviruses. 
+Unlike neutralizing antibodies, enhancing antibodies may increase the risk of 
+disease severity. Vaccine-induced enhancement remains a concern in the 
+development of flavivirus vaccines. Here, we immunized mice with DNA vaccine 
+candidates (pcJEME, pcWNME or pcZIKME) against Japanese encephalitis virus 
+(JEV), West Nile virus (WNV) or Zika virus (ZIKV), respectively, and 
+investigated crossreactive neutralizing and enhancing antibody activities 
+against seven flaviviruses. pcZIKME induced higher cross-neutralization against 
+dengue viruses than against JEV and WNV. Moreover, pcZIKME with a single amino 
+acid substitution (D87N) showed an increase in crossreactive neutralizing 
+activity and a decrease in enhancing activities against other flaviviruses. A 
+similar trend was observed in pcWNME. Engineered antigen might contribute to the 
+development of safe and effective flavivirus vaccines.
+
+Copyright © 2022 The Authors. Published by Elsevier Ltd.. All rights reserved.
+
+DOI: 10.1016/j.vaccine.2022.09.012
+PMID: 36109279 [Indexed for MEDLINE]
+
+Conflict of interest statement: Declaration of Competing Interest The authors 
+declare that they have no known competing financial interests or personal 
+relationships that could have appeared to influence the work reported in this 
+paper.

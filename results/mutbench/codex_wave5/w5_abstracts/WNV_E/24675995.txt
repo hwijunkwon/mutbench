@@ -1,0 +1,66 @@
+1. PLoS One. 2014 Mar 27;9(3):e93541. doi: 10.1371/journal.pone.0093541. 
+eCollection 2014.
+
+Generation and analysis of novel plant-derived antibody-based therapeutic 
+molecules against West Nile virus.
+
+He J(1), Lai H(1), Engle M(2), Gorlatov S(3), Gruber C(4), Steinkellner H(5), 
+Diamond MS(6), Chen Q(7).
+
+Author information:
+(1)The Biodesign Institute and School of Life Sciences, Arizona State 
+University, Tempe, Arizona, United States of America.
+(2)Department of Medicine, Washington University School of Medicine, St Louis, 
+Missouri, United States of America.
+(3)MacroGenics, Inc, Rockville, Maryland, United States of America.
+(4)Department of Chemistry, University of Natural Resources and Applied Life 
+Sciences, Vienna, Austria.
+(5)Department of Applied Genetics and Cell Biology, University of Natural 
+Resources and Applied Life Sciences, Vienna, Austria.
+(6)Department of Medicine, Washington University School of Medicine, St Louis, 
+Missouri, United States of America; Department of Molecular Microbiology, 
+Washington University School of Medicine, St Louis, Missouri, United States of 
+America; Department of Pathology & Immunology, Washington University School of 
+Medicine, St Louis, Missouri, United States of America.
+(7)The Biodesign Institute and School of Life Sciences, Arizona State 
+University, Tempe, Arizona, United States of America; College of Technology and 
+Innovation, Arizona State University, Mesa, Arizona, United States of America.
+
+Previously, our group engineered a plant-derived monoclonal antibody (MAb) 
+(pHu-E16) that efficiently treated West Nile virus (WNV) infection in mice. In 
+this study, we developed several pHu-E16 variants to improve its efficacy. These 
+variants included a single-chain variable fragment (scFv) of pHu-E16 fused to 
+the heavy chain (HC) constant domains (CH(1-3)) of human IgG 
+(pHu-E16scFv-CH(1-3)) and a tetravalent molecule (Tetra pHu-E16) assembled from 
+pHu-E16scFv-CH(1-3) with a second pHu-E16scFv fused to the light chain (LC) 
+constant region. pHu-E16scFv-CH(1-3) and Tetra pHu-E16 were efficiently 
+expressed and assembled in plants. To assess the impact of differences in 
+N-linked glycosylation on pHu-E16 variant assembly and function, we expressed 
+additional pHu-E16 variants with various combinations of HC and LC components. 
+Our study revealed that proper pairing of HC and LC was essential for the 
+complete N-glycan processing of antibodies in both plant and animal cells. 
+Associated with their distinct N-glycoforms, pHu-E16, pHu-E16scFv-CH(1-3) and 
+Tetra pHu-E16 exhibited differential binding to C1q and specific Fcγ receptors 
+(FcγR). Notably, none of the plant-derived Hu-E16 variants showed 
+antibody-dependent enhancement (ADE) activity in CD32A+ human cells, suggesting 
+the potential of plant-produced antibodies to minimize the adverse effect of 
+ADE. Importantly, all plant-derived MAb variants exhibited at least equivalent 
+in vitro neutralization and in vivo protection in mice compared to mammalian 
+cell-produced Hu-E16. This study demonstrates the capacity of plants to express 
+and assemble a large, complex and functional IgG-like tetravalent mAb variant 
+and also provides insight into the relationship between MAb N-glycosylation, 
+FcγR and C1q binding, and ADE. These new insights may allow the development of 
+safer and cost effective MAb-based therapeutics for flaviviruses, and possibly 
+other pathogens.
+
+DOI: 10.1371/journal.pone.0093541
+PMCID: PMC3968140
+PMID: 24675995 [Indexed for MEDLINE]
+
+Conflict of interest statement: Competing Interests: S. Gorlatov is an employee 
+of MacroGenics, Inc, which has licensed the WNV E16 antibody from Washington 
+University for possible commercial development. Additionally, M. Diamond is a 
+paid consultant for MacroGenics and owns equity in MacroGenics. These 
+relationships do not alter the authors' adherence to PLOS ONE policies on 
+sharing data and materials. None of the other authors have a potential financial 
+stake or conflict of interest associated with the publication of this work.

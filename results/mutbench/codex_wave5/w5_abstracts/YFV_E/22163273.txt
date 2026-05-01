@@ -1,0 +1,44 @@
+1. PLoS One. 2011;6(12):e27753. doi: 10.1371/journal.pone.0027753. Epub 2011 Dec
+7.
+
+Elderly subjects have a delayed antibody response and prolonged viraemia 
+following yellow fever vaccination: a prospective controlled cohort study.
+
+Roukens AH(1), Soonawala D, Joosten SA, de Visser AW, Jiang X, Dirksen K, de 
+Gruijter M, van Dissel JT, Bredenbeek PJ, Visser LG.
+
+Author information:
+(1)Department of Infectious Diseases, Leiden University Medical Center, Leiden, 
+The Netherlands. a.h.e.roukens@lumc.nl
+
+BACKGROUND: Yellow fever vaccination (YF-17D) can cause serious adverse events 
+(SAEs). The mechanism of these SAEs is poorly understood. Older age has been 
+identified as a risk factor. We tested the hypothesis that the humoral immune 
+response to yellow fever vaccine develops more slowly in elderly than in younger 
+subjects.
+METHOD: We vaccinated young volunteers (18-28 yrs, N = 30) and elderly travelers 
+(60-81 yrs, N = 28) with YF-17D and measured their neutralizing antibody titers 
+and plasma YF-17D RNA copy numbers before vaccination and 3, 5, 10, 14 and 28 
+days after vaccination.
+RESULTS: Ten days after vaccination seroprotection was attained by 77% (23/30) 
+of the young participants and by 50% (14/28) of the elderly participants 
+(p = 0.03). Accordingly, the Geometric Mean Titer of younger participants was 
+higher than the GMT of the elderly participants. At day 10 the difference was 
++2.9 IU/ml (95% CI 1.8-4.7, p = 0.00004) and at day 14 +1.8 IU/ml (95% CI 
+1.1-2.9, p = 0.02, using a mixed linear model. Viraemia was more common in the 
+elderly (86%, 24/28) than in the younger participants (60%, 14/30) (p = 0.03) 
+with higher YF-17D RNA copy numbers in the elderly participants.
+CONCLUSIONS: We found that elderly subjects had a delayed antibody response and 
+higher viraemia levels after yellow fever primovaccination. We postulate that 
+with older age, a weaker immune response to yellow fever vaccine allows the 
+attenuated virus to cause higher viraemia levels which may increase the risk of 
+developing SAEs. This may be one piece in the puzzle of the pathophysiology of 
+YEL-AVD.
+TRIAL REGISTRATION: Trialregitser.nl NTR1040.
+
+DOI: 10.1371/journal.pone.0027753
+PMCID: PMC3233541
+PMID: 22163273 [Indexed for MEDLINE]
+
+Conflict of interest statement: Competing Interests: The authors have declared 
+that no competing interests exist.

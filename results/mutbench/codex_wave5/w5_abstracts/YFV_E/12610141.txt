@@ -1,0 +1,43 @@
+1. J Virol. 2003 Mar;77(6):3655-68. doi: 10.1128/jvi.77.6.3655-3668.2003.
+
+Yellow fever virus/dengue-2 virus and yellow fever virus/dengue-4 virus 
+chimeras: biological characterization, immunogenicity, and protection against 
+dengue encephalitis in the mouse model.
+
+Chambers TJ(1), Liang Y, Droll DA, Schlesinger JJ, Davidson AD, Wright PJ, Jiang 
+X.
+
+Author information:
+(1)Department of Molecular Microbiology and Immunology, St. Louis University 
+School of Medicine, St. Louis, Missouri 63104, USA. chambetj@slu.edu
+
+Two yellow fever virus (YFV)/dengue virus chimeras which encode the prM and E 
+proteins of either dengue virus serotype 2 (dengue-2 virus) or dengue-4 virus 
+within the genome of the YFV 17D strain (YF5.2iv infectious clone) were 
+constructed and characterized for their properties in cell culture and as 
+experimental vaccines in mice. The prM and E proteins appeared to be properly 
+processed and glycosylated, and in plaque reduction neutralization tests and 
+other assays of antigenic specificity, the E proteins exhibited profiles which 
+resembled those of the homologous dengue virus serotypes. Both chimeric viruses 
+replicated in cell lines of vertebrate and mosquito origin to levels comparable 
+to those of homologous dengue viruses but less efficiently than the YF5.2iv 
+parent. YFV/dengue-4 virus, but not YFV/dengue-2 virus, was neurovirulent for 
+3-week-old mice by intracerebral inoculation; however, both viruses were 
+attenuated when administered by the intraperitoneal route in mice of that age. 
+Single-dose inoculation of either chimeric virus at a dose of 10(5) PFU by the 
+intraperitoneal route induced detectable levels of neutralizing antibodies 
+against the homologous dengue virus strains. Mice which had been immunized in 
+this manner were fully protected from challenge with homologous neurovirulent 
+dengue viruses by intracerebral inoculation compared to unimmunized mice. 
+Protection was associated with significant increases in geometric mean titers of 
+neutralizing antibody compared to those for unimmunized mice. These data 
+indicate that YFV/dengue virus chimeras elicit antibodies which represent 
+protective memory responses in the mouse model of dengue encephalitis. The 
+levels of neurovirulence and immunogenicity of the chimeric viruses in mice 
+correlate with the degree of adaptation of the dengue virus strain to mice. This 
+study supports ongoing investigations concerning the use of this technology for 
+development of a live attenuated viral vaccine against dengue viruses.
+
+DOI: 10.1128/jvi.77.6.3655-3668.2003
+PMCID: PMC149507
+PMID: 12610141 [Indexed for MEDLINE]

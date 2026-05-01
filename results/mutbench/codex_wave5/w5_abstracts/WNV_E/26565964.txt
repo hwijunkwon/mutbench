@@ -1,0 +1,42 @@
+1. PLoS Negl Trop Dis. 2015 Nov 13;9(11):e0004218. doi: 
+10.1371/journal.pntd.0004218. eCollection 2015 Nov.
+
+Recombinant Envelope-Proteins with Mutations in the Conserved Fusion Loop Allow 
+Specific Serological Diagnosis of Dengue-Infections.
+
+Rockstroh A(1), Barzon L(2), Pacenti M(2), Palù G(2), Niedrig M(3), Ulbert S(1).
+
+Author information:
+(1)Department of Immunology, Fraunhofer Institute for Cell Therapy and 
+Immunology, Leipzig, Germany.
+(2)Department of Molecular Medicine, University of Padova, Padova, Italy.
+(3)Robert Koch Institute, Berlin, Germany.
+
+Dengue virus (DENV) is a mosquito-borne flavivirus and a major international 
+public health concern in many tropical and sub-tropical areas worldwide. DENV is 
+divided into four major serotypes, and infection with one serotype leads to 
+immunity against the same, but not the other serotypes. The specific diagnosis 
+of DENV-infections via antibody-detection is problematic due to the high degree 
+of cross-reactivity displayed by antibodies against related flaviviruses, such 
+as West Nile virus (WNV), Yellow Fever virus (YFV) or Tick-borne encephalitis 
+virus (TBEV). Especially in areas where several flaviviruses co-circulate or in 
+the context of vaccination e.g. against YFV or TBEV, this severely complicates 
+diagnosis and surveillance. Most flavivirus cross-reactive antibodies are 
+produced against the highly conserved fusion loop (FL) domain in the viral 
+envelope (E) protein. We generated insect-cell derived recombinant E-proteins of 
+the four DENV-serotypes which contain point mutations in the FL domain. By using 
+specific mixtures of these mutant antigens, cross-reactivity against 
+heterologous flaviviruses was strongly reduced, enabling sensitive and specific 
+diagnosis of the DENV-infected serum samples in IgG and IgM-measurements. These 
+results have indications for the development of serological DENV-tests with 
+improved specificity.
+
+DOI: 10.1371/journal.pntd.0004218
+PMCID: PMC4643925
+PMID: 26565964 [Indexed for MEDLINE]
+
+Conflict of interest statement: I have read the journal's policy and the authors 
+of this manuscript have the following competing interests: SU is author on a 
+patent application which includes some of the proteins described in the study. 
+This does not alter our adherence to all PLOS policies on sharing data and 
+materials.

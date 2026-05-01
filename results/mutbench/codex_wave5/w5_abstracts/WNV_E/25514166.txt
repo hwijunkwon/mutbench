@@ -1,0 +1,30 @@
+1. Monoclon Antib Immunodiagn Immunother. 2014 Dec;33(6):438-43. doi: 
+10.1089/mab.2014.0047.
+
+Generation and characterization of a monoclonal antibody against prM protein of 
+West Nile virus.
+
+Guo LP(1), Huo H, Wang XL, Bu ZG, Hua RH.
+
+Author information:
+(1)State Key Laboratory of Veterinary Biotechnology, Harbin Veterinary Research 
+Institute, Chinese Academy of Agricultural Sciences , Harbin, Heilongjiang, 
+People's Republic of China .
+
+West Nile virus (WNV), which is an emerging pathogenic flavivirus with 
+increasing distribution worldwide, is the cause of major human and animal health 
+concerns. The pre-membrane (prM) protein of WNV is cleaved during maturation by 
+the furin protease into the structural protein M and a pr-segment. In this study 
+we generated and characterized a monoclonal antibody (MAb) against the WNV prM 
+protein. Western blot analysis showed that the MAb reacted with WNV prM 
+specifically. Immunohistochemistry assays demonstrated that the MAb recognized 
+native prM protein in transfected BHK-21 cells. Preliminary studies were 
+performed to identify the epitope recognized by the MAb using a set of 
+synthesized overlapping peptides spanning the whole length of the prM protein. 
+The MAb reported here may provide a valuable tool for the further exploration of 
+the biological properties and functions of the prM protein and may also be 
+developed for potential clinical applications.
+
+DOI: 10.1089/mab.2014.0047
+PMCID: PMC4278081
+PMID: 25514166 [Indexed for MEDLINE]

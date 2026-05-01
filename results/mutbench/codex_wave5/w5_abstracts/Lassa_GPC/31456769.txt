@@ -1,0 +1,45 @@
+1. Front Microbiol. 2019 Aug 13;10:1829. doi: 10.3389/fmicb.2019.01829.
+eCollection  2019.
+
+Crystal Structure of Refolding Fusion Core of Lassa Virus GP2 and Design of 
+Lassa Virus Fusion Inhibitors.
+
+Zhang X(1)(2), Wang C(3), Chen B(1), Wang Q(3), Xu W(3), Ye S(1)(4), Jiang 
+S(3)(5), Zhu Y(1), Zhang R(1)(6).
+
+Author information:
+(1)National Laboratory of Biomacromolecules, Institute of Biophysics, Chinese 
+Academy of Sciences, Beijing, China.
+(2)College of Life Sciences, University of Chinese Academy of Sciences, Beijing, 
+China.
+(3)Key Laboratory of Medical Molecular Virology of MOE/MOH/CAMS, School of Basic 
+Medical Sciences and Shanghai Public Health Clinical Center, Fudan-Jinbo Joint 
+Research Center, Fudan University, Shanghai, China.
+(4)Interdisciplinary Innovation Institute of Medicine and Engineering, Beijing 
+Advanced Innovation Center for Big Data-Based Precision Medicine, School of 
+Biological Science and Medical Engineering, Beihang University, Beijing, China.
+(5)Lindsley F. Kimball Research Institute, New York Blood Center, New York, NY, 
+United States.
+(6)National Center for Protein Science Shanghai, Shanghai Institute of 
+Biochemistry and Cell Biology, Shanghai Institutes for Biological Sciences, 
+Chinese Academy of Sciences, Shanghai, China.
+
+The envelope glycoproteins GP1 and GP2 of Lassa virus (LASV) bind to the host 
+cell receptors to mediate viral infection. So far, no approved vaccines and 
+specific treatment options against LASV exist. To develop specific fusion 
+inhibitors against LASV, we solved the crystal structure of the post-fusion 6 
+helix bundle (6-HB) formed by two heptad repeat domains (HR1 and HR2) of GP2. 
+This fusion core contains a parallel trimeric coiled-coil of three HR1 helices, 
+around which three HR2 helices are entwined in an antiparallel manner. Various 
+hydrophobic and charged interactions form between HR1 and HR2 domains to 
+stabilize the overall conformation of GP2 fusion core. Based on the structure, 
+we designed several peptides spanning the HR2 domain and tested their antiviral 
+activities. We found that the longer HR2 peptides were effective in inhibiting 
+LASV GPC protein-mediated cell-cell fusion under low pH condition. These results 
+not only suggest that LASV infects the target cell mainly through endocytosis, 
+including micropinocytosis, and membrane fusion at low pH, but also provide an 
+important basis for rational design of LASV fusion inhibitors.
+
+DOI: 10.3389/fmicb.2019.01829
+PMCID: PMC6700223
+PMID: 31456769

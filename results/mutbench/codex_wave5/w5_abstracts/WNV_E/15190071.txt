@@ -1,0 +1,35 @@
+1. J Biol Chem. 2004 Sep 10;279(37):38755-61. doi: 10.1074/jbc.M402385200. Epub 
+2004 Jun 9.
+
+Solution structure and antibody binding studies of the envelope protein domain 
+III from the New York strain of West Nile virus.
+
+Volk DE(1), Beasley DW, Kallick DA, Holbrook MR, Barrett AD, Gorenstein DG.
+
+Author information:
+(1)Sealy Center for Structural Biology, University of Texas Medical Branch, 
+Galveston, Texas 77555-1147, USA.
+
+The solution structure of domain III from the New York West Nile virus strain 
+385-99 (WN-rED3) has been determined by NMR methods. The West Nile domain III 
+structure is a beta-barrel structure formed from seven anti-parallel 
+beta-strands in two beta-sheets. One anti-parallel beta-sheet consists of 
+beta-strands beta1 (Phe(299)-Asp(307)), beta2 (Val(313)-Tyr(319)), beta4 
+(Arg(354)-Leu(355)), and beta5 (Lys(370)-Glu(376)) arranged so that beta2 is 
+flanked on either side by beta1 and beta5. The short beta4 flanks the end of the 
+remaining side of beta5. The remaining anti-parallel beta-sheet is formed from 
+strands beta3 (Ile(340)-Val(343)), beta6 (Gly(380)-Arg(388)), and beta7 
+(Gln(391)-Lys(399)) arranged with beta6 at the center. Residues implicated in 
+antigenic differences between different West Nile virus strains (and other 
+flaviviruses) and neutralization are located on the outer surface of the 
+protein. Characterization of the binding of monoclonal antibodies to WN-rED3 
+mutants, which were identified through neutralization escape experiments, 
+indicate that antibody neutralization directly correlates with binding 
+affinities. These studies provide an insight into theoretical virus-receptor 
+interaction points, structure of immunogenic determinants, and potential targets 
+for antiviral agents against West Nile virus and highlight differences between 
+West Nile virus and other flavivirus structures that may represent critical 
+determinants of virulence.
+
+DOI: 10.1074/jbc.M402385200
+PMID: 15190071 [Indexed for MEDLINE]

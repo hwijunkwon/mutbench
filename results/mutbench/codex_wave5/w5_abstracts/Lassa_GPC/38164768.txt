@@ -1,0 +1,63 @@
+1. Emerg Microbes Infect. 2024 Dec;13(1):2301061. doi: 
+10.1080/22221751.2023.2301061. Epub 2024 Jan 22.
+
+Monoclonal antibody therapy demonstrates increased virulence of a lineage VII 
+strain of Lassa virus in nonhuman primates.
+
+Woolsey C(1)(2), Cross RW(1)(2), Prasad AN(1)(2), Agans KN(1)(2), Borisevich 
+V(1)(2), Deer DJ(1)(2), Dobias NS(1)(2), Fears AC(1)(2), Harrison MB(1)(2), 
+Heinrich ML(3), Fenton KA(1)(2), Garry RF(3)(4), Branco LM(3), Geisbert 
+TW(1)(2).
+
+Author information:
+(1)Galveston National Laboratory, University of Texas Medical Branch, Galveston, 
+TX, USA.
+(2)Department of Microbiology and Immunology, University of Texas Medical 
+Branch, Galveston, TX, USA.
+(3)Zalgen Labs, LLC, Frederick, MD, USA.
+(4)Department of Microbiology and Immunology, Tulane University School of 
+Medicine, New Orleans, LA, USA.
+
+Lassa virus (LASV) is a World Health Organization (WHO) priority pathogen that 
+causes high morbidity and mortality. Recently, we showed that a combination of 
+three broadly neutralizing human monoclonal antibodies known as Arevirumab-3 
+(8.9F, 12.1F, 37.2D) based on the lineage IV Josiah strain protected 100% of 
+cynomolgus macaques against heterologous challenge with lineage II and III 
+strains of LASV when therapy was initiated beginning at day 8 after challenge. 
+LASV strains from Benin and Togo represent a new lineage VII that are more 
+genetically diverse from lineage IV than strains from lineages II and III. Here, 
+we tested the ability of Arevirumab-3 to protect macaques against a LASV lineage 
+VII Togo isolate when treatment was administered beginning 8 days after 
+exposure. Unexpectedly, only 40% of treated animals survived challenge. In a 
+subsequent study we showed that Arevirumab-3 protected 100% of macaques from 
+lethal challenge when treatment was initiated 7 days after LASV Togo exposure. 
+Based on our transcriptomics data, successful Arevirumab-3 treatment correlated 
+with diminished neutrophil signatures and the predicted development of T cell 
+responses. As the in vitro antiviral activity of Arevirumab-3 against LASV Togo 
+was equivalent to lineage II and III strains, the reduced protection in macaques 
+against Togo likely reflects the faster disease course of LASV Togo in macaques 
+than other strains. This data causes concern regarding the ability of 
+heterologous vaccines and treatments to provide cross protection against lineage 
+VII LASV isolates.
+
+DOI: 10.1080/22221751.2023.2301061
+PMCID: PMC10810630
+PMID: 38164768 [Indexed for MEDLINE]
+
+Conflict of interest statement: LMB, RFG, and TWG are named on a provisional 
+World International Property Organization patent entitled “Arenavirus Monoclonal 
+Antibodies and Uses” (International publication number WO 2018/106712 A1 filed 
+on 14 June 2018) and on a US Patent application entitled “Arenavirus Monoclonal 
+Antibodies and Uses” (Publication number US 2022/0089696 A1 filed on 24 March 
+2022). LMB and RFG are co-founders of Zalgen Labs. LMB receives compensation 
+from Zalgen Labs. RFG does not receive compensation from Zalgen Labs. LMB and 
+MLH are employed by Zalgen Labs and receive compensation from the company. The 
+other authors declare no competing interests. LMB, RFG, and TWG are named on a 
+provisional World International Property Organization patent entitled 
+“Arenavirus Monoclonal Antibodies and Uses” (International publication number WO 
+2018/106712 A1 filed on 14 June 2018) and on a US Patent application entitled 
+“Arenavirus Monoclonal Antibodies and Uses” (Publication number US 2022/0089696 
+A1 filed on 24 March 2022). LMB and RFG are co-founders of Zalgen Labs. LMB 
+receives compensation from Zalgen Labs. RFG does not receive compensation from 
+Zalgen Labs. LMB is employed by Zalgen Labs and receive compensation from the 
+company. The other authors declare no competing interests.

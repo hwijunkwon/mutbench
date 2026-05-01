@@ -1,0 +1,35 @@
+1. J Virol. 2008 Nov;82(21):10768-75. doi: 10.1128/JVI.00941-08. Epub 2008 Aug
+20.
+
+Identification of a broad-spectrum arenavirus entry inhibitor.
+
+Larson RA(1), Dai D, Hosack VT, Tan Y, Bolken TC, Hruby DE, Amberg SM.
+
+Author information:
+(1)SIGA Technologies, Inc., Corvallis, Oregon 97333, USA.
+
+Several arenaviruses, including Lassa virus (LASV), are causative agents of 
+hemorrhagic fever, for which effective therapeutic options are lacking. The LASV 
+envelope glycoprotein (GP) gene was used to generate lentiviral pseudotypes to 
+identify small-molecule inhibitors of viral entry. A benzimidazole derivative 
+with potent antiviral activity was identified from a high-throughput screen 
+utilizing this strategy. Subsequent lead optimization for antiviral activity 
+identified a modified structure, ST-193, with a 50% inhibitory concentration 
+(IC(50)) of 1.6 nM against LASV pseudotypes. ST-193 inhibited pseudotypes 
+generated with other arenavirus envelopes as well, including the remaining four 
+commonly associated with hemorrhagic fever (IC(50)s for Junín, Machupo, 
+Guanarito, and Sabiá were in the 0.2 to 12 nM range) but exhibited no antiviral 
+activity against pseudotypes incorporating either the GP from the LASV-related 
+arenavirus lymphocytic choriomeningitis virus (LCMV) or the unrelated G protein 
+from vesicular stomatitis virus, at concentrations of up to 10 microM. 
+Determinants of ST-193 sensitivity were mapped through a combination of 
+LASV-LCMV domain-swapping experiments, genetic selection of viral variants, and 
+site-directed mutagenesis. Taken together, these studies demonstrate that 
+sensitivity to ST-193 is dictated by a segment of about 30 amino acids within 
+the GP2 subunit. This region includes the carboxy-terminal region of the 
+ectodomain and the predicted transmembrane domain of the envelope protein, 
+revealing a novel antiviral target within the arenavirus envelope GP.
+
+DOI: 10.1128/JVI.00941-08
+PMCID: PMC2573164
+PMID: 18715909 [Indexed for MEDLINE]

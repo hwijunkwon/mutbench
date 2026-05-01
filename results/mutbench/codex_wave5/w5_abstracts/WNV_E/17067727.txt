@@ -1,0 +1,36 @@
+1. Vaccine. 2007 Apr 12;25(15):2913-8. doi: 10.1016/j.vaccine.2006.08.008. Epub 
+2006 Aug 22.
+
+Efficacy and durability of a recombinant subunit West Nile vaccine candidate in 
+protecting hamsters from West Nile encephalitis.
+
+Watts DM(1), Tesh RB, Siirin M, Rosa AT, Newman PC, Clements DE, Ogata S, Coller 
+BA, Weeks-Levy C, Lieberman MM.
+
+Author information:
+(1)University of Texas Medical Branch, 301 University Boulevard, Galveston, TX 
+77551, USA.
+
+The efficacy of a new recombinant subunit West Nile virus (WNV) vaccine 
+candidate was determined in a hamster model of meningoencephalitis. Groups of 
+hamsters were immunized subcutaneously with a WNV recombinant envelope protein 
+(80E) with or without WNV non-structural protein 1 (NS1) mixed with adjuvant or 
+adjuvant alone. At 2 weeks, 6 months, and 12 months after two immunizations at 4 
+week intervals with the respective immunogens, groups of animals were challenged 
+via the intraperitoneal route with a virulent strain of WNV. The two recombinant 
+antigen preparations gave similar results; hamsters in both groups had a strong 
+antibody response following immunization, and none of the animals became ill or 
+developed detectable viremia after challenge with WNV at 2 weeks or 6 months 
+post-booster vaccination. In contrast, mortality among the control animals at 2 
+weeks post-booster challenge was 73%, and at 6 months post-booster, the 
+mortality was 53% among the control animals. When challenged 12 months after the 
+booster vaccination, a low level viremia was detected in some of the vaccinated 
+hamsters, and one hamster became sick, but recovered. In contrast, all of the 
+control animals that received adjuvant only developed a viremia, and the 
+mortality rate was 77%. These results with the recombinant subunit WNV vaccine 
+are very encouraging and warrant further animal studies to evaluate its 
+potential use to protect humans against WNV disease.
+
+DOI: 10.1016/j.vaccine.2006.08.008
+PMCID: PMC1876746
+PMID: 17067727 [Indexed for MEDLINE]

@@ -1,0 +1,39 @@
+1. Sci Rep. 2020 Jun 15;10(1):9625. doi: 10.1038/s41598-020-66344-8.
+
+Using Accelerated Molecular Dynamics Simulation to elucidate the effects of the 
+T198F mutation on the molecular flexibility of the West Nile virus envelope 
+protein.
+
+Valente RPDP(1)(2), Souza RC(1), de Medeiros Muniz G(1), Ferreira JEV(3), de 
+Miranda RM(3), E Lima AHL(2), Vianez Junior JLDSG(4).
+
+Author information:
+(1)Center for Technological Innovation, Evandro Chagas Institute, Ministry of 
+Health, Ananindeua, PA, 67030-000, Brazil.
+(2)Laboratório de Planejamento e Desenvolvimento de Fármacos, Instituto de 
+Ciências Exatas e Naturais, Universidade Federal do Pará, 66075-110, Belém, PA, 
+Brasil.
+(3)Federal Institute of Education, Science and Technology of Pará, Tucuruí, PA, 
+68455695, Brazil.
+(4)Center for Technological Innovation, Evandro Chagas Institute, Ministry of 
+Health, Ananindeua, PA, 67030-000, Brazil. vianez.iec@gmail.com.
+
+The envelope (E) protein is an important target for antibodies in flavivirus. 
+Literature reports that the mutation T198F, located at the domain I-II hinge of 
+the E protein, regulates viral breathing and increases the accessibility of a 
+distal cryptic epitope located on the fusion loop, having a direct impact in the 
+neutralization of West Nile virus (WNV). Our study aimed to describe, using 
+accelerated molecular dynamics simulations, the effects of the T198F mutation in 
+the flexibility of the E protein of WNV and to elucidate the mechanism that 
+regulates epitope accessibility. The simulation results revealed that the 
+mutation favors the formation of alternative hydrogen bonds, hampering the 
+bending movement between domains I and II. We hypothesized that this is the 
+mechanism by which the T198F mutation, located at the middle of the protein, 
+locks the distal cryptc epitope near a single preferred conformation, rendering 
+it more prone to recognition by antibodies.
+
+DOI: 10.1038/s41598-020-66344-8
+PMCID: PMC7296010
+PMID: 32541675 [Indexed for MEDLINE]
+
+Conflict of interest statement: The authors declare no competing interests.

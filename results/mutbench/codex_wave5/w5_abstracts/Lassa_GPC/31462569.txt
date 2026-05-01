@@ -1,0 +1,57 @@
+1. J Virol. 2019 Oct 29;93(22):e01277-19. doi: 10.1128/JVI.01277-19. Print 2019
+Nov  15.
+
+Biological Characterization of Conserved Residues within the Cytoplasmic Tail of 
+the Pichinde Arenaviral Glycoprotein Subunit 2 (GP2).
+
+Shao J(1), Huang Q(1), Liu X(1), Di D(1), Dileepan M(1), Brisse M(1), Ly 
+H(#)(1), Liang Y(#)(2).
+
+Author information:
+(1)Department of Veterinary and Biomedical Sciences, University of Minnesota, 
+Twin Cities, Minnesota, USA.
+(2)Department of Veterinary and Biomedical Sciences, University of Minnesota, 
+Twin Cities, Minnesota, USA liangy@umn.edu.
+(#)Contributed equally
+
+Several mammarenaviruses can cause deadly hemorrhagic fever infections in 
+humans, with limited preventative and therapeutic measures available. Arenavirus 
+cell entry is mediated by the viral glycoprotein (GP) complex, which consists of 
+the stable signal peptide (SSP), the receptor-binding subunit GP1, and the 
+transmembrane subunit GP2. The GP2 cytoplasmic tail (CT) is relatively conserved 
+among arenaviruses and is known to interact with the SSP to regulate GP 
+processing and membrane fusion, but its biological role in the context of an 
+infectious virus has not been fully characterized. Using a Pichinde virus (PICV) 
+GP expression vector and a PICV reverse genetics system, we systematically 
+characterized the functional roles of 12 conserved residues within the GP2 CT in 
+GP processing, trafficking, assembly, and fusion, as well as in viral 
+replication. Except for P478A and K505A R508A, alanine substitutions at 
+conserved residues abolished GP processing and membrane fusion in 
+plasmid-transfected cells. Six invariant H and C residues and W503 are essential 
+for viral replication, as evidenced by the fact that their mutant viruses could 
+not be rescued. Both P480A and R482A mutant viruses were rescued, grew similarly 
+to wild-type (WT) virus, and produced evidently processed GP1 and GP2 subunits 
+in virus-infected cells, despite the fact that the same mutations abolished GP 
+processing and membrane fusion in a plasmid-based protein expression system, 
+illustrating the importance of using an infectious-virus system for analyzing 
+viral glycoprotein function. In summary, our results demonstrate an essential 
+biological role of the GP2 CT in arenavirus replication and suggest it as a 
+potential novel target for developing antivirals and/or attenuated viral vaccine 
+candidates.IMPORTANCE Several arenaviruses, such as Lassa virus (LASV), can 
+cause severe and lethal hemorrhagic fever diseases with high mortality and 
+morbidity, for which no FDA-approved vaccines or therapeutics are available. 
+Viral entry is mediated by the arenavirus GP complex, which consists of the 
+stable signal peptide (SSP), the receptor-binding subunit GP1, and the 
+transmembrane subunit GP2. The cytoplasmic tail (CT) of GP2 is highly conserved 
+among arenaviruses, but its functional role in viral replication is not 
+completely understood. Using a reverse genetics system of a prototypic 
+arenavirus, Pichinde virus (PICV), we show that the GP2 CT contains certain 
+conserved residues that are essential for virus replication, implicating it as a 
+potentially good target for developing antivirals and live-attenuated viral 
+vaccines against deadly arenavirus pathogens.
+
+Copyright © 2019 American Society for Microbiology.
+
+DOI: 10.1128/JVI.01277-19
+PMCID: PMC6819926
+PMID: 31462569 [Indexed for MEDLINE]

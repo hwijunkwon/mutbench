@@ -1,0 +1,39 @@
+1. Cancer Immunol Immunother. 2010 Apr;59(4):563-73. doi: 
+10.1007/s00262-009-0774-8. Epub 2009 Sep 25.
+
+Direct discovery and validation of a peptide/MHC epitope expressed in primary 
+human breast cancer cells using a TCRm monoclonal antibody with profound 
+antitumor properties.
+
+Verma B(1), Hawkins OE, Neethling FA, Caseltine SL, Largo SR, Hildebrand WH, 
+Weidanz JA.
+
+Author information:
+(1)Department of Pharmaceutical Sciences, School of Pharmacy, Center for 
+Immunotherapeutic Research, Texas Tech University Health Sciences Center, 1718 
+Pine Street, Abilene, TX 79601, USA.
+
+The identification and validation of new cancer-specific T cell epitopes 
+continues to be a major area of research interest. Nevertheless, challenges 
+remain to develop strategies that can easily discover and validate epitopes 
+expressed in primary cancer cells. Regarded as targets for T cells, peptides 
+presented in the context of the major histocompatibility complex (MHC) are 
+recognized by monoclonal antibodies (mAbs). These mAbs are of special importance 
+as they lend themselves to the detection of epitopes expressed in primary tumor 
+cells. Here, we use an approach that has been successfully utilized in two 
+different infectious disease applications (WNV and influenza). A direct 
+peptide-epitope discovery strategy involving mass spectrometric analysis led to 
+the identification of peptide YLLPAIVHI in the context of MHC A*02 allele 
+(YLL/A2) from human breast carcinoma cell lines. We then generated and 
+characterized an anti-YLL/A2 mAb designated as RL6A TCRm. Subsequently, the TCRm 
+mAb was used to directly validate YLL/A2 epitope expression in human breast 
+cancer tissue, but not in normal control breast tissue. Moreover, mice implanted 
+with human breast cancer cells grew tumors, yet when treated with RL6A TCRm 
+showed a marked reduction in tumor size. These data demonstrate for the first 
+time a coordinated direct discovery and validation strategy that identified a 
+peptide/MHC complex on primary tumor cells for antibody targeting and provide a 
+novel approach to cancer immunotherapy.
+
+DOI: 10.1007/s00262-009-0774-8
+PMCID: PMC11031085
+PMID: 19779714 [Indexed for MEDLINE]

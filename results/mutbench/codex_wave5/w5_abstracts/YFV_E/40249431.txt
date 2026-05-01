@@ -1,0 +1,22 @@
+1. Methods Mol Biol. 2025;2913:141-151. doi: 10.1007/978-1-0716-4458-4_12.
+
+Detection of Viral Particles in Paraffinized Tissues and Cell Culture by 
+Indirect Immunofluorescence.
+
+Souza Y(1), de Oliveira B(1), Pelajo-Machado M(1), Manso PP(1).
+
+Author information:
+(1)Laboratory of Experimental Medicine and Health (LAMES), Oswaldo Cruz 
+Institute (IOC), Oswaldo Cruz Foundation (Fiocruz), Rio de Janeiro, RJ, Brazil.
+
+Immunofluorescence enables detection of proteins in tissue and cell culture. The 
+specific reaction between the complex antigen-antibody confers security to 
+detection. Disclosure of proteins of interest by fluorochrome allows a 
+perception of its spatial distribution and location. Here we describe the 
+technique of indirect immunofluorescence for detection of E protein from yellow 
+fever virus in paraffinized tissue and in cell cultures.
+
+© 2025. Springer Science+Business Media, LLC, part of Springer Nature.
+
+DOI: 10.1007/978-1-0716-4458-4_12
+PMID: 40249431 [Indexed for MEDLINE]

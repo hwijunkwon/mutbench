@@ -1,0 +1,43 @@
+1. Virol J. 2009 Sep 24;6:147. doi: 10.1186/1743-422X-6-147.
+
+Characterization of the Lassa virus GP1 ectodomain shedding: implications for 
+improved diagnostic platforms.
+
+Branco LM(1), Garry RF.
+
+Author information:
+(1)Tulane University Health Sciences Center, New Orleans, LA, USA. 
+lbranco@tulane.edu
+
+BACKGROUND: There is a significant requirement for the development and 
+acquisition of reagents that will facilitate effective diagnosis, treatment, and 
+prevention of Lassa fever. In this regard, detection of early markers of Lassa 
+virus (LASV) infection may improve diagnosis and ultimately successful treatment 
+with antivirals. Characterization of LASV GP1 ectodomain shedding is an 
+important step toward developing sensitive diagnostics to detect circulating 
+levels of this viral glycoprotein in infected patient sera.
+RESULTS: Secretion of GP1 from mammalian cells expressing a native LASV GPC gene 
+was not mediated by proteolytic cleavage, as determined by treatment with a 
+panel of matrix metalloprotease (MMP) inhibitors. The shedding of GP1 was also 
+not the result of over-expression of GPC under the control of a strong intron-A 
+containing CMV promoter, as the soluble component could be immunoprecipitated 
+from supernatants of cells expressing low levels of GPC under the control of an 
+intronless promoter. Cells transfected with GPC retained surface 
+membrane-associated expression of GP1 as determined by immunofluorescence assay, 
+in addition to secreting the glycoprotein.Secreted GP1 derived from GPC 
+expression has a higher content of high mannose N-linked glycosylation than sGP1 
+expressed independently from the GP2 portion of the protein. Neither GP1 isoform 
+contains sialylated N-glycans, O-linked carbohydrate chains, or 
+galactose-beta(1-4)-N-acetylglucosamine commonly present in complex and hybrid 
+N-glycan structures.
+CONCLUSION: These results demonstrate the non-proteolytic secretory nature of 
+GP1 shedding during expression of the arenaviral glycoprotein complex. This 
+phenomenon parallels shedding of a secretory glycoprotein component in filovirus 
+replication. The glycosylation pattern of soluble GP1 resulting from expression 
+of GPC was different from that of a soluble GP1 construct (sGP1-RRAA-FLAG), 
+highlighting the intricately orchestrated post translational processing of the 
+LASV glycoprotein complex.
+
+DOI: 10.1186/1743-422X-6-147
+PMCID: PMC2759938
+PMID: 19778448 [Indexed for MEDLINE]

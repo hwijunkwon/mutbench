@@ -1,0 +1,26 @@
+1. J Virol. 2000 Dec;74(23):11418-21. doi: 10.1128/jvi.74.23.11418-11421.2000.
+
+Identification of a novel consensus sequence at the cleavage site of the Lassa 
+virus glycoprotein.
+
+Lenz O(1), ter Meulen J, Feldmann H, Klenk HD, Garten W.
+
+Author information:
+(1)Institut für Virologie, D-35037 Marburg, Germany.
+
+The Lassa virus glycoprotein consists of an amino-terminal and a 
+carboxy-terminal cleavage fragment designated GP-1 and GP-2, respectively, that 
+are derived by proteolysis from the precursor GP-C. The membrane-anchored GP-2 
+obtained from purified virions of the Josiah strain revealed the N-terminal 
+tripeptide GTF(262) when analyzed by Edman degradation. Upstream of this site, 
+GP-C contains the tetrapeptide sequence RRLL(259), which is conserved in all 
+Lassa virus isolates published to date. Systematic mutational analysis of 
+vector-expressed GP-C revealed that the motif R-X (L/I/V)-L(259) (where X stands 
+for L, I, or V) is essential for cleavage of the peptide bond between 
+leucine(259) and glycine(260). This cleavage motif is homologous to the 
+consensus sequence recognized by a novel class of cellular endoproteases which 
+have so far not been implicated in the processing of viral glycoproteins.
+
+DOI: 10.1128/jvi.74.23.11418-11421.2000
+PMCID: PMC113249
+PMID: 11070044 [Indexed for MEDLINE]

@@ -1,0 +1,30 @@
+1. Mol Biol (Mosk). 2007 Jan-Feb;41(1):8-17.
+
+[Immunochemical properties of West Nile virus protein prM and protein M C-end].
+
+[Article in Russian]
+
+Bogachek MV, Protopopova EV, Ternovoĭ VA, Kachko AV, Ivanova AV, Ivanisenko VA, 
+Shvalov AN, Loktev VB.
+
+Complementary DNA fragments (nucleotides 466-966 and 878-1088) encoding prM 
+protein and polypeptide M31-75-E1-30 of West Nile virus (WNV), strain 
+LEIV-Vlg99-27889-human, were obtained and cloned. Recombinant polypeptides prM 
+and M3175-E1-30 having amino acid sequences corresponding to the cloned cDNA 
+fragments were purified by affinity chromatography. According to ELISA and 
+Western blotting prM protein interacted with polyclonal antibodies against WNV. 
+This is indicative the immunochemical similarity of WNV recombinant and native 
+protein prM. 6 types of species-specific monoclonal antibodies (MAbs) raised 
+against recombinant polypeptide prM recognized at least four epitopes within 
+recombinant polypeptides prM and M31-75-E1-30. MAbs 7D11 were active in the 
+virus - neutralization assay. Analysis of interaction of the MAbs with 
+recombinant polypeptides prM, M31-75-EI-30, E1-180, E260-466 revealed 
+cross-reactive epitopes within 260-466 amino acid residues (aa) of WNV protein 
+E, 31-75 aa of polypeptide M31-75-E1-30 and protein prM. Proposed spatial model 
+of proteins E and M C-end fragments shown similarity of their three-dimensional 
+structures confirming results of immunochemical assay. Neutralization of viral 
+infectivity by MAbs 7D11 raised against epitope within 31-75 aa t of protein M 
+is evidence of important function of C-end region in the process of flaviviral 
+penetration into host cell.
+
+PMID: 17380886 [Indexed for MEDLINE]

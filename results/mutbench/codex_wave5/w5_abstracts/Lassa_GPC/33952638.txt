@@ -1,0 +1,53 @@
+1. J Virol. 2021 Jun 24;95(14):e0039721. doi: 10.1128/JVI.00397-21. Epub 2021 Jun
+ 24.
+
+Second-Generation Live-Attenuated Candid#1 Vaccine Virus Resists Reversion and 
+Protects against Lethal Junín Virus Infection in Guinea Pigs.
+
+Gowen BB(1), Hickerson BT(#)(1), York J(#)(2), Westover JB(#)(1), Sefing EJ(1), 
+Bailey KW(1), Wandersee L(1), Nunberg JH(2).
+
+Author information:
+(1)Department of Animal, Dairy and Veterinary Sciences, Utah State University, 
+Logan, Utah, USA.
+(2)Montana Biotechnology Center, University of Montana, Missoula, Montana, USA.
+(#)Contributed equally
+
+Live-attenuated virus vaccines are highly effective in preventing viral disease 
+but carry intrinsic risks of residual virulence and reversion to pathogenicity. 
+The classically derived Candid#1 virus protects seasonal field workers in 
+Argentina against zoonotic infection by Junín virus (JUNV) but is not approved 
+in the United States, in part due to the potential for reversion at the 
+attenuating locus, a phenylalanine-to-isoleucine substitution at position 427 in 
+the GP2 subunit of the GPC envelope glycoprotein. Previously, we demonstrated 
+facile reversion of recombinant Candid#1 (rCan) in cell culture and identified 
+an epistatic interaction between the attenuating I427 and a secondary K33S 
+mutation in the stable signal peptide (SSP) subunit of GPC that imposes an 
+evolutionary barrier to reversion. The magnitude of this genetic barrier is 
+manifest in our repeated failures to rescue the hypothetical revertant virus. In 
+this study, we show that K33S rCan is safe and attenuated in guinea pigs and 
+capable of eliciting potent virus-neutralizing antibodies. Immunized animals are 
+fully protected against lethal challenge with virulent JUNV. In addition, we 
+employed a more permissive model of infection in neonatal mice to investigate 
+genetic reversion. RNA sequence analysis of the recovered virus identified 
+revertant viruses in pups inoculated with the parental rCan virus and none in 
+mice receiving K33S rCan (P < 0.0001). Taken together, our findings support the 
+further development of K33S rCan as a safe second-generation JUNV vaccine. 
+IMPORTANCE Our most successful vaccines comprise weakened strains of virus that 
+initiate a limited and benign infection in immunized persons. The 
+live-attenuated Candid#1 strain of Junín virus (JUNV) was developed to protect 
+field workers in Argentina from rodent-borne hemorrhagic fever but is not 
+licensed in the United States, in part due to the likelihood of genetic 
+reversion to virulence. A single-amino-acid change in the GPC envelope 
+glycoprotein of the virus is responsible for attenuation, and a single 
+nucleotide change may regenerate the pathogenic virus. Here, we take advantage 
+of a unique genetic interaction between GPC subunits to design a mutant Candid#1 
+virus that establishes an evolutionary barrier to reversion. The mutant virus 
+(K33S rCan) is fully attenuated and protects immunized guinea pigs against 
+lethal JUNV infection. We find no instances of reversion in mice inoculated with 
+K33S rCan. This work supports the further development of K33S rCan as a 
+second-generation JUNV vaccine.
+
+DOI: 10.1128/JVI.00397-21
+PMCID: PMC8223921
+PMID: 33952638 [Indexed for MEDLINE]

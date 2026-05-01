@@ -1,0 +1,43 @@
+1. Virus Res. 2014 Jan 22;179:133-9. doi: 10.1016/j.virusres.2013.10.022. Epub
+2013  Oct 31.
+
+Fine mapping of a linear epitope on EDIII of Japanese encephalitis virus using a 
+novel neutralizing monoclonal antibody.
+
+Deng WL(1), Guan CY(1), Liu K(1), Zhang XM(1), Feng XL(1), Zhou B(2), Su XD(1), 
+Chen PY(1).
+
+Author information:
+(1)Key Laboratory of Animal Diseases Diagnosis and Immunology, Ministry of 
+Agriculture, College of Veterinary Medicine, Nanjing Agricultural University, 
+Nanjing 210095, PR China.
+(2)Key Laboratory of Animal Diseases Diagnosis and Immunology, Ministry of 
+Agriculture, College of Veterinary Medicine, Nanjing Agricultural University, 
+Nanjing 210095, PR China. Electronic address: zhoubin@njau.edu.cn.
+
+The domain III (EDIII) of the envelope protein of Japanese encephalitis virus 
+(JEV) is proposed to play an essential role in JEV replication and infection; it 
+is involved in binding to host receptors and contains specific epitopes that 
+elicit neutralizing antibodies. However, most previous studies have not provided 
+detailed molecular information about the functional epitopes on JEV EDIII 
+protein. In this study, we described a monoclonal antibody (mAb 2B4) we produced 
+and characterized by IFA, PRNT, ELISA and Western blot analyses. The results 
+showed that mAb 2B4 was specific to JEV EDIII protein and possessed high 
+neutralization activity against JEV in vitro. Furthermore, we found that the 
+motif, (394)HHWH(397), was the minimal unit of the linear epitope recognized by 
+mAb 2B4 through screening a phage-displayed random 12-mer peptide library. Using 
+sequence alignment analysis it was found that this motif was highly conserved 
+among JEV strains and was present in West Nile Virus (WNV). Indeed, ELISA data 
+showed that this epitope could be recognized by both JEV-positive swine serum 
+and WNV-positive swine serum. Notably, this linear epitope was highly 
+hydrophilic and was located within the terminal end of a β-pleated sheet of 
+EDIII. An analysis of the spatial conformation supported the possibility of 
+inducing specific antibodies to this epitope. Taken together, we identified 
+(394)HHWH(397) as an EDIII-specific linear epitope recognized by mAb 2B4, which 
+would be beneficial for studying the pathogenic mechanism of JEV; and mAb 2B4 
+was also a potential diagnostic and therapeutic reagent.
+
+Copyright © 2013 Elsevier B.V. All rights reserved.
+
+DOI: 10.1016/j.virusres.2013.10.022
+PMID: 24184444 [Indexed for MEDLINE]

@@ -1,0 +1,39 @@
+1. Biochem Biophys Rep. 2022 Dec 18;33:101409. doi: 10.1016/j.bbrep.2022.101409. 
+eCollection 2023 Mar.
+
+Purification and characterization of the Lassa virus transmembrane domain.
+
+Keating PM(1), Pennington HN(1), Collins SD(1), Lee J(1).
+
+Author information:
+(1)Department of Chemistry and Biochemistry, University of Maryland College 
+Park, College Park, MD, 20742, USA.
+
+Lassa virus (LASV) is the most prevalent arenavirus afflicting humans and has 
+high potential to become a threat to global public health. The transmembrane 
+domain (TM) of the LASV glycoprotein complex forms critical interactions with 
+the LASV stable signal peptide that are important for the maturation and fusion 
+activity of the virus. A further study of the structure-based molecular 
+mechanisms is required to understand the role of the TM in the lifecycle of LASV 
+in greater detail. However, it is challenging to obtain the TM in high quantity 
+and purity due to its hydrophobic nature which results in solubility issues that 
+makes it prone to aggregation in typical buffer systems. Here, we designed a 
+purification and detergent screen protocol for the highly insoluble TM to 
+enhance the yield and purity for structural studies. Based on the detergents 
+tested, the TM had the highest incorporation in LMPG. Circular dichroism (CD) 
+and nuclear magnetic resonance (NMR) spectroscopy were utilized to confirm the 
+best detergent system for structural studies. Through CD spectroscopy, we were 
+able to characterize the secondary structure of the TM as largely alpha-helical, 
+while NMR spectroscopy showed a well-structured and stable TM in LMPG. From 
+these results, LMPG was determined to be the optimal detergent for further 
+structural studies.
+
+© 2022 The Author(s).
+
+DOI: 10.1016/j.bbrep.2022.101409
+PMCID: PMC9792740
+PMID: 36583076
+
+Conflict of interest statement: The authors declare that they have no known 
+competing financial interests or personal relationships that could have appeared 
+to influence the work reported in this paper.

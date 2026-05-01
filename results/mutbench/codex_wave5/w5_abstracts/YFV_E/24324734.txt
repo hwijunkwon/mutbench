@@ -1,0 +1,36 @@
+1. PLoS One. 2013 Dec 6;8(12):e81953. doi: 10.1371/journal.pone.0081953. 
+eCollection 2013.
+
+Early IFN-gamma production after YF 17D vaccine virus immunization in mice and 
+its association with adaptive immune responses.
+
+Neves PC(1), Santos JR, Tubarão LN, Bonaldo MC, Galler R.
+
+Author information:
+(1)Vice-diretoria de Desenvolvimento Tecnológico, Instituto de Tecnologia em 
+Imunobiológicos, Fundação Oswaldo Cruz, Rio de Janeiro, Brazil.
+
+Yellow Fever vaccine is one of the most efficacious human vaccines ever made. 
+The vaccine (YF 17D) virus induces polyvalent immune responses, with a mixed 
+TH1/TH2 CD4(+) cell profile, which results in robust T CD8(+) responses and high 
+titers of neutralizing antibody. In recent years, it has been suggested that 
+early events after yellow fever vaccination are crucial to the development of 
+adequate acquired immunity. We have previously shown that primary immunization 
+of humans and monkeys with YF 17D virus vaccine resulted in the early synthesis 
+of IFN-γ. Herein we have demonstrated, for the first time that early IFN-γ 
+production after yellow fever vaccination is a feature also of murine infection 
+and is much more pronounced in the C57BL/6 strain compared to the BALB/c strain. 
+Likewise, in C57BL/6 strain, we have observed the highest CD8(+) T cells 
+responses as well as higher titers of neutralizing antibodies and total anti-YF 
+IgG. Regardless of this intense IFN-γ response in mice, it was not possible to 
+see higher titers of IgG2a in relation to IgG1 in both mice lineages. However, 
+IgG2a titers were positively correlated to neutralizing antibodies levels, 
+pointing to an important role of IFN-γ in eliciting high quality responses 
+against YF 17D, therefore influencing the immunogenicity of this vaccine.
+
+DOI: 10.1371/journal.pone.0081953
+PMCID: PMC3855709
+PMID: 24324734 [Indexed for MEDLINE]
+
+Conflict of interest statement: Competing Interests: The authors have declared 
+that no competing interests exist.

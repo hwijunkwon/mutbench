@@ -1,0 +1,27 @@
+1. Methods Mol Biol. 2018;1604:135-155. doi: 10.1007/978-1-4939-6981-4_9.
+
+Studies of Lassa Virus Cell Entry.
+
+Pasquato A(1), Fernandez AH(1), Kunz S(2).
+
+Author information:
+(1)Institute of Microbiology, University Hospital Center, University of 
+Lausanne, Rue du Bugnon 48, CH-1011, Lausanne, Switzerland.
+(2)Institute of Microbiology, University Hospital Center, University of 
+Lausanne, Rue du Bugnon 48, CH-1011, Lausanne, Switzerland. Stefan.kunz@chuv.ch.
+
+Host cell entry is the first and most fundamental step of every virus infection 
+and represents a major barrier for zoonotic transmission and viral emergence. 
+Targeting viral entry appears further as a promising strategy for therapeutic 
+intervention. Several cellular receptors have been identified for Lassa virus, 
+including dystroglycan, TAM receptor tyrosine kinases, and C-type lectins. Upon 
+receptor binding, LASV enters the host cell via a largely unknown clathrin- and 
+dynamin-independent endocytotic pathway that delivers the virus to late 
+endosomes, where fusion occurs after engagement of a second, intracellular 
+receptor, the late endosomal/lysosomal resident protein LAMP1. Here, we describe 
+a series of experimental approaches to investigate LASV cell entry and to test 
+candidate inhibitors for their action at this early and decisive step of 
+infection.
+
+DOI: 10.1007/978-1-4939-6981-4_9
+PMID: 28986830 [Indexed for MEDLINE]

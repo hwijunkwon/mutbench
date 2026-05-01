@@ -1,0 +1,32 @@
+1. J Gen Virol. 1990 Sep;71 ( Pt 9):2115-21. doi: 10.1099/0022-1317-71-9-2115.
+
+Partial nucleotide sequence of South American yellow fever virus strain 1899/81: 
+structural proteins and NS1.
+
+Ballinger-Crabtree ME(1), Miller BR.
+
+Author information:
+(1)Division of Vector-Borne Infectious Diseases, Centers for Disease Control, 
+U.S. Department of Health and Human Services, Fort Collins, Colorado 80522.
+
+We have partially cloned and sequenced the genome of a Peruvian yellow fever 
+virus isolate (1899/81) and compared the nucleotide and deduced amino acid 
+sequences of this strain with the previously published sequence of the West 
+African yellow fever virus strain Asibi. In the 3594 base region sequenced, 
+which contains the structural genes (C, M, E), all but the 72 3'-terminal 
+nucleotides of the NS1 gene and 108 nucleotides of the 5' non-coding region, 515 
+nucleotide substitutions were detected. Nucleotide divergence was lowest in the 
+5' non-coding region, 2.8%, compared with an average rate of 14.7% in the coding 
+regions. Over 91% of the 512 nucleotide changes in the coding region were 
+silent; 44 amino acid substitutions resulted. The capsid protein was the least 
+conserved, whereas the M protein was the most highly conserved (6.7% and 1.3% 
+divergence, respectively). The envelope protein had 18 amino acid changes (3.7% 
+divergence), one of which created an additional site for potential glycosylation 
+of the 1899/81 virus. NS1 protein divergence (3.9%) was similar to that seen in 
+the E protein. Of the 44 amino acid substitutions found, 34 (77%) were 
+conservative. The highest number of nonconservative differences occurred in the 
+envelope glycoprotein. These changes may significantly affect the antigenic and 
+biological functions of the viruses.
+
+DOI: 10.1099/0022-1317-71-9-2115
+PMID: 2145394 [Indexed for MEDLINE]

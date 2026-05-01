@@ -1,0 +1,55 @@
+1. Front Immunol. 2021 Sep 10;12:730346. doi: 10.3389/fimmu.2021.730346. 
+eCollection 2021.
+
+Nasal Immunization With Small Molecule Mast Cell Activators Enhance Immunity to 
+Co-Administered Subunit Immunogens.
+
+Johnson-Weaver BT(1), Choi HW(1), Yang H(2), Granek JA(2), Chan C(2), Abraham 
+SN(1)(3)(4), Staats HF(1)(3)(5).
+
+Author information:
+(1)Pathology Department, School of Medicine, Duke University, Durham, NC, United 
+States.
+(2)Biostatistics and Bioinformatics Department, School of Medicine, Duke 
+University, Durham, NC, United States.
+(3)Department of Immunology, School of Medicine, Duke University, Durham, NC, 
+United States.
+(4)Department of Molecular Genetics and Microbiology, Duke University, Durham, 
+NC, United States.
+(5)Duke Human Vaccine Institute, Duke University, Durham, NC, United States.
+
+Mast cell activators are a novel class of mucosal vaccine adjuvants. The 
+polymeric compound, Compound 48/80 (C48/80), and cationic peptide, Mastoparan 7 
+(M7) are mast cell activators that provide adjuvant activity when administered 
+by the nasal route. However, small molecule mast cell activators may be a more 
+cost-efficient adjuvant alternative that is easily synthesized with high purity 
+compared to M7 or C48/80. To identify novel mast cell activating compounds that 
+could be evaluated for mucosal vaccine adjuvant activity, we employed 
+high-throughput screening to assess over 55,000 small molecules for mast cell 
+degranulation activity. Fifteen mast cell activating compounds were 
+down-selected to five compounds based on in vitro immune activation activities 
+including cytokine production and cellular cytotoxicity, synthesis feasibility, 
+and selection for functional diversity. These small molecule mast cell 
+activators were evaluated for in vivo adjuvant activity and induction of 
+protective immunity against West Nile Virus infection in BALB/c mice when 
+combined with West Nile Virus envelope domain III (EDIII) protein in a nasal 
+vaccine. We found that three of the five mast cell activators, ST101036, 
+ST048871, and R529877, evoked high levels of EDIII-specific antibody and 
+conferred comparable levels of protection against WNV challenge. The level of 
+protection provided by these small molecule mast cell activators was comparable 
+to the protection evoked by M7 (67%) but markedly higher than the levels seen 
+with mice immunized with EDIII alone (no adjuvant 33%). Thus, novel small 
+molecule mast cell activators identified by high throughput screening are as 
+efficacious as previously described mast cell activators when used as nasal 
+vaccine adjuvants and represent next-generation mast cell activators for 
+evaluation in mucosal vaccine studies.
+
+Copyright © 2021 Johnson-Weaver, Choi, Yang, Granek, Chan, Abraham and Staats.
+
+DOI: 10.3389/fimmu.2021.730346
+PMCID: PMC8461742
+PMID: 34566991 [Indexed for MEDLINE]
+
+Conflict of interest statement: The authors declare that the research was 
+conducted in the absence of any commercial or financial relationships that could 
+be construed as a potential conflict of interest.

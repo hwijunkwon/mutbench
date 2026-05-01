@@ -1,0 +1,62 @@
+1. Cell Rep. 2025 Jul 22;44(7):115971. doi: 10.1016/j.celrep.2025.115971. Epub
+2025  Jul 8.
+
+In situ insights into antibody-mediated neutralization of a pre-fusion Junin 
+virus glycoprotein complex.
+
+Taylor LJ(1), Sawaya MR(2), Westover JB(3), Wang C(4), Jimenez F(2), Muñoz 
+AJ(2), Whitelegge J(4), Gowen BB(5), Helguera GF(6), Castells-Graells R(7), 
+Rodriguez JA(8).
+
+Author information:
+(1)Department of Chemistry and Biochemistry, UCLA-DOE Institute for Genomics and 
+Proteomics, STROBE, NSF Science and Technology Center, University of California, 
+California, Los Angeles (UCLA), Los Angeles, CA 90095, USA. Electronic address: 
+lilyjanetaylor@g.ucla.edu.
+(2)Department of Chemistry and Biochemistry, UCLA-DOE Institute for Genomics and 
+Proteomics, STROBE, NSF Science and Technology Center, University of California, 
+California, Los Angeles (UCLA), Los Angeles, CA 90095, USA.
+(3)Department of Animal, Dairy and Veterinary Sciences, Utah State University, 
+Logan, UT 84322, USA.
+(4)The Pasarow Mass Spectrometry Laboratory, The Jane and Terry Semel Institute 
+for Neuroscience and Human Behavior, David Geffen School of Medicine, University 
+of California, California (UCLA), Los Angeles, CA, USA.
+(5)Department of Animal, Dairy and Veterinary Sciences, Utah State University, 
+Logan, UT 84322, USA. Electronic address: brian.gowen@usu.edu.
+(6)Laboratory of Pharmaceutical Biotechnology, Instituto de Biología y Medicina 
+Experimental (IBYME-CONICET), Buenos Aires, Argentina. Electronic address: 
+gustavoh@ibyme.conicet.gov.ar.
+(7)Department of Chemistry and Biochemistry, UCLA-DOE Institute for Genomics and 
+Proteomics, STROBE, NSF Science and Technology Center, University of California, 
+California, Los Angeles (UCLA), Los Angeles, CA 90095, USA. Electronic address: 
+rcastells@cnio.es.
+(8)Department of Chemistry and Biochemistry, UCLA-DOE Institute for Genomics and 
+Proteomics, STROBE, NSF Science and Technology Center, University of California, 
+California, Los Angeles (UCLA), Los Angeles, CA 90095, USA. Electronic address: 
+jrodriguez@mbi.ucla.edu.
+
+A transmembrane glycoprotein complex (GPC) decorates the Junin mammarenavirus 
+(JUNV) that causes New World hemorrhagic fevers. We leveraged single-particle 
+cryoelectron microscopy (cryo-EM) to image the full-length JUNV GPC directly on 
+pseudotyped virus (PV) membranes and bound by two JUNV-neutralizing antibodies: 
+Candid#1 vaccine-elicited CR1-28 and J199, a potent therapeutic against 
+Argentine hemorrhagic fever (AHF). The 3.8 Å resolution in situ structures of 
+the antibody-neutralized, 3-fold symmetric JUNV GPC reveal its ectodomain 
+architecture, signal peptide-bound transmembrane region, zinc-binding luminal 
+domain, and post-translational modifications. JUNV-GPC sequence variants 
+highlight the functional importance of the signal peptide transmembrane helix 
+register for virus infection and attenuating Candid#1-associated variants. 
+Overlapping CR1-28 and J199 epitopes suggest a common receptor-blocking 
+mechanism for JUNV neutralization, while a J199-induced, symmetric GPC 
+reorientation may further drive its potent inhibition of JUNV lethality in mice, 
+compared to receptor blockade alone. This underscores the utility of in situ 
+insights into GPC function and neutralization.
+
+Copyright © 2025 The Author(s). Published by Elsevier Inc. All rights reserved.
+
+DOI: 10.1016/j.celrep.2025.115971
+PMCID: PMC12450071
+PMID: 40632652 [Indexed for MEDLINE]
+
+Conflict of interest statement: Declaration of interests J.A.R. is an equity 
+stakeholder of MedStruc, Inc.

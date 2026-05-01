@@ -1,0 +1,38 @@
+1. Virology. 2006 Sep 15;353(1):111-20. doi: 10.1016/j.virol.2006.05.018. Epub
+2006  Jun 21.
+
+Receptor use by pathogenic arenaviruses.
+
+Reignier T(1), Oldenburg J, Noble B, Lamb E, Romanowski V, Buchmeier MJ, Cannon 
+PM.
+
+Author information:
+(1)Saban Research Institute of Children's Hospital Los Angeles, Los Angeles, CA 
+90027, USA.
+
+The arenavirus family contains several important human pathogens including Lassa 
+fever virus (LASV), lymphocytic choriomeningitis virus (LCMV) and the New World 
+clade B viruses Junin (JUNV) and Machupo (MACV). Previously, alpha-dystroglycan 
+(alpha-DG) was identified as a receptor recognized by LASV and certain strains 
+of LCMV. However, other studies have suggested that alpha-DG is probably not 
+used by the clade B viruses, and the receptor(s) for these pathogens is 
+currently unknown. Using pseudotyped retroviral vectors displaying arenavirus 
+glycoproteins (GPs), we are able to explore the role played by the GP in viral 
+entry in the absence of other viral proteins. By examining the ability of the 
+vectors to transduce DG knockout murine embryonic stem (ES) cells, we have 
+confirmed that LASV has an absolute requirement for alpha-DG in these cells. 
+However, the LCMV GP can still direct substantial entry into murine ES cells in 
+the absence of alpha-DG, even when the GP from the clone 13 variant is used that 
+has previously been reported to be highly dependent on alpha-DG for entry. We 
+also found that neither LASV or LCMV pseudotyped vectors were able to transduce 
+human or murine lymphocytes, presumably due to the glycosylation state of 
+alpha-DG in these cells. In contrast, the JUNV and MACV GPs displayed broad 
+tropism on human, murine and avian cell types, including lymphocytes, and showed 
+no requirement for alpha-DG in murine ES cells. These findings highlight the 
+importance of molecules other than alpha-DG for arenavirus entry. An alternate 
+receptor is present on murine ES cells that can be used by LCMV but not by LASV, 
+and which is not available on human or murine lymphocytes, while a distinct and 
+widely expressed receptor(s) is used by the clade B viruses.
+
+DOI: 10.1016/j.virol.2006.05.018
+PMID: 16797051 [Indexed for MEDLINE]

@@ -1,0 +1,59 @@
+1. Vaccine. 2024 Apr 19;42(11):2729-2732. doi: 10.1016/j.vaccine.2024.03.029.
+Epub  2024 Mar 21.
+
+Yellow fever neutralizing antibody seroprevalence proportion and titers in 
+previously vaccinated adults with chronic kidney disease.
+
+Cristina Martini Rodrigues C(1), Caroline Ribeiro Sales A(2), Marli Christovam 
+Sartori A(3), de Souza Azevedo A(4), Maria Barbosa de Lima S(4), de Melo Picone 
+C(5), Keiko Sato P(6), Nazareth Lara A(5), Takesaki Miyaji K(5), Sérgio Azevedo 
+L(7), Caldin B(8), Camera Pierrotti L(9), Heloisa Lopes M(2).
+
+Author information:
+(1)Centro de Referencia de Imunobiologicos Especiais (CRIE) - Hospital das 
+Clinicas da Faculdade de Medicina da Universidade de Sao Paulo (HC-FMUSP), Sao 
+Paulo, Brazil; Clinica de Molestias Infecciosas e Parasitarias, HC-FMUSP, 
+Brazil. Electronic address: camismartini@gmail.com.
+(2)Centro de Referencia de Imunobiologicos Especiais (CRIE) - Hospital das 
+Clinicas da Faculdade de Medicina da Universidade de Sao Paulo (HC-FMUSP), Sao 
+Paulo, Brazil; Departamento de Molestias Infecciosas e Parasitarias, FMUSP, 
+Brazil.
+(3)Centro de Referencia de Imunobiologicos Especiais (CRIE) - Hospital das 
+Clinicas da Faculdade de Medicina da Universidade de Sao Paulo (HC-FMUSP), Sao 
+Paulo, Brazil; Clinica de Molestias Infecciosas e Parasitarias, HC-FMUSP, 
+Brazil; Departamento de Molestias Infecciosas e Parasitarias, FMUSP, Brazil.
+(4)Laboratório de Tecnologia Virologica, Fundacao Oswaldo Cruz (FioCruz), Rio de 
+Janeiro, Brazil.
+(5)Centro de Referencia de Imunobiologicos Especiais (CRIE) - Hospital das 
+Clinicas da Faculdade de Medicina da Universidade de Sao Paulo (HC-FMUSP), Sao 
+Paulo, Brazil; Clinica de Molestias Infecciosas e Parasitarias, HC-FMUSP, 
+Brazil.
+(6)Departamento de Molestias Infecciosas e Parasitarias, FMUSP, Brazil.
+(7)Servico de Transplante Renal, HC-FMUSP, Brazil.
+(8)Divisao de Nefrologia, HC-FMUSP, Brazil.
+(9)Clinica de Molestias Infecciosas e Parasitarias, HC-FMUSP, Brazil.
+
+Studies on yellow fever vaccine (YF) in chronic kidney disease (CKD) patients 
+are scarce. This cross-sectional study aimed to evaluate YF neutralizing 
+antibody seroprevalence and titers in previously vaccinated adults with CKD, on 
+dialysis (D-CKD) or not (ND-CKD), compared to healthy persons. The micro Plaque 
+Reduction Neutralization-Horseradish Peroxidase (μPRN-HP) test was used. 
+Antibody titers were expressed as the reciprocal of the highest dilution that 
+neutralized the challenge virus by 50 % (μPRN50). Seropositivity cut-off was set 
+at ≥ 1:100. We included 153 participants: 46 ND-CKD, 50 D-CKD and 57 healthy 
+adults. Median ages were 58.3, 55 and 52.2 years, respectively. Median time 
+since YF vaccination was 22.3, 18.5 and 48.3 months respectively. There were no 
+statistically significant differences in YF seroprevalence and neutralizing 
+antibodies titers among groups: 100 % of ND-CKD; 96 % of D-CKD and 100 % of 
+healthy participants were seropositive. Geometric mean titers (GMT) were 818.5, 
+683.0 and 665.5, respectively (p = 0.289).
+
+Copyright © 2024 Elsevier Ltd. All rights reserved.
+
+DOI: 10.1016/j.vaccine.2024.03.029
+PMID: 38514353 [Indexed for MEDLINE]
+
+Conflict of interest statement: Declaration of competing interest The authors 
+declare the following financial interests/personal relationships which may be 
+considered as potential competing interests: Marta H Lopes reports financial 
+support was provided by State of Sao Paulo Research Foundation.

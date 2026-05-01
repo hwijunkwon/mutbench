@@ -1,0 +1,40 @@
+1. Comp Immunol Microbiol Infect Dis. 2019 Aug;65:238-245. doi: 
+10.1016/j.cimid.2019.06.008. Epub 2019 Jun 28.
+
+A common conserved peptide harboring predicted T and B cell epitopes in domain 
+III of envelope protein of Japanese Encephalitis Virus and West Nile Virus for 
+potential use in epitope based vaccines.
+
+Slathia PS(1), Sharma P(2).
+
+Author information:
+(1)School of Biotechnology, Shri Mata Vaishno Devi University, Kakrial, Katra, 
+J&K, India. Electronic address: parvezsingh@gmail.com.
+(2)School of Biotechnology, Shri Mata Vaishno Devi University, Kakrial, Katra, 
+J&K, India.
+
+Japanese encephalitis virus (JEV) and West Nile virus (WNV) are two major 
+mosquito borne flaviviruses belonging to same serocomplex. JEV is transmitted by 
+Culex mosquitoes and the reservoir host for the virus is pigs and/or water 
+birds. WNV is also transmitted by Culex mosquitoes and reservoir host in this 
+case is birds. It can also be transmitted through contact with other infected 
+animals, their blood, or other tissues. The envelope protein of these viruses is 
+the major source of epitopes and provides protective immunity. Bioinformatics 
+tools were used to identify conserved epitopes in the envelope protein of these 
+viruses. A conserved peptide "TPVGRLVTVNPFV" present in both the viruses 
+containing predicted T and B cell epitopes was found. The model of one of the 
+predicted epitope was generated and upon docking it bound in the groove of 
+HLA-A0201 Class I MHC molecule. Further, it was amenable to proteasomal cleavage 
+enhancing its chances of processing by cytosolic pathway. The peptide was found 
+to be non toxic, non allergenic and stable in mammalian cells based on database 
+search. The population coverage was pan world and nearly 70% identity of the 
+peptide was found in the Zika virus envelope protein. The peptide was located in 
+the domain III of envelope protein which is the exposed domain therefore B cell 
+receptors may recognize this peptide easily. The conserved peptide containing T 
+and B cell epitopes can have future application for designing epitope based 
+vaccines for both JEV and WNV.
+
+Copyright © 2019 Elsevier Ltd. All rights reserved.
+
+DOI: 10.1016/j.cimid.2019.06.008
+PMID: 31300121 [Indexed for MEDLINE]

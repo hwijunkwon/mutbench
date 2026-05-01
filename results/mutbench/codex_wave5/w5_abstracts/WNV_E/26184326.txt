@@ -1,0 +1,56 @@
+1. Pathogens. 2015 Jul 14;4(3):529-58. doi: 10.3390/pathogens4030529.
+
+Experimental West Nile Virus Infection in Rabbits: An Alternative Model for 
+Studying Induction of Disease and Virus Control.
+
+Suen WW(1), Uddin MJ(2), Wang W(3), Brown V(4), Adney DR(5), Broad N(6), Prow 
+NA(7)(8), Bowen RA(9), Hall RA(8)(10), Bielefeldt-Ohmann H(11)(12).
+
+Author information:
+(1)School of Veterinary Science, University of Queensland, Gatton, QLD 4343, 
+Australia. w.suen@uq.edu.au.
+(2)School of Veterinary Science, University of Queensland, Gatton, QLD 4343, 
+Australia. m.uddin2@uq.edu.au.
+(3)School of Veterinary Science, University of Queensland, Gatton, QLD 4343, 
+Australia. w.wang3@uq.edu.au.
+(4)Department of Biomedical Sciences, Colorado State University, Fort Collins, 
+CO 80523, USA. vienna.brown@colostate.edu.
+(5)Department of Microbiology, Immunology and Pathology, Colorado State 
+University, Fort Collins, CO 80523, USA. danielle.adney@colostate.edu.
+(6)QIMR Berghofer Medical Research Institute, Brisbane, QLD 4006, Australia. 
+nicole.broad@qimrberghofer.edu.au.
+(7)QIMR Berghofer Medical Research Institute, Brisbane, QLD 4006, Australia. 
+roy.hall@uq.edu.au.
+(8)Australian Infectious Diseases Research Centre, University of Queensland, St 
+Lucia, QLD 4072, Australia. roy.hall@uq.edu.au.
+(9)Department of Biomedical Sciences, Colorado State University, Fort Collins, 
+CO 80523, USA. rbowen@rams.colostate.edu.
+(10)School of Chemistry and Molecular Bioscience, University of Queensland, St 
+Lucia, QLD 4072, Australia. roy.hall@uq.edu.au.
+(11)School of Veterinary Science, University of Queensland, Gatton, QLD 4343, 
+Australia. h.bielefeldtohmann1@uq.edu.au.
+(12)Australian Infectious Diseases Research Centre, University of Queensland, St 
+Lucia, QLD 4072, Australia. h.bielefeldtohmann1@uq.edu.au.
+
+The economic impact of non-lethal human and equine West Nile virus (WNV) disease 
+is substantial, since it is the most common presentation of the infection. 
+Experimental infection with virulent WNV strains in the mouse and hamster models 
+frequently results in severe neural infection and moderate to high mortality, 
+both of which are not representative features of most human and equine 
+infections. We have established a rabbit model for investigating pathogenesis 
+and immune response of non-lethal WNV infection. Two species of rabbits, New 
+Zealand White (Oryctolagus cuniculus) and North American cottontail (Sylvilagus 
+sp.), were experimentally infected with virulent WNV and Murray Valley 
+encephalitis virus strains. Infected rabbits exhibited a consistently resistant 
+phenotype, with evidence of low viremia, minimal-absent neural infection, 
+mild-moderate neuropathology, and the lack of mortality, even though productive 
+virus replication occurred in the draining lymph node. The kinetics of anti-WNV 
+neutralizing antibody response was comparable to that commonly seen in infected 
+horses and humans. This may be explained by the early IFNα/β and/or γ response 
+evident in the draining popliteal lymph node. Given this similarity to the human 
+and equine disease, immunocompetent rabbits are, therefore, a valuable animal 
+model for investigating various aspects of non-lethal WNV infections.
+
+DOI: 10.3390/pathogens4030529
+PMCID: PMC4584271
+PMID: 26184326

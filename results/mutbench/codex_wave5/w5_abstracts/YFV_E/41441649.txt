@@ -1,0 +1,40 @@
+1. Vaccines (Basel). 2025 Nov 21;13(12):1182. doi: 10.3390/vaccines13121182.
+
+Optimizing Humoral Immunity for Durable and Broad Protection in Flavivirus 
+Vaccines.
+
+Park JY(1), Lee HM(1).
+
+Author information:
+(1)College of Veterinary Medicine, Chungnam National University, Daejeon 34134, 
+Republic of Korea.
+
+Flavivirus infections, including dengue, Zika, West Nile, and Japanese 
+encephalitis, remain a major global health concern. Although several vaccines 
+are licensed, the durability and qualitative features of vaccine-induced 
+antibodies differ substantially across platforms, leading to incomplete 
+cross-protection and the risk of antibody-dependent enhancement. Long-term 
+durability is exemplified by YF-17D, which induces protective antibodies that 
+have been detectable for decades, whereas the JE SA14-14-2 vaccine has achieved 
+program-level reductions in disease in endemic regions. In contrast, CYD-TDV 
+shows serostatus-dependent outcomes, and the investigational TAK-003 vaccine has 
+demonstrated antibody persistence for at least four years. Recent studies have 
+clarified how preserving quaternary envelope epitopes, minimizing prM-associated 
+non-neutralizing specificity, and sustaining germinal center activity determine 
+antibody affinity, breadth, and persistence. Advances in adjuvant formulations 
+and delivery platforms have shown that engaging defined innate pathways and 
+prolonging antigen availability enhance affinity maturation and long-lived 
+plasma cell formation. Booster scheduling and baseline serostatus further shape 
+the antibody quality, highlighting the importance of immune imprinting and 
+cross-reactivity in vaccine design. Together, these findings outline the design 
+principles for next-generation flavivirus vaccines, including stabilization of 
+neutralization-sensitive epitopes, use of adjuvants that sustain germinal center 
+responses, optimization of antigen persistence, and tailoring of dosing 
+strategies to immune history to elicit durable and broadly protective humoral 
+immunity.
+
+DOI: 10.3390/vaccines13121182
+PMCID: PMC12737721
+PMID: 41441649
+
+Conflict of interest statement: The authors declare no conflicts of interest.

@@ -1,0 +1,47 @@
+1. PLoS One. 2012;7(9):e41707. doi: 10.1371/journal.pone.0041707. Epub 2012 Sep
+19.
+
+A flow cytometry-based assay for quantifying non-plaque forming strains of 
+yellow fever virus.
+
+Hammarlund E(1), Amanna IJ, Dubois ME, Barron A, Engelmann F, Messaoudi I, 
+Slifka MK.
+
+Author information:
+(1)Oregon National Primate Research Center, Oregon Health and Science 
+University, Beaverton, Oregon, United States of America.
+
+Primary clinical isolates of yellow fever virus can be difficult to quantitate 
+by standard in vitro methods because they may not form discernable plaques or 
+induce a measurable cytopathic effect (CPE) on cell monolayers. In our hands, 
+the Dakar strain of yellow fever virus (YFV-Dakar) could not be measured by 
+plaque assay (PA), focus-forming assay (FFA), or by measurement of CPE. For 
+these reasons, we developed a YFV-specific monoclonal antibody (3A8.B6) and used 
+it to optimize a highly sensitive flow cytometry-based tissue culture limiting 
+dilution assay (TC-LDA) to measure levels of infectious virus. The TC-LDA was 
+performed by incubating serial dilutions of virus in replicate wells of C6/36 
+cells and stained intracellularly for virus with MAb 3A8.B6. Using this 
+approach, we could reproducibly quantitate YFV-Dakar in tissue culture 
+supernatants as well as from the serum of viremic rhesus macaques experimentally 
+infected with YFV-Dakar. Moreover, the TC-LDA approach was >10-fold more 
+sensitive than standard plaque assay for quantitating typical plaque-forming 
+strains of YFV including YFV-17D and YFV-FNV (French neurotropic vaccine). 
+Together, these results indicate that the TC-LDA technique is effective for 
+quantitating both plaque-forming and non-plaque-forming strains of yellow fever 
+virus, and this methodology may be readily adapted for the study and 
+quantitation of other non-plaque-forming viruses.
+
+DOI: 10.1371/journal.pone.0041707
+PMCID: PMC3446955
+PMID: 23028428 [Indexed for MEDLINE]
+
+Conflict of interest statement: Competing Interests: OHSU, MKS, IJA, and EH 
+declare a financial interest based on shares in Najít Technologies, Inc., a 
+company that may have a commercial interest in the results of this research and 
+technology. MKS is President and Chief Scientific Officer at Najít Technologies, 
+Inc., and IJA is Associate Vice President at Najít Technologies, Inc. These 
+potential individual and institutional conflicts of interest have been reviewed 
+and managed by OHSU and the Integrity Program Oversight Council. This does not 
+alter the authors' adherence to all of the PLOS ONE policies pertaining to 
+sharing data and materials. IM, FE, MED, and AB declare no competing financial 
+interests.

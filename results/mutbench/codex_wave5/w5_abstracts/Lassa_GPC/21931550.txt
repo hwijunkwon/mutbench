@@ -1,0 +1,48 @@
+1. PLoS Pathog. 2011 Sep;7(9):e1002232. doi: 10.1371/journal.ppat.1002232. Epub 
+2011 Sep 8.
+
+Old world arenaviruses enter the host cell via the multivesicular body and 
+depend on the endosomal sorting complex required for transport.
+
+Pasqual G(1), Rojek JM, Masin M, Chatton JY, Kunz S.
+
+Author information:
+(1)Institute of Microbiology, University Hospital Center and University of 
+Lausanne, Lausanne, Switzerland.
+
+Erratum in
+    PLoS Pathog. 2011 Sep;7(9). doi: 
+10.1371/annotation/952387a7-96a0-44f6-98a6-2d7c7b472b0a.
+
+The highly pathogenic Old World arenavirus Lassa virus (LASV) and the prototypic 
+arenavirus lymphocytic choriomeningitis virus (LCMV) use α-dystroglycan as a 
+cellular receptor and enter the host cell by an unusual endocytotic pathway 
+independent of clathrin, caveolin, dynamin, and actin. Upon internalization, the 
+viruses are delivered to acidified endosomes in a Rab5-independent manner 
+bypassing classical routes of incoming vesicular trafficking. Here we sought to 
+identify cellular factors involved in the unusual and largely unknown entry 
+pathway of LASV and LCMV. Cell entry of LASV and LCMV required microtubular 
+transport to late endosomes, consistent with the low fusion pH of the viral 
+envelope glycoproteins. Productive infection with recombinant LCMV expressing 
+LASV envelope glycoprotein (rLCMV-LASVGP) and LCMV depended on phosphatidyl 
+inositol 3-kinase (PI3K) as well as lysobisphosphatidic acid (LBPA), an unusual 
+phospholipid that is involved in the formation of intraluminal vesicles (ILV) of 
+the multivesicular body (MVB) of the late endosome. We provide evidence for a 
+role of the endosomal sorting complex required for transport (ESCRT) in LASV and 
+LCMV cell entry, in particular the ESCRT components Hrs, Tsg101, Vps22, and 
+Vps24, as well as the ESCRT-associated ATPase Vps4 involved in fission of ILV. 
+Productive infection with rLCMV-LASVGP and LCMV also critically depended on the 
+ESCRT-associated protein Alix, which is implicated in membrane dynamics of the 
+MVB/late endosomes. Our study identifies crucial cellular factors implicated in 
+Old World arenavirus cell entry and indicates that LASV and LCMV invade the host 
+cell passing via the MVB/late endosome. Our data further suggest that the 
+virus-receptor complexes undergo sorting into ILV of the MVB mediated by the 
+ESCRT, possibly using a pathway that may be linked to the cellular trafficking 
+and degradation of the cellular receptor.
+
+DOI: 10.1371/journal.ppat.1002232
+PMCID: PMC3169553
+PMID: 21931550 [Indexed for MEDLINE]
+
+Conflict of interest statement: The authors have declared that no competing 
+interests exist.

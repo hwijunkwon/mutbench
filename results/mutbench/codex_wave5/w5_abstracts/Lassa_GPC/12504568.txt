@@ -1,0 +1,29 @@
+1. Virology. 2002 Dec 20;304(2):274-81. doi: 10.1006/viro.2002.1695.
+
+High genetic divergence and recombination in Arenaviruses from the Americas.
+
+Archer AM(1), Rico-Hesse R.
+
+Author information:
+(1)Department of Microbiology, University of Texas Health Science Center, San 
+Antonio 78284, USA.
+
+The rodent-borne Arenaviruses are divided into two major antigenic groups: the 
+Old World and New World complexes. Of the 15 known New World arenaviruses, four 
+(Junin, Machupo, Sabia, and Guanarito) have been associated with hemorrhagic 
+fever in humans. It has been difficult to assess the pathogenic or epidemic 
+potential of the remaining viruses and the threat of emerging disease. We 
+obtained full-length small (S) segment sequence data, encoding the nucleoprotein 
+(NP) and glycoprotein precursor (GPC), from all American arenaviruses to predict 
+their evolutionary and functional relationships. Phylogenetic analysis of NP or 
+GPC amino acid sequences from all New World arenaviruses revealed three lineages 
+and that Tamiami and Whitewater Arroyo viruses were probably derived from a 
+single recombinant progenitor. The results imply that arenaviruses have been 
+evolving independently for a very long time, leading to very diverse groupings 
+that do not correlate with geography, rodent host, or human epidemic potential.
+
+Copyright 2002 Elsevier Science (USA)
+
+DOI: 10.1006/viro.2002.1695
+PMCID: PMC3047505
+PMID: 12504568 [Indexed for MEDLINE]

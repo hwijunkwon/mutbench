@@ -1,0 +1,41 @@
+1. Lett Appl Microbiol. 2011 Mar;52(3):233-8. doi: 
+10.1111/j.1472-765X.2010.03002.x. Epub 2011 Jan 19.
+
+Development and evaluation of an immunochromatographic strip for the detection 
+of Human cytomegalovirus.
+
+Xiang L(1), Li L.
+
+Author information:
+(1)Department of Neurology, Henan Provincial People's Hospital, Zhengzhou, 
+Henan, China. huang2330313@126.com
+
+AIMS: To develop and evaluate an immunochromatographic strip for the detection 
+of human cytomegalovirus.
+METHODS AND RESULTS: An immunochromatographic strip for detecting human 
+cytomegalovirus (HCMV) was developed based on membrane chromatography with 
+monoclonal antibodies (mAbs) against HCMV. Bagg albino C mice that were 
+immunized with HCMV yielded two hybridomas secreting mAbs (3C6 and 5D8) specific 
+for HCMV. In this strip, monoclonal antibody 3C6 was conjugated with colloidal 
+gold as the detector antibody. 5D8, in combination with rabbit anti-HCMV 
+polyclonal antibody, was blotted on the nitrocellulose membrane as the capture 
+complex for the test line, and goat anti-mouse immunoglobulin G antibody was 
+used as the capture antibody at the control line. The sensitivity of the strip 
+to HCMV-positive samples reached to 1 : 5·12 × 10(4). The strip test correctly 
+detected the HCMV in known positive samples and did not react with the standard 
+antigens of HSV-1 and HSV-2, CHV, VZV, HHV-6, JEV, DV, WNV. When 400 clinical 
+specimens suspected of infection with HCMV were tested, results from the strip 
+test were nearly identical with those from the hemagglutination/hemagglutination 
+inhibition test, reverse transcription polymerase chain reaction and an 
+enzyme-linked immunosorbent assay kit.
+CONCLUSIONS: An immunochromatographic strip for detecting HCMV was developed 
+based on membrane chromatography with mAbs against HCMV.
+SIGNIFICANCE AND IMPACT OF THE STUDY: The immunochromatographic strip is an 
+acceptable alternative for diagnosing the HCMV and for investigating its 
+epidemiology in clinical laboratories lacking specialized equipment.
+
+© 2011 The Authors. Letters in Applied Microbiology © 2011 The Society for 
+Applied Microbiology.
+
+DOI: 10.1111/j.1472-765X.2010.03002.x
+PMID: 21244452 [Indexed for MEDLINE]

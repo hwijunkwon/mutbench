@@ -1,0 +1,37 @@
+1. Vaccine. 2011 Aug 11;29(35):6008-16. doi: 10.1016/j.vaccine.2011.06.034. Epub 
+2011 Jun 28.
+
+Immune correlates of protection against yellow fever determined by passive 
+immunization and challenge in the hamster model.
+
+Julander JG(1), Trent DW, Monath TP.
+
+Author information:
+(1)Institute for Antiviral Research, Utah State University, Logan, UT, USA.
+
+Live, attenuated yellow fever (YF) 17D vaccine is highly efficacious but causes 
+rare, serious adverse events resulting from active replication in the host and 
+direct viral injury to vital organs. We recently reported development of a 
+potentially safer β-propiolactone-inactivated whole virion YF vaccine (XRX-001), 
+which was highly immunogenic in mice, hamsters, monkeys, and humans [10,11]. To 
+characterize the protective efficacy of neutralizing antibodies stimulated by 
+the inactivated vaccine, graded doses of serum from hamsters immunized with 
+inactivated XRX-001 or live 17D vaccine were transferred to hamsters by the 
+intraperitoneal (IP) route 24h prior to virulent, viscerotropic YF virus 
+challenge. Neutralizing antibody (PRNT(50)) titers were determined in the sera 
+of treated animals 4h before challenge and 4 and 21 days after challenge. 
+Neutralizing antibodies were shown to mediate protection. Animals having 50% 
+plaque reduction neutralization test (PRNT(50)) titers of ≥40 4h before 
+challenge were completely protected from disease as evidenced by viremia, liver 
+enzyme elevation, and protection against illness (weight change) and death. 
+Passive titers of 10-20 were partially protective. Immunization with the XRX-001 
+vaccine stimulated YF neutralizing antibodies that were equally effective (based 
+on dose response) as antibodies stimulated by live 17D vaccine. The results will 
+be useful in defining the level of seroprotection in clinical studies of new 
+yellow fever vaccines.
+
+Copyright © 2011 Elsevier Ltd. All rights reserved.
+
+DOI: 10.1016/j.vaccine.2011.06.034
+PMCID: PMC3148314
+PMID: 21718741 [Indexed for MEDLINE]

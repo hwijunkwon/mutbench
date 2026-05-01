@@ -1,0 +1,65 @@
+1. J Virol. 2018 Mar 14;92(7):e01868-17. doi: 10.1128/JVI.01868-17. Print 2018
+Apr  1.
+
+Structural Study of the C-Terminal Domain of Nonstructural Protein 1 from 
+Japanese Encephalitis Virus.
+
+Poonsiri T(1)(2), Wright GSA(1), Diamond MS(3)(4)(5), Turtle L(6)(2), Solomon 
+T(2), Antonyuk SV(7).
+
+Author information:
+(1)Molecular Biophysics Group, Institute of Integrative Biology, Faculty of 
+Health and Life Sciences, University of Liverpool, Liverpool, United Kingdom.
+(2)Health Protection Research Unit on Emerging and Zoonotic Infections, 
+Institute of Infection and Global Health, University of Liverpool, Liverpool, 
+United Kingdom.
+(3)Department of Medicine, Washington University School of Medicine in St. 
+Louis, St. Louis, Missouri, USA.
+(4)Department of Molecular Microbiology, Washington University School of 
+Medicine in St. Louis, St. Louis, Missouri, USA.
+(5)Department of Pathology & Immunology, Washington University School of 
+Medicine in St. Louis, St. Louis, Missouri, USA.
+(6)Centre for Global Vaccine Research, Institute of Infection and Global Health, 
+University of Liverpool, Liverpool, United Kingdom.
+(7)Molecular Biophysics Group, Institute of Integrative Biology, Faculty of 
+Health and Life Sciences, University of Liverpool, Liverpool, United Kingdom 
+S.Antonyuk@liverpool.ac.uk.
+
+Japanese encephalitis virus (JEV) is a mosquito-transmitted flavivirus that is 
+closely related to other emerging viral pathogens, including dengue virus 
+(DENV), West Nile virus (WNV), and Zika virus (ZIKV). JEV infection can result 
+in meningitis and encephalitis, which in severe cases cause permanent brain 
+damage and death. JEV occurs predominantly in rural areas throughout Southeast 
+Asia, the Pacific Islands, and the Far East, causing around 68,000 cases of 
+infection worldwide each year. In this report, we present a 2.1-Å-resolution 
+crystal structure of the C-terminal β-ladder domain of JEV nonstructural protein 
+1 (NS1-C). The surface charge distribution of JEV NS1-C is similar to those of 
+WNV and ZIKV but differs from that of DENV. Analysis of the JEV NS1-C structure, 
+with in silico molecular dynamics simulation and experimental solution 
+small-angle X-ray scattering, indicates extensive loop flexibility on the 
+exterior of the protein. This, together with the surface charge distribution, 
+indicates that flexibility influences the protein-protein interactions that 
+govern pathogenicity. These factors also affect the interaction of NS1 with the 
+22NS1 monoclonal antibody, which is protective against West Nile virus 
+infection. Liposome and heparin binding assays indicate that only the N-terminal 
+region of NS1 mediates interaction with membranes and that sulfate binding sites 
+common to NS1 structures are not glycosaminoglycan binding interfaces. This 
+report highlights several differences between flavivirus NS1 proteins and 
+contributes to our understanding of their structure-pathogenic function 
+relationships.IMPORTANCE JEV is a major cause of viral encephalitis in Asia. 
+Despite extensive vaccination, epidemics still occur. Nonstructural protein 1 
+(NS1) plays a role in viral replication, and, because it is secreted, it can 
+exhibit a wide range of interactions with host proteins. NS1 sequence and 
+protein folds are conserved within the Flavivirus genus, but variations in NS1 
+protein-protein interactions among viruses likely contribute to differences in 
+pathogenesis. Here, we compared characteristics of the C-terminal β-ladder 
+domain of NS1 between flaviviruses, including surface charge, loop flexibility, 
+epitope cross-reactivity, membrane adherence, and glycosaminoglycan binding. 
+These structural features are central to NS1 functionality and may provide 
+insight into the development of diagnostic tests and therapeutics.
+
+Copyright © 2018 American Society for Microbiology.
+
+DOI: 10.1128/JVI.01868-17
+PMCID: PMC5972899
+PMID: 29343583 [Indexed for MEDLINE]

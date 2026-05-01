@@ -1,0 +1,63 @@
+1. Vaccines (Basel). 2022 Jan 22;10(2):173. doi: 10.3390/vaccines10020173.
+
+Immunization with GP1 but Not Core-like Particles Displaying Isolated 
+Receptor-Binding Epitopes Elicits Virus-Neutralizing Antibodies against Junín 
+Virus.
+
+Roman-Sosa G(1), Leske A(2), Ficht X(1), Dau TH(3), Holzerland J(2), Hoenen 
+T(4), Beer M(5), Kammerer R(3), Schirmbeck R(1), Rey FA(6), Cordo SM(7), Groseth 
+A(2).
+
+Author information:
+(1)Department of Internal Medicine I, Ulm University Hospital, 89081 Ulm, 
+Germany.
+(2)Laboratory for Arenavirus Biology, Institute of Molecular Virology and Cell 
+Biology, Friedrich-Loeffler-Institut, 17493 Greifswald, Germany.
+(3)Laboratory for Immunogenetics, Institute of Immunology, 
+Friedrich-Loeffler-Institut, 17493 Greifswald, Germany.
+(4)Laboratory for Integrative Cell and Infection Biology, Institute of Molecular 
+Virology and Cell Biology, Friedrich-Loeffler-Institut, 17493 Greifswald, 
+Germany.
+(5)National and OIE Reference Laboratory for BHV-1, Institute of Diagnostic 
+Virology, Friedrich-Loeffler-Institut, 17493 Greifswald, Germany.
+(6)Structural Virology Unit, CNRS UMR3569, Institut Pasteur, Université de 
+Paris, 75015 Paris, France.
+(7)Instituto de Química Biológica de la Facultad de Ciencias Exactas y Naturales 
+(IQUIBICEN), University of Buenos Aires, Ciudad Universitaria, Pabellón II, Piso 
+4, Buenos Aires 1428, Argentina.
+
+New World arenaviruses are rodent-transmitted viruses and include a number of 
+pathogens that are responsible for causing severe human disease. This includes 
+Junín virus (JUNV), which is the causative agent of Argentine hemorrhagic fever. 
+The wild nature and mobility of the rodent reservoir host makes it difficult to 
+control the disease, and currently passive immunization with high-titer 
+neutralizing antibody-containing plasma from convalescent patients is the only 
+specific therapy. However, dwindling supplies of naturally available 
+convalescent plasma, and challenges in developing similar resources for other 
+closely related viruses, have made the development of alternative antibody-based 
+therapeutic approaches of critical importance. In this study, we sought to 
+induce a neutralizing antibody response in rabbits against the receptor-binding 
+subunit of the viral glycoprotein, GP1, and the specific peptide sequences in 
+GP1 involved in cellular receptor contacts. While these specific 
+receptor-interacting peptides did not efficiently induce the production of 
+neutralizing antibodies when delivered as a particulate antigen (as part of 
+hepatitis B virus core-like particles), we showed that recombinant JUNV GP1 
+purified from transfected mammalian cells induced virus-neutralizing antibodies 
+at high titers in rabbits. Further, neutralization was observed across a range 
+of unrelated JUNV strains, a feature that is critical for effectiveness in the 
+field. These results underscore the potential of GP1 alone to induce a potent 
+neutralizing antibody response and highlight the importance of epitope 
+presentation. In addition, effective virus neutralization by rabbit antibodies 
+supports the potential applicability of this species for the future development 
+of immunotherapeutics (e.g., based on humanized monoclonal antibodies). Such 
+information can be applied in the design of vaccines and immunogens for both 
+prevention and specific therapies against this and likely also other closely 
+related pathogenic New World arenaviruses.
+
+DOI: 10.3390/vaccines10020173
+PMCID: PMC8874384
+PMID: 35214632
+
+Conflict of interest statement: The authors declare no conflict of interest. The 
+sponsors had no role in the design, execution, interpretation, or writing of the 
+study.

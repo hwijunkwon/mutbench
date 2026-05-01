@@ -1,0 +1,40 @@
+1. J Gen Virol. 1983 Mar;64 Pt 3:627-37. doi: 10.1099/0022-1317-64-3-627.
+
+Ontogeny of yellow fever 17D vaccine: RNA oligonucleotide fingerprint and 
+monoclonal antibody analyses of vaccines produced world-wide.
+
+Monath TP, Kinney RM, Schlesinger JJ, Brandriss MW, Brès P.
+
+Yellow fever 17D vaccines are currently manufactured with approval of the World 
+Health Organization (WHO) in 11 countries. These vaccines have proven highly 
+efficacious and safe. Nevertheless, they have not been fully characterized 
+genetically, a problem for future standardization and modernization of vaccine 
+manufacture now being proposed by WHO. Vaccines in use are derived from two 
+distinct substrains (17D-204 and 17DD) which represent independently maintained 
+passage series from original 17D. In this study, all 17D vaccines produced 
+world-wide were characterized by RNA oligonucleotide fingerprinting. Forty-two 
+large oligonucleotides were compared, and differences from an arbitrarily 
+selected reference strain (produced by Connaught Laboratories in the U.S.A.) 
+were determined. With one exception (vaccine produced in South Africa), 
+fingerprints of vaccines derived from substrain 17D-204 were identical. The 
+South African primary seed differed in position of one oligonucleotide, 
+reflecting a charge shift due to a single base change. This difference occurred 
+within one egg passage; a further change in the South African vaccine occurred 
+within one or two passages from primary seed. No antigenic differences between 
+17D-204-derived vaccines (including South Africa) were demonstrated by 
+neutralization tests using monoclonal antibody. Vaccines derived from the 17DD 
+substrain consistently differed from 17D-204 vaccines in the absence of one 
+oligonucleotide (No. 37). This change probably occurred during 40 additional egg 
+passages in development of the 17DD vaccines. A clear antigenic difference was 
+shown between 17D-204 and 17DD substrain vaccines using monoclonal antibody. 
+17DD vaccines showed minor genotypic differences, suggesting a higher degree of 
+genetic instability than 17D-204 vaccines. No oligonucleotide fingerprint 
+differences were found between avian leukosis virus (ALV)-free and 
+ALV-contaminated vaccines. No definite genomic correlate of neurovirulence was 
+defined by fingerprinting strains with a history of encephalitic complications 
+in man or of failure to pass monkey neurovirulence tests. Parent Asibi virus 
+showed several oligonucleotide differences and was serologically distinct from 
+17D vaccine.
+
+DOI: 10.1099/0022-1317-64-3-627
+PMID: 6298349 [Indexed for MEDLINE]

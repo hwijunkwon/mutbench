@@ -1,0 +1,44 @@
+1. Toxins (Basel). 2014 Apr 22;6(4):1397-418. doi: 10.3390/toxins6041397.
+
+Immunogenicity of a West Nile virus DIII-cholera toxin A2/B chimera after 
+intranasal delivery.
+
+Tinker JK(1), Yan J(2), Knippel RJ(3), Panayiotou P(4), Cornell KA(5).
+
+Author information:
+(1)Department of Biological Sciences, Boise State University, Boise, ID 83725, 
+USA. juliettetinker@boisestate.edu.
+(2)Department of Chemistry and Biochemistry, Boise State University, Boise, ID 
+83725, USA. jennyyan@boisestate.edu.
+(3)Department of Chemistry and Biochemistry, Boise State University, Boise, ID 
+83725, USA. reeceknippel@u.boisestate.edu.
+(4)Department of Chemistry and Biochemistry, Boise State University, Boise, ID 
+83725, USA. panospanayiotou@u.boisestate.edu.
+(5)Department of Chemistry and Biochemistry, Boise State University, Boise, ID 
+83725, USA. kencornell@boisestate.edu.
+
+West Nile virus (WNV) causes potentially fatal neuroinvasive disease and 
+persists at endemic levels in many parts of the world. Despite advances in our 
+understanding of WNV pathogenesis, there remains a significant need for a human 
+vaccine. The domain III (DIII) region of the WNV envelope protein contains 
+epitopes that are the target of neutralizing antibodies. We have constructed a 
+chimeric fusion of the non-toxic cholera toxin (CT) CTA2/B domains to DIII for 
+investigation as a novel mucosally-delivered WNV vaccine. Purification and 
+assembly of the chimera, as well as receptor-binding and antigen delivery, were 
+verified by western blot, GM1 ELISA and confocal microscopy. Groups of BALB/c 
+mice were immunized intranasally with DIII-CTA2/B, DIII, DIII mixed with CTA2/B, 
+or CTA2/B control, and boosted at 10 days. Analysis of serum IgG after 14 and 45 
+days revealed that mucosal immunization with DIII-CTA2/B induced significant 
+DIII-specific humoral immunity and drove isotype switching to IgG2a. The 
+DIII-CTA2/B chimera also induced antigen-specific IgM and IgA responses. 
+Bactericidal assays indicate that the DIII-CTA2/B immunized mice produced 
+DIII-specific antibodies that can trigger complement-mediated killing. A dose 
+escalation resulted in increased DIII-specific serum IgG titers on day 45. DIII 
+antigen alone, in the absence of adjuvant, also induced significant systemic 
+responses after intranasal delivery. Our results indicate that the DIII-CTA2/B 
+chimera is immunogenic after intranasal delivery and merits further 
+investigation as a novel WNV vaccine candidate.
+
+DOI: 10.3390/toxins6041397
+PMCID: PMC4014742
+PMID: 24759174 [Indexed for MEDLINE]

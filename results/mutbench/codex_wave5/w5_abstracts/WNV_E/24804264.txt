@@ -1,0 +1,34 @@
+1. Biomed Res Int. 2014;2014:952865. doi: 10.1155/2014/952865. Epub 2014 Apr 3.
+
+A plant-produced antigen elicits potent immune responses against West Nile virus 
+in mice.
+
+He J(1), Peng L(1), Lai H(1), Hurtado J(2), Stahnke J(2), Chen Q(2).
+
+Author information:
+(1)The Biodesign Institute, Arizona State University, 1001 S. McAllister Avenue, 
+Tempe, AZ 85287, USA.
+(2)The Biodesign Institute, Arizona State University, 1001 S. McAllister Avenue, 
+Tempe, AZ 85287, USA ; School of Life Sciences, Arizona State University, Tempe, 
+AZ 85287, USA.
+
+We described the rapid production of the domain III (DIII) of the envelope (E) 
+protein in plants as a vaccine candidate for West Nile Virus (WNV). Using 
+various combinations of vector modules of a deconstructed viral vector 
+expression system, DIII was produced in three subcellular compartments in leaves 
+of Nicotiana benthamiana by transient expression. DIII expressed at much higher 
+levels when targeted to the endoplasmic reticulum (ER) than that targeted to the 
+chloroplast or the cytosol, with accumulation level up to 73  μ g DIII per gram 
+of leaf fresh weight within 4 days after infiltration. Plant ER-derived DIII was 
+soluble and readily purified to > 95% homogeneity without the time-consuming 
+process of denaturing and refolding. Further analysis revealed that 
+plant-produced DIII was processed properly and demonstrated specific binding to 
+an anti-DIII monoclonal antibody that recognizes a conformational epitope. 
+Furthermore, subcutaneous immunization of mice with 5 and 25  μ g of purified 
+DIII elicited a potent systemic response. This study provided the proof of 
+principle for rapidly producing immunogenic vaccine candidates against WNV in 
+plants with low cost and scalability.
+
+DOI: 10.1155/2014/952865
+PMCID: PMC3996298
+PMID: 24804264 [Indexed for MEDLINE]

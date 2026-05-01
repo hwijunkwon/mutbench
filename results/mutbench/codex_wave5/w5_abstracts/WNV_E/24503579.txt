@@ -1,0 +1,61 @@
+1. PLoS One. 2014 Feb 4;9(2):e87837. doi: 10.1371/journal.pone.0087837.
+eCollection  2014.
+
+Vaccination of mice using the West Nile virus E-protein in a DNA prime-protein 
+boost strategy stimulates cell-mediated immunity and protects mice against a 
+lethal challenge.
+
+De Filette M(1), Soehle S(2), Ulbert S(3), Richner J(4), Diamond MS(4), 
+Sinigaglia A(5), Barzon L(5), Roels S(6), Lisziewicz J(7), Lorincz O(7), Sanders 
+NN(1).
+
+Author information:
+(1)Laboratory of Gene Therapy, Faculty of Veterinary Sciences, Ghent University, 
+Merelbeke, Belgium.
+(2)Institute of Virology, University of Zurich, Zurich, Switzerland.
+(3)Department of Immunology, Fraunhofer Institute for Cell Therapy and 
+Immunology, Leipzig, Germany.
+(4)Departments of Medicine, Molecular Microbiology and Pathology and Immunology, 
+Washington University School of Medicine, St. Louis, Missouri, United States of 
+America.
+(5)Department of Molecular Medicine, University of Padova, Padova, Italy.
+(6)Operational Direction Interactions and Surveillance, Veterinary and 
+Agrochemical Research Centre (CODA/CERVA), Brussels, Belgium.
+(7)Genetic Immunity, Budapest, Hungary and McLean, Virginia, United States of 
+America.
+
+Erratum in
+    PLoS One. 2014;9(2):e91631.
+
+West Nile virus (WNV) is a mosquito-borne flavivirus that is endemic in Africa, 
+the Middle East, Europe and the United States. There is currently no antiviral 
+treatment or human vaccine available to treat or prevent WNV infection. DNA 
+plasmid-based vaccines represent a new approach for controlling infectious 
+diseases. In rodents, DNA vaccines have been shown to induce B cell and 
+cytotoxic T cell responses and protect against a wide range of infections. In 
+this study, we formulated a plasmid DNA vector expressing the ectodomain of the 
+E-protein of WNV into nanoparticles by using linear polyethyleneimine (lPEI) 
+covalently bound to mannose and examined the potential of this vaccine to 
+protect against lethal WNV infection in mice. Mice were immunized twice 
+(prime--boost regime) with the WNV DNA vaccine formulated with lPEI-mannose 
+using different administration routes (intramuscular, intradermal and topical). 
+In parallel a heterologous boost with purified recombinant WNV envelope (E) 
+protein was evaluated. While no significant E-protein specific humoral response 
+was generated after DNA immunization, protein boosting of DNA-primed mice 
+resulted in a marked increase in total neutralizing antibody titer. In addition, 
+E-specific IL-4 T-cell immune responses were detected by ELISPOT after protein 
+boost and CD8(+) specific IFN-γ expression was observed by flow cytometry. 
+Challenge experiments using the heterologous immunization regime revealed 
+protective immunity to homologous and virulent WNV infection.
+
+DOI: 10.1371/journal.pone.0087837
+PMCID: PMC3913677
+PMID: 24503579 [Indexed for MEDLINE]
+
+Conflict of interest statement: Competing Interests: Marina De Filette, Silke 
+Soehle, Sebastian Ulbert, Justin Richner, Michael S. Diamond, Alessandro 
+Sinigaglia, Luisa Barzon, Stefan Roels and Niek N. Sanders have no competing 
+interests. Julianna Lisziewicz and Orsolya Lorincz are shareholders of Genetic 
+Immunity. Their role in the manuscript was supplying the WNV-DermaVir vaccine 
+and critical reading of the manuscript. This does not alter the authors' 
+adherence to all the PLOS ONE policies on sharing data and materials.

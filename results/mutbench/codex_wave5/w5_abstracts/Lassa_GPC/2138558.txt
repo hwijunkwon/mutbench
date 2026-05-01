@@ -1,0 +1,30 @@
+1. Eur J Immunol. 1990 Mar;20(3):523-31. doi: 10.1002/eji.1830200310.
+
+Preferential usage of V alpha 4 and V beta 10 T cell receptor genes by 
+lymphocytic choriomeningitis virus glycoprotein-specific H-2Db-restricted 
+cytotoxic T cells.
+
+Aebischer T(1), Oehen S, Hengartner H.
+
+Author information:
+(1)Department of Experimental Pathology, University Hospital, Zürich, 
+Switzerland.
+
+Correlations between the T cell receptor (TcR) V gene usage and the specificity 
+of T cells have been primarily described for major histocompatibility complex 
+(MHC) class II-restricted helper T cell responses. In the present study the TcR 
+genes expressed by MHC class I-restricted murine cytotoxic T cells (CTL) 
+specific for a major epitope of the lymphocytic choriomeningitis virus (LCMV), 
+LCMV-GP2(275-289), were investigated. The TcR primary structure of an 
+LCMV-GP2(275-289) specific H-2Db-restricted CTL clone has been determined. It 
+uses a member of the V alpha 4 family joined to J alpha AN14.4 for the alpha 
+chain and V beta 10 rearranged to D beta 2.1 and J beta 2.4 for its beta chain. 
+Four other independent LCMV-GP2(275-289) specific H-2Db-restricted CTL clones 
+also expressed V alpha 4 and V beta 10 gene elements. Furthermore, V alpha 4 and 
+V beta 10 were preferentially expressed by polyclonal CTL of C57BL/6 origin 
+specific for LCMV. These results suggest that both TcR V alpha and V beta 
+regions are important for the recognition of the LCMV-GP2(275-289) epitope on 
+H-2Db molecules.
+
+DOI: 10.1002/eji.1830200310
+PMID: 2138558 [Indexed for MEDLINE]

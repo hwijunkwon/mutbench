@@ -1,0 +1,36 @@
+1. J Med Virol. 1999 Dec;59(4):552-60.
+
+Lassa and Mopeia virus replication in human monocytes/macrophages and in 
+endothelial cells: different effects on IL-8 and TNF-alpha gene expression.
+
+Lukashevich IS(1), Maryankova R, Vladyko AS, Nashkevich N, Koleda S, Djavani M, 
+Horejsh D, Voitenok NN, Salvato MS.
+
+Author information:
+(1)Department of Pathology, University of Wisconsin, Madison, Wisconsin, USA.
+
+Cells of the mononuclear and endothelial lineages are targets for viruses which 
+cause hemorrhagic fevers (HF) such as the filoviruses Marburg and Ebola, and the 
+arenaviruses Lassa and Junin. A recent model of Marburg HF pathogenesis proposes 
+that virus directly causes endothelial cell damage and macrophage release of 
+TNF-alpha which increases the permeability of endothelial monolayers [Feldmann 
+et al. , 1996]. We show that Lassa virus replicates in human 
+monocytes/macrophages and endothelial cells without damaging them. Human 
+endothelial cells (HUVEC) are highly susceptible to infection by both Lassa and 
+Mopeia (a non-pathogenic Lassa-related arenavirus). Whereas monocytes must 
+differentiate into macrophages before supporting even low level production of 
+these viruses, the virus yields in the culture medium of infected HUVEC cells 
+reach more than 7 log10 PFU/ml without cellular damage. In contrast to 
+filovirus, Lassa virus replication in monocytes/macrophages fails to stimulate 
+TNF-alpha gene expression and even down-regulates LPS-stimulated TNF-alpha mRNA 
+synthesis. The expression of IL-8, a prototypic proinflammatory CXC chemokine, 
+was also suppressed in Lassa virus infected monocytes/macrophages and HUVEC on 
+both the protein and mRNA levels. This contrasts with Mopeia virus infection of 
+HUVEC in which neither IL-8 mRNA nor protein are reduced. The cumulative 
+down-regulation of TNF-alpha and IL-8 expression could explain the absence of 
+inflammatory and effective immune responses in severe cases of Lassa HF.
+
+Copyright 1999 Wiley-Liss, Inc.
+
+PMCID: PMC2391009
+PMID: 10534741 [Indexed for MEDLINE]

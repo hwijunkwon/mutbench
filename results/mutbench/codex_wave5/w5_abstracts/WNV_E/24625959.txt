@@ -1,0 +1,74 @@
+1. PLoS One. 2014 Mar 13;9(3):e89601. doi: 10.1371/journal.pone.0089601. 
+eCollection 2014.
+
+Circulation of a Meaban-like virus in yellow-legged gulls and seabird ticks in 
+the western Mediterranean basin.
+
+Arnal A(1), Gómez-Díaz E(2), Cerdà-Cuéllar M(3), Lecollinet S(4), Pearce-Duvet 
+J(5), Busquets N(6), García-Bocanegra I(7), Pagès N(6), Vittecoq M(8), Hammouda 
+A(9), Samraoui B(10), Garnier R(5), Ramos R(5), Selmi S(9), González-Solís 
+J(11), Jourdain E(12), Boulinier T(5).
+
+Author information:
+(1)Centre d'Ecologie Fonctionnelle et Evolutive, UMR 5175, CNRS, Montpellier, 
+France; Centre de recherche de la Tour du Valat, Arles, France.
+(2)Institut de Biologia Evolutiva CSIC-Universitat Pompeu Fabra, Barcelona, 
+Spain.
+(3)Institut de Recerca i Tecnologia Agroalimentàries (IRTA), Barcelona, Spain; 
+Centre de Recerca en Sanitat Animal (CReSA), Universitat Autònoma de Barcelona 
+(UAB)-Institut de Recerca i Tecnologia Agroalimentaries (IRTA), Bellaterra 
+(Cerdanyola del Vallès), Spain.
+(4)UMR1161 Virologie INRA, ANSES, ENVA, Animal Health Laboratory ANSES, 
+Maisons-Alfort, France.
+(5)Centre d'Ecologie Fonctionnelle et Evolutive, UMR 5175, CNRS, Montpellier, 
+France.
+(6)Centre de Recerca en Sanitat Animal (CReSA), Universitat Autònoma de 
+Barcelona (UAB)-Institut de Recerca i Tecnologia Agroalimentaries (IRTA), 
+Bellaterra (Cerdanyola del Vallès), Spain.
+(7)Departamento de Sanidad Animal, Universidad de Córdoba, Córdoba, Spain.
+(8)Centre de recherche de la Tour du Valat, Arles, France.
+(9)Département des Sciences de la Vie, Faculté des Sciences de Gabès, Gabès, 
+Tunisia.
+(10)Laboratoire de Recherche et de Conservation des Zones Humides, University of 
+Guelma, Guelma, Algeria; Center of Excellence for Research in Biodiversity, King 
+Saud University, Riyadh, Saudi Arabia.
+(11)Institut de Recerca de la Biodiversitat (IRBio), Universitat de Barcelona, 
+Barcelona, Spain; Departament de Biologia Animal, Universitat de Barcelona, 
+Barcelona, Spain.
+(12)INRA, UR346, Unité d'Epidémiologie Animale, Saint Genès Champanelle, France.
+
+In recent years, a number of zoonotic flaviviruses have emerged worldwide, and 
+wild birds serve as their major reservoirs. Epidemiological surveys of bird 
+populations at various geographical scales can clarify key aspects of the 
+eco-epidemiology of these viruses. In this study, we aimed at exploring the 
+presence of flaviviruses in the western Mediterranean by sampling breeding 
+populations of the yellow-legged gull (Larus michahellis), a widely distributed, 
+anthropophilic, and abundant seabird species. For 3 years, we sampled eggs from 
+19 breeding colonies in Spain, France, Algeria, and Tunisia. First, ELISAs were 
+used to determine if the eggs contained antibodies against flaviviruses. Second, 
+neutralization assays were used to identify the specific flaviviruses present. 
+Finally, for colonies in which ELISA-positive eggs had been found, chick serum 
+samples and potential vectors, culicid mosquitoes and soft ticks (Ornithodoros 
+maritimus), were collected and analyzed using serology and PCR, respectively. 
+The prevalence of flavivirus-specific antibodies in eggs was highly spatially 
+heterogeneous. In northeastern Spain, on the Medes Islands and in the nearby 
+village of L'Escala, 56% of eggs had antibodies against the flavivirus envelope 
+protein, but were negative for neutralizing antibodies against three common 
+flaviviruses: West Nile, Usutu, and tick-borne encephalitis viruses. 
+Furthermore, little evidence of past flavivirus exposure was obtained for the 
+other colonies. A subset of the Ornithodoros ticks from Medes screened for 
+flaviviral RNA tested positive for a virus whose NS5 gene was 95% similar to 
+that of Meaban virus, a flavivirus previously isolated from ticks of Larus 
+argentatus in western France. All ELISA-positive samples subsequently tested 
+positive for Meaban virus neutralizing antibodies. This study shows that gulls 
+in the western Mediterranean Basin are exposed to a tick-borne Meaban-like 
+virus, which underscores the need of exploring the spatial and temporal 
+distribution of this flavivirus as well as its potential pathogenicity for 
+animals and humans.
+
+DOI: 10.1371/journal.pone.0089601
+PMCID: PMC3953012
+PMID: 24625959 [Indexed for MEDLINE]
+
+Conflict of interest statement: Competing Interests: The authors have declared 
+that no competing interests exist.

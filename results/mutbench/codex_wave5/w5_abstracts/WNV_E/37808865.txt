@@ -1,0 +1,41 @@
+1. medRxiv [Preprint]. 2023 Sep 25:2023.09.21.23295701. doi: 
+10.1101/2023.09.21.23295701.
+
+Detection of anti-premembrane antibody as a specific marker of four flavivirus 
+serocomplexes and its application to serosurveillance in endemic regions.
+
+Chen GH, Dai YC, Hsieh SC, Tsai JJ, Sy AK, Jiz M, Pedroso C, Brites C, Netto EM, 
+Kanki PJ, Saunders DRD, Vanlandingham DL, Higgs S, Huang YS, Wang WK.
+
+Update in
+    Emerg Microbes Infect. 2024 Dec;13(1):2301666. doi: 
+10.1080/22221751.2023.2301666.
+
+In the past few decades, several emerging/re-emerging mosquito-borne 
+flaviviruses have resulted in disease outbreaks of public health concern in the 
+tropics and subtropics. Due to cross-reactivities of antibodies recognizing the 
+envelope protein of different flaviviruses, serosurveillance remains a 
+challenge. Previously we reported that anti-premembrane (prM) antibody can 
+discriminate between three flavivirus infections by Western blot analysis. In 
+this study, we aimed to develop a serological assay that can discriminate 
+infection or exposure with flaviviruses from four serocomplexes, including 
+dengue (DENV), Zika (ZIKV), West Nile (WNV) and yellow fever (YFV) viruses, and 
+explore its application for serosurveillance in flavivirus-endemic countries. We 
+employed Western blot analysis including antigens of six flaviviruses (DENV1, 2 
+and 4, WNV, ZIKV and YFV) from four serocomplexes. We tested serum samples from 
+YF-17D vaccinees, and from DENV, ZIKV and WNV panels that had been confirmed by 
+RT-PCR or by neutralization assays. The overall sensitivity/specificity of 
+anti-prM antibodies for DENV, ZIKV, WNV, and YFV infections/exposure were 
+91.7%/96.4%, 91.7%/99.2%, 88.9%/98.3%, and 91.3%/92.5%, respectively. When 
+testing 48 samples from Brazil, we identified multiple flavivirus 
+infections/exposure including DENV and ZIKV, DENV and YFV, and DENV, ZIKV and 
+YFV. When testing 50 samples from the Philippines, we detected DENV, ZIKV, and 
+DENV and ZIKV infections with a ZIKV seroprevalence rate of 10%, which was 
+consistent with reports of low-level circulation of ZIKV in Asia. Together, 
+these findings suggest that anti-prM antibody is a flavivirus 
+serocomplex-specific marker and can be employed to delineate four flavivirus 
+infections/exposure in regions where multiple flaviviruses co-circulate.
+
+DOI: 10.1101/2023.09.21.23295701
+PMCID: PMC10557774
+PMID: 37808865

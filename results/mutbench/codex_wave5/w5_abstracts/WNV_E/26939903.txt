@@ -1,0 +1,44 @@
+1. Vaccine. 2016 Apr 7;34(16):1915-26. doi: 10.1016/j.vaccine.2016.02.042. Epub 
+2016 Mar 2.
+
+Immunogenicity and protective efficacy of recombinant Modified Vaccinia virus 
+Ankara candidate vaccines delivering West Nile virus envelope antigens.
+
+Volz A(1), Lim S(2), Kaserer M(1), Lülf A(1), Marr L(1), Jany S(1), Deeg CA(3), 
+Pijlman GP(4), Koraka P(5), Osterhaus AD(2), Martina BE(2), Sutter G(6).
+
+Author information:
+(1)German Centre for Infection Research (DZIF), Institute for Infectious 
+Diseases and Zoonoses, LMU University of Munich, Veterinaerstrasse 13, D-80539 
+Munich, Germany.
+(2)Viroscience Lab, Erasmus Medical Center, Rotterdam, The Netherlands; Artemis 
+One Health Research Institute, Utrecht, The Netherlands.
+(3)Institute for Animal Physiology, LMU University of Munich, Munich, Germany.
+(4)Laboratory of Virology, Wageningen University, Wageningen, The Netherlands.
+(5)Viroscience Lab, Erasmus Medical Center, Rotterdam, The Netherlands.
+(6)German Centre for Infection Research (DZIF), Institute for Infectious 
+Diseases and Zoonoses, LMU University of Munich, Veterinaerstrasse 13, D-80539 
+Munich, Germany. Electronic address: gerd.sutter@lmu.de.
+
+West Nile virus (WNV) cycles between insects and wild birds, and is transmitted 
+via mosquito vectors to horses and humans, potentially causing severe 
+neuroinvasive disease. Modified Vaccinia virus Ankara (MVA) is an advanced viral 
+vector for developing new recombinant vaccines against infectious diseases and 
+cancer. Here, we generated and evaluated recombinant MVA candidate vaccines that 
+deliver WNV envelope (E) antigens and fulfil all the requirements to proceed to 
+clinical testing in humans. Infections of human and equine cell cultures with 
+recombinant MVA demonstrated efficient synthesis and secretion of WNV envelope 
+proteins in mammalian cells non-permissive for MVA replication. Prime-boost 
+immunizations in BALB/c mice readily induced circulating serum antibodies 
+binding to recombinant WNV E protein and neutralizing WNV in tissue culture 
+infections. Vaccinations in HLA-A2.1-/HLA-DR1-transgenic H-2 class I-/class 
+II-knockout mice elicited WNV E-specific CD8+ T cell responses. Moreover, the 
+MVA-WNV candidate vaccines protected C57BL/6 mice against lineage 1 and lineage 
+2 WNV infection and induced heterologous neutralizing antibodies. Thus, further 
+studies are warranted to evaluate these recombinant MVA-WNV vaccines in other 
+preclinical models and use them as candidate vaccine in humans.
+
+Copyright © 2016 Elsevier Ltd. All rights reserved.
+
+DOI: 10.1016/j.vaccine.2016.02.042
+PMID: 26939903 [Indexed for MEDLINE]

@@ -1,0 +1,54 @@
+1. Microbiol Spectr. 2023 Apr 13;11(2):e0502722. doi: 10.1128/spectrum.05027-22. 
+Epub 2023 Feb 14.
+
+Validation of a Reporter Cell Line for Flavivirus Inhibition Assays.
+
+Rezende TMT(1), Macera G(1), Heyndrickx L(1), Michiels J(1), Coppens S(1), 
+Thibaut HJ(2), Dallmeier K(3), Van Esbroeck M(4), Neyts J(3), Ariën KK(1), 
+Bartholomeeusen K(1).
+
+Author information:
+(1)Institute of Tropical Medicine, Department of Biomedical Sciences, Virology 
+Unit, Antwerp, Belgium.
+(2)KU Leuven Department of Microbiology, Immunology and Transplantation, Rega 
+Institute, Laboratory of Virology and Chemotherapy, Translational Platform 
+Virology and Chemotherapy (TPVC), Leuven, Belgium.
+(3)KU Leuven Department of Microbiology, Immunology and Transplantation, Rega 
+Institute, Laboratory of Virology and Chemotherapy, Molecular Vaccinology and 
+Vaccine Discovery (MVVD), Leuven, Belgium.
+(4)Institute of Tropical Medicine, Department of Clinical Sciences, Clinical 
+Reference Lab, Antwerp, Belgium.
+
+Here, we report the validation of a new reporter cell line, Hec1a-IFNB-Luc, for 
+use in inhibition studies of various flaviviruses relevant to human pathology. 
+The reporter system allows the detection of viral replication after luciferase 
+gene activation driven by an interferon beta (IFN-β) promoter. We found the 
+reporter cell line to be highly responsive to all 10 flaviviruses tested, 
+including the 4 dengue virus serotypes. The applicability of the Hec1a-IFNB-Luc 
+reporter cell line for serodiagnostic purposes in neutralizing antibody assays 
+was confirmed by comparison of its sensitivity and specificity to those of 
+"gold-standard," clinically applied, cytopathic effect-based assays, showing 
+comparable performances. The reporter cell line used for the assessment of viral 
+inhibition by small-molecule antiviral compounds was also confirmed, and the 
+sensitivity of the Hec1a-IFNB-Luc reporter cell line was compared to those from 
+published data reporting on the activity of the antivirals in various other 
+assays, indicating that the Hec1a-IFNB-Luc reporter cell line allowed the 
+determination of the inhibitory capacity at least as sensitive as alternative 
+assays. By measuring luciferase activity as a proxy for viral replication, the 
+reporter cell line allows early detection, reducing the time to results from 
+often 5 to 7 days to 3 days, without the need for optical inspection of 
+cytopathic effects, which often differ between viruses and cell lines, 
+streamlining the development of flavivirus assays. IMPORTANCE The Hec1a-IFNB-Luc 
+reporter cell line allows the detection of all 10 flaviviruses tested, including 
+the 4 dengue virus serotypes. Its use for serodiagnostic purposes, measuring 
+neutralizing antibody activity in sera, and the assessment of the antiviral 
+activities of small-molecule compounds was confirmed, and it was found to be 
+comparable to clinically applied assays. The Hec1a-IFNB-Luc reporter cell line 
+allows the rapid and quantitative determination of antiviral effects on multiple 
+human pathological flaviviruses using a single protocol.
+
+DOI: 10.1128/spectrum.05027-22
+PMCID: PMC10100686
+PMID: 36786659
+
+Conflict of interest statement: The authors declare no conflict of interest.

@@ -1,0 +1,40 @@
+1. J Med Virol. 2021 Jun;93(6):3374-3382. doi: 10.1002/jmv.26455. Epub 2020 Oct
+14.
+
+Preparation and application of yellow fever virus NS1 protein-specific 
+monoclonal antibodies.
+
+Liu D(1), Chen D(1), Zhang T(1), Yu N(2), Ren R(3), Chen Y(3), Wang C(1).
+
+Author information:
+(1)Medicine Laboratory, Nanfang Hospital of Southern Medical University, 
+Guangzhou, China.
+(2)Division of Laboratory Medicine and Laboratory of Emerging Infectious 
+Diseases, Zhujiang Hospital of Southern Medical University, Guangzhou, China.
+(3)Guangdong Arbovirus Diseases Emergency Technology Research Center, Center for 
+Disease Prevention and Control of Southern Theatre Command of PLA, Guangzhou, 
+China.
+
+Yellow fever is an acute infectious disease that is common in Africa and South 
+America and causes thousands of deaths annually. However, there are very few 
+studies on yellow fever virus (YFV) antigen detection kits. As a detection 
+target, the nonstructural protein 1 (NS1) has been successfully used in the 
+early diagnosis of dengue virus (a member of the Flaviviridae family) infection. 
+In this study, we used monoclonal antibody technology to prepare anti-YFV NS1 
+monoclonal antibodies (MAbs) and identified their immunological properties. 
+Next, we used two mouse MAbs that can recognize different epitopes of YFV NS1 as 
+capture and detection antibodies to establish a YFV NS1 antigen-capture 
+enzyme-linked immunosorbent assay (ELISA). The antigen-capture ELISA displayed 
+exclusive specificity to YFV without cross-reaction with other related members 
+of the flavivirus family, including the dengue virus, West Nile virus, Japanese 
+encephalitis virus. Additionally, the detection sensitivity towards the YFV 
+culture supernatant was 103 TCID50/mL and the detection positivity rate was 95% 
+compared with reverse transcription-polymerase chain reaction. In conclusion, 
+this newly developed NS1 antigen-capture ELISA with high sensitivity and 
+specificity could be used as an efficient method for the early diagnosis of YFV 
+infection in animals or humans.
+
+© 2020 Wiley Periodicals LLC.
+
+DOI: 10.1002/jmv.26455
+PMID: 32841419 [Indexed for MEDLINE]

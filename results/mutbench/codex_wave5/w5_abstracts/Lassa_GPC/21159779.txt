@@ -1,0 +1,40 @@
+1. J Biol Chem. 2011 Feb 25;286(8):6192-200. doi: 10.1074/jbc.M110.196428. Epub 
+2010 Dec 15.
+
+A specific interaction of small molecule entry inhibitors with the envelope 
+glycoprotein complex of the Junín hemorrhagic fever arenavirus.
+
+Thomas CJ(1), Casquilho-Gray HE, York J, DeCamp DL, Dai D, Petrilli EB, Boger 
+DL, Slayden RA, Amberg SM, Sprang SR, Nunberg JH.
+
+Author information:
+(1)Center for Biomolecular Structure and Dynamics, University of Montana, 
+Missoula, Montana 59812, USA. celestine.thomas@umontana.edu
+
+Arenaviruses are responsible for acute hemorrhagic fevers worldwide and are 
+recognized to pose significant threats to public health and biodefense. Small 
+molecule compounds have recently been discovered that inhibit arenavirus entry 
+and protect against lethal infection in animal models. These chemically distinct 
+inhibitors act on the tripartite envelope glycoprotein (GPC) through its unusual 
+stable signal peptide subunit to stabilize the complex against pH-induced 
+activation of membrane fusion in the endosome. Here, we report the production 
+and characterization of the intact transmembrane GPC complex of Junín arenavirus 
+and its interaction with these inhibitors. The solubilized GPC is antigenically 
+indistinguishable from the native protein and forms a homogeneous trimer in 
+solution. When reconstituted into a lipid bilayer, the purified complex 
+interacts specifically with its cell-surface receptor transferrin receptor-1. We 
+show that small molecule entry inhibitors specific to New World or Old World 
+arenaviruses bind to the membrane-associated GPC complex in accordance with 
+their respective species selectivities and with dissociation constants 
+comparable with concentrations that inhibit GPC-mediated membrane fusion. 
+Furthermore, competitive binding studies reveal that these chemically distinct 
+inhibitors share a common binding pocket on GPC. In conjunction with previous 
+genetic studies, these findings identify the pH-sensing interface of GPC as a 
+highly vulnerable target for antiviral intervention. This work expands our 
+mechanistic understanding of arenavirus entry and provides a foundation to guide 
+the development of small molecule compounds for the treatment of arenavirus 
+hemorrhagic fevers.
+
+DOI: 10.1074/jbc.M110.196428
+PMCID: PMC3057843
+PMID: 21159779 [Indexed for MEDLINE]

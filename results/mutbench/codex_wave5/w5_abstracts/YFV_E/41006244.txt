@@ -1,0 +1,60 @@
+1. Nat Commun. 2025 Sep 26;16(1):8449. doi: 10.1038/s41467-025-63038-5.
+
+A single residue in the yellow fever virus envelope protein modulates virion 
+architecture and antigenicity.
+
+Bibby S(#)(1), Jung J(#)(1)(2), Low YS(1), Amarilla AA(1), Newton ND(1)(3), 
+Scott CAP(1), Balk J(4), Ting YT(4)(5), Freney ME(1), Liang B(1), Grant T(6)(7), 
+Coulibaly F(4), Young P(1)(3), Hall RA(1)(3), Hobson-Peters J(1)(3), Modhiran 
+N(#)(8)(9), Watterson D(#)(10)(11).
+
+Author information:
+(1)School of Chemistry & Molecular Biosciences, The University of Queensland, St 
+Lucia, QLD, Australia.
+(2)Janelia Research Campus, Howard Hughes Medical Institute, Ashburn, VA, USA.
+(3)Australian Infectious Disease Research Centre, The University of Queensland, 
+St Lucia, QLD, Australia.
+(4)Department of Biochemistry and Molecular Biology and Biomedicine Discovery 
+Institute, Monash University, Clayton, VIC, Australia.
+(5)Centre for Inflammatory Diseases, Department of Medicine, School of Clinical 
+Sciences, Monash University, Clayton, VIC, Australia.
+(6)John and Jeanne Rowe Center for Research in Virology, Morgridge Institute for 
+Research, Madison, WI, USA.
+(7)Department of Biochemistry, University of Wisconsin-Madison, Madison, WI, 
+USA.
+(8)School of Chemistry & Molecular Biosciences, The University of Queensland, St 
+Lucia, QLD, Australia. n.modhiran@uq.edu.au.
+(9)Australian Infectious Disease Research Centre, The University of Queensland, 
+St Lucia, QLD, Australia. n.modhiran@uq.edu.au.
+(10)School of Chemistry & Molecular Biosciences, The University of Queensland, 
+St Lucia, QLD, Australia. d.watterson@uq.edu.au.
+(11)Australian Infectious Disease Research Centre, The University of Queensland, 
+St Lucia, QLD, Australia. d.watterson@uq.edu.au.
+(#)Contributed equally
+
+Erratum in
+    Nat Commun. 2025 Nov 5;16(1):9786. doi: 10.1038/s41467-025-65890-x.
+
+Yellow fever virus (YFV) is a re-emerging flavivirus that causes severe hepatic 
+disease and mortality in humans. Despite being researched for over a century, 
+the structure of YFV has remained elusive. Here we use a chimeric virus platform 
+to resolve the first high resolution cryo-EM structures of YFV. Stark 
+differences in particle morphology and homogeneity are observed between vaccine 
+and virulent strains of YFV, and these are found to have significant 
+implications on antibody recognition and neutralisation. We identify a single 
+residue (R380) in the YFV17D envelope protein that stabilises the virion 
+surface, and leads to reduced exposure of the cross-reactive fusion loop 
+epitope. The differences in virion morphology between YFV strains also 
+contribute to the reduced sensitivity of the virulent YFV virions to 
+vaccine-induced antibodies. These findings have significant implications for YFV 
+biology, vaccinology and structure-based flavivirus antigen design.
+
+© 2025. The Author(s).
+
+DOI: 10.1038/s41467-025-63038-5
+PMCID: PMC12475062
+PMID: 41006244 [Indexed for MEDLINE]
+
+Conflict of interest statement: Competing interests: N.D.N., R.A.H., J.H.-P. and 
+D.W. are inventors on patent application WO/2018/176075, relating to the 
+chimeric BinJV platform. The remaining authors declare no competing interests.

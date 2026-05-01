@@ -1,0 +1,64 @@
+1. EBioMedicine. 2025 Apr;114:105673. doi: 10.1016/j.ebiom.2025.105673. Epub 2025
+ Mar 31.
+
+Mapping the antibody response to Lassa virus vaccination of non-human primates.
+
+Enriquez AS(1), Avalos RD(1), Parekh D(1), Cooper CL(2), Morrow G(2), Geisbert 
+TW(3), Parks CL(2), Hastie KM(4), Saphire EO(5).
+
+Author information:
+(1)Center for Vaccine Innovation, La Jolla Institute for Immunology, La Jolla, 
+CA, 92037, USA.
+(2)International AIDS Vaccine Initiative; New York, NY, 10004, USA.
+(3)Galveston National Laboratory, University of Texas Medical Branch, Galveston, 
+TX, 77555, USA.
+(4)Center for Vaccine Innovation, La Jolla Institute for Immunology, La Jolla, 
+CA, 92037, USA. Electronic address: kmhastie@lji.org.
+(5)Center for Vaccine Innovation, La Jolla Institute for Immunology, La Jolla, 
+CA, 92037, USA; Dept. of Medicine, University of California San Diego, La Jolla, 
+CA, 92093, USA. Electronic address: erica@lji.org.
+
+BACKGROUND: Lassa fever, caused by Lassa virus, is a severe disease, endemic in 
+Western Africa, for which no vaccines or therapeutics are yet approved. 
+Understanding the immune responses elicited by candidate vaccines is key for 
+approval, including characterisation of antibody epitopes recognised and 
+capacity for neutralisation.
+METHODS: Here we used negative-stain electron microscopy polyclonal antibody 
+epitope mapping (EMPEM), in-vitro pseudovirus neutralisation assays, and 
+biophysical antibody competition assays to uncover components of polyclonal 
+antibody responses elicited in nonhuman primates 26 days after receipt of a 
+single immunisation with a fully protective, recombinant, replication-competent 
+vesicular stomatitis virus-based vaccine bearing the Lassa virus glycoprotein 
+GPC.
+FINDINGS: Although the vaccinee sera are overall poorly-neutralising, we do 
+directly visualise, within the polyclonal pool, antibodies targeting epitopes on 
+GPC that are consistent with neutralisation, as well as competition with known 
+neutralising mAbs. Nearly every animal, for example, produced antibodies that 
+compete with mAbs against GP1-A and GPC-A neutralising epitopes. The most 
+abundant classes of antibodies, however, are directed against interior 
+interfaces of GPC, while other antibodies recognise post-fusion GPC epitopes not 
+consistent with neutralisation.
+INTERPRETATION: It may be that some individual antibodies in the pool are 
+neutralising, but that the abundance of non-neutralising epitopes reduces 
+potency as measured at the polyclonal level. The finding, however, 
+neutralisation-consistent sites and competition with known neutralising 
+antibodies are important steps in vaccine design toward eliciting more potent 
+neutralisation.
+FUNDING: A complete list of funding bodies that supported this study is 
+presented in the Funding section.
+
+Copyright © 2025 The Author(s). Published by Elsevier B.V. All rights reserved.
+
+DOI: 10.1016/j.ebiom.2025.105673
+PMCID: PMC11999075
+PMID: 40168843 [Indexed for MEDLINE]
+
+Conflict of interest statement: Declaration of interests K.M.H. and E.O.S. are 
+listed as inventors on the patent entitled “Engineered Arenavirus Glycoprotein 
+Compositions and Methods of Use Thereof” (PCT/US2021/046380, published as 
+WO2022040238A2), which describe the LASV GPC constructs used for 
+characterisation in this study. U.S. patent number 8,796,013 entitled “Pre- or 
+Post-Exposure Treatment for Filovirus or Arenavirus Infection” issued to TWG on 
+5 August 2014 held by Boston University. A U.S. provisional patent application 
+(Serial No. 63/652,870) has been filed on the human vaccine candidate by IAVI 
+(CLP).

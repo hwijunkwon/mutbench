@@ -1,0 +1,43 @@
+1. Eur J Immunol. 2014 Jul;44(7):1936-46. doi: 10.1002/eji.201444450. Epub 2014
+May  3.
+
+A novel T-cell receptor mimic defines dendritic cells that present an 
+immunodominant West Nile virus epitope in mice.
+
+Kim S(1), Pinto AK, Myers NB, Hawkins O, Doll K, Kaabinejadian S, Netland J, 
+Bevan MJ, Weidanz JA, Hildebrand WH, Diamond MS, Hansen TH.
+
+Author information:
+(1)Department of Pathology and Immunology, Washington University School of 
+Medicine, St Louis, MO, USA.
+
+We used a newly generated T-cell receptor mimic monoclonal antibody (TCRm MAb) 
+that recognizes a known nonself immunodominant peptide epitope from West Nile 
+virus (WNV) NS4B protein to investigate epitope presentation after virus 
+infection in C57BL/6 mice. Previous studies suggested that peptides of different 
+length, either SSVWNATTAI (10-mer) or SSVWNATTA (9-mer) in complex with class I 
+MHC antigen H-2D(b) , were immunodominant after WNV infection. Our data 
+establish that both peptides are presented on the cell surface after WNV 
+infection and that CD8(+) T cells can detect 10- and 9-mer length variants 
+similarly. This result varies from the idea that a given T-cell receptor (TCR) 
+prefers a single peptide length bound to its cognate class I MHC. In separate 
+WNV infection studies with the TCRm MAb, we show that in vivo the 10-mer was 
+presented on the surface of uninfected and infected CD8α(+) CD11c(+) dendritic 
+cells, which suggests the use of direct and cross-presentation pathways. In 
+contrast, CD11b(+) CD11c(-) cells bound the TCRm MAb only when they were 
+infected. Our study demonstrates that TCR recognition of peptides is not limited 
+to certain peptide lengths and that TCRm MAbs can be used to dissect the 
+cell-type specific mechanisms of antigen presentation in vivo.
+
+© 2014 WILEY-VCH Verlag GmbH & Co. KGaA, Weinheim.
+
+DOI: 10.1002/eji.201444450
+PMCID: PMC4107030
+PMID: 24723377 [Indexed for MEDLINE]
+
+Conflict of interest statement: CONFLICT OF INTEREST The authors have a 
+financial interest to disclose. J.A.W., O.H., and K.D. are associated with 
+Receptor Logic, Inc., a company that develops TCRm MAbs for possible commercial 
+development. The E16 MAb has been licensed by Washington University to 
+MacroGenics, Inc for possible commercial development. M.S.D. is a paid 
+consultant of MacroGenics, Inc.

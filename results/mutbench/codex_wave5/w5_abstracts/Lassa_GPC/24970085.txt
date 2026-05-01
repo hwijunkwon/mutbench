@@ -1,0 +1,50 @@
+1. Science. 2014 Jun 27;344(6191):1506-10. doi: 10.1126/science.1252480.
+
+Virus entry. Lassa virus entry requires a trigger-induced receptor switch.
+
+Jae LT(1), Raaben M(2), Herbert AS(3), Kuehne AI(3), Wirchnianski AS(3), Soh 
+TK(4), Stubbs SH(4), Janssen H(1), Damme M(5), Saftig P(5), Whelan SP(6), Dye 
+JM(7), Brummelkamp TR(8).
+
+Author information:
+(1)Netherlands Cancer Institute, Plesmanlaan 121, 1066 CX, Amsterdam, 
+Netherlands.
+(2)Netherlands Cancer Institute, Plesmanlaan 121, 1066 CX, Amsterdam, 
+Netherlands. Department of Microbiology and Immunobiology, Harvard Medical 
+School, 77 Avenue Louis Pasteur, Boston, MA 02115, USA.
+(3)U.S. Army Medical Research Institute of Infectious Diseases, 1425 Porter 
+Street, Fort Detrick, MD 21702-5011, USA.
+(4)Department of Microbiology and Immunobiology, Harvard Medical School, 77 
+Avenue Louis Pasteur, Boston, MA 02115, USA.
+(5)Biochemisches Institut, Christian Albrechts-Universität Kiel, 24118 Kiel, 
+Germany.
+(6)Department of Microbiology and Immunobiology, Harvard Medical School, 77 
+Avenue Louis Pasteur, Boston, MA 02115, USA. t.brummelkamp@nki.nl 
+john.m.dye1.civ@mail.mil sean_whelan@hms.harvard.edu.
+(7)U.S. Army Medical Research Institute of Infectious Diseases, 1425 Porter 
+Street, Fort Detrick, MD 21702-5011, USA. t.brummelkamp@nki.nl 
+john.m.dye1.civ@mail.mil sean_whelan@hms.harvard.edu.
+(8)Netherlands Cancer Institute, Plesmanlaan 121, 1066 CX, Amsterdam, 
+Netherlands. CeMM Research Center for Molecular Medicine of the Austrian Academy 
+of Sciences, 1090 Vienna, Austria. Cancer Genomics Center (CGC.nl), Plesmanlaan 
+121, 1066 CX, Amsterdam, Netherlands. t.brummelkamp@nki.nl 
+john.m.dye1.civ@mail.mil sean_whelan@hms.harvard.edu.
+
+Lassa virus spreads from a rodent to humans and can lead to lethal hemorrhagic 
+fever. Despite its broad tropism, chicken cells were reported 30 years ago to 
+resist infection. We found that Lassa virus readily engaged its cell-surface 
+receptor α-dystroglycan in avian cells, but virus entry in susceptible species 
+involved a pH-dependent switch to an intracellular receptor, the 
+lysosome-resident protein LAMP1. Iterative haploid screens revealed that the 
+sialyltransferase ST3GAL4 was required for the interaction of the virus 
+glycoprotein with LAMP1. A single glycosylated residue in LAMP1, present in 
+susceptible species but absent in birds, was essential for interaction with the 
+Lassa virus envelope protein and subsequent infection. The resistance of 
+Lamp1-deficient mice to Lassa virus highlights the relevance of this receptor 
+switch in vivo.
+
+Copyright © 2014, American Association for the Advancement of Science.
+
+DOI: 10.1126/science.1252480
+PMCID: PMC4239993
+PMID: 24970085 [Indexed for MEDLINE]

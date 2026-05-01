@@ -1,0 +1,67 @@
+1. Sci Transl Med. 2023 Mar 29;15(689):eade5795. doi:
+10.1126/scitranslmed.ade5795.  Epub 2023 Mar 29.
+
+Therapeutic neutralizing monoclonal antibody administration protects against 
+lethal yellow fever virus infection.
+
+Ricciardi MJ(1)(2), Rust LN(3), Pedreño-Lopez N(2)(4), Yusova S(3), Biswas S(3), 
+Webb GM(3), Gonzalez-Nieto L(5), Voigt TB(1)(2), Louw JJ(2), Laurino FD(1), 
+DiBello JR(1), Raué HP(6), Barber-Axthelm AM(6), Chun K(6), Uttke S(6), Raphael 
+LMS(7), Yrizarry-Medina A(2), Rosen BC(5), Agnor R(6), Gao L(6), Labriola 
+C(3)(6), Axthelm M(6), Smedley J(6), Julander JG(8), Bonaldo MC(7), Walker 
+LM(9), Messaoudi I(10), Slifka MK(6), Burton DR(1)(11), Kallas EG(1)(12), Sacha 
+JB(1)(3)(6), Watkins DI(1)(2), Burwitz BJ(3)(6).
+
+Author information:
+(1)Mabloc LLC, 725 21st St. NW, Suite 301, Washington, DC 20052, USA.
+(2)George Washington University, 2121 I St. NW, Washington, DC 20052, USA.
+(3)Vaccine and Gene Therapy Institute, Oregon Health and Science University, 
+Beaverton, OR 97006, USA.
+(4)IrsiCaixa AIDS Research Institute, Ctra. del Canyet SN, Badalona 08916, 
+Barcelona, Spain.
+(5)Miller School of Medicine, University of Miami, Miami, FL 33136, USA.
+(6)Oregon National Primate Research Center, Oregon Health and Science 
+University, Beaverton, OR 97006, USA.
+(7)Laboratório de Biologia Molecular de Flavivírus, Instituto Oswaldo Cruz, 
+Fundação Oswaldo Cruz, Rio de Janeiro, Brazil.
+(8)Institute for Antiviral Research, Utah State University, Logan, UT 84322, 
+USA.
+(9)Adagio Therapeutics Inc., Waltham, MA 02451, USA.
+(10)Department of Microbiology, Immunology, and Molecular Genetics, University 
+of Kentucky, Lexington, KY 40536, USA.
+(11)Department of Immunology and Microbiology, Scripps Research Institute, La 
+Jolla, CA 92037, USA.
+(12)Department of Infectious and Parasitic Diseases, School of Medicine, 
+University of Sao Paulo, Sao Paulo, Brazil.
+
+Comment in
+    Nat Rev Drug Discov. 2023 May;22(5):355. doi: 10.1038/d41573-023-00051-7.
+
+Yellow fever virus (YFV) is a reemerging global health threat, driven by several 
+factors, including increased spread of the mosquito vector and rapid 
+urbanization. Although a prophylactic vaccine exists, vaccine hesitancy, supply 
+deficits, and distribution difficulties leave specific populations at risk of 
+severe YFV disease, as evidenced by recent outbreaks in South America. To 
+establish a treatment for patients with severe YFV infection, we tested 37 
+YFV-specific monoclonal antibodies isolated from vaccinated humans and 
+identified two capable of potently neutralizing multiple pathogenic primary YFV 
+isolates. Using both hamster and nonhuman primate models of lethal YFV 
+infection, we demonstrate that a single administration of either of these two 
+potently neutralizing antibodies during acute infection fully controlled viremia 
+and prevented severe disease and death in treated animals. Given the potential 
+severity of YFV-induced disease, our results show that these antibodies could be 
+effective in saving lives and fill a much-needed void in managing YFV cases 
+during outbreaks.
+
+DOI: 10.1126/scitranslmed.ade5795
+PMCID: PMC10617428
+PMID: 36989376 [Indexed for MEDLINE]
+
+Conflict of interest statement: Competing interests: L.M.W. is an author of the 
+patent (U.S. Patent and Trademark Office no. 11479598) that describes the mAbs 
+here. M.J.R., D.R.B., E.G.K., J.B.S., and D.I.W. are equity holders and/or 
+employees of Mabloc LLC. J.B.S. has a financial interest in Mabloc, a company 
+that may have a financial interest in the results of this research and 
+technology. This potential individual conflict of interest has been reviewed and 
+managed by OHSU. All other authors declare that they have no competing 
+interests.

@@ -1,0 +1,34 @@
+1. Vector Borne Zoonotic Dis. 2019 May;19(5):365-369. doi: 10.1089/vbz.2018.2330.
+ Epub 2018 Nov 15.
+
+A Sensitive Nano Luciferase Immune Complex Assay System for Highly Sensitive and 
+Specific Detection of Antibodies Against Tick-Borne Encephalitis Virus.
+
+Li YC(1), Hu Y(1), Wu XY(1), Huo NF(1), Li J(1), Zhang S(1), Jiang T(1)(2), Kang 
+XP(1).
+
+Author information:
+(1)1 State Key Laboratory of Pathogen and Biosecurity, Beijing Institute of 
+Microbiology and Epidemiology, Beijing, China.
+(2)2 Graduate School, Anhui Medical University, Hefei, China.
+
+Tick-borne encephalitis virus (TBEV) can cause fever, headache, neurological 
+disorders, and/or peripheral flaccid paralysis; therefore, it is a major threat 
+to public health. A rapid, sensitive, and simple method for detecting anti-TBEV 
+antibodies is needed urgently to determine infection and for vaccine evaluation. 
+Here, a luciferase-based immunocomplex assay system (Luc-IC) was developed to 
+detect TBEV antibodies. The system is based on a reporter Nano luciferase (NLuc) 
+that is co-expressed as a fusion protein with viral envelope domain III (ED3) in 
+COS7 cells. The cell supernatant was used directly to detect antigen without the 
+need for a purification step. This simple procedure effectively improved the 
+sensitivity of the assay. Sera from 50 patients with an acute tick-borne 
+encephalitis infection were tested to determine the sensitivity of the NLuc-IC 
+assay. Furthermore, 62 sera from individuals infected with Japanese encephalitis 
+virus, West Nile virus, yellow fever virus, dengue virus, or Zika virus were 
+also tested to determine specificity. The results demonstrated that the assay 
+was 100% sensitive and 100% specific for TBEV antibodies. Thus, this very simple 
+NLuc-IC assay is potentially useful for rapid and accurate diagnosis of TBEV 
+infection in both humans and animals.
+
+DOI: 10.1089/vbz.2018.2330
+PMID: 30431406 [Indexed for MEDLINE]

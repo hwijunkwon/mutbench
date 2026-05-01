@@ -1,0 +1,29 @@
+1. Methods Mol Biol. 2023;2585:211-225. doi: 10.1007/978-1-0716-2760-0_19.
+
+Development of Antibody-Based Therapeutics Against West Nile Virus in Plants.
+
+Sun H(1), Lesio J(1), Chen Q(2).
+
+Author information:
+(1)The Biodesign Institute and School of Life Sciences, Arizona State 
+University, Tempe, AZ, USA.
+(2)The Biodesign Institute and School of Life Sciences, Arizona State 
+University, Tempe, AZ, USA. qiang.chen.4@asu.edu.
+
+Since its discovery in 1937 in the West Nile district of Uganda, West Nile virus 
+(WNV) has been one of the leading causes of mosquito-transmitted infectious 
+diseases (Smithburn, Burke, Am J Trop Med 20:22, 1940). Subsequently, it spread 
+to Europe, Asia, Australia, and finally North America in 1999 (Sejvar, Ochsner 
+5(3):6-10, 2003). Worldwide outbreaks have continued to increase since the 1990s 
+(Chancey et al, Biomed Res Int 2015:376230, 2015). According to the Center for 
+Disease Control and Prevention, more than 51,000 cases of WNV infection and 
+nearly 2400 cases of WNV-related death were reported in the USA from 1999 to 
+2019. The estimated economic impact of WNV infections is close to 800 million 
+dollars in the USA from 1999 to 2012 (Barrett, Am J Trop Med Hyg 90:389, 2014).
+
+© 2023. The Author(s), under exclusive license to Springer Science+Business 
+Media, LLC, part of Springer Nature.
+
+DOI: 10.1007/978-1-0716-2760-0_19
+PMCID: PMC12885604
+PMID: 36331777 [Indexed for MEDLINE]

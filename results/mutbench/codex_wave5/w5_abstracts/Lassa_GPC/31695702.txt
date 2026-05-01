@@ -1,0 +1,57 @@
+1. Front Immunol. 2019 Oct 22;10:2499. doi: 10.3389/fimmu.2019.02499. eCollection
+ 2019.
+
+Junin Virus Triggers Macrophage Activation and Modulates Polarization According 
+to Viral Strain Pathogenicity.
+
+Ferrer MF(1), Thomas P(1), López Ortiz AO(1)(2), Errasti AE(3), Charo N(2), 
+Romanowski V(1)(4), Gorgojo J(5), Rodriguez ME(5), Carrera Silva EA(2), Gómez 
+RM(1)(4).
+
+Author information:
+(1)Laboratorio de Virus Animales, Instituto de Biotecnología y Biología 
+Molecular, CONICET-Universidad Nacional de La Plata, La Plata, Argentina.
+(2)Laboratorio de Trombosis Experimental, Instituto de Medicina Experimental, 
+CONICET-Academia Nacional de Medicina, Buenos Aires, Argentina.
+(3)Facultad de Medicina, Instituto de Farmacologia, University of Buenos Aries, 
+Buenos Aires, Argentina.
+(4)Global Viral Network, Baltimore, MD, United States.
+(5)Centro de Investigación y Desarrollo en Fermentaciones Industriales, 
+CONICET-Universidad Nacional de La Plata, La Plata, Argentina.
+
+The New World arenavirus Junin (JUNV) is the etiological agent of Argentine 
+hemorrhagic fever (AHF). Previous studies of human macrophage infection by the 
+Old-World arenaviruses Mopeia and Lassa showed that while the non-pathogenic 
+Mopeia virus replicates and activates human macrophages, the pathogenic Lassa 
+virus replicates but fails to activate human macrophages. Less is known in 
+regard to the impact of New World arenavirus infection on the human macrophage 
+immune response. Macrophage activation is critical for controlling infections 
+but could also be usurped favoring immune evasion. Therefore, it is crucial to 
+understand how the JUNV infection modulates macrophage plasticity to clarify its 
+role in AHF pathogenesis. With this aim in mind, we compared infection with the 
+attenuated Candid 1 (C#1) or the pathogenic P strains of the JUNV virus in human 
+macrophage cultures. The results showed that both JUNV strains similarly 
+replicated and induced morphological changes as early as 1 day post-infection. 
+However, both strains differentially induced the expression of CD71, the 
+receptor for cell entry, the activation and maturation molecules CD80, CD86, and 
+HLA-DR and selectively modulated cytokine production. Higher levels of TNF-α, 
+IL-10, and IL-12 were detected with C#1 strain, while the P strain induced only 
+higher levels of IL-6. We also found that C#1 strain infection skewed macrophage 
+polarization to M1, whereas the P strain shifted the response to an M2 
+phenotype. Interestingly, the MERTK receptor, that negatively regulates the 
+immune response, was down-regulated by C#1 strain and up-regulated by P strain 
+infection. Similarly, the target genes of MERTK activation, the cytokine 
+suppressors SOCS1 and SOCS3, were also increased after P strain infection, in 
+addition to IRF-1, that regulates type I IFN levels, which were higher with C#1 
+compared with P strain infection. Together, this differential 
+activation/polarization pattern of macrophages elicited by P strain suggests a 
+more evasive immune response and may have important implications in the 
+pathogenesis of AHF and underpinning the development of new potential 
+therapeutic strategies.
+
+Copyright © 2019 Ferrer, Thomas, López Ortiz, Errasti, Charo, Romanowski, 
+Gorgojo, Rodriguez, Carrera Silva and Gómez.
+
+DOI: 10.3389/fimmu.2019.02499
+PMCID: PMC6817498
+PMID: 31695702 [Indexed for MEDLINE]

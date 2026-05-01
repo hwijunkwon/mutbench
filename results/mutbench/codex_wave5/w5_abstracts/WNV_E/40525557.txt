@@ -1,0 +1,51 @@
+1. J Vet Intern Med. 2025 Jul-Aug;39(4):e70176. doi: 10.1111/jvim.70176.
+
+Long-Term Humoral Immune Response After West Nile Virus Convalescence in Horses 
+in a Geographic Area of Multiple Orthoflavivirus Co-Circulation.
+
+Tolnai CH(1)(2), Forgách P(1)(2), Marosi A(1)(2), Fehér O(3), Paszerbovics B(4), 
+Tenk M(1)(2), Wagenhoffer Z(3), Kutasi O(3).
+
+Author information:
+(1)Department of Microbiology and Infectious Diseases, University of Veterinary 
+Medicine Budapest, Budapest, Hungary.
+(2)Health Safety National Laboratory, Budapest, Hungary.
+(3)Nutrition and Laboratory Animal Science, University of Veterinary Medicine 
+Budapest, Institute for Animal Breeding, Budapest, Hungary.
+(4)Department of Biostatistics, University of Veterinary Medicine Budapest, 
+Budapest, Hungary.
+
+BACKGROUND: In the last three decades, West Nile virus (WNV, Flaviviridae, 
+Orthoflavivirus genus) has become one of the most important encephalitic agents 
+worldwide, causing substantial numbers of cases in humans and horses every year 
+by re-emerging in endemic areas and emerging in new territories. It is 
+considered that after natural WNV infection, humans and birds develop long-term 
+immunoprotection, but data on immunoprotection in horses is scarce.
+HYPOTHESIS: West Nile virus infection provides long-term humoral immunity in 
+subclinically infected horses.
+ANIMALS: Client-owned, naturally WNV subclinically infected non-WNV-vaccinated, 
+healthy horses.
+METHODS: In this prospective cohort study, anti-WNV neutralizing antibody (nAb) 
+titers of 25 horses were monitored for 5 consecutive years in Hungary. Serum 
+samples were collected annually. First, a WNV immunoglobulin G (IgG) ELISA was 
+performed, followed by virus neutralization tests (VNT) for endemic 
+orthoflaviviruses. A VNT titer > 8 was considered positive.
+RESULTS: The mean WNV titer of horses was 260.64 ± 336.74 in 2019, 
+114.32 ± 107.36 in 2020, 95.38 ± 115.56 in 2021, 22.53 ± 25.71 in 2022 and 
+6.31 ± 5.15 in 2023. A significant decrease (p < 0.001) in the nAb titers 
+occurred over time. In 2023, 88% of the horses had WNV VNT titers below the 
+cut-off value.
+CONCLUSION AND CLINICAL RELEVANCE: Our results showed a significant decrease in 
+WNV titers over time. Because nAbs correlate best with orthoflavivirus 
+protection, our findings suggest that horses might not be protected against 
+re-infection. We recommend regular nAb titer testing or vaccination in endemic 
+areas.
+
+© 2025 The Author(s). Journal of Veterinary Internal Medicine published by Wiley 
+Periodicals LLC on behalf of American College of Veterinary Internal Medicine.
+
+DOI: 10.1111/jvim.70176
+PMCID: PMC12171932
+PMID: 40525557 [Indexed for MEDLINE]
+
+Conflict of interest statement: The authors declare no conflicts of interest.

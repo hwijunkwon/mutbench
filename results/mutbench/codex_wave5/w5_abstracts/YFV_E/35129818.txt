@@ -1,0 +1,62 @@
+1. Braz J Microbiol. 2022 Jun;53(2):777-783. doi: 10.1007/s42770-022-00697-2.
+Epub  2022 Feb 7.
+
+Anti-DENV-NS1 monoclonal antibody for the differential histopathological 
+diagnosis of hemorrhagic fever caused by dengue.
+
+Kanamura CT(1), Piazza RMF(2), Iglézias SD'(1), Borges CC(1), Sansone M(1), 
+Polatto JM(3), Teixeira DL(3), da Silva MA(3), Rocha LB(3), Nogueira JS(4), 
+Maeda AY(4), da Silva Vasami FG(4).
+
+Author information:
+(1)Núcleo de Anatomia Patológica Do Centro de Patologia, Instituto Adolfo Lutz, 
+São Paulo, SP, Brazil.
+(2)Laboratório de Bacteriologia, Instituto Butantan, São Paulo, SP, Brazil. 
+roxane.piazza@butantan.gov.br.
+(3)Laboratório de Bacteriologia, Instituto Butantan, São Paulo, SP, Brazil.
+(4)Núcleo de Doenças de Transmissão Vetorial Do Centro de Virologia, Instituto 
+Adolfo Lutz, São Paulo, SP, Brazil.
+
+Dengue is the most prevalent arboviral disease in humans in tropical and 
+subtropical regions, especially in urban areas, and can cause major epidemics. 
+Although a self-limiting illness, it may sometimes have serious hemorrhagic 
+manifestations, and the outcome of dengue hemorrhagic fever has similar clinical 
+manifestations as in other infections, which could result in death. Therefore, 
+autopsy procedures are required under certain circumstances such as in 
+hemorrhagic fevers, sometimes to confirm or to clarify the diagnosis that may 
+have epidemiological consequences. Normally, the Immunohistochemistry Laboratory 
+of the Pathology Center of Adolfo Lutz Institute receives autopsy samples from 
+different hospitals in Sao Paulo State to confirm a previous diagnosis, 
+especially hemorrhagic fever of infectious etiology. For this diagnosis, we have 
+been using a mouse polyclonal antibody to dengue virus that often does not 
+provide a clear conclusion, because of background staining or no relevant 
+immunostaining, which hampers the histopathological analysis. Accordingly, in 
+the present study, anti-DENV-NS1 monoclonal antibody (4H2) was tested to 
+determine its accuracy in immunohistochemical analysis. Twenty-four autopsy 
+cases of hemorrhagic febrile syndrome showing histopathological alterations 
+compatible with dengue disease were studied: twenty cases were confirmed by 
+RT-PCR for DENV-2 and in four by RT-PCR for yellow fever virus. Samples from 
+autopsied cases of deaths caused by other infectious diseases (two meningitis C 
+and two severe acute respiratory syndrome caused by influenza A H1N1) were 
+included as negative control cases. Positive immunostaining for DENV-NS1 was 
+detected in 16/20 (80%) liver samples and 11/15 (73%) spleen samples from 
+autopsied hemorrhagic dengue patients, whereas the polyclonal antibody detected 
+DENV antigens in 12/20 (60%) liver and in 6/15 (40%) spleen samples from the 
+same cases. Positive results were not obtained with liver biopsy samples from 
+yellow fever or Neisseria meningitides and Flu-A cases. 4H2 mAb recognizes the 
+native protein of the four DENV serotypes in infected cells and did not 
+cross-react with native ZIKV- or CHKV-infected cells by immunohistochemical 
+assay, so it is a useful tool for differential histopathological conclusion of 
+acute febrile hemorrhagic deaths.
+
+© 2022. The Author(s) under exclusive licence to Sociedade Brasileira de 
+Microbiologia.
+
+DOI: 10.1007/s42770-022-00697-2
+PMCID: PMC9151983
+PMID: 35129818 [Indexed for MEDLINE]
+
+Conflict of interest statement: The authors declare no conflict of interest. The 
+funders had no role in the design of the study, in the collection, analyses or 
+interpretation of the data, in the writing of the manuscript, or in the decision 
+to publish the results.

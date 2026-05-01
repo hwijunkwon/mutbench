@@ -1,0 +1,33 @@
+1. J Virol. 2009 Apr;83(7):3228-37. doi: 10.1128/JVI.01711-08. Epub 2009 Jan 19.
+
+Characterization of Lassa virus cell entry and neutralization with Lassa virus 
+pseudoparticles.
+
+Cosset FL(1), Marianneau P, Verney G, Gallais F, Tordo N, Pécheur EI, ter Meulen 
+J, Deubel V, Bartosch B.
+
+Author information:
+(1)Université de Lyon, UCB-Lyon 1, IFR128, INSERM, U758, and Ecole Normale 
+Supérieure de Lyon, Lyon F-69007, France. flcosset@ens-lyon.fr
+
+The cell entry and humoral immune response of the human pathogen Lassa virus 
+(LV), a biosafety level 4 (BSL4) Old World arenavirus, are not well 
+characterized. LV pseudoparticles (LVpp) are a surrogate model system that has 
+been used to decipher factors and routes involved in LV cell entry under BSL2 
+conditions. Here, we describe LVpp, which are highly infectious, with titers 
+approaching those obtained with pseudoparticles displaying G protein of 
+vesicular stomatitis virus and their the use for the characterization of LV cell 
+entry and neutralization. Upon cell attachment, LVpp utilize endocytic vesicles 
+for cell entry as described for many pH-dependent viruses. However, the fusion 
+of the LV glycoproteins is activated at unusually low pH values, with optimal 
+fusion occurring between pH 4.5 and 3, a pH range at which fusion 
+characteristics of viral glycoproteins have so far remained largely unexplored. 
+Consistent with a shifted pH optimum for fusion activation, we found wild-type 
+LV and LVpp to display a remarkable resistance to exposure to low pH. Finally, 
+LVpp allow the fast and quantifiable detection of neutralizing antibodies in 
+human and animal sera and will thus facilitate the study of the humoral immune 
+response in LV infections.
+
+DOI: 10.1128/JVI.01711-08
+PMCID: PMC2655582
+PMID: 19153226 [Indexed for MEDLINE]

@@ -1,0 +1,42 @@
+1. Vaccines (Basel). 2023 Mar 8;11(3):612. doi: 10.3390/vaccines11030612.
+
+Characterization of Live-Attenuated Powassan Virus Vaccine Candidates Identifies 
+an Efficacious Prime-Boost Strategy for Mitigating Powassan Virus Disease in a 
+Murine Model.
+
+Cheung AM(1), Yip EZ(1), Ashbrook AW(1), Goonawardane N(2), Quirk C(1), Rice 
+CM(1), MacDonald MR(1), Hoffmann HH(1).
+
+Author information:
+(1)Laboratory of Virology and Infectious Disease, The Rockefeller University, 
+New York, NY 10065, USA.
+(2)Nuffield Department of Medicine, Peter Medawar Building for Pathogen 
+Research, University of Oxford, Oxford OX1 3SY, UK.
+
+Powassan virus (POWV) is an emerging tick-borne virus and cause of lethal 
+encephalitis in humans. The lack of treatment or prevention strategies for POWV 
+disease underscores the need for an effective POWV vaccine. Here, we took two 
+independent approaches to develop vaccine candidates. First, we recoded the POWV 
+genome to increase the dinucleotide frequencies of CpG and UpA to potentially 
+attenuate the virus by raising its susceptibility to host innate immune factors, 
+such as the zinc-finger antiviral protein (ZAP). Secondly, we took advantage of 
+the live-attenuated yellow fever virus vaccine 17D strain (YFV-17D) as a vector 
+to express the structural genes pre-membrane (prM) and envelope (E) of POWV. The 
+chimeric YFV-17D-POWV vaccine candidate was further attenuated for in vivo 
+application by removing an N-linked glycosylation site within the nonstructural 
+protein (NS)1 of YFV-17D. This live-attenuated chimeric vaccine candidate 
+significantly protected mice from POWV disease, conferring a 70% survival rate 
+after lethal challenge when administered in a homologous two-dose regimen. 
+Importantly, when given in a heterologous prime-boost vaccination scheme, in 
+which vaccination with the initial chimeric virus was followed by a protein 
+boost with the envelope protein domain III (EDIII), 100% of the mice were 
+protected without showing any signs of morbidity. Combinations of this 
+live-attenuated chimeric YFV-17D-POWV vaccine candidate with an EDIII protein 
+boost warrant further studies for the development of an effective vaccine 
+strategy for the prevention of POWV disease.
+
+DOI: 10.3390/vaccines11030612
+PMCID: PMC10058527
+PMID: 36992196
+
+Conflict of interest statement: The authors declare no conflict of interest.

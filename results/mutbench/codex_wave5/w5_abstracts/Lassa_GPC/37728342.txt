@@ -1,0 +1,35 @@
+1. Microbiol Spectr. 2023 Oct 17;11(5):e0190823. doi: 10.1128/spectrum.01908-23. 
+Epub 2023 Sep 20.
+
+A novel in vitro system of supported planar endosomal membranes (SPEMs) reveals 
+an enhancing role for cathepsin B in the final stage of Ebola virus fusion and 
+entry.
+
+Odongo L(1)(2), Habtegebrael BH(1)(2), Kiessling V(1)(2), White JM(1)(3), Tamm 
+LK(1)(2).
+
+Author information:
+(1)Center for Membrane and Cell Physiology, University of Virginia , 
+Charlottesville, Virginia, USA.
+(2)Department of Molecular Physiology and Biological Physics, University of 
+Virginia , Charlottesville, Virginia, USA.
+(3)Department of Cell Biology, University of Virginia , Charlottesville, 
+Virginia, USA.
+
+Ebola virus is the causative agent of Ebola virus disease, which is severe and 
+frequently lethal. EBOV gains entry into cells via late endosomes/lysosomes. The 
+events immediately preceding fusion of the viral and endosomal membranes are 
+incompletely understood. In this study, we report a novel in vitro system for 
+studying virus fusion with endosomal membranes. We validated the system by 
+demonstrating the low pH dependencies of influenza and Lassa virus fusion. 
+Moreover, we show that further cathepsin B action enhances the fusion activity 
+of the primed Ebola virus glycoprotein. Finally, this model endosomal membrane 
+system should be useful in studying the mechanisms of bilayer breaching by other 
+enveloped viruses, by non-enveloped viruses, and by acid-activated bacterial 
+toxins.
+
+DOI: 10.1128/spectrum.01908-23
+PMCID: PMC10581071
+PMID: 37728342
+
+Conflict of interest statement: The authors declare no conflict of interest.

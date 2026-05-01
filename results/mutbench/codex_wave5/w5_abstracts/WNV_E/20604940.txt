@@ -1,0 +1,41 @@
+1. Virol J. 2010 Jul 6;7:146. doi: 10.1186/1743-422X-7-146.
+
+A VLP-based vaccine targeting domain III of the West Nile virus E protein 
+protects from lethal infection in mice.
+
+Spohn G(1), Jennings GT, Martina BE, Keller I, Beck M, Pumpens P, Osterhaus AD, 
+Bachmann MF.
+
+Author information:
+(1)Cytos Biotechnology, Schlieren, Switzerland. gunther.spohn@cytos.com
+
+BACKGROUND: Since its first appearance in the USA in 1999, West Nile virus (WNV) 
+has spread in the Western hemisphere and continues to represent an important 
+public health concern. In the absence of effective treatment, there is a medical 
+need for the development of a safe and efficient vaccine. Live attenuated WNV 
+vaccines have shown promise in preclinical and clinical studies but might carry 
+inherent risks due to the possibility of reversion to more virulent forms. 
+Subunit vaccines based on the large envelope (E) glycoprotein of WNV have 
+therefore been explored as an alternative approach. Although these vaccines were 
+shown to protect from disease in animal models, multiple injections and/or 
+strong adjuvants were required to reach efficacy, underscoring the need for more 
+immunogenic, yet safe DIII-based vaccines.
+RESULTS: We produced a conjugate vaccine against WNV consisting of recombinantly 
+expressed domain III (DIII) of the E glycoprotein chemically cross-linked to 
+virus-like particles derived from the recently discovered bacteriophage AP205. 
+In contrast to isolated DIII protein, which required three administrations to 
+induce detectable antibody titers in mice, high titers of DIII-specific 
+antibodies were induced after a single injection of the conjugate vaccine. These 
+antibodies were able to neutralize the virus in vitro and provided partial 
+protection from a challenge with a lethal dose of WNV. Three injections of the 
+vaccine induced high titers of virus-neutralizing antibodies, and completely 
+protected mice from WNV infection.
+CONCLUSIONS: The immunogenicity of DIII can be strongly enhanced by conjugation 
+to virus-like particles of the bacteriophage AP205. The superior immunogenicity 
+of the conjugate vaccine with respect to other DIII-based subunit vaccines, its 
+anticipated favourable safety profile and low production costs highlight its 
+potential as an efficacious and cost-effective prophylaxis against WNV.
+
+DOI: 10.1186/1743-422X-7-146
+PMCID: PMC2914671
+PMID: 20604940 [Indexed for MEDLINE]

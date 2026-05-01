@@ -1,0 +1,77 @@
+1. Virol J. 2025 Jul 25;22(1):256. doi: 10.1186/s12985-025-02878-5.
+
+Humoral and cellular immune response to a single dose of a novel bivalent 
+recombinant adenovirus-vector vaccine against West Nile virus and chikungunya 
+virus in mice.
+
+Chang S(1), Xiaojuan G(1), Xiaotian H(2)(3), Mengzhe L(4), Chengcheng Z(1), 
+Jialuo B(4), Liye J(4), Yujie J(5), Jia L(5), Tangqi W(1), Zhenyong Q(4), 
+Desheng Z(4), Yao D(6), Zhuozhuang L(7), Wenjie T(8)(9)(10)(11).
+
+Author information:
+(1)National Key Laboratory of Intelligent Tracking and Forecasting for 
+Infectious Diseases, Key Laboratory of Biosafety, National Health Commissions, 
+National Institute for Viral Disease Control and Prevention, China CDC, 155 
+Changbai Road, Beijing, 102206, China.
+(2)School of Basic Medical Sciences, Hebei Medical University, 361 Zhongshan 
+East Road, Shijiazhuang, 050011, China.
+(3)Emergency Department, The Forth Hospital of Hebei Medical University, 
+Shijiazhuang, 050011, China.
+(4)School of Public Health, Xinxiang Medical University, Xinxiang, 453003, 
+China.
+(5)Zhejiang Provincial Key Laboratory of Medical Genetics, School of Laboratory 
+Medicine and Life Sciences, Wenzhou Medical University, Wenzhou, 325035, China.
+(6)National Key Laboratory of Intelligent Tracking and Forecasting for 
+Infectious Diseases, Key Laboratory of Biosafety, National Health Commissions, 
+National Institute for Viral Disease Control and Prevention, China CDC, 155 
+Changbai Road, Beijing, 102206, China. dengyao@ivdc.chinacdc.com.
+(7)National Key Laboratory of Intelligent Tracking and Forecasting for 
+Infectious Diseases, Key Laboratory of Biosafety, National Health Commissions, 
+National Institute for Viral Disease Control and Prevention, China CDC, 155 
+Changbai Road, Beijing, 102206, China. luzz@ivdc.chinacdc.cn.
+(8)National Key Laboratory of Intelligent Tracking and Forecasting for 
+Infectious Diseases, Key Laboratory of Biosafety, National Health Commissions, 
+National Institute for Viral Disease Control and Prevention, China CDC, 155 
+Changbai Road, Beijing, 102206, China. tanwj28@163.com.
+(9)School of Basic Medical Sciences, Hebei Medical University, 361 Zhongshan 
+East Road, Shijiazhuang, 050011, China. tanwj28@163.com.
+(10)School of Public Health, Xinxiang Medical University, Xinxiang, 453003, 
+China. tanwj28@163.com.
+(11)Zhejiang Provincial Key Laboratory of Medical Genetics, School of Laboratory 
+Medicine and Life Sciences, Wenzhou Medical University, Wenzhou, 325035, China. 
+tanwj28@163.com.
+
+BACKGROUND: West Nile virus (WNV) and chikungunya virus (CHIKV) are zoonotic 
+pathogens transmitted by mosquitoes, which cause significant morbidity and 
+mortality globally. Currently, no human vaccine is available against both WNV 
+and CHIKV.
+METHODS: In this study, we developed a novel bivalent recombinant human 
+adenovirus type 5 (Ad5)-based vaccine, designated Ad5-WNV-CHIKV, which encodes 
+WNV prM-E and CHIKV E3-E2-6 K-E1 antigens. The expression of the target antigens 
+for WNV and CHIKV was validated through western blotting and an 
+immunofluorescence assay. We subsequently assessed the humoral and cellular 
+immune response in C57BL/6 mice following intramuscular administration of a 
+single dose of Ad5-WNV-CHIKV.
+RESULTS: Both low-dose (2 × 108 viral particles [vp] per mouse) and high-dose 
+(1 × 109 vp per mouse) administration of Ad5-WNV-CHIKV elicited robust immune 
+responses against the viral targets, with specific immunoglobulin G production 
+against WNV-E, CHIKV E1, and CHIKV E2 proteins, and generation of neutralizing 
+antibodies against WNV and CHIKV, in a dose-dependent manner. Moreover, the 
+vaccine induced strong cellular immunity, characterized by multifunctional 
+antigen-reactive CD4+ and CD8+ T-cell populations, as determined by ELISpot and 
+intracellular cytokine staining assays.
+CONCLUSION: A single dose of the bivalent Ad5-WNV-CHIKV vaccine induced strong 
+neutralizing antibody and cellular immune responses against both WNV and CHIKV 
+in mice. These findings provide a foundation for the development of vaccines 
+targeting WNV and CHIKV. A single dose of vaccine could potentially prevent both 
+diseases.
+
+© 2025. The Author(s).
+
+DOI: 10.1186/s12985-025-02878-5
+PMCID: PMC12297724
+PMID: 40713773 [Indexed for MEDLINE]
+
+Conflict of interest statement: Declarations. Ethics approval and consent to 
+participate: Not applicable. Consent for publication: Not applicable. Competing 
+interests: The authors declare no competing interests.

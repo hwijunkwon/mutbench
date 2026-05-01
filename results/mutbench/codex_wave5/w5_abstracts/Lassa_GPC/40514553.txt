@@ -1,0 +1,48 @@
+1. Curr Microbiol. 2025 Jun 13;82(8):334. doi: 10.1007/s00284-025-04320-z.
+
+A New Vaccine Candidate Expressing JUNV GP1-GP2 Against Argentine Hemorrhagic 
+Fever Based on Baculovirus Surface Display.
+
+Tomatis C(1)(2), Aguiar MCAM(2), Charo N(2), Aquila S(1), Thomas PD(1), Arrías 
+PN(3), Pidre ML(3), Romanowski V(3), Riera L(4), Brignone J(4), Maiza A(4), 
+Carrera Silva EA(2), Ferrer MF(5), Gómez RM(6).
+
+Author information:
+(1)Laboratorio de Patogénesis Viral, Instituto de Biotecnología y Biología 
+Molecular (IBBM), CONICET-UNLP, Calle 49 y 115, 1900, La Plata, Buenos Aires, 
+Argentina.
+(2)Laboratorio de Trombosis Experimental, Instituto de Medicina Experimental 
+(IMEX), Academia Nacional de Medicina, Buenos Aires, Argentina.
+(3)Laboratorio de Virología Molecular, Instituto de Biotecnología y Biología 
+Molecular (IBBM), CONICET-UNLP, La Plata, Buenos Aires, Argentina.
+(4)Instituto Nacional de Enfermedades Virales Humanas (INEVH), ANLIS Malbrán, 
+Pergamino, Argentina.
+(5)Laboratorio de Patogénesis Viral, Instituto de Biotecnología y Biología 
+Molecular (IBBM), CONICET-UNLP, Calle 49 y 115, 1900, La Plata, Buenos Aires, 
+Argentina. mflorenciaferrer@yahoo.com.
+(6)Laboratorio de Patogénesis Viral, Instituto de Biotecnología y Biología 
+Molecular (IBBM), CONICET-UNLP, Calle 49 y 115, 1900, La Plata, Buenos Aires, 
+Argentina. rmg1426@gmail.com.
+
+With the aim of developing a new vaccine candidate using a recombinant 
+baculovirus (rBV) expressing the Junín virus (JUNV) GP1 and GP2 proteins on its 
+surface, a pBacPAK9 vector containing the BV-GP64 signal peptide, the JUNV 
+GP1-GP2 and the transmembrane domain of the vesicular stomatitis virus G (VSV-G) 
+protein were synthesized. This plasmid was co-transfected with the bApGOZA 
+bacmid into Sf9 cells. The rBV was recovered from the supernatant. Protein 
+expression was confirmed with a human serum by Western blot and with an anti-GPC 
+monoclonal antibody by IFI staining and virometry. In an ELISA test, mice 
+immunized with rBV exhibited specific antibody levels that also showed 
+neutralizing properties in a plaque reduction test compared to controls. Guinea 
+pigs immunized with rBV and challenged with JUNV showed partial protection 
+compared to the Candid#1 vaccine. We have developed an rBV surface display 
+platform to validate a potential JUNV vaccine candidate.
+
+© 2025. The Author(s), under exclusive licence to Springer Science+Business 
+Media, LLC, part of Springer Nature.
+
+DOI: 10.1007/s00284-025-04320-z
+PMID: 40514553 [Indexed for MEDLINE]
+
+Conflict of interest statement: Declarations. COMPETING INTEREST: The authors 
+have no financial conflicts of interest.

@@ -1,0 +1,32 @@
+1. Biokhimiia. 1991 Apr;56(4):579-88.
+
+[Fusion of artificial lipid membranes induced by synthetic "fusion peptide" of 
+arenaviruses].
+
+[Article in Russian]
+
+Glushakova SE, Omel'ianenko VG, Lukashevich IS, Bogdanov AA, Moshnikova AB, 
+Kozhich AT, Torchilin VP.
+
+The fusing capacity of lipid membranes of a synthetic 23-member peptide was 
+studied. This hydrophobic peptide represents an analog of a predicted functional 
+site ("fusion peptide") of the GP2 envelope protein of the Lassa virus (family 
+Arenaviridae). Fusion of small monolayer liposomes was detected by the method of 
+resonance energy transfer between the fluorescent derivatives of the lipid, 
+NBD-PE (donor) and Rd-PE (acceptor). Using this peptide, the pH-dependent fusing 
+activity was found in liposomes having different phospholipid composition. The 
+rate and efficiency of liposome fusion increased with a decrease in pH and the 
+lipid/peptide ratio as well as with a temperature increase. The increase in the 
+ionic strength and Ca2+ concentration in the reaction mixture led to the 
+inhibition of the peptide-induced fusion of liposomes. Neither the phospholipid 
+charge, nor the transmembrane proton gradient of liposomes had any appreciable 
+effect on the kinetics of the peptide-induced fusion. Neutralization of the 
+medium in the course of the fusion reaction sharply decelerated, whereas 
+repeated acidification activated this process. This finding suggests that 
+peptide protonation plays a role in fusion reactions. It was suggested that 
+acidification causes conformational changes in the peptide structure, thus 
+activating the peptide-induced fusion of liposomes. The fusing capacity of the 
+predicted Lassa virus fusion peptide is similar to that of viruses characterized 
+by a pH-dependent step at the initial stages of the viral infection.
+
+PMID: 1912065 [Indexed for MEDLINE]

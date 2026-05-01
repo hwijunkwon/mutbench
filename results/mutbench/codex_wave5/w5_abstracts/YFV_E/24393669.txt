@@ -1,0 +1,48 @@
+1. Antiviral Res. 2014 Mar;103:32-8. doi: 10.1016/j.antiviral.2013.12.011. Epub 
+2014 Jan 3.
+
+Humanized monoclonal antibody 2C9-cIgG has enhanced efficacy for yellow fever 
+prophylaxis and therapy in an immunocompetent animal model.
+
+Julander JG(1), Thibodeaux BA(2), Morrey JD(1), Roehrig JT(3), Blair CD(4).
+
+Author information:
+(1)Institute for Antiviral Research, Utah State University, Logan, UT 84322, 
+USA.
+(2)Division of Vector-Borne Diseases, Centers for Disease Control and 
+Prevention, Fort Collins, CO 80521, USA; Arthropod-borne and Infectious Diseases 
+Laboratory, Department of Microbiology, Immunology, and Pathology, Colorado 
+State University, Fort Collins, CO 80523, USA.
+(3)Division of Vector-Borne Diseases, Centers for Disease Control and 
+Prevention, Fort Collins, CO 80521, USA.
+(4)Arthropod-borne and Infectious Diseases Laboratory, Department of 
+Microbiology, Immunology, and Pathology, Colorado State University, Fort 
+Collins, CO 80523, USA. Electronic address: cblair@colostate.edu.
+
+Yellow fever virus (YFV) causes significant human disease and mortality in 
+tropical regions of South and Central America and Africa, despite the 
+availability of an effective vaccine. No specific therapy for YF is available. 
+We previously showed that the humanized monoclonal antibody (MAb) 2C9-cIgG 
+provided prophylactic and therapeutic protection from mortality in interferon 
+receptor-deficient strain AG129 mice challenged with YF 17D-204 vaccine. In this 
+study we tested the prophylactic and therapeutic efficacy of this MAb against 
+virulent YFV infection in an immunocompetent hamster model. Intraperitoneal (ip) 
+administration of a single dose of MAb 2C9-cIgG 24h prior to YFV challenge 
+resulted in significantly improved survival rates in animals treated with 380 or 
+38 μg of MAb compared to untreated animals. Treatment with the higher dose also 
+resulted in significantly improved weight gain and reductions in serum alanine 
+aminotransferase (ALT) and virus titers in serum and liver. Prophylactic 
+treatment with 2C9-cIgG 24h prior to virus challenge prevented the development 
+of a virus-neutralizing antibody (vnAb) response in hamsters. Administration of 
+a single ip dose of 380 μg of 2C9-cIgG as late as 72 h post-YFV challenge also 
+resulted in significant improvement in survival rates. Hamsters treated at 4-72 
+h post-virus challenge developed a robust vnAb response. Enhanced survival and 
+improvement of various disease parameters in the hamster model when MAb 2C9-cIgG 
+is administered up to 3 days after virus challenge demonstrate the clinical 
+potential of specific antibody therapy for YF.
+
+Copyright © 2014 Elsevier B.V. All rights reserved.
+
+DOI: 10.1016/j.antiviral.2013.12.011
+PMCID: PMC3951967
+PMID: 24393669 [Indexed for MEDLINE]

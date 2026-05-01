@@ -1,0 +1,30 @@
+1. Nan Fang Yi Ke Da Xue Xue Bao. 2012 May;32(5):742-5.
+
+[Preparation of a monoclonal antibody against fusion protein preM/EIII of WNV].
+
+[Article in Chinese]
+
+Li L(1), Chen L, Liao Y, Chen J, Shi Y.
+
+Author information:
+(1)Department of Laboratory Medicine, Guangzhou General Hospital of Guangzhou 
+Military Comman, Guangzhou, China. mature303@126.com
+
+OBJECTIVE: To prepare a monoclonal antibody (mAb) against the fusion protein 
+preM/EIII of West Nile virus (WNV) for clinical detection of WNV.
+METHODS: Sp2/0 cells were fused with the spleen cells of BALB/c mice immunized 
+with the recombinant fusion protein preM/EIII expressed in E. coil to obtain the 
+hybridoma cell line that secreted preM/EIII mAb. The hybridoma cells were 
+injected into the peritoneal cavity of BALB/c mice and the ascites was collected 
+and purified. The specificity and titer of the obtained mAb were determined 
+using ELISA and Western blotting.
+RESULTS: One hybridoma cell line secreting preM/EIII mAb, named ME1, was 
+obtained. The titer of the purified mAb was 10(-6). Identified as a mAb of the 
+Ig subclass IgG1, ME1 was capable of specific reactions with preM/EIII protein 
+and WNV without cross-reactions with other viruses such as JEV, SLEV, YFV and 
+DENV. The accuracy of clinical testing of MNV with ME1 was 97.78%.
+CONCLUSION: The mAb against preM/EIII obtained have a high specificity and 
+accuracy in clinical testing of MNV and can be used in clinical diagnosis of MNV 
+infection.
+
+PMID: 22588939 [Indexed for MEDLINE]

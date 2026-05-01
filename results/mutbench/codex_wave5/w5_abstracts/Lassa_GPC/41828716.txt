@@ -1,0 +1,53 @@
+1. Int J Mol Sci. 2026 Mar 9;27(5):2501. doi: 10.3390/ijms27052501.
+
+Development of a Conditional Replication System Using a Lassa Virus Glycoprotein 
+Complex-Encoding Retroviral Vector for Isolating Resistant Variants to 
+Inhibitors in BSL-2.
+
+Hans MB(1)(2)(3), Fanto AM(1)(3), Fukuda T(4)(5), Suga K(5)(6), Iwao M(5), 
+Hayashi H(7), Yokoyama M(8), Sato H(8), Mbaya OT(2), Kotani O(8), Kubo Y(1)(3).
+
+Author information:
+(1)Department of Clinical Medicine, Institute of Tropical Medicine, Nagasaki 
+University, Nagasaki 852-8523, Japan.
+(2)Institut National de Recherche Biomedicale, Kinshasa P.O. Box 1197, 
+Democratic Republic of the Congo.
+(3)Program for Nurturing Global Leaders in Tropical Medicine and Emerging 
+Communicable Diseases, Graduate School of Biomedical Sciences, Nagasaki 
+University, Nagasaki 852-8523, Japan.
+(4)Environmental Protection Center, Nagasaki University, Nagasaki 852-8523, 
+Japan.
+(5)Graduate School of Integrated Science and Technology, Nagasaki University, 
+Nagasaki 852-8523, Japan.
+(6)Organization for Marine Science and Technology, Nagasaki University, Nagasaki 
+852-8523, Japan.
+(7)Center for Medical Innovation, Nagasaki University, Nagasaki 852-8523, Japan.
+(8)Department of Bioinformatics and Integrative Omics, National Institute of 
+Infectious Diseases, Japan Institute for Health Security, Tokyo 208-0011, Japan.
+
+A high-risk infectious disease or a Category A pathogen, Lassa virus (LASV), 
+requires strict containment, classified as biosafety level 4 (BSL-4) conditions, 
+which restricts research on the virus due to the scarcity of BSL-4 facilities. 
+Thus, replication-defective pseudotyped retroviral vectors have been widely used 
+as safe materials for neutralizing activity assays of drugs and antibodies in 
+BSL-2. Here, we established a novel retroviral vector system encoding LASV 
+glycoprotein complex (GPC) that can exclusively replicate in cells expressing 
+the Gag-Pol protein of murine leukemia virus (MLV) under BSL-2 conditions. Using 
+this conditional replication system, we successfully isolated LASV GPC variants 
+resistant to either an anti-LASV compound, lamellarin α 20-sulfate, or a 
+neutralizing antibody derived from a Lassa fever survivor. In the lamellarin α 
+20-sulfate-resistant variants, K125E and H13R amino acid substitutions 
+cooperatively conferred resistance. The K125E enhanced infectivity and 
+simultaneously conferred a lethal effect on cells in the conditional replication 
+system, while the H13R mitigated the latter effect, thereby enabling stable 
+expression of LASV GPC in cells. In the neutralizing antibody-resistant 
+variants, I403T substitution was responsible for the resistance by impairing 
+antibody binding. This study provides a valuable BSL-2-based platform for 
+isolating LASV GPC variants resistant to inhibitors and characterizing their 
+mutations.
+
+DOI: 10.3390/ijms27052501
+PMCID: PMC12986185
+PMID: 41828716 [Indexed for MEDLINE]
+
+Conflict of interest statement: The authors declare no conflicts of interest.

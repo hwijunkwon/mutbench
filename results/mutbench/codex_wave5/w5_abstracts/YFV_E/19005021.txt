@@ -1,0 +1,21 @@
+1. Clin Vaccine Immunol. 2009 Jan;16(1):134-5. doi: 10.1128/CVI.00220-08. Epub
+2008  Nov 12.
+
+Use of a surrogate chimeric virus to detect West Nile virus-neutralizing 
+antibodies in avian and equine sera.
+
+Komar N(1), Langevin S, Monath TP.
+
+Author information:
+(1)CDC-NCZVED-DVBID-ADB, 3150 Rampart Rd., Fort Collins, CO 80521, USA. 
+nkomar@cdc.gov
+
+A chimeric yellow fever virus/West Nile virus (WNV) was compared to WNV alone as 
+a biosafety level 2 reagent in the plaque reduction neutralization test for 
+determining WNV infection histories. Concordance was 96.3% among 188 avian and 
+equine serum samples. Neutralizing antibody titers were frequently more than 
+twofold lower with the chimera.
+
+DOI: 10.1128/CVI.00220-08
+PMCID: PMC2620674
+PMID: 19005021 [Indexed for MEDLINE]

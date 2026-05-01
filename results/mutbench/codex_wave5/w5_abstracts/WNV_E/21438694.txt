@@ -1,0 +1,23 @@
+1. Vector Borne Zoonotic Dis. 2011 Sep;11(9):1303-5. doi: 10.1089/vbz.2010.0249. 
+Epub 2011 Mar 25.
+
+First serological evidence of West Nile virus activity in horses in Serbia.
+
+Lupulovic D(1), Martín-Acebes MA, Lazic S, Alonso-Padilla J, Blázquez AB, 
+Escribano-Romero E, Petrovic T, Saiz JC.
+
+Author information:
+(1)Scientific Veterinary Institute "Novi Sad," Novi Sad, Serbia.
+
+West Nile virus (WNV), the most widely distributed flavivirus worldwide, has 
+lately reemerged in Europe, causing worrisome outbreaks in humans and horses. 
+Serological analysis by enzyme-linked immunoassay and plaque reduction 
+neutralization test showed for the first time in Serbia that 12% of 349 horses 
+presented specific neutralizing WNV antibodies, which in one case also 
+cross-neutralized Usutu virus (USUV). This is the first time that anti-USUV high 
+neutralizing antibody titers are reported in horses. All these data indicate 
+that WNV and USUV are circulating in the region and advise on the convenience of 
+implementing surveillance programs.
+
+DOI: 10.1089/vbz.2010.0249
+PMID: 21438694 [Indexed for MEDLINE]

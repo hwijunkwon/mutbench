@@ -1,0 +1,31 @@
+1. Mol Immunol. 1991 Jan-Feb;28(1-2):149-54. doi: 10.1016/0161-5890(91)90098-5.
+
+Recognition of helper T cell epitopes in envelope (E) glycoprotein of Japanese 
+encephalitis, west Nile and Dengue viruses.
+
+Kutubuddin M(1), Kolaskar AS, Galande S, Gore MM, Ghosh SN, Banerjee K.
+
+Author information:
+(1)National Institute of Virology, Pune, India.
+
+Helper T (Th) cell antigenic sites were predicted from the primary amino acid 
+sequence (approximately 500 in length) of the envelope (E) glycoprotein (gp) of 
+Japanese encephalitis (JE), West Nile (WN) and Dengue (DEN) I-IV flaviviruses. 
+Prediction of Th epitopes was done by analyzing the occurrence of amphipathic 
+segments, Rothbard-Taylor tetra/pentamer motifs and presence of alpha 
+helix-preferring amino acids. The simultaneous occurrence of all these 
+parameters in segments of E gp were used as criteria for prediction as Th 
+epitopes. Only one cross reactive epitope was predicted in the C-terminal region 
+of the E gp predicted segments of all flaviviruses analyzed. This region is one 
+of the longest amphipathic stretch (approximately from 420 to 455) and also has 
+a fairly large amphipathic score. Based on the predicted findings three selected 
+peptides were synthesized and analyzed for their ability to induce in vitro T 
+cell proliferative response in different inbred strains of mice (Balb/c, C57BL6, 
+C3H/HeJ). Synthetic peptide I and II prepared from C-terminal region gave a 
+cross reactive response to JE, WN and Den-II in Balb/c and C3H/HeJ mice. 
+Synthetic peptide III prepared from N-terminal region gave a proliferative 
+response to DEN-II in Balb/c strain only, indicating differential antigen 
+presentation.
+
+DOI: 10.1016/0161-5890(91)90098-5
+PMID: 1707135 [Indexed for MEDLINE]

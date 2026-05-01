@@ -1,0 +1,59 @@
+1. J Virol. 2014 Sep 1;88(17):9947-62. doi: 10.1128/JVI.01304-14. Epub 2014 Jun
+18.
+
+The West Nile virus-like flavivirus Koutango is highly virulent in mice due to 
+delayed viral clearance and the induction of a poor neutralizing antibody 
+response.
+
+Prow NA(1), Setoh YX(2), Biron RM(2), Sester DP(2), Kim KS(3), Hobson-Peters 
+J(2), Hall RA(2), Bielefeldt-Ohmann H(4).
+
+Author information:
+(1)Australian Infectious Diseases Research Centre, The University of Queensland, 
+St. Lucia, Queensland, Australia School of Chemistry and Molecular Biosciences, 
+The University of Queensland, St. Lucia, Queensland, Australia n.prow@uq.edu.au.
+(2)Australian Infectious Diseases Research Centre, The University of Queensland, 
+St. Lucia, Queensland, Australia School of Chemistry and Molecular Biosciences, 
+The University of Queensland, St. Lucia, Queensland, Australia.
+(3)Department of Pediatrics, Division of Pediatric Infectious Diseases, Johns 
+Hopkins University School of Medicine, Baltimore, Maryland, USA.
+(4)Australian Infectious Diseases Research Centre, The University of Queensland, 
+St. Lucia, Queensland, Australia School of Veterinary Science, The University of 
+Queensland, Gatton, Queensland, Australia.
+
+The mosquito-borne West Nile virus (WNV) is responsible for outbreaks of viral 
+encephalitis in humans, horses, and birds, with particularly virulent strains 
+causing recent outbreaks of disease in eastern Europe, the Middle East, North 
+America, and Australia. Previous studies have phylogenetically separated WNV 
+strains into two main genetic lineages (I and II) containing virulent strains 
+associated with neurological disease. Several WNV-like strains clustering 
+outside these lineages have been identified and form an additional five proposed 
+lineages. However, little is known about whether these strains have the 
+potential to induce disease. In a comparative analysis with the highly virulent 
+lineage I American strain (WNVNY99), the low-pathogenicity lineage II strain 
+(B956), a benign Australian strain, Kunjin (WNVKUN), the African WNV-like 
+Koutango virus (WNVKOU), and a WNV-like isolate from Sarawak, Malaysia 
+(WNVSarawak), were assessed for neuroinvasive properties in a murine model and 
+for their replication kinetics in vitro. While WNVNY99 replicated to the highest 
+levels in vitro, in vivo mouse challenge revealed that WNVKOU was more virulent, 
+with a shorter time to onset of neurological disease and higher morbidity. 
+Histological analysis of WNVKOU- and WNVNY99-infected brain and spinal cords 
+demonstrated more prominent meningoencephalitis and the presence of viral 
+antigen in WNVKOU-infected mice. Enhanced virulence of WNVKOU also was 
+associated with poor viral clearance in the periphery (sera and spleen), a 
+skewed innate immune response, and poor neutralizing antibody development. These 
+data demonstrate, for the first time, potent neuroinvasive and neurovirulent 
+properties of a WNV-like virus outside lineages I and II.
+IMPORTANCE: In this study, we characterized the in vitro and in vivo properties 
+of previously uncharacterized West Nile virus strains and West Nile-like 
+viruses. We identified a West Nile-like virus, Koutango virus (WNVKOU), that was 
+more virulent than a known virulent lineage I virus, WNVNY99. The enhanced 
+virulence of WNVKOU was associated with poor viral clearance and the induction 
+of a poor neutralizing antibody response. These findings provide new insights 
+into the pathogenesis of West Nile virus.
+
+Copyright © 2014, American Society for Microbiology. All Rights Reserved.
+
+DOI: 10.1128/JVI.01304-14
+PMCID: PMC4136322
+PMID: 24942584 [Indexed for MEDLINE]

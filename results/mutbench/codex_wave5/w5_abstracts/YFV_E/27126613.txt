@@ -1,0 +1,48 @@
+1. Antiviral Res. 2016 Jul;131:92-9. doi: 10.1016/j.antiviral.2016.04.013. Epub 
+2016 Apr 26.
+
+A humanized monoclonal antibody neutralizes yellow fever virus strain 17D-204 
+in vitro but does not protect a mouse model from disease.
+
+Calvert AE(1), Dixon KL(1), Piper J(2), Bennett SL(2), Thibodeaux BA(2), Barrett 
+AD(3), Roehrig JT(1), Blair CD(4).
+
+Author information:
+(1)Division of Vector-Borne Diseases, U.S. Centers for Disease Control and 
+Prevention, Fort Collins, CO, 80521, USA.
+(2)Arthropod-borne and Infectious Diseases Laboratory, Department of 
+Microbiology, Immunology, and Pathology, Colorado State University, Fort 
+Collins, CO, 80523-1692, USA.
+(3)Department of Pathology and Sealy Center for Vaccine Development, University 
+of Texas-Medical Branch, Galveston, TX, 77555, USA.
+(4)Arthropod-borne and Infectious Diseases Laboratory, Department of 
+Microbiology, Immunology, and Pathology, Colorado State University, Fort 
+Collins, CO, 80523-1692, USA. Electronic address: carol.blair@colostate.edu.
+
+The yellow fever virus (YFV) vaccine 17D-204 is considered safe and effective, 
+yet rare severe adverse events (SAEs), some resulting in death, have been 
+documented following vaccination. Individuals exhibiting post-vaccinal SAEs are 
+ideal candidates for antiviral monoclonal antibody (MAb) therapy; the time until 
+appearance of clinical signs post-exposure is usually short and patients are 
+quickly hospitalized. We previously developed a murine-human chimeric monoclonal 
+antibody (cMAb), 2C9-cIgG, reactive with both virulent YFV and 17D-204, and 
+demonstrated its ability to prevent and treat YF disease in both AG129 mouse and 
+hamster models of infection. To counteract possible selection of 17D-204 
+variants that escape neutralization by treatment with a single MAb (2C9-cIgG), 
+we developed a second cMAb, 864-cIgG, for use in combination with 2C9-cIgG in 
+post-vaccinal therapy. MAb 864-cIgG recognizes/neutralizes only YFV 17D-204 
+vaccine substrain and binds to domain III (DIII) of the viral envelope protein, 
+which is different from the YFV type-specific binding site of 2C9-cIgG in DII. 
+Although it neutralized 17D-204 in vitro, administration of 864-cIgG had no 
+protective capacity in the interferon receptor-deficient AG129 mouse model of 
+17D-204 infection. The data presented here show that although DIII-specific 
+864-cIgG neutralizes virus infectivity in vitro, it does not have the ability to 
+abrogate disease in vivo. Therefore, combination of 864-cIgG with 2C9-cIgG for 
+treatment of YF vaccination SAEs does not appear to provide an improvement on 
+2C9-cIgG therapy alone.
+
+Copyright © 2016 Elsevier B.V. All rights reserved.
+
+DOI: 10.1016/j.antiviral.2016.04.013
+PMCID: PMC4899248
+PMID: 27126613 [Indexed for MEDLINE]

@@ -1,0 +1,31 @@
+1. J Gen Virol. 1990 Mar;71 ( Pt 3):593-9. doi: 10.1099/0022-1317-71-3-593.
+
+Cell surface expression of yellow fever virus non-structural glycoprotein NS1: 
+consequences of interaction with antibody.
+
+Schlesinger JJ(1), Brandriss MW, Putnak JR, Walsh EE.
+
+Author information:
+(1)Department of Medicine, Rochester General Hospital, New York.
+
+Among antibodies to flaviviral proteins only those directed at the virion 
+envelope protein (E) or the non-structural glycoprotein NS1 are known to confer 
+protection. To investigate the possible role of complement-mediated cytolysis 
+(CMC) in protection we measured the capacity of anti-NS1, or E monospecific 
+serum or monoclonal antibodies to bind to yellow fever virus (YFV)-infected 
+cells and of anti-NS1 or E serum to sensitize them to CMC. Although both 
+anti-NS1 and anti-E antibody bound to YFV-infected cells, CMC was observed only 
+with anti-NS1 antibody. Greater binding by anti-NS1 antibody suggested the 
+presence of larger amounts of NS1 than E associated with the cell membrane. 
+Using the cell membrane-impermeable, cross-linking reagent BS3, cell surface 
+NS1, but not E, was detected as a homopolymer, a form in which bound antibody 
+might be expected to activate complement more efficiently. Peak titres of 
+progeny virus were reduced 10- to 100-fold when infected cells were treated with 
+complement-fixing, anti-NS1 monoclonal antibody or monospecific, anti-NS1 rabbit 
+serum and complement. Taken together these results are consistent with the 
+hypothesis that CMC subserved by anti-NS1 antibody provides an alternative to 
+direct neutralization of virus in the protective immune response to flaviviral 
+infection.
+
+DOI: 10.1099/0022-1317-71-3-593
+PMID: 2138210 [Indexed for MEDLINE]

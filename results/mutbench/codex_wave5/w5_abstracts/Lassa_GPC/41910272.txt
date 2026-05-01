@@ -1,0 +1,46 @@
+1. J Clin Microbiol. 2026 Mar 30:e0007126. doi: 10.1128/jcm.00071-26. Online
+ahead  of print.
+
+Development of a broad-lineage Lassa virus rapid diagnostic test informed by the 
+WHO REASSURED framework.
+
+Shin H(#)(1), Lee M(#)(1), Choi M-M(2), Kim J-W(1), Yi H(1), Whitmer S(3), 
+Sayyad L(3), Montgomery J(3), Klena J(3), Chung Y-S(1).
+
+Author information:
+(1)Division of High-risk Pathogen, Korea Disease Control and Prevention Agency 
+(KDCA), Cheongju, Republic of Korea.
+(2)Division of Laboratory Diagnosis and Analysis, Gyeongnam Regional Center for 
+Disease Control and Prevention, Busan, Republic of Korea.
+(3)Viral Special Pathogens Branch, US Centers for Disease Control and Prevention 
+Research Centers, Atlanta, Georgia, USA.
+(#)Contributed equally
+
+Lassa fever is a high-risk viral disease endemic to West Africa for which rapid 
+and reliable diagnosis is essential for outbreak control. Here, we describe the 
+development of a lateral flow-based rapid diagnostic test (RDT) targeting the 
+Lassa virus nucleoprotein using newly generated monoclonal antibody pairs. The 
+analytical performance of the assay was evaluated using human serum and plasma 
+specimens as well as inactivated Lassa virus strains and compared with a 
+commercially available antigen test. The final RDT (Pair 2; 1P-44-7/9B-28) 
+demonstrated high analytical sensitivity and 100% specificity across 60 human 
+samples and detected multiple genetically diverse Lassa virus strains, with 
+lineage-dependent differences in analytical sensitivity. In direct analytical 
+comparisons using recombinant antigen, the assay was approximately 64-fold more 
+sensitive than the ReLASV Pan-Lassa Antigen Rapid Test. The RDT provides a rapid 
+visual readout, remains stable at ambient temperatures, and is suitable for 
+decentralized testing workflows, features aligned with key aspects of the World 
+Health Organization (WHO) REASSURED framework. These results indicate that the 
+developed RDT offers a robust and broadly reactive platform for Lassa virus 
+antigen detection and has potential utility for surveillance and outbreak 
+response in resource-limited settings.IMPORTANCELassa fever remains a 
+significant public health concern in West Africa, where diagnostic capacity is 
+often limited in endemic regions. This study describes the development of a 
+broad-lineage Lassa virus rapid diagnostic test informed by the World Health 
+Organization (WHO) REASSURED framework. The assay demonstrates high analytical 
+sensitivity and broad lineage coverage in a field-deployable format, supporting 
+its potential utility for early case detection and decentralized surveillance in 
+endemic settings.
+
+DOI: 10.1128/jcm.00071-26
+PMID: 41910272

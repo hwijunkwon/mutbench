@@ -1,0 +1,45 @@
+1. J Virol. 2004 Mar;78(5):2367-81. doi: 10.1128/jvi.78.5.2367-2381.2004.
+
+Alterations of pr-M cleavage and virus export in pr-M junction chimeric dengue 
+viruses.
+
+Keelapang P(1), Sriburi R, Supasa S, Panyadee N, Songjaeng A, Jairungsri A, 
+Puttikhunt C, Kasinrerk W, Malasit P, Sittisombut N.
+
+Author information:
+(1)Medical Biotechnology Unit, National Center for Genetic Engineering and 
+Biotechnology, National Science and Technology Development Agency, Bangkok 
+10400, USA.
+
+During the export of flavivirus particles through the secretory pathway, a viral 
+envelope glycoprotein, prM, is cleaved by the proprotein convertase furin; this 
+cleavage is required for the subsequent rearrangement of receptor-binding E 
+glycoprotein and for virus infectivity. Similar to many furin substrates, prM in 
+vector-borne flaviviruses contains basic residues at positions P1, P2, and P4 
+proximal to the cleavage site; in addition, a number of charged residues are 
+found at position P3 and between positions P5 and P13 that are conserved for 
+each flavivirus antigenic complex. The influence of additional charged residues 
+on pr-M cleavage and virus replication was investigated by replacing the 
+13-amino-acid, cleavage-proximal region of a dengue virus (strain 16681) with 
+those of tick-borne encephalitis virus (TBEV), yellow fever virus (YFV), and 
+Japanese encephalitis virus (JEV) and by comparing the resultant chimeric 
+viruses generated from RNA-transfected mosquito cells. Among the three chimeric 
+viruses, cleavage of prM was enhanced to a larger extent in JEVpr/16681 than in 
+YFVpr/16681 but was slightly reduced in TBEVpr/16681. Unexpectedly, JEVpr/16681 
+exhibited decreased focus size, reduced peak titer, and depressed replication in 
+C6/36, PS, and Vero cell lines. The reduction of JEVpr/16681 multiplication 
+correlated with delayed export of infectious virions out of infected cells but 
+not with changes in specific infectivity. Binding of JEVpr/16681 to immobilized 
+heparin and the heparin-inhibitable infection of cells were not altered. Thus, 
+diverse pr-M junction-proximal sequences of flaviviruses differentially 
+influence pr-M cleavage when tested in a dengue virus prM background. More 
+importantly, greatly enhanced prM cleavability adversely affects dengue virus 
+export while exerting a minimal effect on infectivity. Because extensive changes 
+of charged residues at the pr-M junction, as in JEVpr/16681, were not observed 
+among a large number of dengue virus isolates, these results provide a possible 
+mechanism by which the sequence conservation of the pr-M junction of dengue 
+virus is maintained in nature.
+
+DOI: 10.1128/jvi.78.5.2367-2381.2004
+PMCID: PMC369205
+PMID: 14963133 [Indexed for MEDLINE]

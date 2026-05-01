@@ -1,0 +1,42 @@
+1. J Virol. 2007 Nov;81(21):11650-7. doi: 10.1128/JVI.00955-07. Epub 2007 Aug 15.
+
+Early antibodies specific for the neutralizing epitope on the receptor binding 
+subunit of the lymphocytic choriomeningitis virus glycoprotein fail to 
+neutralize the virus.
+
+Eschli B(1), Zellweger RM, Wepf A, Lang KS, Quirin K, Weber J, Zinkernagel RM, 
+Hengartner H.
+
+Author information:
+(1)Institute of Experimental Immunology, University Hospital Zürich, 
+Schmelzbergstrasse 12, CH-8091 Zürich, Switzerland. bruno.eschli@bluewin.ch
+
+Lymphocytic choriomeningitis virus (LCMV) is a murine arenavirus whose 
+glycoprotein consists of a transmembrane subunit (GP-2) and a receptor-binding 
+subunit (GP-1). LCMV-neutralizing antibodies (nAbs) are directed against a 
+single site on GP-1 and occur 1 month after the infection of 
+cytotoxic-T-lymphocyte (CTL) deficient mice. In wild-type mice, however, CTLs 
+control early infection, and weak nAb titers emerge very late (after 70 to 150 
+days) if at all. Production of recombinant GP-1 in native conformation enabled 
+us to study the emergence of GP-1-binding antibodies directed against the 
+neutralizing epitope. By combining binding and neutralization assays, we 
+correlated the development of binding antibodies versus nAbs in wild-type and 
+CTL-deficient mice after infection with different LCMV doses. We found that 
+wild-type mice developed GP-1-specific antibodies already by day 8 after 
+exposure to high but not low doses, demonstrating that naive GP-1-specific B 
+cells were infrequent. Furthermore, the induced antibodies bound to the 
+neutralizing GP-1 epitope but failed to neutralize the virus and therefore were 
+of low affinity. In CTL-deficient mice, where massive viremia quickly levels 
+initial differences in viral load, low and high doses induced low-affinity 
+non-neutralizing GP-1-binding antibodies with kinetics similar to 
+high-dose-infected wild-type mice. Only in CTL-deficient mice, however, the 
+GP-1-specific antibodies developed into nAbs within 1 month. We conclude that 
+LCMV uses a dual strategy to evade nAb responses in wild-type mice. First, LCMV 
+exploits a "hole" in the murine B-cell repertoire, which provides only a small 
+and narrow initial pool of low-affinity GP-1-specific B cells. Second, affinity 
+maturation of the available low-affinity non-neutralizing antibodies is 
+impaired.
+
+DOI: 10.1128/JVI.00955-07
+PMCID: PMC2168768
+PMID: 17699567 [Indexed for MEDLINE]

@@ -1,0 +1,70 @@
+1. PLoS One. 2012;7(12):e49828. doi: 10.1371/journal.pone.0049828. Epub 2012 Dec 
+10.
+
+17DD and 17D-213/77 yellow fever substrains trigger a balanced cytokine profile 
+in primary vaccinated children.
+
+Campi-Azevedo AC(1), de Araújo-Porto LP, Luiza-Silva M, Batista MA, Martins MA, 
+Sathler-Avelar R, da Silveira-Lemos D, Camacho LA, de Menezes Martins R, de 
+Lourdes de Sousa Maia M, Farias RH, da Silva Freire M, Galler R, Homma A, 
+Ribeiro JG, Lemos JA, Auxiliadora-Martins M, Caldas IR, Elói-Santos SM, 
+Teixeira-Carvalho A, Martins-Filho OA.
+
+Author information:
+(1)Laboratório de Biomarcadores de Diagnóstico e Monitoração, Centro de 
+Pesquisas René Rachou, FIOCRUZ, Belo Horizonte, Minas Gerais, Brasil.
+
+BACKGROUND: This study aimed to compare the cytokine-mediated immune response in 
+children submitted to primary vaccination with the YF-17D-213/77 or YF-17DD 
+yellow fever (YF) substrains.
+METHODS: A non-probabilistic sample of eighty healthy primary vaccinated (PV) 
+children was selected on the basis of their previously known humoral immune 
+response to the YF vaccines. The selected children were categorized according to 
+their YF-neutralizing antibody titers (PRNT) and referred to as seroconverters 
+(PV-PRNT(+)) or nonseroconverters (PV-PRNT(-)). Following revaccination with the 
+YF-17DD, the PV-PRNT(-) children (YF-17D-213/77 and YF-17DD groups) 
+seroconverted and were referred as RV-PRNT(+). The cytokine-mediated immune 
+response was investigated after short-term in vitro cultures of whole blood 
+samples. The results are expressed as frequency of high cytokine producers, 
+taking the global median of the cytokine index (YF-Ag/control) as the cut-off.
+RESULTS: The YF-17D-213/77 and the YF-17DD substrains triggered a balanced 
+overall inflammatory/regulatory cytokine pattern in PV-PRNT(+), with a slight 
+predominance of IL-12 in YF-17DD vaccinees and a modest prevalence of IL-10 in 
+YF-17D-213/77. Prominent frequency of neutrophil-derived TNF-α and neutrophils 
+and monocyte-producing IL-12 were the major features of PV-PRNT(+) in the 
+YF-17DD, whereas relevant inflammatory response, mediated by IL-12(+)CD8(+) T 
+cells, was the hallmark of the YF-17D-213/77 vaccinees. Both substrains were 
+able to elicit particular but relevant inflammatory events, regardless of the 
+anti-YF PRNT antibody levels. PV-PRNT(-) children belonging to the YF-17DD arm 
+presented gaps in the inflammatory cytokine signature, especially in terms of 
+the innate immunity, whereas in the YF-17D-213/77 arm the most relevant gap was 
+the deficiency of IL-12-producing CD8(+)T cells. Revaccination with YF-17DD 
+prompted a balanced cytokine profile in YF-17DD nonresponders and a robust 
+inflammatory profile in YF-17D-213/77 nonresponders.
+CONCLUSION: Our findings demonstrated that, just like the YF-17DD reference 
+vaccine, the YF-17D-213/77 seed lot induced a mixed pattern of inflammatory and 
+regulatory cytokines, supporting its universal use for immunization.
+
+DOI: 10.1371/journal.pone.0049828
+PMCID: PMC3519464
+PMID: 23251351 [Indexed for MEDLINE]
+
+Conflict of interest statement: Competing Interests: Six of the authors (RMM, 
+MLSM, RHGF, MSF, RG, AH) are employed by the 17DD vaccine manufacturer 
+(Bio-Manguinhos, Fundação Oswaldo Cruz), while four others work in other units 
+of Fundação Oswaldo Cruz (LABC, ATC, OAMF, and IRC). Bias from competing 
+interest was prevented by (1) participation of members from the Minas Gerais 
+State Health Secretary with expertise in epidemiological surveillance concerning 
+vaccine studies (JGLR and JACL); (2) collaboration of two general clinical 
+physicians with experience in infectious disease, one from the University of São 
+Paulo (M. Auxiliadora-Martins) and another from the Federal University of Minas 
+Gerais (SMES), who contributed with critical overview of the study design, 
+volunteers' immunization and medical care, blood sample collection, and 
+supervision of data interpretation by working in conjunction with the 
+Collaborative Group for the Study of Yellow Fever Vaccines, responsible for 
+carrying out the study; and (3) inclusion of seven independent university 
+professionals working as undergraduate students (LPAP, MAB) or post-doc 
+researchers (ACCA, MLS, M. Angela Martins, RSA, and DSL) in the field of 
+infectious diseases, responsible for blind sample handling and processing, data 
+collection, and statistical analysis. This does not alter the authors' adherence 
+to all the PLOS ONE policies on sharing data and materials.

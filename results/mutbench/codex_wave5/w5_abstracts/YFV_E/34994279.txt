@@ -1,0 +1,50 @@
+1. J Biomol Struct Dyn. 2023 Mar;41(5):1617-1638. doi: 
+10.1080/07391102.2021.2024253. Epub 2022 Jan 7.
+
+Modeling mRNA-based vaccine YFV.E1988 against yellow fever virus E-protein using 
+immuno-informatics and reverse vaccinology approach.
+
+Khan NT(1), Zinnia MA(2), Islam ABMMK(1).
+
+Author information:
+(1)Department of Genetic Engineering & Biotechnology, University of Dhaka, 
+Dhaka, Bangladesh.
+(2)Department of Pharmacy, East West University, Dhaka, Bangladesh.
+
+To surmount constraints of live-attenuated vaccines we have in silico designed 
+mRNA vaccine using envelope protein as a target antigen. From the alignment of 
+216 envelope proteins, a consensus sequence was obtained which was used for 
+codon optimization. The secondary structure was predicted using Mfold and 
+RNAfold tool. IEDB server was used to predict T-cell and B-cell epitopes, 
+epitope conservancy, immunogenicity, and population coverage. Antigenicity, 
+allergenicity, and toxicity were predicted using Vaxijen, AllerTOP, and 
+ToxinPred tools, respectively. Interactions between MHC and identified epitopes 
+were confirmed by docking and molecular dynamics simulation. In silico immune 
+simulation was done using the C-ImmSim server. Vaccine peptide 3D structure was 
+predicted and validated based on the Ramachandran plot. Finally, we designed the 
+vaccine construct for simulating restriction cloning using the SnapGene tool. 
+Our optimization of consensus E protein is highly immunogenic, conserved, has 
+immune-dominance characteristics, and suggests high translational efficiency in 
+the host cell. We validated the presence of T and B cell epitopes and 
+interestingly we found one CD4+ and four CD8+ T-cell epitopes that satisfied all 
+the criteria of an effective vaccine candidate. We found high-affinity 
+interactions between epitope and HLA alleles that can stimulate the T-cell 
+response. The immune simulation verified the immune cell response to eliminate 
+the antigen. To ensure effective expression of the vaccine, a circular plasmid 
+has been designed using in silico cloning approach for the in vitro 
+transcription process. Obtained results suggest that the vaccine YFV.E1988 will 
+elicit specific immune responses against YFV and it is a potential model ready 
+for laboratory testing. HighlightsThe envelope (E) protein was found to be 
+highly conserved and it has the potential to protect individuals against YFV 
+infection.YFV.E1988 vaccine has been capable to stimulate both the CD8+ and CD4+ 
+T cell, solving the major limitations of the current live-attenuated vaccines 
+against YFV.Presence of T- and B-cell epitopes across the antigen have been 
+validated using several computational tools.Molecular docking ensured the 
+epitope-allele binding and protein-TLR/MR interaction. The vaccine was found to 
+be immune-stimulatory, safe, and stable.The codons were optimized for efficient 
+translation and increased stability into the human host. The UTR regions and 
+poly (A) tail used for the development of YFV.E1988 showed immune stimulatory 
+potential in several experiments.Communicated by Ramaswamy H. Sarma.
+
+DOI: 10.1080/07391102.2021.2024253
+PMID: 34994279 [Indexed for MEDLINE]

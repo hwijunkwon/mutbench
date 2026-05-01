@@ -1,0 +1,48 @@
+1. Biotechnol Adv. 2024 Jan-Feb;70:108283. doi: 10.1016/j.biotechadv.2023.108283.
+ Epub 2023 Nov 14.
+
+Influence of glycosylation on the immunogenicity and antigenicity of viral 
+immunogens.
+
+Newby ML(1), Allen JD(2), Crispin M(3).
+
+Author information:
+(1)School of Biological Sciences, University of Southampton, Southampton, SO17 
+1BJ, UK.
+(2)School of Biological Sciences, University of Southampton, Southampton, SO17 
+1BJ, UK. Electronic address: joel.allen@soton.ac.uk.
+(3)School of Biological Sciences, University of Southampton, Southampton, SO17 
+1BJ, UK. Electronic address: max.crispin@soton.ac.uk.
+
+A key aspect of successful viral vaccine design is the elicitation of 
+neutralizing antibodies targeting viral attachment and fusion glycoproteins that 
+embellish viral particles. This observation has catalyzed the development of 
+numerous viral glycoprotein mimetics as vaccines. Glycans can dominate the 
+surface of viral glycoproteins and as such, the viral glycome can influence the 
+antigenicity and immunogenicity of a candidate vaccine. In one extreme, glycans 
+can form an integral part of epitopes targeted by neutralizing antibodies and 
+are therefore considered to be an important feature of key immunogens within an 
+immunization regimen. In the other extreme, the existence of peptide and 
+bacterially expressed protein vaccines shows that viral glycosylation can be 
+dispensable in some cases. However, native-like glycosylation can indicate 
+native-like protein folding and the presence of conformational epitopes. 
+Furthermore, going beyond native glycan mimicry, in either occupancy of 
+glycosylation sites or the glycan processing state, may offer opportunities for 
+enhancing the immunogenicity and associated protection elicited by an immunogen. 
+Here, we review key determinants of viral glycosylation and how recombinant 
+immunogens can recapitulate these signatures across a range of enveloped 
+viruses, including HIV-1, Ebola virus, SARS-CoV-2, Influenza and Lassa virus. 
+The emerging understanding of immunogen glycosylation and its control will help 
+guide the development of future vaccines in both recombinant protein- and 
+nucleic acid-based vaccine technologies.
+
+Copyright © 2023 The Authors. Published by Elsevier Inc. All rights reserved.
+
+DOI: 10.1016/j.biotechadv.2023.108283
+PMCID: PMC10867814
+PMID: 37972669 [Indexed for MEDLINE]
+
+Conflict of interest statement: Declaration of Competing Interest The authors 
+for the manuscript titled Influence of glycosylation on the immunogenicity and 
+antigenicity of viral immunogens declare no conflicting interests as outlined by 
+Biotechnology Advances.

@@ -1,0 +1,39 @@
+1. Virology. 1988 May;164(1):30-8. doi: 10.1016/0042-6822(88)90616-2.
+
+Fine mapping of a peptide sequence containing an antigenic site conserved among 
+arenaviruses.
+
+Weber EL(1), Buchmeier MJ.
+
+Author information:
+(1)Department of Immunology, Research Institute of Scripps Clinic, La Jolla, 
+California 92037.
+
+The lymphocytic choriomeningitis virus (LCMV) structural glycoproteins GP-1 (Mr 
+44K) and GP-2 (Mr 35K) are encoded on a single intracellular proteolytic 
+cleavage precursor glycoprotein, GP-C (Mr 76K). We have used a series of 
+synthetic peptides derived from the deduced amino acid sequence of LCMV GP-C to 
+define an antigenic site containing two topographically overlapping epitopes. 
+Three mouse monoclonal antibodies directed against two epitopes on GP-2 were 
+assayed for binding in solution phase blocking and solid-phase enzyme-linked 
+immunoadsorbant assays to a series of peptides representing the sequence of the 
+intracellular precursor glycopeptide GP-C. Both epitopes were initially 
+localized to a single peptide GP-C 370-382 
+(Cys-Asn-Tyr-Ser-Lys-Phe-Trp-Tyr-Leu-Glu-His-Ala-Lys) in the GP-2 segment of 
+GP-C. Further analysis demonstrated that both epitopes were contained within a 
+nine amino acid segment, GP-C 370-378, which contains five residues conserved 
+among LCMV, Lassa, Pichinde, and Tacaribe viruses. Assays with N-terminal 
+deletions from this sequence suggested that the minimal epitope recognized by 
+the broadly cross-reactive monoclonal 33.6 (epitope GP-2a) consisted of five 
+amino acids, GP-C 374-378 (Lys-Phe-Trp-Tyr-Leu). Reactivity of a second 
+monoclonal, 9-7.9 (epitope GP-2B) but not 33.6, was abolished when substitution 
+of tyrosine for phenylalanine was made at position 375 in the antigenic sequence 
+corresponding to a naturally occurring sequence difference between LCM and Lassa 
+viruses. Polyclonal sera from human cases and from animals experimentally 
+infected with Junin, LCM, and Lassa viruses, respectively, bound to the 
+antigenic peptide GP-C 370-382 but not to control peptides. As was the case with 
+the monoclonals, this binding activity was abrogated by blocking with the 
+antigenic peptide but not with control peptides in solution.
+
+DOI: 10.1016/0042-6822(88)90616-2
+PMID: 2452517 [Indexed for MEDLINE]

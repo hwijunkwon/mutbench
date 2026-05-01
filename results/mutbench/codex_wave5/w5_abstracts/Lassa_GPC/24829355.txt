@@ -1,0 +1,44 @@
+1. J Virol. 2014 Aug;88(15):8340-8. doi: 10.1128/JVI.00236-14. Epub 2014 May 14.
+
+Evolution of recombinant lymphocytic choriomeningitis virus/Lassa virus in vivo 
+highlights the importance of the GPC cytosolic tail in viral fitness.
+
+Sommerstein R(1), Ramos da Palma J(2), Olschläger S(3), Bergthaler A(1), Barba 
+L(3), Lee BP(1), Pasquato A(2), Flatz L(4).
+
+Author information:
+(1)Department of Pathology and Immunology, Geneva, Switzerland.
+(2)Institute of Microbiology, University Hospital CHUV and University of 
+Lausanne, Lausanne, Switzerland.
+(3)Department of Dermatology, University Hospital CHUV, Lausanne, Switzerland.
+(4)Department of Dermatology, University Hospital CHUV, Lausanne, Switzerland 
+lukas.flatz@gmail.com.
+
+A key characteristic of arenaviruses is their ability to establish persistent 
+infection in their natural host. Different factors like host age, viral dose 
+strain, and route of infection may contribute to the establishment of 
+persistence. However, the molecular mechanisms governing persistence are not 
+fully understood. Here, we describe gain-of-function mutations of lymphocytic 
+choriomeningitis virus (LCMV) expressing Lassa virus (LASV) GP, which can 
+prolong viremia in mice depending on the sequences in the GP-2 cytoplasmic tail. 
+The initial mutant variant (rLCMV/LASV mut GP) carried a point mutation in the 
+cytosolic tail of the LASV glycoprotein GP corresponding to a K461G 
+substitution. Unlike what occurred with the original rLCMV/LASV wild-type (wt) 
+GP, infection of C57BL/6 mice with the mutated recombinant virus led to a 
+detectable viremia of 2 weeks' duration. Further replacement of the entire 
+sequence of the cytosolic tail from LASV to LCMV GP resulted in increased viral 
+titers and delayed clearance of the viruses. Biosynthesis and cell surface 
+localization of LASV wt and mut GPs were comparable.
+IMPORTANCE: Starting from an emerging virus in a wild-type mouse, we engineered 
+a panel of chimeric Lassa/lymphocytic choriomeningitis viruses. Mutants carrying 
+a viral envelope with the cytosolic tail from the closely related mouse-adapted 
+LCMV were able to achieve a productive viral infection lasting up to 27 days in 
+wild-type mice. Biochemical assays showed a comparable biosynthesis and cell 
+surface localization of LASV wt and mut GPs. These recombinant chimeric viruses 
+could allow the study of immune responses and antivirals targeting the LASV GP.
+
+Copyright © 2014, American Society for Microbiology. All Rights Reserved.
+
+DOI: 10.1128/JVI.00236-14
+PMCID: PMC4135970
+PMID: 24829355 [Indexed for MEDLINE]

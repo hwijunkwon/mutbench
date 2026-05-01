@@ -1,0 +1,40 @@
+1. Sci Rep. 2021 Apr 28;11(1):9213. doi: 10.1038/s41598-021-88777-5.
+
+Development of a highly specific serodiagnostic ELISA for West Nile virus 
+infection using subviral particles.
+
+Maezono K(1), Kobayashi S(2), Tabata K(3), Yoshii K(1)(4), Kariwa H(1).
+
+Author information:
+(1)Laboratory of Public Health, Faculty of Veterinary Medicine, Hokkaido 
+University, N18, W9, Kita-ku, Sapporo, 060-0818, Japan.
+(2)Laboratory of Public Health, Faculty of Veterinary Medicine, Hokkaido 
+University, N18, W9, Kita-ku, Sapporo, 060-0818, Japan. 
+shin-kobayashi@vetmed.hokudai.ac.jp.
+(3)2Division of Molecular Pathobiology, Research Center for Zoonosis Control, 
+Hokkaido University, N20, W10, Kita-ku, Sapporo, 001-0020, Japan.
+(4)National Research Center for the Control and Prevention of Infectious 
+Diseases, Nagasaki University, 1-12-4 Sakamoto, Nagasaki City, 852-8523, Japan.
+
+West Nile virus (WNV), a member of the Japanese encephalitis virus (JEV) 
+serocomplex group, causes lethal encephalitis in humans and horses. Because 
+serodiagnosis of WNV and JEV is hampered by cross-reactivity, the development of 
+a simple, secure, and WNV-specific serodiagnostic system is required. The 
+coexpression of prM protein and E protein leads to the secretion of subviral 
+particles (SPs). Deletion of the C-terminal region of E protein is reported to 
+affect the production of SPs by some flaviviruses. However, the influence of 
+such a deletion on the properties and antigenicity of WNV E protein is unclear. 
+We analyzed the properties of full-length E protein and E proteins lacking the 
+C-terminal region as novel serodiagnostics for WNV infection. Deletion of the 
+C-terminal region of E protein suppressed the formation of SPs but did not 
+affect the production of E protein. The sensitivity of an enzyme-linked 
+immunosorbent assay (ELISA) using the full-length E protein was higher than that 
+using the truncated E proteins. Furthermore, in the ELISA using full-length E 
+protein, there was little cross-reactivity with anti-JEV antibodies, and the 
+sensitivity was similar to that of the neutralization test.
+
+DOI: 10.1038/s41598-021-88777-5
+PMCID: PMC8080695
+PMID: 33911132 [Indexed for MEDLINE]
+
+Conflict of interest statement: The authors declare no competing interests.

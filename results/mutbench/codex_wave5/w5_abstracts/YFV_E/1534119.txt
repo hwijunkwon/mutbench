@@ -1,0 +1,30 @@
+1. J Gen Virol. 1992 May;73 ( Pt 5):1125-30. doi: 10.1099/0022-1317-73-5-1125.
+
+Monoclonal antibodies identify the NS5 yellow fever virus non-structural protein 
+in the nuclei of infected cells.
+
+Buckley A(1), Gaidamovich S, Turchinskaya A, Gould EA.
+
+Author information:
+(1)NERC Institute of Virology and Environmental Microbiology, Oxford, U.K.
+
+Eight monoclonal antibodies (MAbs) derived using yellow fever (YF) virus (French 
+viscerotropic virus strain) labelled the nuclei (wild-type strains) and/or the 
+nucleoli (vaccine strains) of cells infected with different strains of YF virus. 
+The specificity of these antibodies for YF virus-infected cells was confirmed 
+using MAbs that bind only the YF virus envelope glycoprotein. The 
+characteristics of fluorescent labelling in the nuclei and nucleoli of both 
+normal cells and of nuclei separate from cell cytoplasm confirmed that the 
+antigen was inside the nucleus rather than on the outer surface of the nuclear 
+membrane. Virus-specific antigen was also observed in the cytoplasm of infected 
+cells. One additional virus envelope-specific antibody, derived at the same 
+time, identified cytoplasmic antigen exclusively. The eight antibodies that 
+identified nuclear antigen showed no activity in neutralization, 
+haemagglutination inhibition or mouse protection tests. Analysis of their 
+molecular specificities by radioimmunoprecipitation of virus-infected cell 
+lysates showed that they identified the non-structural NS5 antigen of YF virus. 
+These results support the possibility of nuclear involvement in the replicative 
+stages of YF virus infection.
+
+DOI: 10.1099/0022-1317-73-5-1125
+PMID: 1534119 [Indexed for MEDLINE]

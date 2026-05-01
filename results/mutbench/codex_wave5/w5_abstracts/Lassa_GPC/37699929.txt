@@ -1,0 +1,62 @@
+1. Nat Commun. 2023 Sep 12;14(1):5603. doi: 10.1038/s41467-023-41376-6.
+
+A Lassa virus mRNA vaccine confers protection but does not require neutralizing 
+antibody in a guinea pig model of infection.
+
+Ronk AJ(#)(1)(2), Lloyd NM(#)(1)(2), Zhang M(1), Atyeo C(3), Perrett HR(4), Mire 
+CE(2)(5), Hastie KM(6), Sanders RW(7), Brouwer PJM(7), Saphire EO(6), Ward 
+AB(4), Ksiazek TG(1)(2)(5), Alvarez Moreno JC(1), Thaker HM(1), Alter G(3), 
+Himansu S(8), Carfi A(9), Bukreyev A(10)(11)(12).
+
+Author information:
+(1)Department of Pathology, University of Texas Medical Branch, Galveston, TX, 
+77555, US.
+(2)Galveston National Laboratory, University of Texas Medical Branch, Galveston, 
+TX, 77555, US.
+(3)Department of Immunology and Infectious Diseases, Harvard T.H. Chan School of 
+Public Health, Cambridge, MA, 02139, US.
+(4)Department of Integrative Structural and Computational Biology California 
+Campus, Scripps Research, La Jolla, CA, 92037, US.
+(5)Department of Microbiology & Immunology, University of Texas Medical Branch, 
+Galveston, TX, 77555, US.
+(6)Center for Infectious Disease and Vaccine Research, La Jolla Institute for 
+Immunology, La Jolla, CA, 92037, US.
+(7)Department of Medical Microbiology, Academic Medical Center, Amsterdam, 
+Netherlands.
+(8)Moderna, Inc, Cambridge, MA, 02139, US.
+(9)Moderna, Inc, Cambridge, MA, 02139, US. andrea.carfi@modernatx.com.
+(10)Department of Pathology, University of Texas Medical Branch, Galveston, TX, 
+77555, US. alexander.bukreyev@utmb.edu.
+(11)Galveston National Laboratory, University of Texas Medical Branch, 
+Galveston, TX, 77555, US. alexander.bukreyev@utmb.edu.
+(12)Department of Microbiology & Immunology, University of Texas Medical Branch, 
+Galveston, TX, 77555, US. alexander.bukreyev@utmb.edu.
+(#)Contributed equally
+
+Lassa virus is a member of the Arenaviridae family, which causes human 
+infections ranging from asymptomatic to severe hemorrhagic disease with a high 
+case fatality rate. We have designed and generated lipid nanoparticle 
+encapsulated, modified mRNA vaccines that encode for the wild-type Lassa virus 
+strain Josiah glycoprotein complex or the prefusion stabilized conformation of 
+the Lassa virus glycoprotein complex. Hartley guinea pigs were vaccinated with 
+two 10 µg doses, 28 days apart, of either construct. Vaccination induced strong 
+binding antibody responses, specific to the prefusion conformation of 
+glycoprotein complex, which were significantly higher in the prefusion 
+stabilized glycoprotein complex construct group and displayed strong Fc-mediated 
+effects. However, Lassa virus-neutralizing antibody activity was detected in 
+some but not all animals. Following the challenge with a lethal dose of the 
+Lassa virus, all vaccinated animals were protected from death and severe 
+disease. Although the definitive mechanism of protection is still unknown, and 
+assessment of the cell-mediated immune response was not investigated in this 
+study, these data demonstrate the promise of mRNA as a vaccine platform against 
+the Lassa virus and that protection against Lassa virus can be achieved in the 
+absence of virus-neutralizing antibodies.
+
+© 2023. Springer Nature Limited.
+
+DOI: 10.1038/s41467-023-41376-6
+PMCID: PMC10497546
+PMID: 37699929 [Indexed for MEDLINE]
+
+Conflict of interest statement: S.H. and A.C. are employees of Moderna. The 
+remaining authors declare no competing interests.

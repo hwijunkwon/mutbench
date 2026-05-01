@@ -1,0 +1,41 @@
+1. Front Cell Infect Microbiol. 2021 Aug 12;11:710551. doi: 
+10.3389/fcimb.2021.710551. eCollection 2021.
+
+Linear and Continuous Flavivirus Epitopes From Naturally Infected Humans.
+
+Fumagalli MJ(1), Figueiredo LTM(1), Aquino VH(2).
+
+Author information:
+(1)Virology Research Center, Medical School of Ribeirão Preto, University of São 
+Paulo, Ribeirão Preto, Brazil.
+(2)Laboratory of Virology, Department of Clinical Analyses, Toxicology and Food 
+Sciences, Faculty of Pharmaceutical Sciences of Ribeirão Preto, University of 
+São Paulo, Ribeirão Preto, Brazil.
+
+This manuscript is an up-to-date review of experimentally validated linear and 
+continuous epitopes identified from arbovirus members of the Flavivirus genus. 
+We summarized 153 immunoreactive peptides from the Dengue virus, Zika virus, 
+Japanese encephalitis virus, West Nile virus, and tick-borne encephalitis virus 
+described in studies published from 1989 to 2020. We included peptides from 
+structural (envelope, capsid, and pre-membrane) and nonstructural (Ns1-5) viral 
+proteins that demonstrated relevant immunoreactivity with antibodies from 
+naturally infected or vaccinated humans. We included peptides that demonstrated 
+relevant reactivity features, such as indicators of disease severity related to 
+immunological or immunopathological outcomes, differential or group diagnostic 
+markers, immunotherapy candidates, and potential for vaccine formulation. The 
+majority of immunoreactive peptides were described for DENV probably due to its 
+long-lasting impact on human health and the lack of efficient vaccines and 
+therapeutic methods. Immune landscape data regarding linear immunoreactive and 
+continuous flavivirus peptides are still scarce, and a complete and more 
+detailed map remains to be elucidated. Therefore, this review provides valuable 
+data for those investigating the antibody response against flavivirus infection.
+
+Copyright © 2021 Fumagalli, Figueiredo and Aquino.
+
+DOI: 10.3389/fcimb.2021.710551
+PMCID: PMC8387565
+PMID: 34458161 [Indexed for MEDLINE]
+
+Conflict of interest statement: The authors declare that the research was 
+conducted in the absence of any commercial or financial relationships that could 
+be construed as a potential conflict of interest.

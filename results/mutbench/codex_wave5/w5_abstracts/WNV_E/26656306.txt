@@ -1,0 +1,27 @@
+1. MMWR Morb Mortal Wkly Rep. 2015 Dec 11;64(48):1349-50. doi: 
+10.15585/mmwr.mm6448a5.
+
+Concurrent Outbreaks of St. Louis Encephalitis Virus and West Nile Virus Disease 
+- Arizona, 2015.
+
+Venkat H, Krow-Lucal E, Hennessey M, Jones J, Adams L, Fischer M, Sylvester T, 
+Levy C, Smith K, Plante L, Komatsu K, Staples JE, Hills S.
+
+St. Louis encephalitis virus (SLEV) and West Nile virus (WNV) are closely 
+related mosquito-borne flaviviruses that can cause outbreaks of acute febrile 
+illness and neurologic disease. Both viruses are endemic throughout much of the 
+United States and have the same Culex species mosquito vectors and avian hosts 
+(1); however, since WNV was first identified in the United States in 1999, SLEV 
+disease incidence has been substantially lower than WNV disease incidence, and 
+no outbreaks involving the two viruses circulating in the same location at the 
+same time have been identified. Currently, there is a commercially available 
+laboratory test for diagnosis of acute WNV infection, but there is no 
+commercially available SLEV test, and all SLEV testing must be performed at 
+public health laboratories. In addition, because antibodies against SLEV and WNV 
+can cross-react on standard diagnostic tests, confirmatory neutralizing antibody 
+testing at public health laboratories is usually required to determine the 
+flavivirus species (2). This report describes the first known concurrent 
+outbreaks of SLEV and WNV disease in the United States.
+
+DOI: 10.15585/mmwr.mm6448a5
+PMID: 26656306 [Indexed for MEDLINE]

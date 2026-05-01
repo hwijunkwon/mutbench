@@ -1,0 +1,80 @@
+1. Int J Epidemiol. 2025 Aug 18;54(5):dyaf147. doi: 10.1093/ije/dyaf147.
+
+Evaluating potential associations between prior maternal yellow fever 
+vaccination and protection against infant adverse outcomes following Zika virus 
+antenatal exposure.
+
+Oliveira EF(1)(2), Santos-Pinto CDB(1), Venancio FA(2), Quilião ME(3), Gabeira 
+SCO(4), Carvalho AT(5), Leite SHDS(4), Lima SMB(6), Alves NDS(7), Moura LDC(7), 
+Schwarcz WD(7), Azevedo AS(7), Demarchi LHF(8), Zardin MCSU(8), Lichs GGC(8), 
+Taira DL(8), Souza Fernandes W(9), Alves NO(2)(9), Arrua AEC(9), Nascimento 
+AID(2), Mareto LK(2), Azevedo MV(1), Maciel CG(1), Medeiros MJ(10), Vasconcelos 
+Z(4), Cunha RVD(2)(11), Nielsen-Saines K(12).
+
+Author information:
+(1)Faculdade de Medicina, Universidade Federal de Mato Grosso do Sul, Campo 
+Grande, MS, Brazil.
+(2)Programa de Pós-Graduação em Doenças Infecciosas e Parasitárias, Universidade 
+Federal de Mato Grosso do Sul, Campo Grande, MS, Brazil.
+(3)Associação de Pais e Amigos dos Excepcionais, Centro Especializado em 
+Reabilitação, Campo Grande, MS, Brazil.
+(4)Laboratório de Alta Complexidade, Instituto Nacional de Saúde da Mulher, da 
+Criança e do Adolescente Fernandes Figueira, Fiocruz, Rio de Janeiro, RJ, 
+Brazil.
+(5)Laboratório de Imunobiologia das Doenças Infecciosas, Departamento de 
+Imunoniologia, Universidade Federal Fluminense, Niterói, RJ, Brazil.
+(6)Departamento de Desenvolvimento Experimental e Pré-Clínico, Fiocruz, Rio de 
+Janeiro, RJ, Brazil.
+(7)Laboratório de Análise Imunomolecular, Bio-Manguinhos, Fiocruz, Rio de 
+Janeiro, RJ, Brazil.
+(8)Laboratório Central de Saúde Pública de Mato Grosso do Sul, Secretaria de 
+Estado de Saúde de Mato Grosso do Sul, Campo Grande, MS, Brazil.
+(9)Instituto de Biociências, Laboratório de Parasitologia Humana, Universidade 
+Federal de Mato Grosso do Sul, Campo Grande, MS, Brazil.
+(10)Instituto Politécnico, Universidade Federal do Rio de Janeiro, Macaé, RJ, 
+Brazil.
+(11)Gabinete da Presidência, Fundação Oswaldo Cruz, Rio de Janeiro, RJ, Brazil.
+(12)David Geffen School of Medicine, University of California, Los Angeles, CA, 
+United States.
+
+Comment in
+    Int J Epidemiol. 2026 Apr 17;55(3):dyag055. doi: 10.1093/ije/dyag055.
+    Int J Epidemiol. 2026 Apr 17;55(3):dyag054. doi: 10.1093/ije/dyag054.
+
+BACKGROUND: During the Zika virus (ZIKV) epidemic in Brazil, regional 
+disparities in yellow fever (YF) vaccination coverage and microcephaly incidence 
+led to the hypothesis that maternal YF vaccination could protect against ZIKV 
+infection and microcephaly.
+METHODS: This case-cohort study was conducted in Campo Grande, Brazil, from 2018 
+to 2022 and included children with confirmed in utero ZIKV exposure (2015-2018) 
+and a matched control group, totaling 129 mother-child dyads. Maternal blood 
+samples were collected to assess ZIKV exposure and neutralizing YF 
+vaccine-induced antibody (NAb) titers. Associations between YF NAb titer, 
+congenital anomalies, and infant neurodevelopmental delay were evaluated.
+RESULTS: Mean YF NAb titers differed between ZIKV-exposed and unexposed mothers 
+(P = .011) and between mothers of children with and without microcephaly 
+(P = .037). Congenital anomalies were associated with lower YF NAb titers 
+(P < .001), prenatal ZIKV exposure (P = .001), and lower family income 
+(P < .001). Neurodevelopmental delay was associated with prenatal ZIKV exposure 
+[adjusted odds ratio (aOR): 4.35, 95% confidence interval (CI): 1.65-13.03], 
+prenatal care with at least six visits (aOR: 0.22, CI: 0.06-0.78), and adequate 
+or large for gestational age birth weight (aOR: 0.09, CI: 0.01-0.44).
+CONCLUSION: Differences in maternal YF NAb titers by ZIKV exposure and 
+microcephaly suggest a potential protective effect of YF vaccination against 
+ZIKV acquisition and/or development of microcephaly, which should be 
+investigated. Developmental delay, although not associated with maternal YF 
+immunity, was associated with antenatal ZIKV exposure, less prenatal care 
+visits, and being small for gestational age.
+
+© The Author(s) 2025; all rights reserved. Published by Oxford University Press 
+on behalf of the International Epidemiological Association. For commercial 
+re-use, please contact reprints@oup.com for reprints and translation rights for 
+reprints. All other permissions can be obtained through our RightsLink service 
+via the Permissions link on the article page on our site—for further information 
+please contact journals.permissions@oup.com.
+
+DOI: 10.1093/ije/dyaf147
+PMCID: PMC12360843
+PMID: 40825594 [Indexed for MEDLINE]
+
+Conflict of interest statement: None declared.

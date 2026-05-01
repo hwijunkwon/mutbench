@@ -1,0 +1,43 @@
+1. Virology. 1988 Jul;165(1):245-55. doi: 10.1016/0042-6822(88)90678-2.
+
+Murray Valley encephalitis virus field strains from Australia and Papua New 
+Guinea: studies on the sequence of the major envelope protein gene and virulence 
+for mice.
+
+Lobigs M(1), Marshall ID, Weir RC, Dalgarno L.
+
+Author information:
+(1)Biochemistry Department, Faculty of Science, Australian National University, 
+Canberra.
+
+We have compared the nucleotide sequence of the gene encoding the major envelope 
+(E) protein of a number of Murray Valley encephalitis virus (MVE) isolates from 
+Australia and Papua New Guinea (PNG). The isolates, from widely separated 
+geographic regions, were from four fatal human cases, a heron, and six mosquito 
+pools and covered a period of 25 years. The sequences of the Australian strains 
+were notable for their similarity, showing not more than 1.7% nucleotide 
+sequence divergence in pairwise comparisons. There was 6.8% divergence in the E 
+gene between the two available strains from PNG, and 9-10% divergence between 
+each of the PNG strains and the Australian prototype. These data are consistent 
+with previous conclusions based on HaeIII restriction digest analysis of cDNA to 
+virion RNA (M. Lobigs, I. D. Marshall, R. C. Weir, and L. Dalgarno, 1986, Aust. 
+J. Exp. Biol. Med. Sci. 64, 571-585). We conclude that a single MVE genetic type 
+exists in Australia. Separate foci of MVE evolution appear to exist in PNG, 
+generating greater strain variation. For all MVE isolates the deduced length of 
+the E protein was 501 amino acids. The E protein differed at no more than three 
+positions between any two Australian strains. The PNG strains differed from the 
+Australian strains at 6-11 residues depending on the virus pair. Differences in 
+amino acid sequence did not occur at a position corresponding to a previously 
+demonstrated neutralization determinant in yellow fever virus (M. Lobigs, L. 
+Dalgarno, J. J. Schlesinger, and R. C. Weir, 1987, Virology 161, 474-478). Thus 
+selection for neutralization resistance may not be a major evolutionary pressure 
+in the field situation. In comparisons between the E protein amino acid sequence 
+of the prototype strain and those of a number of other MVE strains, 7 out of 14 
+differences were at residues seen at the corresponding position for Japanese 
+encephalitis virus (JE), consistent with the close serological relationship of 
+MVE and JE. Five Australian MVE strains and two from PNG were tested for 
+virulence by comparing LD50 values after intraperitoneal and intracranial 
+inoculation of 21-day-old mice; all strains were virulent by this test.
+
+DOI: 10.1016/0042-6822(88)90678-2
+PMID: 2838962 [Indexed for MEDLINE]

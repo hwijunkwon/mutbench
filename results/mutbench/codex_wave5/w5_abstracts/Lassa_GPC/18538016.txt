@@ -1,0 +1,39 @@
+1. Virol J. 2008 Jun 6;5:74. doi: 10.1186/1743-422X-5-74.
+
+Bacterial-based systems for expression and purification of recombinant Lassa 
+virus proteins of immunological relevance.
+
+Branco LM(1), Matschiner A, Fair JN, Goba A, Sampey DB, Ferro PJ, Cashman KA, 
+Schoepp RJ, Tesh RB, Bausch DG, Garry RF, Guttieri MC.
+
+Author information:
+(1)BioFactura, Inc., Rockville, Maryland, USA. lbranco@biofactura.com
+
+BACKGROUND: There is a significant requirement for the development and 
+acquisition of reagents that will facilitate effective diagnosis, treatment, and 
+prevention of Lassa fever. In this regard, recombinant Lassa virus (LASV) 
+proteins may serve as valuable tools in diverse antiviral applications. 
+Bacterial-based systems were engineered for expression and purification of 
+recombinant LASV nucleoprotein (NP), glycoprotein 1 (GP1), and glycoprotein 2 
+(GP2).
+RESULTS: Full-length NP and the ectodomains of GP1 and GP2 were generated as 
+maltose-binding protein (MBP) fusions in the Rosetta strains of Escherichia coli 
+(E. coli) using pMAL-c2x vectors. Average fusion protein yields per liter of 
+culture for MBP-NP, MBP-GP1, and MBP-GP2 were 10 mg, 9 mg, and 9 mg, 
+respectively. Each protein was captured from cell lysates using amylose resin, 
+cleaved with Factor Xa, and purified using size-exclusion chromatography (SEC). 
+Fermentation cultures resulted in average yields per liter of 1.6 mg, 1.5 mg, 
+and 0.7 mg of purified NP, GP1 and GP2, respectively. LASV-specific antibodies 
+in human convalescent sera specifically detected each of the purified 
+recombinant LASV proteins, highlighting their utility in diagnostic 
+applications. In addition, mouse hyperimmune ascitic fluids (MHAF) against a 
+panel of Old and New World arenaviruses demonstrated selective cross reactivity 
+with LASV proteins in Western blot and enzyme-linked immunosorbent assay 
+(ELISA).
+CONCLUSION: These results demonstrate the potential for developing broadly 
+reactive immunological assays that employ all three arenaviral proteins 
+individually and in combination.
+
+DOI: 10.1186/1743-422X-5-74
+PMCID: PMC2435526
+PMID: 18538016 [Indexed for MEDLINE]

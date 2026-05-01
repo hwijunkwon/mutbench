@@ -1,0 +1,58 @@
+1. Science. 2021 Jan 8;371(6525):194-200. doi: 10.1126/science.abc0476.
+
+Structural basis for antibody inhibition of flavivirus NS1-triggered endothelial 
+dysfunction.
+
+Biering SB(#)(1), Akey DL(#)(2), Wong MP(1)(3), Brown WC(2), Lo NTN(1)(3), 
+Puerta-Guardo H(1), Tramontini Gomes de Sousa F(1), Wang C(1), Konwerski JR(2), 
+Espinosa DA(1), Bockhaus NJ(2)(4), Glasner DR(1), Li J(1), Blanc SF(1), Juan 
+EY(1), Elledge SJ(5), Mina MJ(6), Beatty PR(1), Smith JL(7)(4), Harris E(8).
+
+Author information:
+(1)Division of Infectious Diseases and Vaccinology, School of Public Health, 
+University of California, Berkeley, Berkeley, CA 94720-3370, USA.
+(2)Life Sciences Institute, University of Michigan, Ann Arbor, MI 48109, USA.
+(3)Infectious Diseases and Immunity Graduate Group, School of Public Health, 
+University of California, Berkeley, Berkeley, CA 94720-3370, USA.
+(4)Department of Biological Chemistry, University of Michigan Medical School, 
+Ann Arbor, MI 48109, USA.
+(5)Division of Genetics, Brigham and Women's Hospital, Howard Hughes Medical 
+Institute, Department of Genetics, and Program in Virology, Harvard Medical 
+School, Boston, MA 02115, USA.
+(6)Center for Communicable Disease Dynamics, Department of Epidemiology, and 
+Department of Immunology and Infectious Diseases, Harvard School of Public 
+Health, Boston, MA 02115, USA.
+(7)Life Sciences Institute, University of Michigan, Ann Arbor, MI 48109, USA. 
+eharris@berkeley.edu janetsmith@umich.edu.
+(8)Division of Infectious Diseases and Vaccinology, School of Public Health, 
+University of California, Berkeley, Berkeley, CA 94720-3370, USA. 
+eharris@berkeley.edu janetsmith@umich.edu.
+(#)Contributed equally
+
+Comment in
+    Trends Biochem Sci. 2021 Jul;46(7):519-521. doi: 10.1016/j.tibs.2021.03.005.
+
+Medically important flaviviruses cause diverse disease pathologies and 
+collectively are responsible for a major global disease burden. A contributing 
+factor to pathogenesis is secreted flavivirus nonstructural protein 1 (NS1). 
+Despite demonstrated protection by NS1-specific antibodies against lethal 
+flavivirus challenge, the structural and mechanistic basis remains unknown. 
+Here, we present three crystal structures of full-length dengue virus NS1 
+complexed with a flavivirus-cross-reactive, NS1-specific monoclonal antibody, 
+2B7, at resolutions between 2.89 and 3.96 angstroms. These structures reveal a 
+protective mechanism by which two domains of NS1 are antagonized simultaneously. 
+The NS1 wing domain mediates cell binding, whereas the β-ladder triggers 
+downstream events, both of which are required for dengue, Zika, and West Nile 
+virus NS1-mediated endothelial dysfunction. These observations provide a 
+mechanistic explanation for 2B7 protection against NS1-induced pathology and 
+demonstrate the potential of one antibody to treat infections by multiple 
+flaviviruses.
+
+Copyright © 2021, American Association for the Advancement of Science.
+
+DOI: 10.1126/science.abc0476
+PMCID: PMC8000976
+PMID: 33414220 [Indexed for MEDLINE]
+
+Conflict of interest statement: Competing interests: Authors declare no 
+competing interests.

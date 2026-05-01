@@ -1,0 +1,53 @@
+1. NPJ Vaccines. 2022 Mar 23;7(1):39. doi: 10.1038/s41541-022-00460-6.
+
+Impact of yellow fever virus envelope protein on wild-type and vaccine epitopes 
+and tissue tropism.
+
+Davis EH(1)(2), Wang B(1), White M(3), Huang YS(4)(5)(6), Sarathy VV(1)(2), Wang 
+T(1)(2), Bourne N(2)(3), Higgs S(4)(5)(6), Barrett ADT(7)(8).
+
+Author information:
+(1)Department of Pathology, University of Texas Medical Branch (UTMB), 
+Galveston, TX, USA.
+(2)Sealy Institute for Vaccine Sciences, UTMB, Galveston, TX, USA.
+(3)Department of Pediatrics, UTMB, Galveston, TX, USA.
+(4)Biosecurity Research Institute, Kansas State University, Manhattan, KS, USA.
+(5)Department of Diagnostic Medicine/Pathobiology, College of Veterinary 
+Medicine, Kansas State University, Manhattan, KS, USA.
+(6)Center on Emerging and Zoonotic Infectious Diseases, College of Veterinary 
+Medicine, Kansas State University, Manhattan, KS, USA.
+(7)Department of Pathology, University of Texas Medical Branch (UTMB), 
+Galveston, TX, USA. abarrett@utmb.edu.
+(8)Sealy Institute for Vaccine Sciences, UTMB, Galveston, TX, USA. 
+abarrett@utmb.edu.
+
+The envelope (E) protein of flaviviruses is functionally associated with viral 
+tissue tropism and pathogenicity. For yellow fever virus (YFV), viscerotropic 
+disease primarily involving the liver is pathognomonic for wild-type (WT) 
+infection. In contrast, the live-attenuated vaccine (LAV) strain 17D does not 
+cause viscerotropic disease and reversion to virulence is associated with 
+neurotropic disease. The relationship between structure-function of the E 
+protein for WT strain Asibi and its LAV derivative 17D strain is poorly 
+understood; however, changes to WT and vaccine epitopes have been associated 
+with changes in virulence. Here, a panel of Asibi and 17D infectious clone 
+mutants were generated with single-site mutations at the one membrane residue 
+and each of the eight E protein amino acid substitutions that distinguish the 
+two strains. The mutants were characterized with respect to WT-specific and 
+vaccine-specific monoclonal antibodies (mAbs) binding to virus plus binding of 
+virus to brain, liver, and lung membrane receptor preparations (MRPs) generated 
+from AG129 mice. This approach shows that amino acids in the YFV E protein 
+domains (ED) I and II contain the WT E protein epitope, which overlap with those 
+that mediate YFV binding to mouse liver. Furthermore, amino acids in EDIII 
+associated with the vaccine epitope overlap with those that facilitate YFV 
+binding mouse brain MRPs. Taken together, these data suggest that the YFV E 
+protein is a key determinant in the phenotype of WT and 17D vaccine strains of 
+YFV.
+
+© 2022. The Author(s).
+
+DOI: 10.1038/s41541-022-00460-6
+PMCID: PMC8942996
+PMID: 35322047
+
+Conflict of interest statement: None of the authors have any competing interests 
+to report. A.D.T.B. is the Editor-in-Chief of npj Vaccines.

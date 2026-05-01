@@ -1,0 +1,46 @@
+1. PLoS One. 2012;7(9):e45851. doi: 10.1371/journal.pone.0045851. Epub 2012 Sep
+25.
+
+Effect of serum heat-inactivation and dilution on detection of anti-WNV 
+antibodies in mice by West Nile virus E-protein microsphere immunoassay.
+
+Namekar M(1), Kumar M, O'Connell M, Nerurkar VR.
+
+Author information:
+(1)Department of Tropical Medicine, Medical Microbiology and Pharmacology, 
+Pacific Center for Emerging Infectious Diseases Research, John A. Burns School 
+of Medicine, University of Hawaii at Manoa, Honolulu, Hawaii, USA.
+
+Immunopathogenesis studies employing West Nile virus (WNV) mice model are 
+important for the development of antivirals and vaccines against WNV. Since 
+antibodies produced in mice early during WNV infection are essential for 
+clearing virus from the periphery, it is important to detect early and 
+persistent anti-WNV antibodies. ELISA and plaque reduction neutralization tests 
+are traditionally used for detection of anti-WNV antibodies and WNV-neutralizing 
+antibodies, respectively. Although these assays are sensitive and specific, they 
+are expensive and time consuming. Microsphere immunoassays (MIA) are sensitive, 
+specific, allow for high throughput, are cost effective, require less time to 
+perform than other methods, and require low serum volumes. Several assay 
+parameters such as serum heat-inactivation (HI) and dilution can alter WNV MIA 
+sensitivity. We examined the effect of these parameters on WNV E-protein MIA 
+(WNV E-MIA) for the enhanced detection of anti-WNV IgM and IgG antibodies. WNV 
+E-MIA was conducted using serial dilutions of HI and non-HI (NHI) serum 
+collected at various time points from mice inoculated with WNV. HI significantly 
+enhanced detection of IgM and IgG antibodies as compared to NHI serum. WNV IgM 
+and IgG antibodies in HI sera were detected earlier at day 3 and IgM antibodies 
+persisted up to day 24 after infection. HI serum at 1∶20 dilution was found to 
+be optimal for detection of both IgM and IgG antibodies as compared to 
+higher-serum dilutions. Further, addition of exogenous complement to the HI 
+serum decreased the WNV E-MIA sensitivity. These results suggest that serum-HI 
+and optimal dilution enhance WNV E-MIA sensitivity by eliminating the complement 
+interference, thereby detecting low-titer anti-WNV antibodies during early and 
+late phases of infection. This improved MIA can also be readily employed for 
+detection of low-titer antibodies for detection of other infectious agents and 
+host proteins.
+
+DOI: 10.1371/journal.pone.0045851
+PMCID: PMC3457982
+PMID: 23049879 [Indexed for MEDLINE]
+
+Conflict of interest statement: Competing Interests: The authors have declared 
+that no competing interests exist.

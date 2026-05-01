@@ -1,0 +1,36 @@
+1. Ann Indian Acad Neurol. 2014 Jan;17(1):85-8. doi: 10.4103/0972-2327.128561.
+
+Acute flaccid paralysis due to West nile virus infection in adults: A paradigm 
+shift entity.
+
+Maramattom BV(1), Philips G(2), Sudheesh N(3), Arunkumar G(3).
+
+Author information:
+(1)Department of Neurology, Lourdes Hospital, Kochi, Kerala, India.
+(2)Department of Internal Medicine, Lourdes Hospital, Kochi, Kerala, India.
+(3)Manipal Centre for Virus Research (ICMR Virus Diagnostic Laboratory-Grade-I), 
+Manipal University, Madhavnagar, Manipal, Karnataka, India.
+
+Three cases of acute flaccid paralysis (AFP) with preceding fever are described. 
+One patient had a quadriparesis with a florid meningoencephalitic picture and 
+the other two had asymmetric flaccid paralysis with fasciculations at the onset 
+of illness. Magnetic resonance imaging in two cases showed prominent 
+hyperintensitities in the spinal cord and brainstem with prominent involvement 
+of the grey horn (polio-myelitis). Cerebrospinal fluid (CSF) polymerase chain 
+reaction was positive for West Nile virus (WNV) in the index patient. All three 
+cases had a positive WNV immunoglobulin M antibody in serum/CSF and 
+significantly high titer of WNV neutralizing antibody in serum, clearly 
+distinguishing the infection from other Flaviviridae such as Japanese 
+encephalitis. WNV has been recognized in India for many decades; however, AFP 
+has not been adequately described. WNV is a flavivirus that is spread by Culex 
+mosquitoes while they take blood meals from humans and lineage 1 is capable of 
+causing a devastating neuro-invasive disease with fatal consequences or severe 
+morbidity. We describe the first three laboratory confirmed cases of WNV induced 
+AFP from Kerala and briefly enumerate the salient features of this emerging 
+threat.
+
+DOI: 10.4103/0972-2327.128561
+PMCID: PMC3992778
+PMID: 24753667
+
+Conflict of interest statement: Conflict of Interest: Nil

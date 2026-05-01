@@ -1,0 +1,46 @@
+1. PLoS One. 2017 Jul 25;12(7):e0181734. doi: 10.1371/journal.pone.0181734. 
+eCollection 2017.
+
+DNA-immunisation with dengue virus E protein domains I/II, but not domain III, 
+enhances Zika, West Nile and Yellow Fever virus infection.
+
+Slon Campos JL(1), Poggianella M(1), Marchese S(1), Mossenta M(1), Rana J(1), 
+Arnoldi F(1)(2), Bestagno M(1), Burrone OR(1).
+
+Author information:
+(1)Molecular Immunology Group, International Centre for Genetic Engineering and 
+Biotechnology, Trieste, Italy.
+(2)Department of Medicine, Surgery and Health Sciences, University of Trieste, 
+Trieste, Italy.
+
+Dengue virus (DENV), the causative agent of dengue disease, is among the most 
+important mosquito-borne pathogens worldwide. DENV is composed of four closely 
+related serotypes and belongs to the Flaviviridae family alongside other 
+important arthropod-borne viral pathogens such as Zika virus (ZIKV), West Nile 
+virus (WNV) and Yellow Fever virus (YFV). After infection, the antibody response 
+is mostly directed to the viral E glycoprotein which is composed of three 
+structural domains named DI, DII and DIII that share variable degrees of 
+homology among different viruses. Recent evidence supports a close serological 
+interaction between ZIKV and DENV. The possibility of worse clinical outcomes as 
+a consequence of antibody-dependent enhancement of infection (ADE) due to 
+cross-reactive antibodies with poor neutralisation activity is a matter of 
+concern. We tested polyclonal sera from groups of female Balb/C mice vaccinated 
+with DNA constructs expressing DI/DII, DIII or the whole sE from different DENV 
+serotypes and compared their activity in terms of cross-reactivity, 
+neutralisation of virus infection and ADE. Our results indicate that the 
+polyclonal antibody responses against the whole sE protein are highly 
+cross-reactive with strong ADE and poor neutralisation activities due to DI/DII 
+immunodominance. Conversely, anti-DIII polyclonal antibodies are type-specific, 
+with no ADE towards ZIKV, WNV and YFV, and strong neutralisation activity 
+restricted only to DENV.
+
+DOI: 10.1371/journal.pone.0181734
+PMCID: PMC5526558
+PMID: 28742857 [Indexed for MEDLINE]
+
+Conflict of interest statement: Competing Interests: I have read the journal's 
+policy and the authors of this manuscript have the following competing 
+interests: A patent (Italian patent RM2013A000458 “Antidengue virus genetic 
+vaccine based on the envelope protein ectodomains”) on the invention of the 
+antigen construct for DNA vaccination has been filed by MP, MB, and ORB. This 
+does not alter our adherence to all PLOS policies on sharing data and materials.

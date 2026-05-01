@@ -1,0 +1,52 @@
+1. Nat Commun. 2018 May 14;9(1):1884. doi: 10.1038/s41467-018-04271-z.
+
+Vaccine-elicited receptor-binding site antibodies neutralize two New World 
+hemorrhagic fever arenaviruses.
+
+Clark LE(1), Mahmutovic S(2), Raymond DD(2), Dilanyan T(1), Koma T(3), Manning 
+JT(3), Shankar S(1), Levis SC(4), Briggiler AM(4), Enria DA(4), Wucherpfennig 
+KW(1)(5)(6), Paessler S(3), Abraham J(7)(8)(9).
+
+Author information:
+(1)Department of Microbiology and Immunobiology, Harvard Medical School, Boston, 
+MA, 02115, USA.
+(2)Laboratory of Molecular Medicine, Boston Children's Hospital, Harvard Medical 
+School, Boston, MA, 02115, USA.
+(3)Department of Pathology, University of Texas Medical Branch at Galveston, 
+Galveston, TX, 77555, USA.
+(4)Instituto Nacional de Enfermedades Virales Humanas "Dr. Julio I. Maiztegui", 
+Monteagudo 251 Pergamino, Buenos Aires, 2700, Argentina.
+(5)Department of Cancer Immunology and Virology, Dana-Farber Cancer Institute, 
+Boston, MA, 02115, USA.
+(6)Program in Immunology, Harvard Medical School, Boston, MA, 02115, USA.
+(7)Department of Microbiology and Immunobiology, Harvard Medical School, Boston, 
+MA, 02115, USA. abraham@crystal.harvard.edu.
+(8)Laboratory of Molecular Medicine, Boston Children's Hospital, Harvard Medical 
+School, Boston, MA, 02115, USA. abraham@crystal.harvard.edu.
+(9)Department of Medicine, Division of Infectious Diseases, Brigham and Women's 
+Hospital, Boston, MA, 02115, USA. abraham@crystal.harvard.edu.
+
+While five arenaviruses cause human hemorrhagic fevers in the Western 
+Hemisphere, only Junin virus (JUNV) has a vaccine. The GP1 subunit of their 
+envelope glycoprotein binds transferrin receptor 1 (TfR1) using a surface that 
+substantially varies in sequence among the viruses. As such, receptor-mimicking 
+antibodies described to date are type-specific and lack the usual breadth 
+associated with this mode of neutralization. Here we isolate, from the blood of 
+a recipient of the live attenuated JUNV vaccine, two antibodies that 
+cross-neutralize Machupo virus with varying efficiency. Structures of GP1-Fab 
+complexes explain the basis for efficient cross-neutralization, which involves 
+avoiding receptor mimicry and targeting a conserved epitope within 
+the receptor-binding site (RBS). The viral RBS, despite its extensive sequence 
+diversity, is therefore a target for cross-reactive antibodies with activity 
+against New World arenaviruses of public health concern.
+
+DOI: 10.1038/s41467-018-04271-z
+PMCID: PMC5951886
+PMID: 29760382 [Indexed for MEDLINE]
+
+Conflict of interest statement: K.W.W. and J.A. are inventors on a patent 
+application [WO2017214298 (A1), “Compositions and methods for treating 
+arenavirus infection”] filed by Children’s Medical Center Corporation and 
+Dana-Farber Cancer Institute, Inc. that includes antibodies CR1-07, CR1-10, and 
+CR1-28, and is currently pending. The remaining authors declare no competing 
+interests.

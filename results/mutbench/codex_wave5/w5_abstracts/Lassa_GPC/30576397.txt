@@ -1,0 +1,51 @@
+1. PLoS Pathog. 2018 Dec 21;14(12):e1007439. doi: 10.1371/journal.ppat.1007439. 
+eCollection 2018 Dec.
+
+A potent Lassa virus antiviral targets an arenavirus virulence determinant.
+
+Madu IG(1), Files M(1), Gharaibeh DN(2), Moore AL(2), Jung KH(3), Gowen BB(3), 
+Dai D(2), Jones KF(2), Tyavanagimatt SR(2), Burgeson JR(2), Korth MJ(1), Bedard 
+KM(1), Iadonato SP(1), Amberg SM(1).
+
+Author information:
+(1)Kineta, Inc., Seattle, Washington, United States of America.
+(2)SIGA Technologies, Inc., Corvallis, Oregon, United States of America.
+(3)Institute for Antiviral Research, Department of Animal, Dairy and Veterinary 
+Sciences, Utah State University, Logan, Utah, United States of America.
+
+Arenaviruses are a significant cause of hemorrhagic fever, an often-fatal 
+disease for which there is no approved antiviral therapy. Lassa fever in 
+particular generates high morbidity and mortality in West Africa, where the 
+disease is endemic, and a recent outbreak in Nigeria was larger and more 
+geographically diverse than usual. We are developing LHF-535, a small-molecule 
+viral entry inhibitor that targets the arenavirus envelope glycoprotein, as a 
+therapeutic candidate for Lassa fever and other hemorrhagic fevers of arenavirus 
+origin. Using a lentiviral pseudotype infectivity assay, we determined that 
+LHF-535 had sub-nanomolar potency against the viral envelope glycoproteins from 
+all Lassa virus lineages, with the exception of the glycoprotein from the LP 
+strain from lineage I, which was 100-fold less sensitive than that of other 
+strains. This reduced sensitivity was mediated by a unique amino acid 
+substitution, V434I, in the transmembrane domain of the envelope glycoprotein 
+GP2 subunit. This position corresponds to the attenuation determinant of 
+Candid#1, a live-attenuated Junín virus vaccine strain used to prevent Argentine 
+hemorrhagic fever. Using a virus-yield reduction assay, we determined that 
+LHF-535 potently inhibited Junín virus, but not Candid#1, and the Candid#1 
+attenuation determinant, F427I, regulated this difference in sensitivity. We 
+also demonstrated that a daily oral dose of LHF-535 at 10 mg/kg protected mice 
+from a lethal dose of Tacaribe virus. Serial passage of Tacaribe virus in 
+LHF-535-treated Vero cells yielded viruses that were resistant to LHF-535, and 
+the majority of drug-resistant viruses exhibited attenuated pathogenesis. These 
+findings provide a framework for the clinical development of LHF-535 as a 
+broad-spectrum inhibitor of arenavirus entry and provide an important context 
+for monitoring the emergence of drug-resistant viruses.
+
+DOI: 10.1371/journal.ppat.1007439
+PMCID: PMC6322784
+PMID: 30576397 [Indexed for MEDLINE]
+
+Conflict of interest statement: The authors have read the journal's policy and 
+have the following competing interests: IGM, MJK, KMB, SPI, and SMA are current 
+employees of Kineta; DNG is a current employee of Sorrento Therapeutics; DD is a 
+current employee of Amgen; SRT is a current employee of CTI BioPharma; JRB is a 
+current employee of SIGA Technologies; DD, JRB, and SMA are listed as inventors 
+on LHF-535 and related patents.

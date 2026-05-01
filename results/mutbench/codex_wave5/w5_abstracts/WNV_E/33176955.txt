@@ -1,0 +1,70 @@
+1. Rev Argent Microbiol. 2021 Apr-Jun;53(2):154-161. doi: 
+10.1016/j.ram.2020.09.001. Epub 2020 Nov 8.
+
+Autochthonous circulation of Saint Louis encephalitis and West Nile viruses in 
+the Province of La Rioja, Argentina.
+
+Batallán GP(1), Konigheim BS(2), Quaglia AI(3), Rivarola ME(4), Beranek MD(2), 
+Tauro LB(5), Flores SF(6), Laurito M(7), Almirón WR(7), Contigiani MS(4), 
+Visintin AM(8).
+
+Author information:
+(1)Universidad Nacional de Córdoba, Facultad de Ciencias Médicas, Instituto de 
+Virología "Dr. J. M. Vanella", Enfermera Gordillo S/N, Ciudad Universitaria, 
+X5000HUA Córdoba, Argentina; Departamento de Ciencias Básicas y Tecnológicas, 
+Universidad Nacional de Chilecito, La Rioja, Argentina.
+(2)Universidad Nacional de Córdoba, Facultad de Ciencias Médicas, Instituto de 
+Virología "Dr. J. M. Vanella", Enfermera Gordillo S/N, Ciudad Universitaria, 
+X5000HUA Córdoba, Argentina; Consejo Nacional de Investigaciones Científicas y 
+Técnicas (CONICET), Argentina.
+(3)Universidad Nacional de Córdoba, Facultad de Ciencias Médicas, Instituto de 
+Virología "Dr. J. M. Vanella", Enfermera Gordillo S/N, Ciudad Universitaria, 
+X5000HUA Córdoba, Argentina; Florida Medical Entomology Laboratory, University 
+of Florida, Vero Beach, FL, USA.
+(4)Universidad Nacional de Córdoba, Facultad de Ciencias Médicas, Instituto de 
+Virología "Dr. J. M. Vanella", Enfermera Gordillo S/N, Ciudad Universitaria, 
+X5000HUA Córdoba, Argentina.
+(5)Consejo Nacional de Investigaciones Científicas y Técnicas (CONICET), 
+Argentina; Instituto de Biología Subtropical, nodo Iguazú, CONICET, Universidad 
+Nacional de Misiones, Argentina.
+(6)Consejo Nacional de Investigaciones Científicas y Técnicas (CONICET), 
+Argentina; Laboratorio de Ecología de Enfermedades, Instituto de Ciencias 
+Veterinarias del Litoral (ICiVet-Litoral), Universidad Nacional del 
+Litoral/CONICET, Esperanza, Santa Fe, Argentina.
+(7)Universidad Nacional de Córdoba, Centro de Investigaciones Entomológicas de 
+Córdoba,Facultad de Ciencias Exactas, Físicas y Naturales, Córdoba, Argentina; 
+Consejo Nacional de Investigaciones Científicas y Técnicas, Instituto de 
+Investigaciones Biológicas y Tecnológicas, Córdoba, Argentina.
+(8)Universidad Nacional de Córdoba, Centro de Investigaciones Entomológicas de 
+Córdoba,Facultad de Ciencias Exactas, Físicas y Naturales, Córdoba, Argentina; 
+Consejo Nacional de Investigaciones Científicas y Técnicas, Instituto de 
+Investigaciones Biológicas y Tecnológicas, Córdoba, Argentina; Instituto de 
+Biología de la Conservación y Paleobiología (IBiCoPa), Centro de Investigación e 
+Innovación Tecnológica (CENIIT), Universidad Nacional de la Rioja, La Rioja, 
+Argentina. Electronic address: avisintin@unlar.edu.ar.
+
+St. Louis encephalitis (SLEV) and West Nile (WNV) arboviruses, which circulate 
+in Argentina, are maintained in enzootic transmission cycles involving Culex 
+mosquitoes (vectors) and birds belonging to orders Passeriformes and 
+Columbiformes (amplifier hosts). The objective of this work was to determine the 
+circulation of both viruses among wild birds in a semiarid ecosystem in the 
+Province of La Rioja through a serologic survey. During spring 2013 and fall 
+2014, a total of 326 wild birds belonging to 41 species were captured in areas 
+close to the cities of La Rioja and Chilecito, in the Province of La Rioja. 
+While exposure to SLEV and WNV was analyzed in birds' serum through neutralizing 
+antibody detection, viral circulation was estimated through apparent 
+seroprevalence of neutralizing antibodies. The exposure of the avian community 
+to viruses was 3.02% for SLEV and 1.89% for WNV, while 1.19% corresponded to 
+coinfections. Our study confirms for the first time the circulation of SLEV and 
+WNV in wild birds in the Province of La Rioja. Moreover, it is the first study 
+to register neutralizing antibodies for flavivirus in the species Leptotila 
+verreauxi (White-tipped Dove) (WNV) and Melanerpes cactorum (White-fronted 
+Woodpecker) (SLEV). These results suggest that in semiarid ecosystems from 
+northwestern Argentina the requirements and conditions for amplification and 
+enzootic maintenance of SLEV and WNV would be present.
+
+Copyright © 2020 Asociación Argentina de Microbiología. Publicado por Elsevier 
+España, S.L.U. All rights reserved.
+
+DOI: 10.1016/j.ram.2020.09.001
+PMID: 33176955 [Indexed for MEDLINE]

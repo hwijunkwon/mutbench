@@ -1,0 +1,89 @@
+1. Nat Commun. 2024 Feb 24;15(1):1696. doi: 10.1038/s41467-024-45806-x.
+
+Prior flavivirus immunity skews the yellow fever vaccine response to 
+cross-reactive antibodies with potential to enhance dengue virus infection.
+
+Santos-Peral A(1), Luppa F(2), Goresch S(1), Nikolova E(1), Zaucha M(1), Lehmann 
+L(1), Dahlstroem F(1), Karimzadeh H(1)(3), Thorn-Seshold J(1)(4), Winheim E(5), 
+Schuster EM(6), Dobler G(7), Hoelscher M(2)(8)(9), Kümmerer BM(10)(11), Endres 
+S(1)(12), Schober K(6)(13), Krug AB(5), Pritsch M(2), Barba-Spaeth G(#)(14), 
+Rothenfusser S(#)(15)(16).
+
+Author information:
+(1)Division of Clinical Pharmacology, LMU University Hospital, LMU Munich, 
+Munich, Germany.
+(2)Division of Infectious Diseases and Tropical Medicine, LMU University 
+Hospital, LMU Munich, Munich, Germany.
+(3)Department of Veterinary Sciences, LMU Munich, Munich, Germany.
+(4)Faculty of Chemistry and Pharmacy, LMU Munich, Munich, Germany.
+(5)Institute for Immunology, Biomedical Center (BMC), Medical Faculty, LMU 
+Munich, Munich, Germany.
+(6)Mikrobiologisches Institut-Klinische Mikrobiologie, Immunologie und Hygiene, 
+Universitätsklinikum Erlangen, Friedrich-Alexander Universität 
+Erlangen-Nürnberg, Erlangen, Germany.
+(7)Bundeswehr Institute of Microbiology, Neuherbergstrasse 11, 80937, Munich, 
+Germany.
+(8)German Centre for Infection Research, Partner Site Munich, 80799, Munich, 
+Germany.
+(9)Fraunhofer Institute for Translational Medicine and Pharmacology, Immunology, 
+Infection and Pandemic Research, 80799, Munich, Germany.
+(10)Institute of Virology, Medical Faculty, University of Bonn, 53127, Bonn, 
+Germany.
+(11)German Centre for Infection Research, Partner Site Bonn-Cologne, 53127, 
+Bonn, Germany.
+(12)Einheit für Klinische Pharmakologie (EKLiP) Helmholtz Zentrum München German 
+Research Center for Environmental Health (HMGU), Neuherberg, Germany.
+(13)FAU Profile Center Immunomedicine, FAU Erlangen-Nürnberg, Erlangen, Germany.
+(14)Institut Pasteur, Université Paris Cité, CNRS UMR 3569, Unité de Virologie 
+Structurale, Paris, France. giovanna.barba-spaeth@pasteur.fr.
+(15)Division of Clinical Pharmacology, LMU University Hospital, LMU Munich, 
+Munich, Germany. simon.rothenfusser@med.uni-muenchen.de.
+(16)Einheit für Klinische Pharmakologie (EKLiP) Helmholtz Zentrum München German 
+Research Center for Environmental Health (HMGU), Neuherberg, Germany. 
+simon.rothenfusser@med.uni-muenchen.de.
+(#)Contributed equally
+
+The yellow fever 17D vaccine (YF17D) is highly effective but is frequently 
+administered to individuals with pre-existing cross-reactive immunity, 
+potentially impacting their immune responses. Here, we investigate the impact of 
+pre-existing flavivirus immunity induced by the tick-borne encephalitis virus 
+(TBEV) vaccine on the response to YF17D vaccination in 250 individuals up to 28 
+days post-vaccination (pv) and 22 individuals sampled one-year pv. Our findings 
+indicate that previous TBEV vaccination does not affect the early IgM-driven 
+neutralizing response to YF17D. However, pre-vaccination sera enhance YF17D 
+virus infection in vitro via antibody-dependent enhancement (ADE). Following 
+YF17D vaccination, TBEV-pre-vaccinated individuals develop high amounts of 
+cross-reactive IgG antibodies with poor neutralizing capacity. In contrast, 
+TBEV-unvaccinated individuals elicit a non-cross-reacting neutralizing response. 
+Using YF17D envelope protein mutants displaying different epitopes, we identify 
+quaternary dimeric epitopes as the primary target of neutralizing antibodies. 
+Additionally, TBEV-pre-vaccination skews the IgG response towards the 
+pan-flavivirus fusion loop epitope (FLE), capable of mediating ADE of dengue and 
+Zika virus infections in vitro. Together, we propose that YF17D vaccination 
+conceals the FLE in individuals without prior flavivirus exposure but favors a 
+cross-reactive IgG response in TBEV-pre-vaccinated recipients directed to the 
+FLE with potential to enhance dengue virus infection.
+
+© 2024. The Author(s).
+
+DOI: 10.1038/s41467-024-45806-x
+PMCID: PMC10894228
+PMID: 38402207 [Indexed for MEDLINE]
+
+Conflict of interest statement: The authors declare no competing interests. This 
+work was supported by FlavImmunity a combined grant of the German Research 
+foundation (DFG) project number 391217598 to SR and ABK and the French National 
+Research Agency (ANR) project number ANR-17-CE15-0031-01 to GBS; by DFG TRR237 
+grant project number 369799452 to SR and ABK (TRR237 TPB14) and BMK (TRR237 
+TPA04); by Yellow4Flavi a horizon Europe grant project number 101137459 funded 
+by the European Union to SR, AK GBS, KS; by grants of the iMed consortium of the 
+German Helmholtz Societies to SR; by the Einheit für Klinische Pharmakologie 
+(EKLIP), Helmholtz Zentrum München, Neuherberg, Germany to SR and SE; KS and EMS 
+are supported by the BMBF, project 01KI2013; a Stipend (TI 07.003) by the German 
+Center for Infection Research (DZIF) to FL; grants by the Friedrich Baur 
+Foundation (FBS) to JTS, HK and MP; a Metiphys fellowship of the Medical Faculty 
+of the LMU Munich to MP; by the FöFoLe Program of the Medical Faculty of the LMU 
+Munich to SG, EN, LL, FL, the international doctoral program “iTarget: 
+Immunotargeting of cancer” funded by the Elite Network of Bavaria to ASP, MZ, 
+SG, LL, EN. The funders had no role in study design, data collection and 
+analysis, decision to publish, or preparation of the manuscript.

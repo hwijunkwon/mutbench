@@ -1,0 +1,63 @@
+1. J Virol. 2016 Jul 11;90(15):6799-807. doi: 10.1128/JVI.00597-16. Print 2016
+Aug  1.
+
+Small-Molecule Fusion Inhibitors Bind the pH-Sensing Stable Signal Peptide-GP2 
+Subunit Interface of the Lassa Virus Envelope Glycoprotein.
+
+Shankar S(1), Whitby LR(2), Casquilho-Gray HE(3), York J(3), Boger DL(2), 
+Nunberg JH(4).
+
+Author information:
+(1)Montana Biotechnology Center, The University of Montana, Missoula, Montana, 
+USA Division of Biological Sciences, The University of Montana, Missoula, 
+Montana, USA.
+(2)Department of Chemistry and The Skaggs Institute for Chemical Biology, The 
+Scripps Research Institute, La Jolla, California, USA.
+(3)Montana Biotechnology Center, The University of Montana, Missoula, Montana, 
+USA.
+(4)Montana Biotechnology Center, The University of Montana, Missoula, Montana, 
+USA jack.nunberg@umontana.edu.
+
+Arenavirus species are responsible for severe life-threatening hemorrhagic 
+fevers in western Africa and South America. Without effective antiviral 
+therapies or vaccines, these viruses pose serious public health and biodefense 
+concerns. Chemically distinct small-molecule inhibitors of arenavirus entry have 
+recently been identified and shown to act on the arenavirus envelope 
+glycoprotein (GPC) to prevent membrane fusion. In the tripartite GPC complex, 
+pH-dependent membrane fusion is triggered through a poorly understood 
+interaction between the stable signal peptide (SSP) and the transmembrane fusion 
+subunit GP2, and our genetic studies have suggested that these small-molecule 
+inhibitors act at this interface to antagonize fusion activation. Here, we have 
+designed and synthesized photoaffinity derivatives of the 
+4-acyl-1,6-dialkylpiperazin-2-one class of fusion inhibitors and demonstrate 
+specific labeling of both the SSP and GP2 subunits in a native-like Lassa virus 
+(LASV) GPC trimer expressed in insect cells. Photoaddition is competed by the 
+parental inhibitor and other chemically distinct compounds active against LASV, 
+but not those specific to New World arenaviruses. These studies provide direct 
+physical evidence that these inhibitors bind at the SSP-GP2 interface. We also 
+find that GPC containing the uncleaved GP1-GP2 precursor is not susceptible to 
+photo-cross-linking, suggesting that proteolytic maturation is accompanied by 
+conformational changes at this site. Detailed mapping of residues modified by 
+the photoaffinity adducts may provide insight to guide the further development 
+of these promising lead compounds as potential therapeutic agents to treat Lassa 
+hemorrhagic fever.
+IMPORTANCE: Hemorrhagic fever arenaviruses cause lethal infections in humans 
+and, in the absence of licensed vaccines or specific antiviral therapies, are 
+recognized to pose significant threats to public health and biodefense. Lead 
+small-molecule inhibitors that target the arenavirus envelope glycoprotein (GPC) 
+have recently been identified and shown to block GPC-mediated fusion of the 
+viral and cellular endosomal membranes, thereby preventing virus entry into the 
+host cell. Genetic studies suggest that these inhibitors act through a unique 
+pH-sensing intersubunit interface in GPC, but atomic-level structural 
+information is unavailable. In this report, we utilize novel photoreactive 
+fusion inhibitors and photoaffinity labeling to obtain direct physical evidence 
+for inhibitor binding at this critical interface in Lassa virus GPC. Future 
+identification of modified residues at the inhibitor-binding site will help 
+elucidate the molecular basis for fusion activation and its inhibition and guide 
+the development of effective therapies to treat arenaviral hemorrhagic fevers.
+
+Copyright © 2016, American Society for Microbiology. All Rights Reserved.
+
+DOI: 10.1128/JVI.00597-16
+PMCID: PMC4944282
+PMID: 27194767 [Indexed for MEDLINE]

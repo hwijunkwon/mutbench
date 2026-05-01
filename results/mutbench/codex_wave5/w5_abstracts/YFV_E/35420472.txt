@@ -1,0 +1,86 @@
+1. mBio. 2022 Jun 28;13(3):e0051222. doi: 10.1128/mbio.00512-22. Epub 2022 Apr
+14.
+
+Isolation of a Potently Neutralizing and Protective Human Monoclonal Antibody 
+Targeting Yellow Fever Virus.
+
+Doyle MP(#)(1), Genualdi JR(#)(1), Bailey AL(#)(2), Kose N(3), Gainza C(3), 
+Rodriguez J(3), Reeder KM(3), Nelson CA(2), Jethva PN(4), Sutton RE(3), Bombardi 
+RG(3), Gross ML(4), Julander JG(5), Fremont DH(2)(6)(7), Diamond MS(2)(7)(8), 
+Crowe JE Jr(1)(3)(9).
+
+Author information:
+(1)Department of Pathology, Microbiology and Immunology, Vanderbilt University 
+Medical Centergrid.412807.8, Nashville, Tennessee, USA.
+(2)Department of Pathology and Immunology, Washington University School of 
+Medicine, St. Louis, Missouri, USA.
+(3)The Vanderbilt Vaccine Center, Vanderbilt University Medical 
+Centergrid.412807.8, Nashville, Tennessee, USA.
+(4)Department of Chemistry, Washington University in St. Louis, St. Louis, 
+Missouri, USA.
+(5)Institute for Antiviral Research, Department of Animal, Dairy, and Veterinary 
+Sciences, Utah State Universitygrid.53857.3c, Logan, Utah, USA.
+(6)Department of Biochemistry and Molecular Biophysics, Washington University 
+School of Medicine, St. Louis, Missouri, USA.
+(7)Department of Molecular Microbiology, Washington University School of 
+Medicine, St. Louis, Missouri, USA.
+(8)Department of Medicine, Washington University School of Medicine, St. Louis, 
+Missouri, USA.
+(9)Department of Pediatrics, Vanderbilt University Medical Centergrid.412807.8, 
+Nashville, Tennessee, USA.
+(#)Contributed equally
+
+Comment in
+    mBio. 2022 Jun 28;13(3):e0082422. doi: 10.1128/mbio.00824-22.
+
+Yellow fever virus (YFV) causes sporadic outbreaks of infection in South America 
+and sub-Saharan Africa. While live-attenuated yellow fever virus vaccines based 
+on three substrains of 17D are considered some of the most effective vaccines in 
+use, problems with production and distribution have created large populations of 
+unvaccinated, vulnerable individuals in areas of endemicity. To date, specific 
+antiviral therapeutics have not been licensed for human use against YFV or any 
+other related flavivirus. Recent advances in monoclonal antibody (mAb) 
+technology have allowed the identification of numerous candidate therapeutics 
+targeting highly pathogenic viruses, including many flaviviruses. Here, we 
+sought to identify a highly neutralizing antibody targeting the YFV envelope (E) 
+protein as a therapeutic candidate. We used human B cell hybridoma technology to 
+isolate mAbs from circulating memory B cells from human YFV vaccine recipients. 
+These antibodies bound to recombinant YFV E protein and recognized at least five 
+major antigenic sites on E. Two mAbs (designated YFV-136 and YFV-121) recognized 
+a shared antigenic site and neutralized the YFV-17D vaccine strain in vitro. 
+YFV-136 also potently inhibited infection by multiple wild-type YFV strains, in 
+part, at a postattachment step in the virus replication cycle. YFV-136 showed 
+therapeutic protection in two animal models of YFV challenge, including hamsters 
+and immunocompromised mice engrafted with human hepatocytes. These studies 
+define features of the antigenic landscape of the YFV E protein recognized by 
+the human B cell response and identify a therapeutic antibody candidate that 
+inhibits infection and disease caused by highly virulent strains of YFV. 
+IMPORTANCE Yellow fever virus (YFV) is a mosquito-borne virus that occasionally 
+causes outbreaks of severe infection and disease in South America and 
+sub-Saharan Africa. There are very effective live-attenuated (weakened) yellow 
+fever virus vaccines, but recent problems with their production and distribution 
+have left many people in affected areas vulnerable. Here, we sought to isolate 
+an antibody targeting the surface of the virus for possible use in the future as 
+a biologic drug to prevent or treat YFV infection. We isolated naturally 
+occurring antibodies from individuals who had received a YFV vaccine. We created 
+antibodies and tested them. We found that the antibody with the most powerful 
+antiviral activity was a beneficial treatment in two different small-animal 
+models of human infection. These studies identified features of the virus that 
+are recognized by the human immune system and generated a therapeutic antibody 
+candidate that inhibits infection caused by highly virulent strains of YFV.
+
+DOI: 10.1128/mbio.00512-22
+PMCID: PMC9239089
+PMID: 35420472 [Indexed for MEDLINE]
+
+Conflict of interest statement: The authors declare a conflict of interest. 
+M.L.G. is an unpaid member of the scientific advisory boards of Protein Metrics 
+and GenNext. M.S.D. is a consultant for Inbios, Vir Biotechnology, Senda 
+Biosciences, and Carnival Corporation and on the scientific advisory boards of 
+Moderna and Immunome. The Diamond laboratory has received funding support in 
+sponsored research agreements from Moderna, Vir Biotechnology, and Emergent 
+BioSolutions. J.E.C. has served as a consultant for Luna Innovations, Merck, 
+GlaxoSmithKline, is a member of the scientific advisory board of Meissa Vaccines 
+and is Founder of IDBiologics. The Crowe laboratory at Vanderbilt University 
+Medical Center has received unrelated sponsored research agreements from 
+IDBiologics, AstraZeneca and Takeda.

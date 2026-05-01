@@ -1,0 +1,37 @@
+1. J Med Virol. 1983;12(2):93-102. doi: 10.1002/jmv.1890120203.
+
+Protection of Lassa virus-infected guinea pigs with Lassa-immune plasma of 
+guinea pig, primate, and human origin.
+
+Jahrling PB.
+
+Lassa virus-immune plasma has been used to treat human Lassa fever patients; 
+however, criteria for plasma selection were based arbitrarily on available 
+serologic tools and protective efficacy was never directly assessed. To test the 
+validity of plasma therapy for Lassa virus infections in an animal model, and to 
+develop biologically relevant criteria for selection of protective immune 
+plasma, inbred, strain 13 guinea pigs were infected with a lethal dose of Lassa 
+virus and treated with various Lassa-immune plasmas obtained from guinea pigs, 
+primates, and convalescent human patients. Neutralizing antibody titers were 
+determined in a virus dilution, plaque reduction test, and were expressed as a 
+log10 plaque-forming units (PFU) neutralization index (LNI). All guinea pigs 
+treated with immune plasma 6 ml/kg/treatment on days 0, 3, and 6 after virus 
+inoculation were protected, provided the LNI exceeded 2.0. Plasmas obtained from 
+donors in early convalescence (32-45 days) had low titers of N-antibody (LNI 
+less than 2) and failed to confer protection, despite high titers of Lassa 
+antibody measured in the indirect fluorescent antibody (IFA) test. Higher doses 
+of marginally titered plasma conferred increased protection. The degree of 
+protection and suppression of viremia was closely associated with LNI an not IFA 
+titers. Administration of low-titered plasma did not result in immune 
+enhancement. A high dose of human plasma from Liberia (12 ml/kg/treatment) was 
+required to confer complete protection to guinea pigs infected with a Lassa 
+virus strain from Sierra Leone (LNI = 1.6), while a lower dose (3 
+ml/kg/treatment) was sufficient for protection against a Liberian strain (LNI = 
+2.8), suggesting that a geographic matching of immune plasma and Lassa virus 
+strain origin may increase treatment success. These studies support the concept 
+of plasma therapy for Lassa infection and suggest that the plaque reduction 
+neutralization test is more appropriate than the IFA test for predicting 
+protective efficacy of passively administered plasma.
+
+DOI: 10.1002/jmv.1890120203
+PMID: 6619814 [Indexed for MEDLINE]

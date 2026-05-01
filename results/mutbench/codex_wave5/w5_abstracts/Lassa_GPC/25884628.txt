@@ -1,0 +1,51 @@
+1. PLoS Negl Trop Dis. 2015 Apr 17;9(4):e0003736. doi: 
+10.1371/journal.pntd.0003736. eCollection 2015 Apr.
+
+A recombinant vesicular stomatitis virus-based Lassa fever vaccine protects 
+guinea pigs and macaques against challenge with geographically and genetically 
+distinct Lassa viruses.
+
+Safronetz D(1), Mire C(2), Rosenke K(1), Feldmann F(3), Haddock E(1), Geisbert 
+T(2), Feldmann H(1).
+
+Author information:
+(1)Laboratory of Virology, Division of Intramural Research, Rocky Mountain 
+Laboratories, National Institute of Allergy and Infectious Diseases, National 
+Institutes of Health, Hamilton, Montana, United States of America.
+(2)Galveston National Laboratory and Department of Microbiology and Immunology, 
+University of Texas Medical Branch, Galveston, Texas, United States of America.
+(3)Rocky Mountain Veterinary Branch, Division of Intramural Research, Rocky 
+Mountain Laboratories, National Institute of Allergy and Infectious Diseases, 
+National Institutes of Health, Hamilton, Montana, United States of America.
+
+BACKGROUND: Lassa virus (LASV) is endemic in several West African countries and 
+is the etiological agent of Lassa fever. Despite the high annual incidence and 
+significant morbidity and mortality rates, currently there are no approved 
+vaccines to prevent infection or disease in humans. Genetically, LASV 
+demonstrates a high degree of diversity that correlates with geographic 
+distribution. The genetic heterogeneity observed between geographically distinct 
+viruses raises concerns over the potential efficacy of a "universal" LASV 
+vaccine. To date, several experimental LASV vaccines have been developed; 
+however, few have been evaluated against challenge with various genetically 
+unique Lassa virus isolates in relevant animal models.
+METHODOLOGIES/PRINCIPLE FINDINGS: Here we demonstrate that a single, 
+prophylactic immunization with a recombinant vesicular stomatitis virus (VSV) 
+expressing the glycoproteins of LASV strain Josiah from Sierra Leone protects 
+strain 13 guinea pigs from infection / disease following challenge with LASV 
+isolates originating from Liberia, Mali and Nigeria. Similarly, the VSV-based 
+LASV vaccine yields complete protection against a lethal challenge with the 
+Liberian LASV isolate in the gold-standard macaque model of Lassa fever.
+CONCLUSIONS/SIGNIFICANCE: Our results demonstrate the VSV-based LASV vaccine is 
+capable of preventing morbidity and mortality associated with non-homologous 
+LASV challenge in two animal models of Lassa fever. Additionally, this work 
+highlights the need for the further development of disease models for 
+geographical distinct LASV strains, particularly those from Nigeria, in order to 
+comprehensively evaluate potential vaccines and therapies against this prominent 
+agent of viral hemorrhagic fever.
+
+DOI: 10.1371/journal.pntd.0003736
+PMCID: PMC4401668
+PMID: 25884628 [Indexed for MEDLINE]
+
+Conflict of interest statement: The authors have declared that no competing 
+interests exist.

@@ -1,0 +1,35 @@
+1. PLoS Pathog. 2009 May;5(5):e1000453. doi: 10.1371/journal.ppat.1000453. Epub 
+2009 May 29.
+
+A therapeutic antibody against west nile virus neutralizes infection by blocking 
+fusion within endosomes.
+
+Thompson BS(1), Moesker B, Smit JM, Wilschut J, Diamond MS, Fremont DH.
+
+Author information:
+(1)Pathology and Immunology, Washington University School of Medicine, St Louis, 
+MO, USA.
+
+Defining the precise cellular mechanisms of neutralization by potently 
+inhibitory antibodies is important for understanding how the immune system 
+successfully limits viral infections. We recently described a potently 
+inhibitory monoclonal antibody (MAb E16) against the envelope (E) protein of 
+West Nile virus (WNV) that neutralizes infection even after virus has spread to 
+the central nervous system. Herein, we define its mechanism of inhibition. E16 
+blocks infection primarily at a post-attachment step as antibody-opsonized WNV 
+enters permissive cells but cannot escape from endocytic compartments. These 
+cellular experiments suggest that E16 blocks the acid-catalyzed fusion step that 
+is required for nucleocapsid entry into the cytoplasm. Indeed, E16 directly 
+inhibits fusion of WNV with liposomes. Additionally, low-pH exposure of E16-WNV 
+complexes in the absence of target membranes did not fully inactivate infectious 
+virus, further suggesting that E16 prevents a structural transition required for 
+fusion. Thus, a strongly neutralizing anti-WNV MAb with therapeutic potential is 
+potently inhibitory because it blocks viral fusion and thereby promotes 
+clearance by delivering virus to the lysosome for destruction.
+
+DOI: 10.1371/journal.ppat.1000453
+PMCID: PMC2679195
+PMID: 19478866 [Indexed for MEDLINE]
+
+Conflict of interest statement: MSD is a consultant for MacroGenics, which has 
+licensed the E16 antibody for possible commercial use.

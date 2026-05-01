@@ -1,0 +1,67 @@
+1. Hum Vaccin Immunother. 2024 Dec 31;20(1):2318814. doi: 
+10.1080/21645515.2024.2318814. Epub 2024 Jul 3.
+
+Hydroxychloroquine is associated with lower seroconversion upon 17DD-Yellow 
+fever primovaccination in patients with primary Sjögren's syndrome.
+
+Libardi Lira Machado KL(1), da Costa-Rocha IA(2), Gonçalves Rodrigues Aguiar 
+L(1), Ribeiro Moulaz I(1), Tatiyama Miyamoto S(1), Costa Martins P(1), Vieira 
+Serrano E(1), Espíndula Gianordoli AP(1), da Penha Gomes Gouvea M(1), de Fatima 
+Bissoli M(1), Maria Barbosa de Lima S(3), Dias Schwarcz W(4), de Souza Azevedo 
+A(4), Fernandes Amorim da Silva J(4), Tourinho Santos R(5), Pedro Brito-de-Sousa 
+J(2), Coelho-Dos-Reis JG(6), Campi-Azevedo AC(2), Teixeira-Carvalho A(2), 
+Peruhype-Magalhães V(2), Fontana Sutile Tardetti Fantinato F(7), Maria Henrique 
+da Mota L(8), Assis Martins-Filho O(2), Valim V(1).
+
+Author information:
+(1)Programa de Pós-Graduação em Saúde Coletiva (PPGSC) and Hospital 
+Universitário Cassiano Antônio Moraes da Universidade Federal do Espírito Santo 
+(HUCAM-UFES/EBSERH).
+(2)Grupo Integrado de Pesquisas em Biomarcadores, Instituto René Rachou, 
+Fundação Oswaldo Cruz (FIOCRUZ-Minas), Belo Horizonte, Brazil.
+(3)Departamento de Desenvolvimento Experimental e Pré-clínico (DEDEP), Instituto 
+de Tecnologia em Imunobiológicos (Bio-Manguinhos), Fundação Oswaldo Cruz 
+(FIOCRUZ), Rio de Janeiro, Brazil.
+(4)Laboratório de Análise Imunomolecular (LANIM), Instituto de Tecnologia em 
+Imunobiológicos (Bio-Manguinhos), Fundação Oswaldo Cruz (FIOCRUZ), Rio de 
+Janeiro, Brazil.
+(5)Laboratório de Tecnologia Virológica (LATEV), Instituto de Tecnologia em 
+Imunobiológicos (Bio-Manguinhos), Fundação Oswaldo Cruz (FIOCRUZ), Rio de 
+Janeiro, Brazil.
+(6)Laboratório de Virologia Básica e Aplicada, Departamento de Microbiologia, 
+Universidade Federal de Minas Gerais, Belo Horizonte, Brazil.
+(7)Departamento de Vigilância das Doenças Transmissíveis, Secretaria de 
+Vigilância em Saúde, Ministério da Saúde, Brasília, Brazil.
+(8)Serviço de Reumatologia do Hospital Universitário de Brasília, Programa de 
+Pós-graduação em Ciências Médicas, Faculdade de Medicina, Universidade de 
+Brasília, Brasília, Brazil.
+
+The present study aimed at investigating whether the hydroxychloroquine (HCQ) 
+treatment would impact the neutralizing antibody production, viremia levels and 
+the kinetics of serum soluble mediators upon planned 17DD-Yellow Fever (YF) 
+primovaccination (Bio-Manguinhos-FIOCRUZ) of primary Sjögren's syndrome (pSS). A 
+total of 34 pSS patients and 23 healthy controls (HC) were enrolled. The pSS 
+group was further categorized according to the use of HCQ (HCQ and Non-HCQ). The 
+YF-plaque reduction neutralization test (PRNT ≥1:50), YF viremia (RNAnemia) and 
+serum biomarkers analyses were performed at baseline and subsequent time-points 
+(Day0/Day3-4/Day5-6/Day7/Day14-D28). The pSS group showed PRNT titers and 
+seropositivity rates similar to those observed for HC (GeoMean = 238 vs 440, 
+p = .11; 82% vs 96%, p = .13). However, the HCQ subgroup exhibited lower 
+seroconversion rates as compared to HC (GeoMean = 161 vs 440, p = .04; 69% vs 
+96%, p = .02) and Non-HQC (GeoMean = 161 vs 337, p = .582; 69% vs 94%, 
+p = .049). No differences in YF viremia were observed amongst subgroups. Serum 
+biomarkers analyses demonstrated that HCQ subgroup exhibited increased levels of 
+CCL2, CXL10, IL-6, IFN-γ, IL1-Ra, IL-9, IL-10, and IL-2 at baseline and 
+displayed a consistent increase of several biomarkers along the kinetics 
+timeline up to D14-28. These results indicated that HCQ subgroup exhibited a 
+deficiency in assembling YF-specific immune response elicited by 17DD-YF 
+primovaccination as compared to Non-HCQ subgroup. Our findings suggested that 
+hydroxychloroquine is associated with a decrease in the humoral immune response 
+after 17DD-YF primovaccination.
+
+DOI: 10.1080/21645515.2024.2318814
+PMCID: PMC11225917
+PMID: 38961639 [Indexed for MEDLINE]
+
+Conflict of interest statement: No potential conflict of interest was reported 
+by the author(s).

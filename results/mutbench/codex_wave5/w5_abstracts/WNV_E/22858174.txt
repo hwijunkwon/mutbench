@@ -1,0 +1,31 @@
+1. Virology. 2012 Nov 10;433(1):35-44. doi: 10.1016/j.virol.2012.07.011. Epub
+2012  Jul 31.
+
+Mutations in the West Nile prM protein affect VLP and virion secretion in vitro.
+
+Calvert AE(1), Huang CY, Blair CD, Roehrig JT.
+
+Author information:
+(1)Arbovirus Diseases Branch, Division of Vector-Borne Diseases, Centers for 
+Disease Control and Prevention, Public Health Service, US Department of Health 
+and Human Services, Fort Collins, CO 80521, USA. zpz0@cdc.gov
+
+Mutation of the West Nile virus-like particle (WN VLP) prM protein (T20D, K31A, 
+K31V, or K31T) results in undetectable VLP secretion from transformed COS-1 
+cells. K31 mutants formed intracellular prM-E heterodimers; however these 
+proteins remained in the ER and ER-Golgi intermediary compartments of 
+transfected cells. The T20D mutation affected glycosylation, heterodimer 
+formation, and WN VLP secretion. When infectious viruses bearing the same 
+mutations were used to infect COS-1 cells, K31 mutant viruses exhibited delayed 
+growth and reduced infectivity compared to WT virus. Epitope maps of WN VLP and 
+WNV prM were also different. These results suggest that while mutations in the 
+prM protein can reduce or eliminate secretion of WN VLPs, they have less effect 
+on virus. This difference may be due to the quantity of prM in WN VLPs compared 
+to WNV or to differences in maturation, structure, and symmetry of these 
+particles.
+
+Published by Elsevier Inc.
+
+DOI: 10.1016/j.virol.2012.07.011
+PMCID: PMC5812725
+PMID: 22858174 [Indexed for MEDLINE]

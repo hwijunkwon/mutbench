@@ -1,0 +1,36 @@
+1. PLoS One. 2014 Sep 17;9(9):e108056. doi: 10.1371/journal.pone.0108056. 
+eCollection 2014.
+
+Protection of a single dose west nile virus recombinant subviral particle 
+vaccine against lineage 1 or 2 strains and analysis of the cross-reactivity with 
+Usutu virus.
+
+Merino-Ramos T(1), Blázquez AB(1), Escribano-Romero E(1), Cañas-Arranz R(2), 
+Sobrino F(2), Saiz JC(1), Martín-Acebes MA(2).
+
+Author information:
+(1)Departamento de Biotecnología, Instituto Nacional de Investigación y 
+Tecnología Agraria y Alimentaria (INIA), Madrid, Spain.
+(2)Departamento de Virología y Microbiología, Centro de Biología Molecular 
+Severo Ochoa (CSIC-UAM), Cantoblanco, Madrid, Spain.
+
+West Nile virus (WNV) is a neurovirulent mosquito-borne flavivirus. High WNV 
+virulence was mainly associated with lineage 1 strains, but recent outbreaks 
+have unveiled circulation of highly virulent lineage 2 strains. Co-expression of 
+flavivirus prM and E glycoproteins drives the assembly of recombinant subviral 
+particles (RSPs) that share antigenic features with virions. Mouse immunization 
+with lineage 1 WNV RSPs induced a potent humoral response against WNV with 
+production of neutralizing antibodies. A single inoculation of RSPs formulated 
+with Al(OH)3 as adjuvant protected mice against a lethal challenge with WNV 
+strains from lineage 1 or 2. The cross-reactivity of the response elicited by 
+these RSPs was analyzed against the related flavivirus Usutu virus (USUV), which 
+shares multiple ecological and antigenic features with WNV. Immunization with 
+WNV-RSPs increased specific, although low, antibody titers found upon subsequent 
+USUV infection.
+
+DOI: 10.1371/journal.pone.0108056
+PMCID: PMC4168257
+PMID: 25229345 [Indexed for MEDLINE]
+
+Conflict of interest statement: Competing Interests: The authors have declared 
+that no competing interests exist.

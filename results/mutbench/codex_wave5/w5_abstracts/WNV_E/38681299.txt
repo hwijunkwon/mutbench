@@ -1,0 +1,51 @@
+1. Cureus. 2024 Mar 27;16(3):e57063. doi: 10.7759/cureus.57063. eCollection 2024 
+Mar.
+
+Rehabilitation Outcomes in Multiple Sclerosis Patients on Ocrelizumab Diagnosed 
+With West Nile Virus Encephalitis.
+
+Johnson TR(1), Gandelman S(2), Serafin LR(1), Charles JY(1), Jacobs D(3).
+
+Author information:
+(1)Physical Medicine and Rehabilitation, Hospital of the University of 
+Pennsylvania, Philadelphia, USA.
+(2)Neurology, Westchester Medical Center, Valhalla, USA.
+(3)Neurology, Hospital of the University of Pennsylvania, Philadelphia, USA.
+
+Multiple sclerosis (MS) has a global prevalence exceeding two million people and 
+is a leading cause of non-traumatic physical disability. MS can be treated with 
+ocrelizumab, an anti-CD20 monoclonal antibody. West Nile virus (WNV) is the most 
+common cause of mosquito-borne viral encephalitis in North America. It can lead 
+to neuroinvasive WNV disease (WNND) affecting the brain and peripheral nervous 
+system, especially in immunocompromised patients, such as those being treated 
+with ocrelizumab for MS. WNND is exceedingly rare and reported in less than 1% 
+of cases of WNV. It has been established that inpatient rehabilitation improves 
+functional outcomes in patients with MS and those with WNND. However, the 
+inpatient rehabilitation outcomes in patients diagnosed with both WNND and MS 
+have not been reported. In this study, we aimed to examine the rehabilitation 
+outcomes of MS patients on ocrelizumab diagnosed with WNND. We performed a 
+retrospective chart review of patients with MS treated with ocrelizumab, who 
+were diagnosed with WNND and admitted to a single facility. Rehabilitation 
+outcomes were assessed using functional independence measure (FIM) scores on 
+admission and discharge. Three patients met the inclusion criteria; two in acute 
+rehab, and one in the long-term acute care hospital (LTACH). Both patients 
+admitted to acute inpatient rehabilitation showed an improvement in FIM scores 
+from admission to discharge, one patient from 9 to 16 and the other from 14 to 
+54. However, the patient admitted to the LTACH had no improvement in FIM score 
+from admission to discharge. Patients admitted to acute rehab were ultimately 
+discharged home, while the patient admitted to the LTACH required discharge to a 
+subacute rehabilitation facility. Based on our findings, intense and prolonged 
+comprehensive inpatient rehabilitation is associated with improved functional 
+outcomes and increased likelihood of discharge to home in this population 
+suffering from both central and peripheral nervous system involvement due to MS 
+and WNND.
+
+Copyright © 2024, Johnson et al.
+
+DOI: 10.7759/cureus.57063
+PMCID: PMC11052554
+PMID: 38681299
+
+Conflict of interest statement: In the past three years, Dr. Gandelman has 
+participated in an advisory board for Genentech. The relationship is not 
+ongoing.

@@ -1,0 +1,46 @@
+1. Virus Evol. 2025 Nov 1;11(1):veaf087. doi: 10.1093/ve/veaf087. eCollection
+2025.
+
+Constraint in West Nile virus envelope protein across mosquito, human, and avian 
+host cell environments.
+
+Dorman J(1)(2), Bakhache W(1), Pierson TC(3), Dolan PT(1).
+
+Author information:
+(1)Quantitative Virology and Evolution Unit, Laboratory of Viral Diseases, 
+Division of Intramural Research, NIH-NIAID, 33 North Drive, Rm. 1E13.C4, 
+Bethesda, MD 20892, United States.
+(2)Department of Biology, Johns Hopkins University, 3400 N Charles St, 
+Baltimore, MD 21218, United States.
+(3)Arbovirus Immunity Section, Vaccine Research Center, NIH-NIAID, 40 Convent 
+Drive, Bethesda, MD 20892, United States.
+
+Arthropod-borne viruses are a major cause of global viral infections, displaying 
+evolutionary dynamics that differ significantly from vertebrate-specific 
+pathogens. To investigate evolutionary constraints across host environments, we 
+conducted deep mutational scanning (DMS) on the Envelope (E) protein of West 
+Nile virus (WNV), a model arbovirus. Our findings reveal a high degree of 
+constraint in WNV E. While overall tolerance to substitutions is higher in 
+mosquito cells, fitness between mosquito, avian, and human cells is highly 
+correlated. We use our data to explore the extent of antagonistic pleiotropy, or 
+fitness tradeoffs, between the three host environments. We highlight distinct 
+hotspots where tolerance to amino acid substitutions differs, finding that avian 
+cells exhibit particularly distinct mutational tolerance. By examining the 
+distribution of mutational fitness effects of naturally occurring amino acid 
+substitutions, we gain insight into which substitutions can theoretically 
+persist across both mosquito and vertebrate environments. This understanding is 
+crucial for connecting DMS results to the evolutionary potential of arboviruses. 
+Finally, we demonstrate the utility of WNV E DMS in explaining the natural 
+diversity of highly dissimilar flavivirus pathogens. We identify specific sites 
+in each clade of flaviviruses that are not well predicted by our mutational 
+data, due to functional and genetic diversification of E proteins over long-term 
+evolution. This work bridges a key gap in understanding the molecular 
+constraints maintaining infection in distinct host environments. Further, we 
+highlight specific sites in the E protein that require further study to 
+understand the dynamic fitness landscape navigated by the genus Flavivirus.
+
+Published by Oxford University Press 2025.
+
+DOI: 10.1093/ve/veaf087
+PMCID: PMC12646261
+PMID: 41306642

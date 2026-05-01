@@ -1,0 +1,63 @@
+1. mBio. 2021 Oct 26;12(5):e0244021. doi: 10.1128/mBio.02440-21. Epub 2021 Oct
+12.
+
+Human Monoclonal Antibodies against NS1 Protein Protect against Lethal West Nile 
+Virus Infection.
+
+Wessel AW(#)(1)(2), Doyle MP(#)(3)(4), Engdahl TB(3)(4), Rodriguez J(3), Crowe 
+JE Jr(3)(4)(5), Diamond MS(1)(2)(6)(7).
+
+Author information:
+(1)Department of Pathology & Immunology, Washington University School of 
+Medicine, St. Louis, Missouri, USA.
+(2)Department of Medicine, Washington University School of Medicine, St. Louis, 
+Missouri, USA.
+(3)Vanderbilt Vaccine Center, Vanderbilt University Medical Centergrid.412807.8, 
+Nashville, Tennessee, USA.
+(4)Department of Pathology, Microbiology, and Immunology, Vanderbilt University 
+Medical Centergrid.412807.8, Nashville, Tennessee, USA.
+(5)Department of Pediatrics, Vanderbilt University Medical Centergrid.412807.8, 
+Nashville, Tennessee, USA.
+(6)Department of Molecular Microbiology, Washington University School of 
+Medicine, St. Louis, Missouri, USA.
+(7)The Andrew M. and Jane M. Bursky Center for Human Immunology and 
+Immunotherapy Programs, Washington University School of Medicine, St. Louis, 
+Missouri, USA.
+(#)Contributed equally
+
+Envelope protein-targeted vaccines for flaviviruses are limited by concerns of 
+antibody-dependent enhancement (ADE) of infections. Nonstructural protein 1 
+(NS1) provides an alternative vaccine target that avoids this risk since this 
+protein is absent from the virion. Beyond its intracellular role in virus 
+replication, extracellular forms of NS1 function in immune modulation and are 
+recognized by host-derived antibodies. The rational design of NS1-based vaccines 
+requires an extensive understanding of the antigenic sites on NS1, especially 
+those targeted by protective antibodies. Here, we isolated human monoclonal 
+antibodies (MAbs) from individuals previously naturally infected with WNV, 
+mapped their epitopes using structure-guided mutagenesis, and evaluated their 
+efficacy in vivo against lethal WNV challenge. The most protective epitopes 
+clustered at three antigenic sites that are exposed on cell surface forms of 
+NS1: (i) the wing flexible loop, (ii) the outer, electrostatic surface of the 
+wing, and (iii) the spaghetti loop face of the β-ladder. One additional MAb 
+mapped to the distal tip of the β-ladder and conferred a lower level of 
+protection against WNV despite not binding to NS1 on the surface of infected 
+cells. Our study defines the epitopes and modes of binding of protective 
+anti-NS1 MAb antibodies following WNV infection, which may inform the 
+development of NS1-based countermeasures against flaviviruses. IMPORTANCE 
+Therapeutic antibodies against flaviviruses often promote neutralization by 
+targeting the envelope protein of the virion. However, this approach is hindered 
+by a possible concern for antibody-dependent enhancement of infection and 
+paradoxical worsening of disease. As an alternative strategy, antibodies 
+targeting flavivirus nonstructural protein 1 (NS1), which is absent from the 
+virion, can protect against disease and do not cause enhanced infection. Here, 
+we evaluate the structure-function relationships and protective activity of West 
+Nile virus (WNV) NS1-specific monoclonal antibodies (MAbs) isolated from the 
+memory B cells of a naturally infected human donor. We identify several anti-NS1 
+MAbs that protect mice against lethal WNV challenge and map their epitopes using 
+charge reversal mutagenesis. Antibodies targeting specific regions in the NS1 
+structure could serve as the basis for countermeasures that control WNV 
+infection in humans.
+
+DOI: 10.1128/mBio.02440-21
+PMCID: PMC8510529
+PMID: 34634945 [Indexed for MEDLINE]

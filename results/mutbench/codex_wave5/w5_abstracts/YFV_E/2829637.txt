@@ -1,0 +1,24 @@
+1. Am J Trop Med Hyg. 1988 Jan;38(1):205-7. doi: 10.4269/ajtmh.1988.38.205.
+
+Heterologous flavivirus infection-enhancing antibodies in sera of Nigerians.
+
+Fagbami A(1), Halstead SB, Marchette N, Larsen K.
+
+Author information:
+(1)Department of Virology, College of Medicine, University of Ibadan, Nigeria.
+
+Human sera collected from Nigerians were examined for plaque reduction 
+neutralizing and infection-enhancing antibodies against dengue 2, yellow fever, 
+and West Nile viruses. Neutralization tests showed that 17 of 19 sera contained 
+flavivirus neutralizing antibody; 11 were positive to all 3 viruses, 5 to dengue 
+and yellow fever, and 1 to dengue virus only. Two sera had no detectable 
+neutralizing antibody to any of the flaviviruses. Enhancement assays showed that 
+17 flavivirus neutralizing antibody-positive sera contained infection-enhancing 
+antibodies to dengue 2, and 16 had antibody to yellow fever. Although 11 sera 
+were positive for West Nile neutralizing antibody, 17 enhanced this virus. 
+Heterologous infection-enhancing antibody titers were lower than the homologous 
+ones. Broadly reacting sera and those with high neutralizing antibody titers 
+produced the highest infection-enhancing antibody titers.
+
+DOI: 10.4269/ajtmh.1988.38.205
+PMID: 2829637 [Indexed for MEDLINE]

@@ -1,0 +1,33 @@
+1. Protein Expr Purif. 2010 Nov;74(1):129-37. doi: 10.1016/j.pep.2010.06.015.
+Epub  2010 Jul 1.
+
+Rapid purification of recombinant dengue and West Nile virus envelope Domain III 
+proteins by metal affinity membrane chromatography.
+
+Tan LC(1), Chua AJ, Goh LS, Pua SM, Cheong YK, Ng ML.
+
+Author information:
+(1)Flavivirology Laboratory, Department of Microbiology, 5 Science Drive 2, 
+National University of Singapore, Singapore 117597, Singapore.
+
+Arthropod-borne flaviviruses such as dengue virus (DENV) and West Nile virus 
+(WNV) pose significant health threats to the global community. Due to escalating 
+numbers of DENV and WNV infections worldwide, development of an effective 
+vaccine remains a global health priority. As flavivirus envelope Domain III 
+(DIII) protein is highly immunogenic and capable of inducing neutralizing 
+antibodies against wild-type virus, it is both a potential protein subunit 
+vaccine candidate and a suitable diagnostic reagent. Here, we describe the use 
+of metal affinity membrane chromatography as a rapid and improved alternative 
+for the purification of recombinant DIII (rDIII) antigens from DENV serotypes 
+1-4 and WNV - New York, Sarafend, Wengler and Kunjin strains. Optimum conditions 
+for the expression, solubilization, renaturation and purification of these 
+proteins were established. The purified proteins were confirmed by MALDI-TOF 
+mass spectrometry and ELISA using antibodies raised against the respective 
+viruses. Biological function of the purified rDIII proteins was confirmed by 
+their ability to generate DIII-specific antibodies in mice that could neutralize 
+the virus.
+
+Copyright 2010 Elsevier Inc. All rights reserved.
+
+DOI: 10.1016/j.pep.2010.06.015
+PMID: 20600950 [Indexed for MEDLINE]

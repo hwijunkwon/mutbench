@@ -1,0 +1,41 @@
+1. Biosci Rep. 2022 Feb 25;42(2):BSR20211930. doi: 10.1042/BSR20211930.
+
+Lassa virus glycoprotein complex review: insights into its unique fusion 
+machinery.
+
+Pennington HN(1), Lee J(1).
+
+Author information:
+(1)Department of Chemistry and Biochemistry, College of Computer, Mathematics, 
+and Natural Science, University of Maryland College Park, College Park, MD 
+20740, U.S.A.
+
+Lassa virus (LASV), an arenavirus endemic to West Africa, causes Lassa fever-a 
+lethal hemorrhagic fever. Entry of LASV into the host cell is mediated by the 
+glycoprotein complex (GPC), which is the only protein located on the viral 
+surface and comprises three subunits: glycoprotein 1 (GP1), glycoprotein 2 
+(GP2), and a stable signal peptide (SSP). The LASV GPC is a class one viral 
+fusion protein, akin to those found in viruses such as human immunodeficiency 
+virus (HIV), influenza, Ebola virus (EBOV), and severe acute respiratory 
+syndrome coronavirus 2 (SARS-CoV-2). These viruses are enveloped and utilize 
+membrane fusion to deliver their genetic material to the host cell. Like other 
+class one fusion proteins, LASV-mediated membrane fusion occurs through an 
+orchestrated sequence of conformational changes in its GPC. The receptor-binding 
+subunit, GP1, first engages with a host cell receptor then undergoes a unique 
+receptor switch upon delivery to the late endosome. The acidic pH and change in 
+receptor result in the dissociation of GP1, exposing the fusion subunit, GP2, 
+such that fusion can occur. These events ultimately lead to the formation of a 
+fusion pore so that the LASV genetic material is released into the host cell. 
+Interestingly, the mature GPC retains its SSP as a third subunit-a feature that 
+is unique to arenaviruses. Additionally, the fusion domain contains two separate 
+fusion peptides, instead of a standard singular fusion peptide. Here, we give a 
+comprehensive review of the LASV GPC components and their unusual features.
+
+© 2022 The Author(s).
+
+DOI: 10.1042/BSR20211930
+PMCID: PMC8844875
+PMID: 35088070 [Indexed for MEDLINE]
+
+Conflict of interest statement: The authors declare that there are no competing 
+interests associated with the manuscript.

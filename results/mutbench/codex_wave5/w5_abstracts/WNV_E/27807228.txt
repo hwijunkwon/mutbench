@@ -1,0 +1,49 @@
+1. J Virol. 2017 Jan 3;91(2):e01583-16. doi: 10.1128/JVI.01583-16. Print 2017 Jan
+ 15.
+
+TIM-1 Promotes Hepatitis C Virus Cell Attachment and Infection.
+
+Wang J(1)(2), Qiao L(1)(2), Hou Z(2), Luo G(3)(2).
+
+Author information:
+(1)Department of Microbiology, Peking University Health Science Center, Beijing, 
+China.
+(2)University of Alabama at Birmingham School of Medicine, Birmingham, Alabama, 
+USA.
+(3)Department of Microbiology, Peking University Health Science Center, Beijing, 
+China gluo@uab.edu.
+
+Human TIM and TAM family proteins were recently found to serve as 
+phosphatidylserine (PS) receptors which promote infections by many different 
+viruses, including dengue virus, West Nile virus, Ebola virus, Marburg virus, 
+and Zika virus. In the present study, we provide substantial evidence 
+demonstrating that TIM-1 is important for efficient infection by hepatitis C 
+virus (HCV). The knockdown of TIM-1 expression significantly reduced HCV 
+infection but not HCV RNA replication. Likewise, TIM-1 knockout in Huh-7.5 cells 
+remarkably lowered HCV cell attachment and subsequent HCV infection. More 
+significantly, the impairment of HCV infection in the TIM-1 knockout cells could 
+be restored completely by ectopic expression of TIM-1 but not TIM-3 or TIM-4. 
+Additionally, HCV infection and cell attachment were inhibited by PS but not by 
+phosphatidylcholine (PC), demonstrating that TIM-1-mediated enhancement of HCV 
+infection is PS dependent. The exposure of PS on the HCV envelope was confirmed 
+by immunoprecipitation of HCV particles with a PS-specific monoclonal antibody. 
+Collectively, these findings demonstrate that TIM-1 promotes HCV infection by 
+serving as an attachment receptor for binding to PS exposed on the HCV envelope.
+IMPORTANCE: TIM family proteins were recently found to enhance infections by 
+many different viruses, including several members of the Flaviviridae family. 
+However, their importance in HCV infection has not previously been examined 
+experimentally. The TIM family proteins include three members in humans: TIM-1, 
+TIM-3, and TIM-4. The findings derived from our studies demonstrate that TIM-1, 
+but not TIM-3 or TIM-4, promotes HCV infection by functioning as an HCV 
+attachment factor. Knockout of the TIM-1 gene resulted in a remarkable reduction 
+of HCV cell attachment and infection. PS-containing liposomes blocked HCV cell 
+attachment and subsequent HCV infection. HCV particles could also be 
+precipitated with a PS-specific monoclonal antibody. These findings suggest that 
+TIM-1 and its binding ligand, PS, may serve as novel targets for antiviral 
+intervention.
+
+Copyright © 2017 American Society for Microbiology.
+
+DOI: 10.1128/JVI.01583-16
+PMCID: PMC5215352
+PMID: 27807228 [Indexed for MEDLINE]

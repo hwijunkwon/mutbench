@@ -1,0 +1,59 @@
+1. Antiviral Res. 2019 Jul;167:68-77. doi: 10.1016/j.antiviral.2019.03.014. Epub 
+2019 Apr 4.
+
+Identification of a clinical compound losmapimod that blocks Lassa virus entry.
+
+Zhang X(1), Yan F(2), Tang K(1), Chen Q(1), Guo J(3), Zhu W(4), He S(4), 
+Banadyga L(4), Qiu X(5), Guo Y(6).
+
+Author information:
+(1)State Key Laboratory of Bioactive Substance and Function of Natural 
+Medicines, Institute of Materia Medica, Chinese Academy of Medical Sciences and 
+Peking Union Medical College, Beijing, 100050, China; Department of 
+Pharmacology, Institute of Materia Medica, Chinese Academy of Medical Sciences 
+and Peking Union Medical College, Beijing, 100050, China.
+(2)Special Pathogens Program, National Microbiology Laboratory, Public Health 
+Agency of Canada, Winnipeg, Manitoba, R3E 3R2, Canada; Department of Medical 
+Microbiology, University of Manitoba, Winnipeg, Manitoba, R3E 0J9, Canada; Key 
+Laboratory of Jilin Province for Zoonosis Prevention and Control, Institute of 
+Military Veterinary, Academy of Military Medical Science, Changchun, China.
+(3)State Key Laboratory of Bioactive Substance and Function of Natural 
+Medicines, Institute of Materia Medica, Chinese Academy of Medical Sciences and 
+Peking Union Medical College, Beijing, 100050, China; Department of 
+Pharmacology, Institute of Materia Medica, Chinese Academy of Medical Sciences 
+and Peking Union Medical College, Beijing, 100050, China; Peking Union Medical 
+College Hospital, Chinese Academy of Medical Sciences and Peking Union Medical 
+College, Beijing, 100050, China.
+(4)Special Pathogens Program, National Microbiology Laboratory, Public Health 
+Agency of Canada, Winnipeg, Manitoba, R3E 3R2, Canada.
+(5)Special Pathogens Program, National Microbiology Laboratory, Public Health 
+Agency of Canada, Winnipeg, Manitoba, R3E 3R2, Canada; Department of Medical 
+Microbiology, University of Manitoba, Winnipeg, Manitoba, R3E 0J9, Canada. 
+Electronic address: xiangguo.qiu@canada.ca.
+(6)State Key Laboratory of Bioactive Substance and Function of Natural 
+Medicines, Institute of Materia Medica, Chinese Academy of Medical Sciences and 
+Peking Union Medical College, Beijing, 100050, China; Department of 
+Pharmacology, Institute of Materia Medica, Chinese Academy of Medical Sciences 
+and Peking Union Medical College, Beijing, 100050, China. Electronic address: 
+yingguo6@imm.ac.cn.
+
+Lassa virus (LASV) causes Lassa hemorrhagic fever in humans and poses a 
+significant threat to public health in West Africa. Current therapeutic 
+treatments for Lassa fever are limited, making the development of novel 
+countermeasures an urgent priority. In this study, we identified losmapimod, a 
+p38 mitogen-activated protein kinase (MAPK) inhibitor, from 102 screened 
+compounds as an inhibitor of LASV infection. Losmapimod exerted its inhibitory 
+effect against LASV after p38 MAPK down-regulation, and, interestingly, had no 
+effect on other arenaviruses capable of causing viral hemorrhagic fever. 
+Mechanistic studies showed that losmapimod inhibited LASV entry by affecting the 
+stable signal peptide (SSP)-GP2 subunit interface of the LASV glycoprotein, 
+thereby blocking pH-dependent viral fusion. As an aryl heteroaryl 
+bis-carboxyamide derivative, losmapimod represents a novel chemical scaffold 
+with anti-LASV activity, and it provides a new lead structure for the future 
+development of LASV fusion inhibitors.
+
+Copyright © 2019 Elsevier B.V. All rights reserved.
+
+DOI: 10.1016/j.antiviral.2019.03.014
+PMCID: PMC7111477
+PMID: 30953674 [Indexed for MEDLINE]

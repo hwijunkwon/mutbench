@@ -1,0 +1,47 @@
+1. Vaccines (Basel). 2020 May 29;8(2):258. doi: 10.3390/vaccines8020258.
+
+Protective Efficacy of a Chimeric Insect-Specific Flavivirus Vaccine against 
+West Nile Virus.
+
+Vet LJ(1), Setoh YX(1), Amarilla AA(1), Habarugira G(2), Suen WW(1), Newton 
+ND(1), Harrison JJ(1), Hobson-Peters J(1)(3), Hall RA(1)(3), Bielefeldt-Ohmann 
+H(1)(2)(3).
+
+Author information:
+(1)School of Chemistry and Molecular Biosciences, University of Queensland, St 
+Lucia, Queensland 4072, Australia.
+(2)School of Veterinary Science, University of Queensland Gatton Campus, 
+Queensland 4343, Australia.
+(3)Australian Infectious Diseases Research Centre, University of Queensland, St 
+Lucia, Queensland 4072, Australia.
+
+Virulent strains of West Nile virus (WNV) are highly neuro-invasive and human 
+infection is potentially lethal. However, no vaccine is currently available for 
+human use. Here, we report the immunogenicity and protective efficacy of a 
+vaccine derived from a chimeric virus, which was constructed using the 
+structural proteins (prM and E) of the Kunjin strain of WNV (WNVKUN) and the 
+genome backbone of the insect-specific flavivirus Binjari virus (BinJV). This 
+chimeric virus (BinJ/WNVKUN-prME) exhibits an insect-specific phenotype and does 
+not replicate in vertebrate cells. Importantly, it authentically presents the 
+prM-E proteins of WNVKUN, which is antigenically very similar to other WNV 
+strains and lineages. Therefore BinJ/WNVKUN-prME represents an excellent 
+candidate to assess as a vaccine against virulent WNV strains, including the 
+highly pathogenic WNVNY99. When CD1 mice were immunized with purified 
+BinJ/WNVKUN-prME, they developed robust neutralizing antibody responses after a 
+single unadjuvanted dose of 1 to 5 μg. We further demonstrated complete 
+protection against viremia and mortality after lethal challenge with WNVNY99, 
+with no clinical or subclinical pathology observed in vaccinated animals. These 
+data suggest that BinJ/WNVKUN-prME represents a safe and effective WNV vaccine 
+candidate that warrants further investigation for use in humans or in veterinary 
+applications.
+
+DOI: 10.3390/vaccines8020258
+PMCID: PMC7349994
+PMID: 32485930
+
+Conflict of interest statement: Data included in this publication is based on a 
+patent (WO/2018/176075) on which R.A.H., J.H.-P., Y.X.S., J.J.H., L.J.V., and 
+H.B.-O. are inventors. All remaining authors declare no conflict of interest. 
+The funders had no role in the design of the study; in the collection, analyses, 
+or interpretation of data; in the writing of the manuscript, or in the decision 
+to publish the results.

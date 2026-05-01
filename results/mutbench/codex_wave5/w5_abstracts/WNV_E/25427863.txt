@@ -1,0 +1,35 @@
+1. BMC Res Notes. 2014 Nov 26;7:852. doi: 10.1186/1756-0500-7-852.
+
+Delayed-onset flaccid paralysis related to west Nile virus reactivation 
+following treatment with rituximab: a case report.
+
+Honig A, Karussis D(1).
+
+Author information:
+(1)Department of Neurology, Laboratory of Neuroimmunology and Agnes Ginges 
+Center for Neurogenetics and Multiple Sclerosis, Hadassah-Hebrew University 
+Hospital, Ein-Karem, Il-91120 Jerusalem, Israel. Karus@Cc.Huji.Ac.Il.
+
+BACKGROUND: Neurological manifestations of West Nile virus infection include 
+meningitis, encephalitis and acute flaccid paralysis. Typically, West Nile 
+virus-associated acute flaccid paralysis is characterized by acute and rapidly 
+progressing limb weakness, occurring early in the course of the disease.
+CASE PRESENTATION: We report a patient of Yemenite descent who developed West 
+Nile virus-encephalitis and poliomyelitis two weeks following treatment with 
+rituximab for B cell lymphoma, and delayed encephalitis with ascending 
+demyelinating polyneuropathy 6 months later. Diagnosis of the first episode was 
+based on a high West Nile virus copy number in the blood polymerase chain 
+reaction. During the second episode the patient developed encephalitis and 
+flaccid asymmetric quadriparesis, accompanied by high IgM anti-West Nile virus 
+titers in the blood and cerebrospinal fluid.
+CONCLUSION: The delayed polyneuropathy post-West Nile virus infection and 
+encephalitis/poliomyelitis may be related to reactivation of the virus or to a 
+delayed autoimmune (post-infectious) process, possibly accelerated by the 
+recovering B-cell humoral immunity, 6 months after treatment with rituximab. 
+This case depicts the complexities of the immune responses and their 
+reconstitution following monoclonal antibody treatment and the diversity of 
+neurological syndromes associated with West Nile virus infection.
+
+DOI: 10.1186/1756-0500-7-852
+PMCID: PMC4289184
+PMID: 25427863 [Indexed for MEDLINE]

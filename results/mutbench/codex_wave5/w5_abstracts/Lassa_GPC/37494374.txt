@@ -1,0 +1,50 @@
+1. PLoS Pathog. 2023 Jul 26;19(7):e1011217. doi: 10.1371/journal.ppat.1011217. 
+eCollection 2023 Jul.
+
+Fusogenic structural changes in arenavirus glycoproteins are associated with 
+viroporin activity.
+
+Zhang Y(1)(2), York J(3), Brindley MA(4), Nunberg JH(3), Melikyan GB(1)(2).
+
+Author information:
+(1)Department of Pediatrics, Emory University School of Medicine, Atlanta, 
+Georgia, United States of America.
+(2)Children's Healthcare of Atlanta, Atlanta, Georgia, United States of America.
+(3)Montana Biotechnology Center, University of Montana, Missoula, Montana, 
+United States of America.
+(4)Department of Infectious Diseases, Department of Population Health, College 
+of Veterinary Medicine, University of Georgia, Athens, Georgia, United States of 
+America.
+
+Many enveloped viruses enter host cells by fusing with acidic endosomes. The 
+fusion activity of multiple viral envelope glycoproteins does not generally 
+affect viral membrane permeability. However, fusion induced by the Lassa virus 
+(LASV) glycoprotein complex (GPc) is always preceded by an increase in viral 
+membrane permeability and the ensuing acidification of the virion interior. 
+Here, systematic investigation of this LASV fusion phenotype using single 
+pseudovirus tracking in live cells reveals that the change in membrane barrier 
+function is associated with the fusogenic conformational reorganization of GPc. 
+We show that a small-molecule fusion inhibitor or mutations that impair viral 
+fusion by interfering with GPc refolding into the post-fusion structure prevent 
+the increase in membrane permeability. We find that the increase in virion 
+membrane permeability occurs early during endosomal maturation and is 
+facilitated by virus-cell contact. This increase is observed using diverse 
+arenavirus glycoproteins, whether presented on lentivirus-based pseudoviruses or 
+arenavirus-like particles, and in multiple different cell types. Collectively, 
+these results suggest that conformational changes in GPc triggered by low pH and 
+cell factor binding are responsible for virion membrane permeabilization and 
+acidification of the virion core prior to fusion. We propose that this 
+viroporin-like activity may augment viral fusion and/or post-fusion steps of 
+infection, including ribonucleoprotein release into the cytoplasm.
+
+Copyright: © 2023 Zhang et al. This is an open access article distributed under 
+the terms of the Creative Commons Attribution License, which permits 
+unrestricted use, distribution, and reproduction in any medium, provided the 
+original author and source are credited.
+
+DOI: 10.1371/journal.ppat.1011217
+PMCID: PMC10406333
+PMID: 37494374 [Indexed for MEDLINE]
+
+Conflict of interest statement: The authors have declared that no competing 
+interests exist.

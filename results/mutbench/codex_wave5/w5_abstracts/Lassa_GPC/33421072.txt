@@ -1,0 +1,45 @@
+1. J Infect Dis. 2021 Sep 17;224(6):995-1004. doi: 10.1093/infdis/jiab014.
+
+Tetravalent Rabies-Vectored Filovirus and Lassa Fever Vaccine Induces Long-term 
+Immunity in Nonhuman Primates.
+
+Kurup D(1), Fisher CR(1), Scher G(1), Yankowski C(1), Testa A(1), Keshwara R(1), 
+Abreu-Mota T(1), Lambert R(1), Ferguson M(2), Rinaldi W(2), Ruiz L(3), Wirblich 
+C(1), Schnell MJ(1)(4).
+
+Author information:
+(1)Department of Microbiology and Immunology, Thomas Jefferson University, 
+Philadelphia, Pennsylvania, USA.
+(2)AlphaGenesis Inc, Yemassee, South Carolina, USA.
+(3)Exxell BIO Inc, Saint Paul, Minnesota, USA.
+(4)Jefferson Vaccine Center, Thomas Jefferson University, Philadelphia, 
+Pennsylvania, USA.
+
+BACKGROUND: The objective of this study is to evaluate the immunogenicity of 
+adjuvanted monovalent rabies virus (RABV)-based vaccine candidates against Ebola 
+virus (FILORAB1), Sudan virus (FILORAB2), Marburg virus (FILORAB3), Lassa virus 
+(LASSARAB1), and combined trivalent vaccine candidate (FILORAB1-3) and 
+tetravalent vaccine candidate (FILORAB1-3 and LASSARAB) in nonhuman primates.
+METHODS: Twenty-four Macaca fascicularis were randomly assigned into 6 groups of 
+4 animals. Each group was vaccinated with either a single adjuvanted vaccine, 
+the trivalent vaccine, or the tetravalent vaccine at days 0 and 28. We followed 
+the humoral immune responses for 1 year by antigen-specific enzyme-linked 
+immunosorbent assays and RABV neutralization assays.
+RESULTS: High titers of filovirus and/or Lassa virus glycoprotein-specific 
+immunoglobulin G were induced in the vaccinated animals. There were no 
+significant differences between immune responses in animals vaccinated with 
+single vaccines vs trivalent or tetravalent vaccines. In addition, all vaccine 
+groups elicited strong rabies neutralizing antibody titers. The antigen-specific 
+immune responses were detectable for 1 year in all groups.
+CONCLUSIONS: In summary, this study shows the longevity of the immune responses 
+up to 365 days for a pentavalent vaccine-against Ebola virus, Sudan virus, 
+Marburg virus, Lassa virus, and RABV-using a safe and effective vaccine 
+platform.
+
+© The Author(s) 2021. Published by Oxford University Press for the Infectious 
+Diseases Society of America. All rights reserved. For permissions, e-mail: 
+journals.permissions@oup.com.
+
+DOI: 10.1093/infdis/jiab014
+PMCID: PMC8448432
+PMID: 33421072 [Indexed for MEDLINE]

@@ -1,0 +1,33 @@
+1. Vaccine. 2011 Feb 1;29(6):1248-57. doi: 10.1016/j.vaccine.2010.11.079. Epub
+2010  Dec 8.
+
+Yellow fever 17D-vectored vaccines expressing Lassa virus GP1 and GP2 
+glycoproteins provide protection against fatal disease in guinea pigs.
+
+Jiang X(1), Dalebout TJ, Bredenbeek PJ, Carrion R Jr, Brasky K, Patterson J, 
+Goicochea M, Bryant J, Salvato MS, Lukashevich IS.
+
+Author information:
+(1)Department of Medical Microbiology, Leiden University Medical Center, Leiden, 
+The Netherlands.
+
+Yellow Fever (YF) and Lassa Fever (LF) are two prevalent hemorrhagic fevers 
+co-circulating in West Africa and responsible for thousands of deaths annually. 
+The YF vaccine 17D has been used as a vector for the Lassa virus glycoprotein 
+precursor (LASV-GPC) or their subunits, GP1 (attachment glycoprotein) and GP2 
+(fusion glycoprotein). Cloning shorter inserts, LASV-GP1 and -GP2, between YF17D 
+E and NS1 genes enhanced genetic stability of recombinant viruses, 
+YF17D/LASV-GP1 and -GP2, in comparison with YF17D/LASV-GPC recombinant. The 
+recombinant viruses were replication competent and properly processed YF 
+proteins and LASV GP antigens in infected cells. YF17D/LASV-GP1 and -GP2 induced 
+specific CD8+ T cell responses in mice and protected strain 13 guinea pigs 
+against fatal LF. Unlike immunization with live attenuated reassortant vaccine 
+ML29, immunization with YF17D/LASV-GP1 and -GP2 did not provide sterilizing 
+immunity. This study demonstrates the feasibility of YF17D-based vaccine to 
+control LF in West Africa.
+
+Copyright Â© 2010 Elsevier Ltd. All rights reserved.
+
+DOI: 10.1016/j.vaccine.2010.11.079
+PMCID: PMC3297484
+PMID: 21145373 [Indexed for MEDLINE]

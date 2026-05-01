@@ -1,0 +1,29 @@
+1. J Virol Methods. 2008 Jun;150(1-2):57-62. doi: 10.1016/j.jviromet.2008.03.002.
+
+Pressure-inactivated yellow fever 17DD virus: implications for vaccine 
+development.
+
+Gaspar LP(1), Mendes YS, Yamamura AM, Almeida LF, Caride E, Gonçalves RB, Silva 
+JL, Oliveira AC, Galler R, Freire MS.
+
+Author information:
+(1)Programa de Vacinas Virais, Instituto de Tecnologia em Imunobiológicos, 
+Fundação Oswaldo Cruz, Rio de Janeiro, RJ, Brazil. lgaspar@bio.fiocruz.br
+
+The successful Yellow Fever (YF) vaccine consists of the live attenuated 17D-204 
+or 17DD viruses. Despite its excellent record of efficacy and safety, serious 
+adverse events have been recorded and influenced extensive vaccination in 
+endemic areas. Therefore, alternative strategies should be considered, which may 
+include inactivated whole virus. High hydrostatic pressure has been described as 
+a method for viral inactivation and vaccine development. The present study 
+evaluated whether high hydrostatic pressure would inactivate the YF 17DD virus. 
+YF 17DD virus was grown in Vero cells in roller bottle cultures and subjected to 
+310MPa for 3h at 4 degrees C. This treatment abolished YF infectivity and 
+eliminated the ability of the virus to cause disease in mice. 
+Pressure-inactivated virus elicited low level of neutralizing antibody titers 
+although exhibited complete protection against an otherwise lethal challenge 
+with 17DD virus in the murine model. The data warrant further development of 
+pressure-inactivated vaccine against YF.
+
+DOI: 10.1016/j.jviromet.2008.03.002
+PMID: 18420285 [Indexed for MEDLINE]

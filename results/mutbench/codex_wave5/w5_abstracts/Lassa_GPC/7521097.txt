@@ -1,0 +1,17 @@
+1. Vopr Virusol. 1993 Jan-Feb;38(1):30-4.
+
+[The localization and preliminary characteristics of antigenic sites (B 
+epitopes) in the nucleocapsid protein of the Lassa virus].
+
+[Article in Russian]
+
+Vladyko AS, Bystrova SI, Malakhova IV, Kunitskaia LIa, Lemeshko NN, Kras'ko AG, 
+Kozhich AT, Lukashevich IS.
+
+Nucleocapsid protein of Lassa virus contains 4 epitope sites. Three of them were 
+localized in amino acid position 123-1 27, 337-346, and 518-527. Monoclonal 
+antibody 1108 specific to Lassa virus NP-protein reacted with 123-127 synthetic 
+peptide in solid-phase ELISA and precipitated nucleocapsid proteins of Machupo, 
+Tacaribe, and Mopeia arenaviruses in RIP.
+
+PMID: 7521097 [Indexed for MEDLINE]

@@ -1,0 +1,62 @@
+1. Front Immunol. 2025 Apr 29;16:1569454. doi: 10.3389/fimmu.2025.1569454. 
+eCollection 2025.
+
+A bivalent self-amplifying RNA vaccine against yellow fever and Zika viruses.
+
+Battisti P(1), Ykema MR(1), Kasal DN(1), Jennewein MF(1), Beaver S(1), Weight 
+AE(2), Hanson D(3), Singh J(1), Bakken J(1), Cross N(1), Fusco P(1), Archer 
+J(3), Reed S(1), Gerhardt A(1), Julander JG(2), Casper C(1)(4)(5)(6), Voigt 
+EA(1).
+
+Author information:
+(1)Access to Advanced Health Institute (AAHI), formerly Infectious Disease 
+Research Institute, Seattle, WA, United States.
+(2)Institute for Antiviral Research, Utah State University, Logan, UT, United 
+States.
+(3)Infectious Disease Research Institute, Seattle, WA, United States.
+(4)Department of Medicine, University of Washington, Seattle, WA, United States.
+(5)Department of Global Health, University of Washington, Seattle, WA, United 
+States.
+(6)Vaccine and Infectious Disease Division, Fred Hutch Cancer Center, Seattle, 
+WA, United States.
+
+INTRODUCTION: Yellow fever (YFV) and Zika (ZIKV) viruses cause significant 
+morbidity and mortality, despite the existence of an approved YFV vaccine and 
+the development of multiple ZIKV vaccine candidates to date. New technologies 
+may improve access to vaccines against these pathogens. We previously described 
+a nanostructured lipid carrier (NLC)-delivered self-amplifying RNA (saRNA) 
+vaccine platform with excellent thermostability and immunogenicity, appropriate 
+for prevention of tropical infectious diseases.
+METHODS: YFV and ZIKV prM-E antigen-expressing saRNA constructs were created 
+using a TC-83 strain Venezuelan equine encephalitis virus-based replicon and 
+complexed with NLC by simple mixing. Monovalent and bivalent vaccine 
+formulations were injected intramuscularly into C57BL/6 mice and Syrian golden 
+hamsters, and the magnitude, durability, and protective efficacy of the 
+resulting immune responses were then characterized.
+RESULTS AND DISCUSSION: Monovalent vaccines established durable neutralizing 
+antibody responses to their respective flaviviral targets, with little evidence 
+of cross-neutralization. Both vaccines additionally elicited robust 
+antigen-reactive CD4+ and CD8+ T cell populations. Notably, humoral responses to 
+YFV saRNA-NLC vaccination were comparable to those in YF-17D-vaccinated animals. 
+Bivalent formulations established humoral and cellular responses against both 
+viral targets, commensurate to those established by monovalent vaccines, without 
+evidence of saRNA interference or immune competition. Finally, both monovalent 
+and bivalent vaccines completely protected mice and hamsters against lethal ZIKV 
+and YFV challenge. We present a bivalent saRNA-NLC vaccine against YFV and ZIKV 
+capable of inducing robust and efficacious neutralizing antibody and cellular 
+immune responses against both viruses. These data support the development of 
+other multivalent saRNA-based vaccines against infectious diseases.
+
+Copyright © 2025 Battisti, Ykema, Kasal, Jennewein, Beaver, Weight, Hanson, 
+Singh, Bakken, Cross, Fusco, Archer, Reed, Gerhardt, Julander, Casper and Voigt.
+
+DOI: 10.3389/fimmu.2025.1569454
+PMCID: PMC12069283
+PMID: 40364846 [Indexed for MEDLINE]
+
+Conflict of interest statement: AG and EV are co-inventors on U.S. patent 
+application nos. PCT/US21/40388, “Co-lyophilized RNA and Nanostructured Lipid 
+Carrier,” and 63/144,169, “A thermostable, flexible RNA vaccine delivery 
+platform for pandemic response.” The remaining authors declare that the research 
+was conducted in the absence of any commercial or financial relationships that 
+could be construed as a potential conflict of interest.

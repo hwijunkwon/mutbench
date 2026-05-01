@@ -1,0 +1,33 @@
+1. Arch Virol. 2002 Aug;147(8):1543-57. doi: 10.1007/s00705-002-0823-5.
+
+Synthesis and expression of viral antigens in Vero cells persistently infected 
+with Junin virus.
+
+Ellenberg P(1), Edreira M, Lozano M, Scolaro L.
+
+Author information:
+(1)Laboratorio de Virología, Departamento de Química Biológica, Facultad de 
+Ciencias Exactas y Naturales, Universidad de Buenos Aires, Ciudad Universitaria, 
+Pab. II, 4 Piso, 428 Buenos Aires, Argentina.
+
+Two Vero cell lines persistently infected with XJCl3 and Cl67 strains of Junin 
+virus and named V3 and V7, respectively, have been characterized with respect to 
+the presence and expression of the nucleoprotein (N) and the glycoprotein 
+precursor (GPC) viral genes. After the acute phase of infection, where a marked 
+CPE and high titers of virus were obtained, JV persistently infected cells 
+became morphologically undistinguishable from Vero cells and virus production 
+dropped to undetectable levels. V3 and V7 were resistant to the superinfection 
+with antigenically related viruses. This fact could not be attributed to the 
+presence of defective interfering particles or non-infectious virus in the 
+supernatant. Expression of N was consistently detected in both cultures and 
+accumulation of two degradation products of N was evident during the late 
+passages. Although no G1 (main surface glycoprotein) expression was observed, a 
+marked fusogenic capacity was detected in both cultures indicating at least, the 
+synthesis of a GPC derived fusogenic glycoprotein. Cell lysates from V3 and V7 
+subjected to RT-PCR, using specific primers for N gene, or to a nested RT-PCR 
+using specific primers for GPC (G1 region) confirmed the presence of both viral 
+genes. No viral DNA sequences could be detected in JV persistently infected 
+cells.
+
+DOI: 10.1007/s00705-002-0823-5
+PMID: 12181674 [Indexed for MEDLINE]

@@ -1,0 +1,32 @@
+1. Viruses. 2012 Jan;4(1):83-101. doi: 10.3390/v4010083. Epub 2012 Jan 13.
+
+The curious case of arenavirus entry, and its inhibition.
+
+Nunberg JH(1), York J.
+
+Author information:
+(1)Montana Biotechnology Center, The University of Montana, Missoula, MT 59812, 
+USA. jack.nunberg@umontana.edu
+
+Arenaviruses comprise a diverse family of enveloped negative-strand RNA viruses 
+that are endemic to specific rodent hosts worldwide. Several arenaviruses cause 
+severe hemorrhagic fevers in humans, including Junín and Machupo viruses in 
+South America and Lassa fever virus in western Africa. Arenavirus entry into the 
+host cell is mediated by the envelope glycoprotein complex, GPC. The virion is 
+endocytosed on binding to a cell-surface receptor, and membrane fusion is 
+initiated in response to physiological acidification of the endosome. As with 
+other class I virus fusion proteins, GPC-mediated membrane fusion is promoted 
+through a regulated sequence of conformational changes leading to formation of 
+the classical postfusion trimer-of-hairpins structure. GPC is, however, unique 
+among the class I fusion proteins in that the mature complex retains a stable 
+signal peptide (SSP) as a third subunit, in addition to the canonical 
+receptor-binding and fusion proteins. We will review the curious properties of 
+the tripartite GPC complex and describe evidence that SSP interacts with the 
+fusion subunit to modulate pH-induced activation of membrane fusion. This 
+unusual solution to maintaining the metastable prefusion state of GPC on the 
+virion and activating the class I fusion cascade at acidic pH provides novel 
+targets for antiviral intervention.
+
+DOI: 10.3390/v4010083
+PMCID: PMC3280523
+PMID: 22355453 [Indexed for MEDLINE]

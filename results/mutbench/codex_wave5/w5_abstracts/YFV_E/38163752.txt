@@ -1,0 +1,68 @@
+1. Emerg Microbes Infect. 2024 Dec;13(1):2301666. doi: 
+10.1080/22221751.2023.2301666. Epub 2024 Jan 22.
+
+Detection of anti-premembrane antibody as a specific marker of four flavivirus 
+serocomplexes and its application to serosurveillance in endemic regions.
+
+Chen GH(1), Dai YC(1), Hsieh SC(1), Tsai JJ(2)(3)(4), Sy AK(5), Jiz M(6), 
+Pedroso C(7), Brites C(7), Netto EM(7), Kanki PJ(8), Saunders DRD(9), 
+Vanlandingham DL(10), Higgs S(10), Huang YS(10), Wang WK(1).
+
+Author information:
+(1)Department of Tropical Medicine, Medical Microbiology and Pharmacology, John 
+A. Burns School of Medicine, University of Hawaii at Manoa, Honolulu, HI, USA.
+(2)Tropical Medicine Center, Kaohsiung Medical University Hospital, Kaohsiung, 
+Taiwan.
+(3)Division of Infectious Diseases, Department of Internal Medicine, Kaohsiung 
+Medical University Hospital, Kaohsiung, Taiwan.
+(4)School of Medicine, College of Medicine, Kaohsiung Medical University, 
+Kaohsiung, Taiwan.
+(5)National Reference Laboratory for Dengue and Other Arbovirus, Virology 
+Department, Research Institute for Tropical Medicine, Muntinlupa City, 
+Philippines.
+(6)Immunology Department, Research Institute for Tropical Medicine, Muntinlupa 
+City, Philippines.
+(7)LAPI-Laboratório de Pesquisa em Infectologia-School of Medicine, Federal 
+University of Bahia, Salvador, Brazil.
+(8)Department of Immunology and Infectious Diseases, Harvard T.H. Chan School of 
+Public Health, Boston, MA, USA.
+(9)Department of Biology, United States Air Force Academy, Colorado Springs, CO, 
+USA.
+(10)Biosecurity Research Institute and Department of Diagnostic 
+Medicine/Pathobiology, College of Veterinary Medicine, Kansas State University, 
+Manhattan, KS, USA.
+
+Update of
+    medRxiv. 2023 Sep 25:2023.09.21.23295701. doi: 10.1101/2023.09.21.23295701.
+
+In the past few decades, several emerging/re-emerging mosquito-borne 
+flaviviruses have resulted in disease outbreaks of public health concern in the 
+tropics and subtropics. Due to cross-reactivities of antibodies recognizing the 
+envelope protein of different flaviviruses, serosurveillance remains a 
+challenge. Previously we reported that anti-premembrane (prM) antibody can 
+discriminate between three flavivirus infections by Western blot analysis. In 
+this study, we aimed to develop a serological assay that can discriminate 
+infection or exposure with flaviviruses from four serocomplexes, including 
+dengue (DENV), Zika (ZIKV), West Nile (WNV) and yellow fever (YFV) viruses, and 
+explore its application for serosurveillance in flavivirus-endemic countries. We 
+employed Western blot analysis including antigens of six flaviviruses (DENV1, 2 
+and 4, WNV, ZIKV and YFV) from four serocomplexes. We tested serum samples from 
+YF-17D vaccinees, and from DENV, ZIKV and WNV panels that had been confirmed by 
+RT-PCR or by neutralization assays. The overall sensitivity/specificity of 
+anti-prM antibodies for DENV, ZIKV, WNV, and YFV infections/exposure were 
+91.7%/96.4%, 91.7%/99.2%, 88.9%/98.3%, and 91.3%/92.5%, respectively. When 
+testing 48 samples from Brazil, we identified multiple flavivirus 
+infections/exposure including DENV and ZIKV, DENV and YFV, and DENV, ZIKV and 
+YFV. When testing 50 samples from the Philippines, we detected DENV, ZIKV, and 
+DENV and ZIKV infections with a ZIKV seroprevalence rate of 10%, which was 
+consistent with reports of low-level circulation of ZIKV in Asia. Together, 
+these findings suggest that anti-prM antibody is a flavivirus 
+serocomplex-specific marker and can be employed to delineate four flavivirus 
+infections/exposure in regions where multiple flaviviruses co-circulate.
+
+DOI: 10.1080/22221751.2023.2301666
+PMCID: PMC10810658
+PMID: 38163752 [Indexed for MEDLINE]
+
+Conflict of interest statement: No potential conflict of interest was reported 
+by the author(s).

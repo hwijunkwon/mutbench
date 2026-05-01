@@ -1,0 +1,46 @@
+1. Pathogens. 2021 Jan 5;10(1):36. doi: 10.3390/pathogens10010036.
+
+Nanoparticles as Vaccines to Prevent Arbovirus Infection: A Long Road Ahead.
+
+de Souza GAP(1)(2), Rocha RP(3), Gonçalves RL(4), Ferreira CS(4), de Mello Silva 
+B(4), de Castro RFG(1), Rodrigues JFV(1), Júnior JCVV(1), Malaquias LCC(1), 
+Abrahão JS(2), Coelho LFL(1).
+
+Author information:
+(1)Laboratório de Vacinas, Departamento de Microbiologia e Imunologia, Instituto 
+de Ciências Biomédicas, Universidade Federal de Alfenas, Alfenas 37130-001, 
+Brazil.
+(2)Laboratório de Vírus, Departamento de Microbiologia, Instituto de Ciências 
+Biológicas, Universidade Federal de Minas Gerais, Belo Horizonte 31270-901, 
+Brazil.
+(3)Laboratório de Virologia Básica e Aplicada, Departamento de Microbiologia, 
+Instituto de Ciências Biológicas, Universidade Federal de Minas Gerais, Belo 
+Horizonte 31270-901, Brazil.
+(4)Núcleo de Pesquisas em Ciências Biológicas, NUPEB, Universidade Federal de 
+Ouro Preto, Ouro Preto 35400-000, Brazil.
+
+Arthropod-borne viruses (arboviruses) are a significant public health problem 
+worldwide. Vaccination is considered one of the most effective ways to control 
+arbovirus diseases in the human population. Nanoparticles have been widely 
+explored as new vaccine platforms. Although nanoparticles' potential to act as 
+new vaccines against infectious diseases has been identified, nanotechnology's 
+impact on developing new vaccines to prevent arboviruses is unclear. Thus, we 
+used a comprehensive bibliographic survey to integrate data concerning the use 
+of diverse nanoparticles as vaccines against medically important arboviruses. 
+Our analysis showed that considerable research had been conducted to develop and 
+evaluate nanovaccines against Chikungunya virus, Dengue virus, Zika virus, 
+Japanese encephalitis virus, and West Nile virus. The main findings indicate 
+that nanoparticles have great potential for use as a new vaccine system against 
+arboviruses. Most of the studies showed an increase in neutralizing antibody 
+production after mouse immunization. Nevertheless, even with significant 
+advances in this field, further efforts are necessary to address the 
+nanoparticles' potential to act as a vaccine against these arboviruses. To 
+promote advances in the field, we proposed a roadmap to help researchers better 
+characterize and evaluate nanovaccines against medically important arboviruses.
+
+DOI: 10.3390/pathogens10010036
+PMCID: PMC7824877
+PMID: 33466440
+
+Conflict of interest statement: The authors declare that they have no conflict 
+of interests.

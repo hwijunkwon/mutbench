@@ -1,0 +1,57 @@
+1. PLoS One. 2020 Apr 24;15(4):e0232274. doi: 10.1371/journal.pone.0232274. 
+eCollection 2020.
+
+Comparative characterization of flavivirus production in two cell lines: Human 
+hepatoma-derived Huh7.5.1-8 and African green monkey kidney-derived Vero.
+
+Saito K(1), Fukasawa M(1), Shirasago Y(1), Suzuki R(2), Osada N(3)(4), Yamaji 
+T(1), Wakita T(5), Konishi E(6), Hanada K(1).
+
+Author information:
+(1)Department of Biochemistry and Cell Biology, National Institute of Infectious 
+Diseases, Shinjuku-ku, Tokyo, Japan.
+(2)Department of Virology II, National Institute of Infectious Diseases, 
+Musashi-murayama-shi, Tokyo, Japan.
+(3)Faculty of Information Science and Technology, Hokkaido University, Sapporo, 
+Hokkaido, Japan.
+(4)Global Station for Big Data and Cybersecurity, GI-CoRE, Hokkaido University, 
+Sapporo, Hokkaido, Japan.
+(5)Department of Virology II, National Institute of Infectious Diseases, 
+Shinjuku-ku, Tokyo, Japan.
+(6)Research Institute for Microbial Diseases, Osaka University, Suita, Osaka, 
+Japan.
+
+The Flaviviridae is a family of enveloped viruses with a positive-sense 
+single-stranded RNA genome. It contains many viruses that threaten human health, 
+such as Japanese encephalitis virus (JEV) and yellow fever virus (YFV) of the 
+genus Flavivirus as well as hepatitis C virus of the genus Hepacivirus. Cell 
+culture systems highly permissive for the Flaviviridae viruses are very useful 
+for their isolation, propagation, and diagnosis, an understanding of their 
+biology, and the development of vaccines and antiviral agents. Previously, we 
+isolated a human hepatoma HuH-7-derived cell clone, Huh7.5.1-8, which is highly 
+permissive to hepatitis C virus infection. Here, we have characterized 
+flavivirus infection in the Huh7.5.1-8 cell line by comparing with that in the 
+African green monkey kidney-derived Vero cell line, which is permissive for a 
+wide spectrum of viruses. Upon infection with JEV, Huh7.5.1-8 cells produced a 
+higher amount of virus particles early in infection and were more susceptible to 
+virus-induced cell death than Vero cells. Similar outcomes were obtained when 
+the cells were infected with another flavivirus, YFV (17D-204 strain). 
+Quantification of cellular and extracellular viral RNA revealed that high JEV 
+production in Huh7.5.1-8 cells can be attributed to rapid viral replication 
+kinetics and efficient virus release early in infection. In a plaque assay, 
+Huh7.5.1-8 cells developed JEV plaques more rapidly than Vero cells. Although 
+this was not the case with YFV plaques, Huh7.5.1-8 cells developed higher 
+numbers of YFV plaques than Vero cells. Sequence analysis of cDNA encoding an 
+antiviral RNA helicase, RIG-I, showed that Huh7.5.1-8 cells expressed not only a 
+full-length RIG-I mRNA with a known dominant-negative missense mutation but also 
+variants without the mutation. However, the latter mRNAs lacked exon 5/6-12, 
+indicating functional loss of RIG-I in the cells. These characteristics of the 
+Huh7.5.1-8 cell line are helpful for flavivirus detection, titration, and 
+propagation.
+
+DOI: 10.1371/journal.pone.0232274
+PMCID: PMC7182267
+PMID: 32330205 [Indexed for MEDLINE]
+
+Conflict of interest statement: The authors have declared that no competing 
+interests exist.

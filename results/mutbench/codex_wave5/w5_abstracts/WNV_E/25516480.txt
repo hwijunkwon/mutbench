@@ -1,0 +1,40 @@
+1. Vet Res. 2014 Dec 17;45(1):130. doi: 10.1186/s13567-014-0130-7.
+
+Safety and immunogenicity of a delta inulin-adjuvanted inactivated Japanese 
+encephalitis virus vaccine in pregnant mares and foals.
+
+Bielefeldt-Ohmann H(1), Prow NA, Wang W, Tan CS, Coyle M, Douma A, Hobson-Peters 
+J, Kidd L, Hall RA, Petrovsky N.
+
+Author information:
+(1)School of Veterinary Science, University of Queensland, Gatton Campus, Gatton 
+4343, Qld, Australia. h.bielefeldtohmann1@uq.edu.au.
+
+In 2011, following severe flooding in Eastern Australia, an unprecedented 
+epidemic of equine encephalitis occurred in South-Eastern Australia, caused by 
+Murray Valley encephalitis virus (MVEV) and a new variant strain of Kunjin 
+virus, a subtype of West Nile virus (WNVKUN). This prompted us to assess whether 
+a delta inulin-adjuvanted, inactivated cell culture-derived Japanese 
+encephalitis virus (JEV) vaccine (JE-ADVAX™) could be used in horses, including 
+pregnant mares and foals, to not only induce immunity to JEV, but also elicit 
+cross-protective antibodies against MVEV and WNVKUN. Foals, 74-152 days old, 
+received two injections of JE-ADVAX™. The vaccine was safe and well-tolerated 
+and induced a strong JEV-neutralizing antibody response in all foals. MVEV and 
+WNVKUN antibody cross-reactivity was seen in 33% and 42% of the immunized foals, 
+respectively. JE-ADVAX™ was also safe and well-tolerated in pregnant mares and 
+induced high JEV-neutralizing titers. The neutralizing activity was passively 
+transferred to their foals via colostrum. Foals that acquired passive immunity 
+to JEV via maternal antibodies then were immunized with JE-ADVAX™ at 36-83 days 
+of age, showed evidence of maternal antibody interference with low peak antibody 
+titers post-immunization when compared to immunized foals of JEV-naïve dams. 
+Nevertheless, when given a single JE-ADVAX™ booster immunization as yearlings, 
+these animals developed a rapid and robust JEV-neutralizing antibody response, 
+indicating that they were successfully primed to JEV when immunized as foals, 
+despite the presence of maternal antibodies. Overall, JE-ADVAX™ appears safe and 
+well-tolerated in pregnant mares and young foals and induces protective levels 
+of JEV neutralizing antibodies with partial cross-neutralization of MVEV and 
+WNVKUN.
+
+DOI: 10.1186/s13567-014-0130-7
+PMCID: PMC4268807
+PMID: 25516480 [Indexed for MEDLINE]

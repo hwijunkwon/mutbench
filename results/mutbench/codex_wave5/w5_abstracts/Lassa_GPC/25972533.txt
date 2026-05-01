@@ -1,0 +1,44 @@
+1. J Virol. 2015 Aug;89(15):7584-92. doi: 10.1128/JVI.00651-15. Epub 2015 May 13.
+
+Molecular Mechanism for LAMP1 Recognition by Lassa Virus.
+
+Cohen-Dvashi H(1), Cohen N(1), Israeli H(1), Diskin R(2).
+
+Author information:
+(1)Department of Structural Biology, Weizmann Institute of Science, Rehovot, 
+Israel.
+(2)Department of Structural Biology, Weizmann Institute of Science, Rehovot, 
+Israel ron.diskin@weizmann.ac.il.
+
+Lassa virus is a notorious human pathogen that infects many thousands of people 
+each year in West Africa, causing severe viral hemorrhagic fevers and 
+significant mortality. The surface glycoprotein of Lassa virus mediates receptor 
+recognition through its GP1 subunit. Here we report the crystal structure of GP1 
+from Lassa virus, which is the first representative GP1 structure for Old World 
+arenaviruses. We identify a unique triad of histidines that forms a binding site 
+for LAMP1, a known lysosomal protein recently discovered to be a critical 
+receptor for internalized Lassa virus at acidic pH. We demonstrate that mutation 
+of this histidine triad, which is highly conserved among Old World arenaviruses, 
+impairs LAMP1 recognition. Our biochemical and structural data further suggest 
+that GP1 from Lassa virus may undergo irreversible conformational changes that 
+could serve as an immunological decoy mechanism. Together with a variable region 
+that we identify on the surface of GP1, those could be two distinct mechanisms 
+that Lassa virus utilizes to avoid antibody-based immune response.
+IMPORTANCE: Structural data at atomic resolution for viral proteins is key for 
+understanding their function at the molecular level and can facilitate novel 
+avenues for combating viral infections. Here we used X-ray protein 
+crystallography to decipher the crystal structure of the receptor-binding domain 
+(GP1) from Lassa virus. This is a pathogenic virus that causes significant 
+illness and mortality in West Africa. This structure reveals the overall 
+architecture of GP1 domains from the group of viruses known as the Old World 
+arenaviruses. Using this structural information, we elucidated the mechanisms 
+for pH switch and binding of Lassa virus to LAMP1, a recently identified host 
+receptor that is critical for successful infection. Lastly, our structural 
+analysis suggests two novel immune evasion mechanisms that Lassa virus may 
+utilize to escape antibody-based immune response.
+
+Copyright © 2015, American Society for Microbiology. All Rights Reserved.
+
+DOI: 10.1128/JVI.00651-15
+PMCID: PMC4505663
+PMID: 25972533 [Indexed for MEDLINE]

@@ -1,0 +1,30 @@
+1. Mem Inst Oswaldo Cruz. 1991 Apr-Jun;86(2):239-46. doi: 
+10.1590/s0074-02761991000200015.
+
+Molecular analysis of yellow fever virus 17DD vaccine strain.
+
+Post PR(1), Santos CN, Carvalho R, Lopes OS, Galler R.
+
+Author information:
+(1)Instituto Oswaldo Cruz, Departamento de Bioquimica e Biologia Molecular, Rio 
+de Janeiro, Brasil.
+
+The Oswaldo Cruz Foundation produces most of the yellow fever (YF) vaccine 
+prepared worldwide. As part of a broader approach to determine the genetic 
+variability in YF 17D seeds and vaccines and its relevance to viral attenuation 
+the 17DD virus was purified directly from chick embryo homogenates which is the 
+source of virus used for vaccination of millions of people in Brazil and other 
+countries for half a century. Neutralization and hemagglutination tests showed 
+that the purified virus is similar to the original stock. Furthermore, 
+radioimmune precipitation of 35S-methionine-labeled viral proteins using mouse 
+hyperimmune ascitic fluid revealed identical patterns for the purified 17DD 
+virus and the YF 17D-204 strain except for the 17DD E protein which migrated 
+slower on SDS-PAGE. This difference is likely to be due to N-linked 
+glycosylation. Finally, comparison by northern blot hybridization of virion RNAs 
+of purified 17DD with two other strains of YF 17D virus revealed only 
+genome-sized molecules for all three viruses. These observations suggest that 
+the vaccine phenotype is primarily associated with the accumulation of 
+mutations.
+
+DOI: 10.1590/s0074-02761991000200015
+PMID: 1842415 [Indexed for MEDLINE]

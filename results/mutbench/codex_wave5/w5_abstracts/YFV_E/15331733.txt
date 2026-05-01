@@ -1,0 +1,45 @@
+1. J Virol. 2004 Sep;78(18):9998-10008. doi: 10.1128/JVI.78.18.9998-10008.2004.
+
+A single amino acid substitution in the envelope protein of chimeric yellow 
+fever-dengue 1 vaccine virus reduces neurovirulence for suckling mice and 
+viremia/viscerotropism for monkeys.
+
+Guirakhoo F(1), Zhang Z, Myers G, Johnson BW, Pugachev K, Nichols R, Brown N, 
+Levenbook I, Draper K, Cyrek S, Lang J, Fournier C, Barrere B, Delagrave S, 
+Monath TP.
+
+Author information:
+(1)Acambis, Inc., 38 Sidney St., Cambridge, MA 02139, USA. 
+farshad.guirakhoo@acambis.com
+
+A chimeric yellow fever-dengue 1 (ChimeriVax-DEN1) virus was produced by the 
+transfection of Vero cells with chimeric in vitro RNA transcripts. The cell 
+culture supernatant was subjected to plaque purification for the identification 
+of a vaccine candidate without mutations. Of 10 plaque-purified clones, 1 
+containing no mutation (clone J) was selected for production of the vaccine 
+virus. During subsequent cell culture passaging of this clone for vaccine 
+production, a single amino acid substitution (K to R) occurred in the envelope 
+(E) protein at residue 204 (E204) (F. Guirakhoo, K. Pugachev, Z. Zhang, G. 
+Myers, I. Levenbook, K. Draper, J. Lang, S. Ocran, F. Mitchell, M. Parsons, N. 
+Brown, S. Brandler, C. Fournier, B. Barrere, F. Rizvi, A. Travassos, R. Nichols, 
+D. Trent, and T. Monath, J. Virol. 78:4761-4775, 2004). The same mutation was 
+observed in another clone (clone E). This mutation attenuated the virus in 
+4-day-old suckling mice inoculated by the intracerebral (i.c.) route and led to 
+reduced viremia in monkeys inoculated by the subcutaneous or i.c. route. The 
+histopathology scores of lesions in the brain tissue of monkeys inoculated with 
+either the E204K or E204R virus were reduced compared to those for monkeys 
+inoculated with the reference virus, a commercial yellow fever 17D vaccine 
+(YF-VAX). Both viruses grew to significantly lower titers than YF-VAX in HepG2, 
+a human hepatoma cell line. After intrathoracic inoculation into mosquitoes, 
+both viruses grew to a similar level as YF-VAX, which was significantly lower 
+than that of their wild-type DEN1 parent virus. A comparison of the E-protein 
+structures of nonmutant and mutant viruses suggested the appearance of new 
+intramolecular bonds between residues 204R, 261H, and 257E in the mutant virus. 
+These changes may be responsible for virus attenuation through a change in the 
+pH threshold for virus envelope fusion with the host cell membrane.
+
+Copyright 2004 American Society for Microbiology
+
+DOI: 10.1128/JVI.78.18.9998-10008.2004
+PMCID: PMC514991
+PMID: 15331733 [Indexed for MEDLINE]

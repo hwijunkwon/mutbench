@@ -1,0 +1,47 @@
+1. Emerg Microbes Infect. 2019;8(1):1511-1523. doi:
+10.1080/22221751.2019.1677446.
+
+GILT restricts the cellular entry mediated by the envelope glycoproteins of 
+SARS-CoV, Ebola virus and Lassa fever virus.
+
+Chen D(1)(2), Hou Z(1)(2)(3), Jiang D(1)(2), Zheng M(1)(2), Li G(1)(2), Zhang 
+Y(1)(2), Li R(1)(2), Lin H(4), Chang J(5), Zeng H(1)(2), Guo JT(5), Zhao 
+X(1)(2).
+
+Author information:
+(1)Institute of Infectious disease, Beijing Ditan Hospital, Capital Medical 
+University , Beijing , People's Republic of China.
+(2)Beijing Key Laboratory of Emerging Infectious Disease , Beijing , People's 
+Republic of China.
+(3)Department of Pulmonary and Critical Care Medicine, General Hospital of 
+Datong Coal Mine Group Co., Ltd. , People's Republic of China.
+(4)Department of Pathology and Laboratory Medicine, Western University , London 
+, Ontario , Canada.
+(5)Baruch S. Blumberg Institute, Hepatitis B Foundation , Doylestown , PA , USA.
+
+Interferons (IFNs) control viral infections by inducing expression of 
+IFN-stimulated genes (ISGs) that restrict distinct steps of viral replication. 
+We report herein that gamma-interferon-inducible lysosomal thiol reductase 
+(GILT), a lysosome-associated ISG, restricts the infectious entry of selected 
+enveloped RNA viruses. Specifically, we demonstrated that GILT was 
+constitutively expressed in lung epithelial cells and fibroblasts and its 
+expression could be further induced by type II interferon. While overexpression 
+of GILT inhibited the entry mediated by envelope glycoproteins of SARS 
+coronavirus (SARS-CoV), Ebola virus (EBOV) and Lassa fever virus (LASV), 
+depletion of GILT enhanced the entry mediated by these viral envelope 
+glycoproteins. Furthermore, mutations that impaired the thiol reductase activity 
+or disrupted the N-linked glycosylation, a posttranslational modification 
+essential for its lysosomal localization, largely compromised GILT restriction 
+of viral entry. We also found that the induction of GILT expression reduced the 
+level and activity of cathepsin L, which is required for the entry of these RNA 
+viruses in lysosomes. Our data indicate that GILT is a novel antiviral ISG that 
+specifically inhibits the entry of selected enveloped RNA viruses in lysosomes 
+via disruption of cathepsin L metabolism and function and may play a role in 
+immune control and pathogenesis of these viruses.
+
+DOI: 10.1080/22221751.2019.1677446
+PMCID: PMC6818130
+PMID: 31631785 [Indexed for MEDLINE]
+
+Conflict of interest statement: No potential conflict of interest was reported 
+by the authors.

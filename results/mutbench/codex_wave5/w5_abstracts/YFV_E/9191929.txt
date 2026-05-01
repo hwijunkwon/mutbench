@@ -1,0 +1,26 @@
+1. J Gen Virol. 1997 Jun;78 ( Pt 6):1353-6. doi: 10.1099/0022-1317-78-6-1353.
+
+Yellow fever virus envelope protein has two discrete type-specific neutralizing 
+epitopes.
+
+Ryman KD(1), Ledger TN, Weir RC, Schlesinger JJ, Barrett AD.
+
+Author information:
+(1)Center for Tropical Diseases, University of Texas Medical Branch, Galveston 
+77555, USA.
+
+Two monoclonal antibody neutralization resistant (MAbR) variants of the yellow 
+fever (YF) 17D-204 vaccine virus strain were selected using YF type-specific MAb 
+B39. These B39R variants were compared with the variant virus selected by Lobigs 
+et al. (Virology 161, 474-478, 1987) using a second YF-type specific MAb (2E10) 
+which mapped to amino acid position 71/72 in the envelope (E) protein. 
+Neutralization assays with a panel of MAbs suggested that these two 
+YF-type-specific epitopes are located in two discrete regions of the folded E 
+protein. Each of the B39R variants had a single nucleotide mutation which 
+encoded an amino acid substitution at either position E-155 or E-158. Thus, YF 
+type-specific epitopes map to both domain I (B39) and II (2E10) of the YF virus 
+E protein. The B39 defined epitope represents the first flavivirus neutralizing 
+epitope localized to this region of domain I of the E protein.
+
+DOI: 10.1099/0022-1317-78-6-1353
+PMID: 9191929 [Indexed for MEDLINE]

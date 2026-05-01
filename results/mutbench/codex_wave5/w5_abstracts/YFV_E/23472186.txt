@@ -1,0 +1,36 @@
+1. PLoS One. 2013;8(3):e58357. doi: 10.1371/journal.pone.0058357. Epub 2013 Mar
+5.
+
+The synergistic effect of combined immunization with a DNA vaccine and chimeric 
+yellow fever/dengue virus leads to strong protection against dengue.
+
+Azevedo AS(1), Gonçalves AJ, Archer M, Freire MS, Galler R, Alves AM.
+
+Author information:
+(1)Laboratório de Biotecnologia e Fisiologia de Infecções Virais, Instituto 
+Oswaldo Cruz, Fundação Oswaldo Cruz, Rio de Janeiro, Brazil.
+
+The dengue envelope glycoprotein (E) is the major component of virion surface 
+and its ectodomain is composed of domains I, II and III. This protein is the 
+main target for the development of a dengue vaccine with induction of 
+neutralizing antibodies. In the present work, we tested two different 
+vaccination strategies, with combined immunizations in a prime/booster regimen 
+or simultaneous inoculation with a DNA vaccine (pE1D2) and a chimeric yellow 
+fever/dengue 2 virus (YF17D-D2). The pE1D2 DNA vaccine encodes the ectodomain of 
+the envelope DENV2 protein fused to t-PA signal peptide, while the YF17D-D2 was 
+constructed by replacing the prM and E genes from the 17D yellow fever vaccine 
+virus by those from DENV2. Balb/c mice were inoculated with these two vaccines 
+by different prime/booster or simultaneous immunization protocols and most of 
+them induced a synergistic effect on the elicited immune response, mainly in 
+neutralizing antibody production. Furthermore, combined immunization remarkably 
+increased protection against a lethal dose of DENV2, when compared to each 
+vaccine administered alone. Results also revealed that immunization with the DNA 
+vaccine, regardless of the combination with the chimeric virus, induced a robust 
+cell immune response, with production of IFN-γ by CD8+ T lymphocytes.
+
+DOI: 10.1371/journal.pone.0058357
+PMCID: PMC3589436
+PMID: 23472186 [Indexed for MEDLINE]
+
+Conflict of interest statement: Competing Interests: The authors have declared 
+that no competing interests exist.

@@ -1,0 +1,53 @@
+1. Emerg Microbes Infect. 2020 Dec;9(1):1722-1732. doi: 
+10.1080/22221751.2020.1797540.
+
+Enzyme-linked immunosorbent assays using virus-like particles containing 
+mutations of conserved residues on envelope protein can distinguish three 
+flavivirus infections.
+
+Tsai WY(1), Driesse K(1), Tsai JJ(2)(3)(4), Hsieh SC(1), Sznajder Granat R(5), 
+Jenkins O(1), Chang GJ(6), Wang WK(1).
+
+Author information:
+(1)Department of Tropical Medicine, Medical Microbiology and Pharmacology, John 
+A. Burns School of Medicine, University of Hawaii at Manoa, Honolulu, HI, USA.
+(2)Tropical Medicine Center, Kaohsiung Medical University Hospital, Kaohsiung, 
+Taiwan.
+(3)Division of Infectious Diseases, Department of Internal Medicine, Kaohsiung 
+Medical University Hospital, Kaohsiung, Taiwan.
+(4)School of Medicine, College of Medicine, Kaohsiung Medical University, 
+Kaohsiung, Taiwan.
+(5)Faculty of Medicine and Health Sciences, Linköping University, Linköping, 
+Sweden.
+(6)Division of Vector-Borne Diseases, Center for Disease Control and Prevention, 
+US Department of Health and Human Service, Fort Collins, CO, USA.
+
+The recent outbreaks of Zika virus (ZIKV) in flavivirus-endemic regions 
+highlight the need for sensitive and specific serological tests. Previously we 
+and others reported key fusion loop (FL) residues and/or BC loop (BCL) residues 
+on dengue virus (DENV) envelope protein recognized by flavivirus cross-reactive 
+human monoclonal antibodies and polyclonal sera. To improve ZIKV serodiagnosis, 
+we employed wild type (WT) and FL or FL/BCL mutant virus-like particles (VLP) of 
+ZIKV, DENV1 and West Nile virus (WNV) in enzyme linked immunosorbent assays 
+(ELISA), and tested convalescent-phase serum or plasma samples from 
+reverse-transcription PCR-confirmed cases with different ZIKV, DENV and WNV 
+infections. For IgG ELISA, ZIKV WT-VLP had a sensitivity of 100% and specificity 
+of 52.9%, which was improved to 83.3% by FL/BCL mutant VLP and 92.2% by the 
+ratio of relative optical density of mutant to WT VLP. Similarly, DENV1 and WNV 
+WT-VLP had a sensitivity/specificity of 100%/70.0% and 100%/56.3%, respectively; 
+the specificity was improved to 93.3% and 83.0% by FL mutant VLP. For IgM ELISA, 
+ZIKV, DENV1 and WNV WT-VLP had a specificity of 96.4%, 92.3% and 91.4%, 
+respectively, for primary infection; the specificity was improved to 93.7-99.3% 
+by FL or FL/BCL mutant VLP. An algorithm based on a combination of mutant and 
+WT-VLP IgG ELISA is proposed to discriminate primary ZIKV, DENV and WNV 
+infections as well as secondary DENV and ZIKV infection with previous DENV 
+infections; this could be a powerful tool to better understand the 
+seroprevalence and pathogenesis of ZIKV in regions where multiple flaviviruses 
+co-circulate.
+
+DOI: 10.1080/22221751.2020.1797540
+PMCID: PMC7473235
+PMID: 32684139 [Indexed for MEDLINE]
+
+Conflict of interest statement: No potential conflict of interest was reported 
+by the author(s).

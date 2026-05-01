@@ -1,0 +1,43 @@
+1. Virol J. 2011 Mar 6;8:100. doi: 10.1186/1743-422X-8-100.
+
+Identification of a conserved JEV serocomplex B-cell epitope by screening a 
+phage-display peptide library with a mAb generated against West Nile virus 
+capsid protein.
+
+Sun EC(1), Zhao J, Yang T, Liu NH, Geng HW, Qin YL, Wang LF, Bu ZG, Yang YH, 
+Lunt RA, Wang LF, Wu DL.
+
+Author information:
+(1)The Key Laboratory of Veterinary Public Health, Ministry of Agriculture, 
+State Key Laboratory of Veterinary Biotechnology, Harbin Veterinary Research 
+Institute, Chinese Academy of Agricultural Sciences, Harbin 150001, PR China.
+
+BACKGROUND: The West Nile virus (WNV) capsid (C) protein is one of the three 
+viral structural proteins, encapsidates the viral RNA to form the nucleocapsid, 
+and is necessary for nuclear and nucleolar localization. The antigenic sites on 
+C protein that are targeted by humoral immune responses have not been studied 
+thoroughly, and well-defined B-cell epitopes on the WNV C protein have not been 
+reported.
+RESULTS: In this study, we generated a WNV C protein-specific monoclonal 
+antibody (mAb) and defined the linear epitope recognized by the mAb by screening 
+a 12-mer peptide library using phage-display technology. The mAb, designated as 
+6D3, recognized the phages displaying a consensus motif consisting of the amino 
+acid sequence KKPGGPG, which is identical to an amino acid sequence present in 
+WNV C protein. Further fine mapping was conducted using truncated peptides 
+expressed as MBP-fusion proteins. We found that the KKPGGPG motif is the minimal 
+determinant of the linear epitope recognized by the mAb 6D3. Western blot (WB) 
+analysis demonstrated that the KKPGGPG epitope could be recognized by antibodies 
+contained in WNV- and Japanese encephalitis virus (JEV)-positive equine serum, 
+but was not recognized by Dengue virus 1-4 (DENV1-4)-positive mice serum. 
+Furthermore, we found that the epitope recognized by 6D3 is highly conserved 
+among the JEV serocomplex of the Family Flaviviridae.
+CONCLUSION: The KKPGGPG epitope is a JEV serocomplex-specific linear B-cell 
+epitope recognized by the 6D3 mAb generated in this study. The 6D3 mAb may serve 
+as a novel reagent in development of diagnostic tests for JEV serocomplex 
+infection. Further, the identification of the B-cell epitope that is highly 
+conserved among the JEV serocomplex may support the rationale design of vaccines 
+against viruses of the JEV serocomplex.
+
+DOI: 10.1186/1743-422X-8-100
+PMCID: PMC3060845
+PMID: 21375771 [Indexed for MEDLINE]

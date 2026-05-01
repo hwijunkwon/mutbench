@@ -1,0 +1,56 @@
+1. Vaccine. 2020 Mar 23;38(14):2949-2959. doi: 10.1016/j.vaccine.2020.02.053.
+Epub  2020 Feb 25.
+
+Bivalent Junin & Machupo experimental vaccine based on alphavirus RNA replicon 
+vector.
+
+Johnson DM(1), Jokinen JD(2), Wang M(2), Pfeffer T(2), Tretyakova I(3), Carrion 
+R Jr(4), Griffiths A(4), Pushko P(3), Lukashevich IS(5).
+
+Author information:
+(1)Department of Microbiology and Immunology, School of Medicine, Center for 
+Predictive Medicine for Biodefense and Emerging Infectious Diseases, NIH 
+Regional Bio-containment Laboratory, University of Louisville, KY, USA.
+(2)Department of Pharmacology and Toxicology, School of Medicine, Center for 
+Predictive Medicine for Biodefense and Emerging Infectious Diseases, NIH 
+Regional Bio-containment Laboratory, University of Louisville, KY, USA.
+(3)Medigen, Inc., Frederick, MD, USA.
+(4)Texas Biomedical Research Institute (TBRI), San Antonio, TX, USA.
+(5)Department of Pharmacology and Toxicology, School of Medicine, Center for 
+Predictive Medicine for Biodefense and Emerging Infectious Diseases, NIH 
+Regional Bio-containment Laboratory, University of Louisville, KY, USA. 
+Electronic address: igor.lukashevich@louisville.edu.
+
+Junin (JUNV) and Machupo (MACV), two mammalian arenaviruses placed on the 2018 
+WHO watch list, are prevalent in South America causing Argentine and Bolivian 
+hemorrhagic fevers (AHF and BHF), respectively. The live attenuated JUNV 
+vaccine, Candid #1, significantly reduced the incidence of AHF. Vaccination 
+induces neutralizing antibody (nAb) responses which effectively target GP1 (the 
+viral attachment glycoprotein) pocket which accepts the tyrosine residue of the 
+cellular receptor, human transferrin receptor 1 (TfR1). In spite of close 
+genetic relationships between JUNV and MACV, variability in the GP1 receptor 
+binding site (e.g., MACV GP1 loop 10) results in poor MACV neutralization by 
+Candid #1-induced nAbs. Candid #1 is not recommended for vaccination of children 
+younger than 15 years old (a growing "at risk" group), pregnant women, or other 
+immunocompromised individuals. Candid #1's primary reliance on limited missense 
+mutations for attenuation, genetic heterogeneity, and potential stability 
+concerns complicate approval of this vaccine in the US. To address these issues, 
+we applied alphavirus RNA replicon vector technology based on the human 
+Venezuelan equine encephalitis vaccine (VEEV) TC-83 to generate replication 
+restricted virus-like-particles vectors (VLPVs) simultaneously expressing 
+cellular glycoprotein precursors (GPC) of both viruses, JUNV and MACV. Resulting 
+JV&MV VLPVs were found safe and immunogenic in guinea pigs. Immunization with 
+VLPVs induced humoral responses which correlated with complete protection 
+against lethal disease after challenge with pathogenic strains of JUNV (Romero) 
+and MACV (Carvallo).
+
+Copyright © 2020 The Author(s). Published by Elsevier Ltd.. All rights reserved.
+
+DOI: 10.1016/j.vaccine.2020.02.053
+PMCID: PMC7112472
+PMID: 32111526 [Indexed for MEDLINE]
+
+Conflict of interest statement: Declaration of Competing Interest The authors 
+declare that they have no known competing financial interests or personal 
+relationships that could have appeared to influence the work reported in this 
+paper.

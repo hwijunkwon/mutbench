@@ -1,0 +1,38 @@
+1. EMBO J. 2009 Oct 21;28(20):3269-76. doi: 10.1038/emboj.2009.245. Epub 2009 Aug
+ 27.
+
+Structural basis for the preferential recognition of immature flaviviruses by a 
+fusion-loop antibody.
+
+Cherrier MV(1), Kaufmann B, Nybakken GE, Lok SM, Warren JT, Chen BR, Nelson CA, 
+Kostyuchenko VA, Holdaway HA, Chipman PR, Kuhn RJ, Diamond MS, Rossmann MG, 
+Fremont DH.
+
+Author information:
+(1)Department of Biological Sciences, Purdue University, West Lafayette, IN 
+47907-2054, USA.
+
+Flaviviruses are a group of human pathogens causing severe encephalitic or 
+hemorrhagic diseases that include West Nile, dengue and yellow fever viruses. 
+Here, using X-ray crystallography we have defined the structure of the 
+flavivirus cross-reactive antibody E53 that engages the highly conserved fusion 
+loop of the West Nile virus envelope glycoprotein. Using cryo-electron 
+microscopy, we also determined that E53 Fab binds preferentially to spikes in 
+noninfectious, immature flavivirions but is unable to bind significantly to 
+mature virions, consistent with the limited solvent exposure of the epitope. We 
+conclude that the neutralizing impact of E53 and likely similar 
+fusion-loop-specific antibodies depends on its binding to the frequently 
+observed immature component of flavivirus particles. Our results elucidate how 
+fusion-loop antibodies, which comprise a significant fraction of the humoral 
+response against flaviviruses, can function to control infection without 
+appreciably recognizing mature virions. As these highly cross-reactive 
+antibodies are often weakly neutralizing they also may contribute to 
+antibody-dependent enhancement and flavi virus pathogenesis thereby complicating 
+development of safe and effective vaccines.
+
+DOI: 10.1038/emboj.2009.245
+PMCID: PMC2771083
+PMID: 19713934 [Indexed for MEDLINE]
+
+Conflict of interest statement: The authors declare that they have no conflict 
+of interest.

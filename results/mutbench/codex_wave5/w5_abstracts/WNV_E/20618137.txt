@@ -1,0 +1,31 @@
+1. Biochemistry (Mosc). 2010 Apr;75(4):472-80. doi: 10.1134/s0006297910040115.
+
+Characterization of glycoprotein E C-end of West Nile virus and evaluation of 
+its interaction force with alphaVbeta3 integrin as putative cellular receptor.
+
+Bogachek MV(1), Zaitsev BN, Sekatskii SK, Protopopova EV, Ternovoi VA, Ivanova 
+AV, Kachko AV, Ivanisenko VA, Dietler G, Loktev VB.
+
+Author information:
+(1)FSRI State Research Center of Virology and Biotechnology Vector, Koltsovo, 
+Novosibirsk Region, 630559, Russia.
+
+Recombinant polypeptide containing the 260-466 amino acid sequence of West Nile 
+virus (WNV) strain LEIV-Vlg99-27889-human glycoprotein E (gpE, E(260-466)) was 
+constructed. Immunochemical similarity between the E(260-466) and gpE of WNV was 
+proven by enzyme immunoassay (EIA), immunoblot, competitive EIA, 
+hemagglutination inhibition, and neutralization tests using polyclonal and 
+monoclonal antibodies against the viral gpE and recombinant E(260-466). 
+Polypeptide E(260-466) induced formation of virus neutralizing and 
+cross-reactive antibodies that were interactive with various epitopes of this 
+recombinant protein. It is shown by evaluation of the interaction of E(260-466) 
+with one of the proposed cell receptors of WNV that average 
+E(260-466)-alphaVbeta3 integrin-specific interaction force measured using atomic 
+force spectroscopy was 80 and 140 pN for single and double interactions, 
+correspondingly. Taken together with previously described interaction between 
+laminin-binding protein (LBP) and WNV gpE domain II, it is proposed that WNV gpE 
+can interact specifically with two cellular proteins (LBP and alphaVbeta3 
+integrin) during virus entry.
+
+DOI: 10.1134/s0006297910040115
+PMID: 20618137 [Indexed for MEDLINE]

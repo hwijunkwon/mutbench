@@ -1,0 +1,34 @@
+1. PLoS One. 2011;6(7):e21398. doi: 10.1371/journal.pone.0021398. Epub 2011 Jul
+7.
+
+Machupo virus glycoprotein determinants for human transferrin receptor 1 binding 
+and cell entry.
+
+Radoshitzky SR(1), Longobardi LE, Kuhn JH, Retterer C, Dong L, Clester JC, Kota 
+K, Carra J, Bavari S.
+
+Author information:
+(1)Toxicology Division, United States Army Medical Research Institute of 
+Infectious Diseases, Frederick, Maryland, United States of America.
+
+Machupo virus (MACV) is a highly pathogenic New World arenavirus that causes 
+hemorrhagic fever in humans. MACV, as well as other pathogenic New World 
+arenaviruses, enter cells after their GP1 attachment glycoprotein binds to their 
+cellular receptor, transferrin receptor 1 (TfR1). TfR1 residues essential for 
+this interaction have been described, and a co-crystal of MACV GP1 bound to TfR1 
+suggests GP1 residues important for this association. We created MACV GP1 
+variants and tested their effect on TfR1 binding and virus entry to evaluate the 
+functional significance of some of these and additional residues in human and 
+simian cells. We found residues R111, D123, Y122, and F226 to be essential, 
+D155, and P160 important, and D114, S116, D140, and K169 expendable for the 
+GP1-TfR1 interaction and MACV entry. Several MACV GP1 residues that are critical 
+for the interaction with TfR1 are conserved among other New World arenaviruses, 
+indicating a common basis of receptor interaction. Our findings also open 
+avenues for the rational development of viral entry inhibitors.
+
+DOI: 10.1371/journal.pone.0021398
+PMCID: PMC3131282
+PMID: 21750710 [Indexed for MEDLINE]
+
+Conflict of interest statement: Competing Interests: The authors have declared 
+that no competing interests exist.

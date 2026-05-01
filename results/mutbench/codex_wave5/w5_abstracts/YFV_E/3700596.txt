@@ -1,0 +1,26 @@
+1. J Clin Microbiol. 1986 Jan;23(1):129-34. doi: 10.1128/jcm.23.1.129-134.1986.
+
+Sensitive and specific monoclonal immunoassay for detecting yellow fever virus 
+in laboratory and clinical specimens.
+
+Monath TP, Hill LJ, Brown NV, Cropp CB, Schlesinger JJ, Saluzzo JF, Wands JR.
+
+A solid-phase radioimmunoassay (RIA) was developed for the detection of yellow 
+fever (YF) virus in infected cell culture supernatant fluid and clinical 
+samples. The test employed a flavivirus group-reactive monoclonal antibody 
+attached to a polystyrene bead support and a radiolabeled type-specific antibody 
+probe in a simultaneous sandwich RIA format. Optimal assay conditions specified 
+a 16-h incubation at high temperature (45 degrees C). Monoclonal antibody to 
+tetanus toxoid was added to the radiolabeled probe to inhibit nonspecific 
+binding. The sensitivity of the assay for cell culture-propagated virus was 2.0 
+log10 50% mosquito infectious doses per 100 microliters or 100 pg of 
+gradient-purified virion protein per 100 microliters. Specificity, assessed with 
+human sera from 512 patients with liver diseases other than YF, including acute 
+viral hepatitis, showed a false-positive rate of 0.0 to 0.6%. Sera from 
+experimentally infected rhesus macaques containing greater than 3.0 log10 
+units/100 microliter of YF virus were positive by RIA. Sera and liver tissue 
+from human patients were found to be positive.
+
+DOI: 10.1128/jcm.23.1.129-134.1986
+PMCID: PMC268586
+PMID: 3700596 [Indexed for MEDLINE]

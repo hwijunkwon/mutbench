@@ -1,0 +1,41 @@
+1. J Virol. 2002 Jun;76(12):6172-84. doi: 10.1128/jvi.76.12.6172-6184.2002.
+
+Neuroblastoma cell-adapted yellow fever 17D virus: characterization of a viral 
+variant associated with persistent infection and decreased virus spread.
+
+Vlaycheva LA(1), Chambers TJ.
+
+Author information:
+(1)Department of Molecular Microbiology and Immunology, St. Louis University 
+Health Sciences Center, St. Louis, Missouri 63104, USA.
+
+Serial passage of yellow fever 17D virus (YF5.2iv, derived from an infectious 
+molecular clone) on mouse neuroblastoma (NB41A3) cells established a persistent 
+noncytopathic infection associated with a variant virus. This virus (NB15a) was 
+dramatically reduced in plaque formation and exhibited impaired replication 
+kinetics on all cell lines examined compared to the parental virus. Nucleotide 
+sequence analysis of NB15a revealed a substitution in domain III of the envelope 
+(E) protein at residue 360, where an aspartic acid residue was replaced by 
+glycine. Single mutations were also found within the NS2A and NS3 proteins. 
+Engineering of YF5.2iv virus to contain the E(360) substitution yielded a virus 
+(G360 mutant) whose plaque size and growth efficiency in cell culture resembled 
+those of NB15a. Compared with YF5.2iv, both NB15a and G360 were markedly 
+restricted for spread through Vero cell monolayers and mildly restricted in 
+C6/36 cells. On NB41A3 cells, spread of the viruses was similar, but all three 
+were generally inefficient compared with spread in other cell lines. Compared to 
+YF5.2iv virus, NB15a was uniformly impaired in its ability to penetrate 
+different cell lines, but a difference in cell surface binding was detected only 
+on NB41A3 cells, where NB15a appeared less efficient. Despite its small plaque 
+size, impaired growth, and decreased penetration efficiency, NB15a did not 
+differ from YF5.2iv in mouse neurovirulence testing, based on mortality rates 
+and average survival times after intracerebral inoculation of young adult mice. 
+The data indicate that persistence of yellow fever virus in NB41A3 cells is 
+associated with a mutation in the receptor binding domain of the E protein that 
+impairs the virus entry process in cell culture. However, the phenotypic changes 
+which occur in the virus as a result of the persistent infection in vitro do not 
+correlate with attenuation during pathogenesis in the mouse central nervous 
+system.
+
+DOI: 10.1128/jvi.76.12.6172-6184.2002
+PMCID: PMC136214
+PMID: 12021351 [Indexed for MEDLINE]

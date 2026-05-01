@@ -1,0 +1,38 @@
+1. Vector Borne Zoonotic Dis. 2019 Jan;19(1):45-50. doi: 10.1089/vbz.2018.2275. 
+Epub 2018 Jul 9.
+
+Detection of West Nile Virus Infection in Viral Encephalitis Cases, China.
+
+Cao L(1)(2), Fu S(1)(2), Lu Z(1)(2), Tang C(1)(2), Gao X(1)(2), Li X(1)(2), Lei 
+W(1)(2), He Y(1)(2), Li M(1)(2), Cao Y(1)(2), Wang H(1)(2), Liang G(1)(2).
+
+Author information:
+(1)1 State Key Laboratory of Infectious Disease Prevention and Control, National 
+Institute for Viral Disease Control and Prevention, Chinese Center for Disease 
+Control and Prevention, Beijing, China.
+(2)2 Collaborative Innovation Center for Diagnosis and Treatment of Infectious 
+Diseases, Hangzhou, China.
+
+This study detected West Nile virus (WNV) infection in serum samples of patients 
+clinically diagnosed with viral encephalitis in the Japanese encephalitis virus 
+(JEV) endemic area (seven provinces) and JEV nonendemic area (Xinjiang province) 
+in China from 2011 to 2012. In JEV endemic areas, there were 22 positive cases 
+of WNV immunoglobulin M (IgM) antibody in serum specimens of 65 JEV patients 
+(JEV IgM antibody positive) in the acute phase, whereas WNV IgM antibodies were 
+not detected in serum specimens of 63 non-JEV patients (JEV IgM antibody 
+negative). However, the titer of JEV-neutralizing antibody was four times higher 
+than that of WNV-neutralizing antibody in WNV-IgM-positive serum specimens. 
+Detection was also conducted in serum specimens collected from 12 patients 
+clinically diagnosed as viral encephalitis in Xinjiang; five serum specimens 
+were WNV IgM antibody positive, and there were fourfold differences in 
+WNV-neutralizing antibody titers between convalescent and acute serum. Meanwhile 
+JEV-neutralizing antibody titer was negative or significantly lower than that of 
+WNV-neutralizing antibody in the same specimens. WNV IgM antibodies positive 
+were detected in acute serum specimens of patients clinically diagnosed with JEV 
+infection in JEV-endemic areas, but no WNV neutralization antibodies were 
+detected fourfold greater than that of the corresponding JEV antibodies. 
+Clinical cases of WNV infection were detected in patients clinically diagnosed 
+with viral encephalitis in Xinjiang.
+
+DOI: 10.1089/vbz.2018.2275
+PMID: 29985780 [Indexed for MEDLINE]

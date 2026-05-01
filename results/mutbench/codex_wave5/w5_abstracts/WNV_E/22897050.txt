@@ -1,0 +1,38 @@
+1. J Med Entomol. 2012 Jul;49(4):895-902. doi: 10.1603/me11286.
+
+Importance of recrudescent avian infection in West Nile virus overwintering: 
+incomplete antibody neutralization of virus allows infrequent vector infection.
+
+Wheeler SS(1), Vineyard MP, Barker CM, Reisen WK.
+
+Author information:
+(1)Center for Vectorborne Diseases and Department of Pathology, Microbiology, 
+and Immunology, School of Veterinary Medicine, University of California-Davis, 
+Davis, CA 95616, USA.
+
+After the acute infection period, birds persistently infected with West Nile 
+virus (family Flaviviridae, genus Flavivirus, WNV) occasionally shed virus into 
+the bloodstream, but these virions normally are inactivated by neutralizing 
+antibody. The current work tested the hypothesis that these host neutralizing 
+antibodies protect mosquito vectors from WNV infection and reevaluated the 
+minimum WNV infectious dose necessary to infect Culex tarsalis Coquillett. To 
+determine whether host antibodies protect mosquitoes from infection, Cx. 
+tarsalis and Culex stigmatosoma Dyar were fed bloodmeals containing avian blood, 
+WNV, and sera with or without WNV-specific neutralizing antibodies. When viral 
+particles were completely bound by antibody, mosquitoes were protected from 
+infection; however, when incompletely bound, WNV titers as low as 10(2.3) 
+plaque-forming units (pfu)/ml resulted in 5% infection. These data indicated 
+that avian antibodies were protective to mosquito vectors and were not 
+dissociated during digestion. Because recrudescent viremias may not attain the 
+same magnitude as initial acute viremias, Cx. tarsalis vector competence was 
+reevaluated focusing on the fate of low-titered bloodmeals. Females were 
+evaluated for vector competence after ingesting bloodmeals containing 10(2.2), 
+10(3.4), 10(4.5), 10(5.5), or 10(6.5) WNV pfu/ml. Infection increased with 
+bloodmeal titer, with 1% of the mosquitoes ingesting 10(3.4) pfu/ml and 45% of 
+the mosquitoes ingesting 10(6.5) pfu/ml developing disseminated infections. The 
+incomplete neutralization of recrudescent virus may be sufficient to infect a 
+low proportion of competent blood-feeding Culex mosquitoes and perhaps allow 
+persistently infected birds to provide a mechanism for arbovirus overwintering.
+
+DOI: 10.1603/me11286
+PMID: 22897050 [Indexed for MEDLINE]

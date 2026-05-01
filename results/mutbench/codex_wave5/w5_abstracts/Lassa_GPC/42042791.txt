@@ -1,0 +1,52 @@
+1. Vaccines (Basel). 2026 Mar 31;14(4):315. doi: 10.3390/vaccines14040315.
+
+Comparison of Vaccine Platforms for Machupo Virus.
+
+Erickson R(1), Muramatsu H(1), Tiwari S(1), Sriram S(1), Coirada FC(1), Pardi 
+N(1), Bates P(1).
+
+Author information:
+(1)Department of Microbiology, Perelman School of Medicine, University of 
+Pennsylvania, Philadelphia, PA 19104, USA.
+
+BACKGROUND/OBJECTIVES: Pathogenic mammarenaviruses cause severe hemorrhagic and 
+neurologic disease in humans. Machupo virus (MACV), a New World (NW) 
+mammarenavirus, causes Bolivian hemorrhagic fever in humans, and there are no 
+approved vaccines.
+METHODS: Here, we describe and compare the immunogenicity of three vaccines 
+expressing the MACV glycoprotein complex (GPC) in C57BL/6 mice: a recombinant 
+vesicular stomatitis virus (rVSV) and two different lipid nanoparticle 
+(LNP)-encapsulated nucleoside-modified mRNA (mRNA-LNP) vaccines. The first 
+mRNA-LNP vaccine, designated MACV mRNA, expresses the full-length MACV GPC. The 
+second mRNA-LNP vaccine, called MACV VLP mRNA, encodes MACV GPC with appended 
+sequences that induce the budding of virus-like particles (VLPs) with MACV GPC 
+on the surface. This is the first description of any mRNA-LNP vaccine for MACV 
+and the first comparison of mRNA and rVSVs as vaccine candidates for MACV.
+RESULTS: We find that two doses of either MACV mRNA or MACV VLP mRNA are 
+required for the induction of robust humoral and cellular immune responses 
+including total MACV GPC IgG, neutralizing antibodies, cross-reactive antibodies 
+that bind the related Junín virus GPC, and MACV-specific T-cell responses. To 
+further investigate vaccination strategies for MACV, we also evaluated a 
+heterologous prime-boost regimen involving the MACV mRNA vaccine coupled with 
+the rVSV-based MACV vaccine. We find that the highest levels of MACV 
+GPC-specific IgG and neutralizing titers were achieved when heterologous mRNA 
+and rVSV prime-boost regimens were employed.
+CONCLUSIONS: These results elucidate differences in the immune response to 
+different vaccine platforms for MACV and can inform future vaccine development 
+for NW arenaviruses.
+
+DOI: 10.3390/vaccines14040315
+PMCID: PMC13120303
+PMID: 42042791
+
+Conflict of interest statement: N.P. is named on patents describing the use of 
+nucleoside-modified mRNA in lipid nanoparticles as a vaccine/therapeutic 
+platform. He has disclosed those interests fully to the University of 
+Pennsylvania, and he has in place an approved plan for managing any potential 
+conflicts arising from the licensing of those patents. N.P. served on the mRNA 
+strategic advisory board of Sanofi Pasteur in 2022, Pfizer in 2023–2024 and 
+AldexChem in 2023–2025. N.P. is a member of the Scientific Advisory Board of 
+BioNet and has consulted for Vaccine Company Inc., Pasture Bio, and Piezo 
+Therapeutics. The funders had no role in the design of the study; in the 
+collection, analyses, or interpretation of data; in the writing of the 
+manuscript; or in the decision to publish the results.

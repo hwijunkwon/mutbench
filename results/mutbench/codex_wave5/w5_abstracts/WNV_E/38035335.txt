@@ -1,0 +1,49 @@
+1. Front Cell Infect Microbiol. 2023 Nov 15;13:1279147. doi: 
+10.3389/fcimb.2023.1279147. eCollection 2023.
+
+Immunization with different recombinant West Nile virus envelope proteins 
+induces varying levels of serological cross-reactivity and protection from 
+infection.
+
+Weiß R(1), Issmail L(1), Rockstroh A(1), Grunwald T(1), Fertey J(1), Ulbert 
+S(1).
+
+Author information:
+(1)Fraunhofer Institute for Cell Therapy and Immunology, Department of Vaccines 
+and Infection Models, Leipzig, Germany.
+
+INTRODUCTION: West Nile Virus (WNV) is a zoonotic flavivirus transmitted by 
+mosquitoes. Especially in the elderly or in immunocompromised individuals an 
+infection with WNV can lead to severe neurological symptoms. To date, no human 
+vaccine against WNV is available. The Envelope (E) protein, located at the 
+surface of flaviviruses, is involved in the invasion into host cells and is the 
+major target for neutralizing antibodies and therefore central to vaccine 
+development. Due to their close genetic and structural relationship, 
+flaviviruses share highly conserved epitopes, such as the fusion loop domain 
+(FL) in the E protein, that are recognized by cross-reactive antibodies. These 
+antibodies can lead to enhancement of infection with heterologous flaviviruses, 
+which is a major concern for potential vaccines in areas with co-circulation of 
+different flaviviruses, e.g. Dengue or Zika viruses.
+MATERIAL: To reduce the potential of inducing cross-reactive antibodies, we 
+performed an immunization study in mice using WNV E proteins with either wild 
+type sequence or a mutated FL, and WNV E domain III which does not contain the 
+FL at all.
+RESULTS AND DISCUSSION: Our data show that all antigens induce high levels of 
+WNV-binding antibodies. However, the level of protection against WNV varied, 
+with the wildtype E protein inducing full, the other antigens only partial 
+protection. On the other hand, serological cross-reactivity to heterologous 
+flaviviruses was significantly reduced after immunization with the mutated E 
+protein or domain III as compared to the wild type version. These results have 
+indications for choosing antigens with the optimal specificity and efficacy in 
+WNV vaccine development.
+
+Copyright © 2023 Weiß, Issmail, Rockstroh, Grunwald, Fertey and Ulbert.
+
+DOI: 10.3389/fcimb.2023.1279147
+PMCID: PMC10684968
+PMID: 38035335 [Indexed for MEDLINE]
+
+Conflict of interest statement: SU is co-author on the patent US 10060924 which 
+describes the Equad protein of WNV. The remaining authors declare that the 
+research was conducted in the absence of any commercial or financial 
+relationships that could be construed as a potential conflict of interest.

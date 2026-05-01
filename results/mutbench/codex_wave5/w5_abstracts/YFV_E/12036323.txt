@@ -1,0 +1,30 @@
+1. Virology. 2002 Apr 25;296(1):117-24. doi: 10.1006/viro.2002.1432.
+
+Yellow fever virus 17D envelope and NS3 proteins are major targets of the 
+antiviral T cell response in mice.
+
+van der Most RG(1), Harrington LE, Giuggio V, Mahar PL, Ahmed R.
+
+Author information:
+(1)Emory Vaccine Center, Emory University School of Medicine, Atlanta, Georgia 
+30322, USA. r.g.vandermost@vet.uu.nl
+
+The yellow fever virus 17D vaccine strain is one of the most effective and safe 
+vaccines available. The immune response after immunization is characterized by 
+long-lasting high titers of neutralizing antibodies. Here, we have initiated a 
+characterization of YFV-17D-specific cellular immune responses. This study makes 
+three points. First, we have identified two CD8 T cell epitopes and one CD4 T 
+cell epitope. An H-2Kb-restricted dominant epitope was mapped in the NS3 
+protein, whereas the viral envelope protein harbored an H-2Db-restricted 
+subdominant epitope and the I-Ab-restricted CD4 T cell epitope. Second, 
+illustrating the concept of immunodomination, we found that after abrogation of 
+the dominant response in H-2Kb knockout mice, the frequencies of T cells 
+recognizing the subdominant Db-restricted epitope increased dramatically. 
+Finally, the H-2Db-restricted epitope lacks the canonical Asn anchor residue at 
+position 5, indicating that epitopes may be missed by strict application of the 
+H-2Db-binding motif. Identification of these T cell epitopes will facilitate 
+studies on the cellular immunity against YFV-based expression or immunization 
+vectors.
+
+DOI: 10.1006/viro.2002.1432
+PMID: 12036323 [Indexed for MEDLINE]

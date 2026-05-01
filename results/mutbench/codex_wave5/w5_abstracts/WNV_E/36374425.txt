@@ -1,0 +1,34 @@
+1. Methods Mol Biol. 2023;2597:235-250. doi: 10.1007/978-1-0716-2835-5_17.
+
+Producing Biologics with Defined N-Glycosylation in Plants.
+
+Esqueda A(1), Chen Q(2).
+
+Author information:
+(1)The Biodesign Institute and School of Life Sciences, Arizona State 
+University, Tempe, AZ, USA.
+(2)The Biodesign Institute and School of Life Sciences, Arizona State 
+University, Tempe, AZ, USA. qiang.chen.4@asu.edu.
+
+The proper glycosylation of glycoproteins is important for their structure and 
+function. This is an especially important consideration when choosing a platform 
+to express recombinant glycoproteins destined for therapeutic use. Chinese 
+hamster ovary (CHO) cells have been the choice expression platform for their 
+ability to produce recombinant glycoproteins with glycosylation profiles similar 
+to those observed in humans. However, consistency with glycosylation has been 
+noted as problematic, and sialylation, an important modification in human 
+glycoproteins, has not been achieved to an acceptable degree in CHO cells. Plant 
+biotechnology and glycoengineering has now made it possible to produce 
+therapeutic recombinant glycoproteins in plants with glycosylation profiles 
+observed in humans, including sialylation. Furthermore, the glycosylation 
+profiles of recombinant therapeutic glycoproteins produced in plants are 
+homogenous and consistently reproducible. Here, entirely via transient 
+expression, two therapeutic monoclonal antibodies are produced in 
+glycoengineered Nicotiana benthamiana plants that carry human glycosylation 
+profiles including sialylation.
+
+© 2023. The Author(s), under exclusive license to Springer Science+Business 
+Media, LLC, part of Springer Nature.
+
+DOI: 10.1007/978-1-0716-2835-5_17
+PMID: 36374425 [Indexed for MEDLINE]

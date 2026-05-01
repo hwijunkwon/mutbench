@@ -1,0 +1,38 @@
+1. Expert Opin Drug Discov. 2012 May;7(5):417-28. doi: 
+10.1517/17460441.2012.673579. Epub 2012 Mar 22.
+
+Novel approaches to flavivirus drug discovery.
+
+Botting C(1), Kuhn RJ.
+
+Author information:
+(1)Department of Biological Sciences, Bindley Bioscience Center, Purdue 
+University, IN, USA.
+
+INTRODUCTION: The members of the family Flaviviridae, including West Nile virus, 
+yellow fever virus and dengue virus, are important human pathogens that are 
+expanding their impact around the globe. The four serotypes of dengue infect 
+50-100 million people each year, yet the only clinical treatment is supportive 
+care to reduce symptoms. Drugs that employ novel inhibition mechanisms and 
+targets are urgently needed to combat the growing incidence of dengue worldwide.
+AREAS COVERED: The authors discuss recently discovered flavivirus inhibitors 
+with a focus on antivirals targeting non-enzymatic proteins of the dengue virus 
+lifecycle. Specifically, the authors discuss the flaviviruses, the need for 
+novel inhibitors and the criteria for successful antiviral drug development. 
+Current literature describing new advances in antiviral therapy at each stage of 
+the flavivirus lifecycle (entry, endosomal escape, viral RNA processing and 
+replication, assembly and immune evasion) are evaluated and summarized.
+EXPERT OPINION: Overall, the prognosis of flavivirus antiviral drug development 
+is positive: new effective compounds have been discovered and studied. However, 
+repurposing existing compounds and a greater translation to the clinical setting 
+are recommended in order to combat the growing threat of flaviviruses.
+
+DOI: 10.1517/17460441.2012.673579
+PMCID: PMC6190671
+PMID: 22439769 [Indexed for MEDLINE]
+
+Conflict of interest statement: Declaration of Interest The authors thank the 
+NIH/NIAID Regional Center of Excellence for Bio-defense and the Emerging 
+Infectious Diseases Research (RCE) Program for financial support. We 
+specifically recognize membership in and support from the Region V “Great Lakes” 
+RECE (NIH award 2-U54-AI-057153).

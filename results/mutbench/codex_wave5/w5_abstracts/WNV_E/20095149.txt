@@ -1,0 +1,33 @@
+1. Avian Dis. 2009 Dec;53(4):502-9. doi: 10.1637/8688-031009-Reg.1.
+
+Oral and parenteral immunization of chickens (Gallus gallus) against West Nile 
+virus with recombinant envelope protein.
+
+Fassbinder-Orth CA(1), Hofmeister EK, Weeks-Levy C, Karasov WH.
+
+Author information:
+(1)Biology Department, Creighton University, 2500 California Plaza, Omaha, NE 
+68178, USA. CarolFassbinder-Orth@creighton.edu
+
+West Nile virus (WNV) causes morbidity and mortality in humans, horses, and in 
+more than 315 bird species in North America. Currently approved WNV vaccines are 
+designed for parenteral administration and, as yet, no effectiveoral WNV 
+vaccines have been developed. WNV envelope (E) protein is a highly antigenic 
+protein that elicits the majority ofvirus-neutralizing antibodies during a WNV 
+immune response. Leghorn chickens were given three vaccinations (each 2 wk 
+apart) of E proteinorally (20 microg or 100 microg/dose), of E protein 
+intramuscularly (IM, 20 microg/dose), or of adjuvant only (control group) 
+followed by a WNV challenge. Viremias were measured post-WNV infection, and 
+three new enzyme-linked immunosorbent assays were developed for quantifying IgM, 
+IgY, and IgA-mediated immune response of birds following WNV infection. WNV 
+viremia levelswere significantly lower in the IM group than in both oral groups 
+and the control group. Total WNV E protein-specific IgY production w 
+assignificantly greater, and WNV nonstructural 1-specific IgY w as significantly 
+less, in the IM group compared to all other treatment groups.The results of this 
+study indicate that IM vaccination of chickens with E protein is protective 
+against WNV infection and results in a significantly different antibody 
+production profile as compared to both orally vaccinated and nonvaccinated 
+birds.
+
+DOI: 10.1637/8688-031009-Reg.1
+PMID: 20095149 [Indexed for MEDLINE]

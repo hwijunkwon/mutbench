@@ -1,0 +1,45 @@
+1. Virol J. 2012 Nov 22;9:283. doi: 10.1186/1743-422X-9-283.
+
+West Nile alternative open reading frame (N-NS4B/WARF4) is produced in infected 
+West Nile Virus (WNV) cells and induces humoral response in WNV infected 
+individuals.
+
+Faggioni G(1), Pomponi A, De Santis R, Masuelli L, Ciammaruconi A, Monaco F, Di 
+Gennaro A, Marzocchella L, Sambri V, Lelli R, Rezza G, Bei R, Lista F.
+
+Author information:
+(1)Histology and Molecular Biology Section, Army Medical and Veterinary Research 
+Center Via Santo Stefano Rotondo, 4 00184 Rome, Italy. 
+giovanni.faggioni@gmail.com
+
+BACKGROUND: West Nile Virus (WNV) is a flavivirus that requires an efficient 
+humoral and cellular host response for the control of neuroinvasive infection. 
+We previously reported the existence of six alternative open reading frame 
+proteins in WNV genome, one of which entitled WARF4 is exclusively restricted to 
+the lineage I of the virus. WARF4 is able to elicit antibodies in WNV infected 
+horses; however, there was no direct experimental proof of the existence of this 
+novel protein. The purpose of this study was to demonstrate the in vitro 
+production of WARF4 protein following WNV infection of cultured VERO cells and 
+its immunity in WNV infected individuals.
+RESULTS: We produced a monoclonal antibody against WARF4 protein (MAb 3A12) 
+which detected the novel protein in WNV lineage I-infected, cultured VERO cells 
+while it did not react with WNV lineage II infected cells. MAb 3A12 specificity 
+to WARF4 protein was confirmed by its reactivity to only one peptide among four 
+analyzed that cover the full WARF4 amino acids sequence. In addition, WARF4 
+protein was expressed in the late phase of WNV lineage I infection. Western 
+blotting and bioinformatics analyses strongly suggest that the protein could be 
+translated by programmed -1 ribosomal frameshifting process. Since WARF4 is 
+embedded in the NS4B gene, we rename this novel protein N-NS4B/WARF4. 
+Furthermore, serological analysis shows that N-NS4B/WARF4 is able to elicit 
+antibodies in WNV infected individuals.
+CONCLUSIONS: N-NS4B/WARF4 is the second Alternative Reading Frame (ARF) protein 
+that has been demonstrated to be produced following WNV infection and might 
+represent a novel tool for a better characterization of immune response in WNV 
+infected individuals. Further serological as well as functional studies are 
+required to characterize the function of the N-NS4B/WARF4 protein. Since the 
+virus might actually make an extensive use of ARFs, it appears important to 
+investigate the novel six ARF putative proteins of WNV.
+
+DOI: 10.1186/1743-422X-9-283
+PMCID: PMC3574045
+PMID: 23173701 [Indexed for MEDLINE]

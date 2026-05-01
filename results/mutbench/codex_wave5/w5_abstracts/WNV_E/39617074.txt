@@ -1,0 +1,57 @@
+1. Microb Pathog. 2025 Jan;198:107171. doi: 10.1016/j.micpath.2024.107171. Epub 
+2024 Nov 29.
+
+From bytes to bites: In-silico creation of a novel multi-epitope vaccine against 
+Murray Valley Encephalitis Virus.
+
+Saihar A(1), Yaseen AR(2), Suleman M(3), Parveen R(4), Bashir H(5).
+
+Author information:
+(1)Center for Applied Molecular Biology, CAMB, University of the Punjab, Lahore, 
+Pakistan. Electronic address: aisha.saihar14702@gmail.com.
+(2)School of Biological Sciences, University of the Punjab, Lahore 54590, 
+Pakistan. Electronic address: 123allah.rakha@gmail.com.
+(3)School of Biological Sciences, University of the Punjab, Lahore 54590, 
+Pakistan. Electronic address: msulemanmughal123@gmail.com.
+(4)Center for Applied Molecular Biology, CAMB, University of the Punjab, Lahore, 
+Pakistan. Electronic address: Rukhsana.camb@pu.edu.pk.
+(5)Center for Applied Molecular Biology, CAMB, University of the Punjab, Lahore, 
+Pakistan. Electronic address: hamid.camb@pu.edu.pk.
+
+Flaviviruses transmitted by arthropods, including the Murray Valley Encephalitis 
+Virus (MVEV), are RNA viruses capable of causing severe encephalitis in various 
+hosts. The spread of these viruses is closely linked to climatic conditions and 
+the habitats of host and vector species, leading to outbreaks in new geographic 
+regions. Notable encephalitis-causing flaviviruses include Japanese encephalitis 
+virus (JEV), West Nile virus (WNV), and Kunjin virus (KUNV). MVEV, primarily 
+spread by the mosquito Culex annulirostris and amplified by water birds such as 
+egrets and Nankeen night herons, has caused significant outbreaks in Australia, 
+including severe epidemics in 1951, 1956, and 1974. Despite its severity, no 
+rapid diagnostic techniques or effective antiviral treatments are available, and 
+current interventions are limited to supportive care and mosquito management. 
+Given the absence of a licensed vaccine, this study aimed to develop a 
+multi-epitope hybrid vaccine targeting MVEV using in silico approaches. The 
+study focused on identifying B-cell and T-cell epitopes from the MVEV Envelope 
+(E) protein, constructing a vaccine candidate, and computationally validating 
+its immunogenic potential. The designed vaccine underwent rigorous analysis of 
+its antigenic properties, allergenicity, and toxicity. Disulfide engineering and 
+assessment of physicochemical properties ensured the structural integrity of the 
+vaccine, supported by Ramachandran plot and ProSA web analyses. Molecular 
+docking studies assessed the vaccine's binding affinities with TLR-3, and MHC-I. 
+Population coverage analysis of MHC-I and MHC-II epitopes evaluated global 
+efficacy. Additionally, molecular dynamics simulations explored the stability of 
+docked complexes, and PDBsum analysis elucidated interaction details. 
+Immunological simulations were conducted to predict immune response outcomes, 
+providing comprehensive validation of the vaccine's antigenicity. The findings 
+highlight the potential of a multi-epitope vaccine as a viable strategy for MVEV 
+prevention.
+
+Copyright © 2024 Elsevier Ltd. All rights reserved.
+
+DOI: 10.1016/j.micpath.2024.107171
+PMID: 39617074 [Indexed for MEDLINE]
+
+Conflict of interest statement: Declaration of competing interest The authors 
+declare that they have no known competing financial interests or personal 
+relationships that could have appeared to influence the work reported in this 
+paper.

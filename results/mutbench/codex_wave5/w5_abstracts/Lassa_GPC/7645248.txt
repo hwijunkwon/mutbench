@@ -1,0 +1,31 @@
+1. Virology. 1995 Aug 20;211(2):443-50. doi: 10.1006/viro.1995.1426.
+
+CTL escape viral variants. II. Biologic activity in vivo.
+
+Lewicki HA(1), Von Herrath MG, Evans CF, Whitton JL, Oldstone MB.
+
+Author information:
+(1)Department of Neuropharmacology, Scripps Research Institute, La Jolla, 
+California 92037, USA.
+
+The proteins of lymphocytic choriomeningitis virus (LCMV) contain only three 
+known peptide regions that are processed and then held in place by the MHC class 
+I H-2b (Db) glycoprotein on the cell's surface for recognition by LCMV-specific 
+Db-restricted cytotoxic T lymphocytes (CTL). These peptides are from the 
+glycoprotein (GP), amino acids 33-41 KAVYNFATC (GP1) and 276-286 SGVENPGGYCL 
+(GP2), and the nucleoprotein (NP), 396-404. We have used CTL clones that 
+recognized only GP1, GP2, and NP to select viral variants that upon infecting 
+cells bearing H-2b molecules escaped recognition by virus-specific CTL directed 
+against the viral GP (GP1 + GP2) mutant, termed GPV, or the viral GP and NP (GP1 
++ GP2 + NP) mutant, termed GPV+NPV. These CTL "escape" variants nevertheless 
+elicited sufficient host-protective activity in vivo to abort acute infection 
+and prevent the occurrence of persistent infection. This protection was CD8+ 
+lymphocyte mediated and associated with the generation of a novel (for H-2b 
+mice) CTL response to the viral L protein. Hence CTL epitopes form a hierarchy, 
+in which responses to "weak" epitopes are suppressed in the presence of 
+"stronger" epitopes. Mutation in the strong epitopes may be of limited 
+biological significance since the host can mount a protective response directed 
+against the second level (weak) epitopes.
+
+DOI: 10.1006/viro.1995.1426
+PMID: 7645248 [Indexed for MEDLINE]

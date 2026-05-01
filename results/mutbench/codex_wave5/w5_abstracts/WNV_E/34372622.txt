@@ -1,0 +1,45 @@
+1. Viruses. 2021 Jul 20;13(7):1409. doi: 10.3390/v13071409.
+
+Previous Usutu Virus Exposure Partially Protects Magpies (Pica pica) against 
+West Nile Virus Disease But Does Not Prevent Horizontal Transmission.
+
+Escribano-Romero E(1), Jiménez de Oya N(1), Camacho MC(2), Blázquez AB(1), 
+Martín-Acebes MA(1), Risalde MA(3)(4), Muriel L(3), Saiz JC(1), Höfle U(2).
+
+Author information:
+(1)Department of Biotechnology, Instituto Nacional de Investigación y Tecnología 
+Agraria y Alimentaria (INIA-CSIC), 28040 Madrid, Spain.
+(2)Health and Biotechnology Research Group SaBio, National Institute for Game 
+Rearch IREC (University of Castilla-La Mancha UCLM-National Research Council 
+CSIC-Regional Government of Castilla-La Mancha JCCM), 13005 Ciudad Real, Spain.
+(3)Departamento de Anatomía y Anatomía Patológica Comparadas, Facultad de 
+Veterinaria, Agrifood Excellence International Campus (ceiA3), Universidad de 
+Córdoba (UCO), 14014 Córdoba, Spain.
+(4)Infectious Diseases Unit, Hospital Universitario Reina Sofía de Córdoba, 
+Instituto Maimonides de Investigación Biomédica de Córdoba (IMIBIC), University 
+of Córdoba, 14004 Córdoba, Spain.
+
+The mosquito-borne flaviviruses USUV and WNV are known to co-circulate in large 
+parts of Europe. Both are a public health concern, and USUV has been the cause 
+of epizootics in both wild and domestic birds, and neurological cases in humans 
+in Europe. Here, we explore the susceptibility of magpies to experimental USUV 
+infection, and how previous exposure to USUV would affect infection with WNV. 
+None of the magpies exposed to USUV showed clinical signs, viremia, or 
+detectable neutralizing antibodies. After challenge with a neurovirulent WNV 
+strain, neither viremia, viral titer of WNV in vascular feathers, nor 
+neutralizing antibody titers of previously USUV-exposed magpies differed 
+significantly with respect to magpies that had not previously been exposed to 
+USUV. However, 75% (6/8) of the USUV-exposed birds survived, while only 22.2% 
+(2/9) of those not previously exposed to USUV survived. WNV antigen labeling by 
+immunohistochemistry in tissues was less evident and more restricted in magpies 
+exposed to USUV prior to challenge with WNV. Our data indicate that previous 
+exposure to USUV partially protects magpies against a lethal challenge with WNV, 
+while it does not prevent viremia and direct transmission, although the 
+mechanism is unclear. These results are relevant for flavivirus ecology and 
+contention.
+
+DOI: 10.3390/v13071409
+PMCID: PMC8310384
+PMID: 34372622 [Indexed for MEDLINE]
+
+Conflict of interest statement: The authors declare no conflict of interest.

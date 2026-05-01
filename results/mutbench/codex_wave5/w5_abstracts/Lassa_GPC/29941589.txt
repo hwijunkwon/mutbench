@@ -1,0 +1,53 @@
+1. Proc Natl Acad Sci U S A. 2018 Jul 10;115(28):7320-7325. doi: 
+10.1073/pnas.1803990115. Epub 2018 Jun 25.
+
+Structure of the Lassa virus glycan shield provides a model for immunological 
+resistance.
+
+Watanabe Y(1)(2)(3), Raghwani J(4), Allen JD(3), Seabright GE(1)(3), Li S(2), 
+Moser F(2), Huiskonen JT(2)(5), Strecker T(6), Bowden TA(7), Crispin M(8).
+
+Author information:
+(1)Oxford Glycobiology Institute, Department of Biochemistry, University of 
+Oxford, OX1 3QU Oxford, United Kingdom.
+(2)Division of Structural Biology, University of Oxford, OX3 7BN Oxford, United 
+Kingdom.
+(3)Centre for Biological Sciences and Institute of Life Sciences, University of 
+Southampton, SO17 1BJ Southampton, United Kingdom.
+(4)Big Data Institute, Li Ka Shing Centre for Health Information and Discovery, 
+Nuffield Department of Medicine, University of Oxford, OX3 7LF Oxford, United 
+Kingdom.
+(5)Helsinki Institute of Life Science and Molecular and Integrative Biosciences 
+Research Program, University of Helsinki, 00014 Helsinki, Finland.
+(6)Institute of Virology, Philipps Universität Marburg, 35043 Marburg, Germany.
+(7)Division of Structural Biology, University of Oxford, OX3 7BN Oxford, United 
+Kingdom; thomas.bowden@strubi.ox.ac.uk max.crispin@soton.ac.uk.
+(8)Centre for Biological Sciences and Institute of Life Sciences, University of 
+Southampton, SO17 1BJ Southampton, United Kingdom; thomas.bowden@strubi.ox.ac.uk 
+max.crispin@soton.ac.uk.
+
+Lassa virus is an Old World arenavirus endemic to West Africa that causes severe 
+hemorrhagic fever. Vaccine development has focused on the envelope glycoprotein 
+complex (GPC) that extends from the virion envelope. The often inadequate 
+antibody immune response elicited by both vaccine and natural infection has 
+been, in part, attributed to the abundance of N-linked glycosylation on the GPC. 
+Here, using a virus-like-particle system that presents Lassa virus GPC in a 
+native-like context, we determine the composite population of each of the 
+N-linked glycosylation sites presented on the trimeric GPC spike. Our analysis 
+reveals the presence of underprocessed oligomannose-type glycans, which form 
+punctuated clusters that obscure the proteinous surface of both the GP1 
+attachment and GP2 fusion glycoprotein subunits of the Lassa virus GPC. These 
+oligomannose clusters are seemingly derived as a result of sterically reduced 
+accessibility to glycan processing enzymes, and limited amino acid 
+diversification around these sites supports their role protecting against the 
+humoral immune response. Combined, our data provide a structure-based blueprint 
+for understanding how glycans render the glycoprotein spikes of Lassa virus and 
+other Old World arenaviruses immunologically resistant targets.
+
+Copyright © 2018 the Author(s). Published by PNAS.
+
+DOI: 10.1073/pnas.1803990115
+PMCID: PMC6048489
+PMID: 29941589 [Indexed for MEDLINE]
+
+Conflict of interest statement: The authors declare no conflict of interest.

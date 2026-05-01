@@ -1,0 +1,51 @@
+1. Proc Natl Acad Sci U S A. 2020 Mar 24;117(12):6675-6685. doi: 
+10.1073/pnas.1921388117. Epub 2020 Mar 9.
+
+Longitudinal dynamics of the human B cell response to the yellow fever 17D 
+vaccine.
+
+Wec AZ(1), Haslwanter D(2), Abdiche YN(3), Shehata L(1), Pedreño-Lopez N(4), 
+Moyer CL(5), Bornholdt ZA(5), Lilov A(1), Nett JH(1), Jangra RK(2), Brown M(1), 
+Watkins DI(4), Ahlm C(6), Forsell MN(6), Rey FA(7), Barba-Spaeth G(7), Chandran 
+K(2), Walker LM(8).
+
+Author information:
+(1)Adimab, LLC, Lebanon, NH 03766.
+(2)Department of Microbiology and Immunology, Albert Einstein College of 
+Medicine, Bronx, NY 10461.
+(3)Carterra Inc., Salt Lake City, UT 84103.
+(4)Department of Pathology, University of Miami, Miami, FL 33146.
+(5)Mapp Biopharmaceutical, Inc., San Diego, CA 92121.
+(6)Division of Infection & Immunology, Department of Clinical Microbiology, Umeå 
+University, 90187 Umeå, Sweden.
+(7)Structural Virology Unit, CNRS UMR 3569, Virology Department, Institut 
+Pasteur, 75015 Paris, France.
+(8)Adimab, LLC, Lebanon, NH 03766; laura.walker@adimab.com.
+
+A comprehensive understanding of the development and evolution of human B cell 
+responses induced by pathogen exposure will facilitate the design of 
+next-generation vaccines. Here, we utilized a high-throughput single B cell 
+cloning technology to longitudinally track the human B cell response to the 
+yellow fever virus 17D (YFV-17D) vaccine. The early memory B cell (MBC) response 
+was mediated by both classical immunoglobulin M (IgM) (IgM+CD27+) and switched 
+immunoglobulin (swIg+) MBC populations; however, classical IgM MBCs waned 
+rapidly, whereas swIg+ and atypical IgM+ and IgD+ MBCs were stable over time. 
+Affinity maturation continued for 6 to 9 mo following vaccination, providing 
+evidence for the persistence of germinal center activity long after the period 
+of active viral replication in peripheral blood. Finally, a substantial fraction 
+of the neutralizing antibody response was mediated by public clones that 
+recognize a fusion loop-proximal antigenic site within domain II of the viral 
+envelope glycoprotein. Overall, our findings provide a framework for 
+understanding the dynamics and complexity of human B cell responses elicited by 
+infection and vaccination.
+
+Copyright © 2020 the Author(s). Published by PNAS.
+
+DOI: 10.1073/pnas.1921388117
+PMCID: PMC7104296
+PMID: 32152119 [Indexed for MEDLINE]
+
+Conflict of interest statement: Competing interest statement: A.Z.W., L.S., 
+A.L., J.H.N., M.B., and L.M.W. are employees and equity holders in Adimab LLC. 
+C.L.M. and Z.A.B. are employees of and shareholders in Mapp Biopharmaceutical, 
+Inc.

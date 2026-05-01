@@ -1,0 +1,46 @@
+1. J Infect Chemother. 2019 Oct;25(10):786-790. doi: 10.1016/j.jiac.2019.04.003. 
+Epub 2019 May 16.
+
+Analysis of cross-reactivity between flaviviruses with sera of patients with 
+Japanese encephalitis showed the importance of neutralization tests for the 
+diagnosis of Japanese encephalitis.
+
+Maeki T(1), Tajima S(2), Ikeda M(2), Kato F(2), Taniguchi S(2), Nakayama E(2), 
+Takasaki T(3), Lim CK(2), Saijo M(2).
+
+Author information:
+(1)Department of Virology I, National Institute of Infectious Diseases, 1-23-1 
+Toyama, Shinjuku, Tokyo 162-8640, Japan. Electronic address: tomaeki@nih.go.jp.
+(2)Department of Virology I, National Institute of Infectious Diseases, 1-23-1 
+Toyama, Shinjuku, Tokyo 162-8640, Japan.
+(3)Kanagawa Prefectural Institute of Public Health, 1-3-1 Shimomachiya, 
+Chigasaki, Kanagawa 253-0087, Japan.
+
+Japanese encephalitis (JE) is one of the most important viral encephalitis in 
+Asia. JE is caused by the Japanese encephalitis virus (JEV), which belongs to 
+the genus Flavivirus, family Flaviviridae. The diagnosis of JE is usually based 
+on serological assays, and it has been reported that cross-reactivity between 
+flaviviruses has complicated the interpretations of results from serological 
+assays. Therefore, analysis of the cross-reactivity is an important subject for 
+serological diagnosis of JE and other diseases caused by flaviviruses. In the 
+present study, the cross-reactivity of the sera of patients with JE to other 
+flaviviruses was analyzed using enzyme-linked immunosorbent assay (ELISA) and 
+neutralization tests. Sixteen serum samples were collected from patients with JE 
+and were tested for: i) IgM antibody against West Nile virus (WNV), dengue virus 
+(DENV), zika virus (ZIKV), and tick-borne encephalitis virus (TBEV) using 
+IgM-ELISA, ii) IgG antibody against DENV and TBEV using IgG-ELISA, and iii) 
+neutralization tests with DENV 1-4, ZIKV, TBEV, and WNV. Out of the 16 samples 
+tested using ELISA, 11 and 14 samples were positive for IgM and IgG, 
+respectively, against at least one of the other flaviviruses. In neutralization 
+tests, neutralizing potency against DENV, ZIKV, or TBEV was not detected in any 
+samples. Although 13 samples showed neutralizing potency against WNV, their 
+neutralizing antibody titers were equal to or less than one-eighth of those 
+against JEV. These results show that neutralization tests are more specific than 
+ELISA, indicating the importance of the neutralization tests in the diagnosis of 
+JE.
+
+Copyright © 2019 Japanese Society of Chemotherapy and The Japanese Association 
+for Infectious Diseases. Published by Elsevier Ltd. All rights reserved.
+
+DOI: 10.1016/j.jiac.2019.04.003
+PMID: 31105002 [Indexed for MEDLINE]

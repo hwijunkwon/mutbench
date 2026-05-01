@@ -1,0 +1,38 @@
+1. J Vector Borne Dis. 2025 Jan 1;62(1):112-116. doi: 10.4103/JVBD.JVBD_168_23. 
+Epub 2024 Oct 5.
+
+Persistence of West Nile Virus circulation in northeast region of India: A 
+prospective facility-based study spanning over a decade.
+
+Khan SA(1), Chowdhury P(2), Shah A(1), Medhi H(1), Choudhury P(1), Chowdhury 
+P(3), Ghosh P(4).
+
+Author information:
+(1)Division of Medical Entomology, Arbovirology and Rickettsial Diseases, 
+ICMR-Regional Medical Research Centre, NE Region Bokel, Dibrugarh, Assam, India.
+(2)Department of Biotechnology, Tocklai Tea Research Institute, TRA, Cinnamara, 
+Lichubari, Jorhat, Assam, India.
+(3)Indian Institute of Technology, Guwahati, Assam, India.
+(4)Indian Council of Medical Research, New Delhi, India.
+
+BACKGROUND OBJECTIVES: To understand the distribution and presence of West Nile 
+(WN) among the acute encephalitis syndrome (AES) patients, a prospective 
+facility-based study was conducted over a period of 13 years (2007-2019).
+METHODS: During the period, 8957 patients hospitalized with AES in northeastern 
+India were tested for the evidence of WN virus infection by IgM ELISA followed 
+by Plaque reduction neutralization test (PRNT).
+RESULTS: Of the samples tested 324 (3.62%) were found positive for WN IgM 
+antibodies and 73 paired sera showed a fourfold rise in neutralizing antibody 
+titre by PRNT. The study establishes WN as a noteworthy cause of encephalitis in 
+an erstwhile endemic area for Japanese encephalitis (JE).
+INTERPRETATION CONCLUSION: It is important that WN is recognized as an important 
+acute encephalitis syndrome (AES) causing aetiology in this region and India's 
+National Centre for Vector Borne Diseases Control (NCVBDC) guidelines for 
+detection of AES may be modified accordingly. Thus, inclusion of WN in routine 
+diagnosis, along with establishment of an integrative surveillance network with 
+one-health approach will be important.
+
+Copyright © 2025 Journal of Vector Borne Diseases.
+
+DOI: 10.4103/JVBD.JVBD_168_23
+PMID: 39373251 [Indexed for MEDLINE]

@@ -1,0 +1,40 @@
+1. Virology. 1994 Feb;198(2):455-65. doi: 10.1006/viro.1994.1057.
+
+Acidic pH triggers LCMV membrane fusion activity and conformational change in 
+the glycoprotein spike.
+
+Di Simone C(1), Zandonatti MA, Buchmeier MJ.
+
+Author information:
+(1)Department of Neuropharmacology, Scripps Research Institute, La Jolla, 
+California 92037.
+
+Membrane fusion activity of the glycoprotein (GP) complex of LCMV was determined 
+using the R18 fluorescent dequenching assay. Utilization of an endosomal entry 
+route by LCMV and acidic activation of the membrane fusion activity were 
+indicated by the inhibition of LCMV infection at an early stage by the lysosomal 
+weak base chloroquine and the ionophore monensin. When LCMV was mixed with 
+R18-labeled liposomes with a lipid composition mimicking that of the endosome, 
+dequenching occurred only at acidic pH (< or = 6.0). The measured dequenching 
+was inhibited by protease treatment of the LCMV, indicative of protein-mediated 
+membrane fusion. The initial rate of fusion was measured at pH values between 
+5.3 and 7.0 and was found to decrease rapidly and linearly between pH 5.3 
+(0.177%/sec) and pH 6.0 (0.027%/sec). Binding and fusion of R18-labeled LCMV 
+with BHK cells were also examined. No difference was found between R18-labeled 
+and unlabeled LCMV in binding to or infection of BHK cells. Dequenching was 
+observed in labeled LCMV endocytosed by BHK cells. With BHK cells neither LCMV 
+fusion with the plasma membrane nor LCMV-induced cell-cell fusion was observed, 
+even under acidic conditions, and examination of the sequence of LCMV GP did not 
+reveal a likely candidate sequence for a "fusion peptide." The binding of 
+conformationally dependent monoclonal antibodies to GP was measured at neutral 
+and acidic pH in order to seek evidence of pH-dependent conformational change in 
+GP. Dissociation of the GP-1 from the complex was measured by sucrose gradients 
+run on purified virus. These experiments revealed that after exposure to acid pH 
+the LCMV glycoprotein spike complex underwent irreversible conformational change 
+in which GP-1 was dissociated from the virion, conformational epitopes on GP-1 
+were lost, and sequestered epitopes on GP-2 became exposed. Further, LCMV 
+infectivity was irreversibly inactivated by exposure to acidic pH (< 6.0), 
+likely due to the loss of GP-1 and conformation changes in GP-2.
+
+DOI: 10.1006/viro.1994.1057
+PMID: 8291229 [Indexed for MEDLINE]

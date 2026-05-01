@@ -1,0 +1,50 @@
+1. Cell Rep Med. 2024 Feb 20;5(2):101392. doi: 10.1016/j.xcrm.2024.101392. Epub 
+2024 Jan 26.
+
+Monoclonal antibody therapy protects nonhuman primates against mucosal exposure 
+to Lassa virus.
+
+Cross RW(1), Fenton KA(1), Woolsey C(1), Prasad AN(1), Borisevich V(1), Agans 
+KN(1), Deer DJ(1), Dobias NS(1), Fears AC(1), Heinrich ML(2), Geisbert JB(1), 
+Garry RF(3), Branco LM(2), Geisbert TW(4).
+
+Author information:
+(1)Galveston National Laboratory, University of Texas Medical Branch, Galveston, 
+TX, USA; Department of Microbiology and Immunology, University of Texas Medical 
+Branch, Galveston, TX, USA.
+(2)Zalgen Labs, LLC, Frederick, MD, USA.
+(3)Zalgen Labs, LLC, Frederick, MD, USA; Department of Microbiology and 
+Immunology, Tulane University School of Medicine, New Orleans, LA, USA.
+(4)Galveston National Laboratory, University of Texas Medical Branch, Galveston, 
+TX, USA; Department of Microbiology and Immunology, University of Texas Medical 
+Branch, Galveston, TX, USA. Electronic address: twgeisbe@utmb.edu.
+
+Lassa fever (LF) is an acute viral illness that causes thousands of deaths 
+annually in West Africa. There are currently no Lassa virus (LASV) vaccines or 
+antivirals approved for human use. Recently, we showed that combinations of 
+broadly neutralizing human monoclonal antibodies (BNhuMAbs) known as 
+Arevirumab-2 or Arevirumab-3 protected up to 100% of cynomolgus macaques against 
+challenge with diverse lineages of LASV when treatment was initiated at advanced 
+stages of disease. This previous work assessed efficacy against parenteral 
+exposure. However, transmission of LASV to humans occurs primarily by mucosal 
+exposure to virus shed from Mastomys rodents. Here, we describe the development 
+of a lethal intranasal exposure macaque model of LF. This model is employed to 
+show that Arevirumab cocktails rescue 100% of macaques from lethal LASV 
+infection when treatment is initiated 8 days after LASV exposure. Our work 
+demonstrates BNhuMAbs have utility in treating LASV infection acquired through 
+mucosal exposure.
+
+Copyright © 2024 The Author(s). Published by Elsevier Inc. All rights reserved.
+
+DOI: 10.1016/j.xcrm.2024.101392
+PMCID: PMC10897540
+PMID: 38280377 [Indexed for MEDLINE]
+
+Conflict of interest statement: Declaration of interests L.M.B., R.F.G., and 
+T.W.G. are named on a provisional World International Property Organization 
+patent entitled “Arenavirus Monoclonal Antibodies and Uses” (International 
+publication number WO 2018/106712 A1 filed on 14 June 2018) and on a US Patent 
+application entitled “Arenavirus Monoclonal Antibodies and Uses” (Publication 
+number US 2022/0089696 A1 filed on 24 March 2022). L.M.B. and R.F.G. are 
+co-founders of Zalgen Labs. L.M.B. receives compensation from Zalgen Labs. 
+L.M.B. is employed by Zalgen Labs and receives compensation from the company.

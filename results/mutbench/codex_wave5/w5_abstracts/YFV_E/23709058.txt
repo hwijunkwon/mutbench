@@ -1,0 +1,32 @@
+1. Virol Sin. 2013 Jun;28(3):152-60. doi: 10.1007/s12250-013-3331-8. Epub 2013
+May  25.
+
+Inhibition of Japanese encephalitis virus infection by flavivirus recombinant E 
+protein domain III.
+
+Fan J(1), Liu Y, Xie X, Zhang B, Yuan Z.
+
+Author information:
+(1)Key Laboratory of Agricultural and Environmental Microbiology, Wuhan 
+Institute of Virology, Chinese Academy of Sciences, Wuhan 430071, China.
+
+Japanese encephalitis virus (JEV) is a mosquito-borne flavivirus closely related 
+to the human pathogens including yellow fever virus, dengue virus and West Nile 
+virus. There are currently no effective antiviral therapies for all of the 
+flavivirus and only a few highly effective vaccines are licensed for human use. 
+In this paper, the E protein domain III (DIII) of six heterologous flaviviruses 
+(DENV1-4, WNV and JEV) was expressed in Escherichia coli successfully. The 
+proteins were purified after a solubilization and refolding procedure, 
+characterized by SDS-PAGE and Western blotting. Competitive inhibition showed 
+that all recombinant flavivirus DIII proteins blocked the entry of JEV into 
+BHK-21 cells. Further studies indicated that antibodies induced by the soluble 
+recombinant flavivirus DIII partially protected mice against lethal JEV 
+challenge. These results demonstrated that recombinant flavivirus DIII proteins 
+could inhibit JEV infection competitively, and immunization with proper folding 
+flavivirus DIII induced cross-protection against JEV infection in mice, implying 
+a possible role of DIII for the cross-protection among flavivirus as well as its 
+use in antigens for immunization in animal models.
+
+DOI: 10.1007/s12250-013-3331-8
+PMCID: PMC8208458
+PMID: 23709058 [Indexed for MEDLINE]

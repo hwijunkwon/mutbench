@@ -1,0 +1,30 @@
+1. Vaccines (Basel). 2025 Apr 24;13(5):449. doi: 10.3390/vaccines13050449.
+
+From Antibodies to Immunity: Assessing Correlates of Flavivirus Protection and 
+Cross-Reactivity.
+
+Flores HE(1), Pinzon Burgos EF(1), Camacho Ortega S(1), Heredia A(1), Chua 
+JV(1).
+
+Author information:
+(1)Division of Clinical Care and Research, Institute of Human Virology, 
+University of Maryland School of Medicine, Baltimore, MD 21201, USA.
+
+Flaviviruses are arthropod-borne RNA viruses that can cause a wide range of 
+human diseases, from mild symptoms to severe illness with multiorgan failure and 
+death. Effective prevention of these diseases relies on identifying reliable 
+vaccine targets, typically measured by correlates of protection (CoPs), which 
+help indicate host immunity after vaccination. Current vaccines primarily focus 
+on neutralizing antibodies (nAbs) against the viral envelope E protein, though 
+emerging evidence suggests other potential targets may also be effective in 
+disease prevention. Additionally, there is growing evidence of cross-protection 
+between different flaviviruses when immunity to one virus is achieved, although 
+this can be limited by antibody-dependent enhancement. This review examines the 
+current understanding of flavivirus immunity, CoPs, and the potential for 
+cross-protection in the context of existing vaccine strategies.
+
+DOI: 10.3390/vaccines13050449
+PMCID: PMC12115660
+PMID: 40432061
+
+Conflict of interest statement: The authors declare no conflicts of interest.

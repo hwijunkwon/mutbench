@@ -1,0 +1,58 @@
+1. Viruses. 2019 Mar 27;11(4):304. doi: 10.3390/v11040304.
+
+The Dengue ED3 Dot Assay, a Novel Serological Test for the Detection of 
+Denguevirus Type-Specific Antibodies and Its Application in a Retrospective 
+Seroprevalence Study.
+
+Auerswald H(1), Klepsch L(2), Schreiber S(3), Hülsemann J(4), Franzke K(5), Kann 
+S(6), Y B(7), Duong V(8), Buchy P(9)(10), Schreiber M(11).
+
+Author information:
+(1)Department of Virology, Bernhard Nocht Institute for Tropical Medicine, 
+Bernhard Nocht Str. 74, 20359 Hamburg, Germany. hauerswald@pasteur-kh.org.
+(2)Department of Virology, Bernhard Nocht Institute for Tropical Medicine, 
+Bernhard Nocht Str. 74, 20359 Hamburg, Germany. leonardklepsch@gmail.com.
+(3)Department of Virology, Bernhard Nocht Institute for Tropical Medicine, 
+Bernhard Nocht Str. 74, 20359 Hamburg, Germany. sebastian@schryber.com.
+(4)Department of Virology, Bernhard Nocht Institute for Tropical Medicine, 
+Bernhard Nocht Str. 74, 20359 Hamburg, Germany. j.huelsemann91@web.de.
+(5)Department of Virology, Bernhard Nocht Institute for Tropical Medicine, 
+Bernhard Nocht Str. 74, 20359 Hamburg, Germany. Kati.Franzke@fli.de.
+(6)Department of Virology, Bernhard Nocht Institute for Tropical Medicine, 
+Bernhard Nocht Str. 74, 20359 Hamburg, Germany. simone.kann@medmissio.de.
+(7)Virology Unit, Institut Pasteur in Cambodia, 5 Monivong Boulevard, 12201 
+Phnom Penh, Cambodia. ybunthin94@yahoo.com.
+(8)Virology Unit, Institut Pasteur in Cambodia, 5 Monivong Boulevard, 12201 
+Phnom Penh, Cambodia. dveasna@pasteur-kh.org.
+(9)Virology Unit, Institut Pasteur in Cambodia, 5 Monivong Boulevard, 12201 
+Phnom Penh, Cambodia. philippe.x.buchy@gsk.com.
+(10)GlaxoSmithKline, Vaccines R&D, 23 Rochester Park, Singapore 139234, 
+Singapore. philippe.x.buchy@gsk.com.
+(11)Department of Virology, Bernhard Nocht Institute for Tropical Medicine, 
+Bernhard Nocht Str. 74, 20359 Hamburg, Germany. Michael.Schreiber@bnitm.de.
+
+: There are four distinct antigenic serotypes of dengue viruses (DENV-1-4). 
+Sequential infections with different serotypes lead to crossreactive but also 
+serotypespecific neutralizing antibody responses. Neutralization assays are 
+considered as gold standard for serotype-specific antibody detection. However, 
+for retrospective seroprevalence studies, access to large serum quantities is 
+limited making neutralization assays well-nigh impossible. Therefore, a 
+serological test, wasting only 10 µL serum, was developed using fusion proteins 
+of maltose binding protein and E protein domain 3 (MBP-ED3) as antigens. Twelve 
+MBP-ED3 antigens for DENV-1-4, three MBP-ED3 antigens for WNV, JEV, and TBEV, 
+and MBP were dotted onto a single nitrocellulose strip. ED3 dot assay results 
+were compared to virus neutralization and ED3 ELISA test results, showing a >90% 
+accordance for DENV-1 and a 100% accordance for DENV-2, making the test 
+specifically useful for DENV-1/-2 serotype-specific antibody detection. Since 
+2010, DENV-1 has replaced DENV-2 as the dominant serotype in Cambodia. In a 
+retrospective cohort analysis, sera collected during the DENV-1/-2 endemic 
+period showed a shift to DENV-2-specific antibody responses in 2012 paralleled 
+by the decline of DENV-2 infections. Altogether, the ED3 dot assay is a serum-, 
+time- and money-saving diagnostic tool for serotype-specific antibody detection, 
+especially when serum samples are limited.
+
+DOI: 10.3390/v11040304
+PMCID: PMC6521013
+PMID: 30934772 [Indexed for MEDLINE]
+
+Conflict of interest statement: The authors declare no conflict of interest.

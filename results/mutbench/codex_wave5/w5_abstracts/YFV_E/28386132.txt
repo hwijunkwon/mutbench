@@ -1,0 +1,48 @@
+1. Sci Rep. 2017 Apr 6;7(1):662. doi: 10.1038/s41598-017-00798-1.
+
+Adaptive immune responses to booster vaccination against yellow fever virus are 
+much reduced compared to those after primary vaccination.
+
+Kongsgaard M(1), Bassi MR(1), Rasmussen M(1), Skjødt K(2), Thybo S(3), Gabriel 
+M(4), Hansen MB(5), Christensen JP(1), Thomsen AR(1), Buus S(6), Stryhn A(7).
+
+Author information:
+(1)Department of Immunology and Microbiology, University of Copenhagen, 
+Copenhagen, Denmark.
+(2)Department of Cancer and Inflammation, Institute for Molecular Medicine, 
+University of Southern Denmark, Odense, Denmark.
+(3)Department of Infectious Diseases, Copenhagen University Hospital, 
+Copenhagen, Denmark.
+(4)Medical Office, Copenhagen, Denmark.
+(5)Department of Clinical Immunology, Copenhagen University Hospital, 
+Copenhagen, Denmark.
+(6)Department of Immunology and Microbiology, University of Copenhagen, 
+Copenhagen, Denmark. SBuus@sund.ku.dk.
+(7)Department of Immunology and Microbiology, University of Copenhagen, 
+Copenhagen, Denmark. AStryhn@sund.ku.dk.
+
+Outbreaks of Yellow Fever occur regularly in endemic areas of Africa and South 
+America frequently leading to mass vaccination campaigns straining the 
+availability of the attenuated Yellow Fever vaccine, YF-17D. The WHO has 
+recently decided to discontinue regular booster-vaccinations since a single 
+vaccination is deemed to confer life-long immune protection. Here, we have 
+examined humoral (neutralizing antibody) and cellular (CD8 and CD4 T cell) 
+immune responses in primary and booster vaccinees (the latter spanning 8 to 36 
+years after primary vaccination). After primary vaccination, we observed strong 
+cellular immune responses with T cell activation peaking ≈2 weeks and subsiding 
+to background levels ≈ 4 weeks post-vaccination. The number of antigen-specific 
+CD8+ T cells declined over the following years. In >90% of vaccinees, in vitro 
+expandable T cells could still be detected >10 years post-vaccination. Although 
+most vaccinees responded to a booster vaccination, both the humoral and cellular 
+immune responses observed following booster vaccination were strikingly reduced 
+compared to primary responses. This suggests that pre-existing immunity 
+efficiently controls booster inoculums of YF-17D. In a situation with epidemic 
+outbreaks, one could argue that a more efficient use of a limited supply of the 
+vaccine would be to focus on primary vaccinations.
+
+DOI: 10.1038/s41598-017-00798-1
+PMCID: PMC5429613
+PMID: 28386132 [Indexed for MEDLINE]
+
+Conflict of interest statement: The authors declare that they have no competing 
+interests.

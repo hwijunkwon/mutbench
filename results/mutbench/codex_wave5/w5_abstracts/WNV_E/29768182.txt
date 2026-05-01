@@ -1,0 +1,35 @@
+1. N Biotechnol. 2018 Nov 25;46:7-13. doi: 10.1016/j.nbt.2018.05.002. Epub 2018
+Jun  5.
+
+Enhanced production and immunological characterization of recombinant West Nile 
+virus envelope domain III protein.
+
+Tripathi NK(1), Karothia D(2), Shrivastava A(2), Banger S(3), Kumar JS(2).
+
+Author information:
+(1)Bioprocess Scale Up Facility, Defence Research and Development Establishment, 
+Jhansi Road, Gwalior, 474002, India. Electronic address: tripathink@gmail.com.
+(2)Division of Virology, Defence Research and Development Establishment, Jhansi 
+Road, Gwalior, 474002, India.
+(3)Bioprocess Scale Up Facility, Defence Research and Development Establishment, 
+Jhansi Road, Gwalior, 474002, India.
+
+West Nile virus (WNV) is an emerging mosquito-borne virus which is responsible 
+for severe and fatal encephalitis in humans and for which there is no licensed 
+vaccine or therapeutic available to prevent infection. The envelope domain III 
+protein (EDIII) of WNV was over-expressed in Escherichia coli and purified using 
+a two-step chromatography process which included immobilized metal affinity 
+chromatography and ion exchange chromatography. E. coli cells were grown in a 
+bioreactor to high density using batch and fed-batch cultivation. Wet biomass 
+obtained after batch and fed-batch cultivation processes was 11.2 g and 84 g/L 
+of culture respectively. Protein yield after affinity purification was 5.76 mg 
+and 5.81 mg/g wet cell weight after batch and fed-batch processes respectively. 
+The purified WNV EDIII elicited specific antibodies in rabbits, confirming its 
+immunogenicity. Moreover, the antibodies were able to neutralize WNV in vitro. 
+These results established that the refolded and purified WNV EDIII could be a 
+potential vaccine candidate.
+
+Copyright © 2018 Elsevier B.V. All rights reserved.
+
+DOI: 10.1016/j.nbt.2018.05.002
+PMID: 29768182 [Indexed for MEDLINE]

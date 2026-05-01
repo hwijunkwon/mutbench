@@ -1,0 +1,32 @@
+1. Virology. 2012 Mar 15;424(2):129-37. doi: 10.1016/j.virol.2011.12.012. Epub
+2012  Jan 14.
+
+A West Nile virus CD4 T cell epitope improves the immunogenicity of dengue virus 
+serotype 2 vaccines.
+
+Hughes HR(1), Crill WD, Davis BS, Chang GJ.
+
+Author information:
+(1)Arboviral Diseases Branch, Division of Vector-Borne Diseases, Centers for 
+Disease Control and Prevention, U.S. Department of Health and Human Services, 
+Fort Collins, CO 80521, USA
+
+Flaviviruses, such as dengue virus (DENV) and West Nile virus (WNV), are among 
+the most prevalent human disease-causing arboviruses world-wide. As they 
+continue to expand their geographic range, multivalent flavivirus vaccines may 
+become an important public health tool. Here we describe the immune kinetics of 
+WNV DNA vaccination and the identification of a CD4 epitope that increases 
+heterologous flavivirus vaccine immunogenicity. Lethal WNV challenge two days 
+post-vaccination resulted in 90% protection with complete protection by four 
+days, and was temporally associated with a rapid influx of activated CD4 T 
+cells. CD4 T cells from WNV vaccinated mice could be stimulated from epitopic 
+regions in the envelope protein transmembrane domain. Incorporation of this WNV 
+epitope into DENV-2 DNA and virus-like particle vaccines significantly increased 
+neutralizing antibody titers. Incorporating such potent epitopes into 
+multivalent flavivirus vaccines could improve their immunogenicity and may help 
+alleviate concerns of imbalanced immunity in multivalent vaccine approaches.
+
+Published by Elsevier Inc.
+
+DOI: 10.1016/j.virol.2011.12.012
+PMID: 22244913 [Indexed for MEDLINE]

@@ -1,0 +1,33 @@
+1. Virology. 1992 May;188(1):160-7. doi: 10.1016/0042-6822(92)90745-b.
+
+Heterogeneity in envelope protein sequence and N-linked glycosylation among 
+yellow fever virus vaccine strains.
+
+Post PR(1), Santos CN, Carvalho R, Cruz AC, Rice CM, Galler R.
+
+Author information:
+(1)Fundação Oswaldo Cruz, Departamento de Bioquimica e Biologia Molecular, Rio 
+de Janeiro, Brazil.
+
+We have compared the deduced envelope (E) protein sequences of two biologically 
+well-characterized yellow fever (YF) virus vaccine strains. The 17DD strain has 
+been produced in Brazil for more than 50 years and used to successfully 
+vaccinate millions of people worldwide. The 17D-213 is a candidate vaccine 
+strain produced in tissue culture which has previously passed the monkey 
+neurovirulence assay for testing human YF vaccines. Nucleotide sequence analysis 
+of polymerase chain reaction-amplified cDNA revealed a number of mutations which 
+were strain- and substrain-specific. A major difference of 17DD and 17D-213 as 
+compared to 17D-204 and Asibi was the existence of a potential N-linked 
+glycosylation site located at amino acid residues 153 and 151 of 17DD and 
+17D-213, respectively. These acceptor sites are apparently utilized for the 
+addition of high-mannose carbohydrate chains as shown by endoglycosidase 
+analyses of immunoprecipitated E proteins. Glycosylated E protein is also used 
+to assemble YF vaccine virions. This work and eventual complete nucleotide 
+sequence analysis of both vaccine strains should help to define possible changes 
+involved in YF virus attenuation and allow their biological importance to be 
+determined using a recently developed system for generating YF virus from cDNA. 
+In addition, these data provide an estimate on the extent of genetic variability 
+among YF 17D seeds and vaccines.
+
+DOI: 10.1016/0042-6822(92)90745-b
+PMID: 1566570 [Indexed for MEDLINE]

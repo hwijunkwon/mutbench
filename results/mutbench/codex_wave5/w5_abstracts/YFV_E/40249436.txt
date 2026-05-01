@@ -1,0 +1,27 @@
+1. Methods Mol Biol. 2025;2913:193-200. doi: 10.1007/978-1-0716-4458-4_17.
+
+Micro-Focus Reduction Neutralization Tests (mFRNT) for Neutralizing Antibody 
+(Nab) Quantification Against Yellow Fever Virus.
+
+de Souza Azevedo A(1), Dos Santos Alves N(2).
+
+Author information:
+(1)Laboratory of Immunomolecular Analysis, Institute of Technology in 
+Immunobiologicals (Bio-Manguinhos), Oswaldo Cruz Foundation (FIOCRUZ), Rio de 
+Janeiro, Brazil. adriana.soares@bio.fiocruz.br.
+(2)Laboratory of Immunomolecular Analysis, Institute of Technology in 
+Immunobiologicals (Bio-Manguinhos), Oswaldo Cruz Foundation (FIOCRUZ), Rio de 
+Janeiro, Brazil. nathalia.alves@bio.fiocruz.br.
+
+Although the plaque reduction neutralization test (PRNT) is considered the 
+reference for measuring neutralizing antibodies for Yellow fever virus (YFV), 
+the micro-focus reduction neutralization test (mFRNT) presents many advantages 
+including a higher throughput, a reduced incubation time, and allows the 
+automatic foci count. So, here we describe a detailed mFRNT method that provides 
+a faster neutralization test essential for non-clinical and clinical studies and 
+vaccine design.
+
+© 2025. Springer Science+Business Media, LLC, part of Springer Nature.
+
+DOI: 10.1007/978-1-0716-4458-4_17
+PMID: 40249436 [Indexed for MEDLINE]

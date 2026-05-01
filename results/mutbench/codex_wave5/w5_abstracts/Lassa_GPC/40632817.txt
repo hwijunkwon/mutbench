@@ -1,0 +1,48 @@
+1. PLoS Pathog. 2025 Jul 9;21(7):e1013345. doi: 10.1371/journal.ppat.1013345. 
+eCollection 2025 Jul.
+
+Polyclonal B cells acquire LCMV antigens in a GP1-dependent manner.
+
+Chamberlain G(1), Lopez GL(1), Bourguignon L(1), Laulhé X(1), Adda-Bouchard 
+Y(1), Charpentier T(1), Honce R(2), Botten JW(2), Lamarre A(1).
+
+Author information:
+(1)Immunovirology Laboratory, Institut national de la recherche scientifique 
+(INRS), Centre Armand-Frappier Santé Biotechnologie, Laval, Québec, Canada.
+(2)Department of Medicine, Division of Pulmonary Disease and Critical Care 
+Medicine, Robert Larner, M.D. College of Medicine, University of Vermont, 
+Burlington, Vermont, United States of America.
+
+The polyclonal, T-dependent nature of hypergammaglobulinemia during murine 
+infection with LCMV is well defined, however the mechanism by which polyclonal B 
+cells acquire antigens for presentation remains unknown. Here we use 
+LCMV-specific CD4 + transgenic T cells to explore several hypotheses for B cell 
+antigen uptake. We found that antigens produced by cells infected with LCMV in 
+vitro are available to polyclonal B cells and their presentation to CD4+ T cells 
+enabled robust co-activation. The in vitro nature of our model demonstrates that 
+in vivo factors such as cytokine milieu and antigen release by NK/CD8+ are not 
+required. We show that non-replicative UVC-irradiated LCMV enables antigen 
+access to B cells, thus productive infection of B cells is not required for 
+antigen acquisition. B cells loaded with LCMV antigens in vitro can efficiently 
+present these antigens to CD4+ T cells in LCMV-infected mice, thereby validating 
+our model in vivo. Using transmission electron microscopy we identified LCMV-GP 
+bearing particles of various sizes including <50nm, a size accessible to B cells 
+via pinocytosis. The particles morphologically resemble exosomes or viral 
+particles (infective or defective interfering). We show that polyclonal B cell 
+access to Ag is maintained when exosome release or viral defective interfering 
+particle release is inhibited. Finally, we used a monovalent Fab derived from 
+the LCMV-neutralizing antibody KL25 to show that access to the viral GP1 protein 
+is important in order for polyclonal B cells to efficiently acquire LCMV antigen 
+for presentation, suggesting the presence of a GP1 receptor on B cells.
+
+Copyright: © 2025 Chamberlain et al. This is an open access article distributed 
+under the terms of the Creative Commons Attribution License, which permits 
+unrestricted use, distribution, and reproduction in any medium, provided the 
+original author and source are credited.
+
+DOI: 10.1371/journal.ppat.1013345
+PMCID: PMC12258595
+PMID: 40632817 [Indexed for MEDLINE]
+
+Conflict of interest statement: The authors have declared that no competing 
+interests exist.

@@ -1,0 +1,44 @@
+1. Clin Vaccine Immunol. 2009 Sep;16(9):1332-7. doi: 10.1128/CVI.00119-09. Epub 
+2009 Jul 29.
+
+Immunogenicity and protective efficacy of a recombinant subunit West Nile virus 
+vaccine in rhesus monkeys.
+
+Lieberman MM(1), Nerurkar VR, Luo H, Cropp B, Carrion R Jr, de la Garza M, 
+Coller BA, Clements D, Ogata S, Wong T, Martyak T, Weeks-Levy C.
+
+Author information:
+(1)Hawaii Biotech, Inc., Aiea, HI 96701, USA.
+
+The immunogenicity and protective efficacy of a recombinant subunit West Nile 
+virus (WNV) vaccine was evaluated in rhesus macaques (Macaca mulatta). The 
+vaccine consisted of a recombinant envelope (E) protein truncated at the 
+C-terminal end, resulting in a polypeptide containing 80% of the N-terminal 
+amino acids of the native WNV protein (WN-80E), mixed with an adjuvant 
+(GPI-0100). WN-80E was produced in a Drosophila melanogaster expression system 
+with high yield and purified by immunoaffinity chromatography using a monoclonal 
+antibody specific for flavivirus E proteins. Groups of monkeys were vaccinated 
+with formulations containing 1 or 25 microg of WN-80E antigen, and both humoral 
+and cellular immunity were assessed after vaccination. The results demonstrated 
+potent antibody responses to vaccination, as determined by both enzyme-linked 
+immunosorbent assay and virus-neutralizing antibody assays. All vaccinated 
+animals responded favorably, and there was little difference in response between 
+animals immunized with 1 or 25 microg of WN-80E. Cellular immunity was 
+determined by lymphocyte proliferation and cytokine production assays using 
+peripheral blood mononuclear cells from vaccinated animals stimulated in vitro 
+with WN-80E. Cell-mediated immune responses varied from animal to animal within 
+each group. About half of the animals responded with lymphoproliferation, 
+cytokine production, or both. Again, there was little difference in response 
+between animals immunized with a 1- or 25-microg dose of WN-80E in the vaccine 
+formulations. In a separate experiment, groups of monkeys were immunized with 
+the WN-80E/GPI-0100 vaccine or an adjuvant-only control formulation. Animals 
+were then challenged by inoculation of wild-type WNV, and the level of viremia 
+in each animal was monitored daily for 10 days. The results showed that whereas 
+all animals in the control group had detectable viremia for at least 3 days 
+after challenge, all of the vaccinated animals were negative on all days after 
+challenge. Thus, the WN-80E vaccine was 100% efficacious in protecting monkeys 
+against infection with WNV.
+
+DOI: 10.1128/CVI.00119-09
+PMCID: PMC2745014
+PMID: 19641099 [Indexed for MEDLINE]

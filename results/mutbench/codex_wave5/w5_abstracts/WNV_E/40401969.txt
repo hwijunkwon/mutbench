@@ -1,0 +1,63 @@
+1. Microbiol Spectr. 2025 Jul;13(7):e0004725. doi: 10.1128/spectrum.00047-25.
+Epub  2025 May 22.
+
+Identification of West Nile virus infection by anti-premembrane antibodies in 
+Nicaraguan children prior to 2007-2009.
+
+Tsai W-Y(#)(1)(2), Tseng AC(#)(1)(2), Chen G-H(1)(2), Hsieh S-C(1)(2), Balmaseda 
+A(3)(4), Nerurkar VR(1)(2), Harris E(5), Wang W-K(1)(2).
+
+Author information:
+(1)Department of Tropical Medicine, Medical Microbiology and Pharmacology, 
+University of Hawaii at Manoa, Honolulu, Hawaii, USA.
+(2)Pacific Center for Emerging Infectious Diseases, John A. Burns School of 
+Medicine, University of Hawaii at Manoa, Honolulu, Hawaii, USA.
+(3)National Virology Laboratory, National Center for Diagnosis and Reference, 
+Ministry of Health, Managua, Nicaragua.
+(4)Sustainable Sciences Institute, Managua, Nicaragua.
+(5)Division of Infectious Diseases and Vaccinology, School of Public Health, 
+University of California, Berkeley, Berkeley, California, USA.
+(#)Contributed equally
+
+Since its introduction to the Western Hemisphere in 1999 in New York City, West 
+Nile virus (WNV) has spread throughout the continental USA and moved into 
+Canada, Mexico, Caribbean, and Central and South Americas. While WNV has caused 
+~7 million human infections and >59,000 cases in the USA and >6,000 cases in 
+Canada, only few human cases have been reported in Latin America. Due to the 
+cross-reactivity of anti-envelope antibodies, the detection of WNV infection by 
+serology to explore its epidemiology in Latin America, where multiple 
+flaviviruses co-circulate, remains a challenge. Previously, we reported that 
+anti-premembrane (prM) antibodies can distinguish between four flavivirus (WNV, 
+dengue, Zika, and yellow fever viruses) infections. In this study, we examined 
+73 samples from 40 Zika cases from a pediatric cohort in Nicaragua using Western 
+blot analysis and detected anti-prM antibodies to WNV in three participants in 
+samples collected between 2016 and 2017, suggesting previous WNV infection prior 
+to ZIKV infection. Analysis of available archived samples revealed anti-WNV prM 
+antibodies in the earliest samples (2007-2009), which were further confirmed by 
+plaque reduction neutralization test, suggesting that they were infected by WNV 
+prior to 2007-2009. Our report of WNV infection in three Nicaraguan children, 
+corresponding to a seropositive rate of 7.5%, highlights the transmission of WNV 
+in humans in Central America prior to 2007. Future studies with improved 
+serological tests for WNV surveillance in Latin America are needed to enhance 
+our understanding of the epidemiology and transmission of WNV in the Western 
+Hemisphere.
+IMPORTANCE: Since its arrival to North America in 1999, West Nile virus (WNV) 
+has caused multiple outbreaks in birds and humans, with thousands of human cases 
+in the USA and Canada, whereas in Latin America, WNV has mainly been detected in 
+birds and horses with few human cases. Due to cross-reactivity of anti-envelope 
+antibodies among different flaviviruses, detection of WNV infection by serology 
+to explore its epidemiology in Latin America remains a challenge. Previously, we 
+reported that anti-premembrane antibodies can discriminate four flavivirus 
+infections using Western blot analysis. Based on anti-WNV premembrane antibodies 
+and confirmation by neutralization test, we report three Nicaraguan children 
+with WNV infection, corresponding to a seropositive rate of 7.5%. Our findings 
+underscore the transmission of WNV in humans in Central America and the 
+application of improved seroepidemiological tools to address the knowledge gaps 
+on the prevalence and distribution of WNV in Latin America and the Western 
+Hemisphere.
+
+DOI: 10.1128/spectrum.00047-25
+PMCID: PMC12210876
+PMID: 40401969 [Indexed for MEDLINE]
+
+Conflict of interest statement: The authors declare no conflict of interest.

@@ -1,0 +1,41 @@
+1. J Virol. 2010 Oct;84(19):9947-56. doi: 10.1128/JVI.00672-10. Epub 2010 Jul 28.
+
+A multivalent vaccination strategy for the prevention of Old World arenavirus 
+infection in humans.
+
+Botten J(1), Whitton JL, Barrowman P, Sidney J, Whitmire JK, Alexander J, 
+Kotturi MF, Sette A, Buchmeier MJ.
+
+Author information:
+(1)Department of Medicine, University of Vermont College of Medicine, 
+Burlington, VT 05405, USA. jbotten@uvm.edu
+
+Arenaviruses cause severe human disease ranging from aseptic meningitis 
+following lymphocytic choriomeningitis virus (LCMV) infection to hemorrhagic 
+fever syndromes following infection with Guanarito virus (GTOV), Junin virus 
+(JUNV), Lassa virus (LASV), Machupo virus (MACV), Sabia virus (SABV), or 
+Whitewater Arroyo virus (WWAV). Cellular immunity, chiefly the CD8(+) T-cell 
+response, plays a critical role in providing protective immunity following 
+infection with the Old World arenaviruses LASV and LCMV. In the current study, 
+we evaluated whether HLA class I-restricted epitopes that are cross-reactive 
+among pathogenic arenaviruses could be identified for the purpose of developing 
+an epitope-based vaccination approach that would cross-protect against multiple 
+arenaviruses. We were able to identify a panel of HLA-A*0201-restricted peptides 
+derived from the same region of the glycoprotein precursor (GPC) of LASV (GPC 
+spanning residues 441 to 449 [GPC(441-449)]), LCMV (GPC(447-455)), JUNV 
+(GPC(429-437)), MACV (GPC(444-452)), GTOV (GPC(427-435)), and WWAV 
+(GPC(428-436)) that displayed high-affinity binding to HLA-A*0201 and were 
+recognized by CD8(+) T cells in a cross-reactive manner following LCMV infection 
+or peptide immunization of HLA-A*0201 transgenic mice. Immunization of 
+HLA-A*0201 mice with the Old World peptide LASV GPC(441-449) or LCMV 
+GPC(447-455) induced high-avidity CD8(+) T-cell responses that were able to kill 
+syngeneic target cells pulsed with either LASV GPC(441-449) or LCMV GPC(447-455) 
+in vivo and provided significant protection against viral challenge with LCMV. 
+Through this study, we have demonstrated that HLA class I-restricted, 
+cross-reactive epitopes exist among diverse arenaviruses and that individual 
+epitopes can be utilized as effective vaccine determinants for multiple 
+pathogenic arenaviruses.
+
+DOI: 10.1128/JVI.00672-10
+PMCID: PMC2937778
+PMID: 20668086 [Indexed for MEDLINE]

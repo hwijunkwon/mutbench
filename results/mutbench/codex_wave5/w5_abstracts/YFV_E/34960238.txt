@@ -1,0 +1,41 @@
+1. Vaccines (Basel). 2021 Dec 16;9(12):1492. doi: 10.3390/vaccines9121492.
+
+A Yellow Fever 17D Virus Replicon-Based Vaccine Platform for Emerging 
+Coronaviruses.
+
+Oreshkova N(1), Myeni SK(1), Mishra N(2), Albulescu IC(1), Dalebout TJ(1), 
+Snijder EJ(1), Bredenbeek PJ(1), Dallmeier K(2), Kikkert M(1).
+
+Author information:
+(1)Center of Infectious Diseases LU-CID, Department of Medical Microbiology, 
+Leiden University Medical Center, Albinusdreef 2, 2333 ZA Leiden, The 
+Netherlands.
+(2)Laboratory of Virology and Chemotherapy, Molecular Vaccinology and Vaccine 
+Discovery, Department of Microbiology, Immunology and Transplantation, Rega 
+Institute, KU Leuven, Herestraat 49 Box 1043, 3000 Leuven, Belgium.
+
+The tremendous global impact of the current SARS-CoV-2 pandemic, as well as 
+other current and recent outbreaks of (re)emerging viruses, emphasize the need 
+for fast-track development of effective vaccines. Yellow fever virus 17D (YF17D) 
+is a live-attenuated virus vaccine with an impressive efficacy record in humans, 
+and therefore, it is a very attractive platform for the development of novel 
+chimeric vaccines against various pathogens. In the present study, we generated 
+a YF17D-based replicon vaccine platform by replacing the prM and E surface 
+proteins of YF17D with antigenic subdomains from the spike (S) proteins of three 
+different betacoronaviruses: MERS-CoV, SARS-CoV and MHV. The prM and E proteins 
+were provided in trans for the packaging of these RNA replicons into 
+single-round infectious particles capable of expressing coronavirus antigens in 
+infected cells. YF17D replicon particles expressing the S1 regions of the 
+MERS-CoV and SARS-CoV spike proteins were immunogenic in mice and elicited 
+(neutralizing) antibody responses against both the YF17D vector and the 
+coronavirus inserts. Thus, YF17D replicon-based vaccines, and their potential 
+DNA- or mRNA-based derivatives, may constitute a promising and particularly safe 
+vaccine platform for current and future emerging coronaviruses.
+
+DOI: 10.3390/vaccines9121492
+PMCID: PMC8704410
+PMID: 34960238
+
+Conflict of interest statement: The authors declare no conflict of interest. The 
+sponsors had no role in the design, execution, interpretation, or writing of the 
+study.

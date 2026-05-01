@@ -1,0 +1,39 @@
+1. J Virol. 1983 Oct;48(1):262-70. doi: 10.1128/JVI.48.1.262-270.1983.
+
+Viral proteins and RNAs in BHK cells persistently infected by lymphocytic 
+choriomeningitis virus.
+
+van der Zeijst BA, Bleumink N, Crawford LV, Swyryd EA, Stark GR.
+
+Some Syrian hamster cell lines persistently infected with lymphocytic 
+choriomeningitis virus (LCMV) do not produce extracellular virus particles but 
+do contain intracytoplasmic infectious material. The proteins of these cells 
+were labeled with [35S]methionine or with [3H]glucosamine and [3H]mannose, and 
+immunoprecipitates were prepared with anti-LCMV sera. A substantial amount of 
+the LCMV nucleocapsid protein (molecular weight about 58,000) was detected, 
+along with GP-C, the precursor of the virion glycoproteins GP-1 and GP-2. GP-1 
+and GP-2 themselves were not detected. A new method of transferring proteins 
+electrophoretically from sodium dodecyl sulfate-polyacrylamide gels to 
+diazotized paper in high yield revealed several additional LCMV proteins present 
+specifically in the persistently infected cells, at apparent molecular weights 
+(X10(3] of 112, 107, 103, 89, 71 (probably GP-C), 58 (nucleocapsid protein), 42 
+to 47 (probably GP-1), and 40 (possibly GP-2). By iodinating intact cells with 
+I3, GP-1 but not GP-2 or GP-C was revealed on the surfaces of the persistently 
+infected cells, whereas both GP-1 and GP-C were found on the surfaces of acutely 
+infected cells. The absence of GP-C from the plasma membrane of the persistently 
+infected cells might be related to defective maturation of the virus in these 
+cells. Cytoplasmic viral nucleoprotein complexes were labeled with [3H]uridine 
+in the presence or absence of actinomycin D, purified partially by sedimentation 
+in D2O-sucrose gradients, and adsorbed to fixed Staphylococus aureus cells in 
+the presence of anti-LCMV immunoglobulin G. Several discrete species of viral 
+RNA were released from the immune complexes with sodium dodecyl sulfate. Some 
+were appreciably smaller than the 31S and 23S species of standard LCMV virions, 
+indicating that defective interfering viral RNAs are probably present in the 
+persistently infected cells. Ribosomal 28S and 18S RNAs, labeled only in the 
+absence of actinomycin D, were coprecipitated with anti-LCMV serum but not with 
+control serum, indicating their association with LCMV nucleoproteins in the 
+cells.
+
+DOI: 10.1128/JVI.48.1.262-270.1983
+PMCID: PMC255342
+PMID: 6684173 [Indexed for MEDLINE]

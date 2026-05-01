@@ -1,0 +1,38 @@
+1. Cell Rep. 2022 Jul 19;40(3):111094. doi: 10.1016/j.celrep.2022.111094.
+
+A recombinant VSV-vectored vaccine rapidly protects nonhuman primates against 
+heterologous lethal Lassa fever.
+
+Cross RW(1), Woolsey C(1), Prasad AN(1), Borisevich V(1), Agans KN(1), Deer 
+DJ(1), Geisbert JB(1), Dobias NS(1), Fenton KA(1), Geisbert TW(2).
+
+Author information:
+(1)Galveston National Laboratory, University of Texas Medical Branch, Galveston, 
+TX, USA; Department of Microbiology and Immunology, University of Texas Medical 
+Branch, Galveston, TX, USA.
+(2)Galveston National Laboratory, University of Texas Medical Branch, Galveston, 
+TX, USA; Department of Microbiology and Immunology, University of Texas Medical 
+Branch, Galveston, TX, USA. Electronic address: twgeisbe@utmb.edu.
+
+Lassa virus (LASV) is recognized by the World Health Organization as one of the 
+top five pathogens likely to cause a severe outbreak. A recent unprecedented 
+resurgence of LASV in Nigeria caused by genetically diverse strains underscores 
+the need for licensed medical countermeasures. Single-injection vaccines that 
+can rapidly control outbreaks and confer long-term immunity are needed. 
+Vaccination of cynomolgus monkeys with a recombinant vesicular stomatitis virus 
+vector expressing the glycoprotein precursor of LASV lineage IV strain Josiah 
+(rVSVΔG-LASV-GPC) induces fast-acting protection in monkeys challenged 3 or 
+7 days later with a genetically heterologous lineage II isolate of LASV from 
+Nigeria, while nonspecifically vaccinated control animals succumb to challenge. 
+The rVSVΔG-LASV-GPC vaccine induces rapid activation of adaptive immunity and 
+the transcription of natural killer (NK) cell-affiliated mRNAs. This study 
+demonstrates that rVSVΔG-LASV-GPC may provide rapid protection in humans against 
+LASV infections in cases where immediate public-health intervention is required.
+
+Copyright © 2022 The Author(s). Published by Elsevier Inc. All rights reserved.
+
+DOI: 10.1016/j.celrep.2022.111094
+PMID: 35858566 [Indexed for MEDLINE]
+
+Conflict of interest statement: Declaration of interests The authors declare no 
+competing interests.

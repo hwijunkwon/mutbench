@@ -1,0 +1,56 @@
+1. J Clin Invest. 2020 Jan 2;130(1):539-551. doi: 10.1172/JCI131958.
+
+Quadrivalent VesiculoVax vaccine protects nonhuman primates from viral-induced 
+hemorrhagic fever and death.
+
+Cross RW(1)(2), Xu R(3), Matassov D(4), Hamm S(5), Latham TE(4), Gerardi CS(4), 
+Nowak RM(5), Geisbert JB(1)(2), Ota-Setlik A(3), Agans KN(1)(2), Luckay A(3), 
+Witko SE(4), Soukieh L(3), Deer DJ(1)(2), Mire CE(1)(2), Feldmann H(6), Happi 
+C(7), Fenton KA(1)(2), Eldridge JH(3)(4)(5), Geisbert TW(1)(2).
+
+Author information:
+(1)Galveston National Laboratory and.
+(2)Department of Microbiology and Immunology, University of Texas Medical 
+Branch, Galveston, Texas, USA.
+(3)Department of Immunology.
+(4)Department of Viral Vaccine Development, and.
+(5)Department of Viral Vaccine Discovery, Profectus BioSciences Inc., Pearl 
+River, New York, USA.
+(6)Laboratory of Virology, Division of Intramural Research, National Institute 
+of Allergy and Infectious Diseases, NIH, Hamilton, Montana, USA.
+(7)Department of Biological Sciences and African Center of Excellence for 
+Genomics of Infectious Diseases, Redeemer's University, Edo, Nigeria.
+
+Recent occurrences of filoviruses and the arenavirus Lassa virus (LASV) in 
+overlapping endemic areas of Africa highlight the need for a prophylactic 
+vaccine that would confer protection against all of these viruses that cause 
+lethal hemorrhagic fever (HF). We developed a quadrivalent formulation of 
+VesiculoVax that contains recombinant vesicular stomatitis virus (rVSV) vectors 
+expressing filovirus glycoproteins and that also contains a rVSV vector 
+expressing the glycoprotein of a lineage IV strain of LASV. Cynomolgus macaques 
+were vaccinated twice with the quadrivalent formulation, followed by challenge 
+28 days after the boost vaccination with each of the 3 corresponding filoviruses 
+(Ebola, Sudan, Marburg) or a heterologous contemporary lineage II strain of 
+LASV. Serum IgG and neutralizing antibody responses specific for all 4 
+glycoproteins were detected in all vaccinated animals. A modest and balanced 
+cell-mediated immune response specific for the glycoproteins was also detected 
+in most of the vaccinated macaques. Regardless of the level of total 
+glycoprotein-specific immune response detected after vaccination, all immunized 
+animals were protected from disease and death following lethal challenges. These 
+findings indicate that vaccination with attenuated rVSV vectors each expressing 
+a single HF virus glycoprotein may provide protection against those filoviruses 
+and LASV most commonly responsible for outbreaks of severe HF in Africa.
+
+DOI: 10.1172/JCI131958
+PMCID: PMC6934204
+PMID: 31820871 [Indexed for MEDLINE]
+
+Conflict of interest statement: Conflict of interest: RX, DM, SH, TEL, CSG, RMN, 
+AOS, AL, SEW, LS, and JHE are paid employees of Profectus Biosciences, Inc. 
+Profectus Biosciences in-licenses a portfolio of patents (US patent 7,875,446; 
+U.S. patent 8,287,878) previously obtained from Wyeth to support the development 
+of VesiculoVax vectors as vaccines against hemorrhagic fever viruses. HF and TWG 
+are named on patents for different filovirus and/or arenavirus-based vaccines 
+(US patent 8012489B2 [HF]; US patents 7,635,485; 8,017,130; 8,796,013 [TWG]) but 
+have no intellectual property regarding the VesiculoVax vectors used in this 
+project.

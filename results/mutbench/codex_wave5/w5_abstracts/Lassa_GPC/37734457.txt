@@ -1,0 +1,44 @@
+1. Biochim Biophys Acta Biomembr. 2024 Jan;1866(1):184233. doi: 
+10.1016/j.bbamem.2023.184233. Epub 2023 Sep 19.
+
+pH-dependent conformational change within the Lassa virus transmembrane domain 
+elicits efficient membrane fusion.
+
+Keating PM(1), Schifano NP(1), Wei X(1), Kong MY(1), Lee J(2).
+
+Author information:
+(1)Department of Chemistry and Biochemistry, University of Maryland, College 
+Park, MD 20742, USA.
+(2)Department of Chemistry and Biochemistry, University of Maryland, College 
+Park, MD 20742, USA. Electronic address: jinwoo@umd.edu.
+
+Lassa virus (LASV) is the most prevalent member of the arenavirus family and the 
+causative agent of Lassa fever, a viral hemorrhagic fever. Although there are 
+annual outbreaks in West Africa, and recently isolated cases worldwide, there 
+are no current therapeutics or vaccines, which poses LASV as a significant 
+global public health threat. One of the key steps in LASV infection is the 
+delivery of its genetic material by fusing its viral membrane with the host cell 
+membrane. This process is facilitated by significant conformational changes 
+within glycoprotein 2 (GP2), yielding distinct prefusion and postfusion 
+structural states. However, structural information is missing to understand the 
+changes that occur in the transmembrane domain during the fusion process. Here, 
+we used CD and NMR spectroscopy to show that the transmembrane domain has 
+pH-dependent conformational changes that result in an extension of the alpha 
+helix at the N-terminal end. Proline mutants of key residues in that region 
+prevent the helical extension, as seen in CD and NMR. We developed a modified 
+lipid mixing assay to study the importance of this extension on the function of 
+GP2. Our assay shows that membrane fusion efficiency is optimal at low pH values 
+but introducing the proline mutants results in lower fusion efficiency. These 
+results indicate that these pH-dependent conformational changes are important to 
+the fusion mechanism. This information can be used to design therapeutics to 
+combat Lassa virus infections and prevent its potential spread.
+
+Copyright © 2023 Elsevier B.V. All rights reserved.
+
+DOI: 10.1016/j.bbamem.2023.184233
+PMID: 37734457 [Indexed for MEDLINE]
+
+Conflict of interest statement: Declaration of competing interest The authors 
+declare that they have no known competing financial interests or personal 
+relationships that could have appeared to influence the work reported in this 
+paper.

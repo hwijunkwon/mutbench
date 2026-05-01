@@ -1,0 +1,38 @@
+1. Viruses. 2025 Jun 12;17(6):845. doi: 10.3390/v17060845.
+
+A Scoping Review of Preclinical Research on Monoclonal Antibody Development for 
+Prophylaxis and Treatment of West Nile Virus Infections.
+
+Calvert AE(1), Miazgowicz KL(1), Atkinson B(1), Long AH(1), Thrasher E(1), 
+Brault AC(1), Nett RJ(1).
+
+Author information:
+(1)Arboviral Diseases Branch, Division of Vector-Borne Diseases, U.S. Centers 
+for Disease Control and Prevention, Fort Collins, CO 80521, USA.
+
+West Nile virus (WNV) causes thousands of arboviral infections in the United 
+States each year. Patients with immune-compromising conditions and elderly 
+people are at higher risk of severe WNV neuroinvasive disease (WNND). Despite 
+its broad endemicity nationwide, no U.S. Food and Drug Administration-approved 
+vaccine or therapeutic treatments exist. We summarized existing peer-reviewed 
+literature on the preclinical development of monoclonal antibody (MAb) 
+prophylaxis and therapeutics for the prevention and treatment of WNND. Five 
+bibliographical databases (CINAHL, Cochrane Library, Embase, MEDLINE, and 
+Scopus) were searched for applicable research studies performed from 1 January 
+1998 to 1 May 2025. In total, 2347 titles and abstracts were screened, 263 
+full-text publications reviewed, and 25 studies included. Studies included 
+detailed preclinical development and evaluations of MAbs targeting the envelope 
+(E) protein (n = 13), other viral proteins (n = 3), flaviviral cross-protective 
+monoclonal antibodies (n = 4), and novel antibody configurations or delivery 
+methods (n = 5). The most well-studied MAb, E16, targeting E- Domain III 
+(E-DIII), was effective at inhibiting and treating WNND in experimental animal 
+models. No work investigated ways to traffic therapeutic antibodies across the 
+blood-brain barrier. This review summarizes the current research in the 
+development of monoclonal antibody therapeutics for WNV and addresses gaps in 
+the knowledge for future consideration.
+
+DOI: 10.3390/v17060845
+PMCID: PMC12197585
+PMID: 40573436 [Indexed for MEDLINE]
+
+Conflict of interest statement: The authors declare no conflicts of interest.

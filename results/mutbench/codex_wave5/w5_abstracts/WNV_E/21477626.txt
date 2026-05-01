@@ -1,0 +1,40 @@
+1. Virus Res. 2011 Jun;158(1-2):179-87. doi: 10.1016/j.virusres.2011.03.030. Epub
+ 2011 Apr 6.
+
+Delineation of an epitope on domain I of Japanese encephalitis virus Envelope 
+glycoprotein using monoclonal antibodies.
+
+Gangwar RS(1), Shil P, Cherian SS, Gore MM.
+
+Author information:
+(1)Japanese Encephalitis Group, National Institute of Virology, Sus Road Campus, 
+130/1, Pashan, Pune 411021, India.
+
+The Envelope glycoprotein (E-protein) of Japanese encephalitis virus (JEV) is 
+the major structural component on the virion surface and is a primary target for 
+the host immune system. Two monoclonal antibodies (MAbs) NHA-I (IgG2b) and 
+NHA-II (IgM) against JEV (Indian strain 733913) were earlier developed in the 
+authors' laboratory and found to be cross-reactive to nuclear histones. However, 
+the epitope specificity of these MAbs has remained unknown. The present study 
+was carried out to delineate the epitopes recognised by these MAbs on the 
+E-protein of JEV strain 733913. The variable regions of the NHA-I and NHA-II 
+were sequenced and the tertiary structures predicted. Molecular docking of the 
+MAbs with the structural model of the JEV E-protein demonstrated that NHA-I 
+binds to a predicted antigenic determinant (residue position 18-33) in domain-I. 
+To understand the epitope specificity and check for possible cross-reactivity of 
+these MAbs, comparative analysis of interactions with the known crystallographic 
+structure of the West Nile virus (WNV) E-protein was also carried out. The 
+studies predicted a differential binding of NHA-I but not of NHA-II between JEV 
+and WNV. Mutagenesis studies could help analyse the specificity of NHA-I. The 
+NHA-II appears to be cross-reactive as it docked in the groove region between 
+domains I and III of both the JEV and WNV E-proteins. In laboratory assays, 
+namely, ELISA and immunofluorescence assay both the MAbs reacted equally with 
+JEV while the NHA-I did not show any reactivity with WNV. In silico results were 
+thus validated by laboratory experiments. The present study would help in better 
+understanding of virus-host interactions at the molecular level, and also be 
+useful for the future design of vaccines as well as peptide based diagnostics.
+
+Copyright © 2011 Elsevier B.V. All rights reserved.
+
+DOI: 10.1016/j.virusres.2011.03.030
+PMID: 21477626 [Indexed for MEDLINE]

@@ -1,0 +1,31 @@
+1. Vaccine. 2010 Jan 22;28(4):1075-83. doi: 10.1016/j.vaccine.2009.10.112. Epub 
+2009 Nov 5.
+
+Development and characterization of non-glycosylated E and NS1 mutant viruses as 
+a potential candidate vaccine for West Nile virus.
+
+Whiteman MC(1), Li L, Wicker JA, Kinney RM, Huang C, Beasley DW, Chung KM, 
+Diamond MS, Solomon T, Barrett AD.
+
+Author information:
+(1)Sealy Center for Vaccine Development, Center for Biodefense and Emerging 
+Infectious Diseases, Institute for Human Infections, Immunity and Department of 
+Pathology, TX 77555-0609, USA.
+
+West Nile virus is an arthropod-borne flavivirus that has caused substantial 
+morbidity and mortality to animals as well as humans since its introduction in 
+to the New York area in 1999. Given that there are no antiviral drugs available 
+for treatment of the disease, vaccines provide an efficacious alternative to 
+control this disease. Herein we describe an attenuated WNV strain developed by 
+the ablation of the glycosylation sites in the envelope (E) and non-structural 1 
+(NS1) proteins. This E(154S)/NS1(130A/175A/207A) strain showed modest reduction 
+in multiplication kinetics in cell culture and small plaque phenotype compared 
+to the parental NY99 strain yet displayed greater than a 200,000-fold 
+attenuation for mouse neuroinvasiveness compared to the parental strain. Mice 
+infected with 1000PFU of E(154S)/NS1(130A/175A/207A) showed undectable viremia 
+at either two or three days post infection; nonetheless, high titer neutralizing 
+antibodies were detected in mice inoculated with low doses of this virus and 
+protected against lethal challenge with a 50% protective dose of 50PFU.
+
+DOI: 10.1016/j.vaccine.2009.10.112
+PMID: 19896447 [Indexed for MEDLINE]

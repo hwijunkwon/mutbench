@@ -1,0 +1,40 @@
+1. Vaccine. 2023 Apr 24;41(17):2761-2763. doi: 10.1016/j.vaccine.2023.03.022.
+Epub  2023 Mar 24.
+
+Durability of neutralizing antibodies against yellow fever virus after 
+vaccination in healthy adults.
+
+De Santis R(1), Faggioni G(2), Amoroso A(1), Ciammaruconi A(1), Pomponi A(1), 
+Stella Lia M(1), Amatore D(1), Molinari F(1), Petralito G(1), Stefanelli P(3), 
+Rezza G(4), Lista F(1).
+
+Author information:
+(1)Scientific Department, Army Medical Center, Rome, Italy.
+(2)Scientific Department, Army Medical Center, Rome, Italy. Electronic address: 
+giovanni.faggioni@gmail.com.
+(3)Department of Infectious Diseases, Istituto Superiore di Sanità, Rome, Italy.
+(4)Health Prevention Directorate, Ministry of Health, Rome, Italy.
+
+In accordance with the World Health Organization, one dose of yellow fever 
+vaccine may guarantee protection lifelong in healthy adults. However, relatively 
+little information is still available from ad hoc studies. We evaluated the 
+persistence of neutralizing antibodies, which are considered to be an immune 
+correlate of protection, in a large number of military personnel vaccinated up 
+to 47 years before. Overall, 322 individuals were studied. The median time from 
+vaccination to blood collection for neutralizing antibody evaluation was 
+9 years, ranging from <1 to 47 years. Of the 322 participants, 319 had 
+neutralizing antibodies (99.1 %). The highest median PRNT50 value was observed 
+in those vaccinated ≤1 year before (median PRNT50 = 320). In conclusion, our 
+study confirms on a larger scale that, in healthy adults, neutralizing 
+antibodies may persist as long as 47 years after a single yellow fever vaccines 
+dose.
+
+Copyright © 2023 Elsevier Ltd. All rights reserved.
+
+DOI: 10.1016/j.vaccine.2023.03.022
+PMID: 36967285 [Indexed for MEDLINE]
+
+Conflict of interest statement: Declaration of Competing Interest The authors 
+declare that they have no known competing financial interests or personal 
+relationships that could have appeared to influence the work reported in this 
+paper.

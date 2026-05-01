@@ -1,0 +1,33 @@
+1. J Infect Dev Ctries. 2014 Jul 14;8(7):914-8. doi: 10.3855/jidc.3885.
+
+Serological evidence of West Nile virus infection in the horse population of 
+northern Serbia.
+
+Medić S(1), van den Hoven R, Petrović T, Lupulović D, Nowotny N.
+
+Author information:
+(1)University of Veterinary Medicine Vienna, Vienna, Austria. strmbg@gmail.com.
+
+INTRODUCTION: This study was conducted to evaluate the seroprevalence of West 
+Nile virus (WNV) in the horse population of northern Serbia. Furthermore, it 
+aimed to provide insight and an updated overview on the circulation of this 
+re-emerging pathogen in this part of southeastern Europe. At the time of 
+manuscript preparation, no clinical cases of WNV infection in horses were 
+reported in this area.
+METHODOLOGY: Between 2007 and 2011, a total of 252 equine serum samples were 
+collected from seven different locations in northern Serbia. The presence of 
+WNV-reactive IgG antibodies was examined by using commercial and in-house 
+ELISAs. Selected ELISA-positive samples were re-tested by a WNV lineage 2 plaque 
+reduction neutralization test 90% (PRNT-90).
+RESULTS: In 28.6% of the 252 tested equine serum samples antibodies against WNV 
+were detected. The results obtained with the in-house ELISA corresponded to the 
+outcome of the commercial kit in 90% of the samples. All selected WNV antibody 
+ELISA-positive samples were confirmed by PRNT-90 with neutralizing antibody 
+titers of 1:23 to > 1:512.
+CONCLUSION: This study confirms the circulation of WNV in northern Serbia. No 
+striking regional differences in seroprevalences were identified suggesting WNV 
+circulation also in other parts of Serbia. Distances between wetlands or forests 
+and stud farms do not appear to have an influence on WNV seroprevalence.
+
+DOI: 10.3855/jidc.3885
+PMID: 25022304 [Indexed for MEDLINE]

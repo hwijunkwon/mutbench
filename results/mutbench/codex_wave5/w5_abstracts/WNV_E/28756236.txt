@@ -1,0 +1,55 @@
+1. J Virol Methods. 2017 Oct;248:202-206. doi: 10.1016/j.jviromet.2017.07.010.
+Epub  2017 Jul 27.
+
+Accuracy estimation of an indirect ELISA for the detection of West Nile Virus 
+antibodies in wild birds using a latent class model.
+
+Tamba M(1), Caminiti A(2), Prosperi A(2), Desprès P(3), Lelli D(2), Galletti 
+G(2), Moreno A(2), Paternoster G(2), Santi A(2), Licata E(4), Lecollinet S(5), 
+Gelmini L(2), Rugna G(2), Procopio A(2), Lavazza A(2).
+
+Author information:
+(1)Istituto Zooprofilattico Sperimentale della Lombardia e dell'Emilia Romagna. 
+Via Antonio Bianchi, 7. 25126 Brescia, Italy. Electronic address: 
+marco.tamba@izsler.it.
+(2)Istituto Zooprofilattico Sperimentale della Lombardia e dell'Emilia Romagna. 
+Via Antonio Bianchi, 7. 25126 Brescia, Italy.
+(3)La Reunion island University and UM 134 PIMIT, Technology platform CYROI, 
+97491, Sainte-Clotilde, France.
+(4)Local Health Unit of Modena, Public Health Department. Strada Martiniana, 
+21.41126, Baggiovara, Modena, Italy.
+(5)UMR Virologie, ANSES, INRA, ENVA, Université Paris-Est, 14, rue Pierre et 
+Marie Curie, 94700 Maisons-Alfort, France.
+
+West Nile virus (WNV) and Usutu virus (USUV), genus Flavivirus, are members of 
+the Japanese encephalitis virus antigenic complex, and are maintained primarily 
+in an enzootic cycle between mosquitoes and birds. WNV is zoonotic, and poses a 
+threat to public health, especially in relation to blood transfusion. 
+Serosurveillance of wild birds is suitable for early detection of WNV 
+circulation, although concerns remain to be addressed as regards i) the type of 
+test used, whether ELISA, virus neutralization test (VNT), plaque reduction 
+neutralization test (PRNT), ii) the reagents (antigens, revealing antibodies), 
+iii) the different bird species involved, and iv) potential cross-reactions with 
+other Flaviviruses, such as USUV. The authors developed an indirect IgG ELISA 
+with pan-avian specificity using EDIII protein as antigen and a monoclonal 
+antibody (mAb 1A3) with broad reactivity for avian IgG. A total of 140 serum 
+samples were collected from juvenile European magpies (Pica pica) in areas where 
+both WNV and USUV were co-circulating. The samples were then tested using this 
+in-house ELISA and VNT in parallel. Estimation of test accuracy was performed 
+using different Bayesian two latent class models. At a cut-off set at an optical 
+density percentage (OD%) of 15, the ELISA showed a posterior median of 
+diagnostic sensitivity (DSe) of 88% (95%PCI: 73-99%) and a diagnostic 
+specificity (DSp) of 86% (95%PCI: 68-99%). At this cut-off, ELISA and VNT 
+(cut-off 1/10) performances were comparable: DSe=91% (95%PCI: 79-99%), and 
+DSp=77% (95%PCI: 59-98%). With the cut-off increased to 30 OD%, the ELISA DSe 
+dropped to 78% (95%PCI: 52-99%), and the DSp rose to 94% (95%PCI: 83-100%). In 
+field conditions, the cut-off that yields the best accuracy for the ELISA 
+appears to correspond to 15 OD%. In areas where other Flaviviruses are 
+circulating, however, it might be appropriate to raise the cut-off to 30 OD% in 
+order to achieve higher specificity and reduce the detection of seropositive 
+birds infected by other Flaviviruses, such as USUV.
+
+Copyright © 2017 Elsevier B.V. All rights reserved.
+
+DOI: 10.1016/j.jviromet.2017.07.010
+PMID: 28756236 [Indexed for MEDLINE]

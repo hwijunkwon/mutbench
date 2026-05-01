@@ -1,0 +1,92 @@
+1. Nat Commun. 2016 May 10;7:11544. doi: 10.1038/ncomms11544.
+
+Most neutralizing human monoclonal antibodies target novel epitopes requiring 
+both Lassa virus glycoprotein subunits.
+
+Robinson JE(1), Hastie KM(2), Cross RW(3), Yenni RE(4), Elliott DH(1), Rouelle 
+JA(1), Kannadka CB(1), Smira AA(1), Garry CE(1)(5), Bradley BT(1), Yu H(1), 
+Shaffer JG(6), Boisen ML(7), Hartnett JN(4), Zandonatti MA(2), Rowland MM(8), 
+Heinrich ML(8), Martínez-Sobrido L(9), Cheng B(9), de la Torre JC(2), Andersen 
+KG(2), Goba A(10), Momoh M(10)(11), Fullah M(10)(11), Gbakie M(10), Kanneh 
+L(10), Koroma VJ(10), Fonnie R(10), Jalloh SC(10), Kargbo B(12), Vandi 
+MA(10)(12), Gbetuwa M(10)(12), Ikponmwosa O(13), Asogun DA(13), Okokhere PO(13), 
+Follarin OA(13)(14)(15), Schieffelin JS(1)(16), Pitts KR(7), Geisbert JB(3), 
+Kulakoski PC(5), Wilson RB(5), Happi CT(13)(14)(15), Sabeti PC(17)(18)(19), 
+Gevao SM(20), Khan SH(10)(12), Grant DS(10)(12), Geisbert TW(3), Saphire 
+EO(2)(21), Branco LM(8), Garry RF(4)(8).
+
+Author information:
+(1)Section of Infectious Disease, Department of Pediatrics, Tulane University 
+School of Medicine, 1430 Tulane Avenue, New Orleans, Louisiana 70112, USA.
+(2)Department of Immunology and Microbial Science, Scripps Research Institute, 
+10550 North Torrey Pines Road, La Jolla, California 92037, USA.
+(3)Department of Microbiology and Immunology, University of Texas Medical Branch 
+at Galveston, 301 University Boulevard, Galveston, Texas 77555, USA.
+(4)Department of Microbiology and Immunology, Tulane University School of 
+Medicine, 1430 Tulane Avenue, New Orleans, Louisiana 70112, USA.
+(5)Autoimmune Technologies, LLC, 1010 Common St #1705, New Orleans, Louisiana 
+70112, USA.
+(6)Department of Biostatistics and Bioinformatics, Tulane School of Public 
+Health and Tropical Medicine, New Orleans, Louisiana 70112, USA.
+(7)Corgenix, Inc., 11575 Main Street #400, Broomfield, Colorado 80020, USA.
+(8)Zalgen Labs, LLC, 20271 Goldenrod Lane, Suite 2083, Germantown, Maryland 
+20876, USA.
+(9)Department of Microbiology and Immunology, University of Rochester, 601 
+Elmwood Avenue, Rochester, New York 14642, USA.
+(10)Viral Hemorrhagic Fever Program, Kenema Government Hospital, 1 Combema Road, 
+Kenema, Sierra Leone.
+(11)Department of Laboratory Sciences Polytechnic College, 2 Combema Road, 
+Kenema, Sierra Leone.
+(12)Ministry of Health and Sanitation, 4th Floor Youyi Building, Freetown, 
+Sierra Leone.
+(13)Department of Medicine, Institute of Lassa Fever Research and Control, Irrua 
+Specialist Teaching Hospital, Km. 87, Benin/Auchi Road, Irrua, Nigeria.
+(14)Department of Biological Sciences, College of Natural Sciences, Redeemer's 
+University, Off Gbongan-Oshogbo Road, Ede, Nigeria.
+(15)African Center of Excellence for Genomics of Infectious Disease (ACEGID), 
+Redeemer's University, Off Gbongan-Oshogbo Road, Ede, Nigeria.
+(16)Section of Infectious Disease, Department of Internal Medicine, Tulane 
+University School of Medicine, Tulane University School of Medicine, 1430 Tulane 
+Avenue, New Orleans, Louisiana 70112, USA.
+(17)Department of Organismic and Evolutionary Biology, Center for Systems 
+Biology, Harvard University, 1350 Massachusetts Avenue, Cambridge, Massachusetts 
+02138, USA.
+(18)Center for Systems Biology, Broad Institute of Massachusetts Institute of 
+Technology (MIT) and Harvard, 415 Main Street, Cambridge, Massachusetts 02142, 
+USA.
+(19)Department of Immunology and Infectious Disease, Harvard School of Public 
+Health, 677 Huntington Avenue, Boston, Massachusetts 02115, USA.
+(20)Department of Medicine, University of Sierra Leone, Freetown, Sierra Leone.
+(21)The Skaggs Institute for Chemical Biology, The Scripps Research Institute, 
+10550 North Torrey Pines Road, La Jolla, California 92037, USA.
+
+Lassa fever is a severe multisystem disease that often has haemorrhagic 
+manifestations. The epitopes of the Lassa virus (LASV) surface glycoproteins 
+recognized by naturally infected human hosts have not been identified or 
+characterized. Here we have cloned 113 human monoclonal antibodies (mAbs) 
+specific for LASV glycoproteins from memory B cells of Lassa fever survivors 
+from West Africa. One-half bind the GP2 fusion subunit, one-fourth recognize the 
+GP1 receptor-binding subunit and the remaining fourth are specific for the 
+assembled glycoprotein complex, requiring both GP1 and GP2 subunits for 
+recognition. Notably, of the 16 mAbs that neutralize LASV, 13 require the 
+assembled glycoprotein complex for binding, while the remaining 3 require GP1 
+only. Compared with non-neutralizing mAbs, neutralizing mAbs have higher binding 
+affinities and greater divergence from germline progenitors. Some mAbs potently 
+neutralize all four LASV lineages. These insights from LASV human mAb 
+characterization will guide strategies for immunotherapeutic development and 
+vaccine design.
+
+DOI: 10.1038/ncomms11544
+PMCID: PMC4866400
+PMID: 27161536 [Indexed for MEDLINE]
+
+Conflict of interest statement: The Viral Hemorrhagic Fever Consortium 
+(http://www.vhfc.org) is a public-private partnership of academic and industry 
+scientists who are developing diagnostic tests, therapeutic agents and vaccines 
+for Lassa fever, Ebola and other severe diseases. Tulane University and its 
+various academic and industry partners have filed United States and foreign 
+patent applications on behalf of the VHFC for several technologies that have 
+resulted from these efforts. Technical information may also be kept as trade 
+secrets. If commercial products are developed, consortium members may receive 
+royalties or profits. This does not alter our adherence to all policies of the 
+National Institutes of Health and on sharing data and materials.

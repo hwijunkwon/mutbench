@@ -1,0 +1,51 @@
+1. Emerg Microbes Infect. 2021 Dec;10(1):725-738. doi: 
+10.1080/22221751.2021.1908850.
+
+Pathogenesis and shedding of Usutu virus in juvenile chickens.
+
+Kuchinsky SC(1), Frere F(1), Heitzman-Breen N(2), Golden J(3), Vázquez A(4), 
+Honaker CF(5), Siegel PB(5), Ciupe SM(2), LeRoith T(1), Duggal NK(1).
+
+Author information:
+(1)Department of Biomedical Sciences and Pathobiology, Virginia-Maryland College 
+of Veterinary Medicine, Virginia Polytechnic Institute and State University, 
+Blacksburg, VA, USA.
+(2)Department of Mathematics, Virginia Polytechnic Institute and State 
+University, Blacksburg, VA, USA.
+(3)Department of Biological Sciences, Virginia Polytechnic Institute and State 
+University, Blacksburg, VA, USA.
+(4)National Centre for Microbiology, Instituto de Salud Carlos III (ISCIII), 
+Epidemiology and Public Health Network of Biomedical Research Centre (CIBERESP), 
+Madrid, Spain.
+(5)Department of Animal and Poultry Sciences, Virginia Polytechnic Institute and 
+State University, Blacksburg, VA, USA.
+
+Usutu virus (USUV; family: Flaviviridae, genus: Flavivirus), is an emerging 
+zoonotic arbovirus that causes severe neuroinvasive disease in humans and has 
+been implicated in the loss of breeding bird populations in Europe. USUV is 
+maintained in an enzootic cycle between ornithophilic mosquitos and wild birds. 
+As a member of the Japanese encephalitis serocomplex, USUV is closely related to 
+West Nile virus (WNV) and St. Louis encephalitis virus (SLEV), both 
+neuroinvasive arboviruses endemic in wild bird populations in the United States. 
+An avian model for USUV is essential to understanding zoonotic transmission. 
+Here we describe the first avian models of USUV infection with the development 
+of viremia. Juvenile commercial ISA Brown chickens were susceptible to infection 
+by multiple USUV strains with evidence of cardiac lesions. Juvenile chickens 
+from two chicken lines selected for high (HAS) or low (LAS) antibody production 
+against sheep red blood cells showed markedly different responses to USUV 
+infection. Morbidity and mortality were observed in the LAS chickens, but not 
+HAS chickens. LAS chickens had significantly higher viral titers in blood and 
+other tissues, as well as oral secretions, and significantly lower development 
+of neutralizing antibody responses compared to HAS chickens. Mathematical 
+modelling of virus-host interactions showed that the viral clearance rate is a 
+stronger mitigating factor for USUV viremia than neutralizing antibody response 
+in this avian model. These chicken models provide a tool for further 
+understanding USUV pathogenesis in birds and evaluating transmission dynamics 
+between avian hosts and mosquito vectors.
+
+DOI: 10.1080/22221751.2021.1908850
+PMCID: PMC8043533
+PMID: 33769213 [Indexed for MEDLINE]
+
+Conflict of interest statement: No potential conflict of interest was reported 
+by the author(s).

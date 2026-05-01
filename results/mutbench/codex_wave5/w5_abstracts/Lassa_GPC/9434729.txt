@@ -1,0 +1,42 @@
+1. Virology. 1997 Dec 22;239(2):389-401. doi: 10.1006/viro.1997.8878.
+
+Replicon-helper systems from attenuated Venezuelan equine encephalitis virus: 
+expression of heterologous genes in vitro and immunization against heterologous 
+pathogens in vivo.
+
+Pushko P(1), Parker M, Ludwig GV, Davis NL, Johnston RE, Smith JF.
+
+Author information:
+(1)Virology Division, U.S. Army Medical Research Institute for Infectious 
+Diseases, Fort Detrick, Frederick, Maryland 21702, USA.
+
+A replicon vaccine vector system was developed from an attenuated strain of 
+Venezuelan equine encephalitis virus (VEE). The replicon RNA consists of the 
+cis-acting 5' and 3' ends of the VEE genome, the complete nonstructural protein 
+gene region, and the subgenomic 26S promoter. The genes encoding the VEE 
+structural proteins were replaced with the influenza virus hemagglutinin (HA) or 
+the Lassa virus nucleocapsid (N) gene, and upon transfection into eukaryotic 
+cells by electroporation, these replicon RNAs directed the efficient, high-level 
+synthesis of the HA or N proteins. For packaging of replicon RNAs into VEE 
+replicon particles (VRP), the VEE capsid and glycoproteins were supplied in 
+trans by expression from helper RNA(s) coelectroporated with the replicon. A 
+number of different helper constructs, expressing the VEE structural proteins 
+from a single or two separate helper RNAs, were derived from attenuated VEE 
+strains Regeneration of infectious virus was not detected when replicons were 
+packaged using a bipartite helper system encoding the VEE capsid protein and 
+glycoproteins on two separate RNAs. Subcutaneous immunization of BALB/c mice 
+with VRP expressing the influenza HA or Lassa virus N gene (HA-VRP or N-VRP, 
+respectively) induced antibody responses to the expressed protein. After two 
+inoculations of HA-VRP, complete protection against intranasal challenge with 
+influenza was observed. Furthermore, sequential immunization of mice with two 
+inoculations of N-VRP prior to two inoculations of HA-VRP induced an immune 
+response to both HA and N equivalent to immunization with either VRP construct 
+alone. Protection against influenza challenge was unaffected by previous N-VRP 
+immunization. Therefore, the VEE replicon system was characterized by high-level 
+expression of heterologous genes in cultured cells, little or no regeneration of 
+plaque-forming virus particles, the capability for sequential immunization to 
+multiple pathogens in the same host, and induction of protective immunity 
+against a mucosal pathogen.
+
+DOI: 10.1006/viro.1997.8878
+PMID: 9434729 [Indexed for MEDLINE]

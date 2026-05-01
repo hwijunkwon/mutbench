@@ -1,0 +1,49 @@
+1. Viruses. 2021 Sep 3;13(9):1763. doi: 10.3390/v13091763.
+
+CP100356 Hydrochloride, a P-Glycoprotein Inhibitor, Inhibits Lassa Virus Entry: 
+Implication of a Candidate Pan-Mammarenavirus Entry Inhibitor.
+
+Takenaga T(1)(2)(3), Zhang Z(1)(2)(3), Muramoto Y(1)(2)(3), Fehling SK(4), 
+Hirabayashi A(1)(2)(3), Takamatsu Y(1), Kajikawa J(1)(2)(3), Miyamoto S(1), 
+Nakano M(1)(2)(3), Urata S(5), Groseth A(6), Strecker T(4), Noda T(1)(2)(3).
+
+Author information:
+(1)Laboratory of Ultrastructural Virology, Institute for Frontier Life and 
+Medical Sciences, Kyoto University, Shogoin-Kawahara-cho 53, Sakyo-ku, Kyoto 
+606-8507, Japan.
+(2)Laboratory of Ultrastructural Virology, Graduate School of Biostudies, Kyoto 
+University, 53 Shogoin Kawahara-cho, Sakyo-ku, Kyoto 606-8507, Japan.
+(3)CREST, Japan Science and Technology Agency, 4-1-8 Honcho, Kawaguchi, Saitama 
+332-0012, Japan.
+(4)Institute of Virology, Phillips University Marburg, Hans-Meerwein-Strasse 2, 
+35043 Marburg, Germany.
+(5)National Research Center for the Control and Prevention of Infectious 
+Diseases (CCPID), Nagasaki University, 1-12-4 Sakamoto, Nagasaki 852-8523, 
+Japan.
+(6)Laboratory for Arenavirus Biology, Institute of Molecular Virology and Cell 
+Biology, Friedrich-Loeffler-Institut, Südufer 10, 17493 Greifswald-Insel Riems, 
+Germany.
+
+Lassa virus (LASV)-a member of the family Arenaviridae-causes Lassa fever in 
+humans and is endemic in West Africa. Currently, no approved drugs are 
+available. We screened 2480 small compounds for their potential antiviral 
+activity using pseudotyped vesicular stomatitis virus harboring the LASV 
+glycoprotein (VSV-LASVGP) and a related prototypic arenavirus, lymphocytic 
+choriomeningitis virus (LCMV). Follow-up studies confirmed that CP100356 
+hydrochloride (CP100356), a specific P-glycoprotein (P-gp) inhibitor, suppressed 
+VSV-LASVGP, LCMV, and LASV infection with half maximal inhibitory concentrations 
+of 0.52, 0.54, and 0.062 μM, respectively, without significant cytotoxicity. 
+Although CP100356 did not block receptor binding at the cell surface, it 
+inhibited low-pH-dependent membrane fusion mediated by arenavirus glycoproteins. 
+P-gp downregulation did not cause a significant reduction in either VSV-LASVGP 
+or LCMV infection, suggesting that P-gp itself is unlikely to be involved in 
+arenavirus entry. Finally, our data also indicate that CP100356 inhibits the 
+infection by other mammarenaviruses. Thus, our findings suggest that CP100356 
+can be considered as an effective virus entry inhibitor for LASV and other 
+highly pathogenic mammarenaviruses.
+
+DOI: 10.3390/v13091763
+PMCID: PMC8473031
+PMID: 34578344 [Indexed for MEDLINE]
+
+Conflict of interest statement: The authors declare no conflict of interest.

@@ -1,0 +1,49 @@
+1. Proc Natl Acad Sci U S A. 2014 Jul 22;111(29):10708-13. doi: 
+10.1073/pnas.1408677111. Epub 2014 Jul 7.
+
+Enhancement of protein expression by alphavirus replicons by designing 
+self-replicating subgenomic RNAs.
+
+Kim DY(1), Atasheva S(1), McAuley AJ(2), Plante JA(3), Frolova EI(1), Beasley 
+DW(4), Frolov I(5).
+
+Author information:
+(1)Department of Microbiology, University of Alabama at Birmingham, Birmingham, 
+AL 35294;
+(2)Department of Microbiology and Immunology.
+(3)Department of Pathology, and.
+(4)Department of Microbiology and Immunology,Sealy Center for Vaccine 
+Development and Institute for Human Infections and Immunity, University of Texas 
+Medical Branch, Galveston, TX 77555.
+(5)Department of Microbiology, University of Alabama at Birmingham, Birmingham, 
+AL 35294; ivfrolov@uab.edu.
+
+Since the development of infectious cDNA clones of viral RNA genomes and the 
+means of delivery of the in vitro-synthesized RNA into cells, alphaviruses have 
+become an attractive system for expression of heterologous genetic information. 
+Alphaviruses replicate exclusively in the cytoplasm, and their genetic material 
+cannot recombine with cellular DNA. Alphavirus genome-based, self-replicating 
+RNAs (replicons) are widely used vectors for expression of heterologous 
+proteins. Their current design relies on replacement of structural genes, 
+encoded by subgenomic RNAs (SG RNA), with heterologous sequences of interest. 
+The SG RNA is transcribed from a promoter located in the alphavirus-specific RNA 
+replication intermediate and is not further amplified. In this study, we have 
+applied the accumulated knowledge of the mechanism of alphavirus replication and 
+promoter structures, in particular, to increase the expression level of 
+heterologous proteins from Venezuelan equine encephalitis virus (VEEV)-based 
+replicons. During VEEV infection, replication enzymes are produced in excess to 
+RNA replication intermediates, and a large fraction of them are not involved in 
+RNA synthesis. The newly designed constructs encode SG RNAs, which are not only 
+transcribed from the SG promoter, but are additionally amplified by the 
+previously underused VEEV replication enzymes. These replicons produce SG RNAs 
+and encoded proteins of interest 10- to 50-fold more efficiently than those 
+using a traditional design. A modified replicon encoding West Nile virus (WNV) 
+premembrane and envelope proteins efficiently produced subviral particles and, 
+after a single immunization, elicited high titers of neutralizing antibodies, 
+which protected mice from lethal challenge with WNV.
+
+DOI: 10.1073/pnas.1408677111
+PMCID: PMC4115546
+PMID: 25002490 [Indexed for MEDLINE]
+
+Conflict of interest statement: The authors declare no conflict of interest.

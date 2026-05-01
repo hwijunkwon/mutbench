@@ -1,0 +1,51 @@
+1. N Engl J Med. 2020 Jul 30;383(5):452-459. doi: 10.1056/NEJMoa2000226.
+
+Phase 1 Trial of a Therapeutic Anti-Yellow Fever Virus Human Antibody.
+
+Low JG(1), Ng JHJ(1), Ong EZ(1), Kalimuddin S(1), Wijaya L(1), Chan YFZ(1), Ng 
+DHL(1), Tan HC(1), Baglody A(1), Chionh YH(1), Lee DCP(1), Budigi Y(1), 
+Sasisekharan R(1), Ooi EE(1).
+
+Author information:
+(1)From the Duke-National University of Singapore Medical School (J.G.L., 
+E.Z.O., H.-C.T., E.-E.O.), Singapore General Hospital (J.G.L., S.K., L.W., 
+Y.F.Z.C., D.H.L.N.), Tysana (J.H.J.N., A.B., Y.-H.C., D.C.P.L., Y.B.), and the 
+Singapore-MIT (Massachusetts Institute of Technology) Alliance for Research and 
+Technology (R.S., E.-E.O.) - all in Singapore; and the Massachusetts Institute 
+of Technology, Cambridge (R.S.).
+
+BACKGROUND: Insufficient vaccine doses and the lack of therapeutic agents for 
+yellow fever put global health at risk, should this virus emerge from 
+sub-Saharan Africa and South America.
+METHODS: In phase 1a of this clinical trial, we assessed the safety, side-effect 
+profile, and pharmacokinetics of TY014, a fully human IgG1 anti-yellow fever 
+virus monoclonal antibody. In a double-blind, phase 1b clinical trial, we 
+assessed the efficacy of TY014, as compared with placebo, in abrogating viremia 
+related to the administration of live yellow fever vaccine (YF17D-204; 
+Stamaril). The primary safety outcomes were adverse events reported 1 hour after 
+the infusion and throughout the trial. The primary efficacy outcome was the dose 
+of TY014 at which 100% of the participants tested negative for viremia within 48 
+hours after infusion.
+RESULTS: A total of 27 healthy participants were enrolled in phase 1a, and 10 
+participants in phase 1b. During phase 1a, TY014 dose escalation to a maximum of 
+20 mg per kilogram of body weight occurred in 22 participants. During phases 1a 
+and 1b, adverse events within 1 hour after infusion occurred in 1 of 27 
+participants who received TY014 and in none of the 10 participants who received 
+placebo. At least one adverse event occurred during the trial in 22 participants 
+who received TY014 and in 8 who received placebo. The mean half-life of TY014 
+was approximately 12.8 days. At 48 hours after the infusion, none of the 5 
+participants who received the starting dose of TY014 of 2 mg per kilogram had 
+detectable YF17D-204 viremia; these participants remained aviremic throughout 
+the trial. Viremia was observed at 48 hours after the infusion in 2 of 5 
+participants who received placebo and at 72 hours in 2 more placebo recipients. 
+Symptoms associated with yellow fever vaccine were less frequent in the TY014 
+group than in the placebo group.
+CONCLUSIONS: This phase 1 trial of TY014 did not identify worrisome safety 
+signals and suggested potential clinical benefit, which requires further 
+assessment in a phase 2 trial. (Funded by Tysana; ClinicalTrials.gov number, 
+NCT03776786.).
+
+Copyright © 2020 Massachusetts Medical Society.
+
+DOI: 10.1056/NEJMoa2000226
+PMID: 32726531 [Indexed for MEDLINE]

@@ -1,0 +1,23 @@
+1. FEBS Lett. 1990 Aug 20;269(1):145-7. doi: 10.1016/0014-5793(90)81140-j.
+
+Prediction of arenavirus fusion peptides on the basis of computer analysis of 
+envelope protein sequences.
+
+Glushakova SE(1), Lukashevich IS, Baratova LA.
+
+Author information:
+(1)Department of Special Pathogens, Byelorussian Research Institute of 
+Epidemiology and Microbiology, Minsk, U.S.S.R.
+
+Theoretical search and selection criteria for putative fusion peptides of 
+enveloped viruses are proposed. Arenavirus fusion peptides are predicted on the 
+basis of computer-assisted analysis of amino acid sequences of arenavirus 
+envelope proteins and elements of their secondary and tertiary structure. 
+Accordingly, two regions of GP2 surface protein from 5 viruses of Arenaviridae 
+family have been detected with properties typical of fusion peptides of other 
+enveloped viruses. One region, named peptide IV, located at the N-terminus of 
+the GP2 protein, is followed by the other region or peptide V, more likely 
+candidate for the arenavirus fusion peptide.
+
+DOI: 10.1016/0014-5793(90)81140-j
+PMID: 2387394 [Indexed for MEDLINE]

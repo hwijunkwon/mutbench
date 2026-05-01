@@ -1,0 +1,70 @@
+1. Parasit Vectors. 2014 Dec 12;7:586. doi: 10.1186/s13071-014-0586-3.
+
+Role of enhanced vector transmission of a new West Nile virus strain in an 
+outbreak of equine disease in Australia in 2011.
+
+van den Hurk AF(1)(2), Hall-Mendelin S(3), Webb CE(4), Tan CS(5), Frentiu FD(6), 
+Prow NA(7), Hall RA(8).
+
+Author information:
+(1)Virology, Public and Environmental Health, Forensic and Scientific Services, 
+Department of Health, Queensland Government, Brisbane, QLD, Australia. 
+andrew.vandenhurk@health.qld.gov.au.
+(2)Australian Infectious Disease Research Centre, School of Chemistry and 
+Molecular Biosciences, University of Queensland, Brisbane, QLD, Australia. 
+andrew.vandenhurk@health.qld.gov.au.
+(3)Virology, Public and Environmental Health, Forensic and Scientific Services, 
+Department of Health, Queensland Government, Brisbane, QLD, Australia. 
+sonja.hall-mendelin@health.qld.gov.au.
+(4)Department of Medical Entomology, University of Sydney and Pathology West - 
+ICPMR Westmead, Westmead, NSW, Australia. Cameron.Webb@health.nsw.gov.au.
+(5)Australian Infectious Disease Research Centre, School of Chemistry and 
+Molecular Biosciences, University of Queensland, Brisbane, QLD, Australia. 
+s.tan5@uq.edu.au.
+(6)Institute of Health and Biomedical Innovation and School of Biomedical 
+Sciences, Queensland University of Technology, Kelvin Grove, QLD, Australia. 
+francesca.frentiu@qut.edu.au.
+(7)Australian Infectious Disease Research Centre, School of Chemistry and 
+Molecular Biosciences, University of Queensland, Brisbane, QLD, Australia. 
+n.prow@uq.edu.au.
+(8)Australian Infectious Disease Research Centre, School of Chemistry and 
+Molecular Biosciences, University of Queensland, Brisbane, QLD, Australia. 
+roy.hall@uq.edu.au.
+
+BACKGROUND: In 2011, a variant of West Nile virus Kunjin strain (WNVKUN) caused 
+an unprecedented epidemic of neurological disease in horses in southeast 
+Australia, resulting in almost 1,000 cases and a 9% fatality rate. We 
+investigated whether increased fitness of the virus in the primary vector, Culex 
+annulirostris, and another potential vector, Culex australicus, contributed to 
+the widespread nature of the outbreak.
+METHODS: Mosquitoes were exposed to infectious blood meals containing either the 
+virus strain responsible for the outbreak, designated WNVKUN2011, or WNVKUN2009, 
+a strain of low virulence that is typical of historical strains of this virus. 
+WNVKUN infection in mosquito samples was detected using a fixed cell culture 
+enzyme immunoassay and a WNVKUN- specific monoclonal antibody. Probit analysis 
+was used to determine mosquito susceptibility to infection. Infection, 
+dissemination and transmission rates for selected days post-exposure were 
+compared using Fisher's exact test. Virus titers in bodies and saliva 
+expectorates were compared using t-tests.
+RESULTS: There were few significant differences between the two virus strains in 
+the susceptibility of Cx. annulirostris to infection, the kinetics of virus 
+replication and the ability of this mosquito species to transmit either strain. 
+Both strains were transmitted by Cx. annulirostris for the first time on day 5 
+post-exposure. The highest transmission rates (proportion of mosquitoes with 
+virus detected in saliva) observed were 68% for WNVKUN2011 on day 12 and 72% for 
+WNVKUN2009 on day 14. On days 12 and 14 post-exposure, significantly more 
+WNVKUN2011 than WNVKUN2009 was expectorated by infected mosquitoes. Infection, 
+dissemination and transmission rates of the two strains were not significantly 
+different in Culex australicus. However, transmission rates and the amount of 
+virus expectorated were significantly lower in Cx. australicus than Cx. 
+annulirostris.
+CONCLUSIONS: The higher amount of WNVKUN2011 expectorated by infected mosquitoes 
+may be an indication that this virus strain is transmitted more efficiently by 
+Cx. annulirostris compared to other WNVKUN strains. Combined with other factors, 
+such as a convergence of abundant mosquito and wading bird populations, and 
+mammalian and avian feeding behaviour by Cx. annulirostris, this may have 
+contributed to the scale of the 2011 equine epidemic.
+
+DOI: 10.1186/s13071-014-0586-3
+PMCID: PMC4280035
+PMID: 25499981 [Indexed for MEDLINE]

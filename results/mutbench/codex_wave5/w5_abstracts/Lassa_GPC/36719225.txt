@@ -1,0 +1,50 @@
+1. mSphere. 2023 Feb 21;8(1):e0056822. doi: 10.1128/msphere.00568-22. Epub 2023
+Jan  31.
+
+VelcroVax: a "Bolt-On" Vaccine Platform for Glycoprotein Display.
+
+Kingston NJ(#)(1), Grehan K(#)(1), Snowden JS(#)(1), Hassall M(2), Alzahrani 
+J(1), Paesen GC(3), Sherry L(1), Hayward C(1), Roe A(1), Stephen S(1), Tomlinson 
+D(1), Zeltina A(3), Doores KJ(4), Ranson NA(1), Stacey M(1), Page M(2), Rose 
+NJ(2), Bowden TA(3), Rowlands DJ(1), Stonehouse NJ(1).
+
+Author information:
+(1)Astbury Centre for Structural Molecular Biology, School of Molecular and 
+Cellular Biology, Faculty of Biological Sciences, University of Leeds, Leeds, 
+United Kingdom.
+(2)Division of Virology, National Institute for Biological Standards and Control 
+(NIBSC), Hertfordshire, United Kingdom.
+(3)Division of Structural Biology, Wellcome Centre for Human Genetics, 
+University of Oxford, Oxford, United Kingdom.
+(4)Department of Infectious Diseases, School of Immunology and Microbial 
+Sciences, King's College London, United Kingdom.
+(#)Contributed equally
+
+Having varied approaches to the design and manufacture of vaccines is critical 
+in being able to respond to worldwide needs and newly emerging pathogens. 
+Virus-like particles (VLPs) form the basis of two of the most successful 
+licensed vaccines (against hepatitis B virus [HBV] and human papillomavirus). 
+They are produced by recombinant expression of viral structural proteins, which 
+assemble into immunogenic nanoparticles. VLPs can be modified to present 
+unrelated antigens, and here we describe a universal "bolt-on" platform (termed 
+VelcroVax) where the capturing VLP and the target antigen are produced 
+separately. We utilize a modified HBV core (HBcAg) VLP with surface expression 
+of a high-affinity binding sequence (Affimer) directed against a SUMO tag and 
+use this to capture SUMO-tagged gp1 glycoprotein from the arenavirus Junín virus 
+(JUNV). Using this model system, we have solved the first high-resolution 
+structures of VelcroVax VLPs and shown that the VelcroVax-JUNV gp1 complex 
+induces superior humoral immune responses compared to the noncomplexed viral 
+protein. We propose that this system could be modified to present a range of 
+antigens and therefore form the foundation of future rapid-response vaccination 
+strategies. IMPORTANCE The hepatitis B core protein (HBc) forms noninfectious 
+virus-like particles, which can be modified to present a capturing molecule, 
+allowing suitably tagged antigens to be bound on their surface. This system can 
+be adapted and provides the foundation for a universal "bolt-on" vaccine 
+platform (termed VelcroVax) that can be easily and rapidly modified to generate 
+nanoparticle vaccine candidates.
+
+DOI: 10.1128/msphere.00568-22
+PMCID: PMC9942589
+PMID: 36719225 [Indexed for MEDLINE]
+
+Conflict of interest statement: The authors declare no conflict of interest.

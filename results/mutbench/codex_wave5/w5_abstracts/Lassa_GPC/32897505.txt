@@ -1,0 +1,48 @@
+1. Virol Sin. 2021 Apr;36(2):273-280. doi: 10.1007/s12250-020-00286-3. Epub 2020 
+Sep 8.
+
+Characterizing the Lassa Virus Envelope Glycoprotein Membrane Proximal External 
+Region for Its Role in Fusogenicity.
+
+Cao J(1)(2), Zhang G(1)(3), Zhou M(1)(2), Liu Y(1)(2), Xiao G(4)(5), Wang 
+W(6)(7).
+
+Author information:
+(1)State Key Laboratory of Virology, Wuhan Institute of Virology, Center for 
+Biosafety Mega-Science, Chinese Academy of Sciences, Wuhan, 430071, China.
+(2)University of the Chinese Academy of Sciences, Beijing, 100049, China.
+(3)College of Life Sciences, Nankai University, Tianjin, 300353, China.
+(4)State Key Laboratory of Virology, Wuhan Institute of Virology, Center for 
+Biosafety Mega-Science, Chinese Academy of Sciences, Wuhan, 430071, China. 
+xiaogf@wh.iov.cn.
+(5)University of the Chinese Academy of Sciences, Beijing, 100049, China. 
+xiaogf@wh.iov.cn.
+(6)State Key Laboratory of Virology, Wuhan Institute of Virology, Center for 
+Biosafety Mega-Science, Chinese Academy of Sciences, Wuhan, 430071, China. 
+wangwei@wh.iov.cn.
+(7)University of the Chinese Academy of Sciences, Beijing, 100049, China. 
+wangwei@wh.iov.cn.
+
+The membrane-proximal external region (MPER) of Lassa virus (LASV) glycoprotein 
+complex (GPC) is critical in modulating its functionality. Till now, the 
+high-resolution structure of the intact GPC, including MPER is not available. In 
+this study, we used alanine substitution to scan all 16 residues located in LASV 
+MPER. Western blotting and quantification fusion assay showed that the residues 
+located at the C terminus of the HR2 (M414 and L415) and N terminus of the MPER 
+(K417 and Y419) are critical for GPC-mediated membrane fusion function. 
+Furthermore, cell surface biotinylation experiments revealed that M414A, K417A 
+and Y419A expressed similar levels as WT, whereas L415A mutant led to a 
+reduction of mature GPC on the cell surface. Moreover, substitution of these 
+residues with the similar residue such as M414L, L415I, K417R and Y419F would 
+partly compensate the loss of the fusion activity caused by the alanine mutant 
+in these sites. Results from this study showed that several key residues in the 
+MPER region are indispensable to promote the conformational changes that drive 
+fusion events and shed light on the structure analysis of LASV GPC and anti-LASV 
+therapeutics.
+
+DOI: 10.1007/s12250-020-00286-3
+PMCID: PMC8087742
+PMID: 32897505 [Indexed for MEDLINE]
+
+Conflict of interest statement: The authors declare that they have no conflict 
+of interest.

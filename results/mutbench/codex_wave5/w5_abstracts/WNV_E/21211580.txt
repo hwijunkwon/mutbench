@@ -1,0 +1,29 @@
+1. Vaccine. 2011 Feb 17;29(9):1830-5. doi: 10.1016/j.vaccine.2010.12.081. Epub
+2011  Jan 4.
+
+Recombinant West Nile virus envelope protein E and domain III expressed in 
+insect larvae protects mice against West Nile disease.
+
+Alonso-Padilla J(1), de Oya NJ, Blázquez AB, Escribano-Romero E, Escribano JM, 
+Saiz JC.
+
+Author information:
+(1)Departamento de Biotecnología, Instituto Nacional de Investigación y 
+Tecnología Agraria y Alimentaria (INIA), Ctra. Coruña Km. 7.5, 28040 Madrid, 
+Spain.
+
+In this study, West Nile virus (WNV) envelope (rE) protein and its domain III 
+(rDIII) were efficiently expressed in a cost-effective system based on insect 
+larvae as non-fermentative living biofactories. Mice immunized with the 
+partially purified rE or rDIII elicited high antibodies titers that neutralized 
+viral infectivity in cell culture and in suckling mice. All vaccinated animals 
+were fully protected when challenged with neurovirulent WNV NY99. Passive 
+transfer of protective antibodies from immunized mothers to their offspring 
+occurred both by transplacental and lactation routes. These results indicate 
+that the insect-derived antigens tested may constitute potential vaccine 
+candidates to be further evaluated.
+
+Copyright © 2010 Elsevier Ltd. All rights reserved.
+
+DOI: 10.1016/j.vaccine.2010.12.081
+PMID: 21211580 [Indexed for MEDLINE]

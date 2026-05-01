@@ -1,0 +1,31 @@
+1. Cell Host Microbe. 2010 Aug 19;8(2):186-95. doi: 10.1016/j.chom.2010.07.007.
+
+Direct complement restriction of flavivirus infection requires glycan 
+recognition by mannose-binding lectin.
+
+Fuchs A(1), Lin TY, Beasley DW, Stover CM, Schwaeble WJ, Pierson TC, Diamond MS.
+
+Author information:
+(1)Department of Medicine, Washington University School of Medicine, St. Louis, 
+MO 63110, USA.
+
+An intact complement system is crucial for limiting West Nile virus (WNV) 
+dissemination. Herein, we define how complement directly restricts flavivirus 
+infection in an antibody-independent fashion. Mannose-binding lectin (MBL) 
+recognized N-linked glycans on the structural proteins of WNV and Dengue virus 
+(DENV), resulting in neutralization through a C3- and C4-dependent mechanism 
+that utilized both the canonical and bypass lectin activation pathways. For WNV, 
+neutralization occurred with virus produced in insect cells, whereas for DENV, 
+neutralization of insect and mammalian cell-derived virus was observed. 
+Mechanism of action studies suggested that the MBL-dependent neutralization 
+occurred, in part, by blocking viral fusion. Experiments in mice showed an 
+MBL-dependent accelerated intravascular clearance of DENV or a WNV mutant with 
+two N-linked glycans on its E protein, but not with wild-type WNV. Our studies 
+show that MBL recognizes terminal mannose-containing carbohydrates on 
+flaviviruses, resulting in neutralization and efficient clearance in vivo.
+
+Copyright 2010 Elsevier Inc. All rights reserved.
+
+DOI: 10.1016/j.chom.2010.07.007
+PMCID: PMC2929649
+PMID: 20709295 [Indexed for MEDLINE]

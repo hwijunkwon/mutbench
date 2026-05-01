@@ -1,0 +1,41 @@
+1. J Gen Virol. 2008 Dec;89(Pt 12):3063-3072. doi: 10.1099/vir.0.2008/003731-0.
+
+A glycosylated peptide in the West Nile virus envelope protein is immunogenic 
+during equine infection.
+
+Hobson-Peters J(1)(2)(3), Toye P(2), Sánchez MD(4), Bossart KN(5)(1), Wang 
+LF(5)(1), Clark DC(3), Cheah WY(3), Hall RA(3).
+
+Author information:
+(1)Australian Biosecurity CRC for Emerging Infectious Disease, St Lucia, 
+Queensland, Australia.
+(2)AGEN Biomedical Limited, Acacia Ridge, Queensland, Australia.
+(3)School of Molecular and Microbial Sciences, The University of Queensland, St 
+Lucia, Queensland 4072, Australia.
+(4)Department of Microbiology, School of Medicine, University of Pennsylvania, 
+Philadelphia, PA, USA.
+(5)CSIRO Livestock Industries, Australian Animal Health Laboratory, Geelong, 
+Victoria, Australia.
+
+Using a monoclonal antibody directed to domain I of the West Nile virus (WNV) 
+envelope (E) protein, we identified a continuous (linear) epitope that was 
+immunogenic during WNV infection of horses. Using synthetic peptides, this 
+epitope was mapped to a 19 aa sequence (WN19: E147-165) encompassing the WNV 
+NY99 E protein glycosylation site at position 154. The inability of WNV-positive 
+horse and mouse sera to bind the synthetic peptides indicated that glycosylation 
+was required for recognition of peptide WN19 by WNV-specific antibodies in sera. 
+N-linked glycosylation of WN19 was achieved through expression of the peptide as 
+a C-terminal fusion protein in mammalian cells and specific reactivity of 
+WNV-positive horse sera to the glycosylated WN19 fusion protein was shown by 
+Western blot. Additional sera collected from horses infected with Murray Valley 
+encephalitis virus (MVEV), which is similarly glycosylated at position E154 and 
+exhibits high sequence identity to WNV NY99 in this region, also recognized the 
+recombinant peptide. Failure of most WNV- and MVEV-positive horse sera to 
+recognize the epitope as a deglycosylated fusion protein confirmed that the 
+N-linked glycan was important for antibody recognition of the peptide. Together, 
+these results suggest that the induction of antibodies to the WN19 epitope 
+during WNV infection of horses is generally associated with E protein 
+glycosylation of the infecting viral strain.
+
+DOI: 10.1099/vir.0.2008/003731-0
+PMID: 19008394 [Indexed for MEDLINE]

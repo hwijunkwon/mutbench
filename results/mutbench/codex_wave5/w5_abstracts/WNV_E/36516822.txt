@@ -1,0 +1,69 @@
+1. Tierarztl Prax Ausg G Grosstiere Nutztiere. 2022 Dec;50(6):362-376. doi: 
+10.1055/a-1965-0307. Epub 2022 Dec 14.
+
+[West-Nile-Virus infections in 12 horses in east-central Germany].
+
+[Article in German; Abstract available in German from the publisher]
+
+Lohmann KL(1), Sieg M(2), Landmann M(3), Ganzenberg S(1), Arnold C(1), 
+Vahlenkamp T(2), Ulrich RG(3).
+
+Author information:
+(1)Klinik für Pferde, Veterinärmedizinische Fakultät, Universität Leipzig.
+(2)Institut für Virologie, Veterinärmedizinische Fakultät, Universität Leipzig.
+(3)Institut für Veterinär-Pathologie, Veterinärmedizinische Fakultät, 
+Universität Leipzig.
+
+PURPOSE AND AIM: The presenting complaints, clinical signs, diagnostic 
+evaluation, therapy, and outcome of 12 horses with clinically apparent 
+West-Nile-Virus (WNV) infection are described.
+MATERIAL AND METHODS: Case series RESULTS: The adult horses (age 6-18 years, 7 
+mares, 5 geldings) from Saxony and Saxony-Anhalt were presented with various 
+clinical histories between September 2018 and September 2020. All horses were 
+presented in August or September and no horse was vaccinated against WNV. Fever 
+as the most common general clinical sign was present in 8/12 horses. The most 
+common neurological signs were muscle fasciculations (11/12 horses), ataxia 
+(8/12 horses), hyperesthesia and head tilt (6/12 horses each). Diagnosis of WNV 
+infection was confirmed by demonstrating IgM antibody and neutralizing antibody 
+production in all horses; 2 euthanized horses also tested positive by PCR. 
+Therapy was symptomatic and primarily included non-steroidal anti-inflammatories 
+or dexamethasone as well as fluid therapy. Duration of hospitalization was 
+7.5 days on average. According to their owners, seven horses recovered 
+completely, while information was missing for 2 horses.
+CONCLUSIONS AND CLINICAL RELEVANCE: In eastern-central Germany, 
+WNV-encephalomyelitis must be considered a differential diagnosis for 
+unvaccinated horses with acute neurologic disease occurring in summer and late 
+summer. The reported clinical signs and the outcome of therapy are mostly 
+congruent with reports from North America and other European countries.
+
+Publisher: GEGENSTAND UND ZIEL: Die Vorstellungsgründe, klinische Symptomatik, 
+Diagnostik, Therapie und Ergebnis der Therapie von 12 Pferden mit klinisch 
+apparenter West-Nil-Virus (WNV)-Infektion werden beschrieben.
+MATERIAL UND METHODEN: Fallserie ERGEBNISSE: Die adulten Pferde (Alter 
+6–18 Jahre, 7 Stuten, 5 Wallache) aus Sachsen oder Sachsen-Anhalt wurden 
+zwischen September 2018 und September 2020 mit unterschiedlichen Vorberichten 
+vorgestellt. Alle Pferde wurden im August oder September vorgestellt und keines 
+der Pferde war gegen das WNV geimpft. Fieber war das häufigste Allgemeinsymptom 
+und trat bei 8/12 Pferden auf. An neurologischen Symptomen traten 
+Muskelfaszikulationen (11/12 Pferde), Ataxie (8/12 Pferde) sowie Hyperästhesie 
+und Kopfschiefhaltung (je 6/12 Pferde) am häufigsten auf. Bei allen Pferden 
+wurde die Infektion mittels Nachweises von IgM sowie neutralisierenden 
+Antikörpern gegen das WNV diagnostiziert, zwei euthanasierte Pferde waren zudem 
+PCR-positiv. Die symptomatische Therapie beinhaltete vor allem nicht-steroidale 
+Antiphlogistika oder Dexamethason sowie Infusionstherapie. Die Dauer des 
+Klinikaufenthaltes betrug im Durchschnitt 7,5 Tage. Sieben Pferde erholten sich 
+laut Besitzerangaben vollständig, für 2 Pferde war keine Information erhältlich.
+SCHLUSSFOLGERUNGEN UND KLINISCHE RELEVANZ: Die WNV-Enzephalomyelitis muss in 
+Mitteldeutschland seit 2018 als Differentialdiagnose von im Sommer und 
+Spätsommer auftretenden akuten neurologischen Erkrankungen ungeimpfter Pferdes 
+in Betracht gezogen werden. Die beschriebenen Symptome sowie das Ergebnis der 
+Therapie sind weitgehend deckungsgleich mit Berichten aus Nordamerika und 
+anderen europäischen Ländern.
+
+Thieme. All rights reserved.
+
+DOI: 10.1055/a-1965-0307
+PMID: 36516822 [Indexed for MEDLINE]
+
+Conflict of interest statement: Bei den Autoren liegt kein Interessenkonflikt im 
+Hinblick auf diese Arbeit vor.

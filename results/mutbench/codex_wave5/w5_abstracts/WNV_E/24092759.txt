@@ -1,0 +1,45 @@
+1. J Gen Virol. 2013 Dec;94(Pt 12):2700-2709. doi: 10.1099/vir.0.059436-0. Epub 
+2013 Oct 3.
+
+Development of chimaeric West Nile virus attenuated vaccine candidate based on 
+the Japanese encephalitis vaccine strain SA14-14-2.
+
+Li XF(1)(2), Zhao W(3), Lin F(4), Ye Q(1)(2), Wang HJ(1)(2), Yang D(5)(2), Li 
+SH(2), Zhao H(1)(2), Xu YP(2), Ma J(2), Deng YQ(1)(2), Zhang Y(1)(2), Qin 
+ED(1)(2), Qin CF(6)(2)(1)(7).
+
+Author information:
+(1)State Key Laboratory of Pathogen and Biosecurity, Beijing 100071, PR China.
+(2)Department of Virology, Beijing Institute of Microbiology and Epidemiology, 
+Beijing 100071, PR China.
+(3)School of Public Health and Tropical Medicine, Southern Medical University, 
+Guangzhou 510515, PR China.
+(4)The Second Artillery General Hospital of Chinese People's Liberation Army, 
+Beijing 100088, PR China.
+(5)College of Veterinary Medicine, Xinjiang Agricultural University, Urumqi 
+830052, PR China.
+(6)Graduate School, Anhui Medical University, Hefei 230032, PR China.
+(7)Graduate School, Guangxi Medical University, Guilin 530021, PR China.
+
+Mosquito-borne flaviviruses include a large group of important human medical 
+pathogens. Several chimaeric flaviviruses have been constructed, and show 
+potential for vaccine development. Although Japanese encephalitis virus (JEV) 
+live vaccine SA14-14-2 has been widely used with ideal safety and efficacy 
+profiles, no chimaeric flavivirus based on the JEV vaccine has been described to 
+date. Based on the reverse genetic system of the JEV vaccine SA14-14-2, a novel 
+live chimaeric flavivirus carrying the protective antigens of West Nile virus 
+(WNV) was constructed and recovered in this study. The resulting chimaera 
+(ChinWNV) replicated efficiently in both mammalian and mosquito cells and 
+possessed genetic stability after in vitro serial passaging. ChinWNV exhibited a 
+small-plaque phenotype, and its replication was significantly restricted in 
+mouse peripheral blood and brain compared with parental WNV. Importantly, 
+ChinWNV was highly attenuated with regard to both neurovirulence and 
+neuroinvasiveness in mice. Furthermore, a single ChinWNV immunization stimulated 
+robust WNV-specific adaptive immune responses in mice, conferring significant 
+protection against lethal WNV infection. Our results demonstrate that chimaeric 
+flaviviruses based on the JEV vaccine can serve as a powerful platform for 
+vaccine development, and that ChinWNV represents a potential WNV vaccine 
+candidate that merits further development.
+
+DOI: 10.1099/vir.0.059436-0
+PMID: 24092759 [Indexed for MEDLINE]

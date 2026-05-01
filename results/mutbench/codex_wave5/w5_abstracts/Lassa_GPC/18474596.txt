@@ -1,0 +1,33 @@
+1. J Biol Chem. 2008 Jul 4;283(27):18734-42. doi: 10.1074/jbc.M802089200. Epub
+2008  May 12.
+
+Unique small molecule entry inhibitors of hemorrhagic fever arenaviruses.
+
+Lee AM(1), Rojek JM, Spiropoulou CF, Gundersen AT, Jin W, Shaginian A, York J, 
+Nunberg JH, Boger DL, Oldstone MB, Kunz S.
+
+Author information:
+(1)Department of Immunology and Microbial Science, The Scripps Research 
+Institute, La Jolla, California 92037, USA.
+
+Viral hemorrhagic fevers caused by the arenaviruses Lassa virus in Africa and 
+Machupo, Guanarito, Junin, and Sabia virus in South America are among the most 
+devastating emerging human diseases with fatality rates of 15-35% and a limited 
+antiviral therapeutic repertoire available. Here we used high throughput 
+screening of synthetic combinatorial small molecule libraries to identify 
+inhibitors of arenavirus infection using pseudotyped virion particles bearing 
+the glycoproteins (GPs) of highly pathogenic arenaviruses. Our screening efforts 
+resulted in the discovery of a series of novel small molecule inhibitors of 
+viral entry that are highly active against both Old World and New World 
+hemorrhagic arenaviruses. We observed potent inhibition of infection of human 
+and primate cells with live hemorrhagic arenaviruses (IC(50)=500-800 nm). 
+Investigations of the mechanism of action revealed that the candidate compounds 
+efficiently block pH-dependent fusion by the arenavirus GPs (IC(50) of 200-350 
+nm). Although our lead compounds were potent against phylogenetically distant 
+arenaviruses, they did not show activity against other enveloped viruses with 
+class I viral fusion proteins, indicating specificity for arenavirus GP-mediated 
+membrane fusion.
+
+DOI: 10.1074/jbc.M802089200
+PMCID: PMC2441566
+PMID: 18474596 [Indexed for MEDLINE]

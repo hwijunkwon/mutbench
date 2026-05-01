@@ -1,0 +1,35 @@
+1. Zhonghua Liu Xing Bing Xue Za Zhi. 2009 May;30(5):489-92.
+
+[Study on E protein epitopes and primary identification of main yellow virus].
+
+[Article in Chinese]
+
+Xu XL(1), Yang JJ, Ren RW, Liu JW, Ma SB, Bai ZJ, Fang MY.
+
+Author information:
+(1)Instrumental Analysis & Research Center of South China Agricultural 
+University, Guangzhou 510642, China.
+
+OBJECTIVE: To analysis the E protein epitopes of dengue virus type 1-4, Japanese 
+encephalitis virus and yellow fever virus and to distinguish the shared or 
+specific epitopes among them.
+METHODS: Bioinformatic software DNAStar was used to analyze the hydrophilicity, 
+flexibility, surface probability and antigenicity of dengue virus type 1-4, 
+Japanese encephalitis virus and yellow fever virus E protein amino acid 
+sequences. The influence of secondary structure was also considered. Based on 
+the bio-informatic analysis of E protein epitopes, 6 specific epitopes were 
+amplified and inserted into prokaryotic expression vector pMAL-c2x. The vectors 
+was then transferred into E. coli BL21 (DE3) and Rosetta (DE3). 
+Isopropyl-beta-D-thiogalactoside (IPTG) was used to induce the expression of 
+gene segments and SDS-PAGE were used identify the expression proteins. The 
+antigenicity was tested, using Western blot.
+RESULTS: 15 shared epitopes and 47 specific epitopes were forecasted by 
+bioinformatic analysis, and 6 specific epitopes from dengue virus type 1-4, 
+Japanese encephalitis virus and yellow fever virus E protein were expressed in 
+E. coli successfully. Two specific antigenic determinant from dengue virus type 
+1 and dengue virus type 2 were confirmed using Western blot, while the others 
+epitopes shown no antigenic reaction property.
+CONCLUSION: Two specific antigenic determinant were confirmed, under Western 
+blot.
+
+PMID: 19799147 [Indexed for MEDLINE]

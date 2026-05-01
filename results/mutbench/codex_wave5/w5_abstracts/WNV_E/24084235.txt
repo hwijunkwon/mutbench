@@ -1,0 +1,32 @@
+1. Viruses. 2013 Sep 30;5(10):2384-409. doi: 10.3390/v5102384.
+
+Vaccines in development against West Nile virus.
+
+Brandler S(1), Tangy F.
+
+Author information:
+(1)Unité de Génomique Virale et Vaccination, INSTITUT PASTEUR, 28 rue du Dr 
+Roux, Paris 75015, France. samantha.brandler@pasteur.fr.
+
+West Nile encephalitis emerged in 1999 in the United States, then rapidly spread 
+through the North American continent causing severe disease in human and horses. 
+Since then, outbreaks appeared in Europe, and in 2012, the United States 
+experienced a new severe outbreak reporting a total of 5,387 cases of West Nile 
+virus (WNV) disease in humans, including 243 deaths. So far, no human vaccine is 
+available to control new WNV outbreaks and to avoid worldwide spreading. In this 
+review, we discuss the state-of-the-art of West Nile vaccine development and the 
+potential of a novel safe and effective approach based on recombinant live 
+attenuated measles virus (MV) vaccine. MV vaccine is a live attenuated 
+negative-stranded RNA virus proven as one of the safest, most stable and 
+effective human vaccines. We previously described a vector derived from the 
+Schwarz MV vaccine strain that stably expresses antigens from emerging 
+arboviruses, such as dengue, West Nile or chikungunya viruses, and is strongly 
+immunogenic in animal models, even in the presence of MV pre-existing immunity. 
+A single administration of a recombinant MV vaccine expressing the secreted form 
+of WNV envelope glycoprotein elicited protective immunity in mice and non-human 
+primates as early as two weeks after immunization, indicating its potential as a 
+human vaccine.
+
+DOI: 10.3390/v5102384
+PMCID: PMC3814594
+PMID: 24084235 [Indexed for MEDLINE]

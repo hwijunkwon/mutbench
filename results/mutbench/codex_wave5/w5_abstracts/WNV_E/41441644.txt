@@ -1,0 +1,46 @@
+1. Vaccines (Basel). 2025 Nov 21;13(12):1177. doi: 10.3390/vaccines13121177.
+
+Adenoviral Vectors Expressing Optimized preM/E Genes of WNV Deliver Long-Term 
+Protection Against Lethal West Nile Virus Challenge.
+
+Ozharovskaia TA(1), Zubkova OV(1)(2), Korobova EV(1), Dolzhikova IV(1), Zrelkin 
+DI(1), Popova O(1), Goldovskaya PP(1), Kovyrshina AV(1), Korobkova AI(1), 
+Favorskaya IA(1), Vavilova IV(1), Grousova DM(1), Zorkov ID(1), Iliukhina AA(1), 
+Ermolova IA(1), Tukhvatulin AI(1), Shcherbinin DN(1), Ermolova EI(1), Kunda 
+MS(1), Ryzhova NN(1), Voronina OL(1), Semikhin AS(1), Shcheblyakov DV(1), 
+Logunov DY(1), Gintsburg AL(1)(3).
+
+Author information:
+(1)N. F. Gamaleya Federal Research Center for Epidemiology & Microbiology, 
+Ministry of Health, Moscow 123098, Russia.
+(2)P. Hertsen Moscow Oncology Research Institute-Branch of the National Medical 
+Research Radiology Center, Ministry of Health of the Russian Federation, Moscow 
+119121, Russia.
+(3)Infectiology Department, I. M. Sechenov First Moscow State Medical 
+University, Moscow 119991, Russia.
+
+Background/Objectives: Flaviviruses, including West Nile virus (WNV), pose 
+global health challenges due to their worldwide distribution, pathogenicity, and 
+lack of effective treatments or vaccines. Today, WNV is considered the most 
+important causative agent of viral encephalitis worldwide. This study 
+investigated the different forms of the main WNV antigen-the preM/E protein-in 
+the context of its immunogenic and protective properties. Methods: The 
+recombinant adenovirus type 2 (rAd2) vectors expressing different forms of the 
+WNV preM/E genes were obtained using standard molecular biology techniques. 
+Immunogenicity in mice was assessed by enzyme-linked immunosorbent assay (ELISA) 
+and virus neutralization assay. Immunological efficacy was evaluated in a mouse 
+viral challenge model. Results: The rAd2 vector expressing the West Nile virus 
+preM/E gene with mutations in the fusion loop exhibited robust immunogenicity 
+when administered intramuscularly either once or in a homologous prime-boost 
+regimen. This antigen form, as part of an adenoviral vector, protected mice from 
+death in viral challenge experiments, providing 100% survival following WNV 
+challenge. Conclusions: We believe that a vaccination strategy involving a 
+recombinant adenoviral vector based on human adenovirus type 2 and the WNV 
+antigen represented by the preM/E gene with mutations in the fusion loop may be 
+a promising approach for combating West Nile virus infection.
+
+DOI: 10.3390/vaccines13121177
+PMCID: PMC12737445
+PMID: 41441644
+
+Conflict of interest statement: The authors declare no conflicts of interest.

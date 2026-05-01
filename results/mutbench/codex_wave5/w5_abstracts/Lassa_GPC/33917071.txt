@@ -1,0 +1,30 @@
+1. Microorganisms. 2021 Apr 7;9(4):772. doi: 10.3390/microorganisms9040772.
+
+Lassa Virus Treatment Options.
+
+Hansen F(1), Jarvis MA(2), Feldmann H(1), Rosenke K(1).
+
+Author information:
+(1)Laboratory of Virology, Division of Intramural Research, National Institute 
+of Allergy and Infectious Diseases, National Institutes of Health, Hamilton, MT 
+59840, USA.
+(2)The Vaccine Group Ltd., University of Plymouth, Plymouth PL4 8AA, UK.
+
+Lassa fever causes an approximate 5000 to 10,000 deaths annually in West Africa 
+and cases have been imported into Europe and the Americas, challenging public 
+health. Although Lassa virus was first described over 5 decades ago in 1969, no 
+treatments or vaccines have been approved to treat or prevent infection. In this 
+review, we discuss current therapeutics in the development pipeline for the 
+treatment of Lassa fever, focusing on those that have been evaluated in humans 
+or animal models. Several treatments, including the antiviral favipiravir and a 
+human monoclonal antibody cocktail, have shown efficacy in preclinical rodent 
+and non-human primate animal models and have potential for use in clinical 
+settings. Movement of the promising preclinical treatment options for Lassa 
+fever into clinical trials is critical to continue addressing this neglected 
+tropical disease.
+
+DOI: 10.3390/microorganisms9040772
+PMCID: PMC8067676
+PMID: 33917071
+
+Conflict of interest statement: The authors claim no conflict of interest.

@@ -1,0 +1,52 @@
+1. bioRxiv [Preprint]. 2024 Nov 22:2024.11.21.624760. doi: 
+10.1101/2024.11.21.624760.
+
+Conformational ensemble-based framework enables rapid development of Lassa virus 
+vaccine candidates.
+
+Mishra N(1), Avillion G(1), Callaghan S(1), DiBiase C(1), Hurtado J(1), Liendo 
+N(1), Burbach S(1), Messmer T(1), Briney B(1)(2)(3)(4)(5).
+
+Author information:
+(1)Department of Immunology and Microbiology, The Scripps Research Institute, La 
+Jolla, CA 92037 USA.
+(2)Center for Viral Systems Biology, The Scripps Research Institute, La Jolla, 
+CA 92037 USA.
+(3)Multi-Omics Vaccine Evaluation Consortium, The Scripps Research Institute, La 
+Jolla, CA 92037 USA.
+(4)Scripps Consortium for HIV/AIDS Vaccine Development, The Scripps Research 
+Institute, La Jolla, CA 92037 USA.
+(5)San Diego Center for AIDS Research, The Scripps Research Institute, La Jolla, 
+CA 92037 USA.
+
+Lassa virus (LASV), an arenavirus endemic to West Africa, poses a significant 
+public health threat due to its high pathogenicity and expanding geographic risk 
+zone. LASV glycoprotein complex (GPC) is the only known target of neutralizing 
+antibodies, but its inherent metastability and conformational flexibility have 
+hindered the development of GPC-based vaccines. We employed a variant of 
+AlphaFold2 (AF2), called subsampled AF2, to generate diverse structures of LASV 
+GPC that capture an array of potential conformational states using MSA 
+subsampling and dropout layers. Conformational ensembles identified several 
+metamorphic domains-areas of significant conformational flexibility-that could 
+be targeted to stabilize the GPC in its immunogenic prefusion state. ProteinMPNN 
+was then used to redesign GPC sequences to minimize the mobility of metamorphic 
+domains. These redesigned sequences were further filtered using subsampled AF2, 
+leading to the identification of promising GPC variants for further testing. A 
+small library of redesigned GPC sequences was experimentally validated and 
+showed significantly increased protein yields compared to controls. Antigenic 
+profiles indicated these variants preserved essential epitopes for effective 
+immune response, suggesting their potential for broad protective efficacy. Our 
+results demonstrate that AI-driven approaches can predict the conformational 
+landscape of complex pathogens. This knowledge can be used to stabilize viral 
+proteins, such as LASV GPC, in their prefusion conformation, optimizing them for 
+stability and expression, and offering a streamlined framework for vaccine 
+design. Our deep learning / machine learning enabled framework contributes to 
+global efforts to combat LASV and has broader implications for vaccine design 
+and pandemic preparedness.
+
+DOI: 10.1101/2024.11.21.624760
+PMCID: PMC11601624
+PMID: 39605488
+
+Conflict of interest statement: DECLARATION OF INTERESTS BB is an equity 
+shareholder in Infinimmune and a member of their Scientific Advisory Board.

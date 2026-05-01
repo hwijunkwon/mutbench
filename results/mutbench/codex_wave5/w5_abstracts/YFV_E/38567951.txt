@@ -1,0 +1,60 @@
+1. J Virol. 2024 May 14;98(5):e0151623. doi: 10.1128/jvi.01516-23. Epub 2024 Apr
+3.
+
+Cynomolgus macaques as a translational model of human immune responses to yellow 
+fever 17D vaccination.
+
+Mantel N(1), Piras-Douce F(1), Chautard E(1), Marcos-Lopez E(2), Bodinham CL(3), 
+Cosma A(2), Courtois V(1), Dhooge N(2), Gautheron S(1), Kaufmann SHE(4)(5), 
+Pizzoferro K(3), Lewis DJM(3), Martinon F(2), Pagnon A(1), Raynal F(1), 
+Dereuddre-Bosquet N(2), Le Grand R(2).
+
+Author information:
+(1)Research and Development, Sanofi, Marcy L'Etoile, France.
+(2)Université Paris-Saclay, INSERM, CEA, Center for Immunology of Viral, 
+Auto-immune, Hematological and Bacterial diseases (IMVA-HB/IDMIT), Fontenay aux 
+Roses, France.
+(3)Surrey Clinical Research Centre, University of Surrey, Guildford, Surrey, 
+United Kingdom.
+(4)Max Planck Institute for Infection Biology, Berlin, Germany; Max Planck 
+Institute for Multidisciplinary Sciences, Göttingen, Germany.
+(5)Hagler Institute for Advanced Study, Texas A&M University, College Station, 
+Texas, USA.
+
+The non-human primate (NHP) model (specifically rhesus and cynomolgus macaques) 
+has facilitated our understanding of the pathogenic mechanisms of yellow fever 
+(YF) disease and allowed the evaluation of the safety and efficacy of YF-17D 
+vaccines. However, the accuracy of this model in mimicking vaccine-induced 
+immunity in humans remains to be fully determined. We used a systems biology 
+approach to compare hematological, biochemical, transcriptomic, and innate and 
+antibody-mediated immune responses in cynomolgus macaques and human participants 
+following YF-17D vaccination. Immune response progression in cynomolgus macaques 
+followed a similar course as in adult humans but with a slightly earlier onset. 
+Yellow fever virus neutralizing antibody responses occurred earlier in 
+cynomolgus macaques [by Day 7[(D7)], but titers > 10 were reached in both 
+species by D14 post-vaccination and were not significantly different by D28 
+[plaque reduction neutralization assay (PRNT)50 titers 3.6 Log vs 3.5 Log in 
+cynomolgus macaques and human participants, respectively; P = 0.821]. Changes in 
+neutrophils, NK cells, monocytes, and T- and B-cell frequencies were higher in 
+cynomolgus macaques and persisted for 4 weeks versus less than 2 weeks in 
+humans. Low levels of systemic inflammatory cytokines (IL-1RA, IL-8, MIP-1α, 
+IP-10, MCP-1, or VEGF) were detected in either or both species but with no or 
+only slight changes versus baseline. Similar changes in gene expression profiles 
+were elicited in both species. These included enriched and up-regulated type I 
+IFN-associated viral sensing, antiviral innate response, and dendritic cell 
+activation pathways D3-D7 post-vaccination in both species. Hematological and 
+blood biochemical parameters remained relatively unchanged versus baseline in 
+both species. Low-level YF-17D viremia (RNAemia) was transiently detected in 
+some cynomolgus macaques [28% (5/18)] but generally absent in humans [except one 
+participant (5%; 1/20)].IMPORTANCECynomolgus macaques were confirmed as a valid 
+surrogate model for replicating YF-17D vaccine-induced responses in humans and 
+suggest a key role for type I IFN.
+
+DOI: 10.1128/jvi.01516-23
+PMCID: PMC11092345
+PMID: 38567951 [Indexed for MEDLINE]
+
+Conflict of interest statement: N.M., FP.-D., E.C., F.R., A.P., S.G., and V.C. 
+are employees of Sanofi and may hold shares and/or stock options in the company. 
+E.M.-L., C.L.B., A.C., N.D., S.H.E.K., K.P., D.J.M.L., F.M., N.D.-B., and R.L.G. 
+declare no competing interest relevant to this report.

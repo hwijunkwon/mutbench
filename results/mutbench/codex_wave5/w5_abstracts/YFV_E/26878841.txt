@@ -1,0 +1,32 @@
+1. J Gen Virol. 2016 May;97(5):1087-1093. doi: 10.1099/jgv.0.000430.
+
+A newly discovered flavivirus in the yellow fever virus group displays 
+restricted replication in vertebrates.
+
+Colmant AMG(1), Bielefeldt-Ohmann H(1), Hobson-Peters J(1), Suen WW(1), O'Brien 
+CA(1), van den Hurk AF(2), Hall RA(1).
+
+Author information:
+(1)Australian Infectious Diseases Research Centre, School of Chemistry and 
+Molecular Biosciences, The University of Queensland, St Lucia, Queensland 4072, 
+Australia.
+(2)Public Health Virology, Forensic and Scientific Services, Department of 
+Health, Queensland Government, PO Box 594, Archerfield, Queensland 4108, 
+Australia.
+
+A novel flavivirus, provisionally named Bamaga virus (BgV), was isolated from 
+Culex annulirostris mosquitoes collected from northern Australia. Phylogenetic 
+analysis of the complete nucleotide sequence of the BgV genome revealed it 
+clustered with the yellow fever virus (YFV) group, and was most closely related 
+to Edge Hill virus (EHV), another Australian flavivirus, with 61.9 % nucleotide 
+and 63.7 % amino acid sequence identity. Antigenic analysis of the envelope and 
+pre-membrane proteins of BgV further revealed epitopes common to EHV, dengue and 
+other mosquito-borne flaviviruses. However, in contrast to these viruses, BgV 
+displayed restricted growth in a range of vertebrate cell lines with no or 
+relatively slow replication in inoculated cultures. There was also restricted 
+BgV replication in virus-challenged mice. Our results indicate that BgV is an 
+evolutionary divergent member of the YFV group of flaviviruses, and represents a 
+novel system to study mechanisms of virus host-restriction and transmission.
+
+DOI: 10.1099/jgv.0.000430
+PMID: 26878841

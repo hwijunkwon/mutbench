@@ -1,0 +1,57 @@
+1. Virology. 2017 Dec;512:161-171. doi: 10.1016/j.virol.2017.09.013. Epub 2017
+Sep  28.
+
+Oxidation-sensitive polymersomes as vaccine nanocarriers enhance humoral 
+responses against Lassa virus envelope glycoprotein.
+
+Galan-Navarro C(1), Rincon-Restrepo M(2), Zimmer G(3), Saphire EO(4), Hubbell 
+JA(5), Hirosue S(6), Swartz MA(7), Kunz S(8).
+
+Author information:
+(1)Institute of Microbiology, Lausanne University Hospital. Lausanne, 
+Switzerland; Laboratory of Lymphatic and Cancer Bioengineering, Institute of 
+Bioengineering, École Polytechnique Féderal de Lausanne (EPFL), 1015 Lausanne, 
+Switzerland.
+(2)Laboratory of Lymphatic and Cancer Bioengineering, Institute of 
+Bioengineering, École Polytechnique Féderal de Lausanne (EPFL), 1015 Lausanne, 
+Switzerland.
+(3)Division of Virology, Institute of Virology and Immunology, 3147 
+Mittelhäusern, Switzerland.
+(4)Department of Immunology and Microbiology, The Scripps Research Institute, La 
+Jolla, CA, United States; Skaggs Institute for Chemical Biology, The Scripps 
+Research Institute, La Jolla, CA, United States.
+(5)Laboratory of Lymphatic and Cancer Bioengineering, Institute of 
+Bioengineering, École Polytechnique Féderal de Lausanne (EPFL), 1015 Lausanne, 
+Switzerland; Institute for Molecular Engineering and Ben May Department of 
+Cancer Research, University of Chicago, IL, United States.
+(6)Laboratory of Lymphatic and Cancer Bioengineering, Institute of 
+Bioengineering, École Polytechnique Féderal de Lausanne (EPFL), 1015 Lausanne, 
+Switzerland. Electronic address: sach@alum.mit.edu.
+(7)Laboratory of Lymphatic and Cancer Bioengineering, Institute of 
+Bioengineering, École Polytechnique Féderal de Lausanne (EPFL), 1015 Lausanne, 
+Switzerland; Institute for Molecular Engineering and Ben May Department of 
+Cancer Research, University of Chicago, IL, United States. Electronic address: 
+melodyswartz@uchicago.edu.
+(8)Institute of Microbiology, Lausanne University Hospital. Lausanne, 
+Switzerland. Electronic address: Stefan.Kunz@chuv.ch.
+
+Lassa virus (LASV) causes severe hemorrhagic fever with high mortality, yet no 
+vaccine currently exists. Antibodies targeting viral attachment proteins are 
+crucial for protection against many viral infections. However, the envelope 
+glycoprotein (GP)-1 of LASV elicits weak antibody responses due to extensive 
+glycan shielding. Here, we explored a novel vaccine strategy to enhance humoral 
+immunity against LASV GP1. Using structural information, we designed a 
+recombinant GP1 immunogen, and then encapsulated it into oxidation-sensitive 
+polymersomes (PS) as nanocarriers that promote intracellular MHCII loading. Mice 
+immunized with adjuvanted PS (LASV GP1) showed superior humoral responses than 
+free LASV GP1, including antibodies with higher binding affinity to virion GP1, 
+increased levels of polyfunctional anti-viral CD4 T cells, and IgG-secreting B 
+cells. PS (LASV GP1) elicited a more diverse epitope repertoire of anti-viral 
+IgG. Together, these data demonstrate the potential of our nanocarrier vaccine 
+platform for generating virus-specific antibodies against weakly immunogenic 
+viral antigens.
+
+Copyright © 2017. Published by Elsevier Inc.
+
+DOI: 10.1016/j.virol.2017.09.013
+PMID: 28963882 [Indexed for MEDLINE]

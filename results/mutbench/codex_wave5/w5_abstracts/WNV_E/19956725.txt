@@ -1,0 +1,35 @@
+1. PLoS Pathog. 2009 Nov;5(11):e1000672. doi: 10.1371/journal.ppat.1000672. Epub 
+2009 Nov 26.
+
+Capturing a flavivirus pre-fusion intermediate.
+
+Kaufmann B(1), Chipman PR, Holdaway HA, Johnson S, Fremont DH, Kuhn RJ, Diamond 
+MS, Rossmann MG.
+
+Author information:
+(1)Department of Biological Sciences, Purdue University, West Lafayette, 
+Indiana, United States of America.
+
+During cell entry of flaviviruses, low endosomal pH triggers the rearrangement 
+of the viral surface glycoproteins to a fusion-active state that allows the 
+release of the infectious RNA into the cytoplasm. In this work, West Nile virus 
+was complexed with Fab fragments of the neutralizing mAb E16 and was 
+subsequently exposed to low pH, trapping the virions in a pre-fusion 
+intermediate state. The structure of the complex was studied by cryo-electron 
+microscopy and provides the first structural glimpse of a flavivirus fusion 
+intermediate near physiological conditions. A radial expansion of the outer 
+protein layer of the virion was observed compared to the structure at pH 8. The 
+resulting approximately 60 A-wide shell of low density between lipid bilayer and 
+outer protein layer is likely traversed by the stem region of the E 
+glycoprotein. By using antibody fragments, we have captured a structural 
+intermediate of a virus that likely occurs during cell entry. The trapping of 
+structural transition states by antibody fragments will be applicable for other 
+processes in the flavivirus life cycle and delineating other cellular events 
+that involve conformational rearrangements.
+
+DOI: 10.1371/journal.ppat.1000672
+PMCID: PMC2776511
+PMID: 19956725 [Indexed for MEDLINE]
+
+Conflict of interest statement: The authors have declared that no competing 
+interests exist.

@@ -1,0 +1,77 @@
+1. J Virol. 2026 Apr 27:e0037226. doi: 10.1128/jvi.00372-26. Online ahead of
+print.
+
+Griffithsin-mediated inhibition of cellular entry of hemorrhagic fever viruses 
+and insights into its mechanisms.
+
+Saito T(#)(1), Furuyama W(#)(2), Muthusinghe DS(#)(2), Munyeku-Bazitama 
+Y(3)(4)(5)(6), Hattori T(3), Okabe M(7), Yokoyama T(7), Tanaka Y(7), Sakai R(8), 
+Sakurai Y(2)(9), Sakaguchi M(9), Tsukagoshi R(1), Coronado Barrios NS(1), Tipih 
+T(10), Rosenke K(10), Marzi A(10), Igarashi M(3)(11), Urata S(2)(9), Maruyama 
+J(1), Nanbo A(2)(9), Takada A(3)(11)(12)(13).
+
+Author information:
+(1)Department of Pathology, University of Texas Medical Branch, Galveston, 
+Texas, USA.
+(2)National Research Center for the Control and Prevention of Infectious 
+Diseases, Nagasaki University, Nagasaki, Japan.
+(3)Division of Global Epidemiology, International Institute for Zoonosis 
+Control, Hokkaido University, Sapporo, Japan.
+(4)Institut National de Recherche Biomédicale, Kinshasa, Democratic Republic of 
+the Congo.
+(5)Département de Biologie Médicale, Faculté de Médecine, Université de 
+Kinshasa, Kinshasa, Democratic Republic of the Congo.
+(6)Faculty of Medicine, University of Kikwit, Kikwit, Democratic Republic of the 
+Congo.
+(7)Graduate School of Life Sciences, Tohoku University, Sendai, Japan.
+(8)Hokkaido University Faculty and Graduate School of Fisheries Sciences, 
+Hakodate, Japan.
+(9)Institute of Tropical Medicine, Nagasaki University, Nagasaki, Japan.
+(10)Laboratory of Virology, Rocky Mountain Laboratories, Division of Intramural 
+Research, National Institute of Allergy and Infectious Diseases, National 
+Institutes of Health, Hamilton, Montana, USA.
+(11)International Collaboration Unit, International Institute for Zoonosis 
+Control, Hokkaido University, Sapporo, Japan.
+(12)One Health Research Center, Hokkaido University, Sapporo, Japan.
+(13)Department of Disease Control, School of Veterinary Medicine, University of 
+Zambia, Lusaka, Zambia.
+(#)Contributed equally
+
+Griffithsin (GRFT), a lectin derived from the red algae Griffithsia, is known as 
+an antiviral agent that binds to high-mannose glycans on viral envelope 
+glycoproteins (GPs). In this study, we evaluated the antiviral activity of GRFT 
+against Ebola virus (EBOV), Marburg virus (MARV), Lassa virus (LASV), Lujo virus 
+(LUJV), and Crimean-Congo hemorrhagic fever virus (CCHFV), all of which cause 
+severe and often fatal hemorrhagic fevers in humans. GRFT effectively blocked 
+the entry of these viruses into cells, with stronger inhibition observed against 
+LASV, LUJV, and CCHFV than against EBOV and MARV. This inhibitory effect 
+depended on the lectin activity of GRFT, as its mutant lacking glycan-binding 
+function completely lost the ability to inhibit the entry of these viruses into 
+cells. We found that GRFT induced aggregation of virus-like particles (VLPs) 
+derived from EBOV and MARV, whereas this activity was not observed with LASV- 
+and LUJV-derived VLPs. Most of the escape mutants of LASV and LUJV GPs exhibited 
+amino acid substitutions that likely disrupted GRFT binding by removing 
+glycosylation sites at positions 79 and 73, respectively. Interestingly, other 
+substitutions close to these positions, although unrelated to glycosylation, 
+also contributed to reduced inhibitory activity of GRFT, suggesting a unique 
+recognition mode in which both sugar chains and adjacent amino acid residues 
+constitute the binding site structure for GRFT. Overall, our results provide 
+insights into mechanisms underlying the antiviral effects of GRFT and highlight 
+lectin-related activities as a key feature for broad-spectrum antiviral agents 
+targeting highly glycosylated envelope GPs.
+IMPORTANCE: Emerging and re-emerging infectious diseases, including viral 
+hemorrhagic fevers, pose a major global health threat due to their potential for 
+widespread outbreaks. Currently, treatment options for such diseases are limited 
+and often ineffective against newly emerging viruses. Here, we demonstrate that 
+Griffithsin (GRFT), a naturally derived lectin from red algae, inhibits the 
+entry of multiple hemorrhagic fever viruses into host cells. By blocking key 
+processes of the viral entry mediated by envelope glycoproteins, lectins such as 
+GRFT can exhibit broad antiviral activity that could potentially overcome the 
+limitations of existing treatments against emerging viruses. Our findings 
+emphasize that targeting sugar chains and adjacent structures on viral 
+glycoproteins with GRFT could provide a therapeutic strategy against diverse 
+viral species. Such an approach is particularly valuable for newly emerging 
+viruses for which specific countermeasures have not yet been established.
+
+DOI: 10.1128/jvi.00372-26
+PMID: 42037406

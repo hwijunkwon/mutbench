@@ -1,0 +1,44 @@
+1. PLoS Pathog. 2011 Jun;7(6):e1002111. doi: 10.1371/journal.ppat.1002111. Epub 
+2011 Jun 30.
+
+A dynamic landscape for antibody binding modulates antibody-mediated 
+neutralization of West Nile virus.
+
+Dowd KA(1), Jost CA, Durbin AP, Whitehead SS, Pierson TC.
+
+Author information:
+(1)Viral Pathogenesis Section, Laboratory of Viral Diseases, National Institutes 
+of Health, Bethesda, Maryland, United States of America.
+
+Neutralizing antibodies are a significant component of the host's protective 
+response against flavivirus infection. Neutralization of flaviviruses occurs 
+when individual virions are engaged by antibodies with a stoichiometry that 
+exceeds a required threshold. From this "multiple-hit" perspective, the 
+neutralizing activity of antibodies is governed by the affinity with which it 
+binds its epitope and the number of times this determinant is displayed on the 
+surface of the virion. In this study, we investigated time-dependent changes in 
+the fate of West Nile virus (WNV) decorated with antibody in solution. 
+Experiments with the well-characterized neutralizing monoclonal antibody (MAb) 
+E16 revealed a significant increase in neutralization activity over time that 
+could not be explained by the kinetics of antibody binding, virion aggregation, 
+or the action of complement. Additional kinetic experiments using the 
+fusion-loop specific MAb E53, which has limited neutralizing activity because it 
+recognizes a relatively inaccessible epitope on mature virions, identified a 
+role of virus "breathing" in regulating neutralization activity. Remarkably, MAb 
+E53 neutralized mature WNV in a time- and temperature-dependent manner. This 
+phenomenon was confirmed in studies with a large panel of MAbs specific for 
+epitopes in each domain of the WNV envelope protein, with sera from recipients 
+of a live attenuated WNV vaccine, and in experiments with dengue virus. Given 
+enough time, significant inhibition of infection was observed even for 
+antibodies with very limited, or no neutralizing activity in standard 
+neutralization assays. Together, our data suggests that the structural dynamics 
+of flaviviruses impacts antibody-mediated neutralization via exposure of 
+otherwise inaccessible epitopes, allowing for antibodies to dock on the virion 
+with a stoichiometry sufficient for neutralization.
+
+DOI: 10.1371/journal.ppat.1002111
+PMCID: PMC3128118
+PMID: 21738473 [Indexed for MEDLINE]
+
+Conflict of interest statement: The authors have declared that no competing 
+interests exist.

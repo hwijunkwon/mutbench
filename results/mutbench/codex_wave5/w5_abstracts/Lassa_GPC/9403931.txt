@@ -1,0 +1,26 @@
+1. Res Virol. 1997 Sep-Oct;148(5):323-31. doi: 10.1016/s0923-2516(97)89128-5.
+
+Glycoprotein-mediated biological properties of a host range mutant of Junin 
+virus.
+
+Scolaro LA(1), Damonte EB.
+
+Author information:
+(1)Departamento de Química Biológica, Facultad de Ciencias Exactas y Naturales, 
+Universidad de Buenos Aires, Ciudad Universitaria.
+
+The biological properties mediated by the main envelope glycoprotein (GP1) of a 
+mouse-attenuated mutant of Junin virus, named Cl67, were investigated in 
+comparison with its parental strain XJCl3. In contrast to the parental strain, 
+this mutant was unable to multiply in primary cultures of mouse embryo 
+fibroblasts (MEFs). Impairment of Cl67 multiplication was associated with a lack 
+of virus binding to MEF, probably due to an altered interaction between GP1 and 
+cellular receptors. Antigenic and immunogenic characterization of GP1, performed 
+by neutralization assays, demonstrated that, under certain conditions, 
+polyclonal and monoclonal antibodies exhibited differential affinity and 
+specificity for each virus. Cl67-infected Vero cells showed a marked 
+pH-dependent fusion capability, suggesting more efficient low pH triggering of 
+fusion by mutant virus GP1 in comparison with the parental strain.
+
+DOI: 10.1016/s0923-2516(97)89128-5
+PMID: 9403931 [Indexed for MEDLINE]

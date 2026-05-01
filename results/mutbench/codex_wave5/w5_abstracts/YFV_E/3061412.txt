@@ -1,0 +1,30 @@
+1. Ann Inst Pasteur Virol. 1988 Jan-Mar;139(1):59-67. doi: 
+10.1016/s0769-2617(88)80006-6.
+
+Expression of the yellow fever virus envelope protein using hybrid SV40/yellow 
+fever viruses.
+
+Desprès P(1), Cahour A, Wychowski C, Girard M, Bouloy M.
+
+Author information:
+(1)Unité de Virologie Moléculaire, UA CNRS 545, Institut Pasteur, Paris.
+
+The cDNA coding for the yellow fever virus (YFV) envelope protein (E) was 
+inserted into an SV40 vector under the control of the late promoter in place of 
+the VP1 gene. The recombinant virus expressed a 52-Kd polypeptide which was 
+detected by immunoprecipitation with a monoclonal antibody raised against the E 
+protein. Surprisingly, this protein was visualized in the nucleus of the 
+infected cells. The possible presence of a sequence involved in nuclear 
+migration of the E protein and naturally ignored during virus infection is 
+discussed. The sequence coding for the mature E protein is directly preceded in 
+the YFV genome by a sequence of 45 nucleotides coding for a 15-amino-acid long 
+hydrophobic oligopeptide. The sequence of this oligopeptide was inserted into 
+the SV40 recombinant virus between the ATG codon and the first codon for the E 
+protein. The E protein expressed by this new SV40 recombinant virus was found to 
+be localized in the cytoplasm of the infected cells in association with 
+intracellular membranes. These results strongly suggest that the 15-amino-acid 
+long hydrophobic region naturally plays a role as a signal peptide for the E 
+protein.
+
+DOI: 10.1016/s0769-2617(88)80006-6
+PMID: 3061412 [Indexed for MEDLINE]

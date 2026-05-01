@@ -1,0 +1,52 @@
+1. Viruses. 2022 Feb 8;14(2):346. doi: 10.3390/v14020346.
+
+High-Throughput Platform for Detection of Neutralizing Antibodies Using 
+Flavivirus Reporter Replicon Particles.
+
+Lücke AC(1), Vom Hemdt A(1), Wieseler J(1), Fischer C(2), Feldmann M(1), 
+Rothenfusser S(3)(4), Drexler JF(2)(5)(6), Kümmerer BM(1)(7).
+
+Author information:
+(1)Institute of Virology, Medical Faculty, University of Bonn, 53127 Bonn, 
+Germany.
+(2)Institute of Virology, Charité-Universitätsmedizin Berlin, Corporate Member 
+of Freie Universtät Berlin and Humboldt-Universität zu Berlin, 10117 Berlin, 
+Germany.
+(3)Division of Clinical Pharmacology, University Hospital, LMU Munich, 80337 
+Munich, Germany.
+(4)Unit Clinical Pharmacology (EKliP), Helmholtz Center for Environmental 
+Health, 80337 Munich, Germany.
+(5)Martinovsky Institute of Medical Parasitology, Tropical and Vector-Borne 
+Diseases, Sechenov University, 119435 Moskow, Russia.
+(6)German Center for Infection Research (DZIF), Associated Partner Site Berlin, 
+10117 Berlin, Germany.
+(7)German Center for Infection Research (DZIF), Associated Partner Site 
+Bonn-Cologne, 53127 Bonn, Germany.
+
+Flavivirus outbreaks require fast and reliable diagnostics that can be easily 
+adapted to newly emerging and re-emerging flaviviruses. Due to the serological 
+cross-reactivity among flavivirus antibodies, neutralization tests (NT) are 
+considered the gold standard for sero-diagnostics. Here, we first established 
+wild-type single-round infectious virus replicon particles (VRPs) by packaging a 
+yellow fever virus (YFV) replicon expressing Gaussia luciferase (Gluc) with YFV 
+structural proteins in trans using a double subgenomic Sindbis virus (SINV) 
+replicon. The latter expressed the YFV envelope proteins prME via the first SINV 
+subgenomic promoter and the capsid protein via a second subgenomic SINV 
+promoter. VRPs were produced upon co-electroporation of replicon and packaging 
+RNA. Introduction of single restriction enzyme sites in the packaging construct 
+flanking the prME sequence easily allowed to exchange the prME moiety resulting 
+in chimeric VRPs that have the surface proteins of other flaviviruses including 
+dengue virus 1--4, Zika virus, West Nile virus, and tick-borne encephalitis 
+virus. Besides comparing the YF-VRP based NT assay to a YF reporter virus NT 
+assay, we analyzed the neutralization efficiencies of different human 
+anti-flavivirus sera or a monoclonal antibody against all established VRPs. The 
+assays were performed in a 96-well high-throughput format setting with Gluc as 
+readout in comparison to classical plaque reduction NTs indicating that the 
+VRP-based NT assays are suitable for high-throughput analyses of neutralizing 
+flavivirus antibodies.
+
+DOI: 10.3390/v14020346
+PMCID: PMC8880525
+PMID: 35215941 [Indexed for MEDLINE]
+
+Conflict of interest statement: The authors declare no conflict of interest.

@@ -1,0 +1,55 @@
+1. J Virol. 2017 Aug 24;91(18):e00574-17. doi: 10.1128/JVI.00574-17. Print 2017
+Sep  15.
+
+Mutational Analysis of Lassa Virus Glycoprotein Highlights Regions Required for 
+Alpha-Dystroglycan Utilization.
+
+Acciani M(1), Alston JT(1), Zhao G(1), Reynolds H(1), Ali AM(1), Xu B(1), 
+Brindley MA(2).
+
+Author information:
+(1)Department of Infectious Diseases, College of Veterinary Medicine, University 
+of Georgia, Athens, Georgia, USA.
+(2)Department of Infectious Diseases, Department of Population Health, Center 
+for Vaccines and Immunology, College of Veterinary Medicine, University of 
+Georgia, Athens, Georgia, USA mbrindle@uga.edu.
+
+Lassa virus (LASV) is an enveloped RNA virus endemic to West Africa and 
+responsible for severe cases of hemorrhagic fever. Virus entry is mediated by 
+the glycoprotein complex consisting of a stable-signal peptide, a 
+receptor-binding subunit, GP1, and a viral-host membrane fusion subunit, GP2. 
+Several cellular receptors can interact with the GP1 subunit and mediate viral 
+entry, including alpha-dystroglycan (αDG) and lysosome-associated membrane 
+protein 1 (LAMP1). In order to define the regions within GP1 that interact with 
+the cellular receptors, we implemented insertional mutagenesis, carbohydrate 
+shielding, and alanine scanning mutagenesis. Eighty GP constructs were 
+engineered and evaluated for GP1-GP2 processing, surface expression, and the 
+ability to mediate cell-to-cell fusion after low-pH exposure. To examine 
+virus-to-cell entry, 49 constructs were incorporated onto vesicular stomatitis 
+virus (VSV) pseudoparticles and transduction efficiencies were monitored in HAP1 
+and HAP1-ΔDAG1 cells that differentially produce the αDG cell surface receptor. 
+Seven constructs retained efficient transduction in HAP1-ΔDAG1 cells yet poorly 
+transduced HAP1 cells, suggesting that they are involved in αDG utilization. 
+Residues H141, N146, F147, and Y150 cluster at the predicted central core of the 
+trimeric interface and are important for GP-αDG interaction. Additionally, 
+H92A-H93A, 150HA, 172HA, and 230HA displayed reduced transduction in both HAP1 
+and HAP1-ΔDAG1 cells, despite efficient cell-to-cell fusion activity. These 
+mutations may interfere with interactions with the endosomal receptor LAMP1 or 
+interfere at another stage in entry that is common to both cell lines. Insight 
+gained from these data can aid in the development of more-effective entry 
+inhibitors by blocking receptor interactions.IMPORTANCE Countries in which Lassa 
+virus is endemic, such as Nigeria, Sierra Leone, Guinea, and Liberia, usually 
+experience a seasonal outbreak of the virus from December to March. Currently, 
+there is neither a preventative vaccine nor a therapeutic available to 
+effectively treat severe Lassa fever. One way to thwart virus infection is to 
+inhibit interaction with cellular receptors. It is known that the GP1 subunit of 
+the Lassa glycoprotein complex plays a critical role in receptor recognition. 
+Our results highlight a region within the Lassa virus GP1 protein that interacts 
+with the cellular receptor alpha-dystroglycan. This information may be used for 
+future development of new Lassa virus antivirals.
+
+Copyright © 2017 American Society for Microbiology.
+
+DOI: 10.1128/JVI.00574-17
+PMCID: PMC5571257
+PMID: 28679759 [Indexed for MEDLINE]

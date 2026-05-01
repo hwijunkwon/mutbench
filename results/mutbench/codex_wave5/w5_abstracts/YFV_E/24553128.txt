@@ -1,0 +1,29 @@
+1. Hum Vaccin Immunother. 2014;10(5):1256-65. doi: 10.4161/hv.28117. Epub 2014
+Feb  19.
+
+The yellow fever 17D virus as a platform for new live attenuated vaccines.
+
+Bonaldo MC(1), Sequeira PC(1), Galler R(2).
+
+Author information:
+(1)Laboratório de Biologia Molecular de Flavivírus, IOC, Fiocruz; Rio de 
+Janeiro, Brazil.
+(2)Instituto de Tecnologia em Imunobiológicos, Fiocruz, Rio de Janeiro, Brazil.
+
+The live-attenuated yellow fever 17D virus is one of the most outstanding human 
+vaccines ever developed. It induces efficacious immune responses at a low 
+production cost with a well-established manufacture process. These advantages 
+make the YF17D virus attractive as a vector for the development of new vaccines. 
+At the beginning of vector development studies, YF17D was genetically 
+manipulated to express other flavivirus prM and E proteins, components of the 
+viral envelope. While these 17D recombinants are based on the substitution of 
+equivalent YF17D genes, other antigens from unrelated pathogens have also been 
+successfully expressed and delivered by recombinant YF17D viruses employing 
+alternative strategies for genetic manipulation of the YF17D genome. Herein, we 
+discuss these strategies in terms of possibilities of single epitope or larger 
+sequence expression and the main properties of these replication-competent viral 
+platforms.
+
+DOI: 10.4161/hv.28117
+PMCID: PMC4896586
+PMID: 24553128 [Indexed for MEDLINE]

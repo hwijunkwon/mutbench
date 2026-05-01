@@ -1,0 +1,42 @@
+1. J Zoo Wildl Med. 2021 Apr;52(1):185-191. doi: 10.1638/2020-0068.
+
+WEST NILE VIRUS SEROCONVERSION IN EASTERN LOGGERHEAD SHRIKE (LANIUS LUDOVICIANUS 
+MIGRANS) AFTER VACCINATION WITH A KILLED VACCINE.
+
+Schutten K(1), Chabot A(2), Wheeler H(3).
+
+Author information:
+(1)African Lion Safari, Cambridge, ON, Canada N1R 5S2, kerryschutten@gmail.com.
+(2)African Lion Safari, Cambridge, ON, Canada N1R 5S2.
+(3)Wildlife Preservation Canada, Guelph, ON, Canada N1H 6J2.
+
+The loggerhead shrike (Lanius ludovicianus migrans) is a migratory songbird that 
+has undergone massive population declines in Ontario since the 1950s. As part of 
+a broad strategy of recovery, a captive breeding population was established in 
+the late 1990s. This species appears to be extremely sensitive to West Nile 
+virus (WNV) infection, with prior outbreaks at Ontario breeding facilities 
+reaching a 100% mortality rate. This study aimed to investigate the humoral 
+response to vaccination in juvenile birds given single versus serial booster 
+vaccinations, as well as to assess the duration of protective virus-neutralizing 
+titers in annually vaccinated adult birds, by measuring WNV-neutralizing 
+antibodies via the Plaque Reduction Neutralization Test. Twenty-two adult birds 
+and forty 18-22-day-old chicks were included in the study. Annual vaccination 
+resulted in serum neutralizing antibody against WNV for only 59% of adult 
+individuals 1 yr following vaccination. These results, coupled with the death of 
+one vaccinated adult individual due to WNV infection, suggest that a second 
+booster vaccination may be required to adequately protect adult individuals 
+throughout the WNV transmission season. The results of the trial involving 
+juvenile birds indicate that vaccination does not effectively stimulate the 
+immune system of naïve juveniles to produce serum-neutralizing antibodies 
+against WNV in the majority of tested birds, although serial booster vaccination 
+appears to provide a level of improved seroconversion. However, the loss of 19% 
+of naïve juveniles to natural WNV infection versus a less than 3% loss of 
+juveniles that received at least one vaccination suggests some level of 
+cell-mediated immunity and protection against infection takes place in juvenile 
+birds postvaccination. The deaths of several nonvaccinated juveniles and one 
+vaccinated adult at this study facility suggest that WNV continues to be a 
+pathogen of high risk in this species in captivity, and likely in the wild as 
+well.
+
+DOI: 10.1638/2020-0068
+PMID: 33827175 [Indexed for MEDLINE]

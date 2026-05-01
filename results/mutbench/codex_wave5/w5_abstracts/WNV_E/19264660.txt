@@ -1,0 +1,41 @@
+1. J Gen Virol. 2009 Apr;90(Pt 4):799-809. doi: 10.1099/vir.0.006874-0. Epub 2009
+ Mar 4.
+
+On a mouse monoclonal antibody that neutralizes all four dengue virus serotypes.
+
+Rajamanonmani R(1)(2), Nkenfou C(3), Clancy P(4), Yau YH(2), Shochat SG(2), 
+Sukupolvi-Petty S(5), Schul W(3), Diamond MS(5), Vasudevan SG(1)(4), Lescar 
+J(6)(2).
+
+Author information:
+(1)Program in Emerging Infectious Diseases, Duke-NUS, Graduate Medical School, 
+Singapore.
+(2)School of Biological Sciences, Nanyang Technological University, Biopolis, 
+Singapore.
+(3)Novartis Institute for Tropical Diseases, Biopolis, Singapore.
+(4)Department of Biochemistry and Molecular Biology, James Cook University, 
+Australia.
+(5)Departments of Medicine, Molecular Microbiology, Pathology and Immunology, 
+Washington University School of Medicine, St Louis, USA.
+(6)AFMB CNRS UMR6098, Marseille, France.
+
+The flavivirus envelope glycoprotein (E) is responsible for viral attachment and 
+entry by membrane fusion. Its ectodomain is the primary target of the humoral 
+immune response. In particular, the C-terminal Ig-like domain III of E, which is 
+exposed at the surface of the viral particle, forms an attractive antigen for 
+raising protective monoclonal antibodies (mAb). 9F12, a mouse mAb raised against 
+a dengue virus (DENV) serotype 2 recombinant domain III, cross-reacts with 
+corresponding domains from the other three DENV serotypes and also with West 
+Nile virus. mAb 9F12 binds with nanomolar affinity to a conserved epitope that 
+maps to the viral surface comprising residues 305, 307, 310 and 330 of the E 
+protein. mAb 9F12 neutralizes all four DENV serotypes in plaque reduction 
+assays. We expressed a single-chain Fv from 9F12 that retains the binding 
+activity of the parent mAb. Adsorption and fusion inhibition assays indicate 
+that mAb 9F12 prevents early steps of viral entry. Its virus inhibition activity 
+and broad cross-reactivity makes mAb 9F12 a suitable candidate for optimization 
+and humanization into a therapeutic antibody to treat severe infections by 
+dengue.
+
+DOI: 10.1099/vir.0.006874-0
+PMCID: PMC2889437
+PMID: 19264660 [Indexed for MEDLINE]

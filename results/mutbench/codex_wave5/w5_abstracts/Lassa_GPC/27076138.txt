@@ -1,0 +1,42 @@
+1. Methods Mol Biol. 2016;1403:295-311. doi: 10.1007/978-1-4939-3387-7_16.
+
+Single-Vector, Single-Injection Recombinant Vesicular Stomatitis Virus Vaccines 
+Against High-Containment Viruses.
+
+Whitt MA(1), Geisbert TW(2)(3), Mire CE(4)(5).
+
+Author information:
+(1)Department of Microbiology, Immunology, and Biochemistry, University of 
+Tennessee Health Science Center, 858 Madison Avenue, Memphis, TN, USA.
+(2)Galveston National Laboratory, University of Texas Medical Branch, 301 
+University Boulevard, Galveston, TX, USA.
+(3)Department of Microbiology and Immunology, University of Texas Medical 
+Branch, 301 University Boulevard, Galveston, TX, USA.
+(4)Galveston National Laboratory, University of Texas Medical Branch, 301 
+University Boulevard, Galveston, TX, USA. chmire@utmb.edu.
+(5)Department of Microbiology and Immunology, University of Texas Medical 
+Branch, 301 University Boulevard, Galveston, TX, USA. chmire@utmb.edu.
+
+There are many avenues for making an effective vaccine against viruses. 
+Depending on the virus these can include one of the following: inactivation of 
+whole virions; attenuation of viruses; recombinant viral proteins; 
+non-replication-competent virus particles; or surrogate virus vector systems 
+such as vesicular stomatitis virus (VSV). VSV is a prototypic enveloped animal 
+virus that has been used for over four decades to study virus replication, 
+entry, and assembly due to its ability to replicate to high titers in a wide 
+variety of mammalian and insect cells. The use of reverse genetics to recover 
+infectious and single-cycle replicating VSV from plasmid DNA transfected in cell 
+culture began a revolution in the study of recombinant VSV (rVSV). This platform 
+can be manipulated to study the viral genetic sequences and proteins important 
+in the virus life cycle. Additionally, foreign genes can be inserted between 
+naturally occurring or generated start/stop signals and polyadenylation sites 
+within the VSV genome. VSV has a tolerance for foreign gene expression which has 
+led to numerous rVSVs reported in the literature. Of particular interest are the 
+very effective single-dose rVSV vaccine vectors against high-containment viruses 
+such as filoviruses, henipaviruses, and arenaviruses. Herein we describe the 
+methods for selecting foreign antigenic genes, selecting the location within the 
+VSV genome for insertion, generation of rVSV using reverse genetics, and proper 
+vaccine study designs.
+
+DOI: 10.1007/978-1-4939-3387-7_16
+PMID: 27076138 [Indexed for MEDLINE]

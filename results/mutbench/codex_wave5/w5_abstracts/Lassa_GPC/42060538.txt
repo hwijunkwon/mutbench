@@ -1,0 +1,48 @@
+1. Emerg Microbes Infect. 2026 Dec;15(1):2640285. doi: 
+10.1080/22221751.2026.2640285. Epub 2026 Apr 30.
+
+Evaluation of candidate reference materials for the harmonization of Lassa fever 
+serology.
+
+Bentley EM(1), Ithete N(2), Mitchell J(1), Richardson SAS(1), Bernasconi V(3), 
+Killip M(4), Garry RF(5)(6), Branco L(6), Günther S(2), Atkinson E(1), Rigsby 
+P(1), Hinrichs M(2), Oestereich L(2), Thielebein A(2), Omoifo V(7), Omiunu R(8), 
+Esumeh R(8), Okogbenin S(8), Kristiansen PA(3), Page M(1), Ogbaini-Emovon E(8), 
+Mattiuzzo G(1); Collaborative Study Participants.
+
+Author information:
+(1)Medicines and Healthcare products Regulatory Agency, South Mimms, UK.
+(2)Virology Department, Bernhard-Nocht Institute for Tropical Medicine, Hamburg, 
+Germany.
+(3)Coalition for Epidemic Preparedness Innovations, Oslo, Norway.
+(4)High Containment Microbiology, UK Health Security Agency, London, UK.
+(5)Department of Microbiology and Immunology, Tulane University School of 
+Medicine, New Orleans, LA, USA.
+(6)Zalgen Laboratories LLC, Frederick, MD, USA.
+(7)Haematology unit, Irrua Specialist Teaching Hospital, Irrua, Nigeria.
+(8)Institute for Viral and Emergent Pathogens Control and Research, Irrua 
+Specialist Teaching Hospital, Irrua, Nigeria.
+
+Lassa fever is a zoonotic disease endemic to several West African countries, 
+with seasonal outbreaks and potential to cause future epidemics. Vaccines and 
+other medical countermeasures are in development, requiring reliable assays for 
+evaluation. A WHO International Standard (IS) for anti-Lassa virus (LASV) 
+antibodies can support harmonization of serological assay results, aiding 
+vaccine and therapeutic assessment, surrogates of protection identification, and 
+improving epidemiological understanding. In this study, a pooled plasma sample 
+from Lassa fever survivors was evaluated in a multi-centre collaborative study 
+involving 17 laboratories for its suitability as a reference material for 
+detecting anti-LASV antibodies. Additionally, two well-characterized monoclonal 
+antibody (mAb) cocktails were assessed as potential alternatives to convalescent 
+plasma. Expressing the antibody titre of the collaborative study panel samples 
+relative to the convalescent plasma pool (NIBSC 20/202) or the mAb cocktails 
+harmonized the results from the participants reducing the inter-laboratory 
+variation. However, while the candidate IS 20/202 performed consistently across 
+all assays, the mAb cocktails were not detected by a few binding antibody 
+methods. These findings support the use of mAb cocktails as reference material 
+for evaluating humoral responses within a laboratory or network using common 
+assays; however, for an IS, applicable globally across methods, convalescent 
+serum or plasma remains the most suitable material.
+
+DOI: 10.1080/22221751.2026.2640285
+PMID: 42060538 [Indexed for MEDLINE]

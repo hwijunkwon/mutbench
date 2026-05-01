@@ -1,0 +1,31 @@
+1. J Gen Virol. 1990 Jan;71 ( Pt 1):13-8. doi: 10.1099/0022-1317-71-1-13.
+
+Identification of monoclonal antibodies that distinguish between 17D-204 and 
+other strains of yellow fever virus.
+
+Barrett AD(1), Mathews JH, Miller BR, Medlen AR, Ledger TN, Roehrig JT.
+
+Author information:
+(1)Department of Microbiology, University of Surrey, Guildford, U.K.
+
+Eight monoclonal antibodies (MAbs) prepared against the flaviviruses Saint Louis 
+encephalitis, dengue 2 and dengue 3 viruses all recognized epitopes on the 
+envelope protein of the prototype flavivirus, yellow fever (YF) virus. Three of 
+these MAbs with flavivirus group-common specificity and two MAbs with a 
+flavivirus-subgroup specificity were found to distinguish wild-type YF viruses 
+from YF 17D-204 vaccine virus, but not from the closely related 17DD vaccine 
+virus, nor from the French neurotropic vaccine virus. This pattern of reactivity 
+was seen only with viruses grown in Aedes albopictus C6/36 cells and not with 
+viruses grown in vertebrate cells (SW13 and Vero cells), where all five MAbs 
+recognized epitopes on both wild-type and 17D-204 viruses. Examination of adult 
+A. aegypti mosquitoes infected with the same YF viruses as above gave a 
+different pattern of results to those in C6/36 cells. Thus, epitope expression 
+differs between mammalian and arthropod cells and between arthropod cells in 
+vitro and in vivo. Neutralization tests showed that all five MAbs would 
+neutralize wild-type Asibi virus grown in SW13 cells, but not Asibi virus grown 
+in C6/36 cells, nor 17D-204 vaccine virus grown in either cell type. Therefore, 
+it is concluded that when YF virus is grown in mosquito cells, wild-type virus 
+is antigenically and biologically distinct from the 17D-204 vaccine virus.
+
+DOI: 10.1099/0022-1317-71-1-13
+PMID: 1689367 [Indexed for MEDLINE]

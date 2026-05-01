@@ -1,0 +1,40 @@
+1. Virology. 2002 Jun 20;298(1):146-59. doi: 10.1006/viro.2002.1462.
+
+Viremia and immunogenicity in nonhuman primates of a tetravalent yellow 
+fever-dengue chimeric vaccine: genetic reconstructions, dose adjustment, and 
+antibody responses against wild-type dengue virus isolates.
+
+Guirakhoo F(1), Pugachev K, Arroyo J, Miller C, Zhang ZX, Weltzin R, 
+Georgakopoulos K, Catalan J, Ocran S, Draper K, Monath TP.
+
+Author information:
+(1)Acambis Inc., Cambridge, Massachusetts 02139, USA. 
+farshad.guirakhoo@acambis.com
+
+Chimeric yellow fever (YF)-dengue (DEN) viruses (ChimeriVax-DEN) were 
+reconstructed to correct amino acid substitutions within the envelope genes of 
+original constructs described by Guirakhoo et al. (2001, J. Virol. 75, 
+7290-7304). Viruses were analyzed and compared to the previous constructs 
+containing mutations in terms of their growth kinetics in Vero cells, 
+neurovirulence in mice, and immunogenicity in monkeys as monovalent or 
+tetravalent formulations. All chimeras grew to high titers [ approximately 7 to 
+8 log(10), plaque-forming units (PFU)/ml] in Vero cells and were less 
+neurovirulent than YF 17D vaccine in mice. For monkey experiments, the dose of 
+DEN2 chimera was lowered to 3 log(10) PFU in the tetravalent mixture in an 
+effort to reduce its dominant immunogenicity. The magnitude of viremia in 
+ChimeriVax-DEN immunized monkeys was similar to that of YF-VAX, but 
+significantly lower than those induced by wild-type DEN viruses. All monkeys 
+developed high levels of neutralizing antibodies against homologous (chimeras) 
+or heterologous (wild-type DEN viruses isolated from different geographical 
+regions) viruses after a single dose of monovalent or tetravalent vaccine. 
+Administration of a second dose of tetravalent vaccine 2 months later increased 
+titers to both homologous and heterologous viruses. A dose adjustment for dengue 
+2 chimera resulted in a more balanced response against dengue 1, 2, and 3 
+viruses, but a somewhat higher response against chimeric dengue 4 virus. This 
+indicates that further formulations for dose adjustments need to be tested in 
+monkeys to identify an optimal formulation for humans.
+
+(c) 2002 Elsevier Science (USA).
+
+DOI: 10.1006/viro.2002.1462
+PMID: 12093182 [Indexed for MEDLINE]

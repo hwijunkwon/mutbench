@@ -1,0 +1,40 @@
+1. J Virol. 2012 May;86(9):4935-46. doi: 10.1128/JVI.00024-12. Epub 2012 Feb 22.
+
+Molecular characterization of the processing of arenavirus envelope glycoprotein 
+precursors by subtilisin kexin isozyme-1/site-1 protease.
+
+Burri DJ(1), Pasqual G, Rochat C, Seidah NG, Pasquato A, Kunz S.
+
+Author information:
+(1)Institute of Microbiology, University Hospital Center and University of 
+Lausanne, Lausanne, Switzerland.
+
+A crucial step in the life cycle of arenaviruses is the biosynthesis of the 
+mature fusion-active viral envelope glycoprotein (GP) that is essential for 
+virus-host cell attachment and entry. The maturation of the arenavirus GP 
+precursor (GPC) critically depends on proteolytic processing by the cellular 
+proprotein convertase (PC) subtilisin kexin isozyme-1 (SKI-1)/site-1 protease 
+(S1P). Here we undertook a molecular characterization of the SKI-1/S1P 
+processing of the GPCs of the prototypic arenavirus lymphocytic choriomeningitis 
+virus (LCMV) and the pathogenic Lassa virus (LASV). Previous studies showed that 
+the GPC of LASV undergoes processing in the endoplasmic reticulum (ER)/cis-Golgi 
+compartment, whereas the LCMV GPC is cleaved in a late Golgi compartment. Herein 
+we confirm these findings and provide evidence that the SKI-1/S1P recognition 
+site RRLL, present in the SKI-1/S1P prodomain and LASV GPC, but not in the LCMV 
+GPC, is crucial for the processing of the LASV GPC in the ER/cis-Golgi 
+compartment. Our structure-function analysis revealed that the cleavage of 
+arenavirus GPCs, but not cellular substrates, critically depends on the 
+autoprocessing of SKI-1/S1P, suggesting differences in the processing of 
+cellular and viral substrates. Deletion mutagenesis showed that the 
+transmembrane and intracellular domains of SKI-1/S1P are dispensable for 
+arenavirus GPC processing. The expression of a soluble form of the protease in 
+SKI-I/S1P-deficient cells resulted in the efficient processing of arenavirus 
+GPCs and rescued productive virus infection. However, exogenous soluble 
+SKI-1/S1P was unable to process LCMV and LASV GPCs displayed at the surface of 
+SKI-I/S1P-deficient cells, indicating that GPC processing occurs in an 
+intracellular compartment. In sum, our study reveals important differences in 
+the SKI-1/S1P processing of viral and cellular substrates.
+
+DOI: 10.1128/JVI.00024-12
+PMCID: PMC3347368
+PMID: 22357276 [Indexed for MEDLINE]

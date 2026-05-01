@@ -1,0 +1,34 @@
+1. J Virol. 2007 Mar;81(5):2307-17. doi: 10.1128/JVI.02063-06. Epub 2006 Dec 13.
+
+HLA-A2-restricted protection against lethal lymphocytic choriomeningitis.
+
+Botten J(1), Whitton JL, Barrowman P, Sidney J, Whitmire JK, Alexander J, Ting 
+JP, Bui HH, Sette A, Buchmeier MJ.
+
+Author information:
+(1)Molecular and Integrative Neurosciences Department, The Scripps Research 
+Institute, SP30-2020, 10550 North Torrey Pines Road, La Jolla, CA 92037, USA. 
+jbotten@scripps.edu
+
+The consequences of human lymphocytic choriomeningitis virus (LCMV) infection 
+can be severe, including aseptic meningitis in immunocompetent individuals, 
+hydrocephalus or chorioretinitis in fetal infection, or a highly lethal outcome 
+in immunosuppressed individuals. In murine models of LCMV infection, CD8(+) T 
+cells play a primary role in providing protective immunity, and there is 
+evidence that cellular immunity may also be important in related arenavirus 
+infections in humans. For this reason, we sought to identify HLA-A2 
+supertype-restricted epitopes from the LCMV proteome and evaluate them as 
+vaccine determinants in HLA transgenic mice. We identified four 
+HLA-A*0201-restricted peptides-nucleoprotein NP(69-77), glycoprotein precursor 
+GPC(10-18), GPC(447-455), and zinc-binding protein Z(49-58)-that displayed 
+high-affinity binding (< or =275 nM) to HLA-A*0201, induced CD8(+) T-cell 
+responses of high functional avidity in HLA-A*0201 transgenic mice, and were 
+naturally processed from native LCMV antigens in HLA-restricted human antigen 
+presenting cells. One of the epitopes (GPC(447-455)), after peptide immunization 
+of HLA-A*0201 mice, induced CD8(+) T cells capable of killing peptide-pulsed 
+HLA-A*0201-restricted target cells in vivo and protected mice against lethal 
+intracranial challenge with LCMV.
+
+DOI: 10.1128/JVI.02063-06
+PMCID: PMC1865925
+PMID: 17166907 [Indexed for MEDLINE]

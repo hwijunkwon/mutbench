@@ -1,0 +1,47 @@
+1. Korean J Parasitol. 2018 Feb;56(1):61-70. doi: 10.3347/kjp.2018.56.1.61. Epub 
+2018 Feb 28.
+
+Development of a Rapid Diagnostic Test Kit to Detect IgG/IgM Antibody against 
+Zika Virus Using Monoclonal Antibodies to the Envelope and Non-structural 
+Protein 1 of the Virus.
+
+Kim YH(1), Lee J(2), Kim YE(2), Chong CK(2), Pinchemel Y(3), Reisdörfer F(3), 
+Coelho JB(3), Dias RF(3), Bae PK(4), Gusmão ZPM(5), Ahn HJ(6), Nam HW(6).
+
+Author information:
+(1)Department of Ophthalmology, College of Medicine, The Catholic University of 
+Korea, Seoul 06591, Korea.
+(2)GenBody Inc., Cheonan 31116, Korea.
+(3)Bahiafarma, Simoes Filho, Bahia, Brazil.
+(4)BioNano Health Guard Research Center, Daejeon 34141, Korea.
+(5)Lacen-ba, Laboratorio Central, Bahia, Brazil.
+(6)Department of Parasitology, College of Medicine, Catholic University of 
+Korea, Seoul 06591, Korea.
+
+We developed a Rapid Diagnostic Test (RDT) kit for detecting IgG/IgM antibodies 
+against Zika virus (ZIKV) using monoclonal antibodies to the envelope (E) and 
+non-structural protein 1 (NS1) of ZIKV. These proteins were produced using 
+baculovirus expression vector with Sf9 cells. Monoclonal antibodies J2G7 to NS1 
+and J5E1 to E protein were selected and conjugated with colloidal gold to 
+produce the Zika IgG/IgM RDT kit (Zika RDT). Comparisons with ELISA, plaque 
+reduction neutralization test (PRNT), and PCR were done to investigate the 
+analytical sensitivity of Zika RDT, which resulted in 100% identical results. 
+Sensitivity and specificity of Zika RDT in a field test was determined using 
+positive and negative samples from Brazil and Korea. The diagnostic accuracy of 
+Zika RDT was fairly high; sensitivity and specificity for IgG was 99.0 and 
+99.3%, respectively, while for IgM it was 96.7 and 98.7%, respectively. Cross 
+reaction with dengue virus was evaluated using anti-Dengue Mixed Titer 
+Performance Panel (PVD201), in which the Zika RDT showed cross-reactions with 
+DENV in 16.7% and 5.6% in IgG and IgM, respectively. Cross reactions were not 
+observed with West Nile, yellow fever, and hepatitis C virus infected sera. Zika 
+RDT kit is very simple to use, rapid to assay, and very sensitive, and highly 
+specific. Therefore, it would serve as a choice of method for point-of-care 
+diagnosis and large scale surveys of ZIKV infection under clinical or field 
+conditions worldwide in endemic areas.
+
+DOI: 10.3347/kjp.2018.56.1.61
+PMCID: PMC5858665
+PMID: 29529852 [Indexed for MEDLINE]
+
+Conflict of interest statement: The authors declare that there is no conflict of 
+interest.

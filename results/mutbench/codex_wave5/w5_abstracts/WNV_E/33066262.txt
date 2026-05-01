@@ -1,0 +1,37 @@
+1. Vaccines (Basel). 2020 Oct 13;8(4):603. doi: 10.3390/vaccines8040603.
+
+A Recombinant Zika Virus Envelope Protein with Mutations in the Conserved Fusion 
+Loop Leads to Reduced Antibody Cross-Reactivity upon Vaccination.
+
+Berneck BS(1), Rockstroh A(1), Fertey J(1), Grunwald T(1), Ulbert S(1).
+
+Author information:
+(1)Fraunhofer-Institute for Cell Therapy and Immunology, 04103 Leipzig, Germany.
+
+Zika virus (ZIKV) is a zoonotic, human pathogenic, and mosquito-borne 
+flavivirus. Its distribution is rapidly growing worldwide. Several attempts to 
+develop vaccines for ZIKV are currently ongoing. Central to most vaccination 
+approaches against flavivirus infections is the envelope (E) protein, which is 
+the major target of neutralizing antibodies. Insect-cell derived, recombinantly 
+expressed variants of E from the flaviviruses West Nile and Dengue virus have 
+entered clinical trials in humans. Also for ZIKV, these antigens are promising 
+vaccine candidates. Due to the structural similarity of flaviviruses, 
+cross-reactive antibodies are induced by flavivirus antigens and have been 
+linked to the phenomenon of antibody-dependent enhancement of infection (ADE). 
+Especially the highly conserved fusion loop domain (FL) in the E protein is a 
+target of such cross-reactive antibodies. In areas where different flaviviruses 
+co-circulate and heterologous infections cannot be ruled out, this is of 
+concern. To exclude the possibility that recombinant E proteins of ZIKV might 
+induce ADE in infections with related flaviviruses, we performed an immunization 
+study with an insect-cell derived E protein containing four mutations in and 
+near the FL. Our data show that this mutant antigen elicits antibodies with 
+equal neutralizing capacity as the wildtype equivalent. However, it induces much 
+less serological cross-reactivity and does not cause ADE in vitro. These results 
+indicate that mutated variants of the E protein might lead to ZIKV and other 
+flavivirus vaccines with increased safety profiles.
+
+DOI: 10.3390/vaccines8040603
+PMCID: PMC7712286
+PMID: 33066262
+
+Conflict of interest statement: The authors declare no conflict of interest.

@@ -1,0 +1,44 @@
+1. J Antivir Antiretrovir. 2009 Nov 1;1(1):36-42. doi: 10.4172/jaa.1000005.
+
+Human Monoclonal Fab Antibodies Against West Nile Virus and its Neutralizing 
+Activity Analyzed in Vitro and in Vivo.
+
+Duan T(1), Ferguson M, Yuan L, Xu F, Li G.
+
+Author information:
+(1)Department of Pathology and Center for Biodefense and Emerging Infectious 
+Diseases, University of Texas Medical Branch, 301 University Blvd, Galveston, 
+TX, USA 77555-0435.
+
+The disease progression with West Nile virus (WNV) infection in humans leads to 
+meningitis or encephalitis and may cause death, particularly among elderly and 
+immunocompromised individuals. Passive immunity using immunoglobulins has shown 
+efficacy in treating some patients with WNV infection, which makes the 
+development of human anti-WNV antibodies significant. The goal of this study was 
+to construct a Fab-specific phage display library against WNV, and to identify 
+and select clones with neutralizing activities. Total RNA was extracted from 
+peripheral blood lymphocytes (PBLs) of two immunized individuals, and RT-PCR was 
+used to amplify the Fab fragments containing the heavy (V(H)) and light (V(L)) 
+chains. The amplified genes were sequentially cloned into the recombinant 
+antibody expression vector pComb3-H, and the Fab-specific phage display library 
+was packaged with helper phage VCS-M13. Five rounds of panning were carried out 
+with WNV E protein domain III, and then binding antibodies were selected by 
+ELISA. Antigen binding specificity, complementarity determining region (CDR) 
+sequence of V(H) and V(L), and neutralizing activity against WNV were analyzed 
+in vitro and in vivo. Eight Fab monoclonal antibodies recognized E protein 
+domain III from a library of 7×10(7) clones/ml. Of the eight, one (Fab 1), 
+exhibited significant neutralizing activity, and completely blocked 100 pfu WNV 
+infection in Vero cells at a concentration 160 μg/ml. In contrast, Fab 13 and 
+Fab 25, showed weaker neutralizing activities, and modestly blocked 100 pfu WNV 
+infections at concentrations of 320 μg/ml and 160 μg/ml, respectively. However, 
+animal studies showed that Fab 1 failed to protect mice from death at the 
+concentration of 160μg/ml indicating that the neutralizing potential of an 
+antibody in vivo is determined by the strength of binding and the abundance of 
+its epitope for the virion.
+
+DOI: 10.4172/jaa.1000005
+PMCID: PMC2875541
+PMID: 20505850
+
+Conflict of interest statement: Potential conflicts of interest: All authors 
+report no conflicts.

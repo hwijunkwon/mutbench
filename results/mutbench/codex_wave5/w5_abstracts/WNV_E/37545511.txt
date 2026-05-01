@@ -1,0 +1,56 @@
+1. Front Immunol. 2023 Jul 20;14:1203561. doi: 10.3389/fimmu.2023.1203561. 
+eCollection 2023.
+
+Clodronate is not protective in lethal viral encephalitis despite substantially 
+reducing inflammatory monocyte infiltration in the CNS.
+
+Spiteri AG(1)(2), van Vreden C(1)(2), Ashhurst TM(3), Niewold P(1)(2)(4), King 
+NJC(1)(2)(3)(5)(6).
+
+Author information:
+(1)Viral Immunopathology Laboratory, Infection, Immunity and Inflammation 
+Research Theme, School of Medical Sciences, Faculty of Medicine and Health, The 
+University of Sydney, Sydney, NSW, Australia.
+(2)Charles Perkins Centre, The University of Sydney, Sydney, NSW, Australia.
+(3)Sydney Cytometry, The University of Sydney and Centenary Institute, Sydney, 
+NSW, Australia.
+(4)Department of Infectious Diseases, Leiden University Medical Centre, Leiden, 
+Netherlands.
+(5)The University of Sydney Institute for Infectious Diseases, The University of 
+Sydney, Sydney, NSW, Australia.
+(6)The University of Sydney Nano Institute, The University of Sydney, Sydney, 
+NSW, Australia.
+
+Bone marrow (BM)-derived monocytes induce inflammation and tissue damage in a 
+range of pathologies. In particular, in a mouse model of West Nile virus (WNV) 
+encephalitis (WNE), nitric oxide-producing, Ly6Chi inflammatory monocytes from 
+the BM are recruited to the central nervous system (CNS) and contribute to 
+lethal immune pathology. Reducing the migration of these cells into the CNS 
+using monoclonal antibody blockade, immune-modifying particles or CSF-1R 
+inhibitors reduces neuroinflammation, improving survival and/or clinical 
+outcomes. Macrophages can also be targeted more broadly by administration of 
+clodronate-encapsulated liposomes, which induce apoptosis in phagocytes. In this 
+study, clodronate reduced the inflammatory infiltrate by 70% in WNE, however, 
+surprisingly, this had no effect on disease outcome. More detailed analysis 
+demonstrated a compensatory increase in neutrophils and enhanced activation 
+status of microglia in the brain. In addition, we observed increased numbers of 
+Ly6Chi BM monocytes with an increased proliferative capacity and expression of 
+SCA-1 and CD16/32, potentially indicating output of immature cells from the BM. 
+Once in the brain, these cells were more phagocytic and had a reduced expression 
+of antigen-presenting molecules. Lastly, we show that clodronate also reduces 
+non-myeloid cells in the spleen and BM, as well as ablating red blood cells and 
+their proliferation. These factors likely impeded the therapeutic potential of 
+clodronate in WNE. Thus, while clodronate provides an excellent system to 
+deplete macrophages in the body, it has larger and broader effects on the 
+phagocytic and non-phagocytic system, which must be considered in the 
+interpretation of data.
+
+Copyright © 2023 Spiteri, van Vreden, Ashhurst, Niewold and King.
+
+DOI: 10.3389/fimmu.2023.1203561
+PMCID: PMC10403146
+PMID: 37545511 [Indexed for MEDLINE]
+
+Conflict of interest statement: The authors declare that the research was 
+conducted in the absence of any commercial or financial relationships that could 
+be construed as a potential conflict of interest.

@@ -1,0 +1,49 @@
+1. Trop Med Health. 2022 Dec 5;50(1):91. doi: 10.1186/s41182-022-00485-6.
+
+Vaccination with a Zika virus envelope domain III protein induces neutralizing 
+antibodies and partial protection against Asian genotype in immunocompetent 
+mice.
+
+Shin M(1), Kim K(1)(2), Lee HJ(3), Jung YJ(3), Park J(4), Hahn TW(5)(6).
+
+Author information:
+(1)INNOVAC, Chuncheon, 24341, Republic of Korea.
+(2)College of Veterinary Medicine & Institute of Veterinary Science, Kangwon 
+National University, Chuncheon, 24341, Republic of Korea.
+(3)College of Biological Sciences, Kangwon National University, Chuncheon, 
+24341, Republic of Korea.
+(4)College of Veterinary Medicine & Institute of Veterinary Science, Kangwon 
+National University, Chuncheon, 24341, Republic of Korea. jhp@kangwon.ac.kr.
+(5)INNOVAC, Chuncheon, 24341, Republic of Korea. twhahn@kangwon.ac.kr.
+(6)College of Veterinary Medicine & Institute of Veterinary Science, Kangwon 
+National University, Chuncheon, 24341, Republic of Korea. twhahn@kangwon.ac.kr.
+
+BACKGROUND: Zika virus (ZIKV) is a mosquito-borne flavivirus classified in 
+Flaviviridae family such as dengue (DENV), yellow fever, and West Nile virus. An 
+outbreak of ZIKV infection can pose a major public health risk because the 
+contagion is unpredictable and induces severe pathology such as Guillan-Barre 
+syndrome and neonatal microcephaly. However, an authorized ZIKV vaccine is not 
+yet available, while several vaccine candidates are under development.
+METHODS: In this study, we constructed a recombinant ZIKV vaccine (Z_EDIII) that 
+includes ZIKV envelope protein domain III using E. coli expression system. Then 
+both humoral and cellular immunity were examined in C57BL/6 (female, 
+8-weeks-old) mice via Indirect ELISA assay, PRNT, ELISpot and cytokine detection 
+for IFN-γ, TNF-α, and IL-12. In addition, the cross protection against DENV was 
+evaluated in pups from Z_EDIII vaccinated and infected dam.
+RESULTS: Mice immunized by Z_EDIII produced a significant amount of ZIKV 
+EDIII-specific and neutralizing antibodies. Together with antibodies, effector 
+cytokines, such as IFN-γ, TNF-α, and IL-12 were induced. Moreover, vaccinated 
+females delivered the adaptive immunity to neonates who are protective against 
+ZIKV and DENV challenge.
+CONCLUSIONS: This study observed Z-EDIII-induced humoral and cellular immunity 
+that protected hosts from both ZIKV and DENV challenges. The result suggests 
+that our ZIKV EDIII recombinant vaccine has potential to provide a new 
+preventive strategy against ZIKV infection.
+
+© 2022. The Author(s).
+
+DOI: 10.1186/s41182-022-00485-6
+PMCID: PMC9721077
+PMID: 36471432
+
+Conflict of interest statement: The authors declare no competing interests.

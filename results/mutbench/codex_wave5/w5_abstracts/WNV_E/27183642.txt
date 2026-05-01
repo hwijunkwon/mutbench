@@ -1,0 +1,54 @@
+1. J Immunol. 2016 May 15;196(10):4263-73. doi: 10.4049/jimmunol.1501821. Epub
+2016  Apr 20.
+
+Immunodominant West Nile Virus T Cell Epitopes Are Fewer in Number and 
+Fashionably Late.
+
+Kaabinejadian S(1), McMurtrey CP(1), Kim S(2), Jain R(3), Bardet W(1), Schafer 
+FB(1), Davenport JL(4), Martin AD(4), Diamond MS(5), Weidanz JA(3), Hansen 
+TH(2), Hildebrand WH(6).
+
+Author information:
+(1)Department of Microbiology and Immunology, University of Oklahoma Health 
+Sciences Center, Oklahoma City, OK 73104;
+(2)Department of Pathology and Immunology, Washington University School of 
+Medicine, St Louis, MO 63110;
+(3)Center for Immunotherapeutic Research, Texas Tech University Health Sciences 
+Center School of Pharmacy, Abilene, TX 79601; Department of Immunotherapeutics 
+and Biotechnology, Texas Tech University Health Sciences Center School of 
+Pharmacy, Abilene, TX 79601; Receptor Logic, Inc., Abilene, TX 79601;
+(4)SensiQ Technologies, Inc., Oklahoma City, OK 73104;
+(5)Department of Pathology and Immunology, Washington University School of 
+Medicine, St Louis, MO 63110; Department of Medicine, Washington University 
+School of Medicine, St Louis, MO 63110; and Department of Molecular 
+Microbiology, Washington University School of Medicine, St Louis, MO 63110.
+(6)Department of Microbiology and Immunology, University of Oklahoma Health 
+Sciences Center, Oklahoma City, OK 73104; William-Hildebrand@ouhsc.edu.
+
+Class I HLA molecules mark infected cells for immune targeting by presenting 
+pathogen-encoded peptides on the cell surface. Characterization of viral 
+peptides unique to infected cells is important for understanding CD8(+) T cell 
+responses and for the development of T cell-based immunotherapies. Having 
+previously reported a series of West Nile virus (WNV) epitopes that are 
+naturally presented by HLA-A*02:01, in this study we generated TCR mimic (TCRm) 
+mAbs to three of these peptide/HLA complexes-the immunodominant SVG9 (E 
+protein), the subdominant SLF9 (NS4B protein), and the immunorecessive YTM9 (NS3 
+protein)-and used these TCRm mAbs to stain WNV-infected cell lines and primary 
+APCs. TCRm staining of WNV-infected cells demonstrated that the immunorecessive 
+YTM9 appeared several hours earlier and at 5- to 10-fold greater density than 
+the more immunogenic SLF9 and SVG9 ligands, respectively. Moreover, staining 
+following inhibition of the TAP demonstrated that all three viral ligands were 
+presented in a TAP-dependent manner despite originating from different cellular 
+compartments. To our knowledge, this study represents the first use of TCRm mAbs 
+to define the kinetics and magnitude of HLA presentation for a series of 
+epitopes encoded by one virus, and the results depict a pattern whereby 
+individual epitopes differ considerably in abundance and availability. The 
+observations that immunodominant ligands can be found at lower levels and at 
+later time points after infection suggest that a reevaluation of the factors 
+that combine to shape T cell reactivity may be warranted.
+
+Copyright © 2016 by The American Association of Immunologists, Inc.
+
+DOI: 10.4049/jimmunol.1501821
+PMCID: PMC4874531
+PMID: 27183642 [Indexed for MEDLINE]

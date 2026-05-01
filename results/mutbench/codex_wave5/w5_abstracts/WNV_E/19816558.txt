@@ -1,0 +1,33 @@
+1. PLoS Pathog. 2009 Oct;5(10):e1000610. doi: 10.1371/journal.ppat.1000610. Epub 
+2009 Oct 9.
+
+IL-10 signaling blockade controls murine West Nile virus infection.
+
+Bai F(1), Town T, Qian F, Wang P, Kamanaka M, Connolly TM, Gate D, Montgomery 
+RR, Flavell RA, Fikrig E.
+
+Author information:
+(1)Section of Infectious Diseases, Department of Internal Medicine, Yale 
+University School of Medicine, New Haven, Connecticut, United States of America.
+
+West Nile virus (WNV), a mosquito-borne single-stranded RNA flavivirus, can 
+cause significant human morbidity and mortality. Our data show that 
+interleukin-10 (IL-10) is dramatically elevated both in vitro and in vivo 
+following WNV infection. Consistent with an etiologic role of IL-10 in WNV 
+pathogenesis, we find that WNV infection is markedly diminished in IL-10 
+deficient (IL-10(-/-)) mice, and pharmacologic blockade of IL-10 signaling by 
+IL-10 neutralizing antibody increases survival of WNV-infected mice. Increased 
+production of antiviral cytokines in IL-10(-/-) mice is associated with more 
+efficient control of WNV infection. Moreover, CD4(+) T cells produce copious 
+amounts of IL-10, and may be an important cellular source of IL-10 during WNV 
+infection in vivo. In conclusion, IL-10 signaling plays a negative role in 
+immunity against WNV infection, and blockade of IL-10 signaling by genetic or 
+pharmacologic means helps to control viral infection, suggesting a novel 
+anti-WNV therapeutic strategy.
+
+DOI: 10.1371/journal.ppat.1000610
+PMCID: PMC2749443
+PMID: 19816558 [Indexed for MEDLINE]
+
+Conflict of interest statement: The authors have declared that no competing 
+interests exist.

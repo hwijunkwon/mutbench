@@ -1,0 +1,38 @@
+1. Viruses. 2024 Feb 13;16(2):286. doi: 10.3390/v16020286.
+
+Multiplex Serology for Sensitive and Specific Flavivirus IgG Detection: Addition 
+of Envelope Protein Domain III to NS1 Increases Sensitivity for Tick-Borne 
+Encephalitis Virus IgG Detection.
+
+Valle C(1)(2), Shrestha S(1), Godeke GJ(1), Hoogerwerf MN(1), Reimerink J(1), 
+Eggink D(1), Reusken C(1).
+
+Author information:
+(1)Centre for Infectious Disease Control, National Institute for Public Health 
+and the Environment, 3721 MA Bilthoven, The Netherlands.
+(2)Unité des Virus Emergents (UVE), Aix-Marseille Université, IRD 190, Inserm 
+1207, 13005 Marseille, France.
+
+Tick-borne encephalitis is a vaccine-preventable disease of concern for public 
+health in large parts of Europe, with EU notification rates increasing since 
+2018. It is caused by the orthoflavivirus tick-borne encephalitis virus (TBEV) 
+and a diagnosis of infection is mainly based on serology due to its short 
+viremic phase, often before symptom onset. The interpretation of TBEV serology 
+is hampered by a history of orthoflavivirus vaccination and by previous 
+infections with related orthoflaviviruses. Here, we sought to improve TBEV 
+sero-diagnostics using an antigen combination of in-house expressed NS1 and 
+EDIII in a multiplex, low-specimen-volume set-up for the detection of immune 
+responses to TBEV and other clinically important orthoflaviviruses (i.e., West 
+Nile virus, dengue virus, Japanese encephalitis virus, Usutu virus and Zika 
+virus). We show that the combined use of NS1 and EDIII results in both a 
+specific and sensitive test for the detection of TBEV IgG for patient 
+diagnostics, vaccination responses and in seroprevalence studies. This novel 
+approach potentially allows for a low volume-based, simultaneous analysis of IgG 
+responses to a range of orthoflaviviruses with overlapping geographic 
+circulations and clinical manifestations.
+
+DOI: 10.3390/v16020286
+PMCID: PMC10892675
+PMID: 38400061 [Indexed for MEDLINE]
+
+Conflict of interest statement: The authors declare no conflicts of interest.

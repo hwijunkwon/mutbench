@@ -1,0 +1,36 @@
+1. Arch Virol. 1990;115(3-4):209-25. doi: 10.1007/BF01310531.
+
+Assessment of the specificity of cytotoxic T lymphocytes for the nucleoprotein 
+of Pichinde virus using recombinant vaccinia viruses.
+
+Ozols DY(1), Harnish DG, Rawls WE, Rosenthal KL.
+
+Author information:
+(1)Department of Pathology, McMaster University Health Sciences Centre, 
+Hamilton, Ontario, Canada.
+
+Pichinde virus (PV) infection of mice results in induction of a strong H-2 
+restricted, virus-specific cytotoxic T lymphocyte (CTL) response and rapid 
+clearance of the virus. To define the specificities of CTL induced by PV 
+infection, we constructed vaccinia virus recombinants containing cloned cDNAs 
+corresponding to full-length (VVNP) and a truncated form (VVNP 51-561) of the 
+nucleoprotein (NP) gene of PV. Radioimmunoprecipitation analysis of infected 
+cell lysates indicated that VVNP expressed a PV-specific product identical in 
+size to that of authentic NP, while vaccinia virus recombinants containing 
+truncated NP produced a polypeptide consistent with the synthesis of amino acids 
+51-561 of Pichinde virus NP. Interestingly, cells infected with VVNP synthesized 
+easily detectable, but much lower levels of nucleoprotein relative to both PV 
+and VVNP51-561. Primary virus-specific CTL induced in three different strains of 
+inbred mice following intravenous infection with PV were able to lyse syngeneic 
+target cells infected with PV but did not markedly lyse syngeneic targets 
+expressing full-length or truncated NP following recombinant vaccinia virus 
+infection. Similarly, secondary anti-PV specific CTL generated following in 
+vitro restimulation by PV or selectively restimulated with vaccinia recombinants 
+did not significantly lyse target cells expressing NP. Further, infection of 
+mice with VVNP and VVNP51-561 did not induce CTLs specific for PV and did not 
+prime mice for the generation of memory anti-PV CTL in vivo. These results 
+suggest that PV gene products other than NP, such as the GPC or L protein, 
+contain the major target epitope(s) recognized by PV-specific CTL.
+
+DOI: 10.1007/BF01310531
+PMID: 1701987 [Indexed for MEDLINE]

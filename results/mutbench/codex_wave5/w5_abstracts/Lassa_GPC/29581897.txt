@@ -1,0 +1,59 @@
+1. NPJ Vaccines. 2018 Mar 20;3:11. doi: 10.1038/s41541-018-0049-5. eCollection 
+2018.
+
+Baseline mapping of Lassa fever virology, epidemiology and vaccine research and 
+development.
+
+Hallam HJ(#)(1), Hallam S(#)(1)(2), Rodriguez SE(#)(2)(3), Barrett 
+ADT(1)(2)(3)(4)(5), Beasley DWC(2)(3)(4)(5)(6), Chua A(7), Ksiazek 
+TG(1)(2)(3)(4), Milligan GN(3)(4)(5)(8), Sathiyamoorthy V(7), Reece LM(4)(5).
+
+Author information:
+(1)1Department of Pathology, University of Texas Medical Branch, Galveston, TX 
+USA.
+(2)2Galveston National Laboratory, University of Texas Medical Branch, 
+Galveston, TX USA.
+(3)3Department of Microbiology and Immunology, University of Texas Medical 
+Branch, Galveston, TX USA.
+(4)4Sealy Institute for Vaccine Sciences, University of Texas Medical Branch, 
+Galveston, TX USA.
+(5)5World Health Organization Collaborating Center for Vaccine Research, 
+Evaluation and Training on Emerging Infectious Diseases, University of Texas 
+Medical Branch, Galveston, TX USA.
+(6)6Office of Regulated Nonclinical Studies, University of Texas Medical Branch, 
+Galveston, TX USA.
+(7)7Department of Information, Evidence and Research, World Health Organization, 
+Geneva, Switzerland.
+(8)8Department of Pediatrics, Division of Vaccinology, University of Texas 
+Medical Branch, Galveston, TX USA.
+(#)Contributed equally
+
+Lassa fever (LF) is a zoonotic disease associated with acute and potentially 
+fatal hemorrhagic illness caused by the Lassa virus (LASV), a member of the 
+family Arenaviridae. It is generally assumed that a single infection with LASV 
+will produce life-long protective immunity. This suggests that protective 
+immunity induced by vaccination is an achievable goal and that cell-mediated 
+immunity may play a more important role in protection, at least following 
+natural infection. Seropositive individuals in endemic regions have been shown 
+to have LASV-specific T cells recognizing epitopes for nucleocapsid protein (NP) 
+and glycoprotein precursor (GPC), suggesting that these will be important 
+vaccine immunogens. The role of neutralizing antibodies in protective immunity 
+is still equivocal as recent studies suggest a role for neutralizing antibodies. 
+There is extensive genetic heterogeneity among LASV strains that is of concern 
+in the development of assays to detect and identify all four LASV lineages. 
+Furthermore, the gene disparity may complicate the synthesis of effective 
+vaccines that will provide protection across multiple lineages. Non-human 
+primate models of LASV infection are considered the gold standard for 
+recapitulation of human LF. The most promising vaccine candidates to date are 
+the ML29 (a live attenuated reassortant of Mopeia and LASV), vesicular 
+stomatitis virus (VSV) and vaccinia-vectored platforms based on their ability to 
+induce protection following single doses, high rates of survival following 
+challenge, and the use of live virus platforms. To date no LASV vaccine 
+candidates have undergone clinical evaluation.
+
+DOI: 10.1038/s41541-018-0049-5
+PMCID: PMC5861057
+PMID: 29581897
+
+Conflict of interest statement: A.D.B. is the Editor-in-Chief of npj Vaccine. 
+The remaining authors declare no competing financial interests.

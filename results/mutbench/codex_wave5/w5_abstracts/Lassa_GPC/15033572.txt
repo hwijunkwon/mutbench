@@ -1,0 +1,36 @@
+1. Virology. 2004 Mar 30;321(1):134-43. doi: 10.1016/j.virol.2003.12.013.
+
+Old and New World arenaviruses share a highly conserved epitope in the fusion 
+domain of the glycoprotein 2, which is recognized by Lassa virus-specific human 
+CD4+ T-cell clones.
+
+Meulen Jt(1), Badusche M, Satoguina J, Strecker T, Lenz O, Loeliger C, Sakho M, 
+Koulemou K, Koivogui L, Hoerauf A.
+
+Author information:
+(1)Institute of Virology, Philipps University, 35037 Marburg, Germany. 
+j.termeulen@crucell.com
+
+Data from human studies and animal experiments indicate a dominant role of 
+T-cells over antibodies in controlling acute Lassa virus infection and providing 
+immunity to reinfection. Knowledge of the epitopes recognized by T-cells may 
+therefore be crucial to the development of a recombinant Lassa virus vaccine. In 
+order to study human T-cell reactivity to the most conserved structural protein 
+of Lassa virus, the glycoprotein 2 (GP2), seven GP2-specific CD4+ T-cell clones 
+(TCCs) were generated from the lymphocytes of a Lassa antibody positive 
+individual. All TCC displayed high specific proliferation, showed 
+DR-restriction, and produced IFN-gamma upon stimulation with recombinant GP2. 
+The epitope of four of the clones was localized to a short stretch of 13 amino 
+acids located in the N-terminal part of GP2 (aa 289-301, numbering according to 
+sequence of GPC). This epitope is conserved in all strains of Lassa virus and 
+lymphocytic choriomeningitis virus (LCMV), shows >90% similarity in all New 
+World arenaviruses of clade B, and overlaps with the proposed fusion domain of 
+GP2. Peptides with conservative aa exchanges, as they naturally occur in the 
+epitope 289-301 of the Old World arenavirus Mopeia and some New World 
+arenaviruses, continued to effectively stimulate the Lassa-GP2-specific T-cell 
+clones tested. The finding of a human T-helper cell epitope, which is highly 
+conserved between Old and New World arenaviruses, is of importance for the 
+design of arenavirus vaccines.
+
+DOI: 10.1016/j.virol.2003.12.013
+PMID: 15033572 [Indexed for MEDLINE]

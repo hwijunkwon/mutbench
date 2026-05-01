@@ -1,0 +1,38 @@
+1. Viruses. 2017 Apr 24;9(4):91. doi: 10.3390/v9040091.
+
+Dengue Virus Non-Structural Protein 5.
+
+El Sahili A(1), Lescar J(2).
+
+Author information:
+(1)School of Biological Sciences, Nanyang Technological University, Nanyang 
+Institute for Structural Biology, Experimental Medicine Building, 59 Nanyang 
+Drive, Singapore 636921, Singapore. julien@ntu.edu.sg.
+(2)School of Biological Sciences, Nanyang Technological University, Nanyang 
+Institute for Structural Biology, Experimental Medicine Building, 59 Nanyang 
+Drive, Singapore 636921, Singapore. aelsahili@ntu.edu.sg.
+
+The World Health Organization estimates that the yearly number of dengue cases 
+averages 390 million. This mosquito-borne virus disease is endemic in over 100 
+countries and will probably continue spreading, given the observed trend in 
+global warming. So far, there is no antiviral drug available against dengue, but 
+a vaccine has been recently marketed. Dengue virus also serves as a prototype 
+for the study of other pathogenic flaviviruses that are emerging, like West Nile 
+virus and Zika virus. Upon viral entry into the host cell and fusion of the 
+viral lipid membrane with the endosomal membrane, the viral RNA is released and 
+expressed as a polyprotein, that is then matured into three structural and seven 
+non-structural (NS) proteins. The envelope, membrane and capsid proteins form 
+the viral particle while NS1-NS2A-NS2B-NS3-NS4A-NS4B and NS5 assemble inside a 
+cellular replication complex, which is embedded in endoplasmic reticulum 
+(ER)-derived vesicles. In addition to their roles in RNA replication within the 
+infected cell, NS proteins help the virus escape the host innate immunity and 
+reshape the host-cell inner structure. This review focuses on recent progress in 
+characterizing the structure and functions of NS5, a protein responsible for the 
+replication and capping of viral RNA that represents a promising drug target.
+
+DOI: 10.3390/v9040091
+PMCID: PMC5408697
+PMID: 28441781 [Indexed for MEDLINE]
+
+Conflict of interest statement: All the authors have declared no competing 
+interest.

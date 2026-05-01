@@ -1,0 +1,64 @@
+1. Clin Infect Dis. 2021 Oct 5;73(7):e2444-e2449. doi: 10.1093/cid/ciaa1207.
+
+Potential Antigenic Cross-reactivity Between Severe Acute Respiratory Syndrome 
+Coronavirus 2 (SARS-CoV-2) and Dengue Viruses.
+
+Lustig Y(1), Keler S(2)(3), Kolodny R(4), Ben-Tal N(5), Atias-Varon D(2), Shlush 
+E(6), Gerlic M(7), Munitz A(7), Doolman R(8)(9), Asraf K(8), Shlush LI(10), 
+Vivante A(2)(3)(11).
+
+Author information:
+(1)Central Virology Laboratory, Ministry of Health, Chaim Sheba Medical Center, 
+Ramat Gan, Israel.
+(2)Department of Pediatrics B, Edmond and Lily Safra Children's Hospital, Sheba 
+Medical Center, Ramat-Gan, Israel.
+(3)Sackler School of Medicine, Tel Aviv University, Tel Aviv, Israel.
+(4)Department of Computer Science, University of Haifa, Mount Carmel, Israel.
+(5)Department of Biochemistry and Molecular Biochemistry, George S. Wise Faculty 
+of Life Sciences, Tel Aviv University, Tel-Aviv, Israel.
+(6)IVF Unit Department of Obstetric and Gynecology Galilee Medical Center, 
+Naharia, Israel.
+(7)Department of Clinical Microbiology and Immunology, Sackler School of 
+Medicine, Tel Aviv University, Tel Aviv, Israel.
+(8)The Dworman Automated-Mega Laboratory, Sheba Medical Center, Tel-Hashomer, 
+Ramat-Gan, Israel.
+(9)The Mina and Everard Goodman Faculty of Life Sciences, Bar-Ilan University, 
+Ramat-Gan, Israel.
+(10)Department of Immunology, Weizmann Institute of Science, Rehovot, Israel.
+(11)Talpiot Medical Leadership Program, Sheba Medical Center, Tel-Hashomer, 
+Israel.
+
+BACKGROUND: Coronavirus disease 2019 (COVID-19) and dengue fever are difficult 
+to distinguish given shared clinical and laboratory features. Failing to 
+consider COVID-19 due to false-positive dengue serology can have serious 
+implications. We aimed to assess this possible cross-reactivity.
+METHODS: We analyzed clinical data and serum samples from 55 individuals with 
+severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2) infection. To 
+assess dengue serology status, we used dengue-specific antibodies by means of 
+lateral-flow rapid test, as well as enzyme-linked immunosorbent assay (ELISA). 
+Additionally, we tested SARS-CoV-2 serology status in patients with dengue and 
+performed in-silico protein structural analysis to identify epitope 
+similarities.
+RESULTS: Using the dengue lateral-flow rapid test we detected 12 positive cases 
+out of the 55 (21.8%) COVID-19 patients versus zero positive cases in a control 
+group of 70 healthy individuals (P = 2.5E-5). This includes 9 cases of positive 
+immunoglobulin M (IgM), 2 cases of positive immunoglobulin G (IgG), and 1 case 
+of positive IgM as well as IgG antibodies. ELISA testing for dengue was positive 
+in 2 additional subjects using envelope protein directed antibodies. Out of 95 
+samples obtained from patients diagnosed with dengue before September 2019, 
+SARS-CoV-2 serology targeting the S protein was positive/equivocal in 21 (22%) 
+(16 IgA, 5 IgG) versus 4 positives/equivocal in 102 controls (4%) (P = 1.6E-4). 
+Subsequent in-silico analysis revealed possible similarities between SARS-CoV-2 
+epitopes in the HR2 domain of the spike protein and the dengue envelope protein.
+CONCLUSIONS: Our findings support possible cross-reactivity between dengue virus 
+and SARS-CoV-2, which can lead to false-positive dengue serology among COVID-19 
+patients and vice versa. This can have serious consequences for both patient 
+care and public health.
+
+© The Author(s) 2020. Published by Oxford University Press for the Infectious 
+Diseases Society of America. All rights reserved. For permissions, e-mail: 
+journals.permissions@oup.com.
+
+DOI: 10.1093/cid/ciaa1207
+PMCID: PMC7454334
+PMID: 32797228 [Indexed for MEDLINE]

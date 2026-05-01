@@ -1,0 +1,36 @@
+1. J Virol. 2011 Mar;85(5):1994-2003. doi: 10.1128/JVI.01886-10. Epub 2010 Dec 8.
+
+Immunodominance and functional activities of antibody responses to inactivated 
+West Nile virus and recombinant subunit vaccines in mice.
+
+Zlatkovic J(1), Stiasny K, Heinz FX.
+
+Author information:
+(1)Department of Virology, Medical University of Vienna, A-1095 Vienna, Austria.
+
+Factors controlling the dominance of antibody responses to specific sites in 
+viruses and/or protein antigens are ill defined but can be of great importance 
+for the induction of potent immune responses to vaccines. West Nile virus and 
+other related important human-pathogenic flaviviruses display the major target 
+of neutralizing antibodies, the E protein, in an icosahedral shell at the virion 
+surface. Potent neutralizing antibodies were shown to react with the upper 
+surface of domain III (DIII) of this protein. Using the West Nile virus system, 
+we conducted a study on the immunodominance and functional quality of E-specific 
+antibody responses after immunization of mice with soluble protein E (sE) and 
+isolated DIII in comparison to those after immunization with inactivated whole 
+virions. With both virion and sE, the neutralizing response was dominated by 
+DIII-specific antibodies, but the functionality of these antibodies was almost 
+four times higher after virion immunization. Antibodies induced by the isolated 
+DIII had an at least 15-fold lower specific neutralizing activity than those 
+induced by the virion, and only 50% of these antibodies were able to bind to 
+virus particles. Our results suggest that immunization with the tightly packed E 
+in virions focuses the DIII antibody response to the externally exposed sites of 
+this domain which are the primary targets for virus neutralization, different 
+from sE and isolated DIII, which also display protein surfaces that are cryptic 
+in the virion. Despite its low potency for priming, DIII was an excellent 
+boosting antigen, suggesting novel vaccination strategies that strengthen and 
+focus the antibody response to critical neutralizing sites in DIII.
+
+DOI: 10.1128/JVI.01886-10
+PMCID: PMC3067796
+PMID: 21147919 [Indexed for MEDLINE]

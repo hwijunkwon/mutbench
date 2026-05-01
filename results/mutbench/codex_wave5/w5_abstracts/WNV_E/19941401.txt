@@ -1,0 +1,30 @@
+1. Acta Virol. 2009;53(3):191-5. doi: 10.4149/av_2009_03_191.
+
+Early death of Japanese encephalitis virus-infected mice administered a 
+neutralizing cross-reactive monoclonal antibody against glycoprotein E.
+
+Gupta AK(1), Lad VJ, Koshy AA.
+
+Author information:
+(1)National Institute of Virology, Indian Council of Medical Research, 20-A, Dr. 
+Ambedkar Road, P.B. No. 11, Pune-411001, India. drashok.gpt@gmail.com
+
+In the present study, the effect of two haemagglutination-inhibition 
+(HAI)-negative auto-reactive (NHA-1 and NHA-2) monoclonal antibodies (MAbs) 
+against glycoprotein E (gpE) of Japanese encephalitis virus (JEV) administered 1 
+day before or 2 days after intracerebral (i.c.) inoculation of JEV was studied 
+in mice. Of the two MAbs that cross-reacted with West Nile virus (WNV) and 
+histones, the first one (NHA-1) neutralized JEV, while the second one was 
+non-neutralizing. NHA-1 MAb given intraperitoneally (i.p.) 1 day before virus 
+infection induced early death by about 2 days in comparison to controls, whereas 
+mice administered HAI-positive anti-gpE JEV specific MAbs (Hs-1 or Hs-4) were 
+invariably protected. In contrast, MAb NHA-2 failed to produce any effect in 
+mice. Since the similar virus titers were recorded in the brains of experimental 
+and control infected mice, the present results indicated a modification of the 
+biological activity of JEV by the pre-existing MAb NHA-1 that might be leading 
+to an early death of mice.
+KEYWORDS: Japanese encephalitis virus; neutralizing cross-reactive monoclonal 
+antibody.
+
+DOI: 10.4149/av_2009_03_191
+PMID: 19941401 [Indexed for MEDLINE]

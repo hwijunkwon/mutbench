@@ -1,0 +1,38 @@
+1. Vaccine. 2013 Aug 28;31(38):4143-51. doi: 10.1016/j.vaccine.2013.06.093. Epub 
+2013 Jul 8.
+
+A West Nile virus NS4B-P38G mutant strain induces adaptive immunity via 
+TLR7-MyD88-dependent and independent signaling pathways.
+
+Xie G(1), Welte T, Wang J, Whiteman MC, Wicker JA, Saxena V, Cong Y, Barrett AD, 
+Wang T.
+
+Author information:
+(1)Department of Microbiology & Immunology, The University of Texas Medical 
+Branch, Galveston, TX 77555, USA.
+
+Prior work shows that an attenuated West Nile virus (WNV), the nonstructural 
+(NS)4B-P38G mutant infection in mice induced strong immune responses and 
+protected host from subsequent lethal wild-type WNV infection. Here, we 
+investigated NS4B-P38G mutant infection in myeloid differentiation factor 
+88-deficient (MyD88(-/-)) and Toll-like receptor 7-deficient (TLR7(-/-)) mice 
+and found they had enhanced susceptibility compared to wild-type mice. Both 
+groups had lower WNV-specific IgM response and reduced effector T cell 
+functions. Dendritic cells (DCs) also exhibited a reduced maturation and 
+impaired antigen-presenting functions compared to wild-type DCs. Moreover, 
+infection with NS4B-P38G mutant in TLR7(-/-) and MyD88(-/-) mice provided full 
+and partial protection respectively from subsequent challenge with lethal 
+wild-type WNV. There were reduced T cell responses in MyD88(-/-) and 
+interleukin-1 receptor deficient (IL-1R(-/-)) mice during secondary challenge 
+with wild-type WNV. In contrast, TLR7(-/-) mice displayed normal T cell 
+functions. Collectively, these results suggest that TLR7-dependent MyD88 
+signaling is required for T cell priming during NS4B-P38G mutant infection, 
+whereas the TLR7-independent MyD88 signaling pathways are involved in memory T 
+cell development, which may contribute to host protection during secondary 
+challenge with wild-type WNV.
+
+Copyright © 2013 Elsevier Ltd. All rights reserved.
+
+DOI: 10.1016/j.vaccine.2013.06.093
+PMCID: PMC3870894
+PMID: 23845800 [Indexed for MEDLINE]

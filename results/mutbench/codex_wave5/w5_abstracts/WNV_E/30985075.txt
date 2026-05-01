@@ -1,0 +1,53 @@
+1. Transbound Emerg Dis. 2019 Jul;66(4):1701-1708. doi: 10.1111/tbed.13205. Epub 
+2019 Apr 29.
+
+Specific detection and differentiation of tick-borne encephalitis and West Nile 
+virus induced IgG antibodies in humans and horses.
+
+Rockstroh A(1), Moges B(1), Berneck BS(1), Sattler T(2)(3), Revilla-Fernández 
+S(2), Schmoll F(2), Pacenti M(4), Sinigaglia A(5), Barzon L(4)(5), 
+Schmidt-Chanasit J(6)(7)(8), Nowotny N(9)(10), Ulbert S(1).
+
+Author information:
+(1)Department of Immunology, Fraunhofer Institute for Cell Therapy and 
+Immunology, Leipzig, Germany.
+(2)Institute for Veterinary Disease Control Mödling, Austrian Agency of Health 
+and Food Safety, Mödling, Austria.
+(3)Clinic for Ruminants and Swine, University Leipzig, Leipzig, Germany.
+(4)Microbiology and Virology Unit, Padova University Hospital, Padova, Italy.
+(5)Department of Molecular Medicine, University of Padova, Padova, Italy.
+(6)WHO Collaborating Centre for Arbovirus and Haemorrhagic Fever Reference and 
+Research, Bernhard Nocht Institute for Tropical Medicine, Hamburg, Germany.
+(7)Faculty of Mathematics, Informatics and Natural Sciences, University of 
+Hamburg, Hamburg, Germany.
+(8)German Centre for Infection Research (DZIF), partner site 
+Hamburg-Luebeck-Borstel-Riems, Hamburg, Germany.
+(9)Viral Zoonoses, Emerging and Vector-Borne Infections Group, Institute of 
+Virology, University of Veterinary Medicine Vienna, Vienna, Austria.
+(10)Department of Basic Medical Sciences, College of Medicine, Mohammed Bin 
+Rashid University of Medicine and Health Sciences, Dubai Healthcare City, Dubai, 
+United Arab Emirates.
+
+Tick-borne encephalitis virus (TBEV) and West Nile virus (WNV) are important 
+arthropod-borne zoonotic flaviviruses. Due to the emergence of WNV in 
+TBEV-endemic regions co-circulation of both viruses is increasing. Flaviviruses 
+are structurally highly similar, which leads to cross-reacting antibodies upon 
+infection. Currently available serological assays for TBEV and WNV infections 
+are therefore compromised by false-positive results, especially in IgG 
+measurements. In order to discriminate both infections novel diagnostic methods 
+are needed. We describe an ELISA to measure IgG antibodies specific for TBEV and 
+WNV, applicable to human and horse sera. Mutant envelope proteins were 
+generated, that lack conserved parts of the fusion loop domain, a predominant 
+target for cross-reacting antibodies. These were incubated with equine and human 
+sera with known TBEV, WNV or other flavivirus infections. For WNV IgG, 
+specificities and sensitivities were 100% and 87.9%, respectively, for horse 
+sera, and 94.4% and 92.5%, respectively, for human sera. TBEV IgG was detected 
+with specificities and sensitivities of 95% and 96.7%, respectively, in horses, 
+and 98.9% and 100%, respectively, in humans. Specificities increased to 100% by 
+comparing individual samples on both antigens. The antigens could form the basis 
+for serological TBEV- and WNV-assays with improved specificities.
+
+© 2019 Blackwell Verlag GmbH.
+
+DOI: 10.1111/tbed.13205
+PMID: 30985075 [Indexed for MEDLINE]

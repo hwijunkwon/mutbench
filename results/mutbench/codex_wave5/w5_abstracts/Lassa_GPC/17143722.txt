@@ -1,0 +1,37 @@
+1. Virus Genes. 2007 Apr;34(2):169-76. doi: 10.1007/s11262-006-0050-3. Epub 2006 
+Dec 2.
+
+Molecular characterization of a reassortant virus derived from Lassa and Mopeia 
+viruses.
+
+Moshkoff DA(1), Salvato MS, Lukashevich IS.
+
+Author information:
+(1)Institute of Human Virology, University of Maryland Biotechnology Institute, 
+725 West Lombard Street, Baltimore, MD 21201, USA.
+
+In this article we describe two new complete genomic sequences of Old World 
+Arenaviruses: the Mopeia (MOP) virus and the reassortant MOP/LAS virus, clone 
+29, or ML29. This reassortant has the large (L) RNA from MOP virus and the small 
+(S) RNA from Lassa (LAS) virus, Josiah strain. Recent studies showed that the 
+ML29 virus is not pathogenic for mice, guinea pigs, or macaques, can completely 
+protect guinea pigs from Lassa virus, and elicit vigorous cell-mediated immunity 
+in immunized monkeys (Lukashevich, I. S., Patterson, J., Carrion, R., Moshkoff, 
+D., Ticer, A., Zapata, J., Brasky, K., Geiger, R., Hubbard, G. B., Bryant, J., 
+and Salvato, M. S., J Virol 79, 13934-13942, 2005). This is a molecular 
+characterization of a reassortant virus, which has been put forward as a live 
+attenuated vaccine candidate against Lassa Fever. Sequence analysis of this 
+reassortant virus revealed 5 non-conservative amino acid substitutions that 
+distinguished it from the parental LAS and MOP viruses. Three substitutions were 
+found outside the conserved RNA-dependent RNA polymerase (RdRp) motifs. A fourth 
+substitution was located between the glycoprotein (GPC)-cleavage site and the 
+putative fusion peptide of GP2. The nucleocapsid protein (NP) contained a fifth 
+substitution in the carboxyl-terminal region of the protein. Two mutations were 
+found within each non-coding terminus of the L segment and one mutation was 
+located in the 3' non-coding region of the S segment of the MOP/LAS virus. ML29 
+mutations in its genomic termini may have implications for the genetic stability 
+and replication efficiency of ML29 reassortant.
+
+DOI: 10.1007/s11262-006-0050-3
+PMCID: PMC1892610
+PMID: 17143722 [Indexed for MEDLINE]

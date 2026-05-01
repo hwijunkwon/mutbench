@@ -1,0 +1,45 @@
+1. Nat Immunol. 2009 Jan;10(1):116-125. doi: 10.1038/ni.1688. Epub 2008 Nov 23.
+
+Systems biology approach predicts immunogenicity of the yellow fever vaccine in 
+humans.
+
+Querec TD(#)(1), Akondy RS(#)(1), Lee EK(2), Cao W(1), Nakaya HI(1), Teuwen 
+D(3), Pirani A(4), Gernert K(4), Deng J(1), Marzolf B(5), Kennedy K(5), Wu H(5), 
+Bennouna S(1), Oluoch H(1), Miller J(1), Vencio RZ(5), Mulligan M(1)(6), Aderem 
+A(5), Ahmed R(1), Pulendran B(1)(7).
+
+Author information:
+(1)Emory Vaccine Center, Yerkes National Primate Research Center, 954 Gatewood 
+Road, Atlanta, Georgia 30329, USA.
+(2)Center for Operations Research in Medicine & Healthcare, School of Industrial 
+& Systems Engineering, Georgia Institute of Technology, Atlanta, Georgia 30332, 
+USA.
+(3)Sanofi Pasteur, 2 avenue Pont Pasteur, Lyon Cedex 07, France.
+(4)BimCore, Emory University School of Medicine, 1510 Clifton Road, Atlanta, 
+Georgia 30322, USA.
+(5)Institute for Systems Biology, 1441 North 34 Street, Seattle, Washington 
+98103-8904, USA.
+(6)The Hope Clinic, 603 Church Street, Decatur, Georgia 30030, USA.
+(7)Department of Pathology & Laboratory Medicine, Emory University, 1364 Clifton 
+Road, Atlanta, Georgia 30322, USA.
+(#)Contributed equally
+
+Comment in
+    Nat Immunol. 2009 Jan;10(1):14-6. doi: 10.1038/ni0109-14.
+
+A major challenge in vaccinology is to prospectively determine vaccine efficacy. 
+Here we have used a systems biology approach to identify early gene 'signatures' 
+that predicted immune responses in humans vaccinated with yellow fever vaccine 
+YF-17D. Vaccination induced genes that regulate virus innate sensing and type I 
+interferon production. Computational analyses identified a gene signature, 
+including complement protein C1qB and eukaryotic translation initiation factor 2 
+alpha kinase 4-an orchestrator of the integrated stress response-that correlated 
+with and predicted YF-17D CD8(+) T cell responses with up to 90% accuracy in an 
+independent, blinded trial. A distinct signature, including B cell growth factor 
+TNFRS17, predicted the neutralizing antibody response with up to 100% accuracy. 
+These data highlight the utility of systems biology approaches in predicting 
+vaccine efficacy.
+
+DOI: 10.1038/ni.1688
+PMCID: PMC4049462
+PMID: 19029902 [Indexed for MEDLINE]

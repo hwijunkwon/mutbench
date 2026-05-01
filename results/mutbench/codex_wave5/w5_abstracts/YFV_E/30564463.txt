@@ -1,0 +1,49 @@
+1. NPJ Vaccines. 2018 Dec 13;3:56. doi: 10.1038/s41541-018-0092-2. eCollection 
+2018.
+
+A yellow fever-Zika chimeric virus vaccine candidate protects against Zika 
+infection and congenital malformations in mice.
+
+Kum DB(1), Mishra N(#)(1), Boudewijns R(#)(1), Gladwyn-Ng I(2), Alfano C(2), Ma 
+J(1), Schmid MA(1), Marques RE(3), Schols D(1), Kaptein S(1), Nguyen L(2), Neyts 
+J(1), Dallmeier K(1).
+
+Author information:
+(1)KU Leuven Department of Microbiology and Immunology, Rega Institute, 
+Laboratory of Virology and Chemotherapy, Leuven, Belgium.
+(2)2GIGA-Neurosciences, Interdisciplinary Cluster for Applied Genoproteomics 
+(GIGA-R), University of Liège, C.H.U. Sart Tilman, Liège, Belgium.
+(3)3Brazilian Biosciences National Laboratory (LNBio), Brazilian Center for 
+Research in Energy and Materials (CNPEM), Campinas, Sao Paulo, Brazil.
+(#)Contributed equally
+
+The recent Zika virus (ZIKV) epidemic in the Americas led to an intense search 
+for therapeutics and vaccines. Here we report the engineering of a chimeric 
+virus vaccine candidate (YF-ZIKprM/E) by replacing the antigenic surface 
+glycoproteins and the capsid anchor of YFV-17D with those of a prototypic Asian 
+lineage ZIKV isolate. By intracellular passaging, a variant with adaptive 
+mutations in the E protein was obtained. Unlike YFV-17D, YF-ZIKprM/E replicates 
+poorly in mosquito cells. Also, YF-ZIKprM/E does not cause disease nor mortality 
+in interferon α/β, and γ receptor KO AG129 mice nor following intracranial 
+inoculation of BALB/c pups. A single dose as low as 1 × 102 PFU results, as 
+early as 7 days post vaccination, in seroconversion to neutralizing antibodies 
+and confers full protection in AG129 mice against stringent challenge with a 
+lethal inoculum (105 LD50) of either homologous or heterologous ZIKV strains. 
+Induction of multi-functional CD4+ and CD8+ T cell responses against ZIKV 
+structural and YFV-17D non-structural proteins indicates that cellular immunity 
+may also contribute to protection. Vaccine immunogenicity and protection was 
+confirmed in other mouse strains, including after temporal blockade of 
+interferon-receptors in wild-type mice to facilitate ZIKV replication. 
+Vaccination of wild-type NMRI dams with YF-ZIKprM/E results in complete 
+protection of foetuses against brain infections and malformations following a 
+stringent intraplacental challenge with an epidemic ZIKV strain. The particular 
+characteristic of YF-ZIKprM/E in terms of efficacy and its marked attenuation in 
+mice warrants further exploration as a vaccine candidate.
+
+DOI: 10.1038/s41541-018-0092-2
+PMCID: PMC6292895
+PMID: 30564463
+
+Conflict of interest statement: D.B.K., N.M., M.A.S., J.N., and K.D. have filed 
+a patent application claiming the discovery and use of chimeric yellow 
+fever—Zika virus vaccines. The remaining authors declare no competing interests.

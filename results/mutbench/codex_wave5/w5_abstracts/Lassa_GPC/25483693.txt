@@ -1,0 +1,42 @@
+1. Hum Vaccin Immunother. 2014;10(10):3022-38. doi: 10.4161/hv.34413.
+
+VaxCelerate II: rapid development of a self-assembling vaccine for Lassa fever.
+
+Leblanc P(1), Moise L, Luza C, Chantaralawan K, Lezeau L, Yuan J, Field M, 
+Richer D, Boyle C, Martin WD, Fishman JB, Berg EA, Baker D, Zeigler B, Mais DE, 
+Taylor W, Coleman R, Warren HS, Gelfand JA, De Groot AS, Brauns T, Poznansky MC.
+
+Author information:
+(1)a Vaccine and Immunotherapy Center; Massachusetts General Hospital ; 
+Charlestown , MA USA.
+
+Development of effective vaccines against emerging infectious diseases (EID) can 
+take as much or more than a decade to progress from pathogen 
+isolation/identification to clinical approval. As a result, conventional 
+approaches fail to produce field-ready vaccines before the EID has spread 
+extensively. Lassa is a prototypical emerging infectious disease endemic to West 
+Africa for which no successful vaccine is available. We established the 
+VaxCelerate Consortium to address the need for more rapid vaccine development by 
+creating a platform capable of generating and pre-clinically testing a new 
+vaccine against specific pathogen targets in less than 120 d A self-assembling 
+vaccine is at the core of the approach. It consists of a fusion protein composed 
+of the immunostimulatory Mycobacterium tuberculosis heat shock protein 70 
+(MtbHSP70) and the biotin binding protein, avidin. Mixing the resulting protein 
+(MAV) with biotinylated pathogen-specific immunogenic peptides yields a 
+self-assembled vaccine (SAV). To meet the time constraint imposed on this 
+project, we used a distributed R&D model involving experts in the fields of 
+protein engineering and production, bioinformatics, peptide synthesis/design and 
+GMP/GLP manufacturing and testing standards. SAV immunogenicity was first tested 
+using H1N1 influenza specific peptides and the entire VaxCelerate process was 
+then tested in a mock live-fire exercise targeting Lassa fever virus. We 
+demonstrated that the Lassa fever vaccine induced significantly increased class 
+II peptide specific interferon-γ CD4(+) T cell responses in HLA-DR3 transgenic 
+mice compared to peptide or MAV alone controls. We thereby demonstrated that our 
+SAV in combination with a distributed development model may facilitate 
+accelerated regulatory review by using an identical design for each vaccine and 
+by applying safety and efficacy assessment tools that are more relevant to human 
+vaccine responses than current animal models.
+
+DOI: 10.4161/hv.34413
+PMCID: PMC5443105
+PMID: 25483693 [Indexed for MEDLINE]

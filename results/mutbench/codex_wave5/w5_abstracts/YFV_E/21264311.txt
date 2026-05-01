@@ -1,0 +1,34 @@
+1. PLoS One. 2011 Jan 11;6(1):e16059. doi: 10.1371/journal.pone.0016059.
+
+A broadly flavivirus cross-neutralizing monoclonal antibody that recognizes a 
+novel epitope within the fusion loop of E protein.
+
+Deng YQ(1), Dai JX, Ji GH, Jiang T, Wang HJ, Yang HO, Tan WL, Liu R, Yu M, Ge 
+BX, Zhu QY, Qin ED, Guo YJ, Qin CF.
+
+Author information:
+(1)State Key Laboratory of Pathogen and Biosecurity, Beijing Institute of 
+Microbiology and Epidemiology, Beijing, China.
+
+Flaviviruses are a group of human pathogenic, enveloped RNA viruses that 
+includes dengue (DENV), yellow fever (YFV), West Nile (WNV), and Japanese 
+encephalitis (JEV) viruses. Cross-reactive antibodies against Flavivirus have 
+been described, but most of them are generally weakly neutralizing. In this 
+study, a novel monoclonal antibody, designated mAb 2A10G6, was determined to 
+have broad cross-reactivity with DENV 1-4, YFV, WNV, JEV, and TBEV. 
+Phage-display biopanning and structure modeling mapped 2A10G6 to a new epitope 
+within the highly conserved flavivirus fusion loop peptide, the (98)DRXW(101) 
+motif. Moreover, in vitro and in vivo experiments demonstrated that 2A10G6 
+potently neutralizes DENV 1-4, YFV, and WNV and confers protection from lethal 
+challenge with DENV 1-4 and WNV in murine model. Furthermore, functional studies 
+revealed that 2A10G6 blocks infection at a step after viral attachment. These 
+results define a novel broadly flavivirus cross-reactive mAb with highly 
+neutralizing activity that can be further developed as a therapeutic agent 
+against severe flavivirus infections in humans.
+
+DOI: 10.1371/journal.pone.0016059
+PMCID: PMC3019176
+PMID: 21264311 [Indexed for MEDLINE]
+
+Conflict of interest statement: Competing Interests: The authors have declared 
+that no competing interests exist.

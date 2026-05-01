@@ -1,0 +1,34 @@
+1. Am J Trop Med Hyg. 2010 Jun;82(6):1160-7. doi: 10.4269/ajtmh.2010.09-0310.
+
+Evaluation of RepliVAX WN, a single-cycle flavivirus vaccine, in a non-human 
+primate model of West Nile virus infection.
+
+Widman DG(1), Ishikawa T, Giavedoni LD, Hodara VL, Garza Mde L, Montalbo JA, 
+Travassos Da Rosa AP, Tesh RB, Patterson JL, Carrion R Jr, Bourne N, Mason PW.
+
+Author information:
+(1)Department of Microbiology and Immunology, University of Texas Medical 
+Branch, Galveston, TX, USA. dgwidman@med.unc.edu
+
+West Nile virus (WNV) causes serious neurologic disease, but no licensed 
+vaccines are available to prevent this disease in humans. We have developed 
+RepliVAX WN, a single-cycle flavivirus with an expected safety profile superior 
+to other types of live-attenuated viral vaccines. In this report we describe 
+studies examining RepliVAX WN safety, potency, and efficacy in a non-human 
+primate model of WNV infection. A single immunization of four rhesus macaques 
+with RepliVAX WN was safe and elicited detectable neutralizing antibody titers 
+and IgM and IgG responses, and IgG titers were increased in two animals that 
+received a second immunization. After challenge with WNV, three of four 
+immunized animals were completely protected from viremia, and the remaining 
+animal showed minimal viremia on one day. In contrast, the unvaccinated animal 
+developed viremia that lasted six days. These results demonstrate the efficacy 
+and safety of RepliVAX WN in this primate model of WNV infection.
+
+DOI: 10.4269/ajtmh.2010.09-0310
+PMCID: PMC2877429
+PMID: 20519618 [Indexed for MEDLINE]
+
+Conflict of interest statement: Disclosure: P. Mason is an inventor on the 
+patents filed for RepliVAX technology. This statement is made in the interest of 
+full disclosure and not because the author considers this a conflict of 
+interest.

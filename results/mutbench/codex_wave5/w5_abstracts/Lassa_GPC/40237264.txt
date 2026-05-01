@@ -1,0 +1,47 @@
+1. Biomed Environ Sci. 2025 Mar 20;38(3):279-289. doi: 10.3967/bes2025.014.
+
+Laboratory Diagnosis and Molecular Epidemiological Characterization of the First 
+Imported Case of Lassa Fever in China.
+
+Feng YL(1), Li W(1), Jiang MF(1), Zhong HR(1), Wu W(2), Tian LB(3), Chen G(4), 
+Chen ZH(5), Luo C(1), Yuan RM(1), Zhou XY(1), Li JD(2), Yang XR(1), Pan M(1).
+
+Author information:
+(1)Sichuan Center for Disease Control and Prevention, Chengdu 610041, Sichuan, 
+China.
+(2)National Institute for Viral Disease Control and Prevention, China CDC, 
+Beijing 102206, China.
+(3)Sichuan International Travel Healthcare Center (Chengdu Customs Port Clinic), 
+Chengdu 610041, Sichuan, China.
+(4)Mianyang Center for Disease Control and Prevention, Mianyang 621050, Sichuan, 
+China.
+(5)Chengdu Center for Disease Control and Prevention, Chengdu 610041, Sichuan, 
+China.
+
+OBJECTIVE: This study reports the first imported case of Lassa fever (LF) in 
+China. Laboratory detection and molecular epidemiological analysis of the Lassa 
+virus (LASV) from this case offer valuable insights for the prevention and 
+control of LF.
+METHODS: Samples of cerebrospinal fluid (CSF), blood, urine, saliva, and 
+environmental materials were collected from the patient and their close contacts 
+for LASV nucleotide detection. Whole-genome sequencing was performed on positive 
+samples to analyze the genetic characteristics of the virus.
+RESULTS: LASV was detected in the patient's CSF, blood, and urine, while all 
+samples from close contacts and the environment tested negative. The virus 
+belongs to the lineage IV strain and shares the highest homology with strains 
+from Sierra Leone. The variability in the glycoprotein complex (GPC) among 
+different strains ranged from 3.9% to 15.1%, higher than previously reported for 
+the seven known lineages. Amino acid mutation analysis revealed multiple 
+mutations within the GPC immunogenic epitopes, increasing strain diversity and 
+potentially impacting immune response.
+CONCLUSION: The case was confirmed through nucleotide detection, with no 
+evidence of secondary transmission or viral spread. The LASV strain identified 
+belongs to lineage IV, with broader GPC variability than previously reported. 
+Mutations in the immune-related sites of GPC may affect immune responses, 
+necessitating heightened vigilance regarding the virus.
+
+Copyright © 2025 The Editorial Board of Biomedical and Environmental Sciences. 
+Published by China CDC. All rights reserved.
+
+DOI: 10.3967/bes2025.014
+PMID: 40237264 [Indexed for MEDLINE]

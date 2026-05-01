@@ -1,0 +1,59 @@
+1. PLoS Negl Trop Dis. 2017 May 8;11(5):e0005584. doi: 
+10.1371/journal.pntd.0005584. eCollection 2017 May.
+
+In a randomized trial, the live attenuated tetravalent dengue vaccine TV003 is 
+well-tolerated and highly immunogenic in subjects with flavivirus exposure prior 
+to vaccination.
+
+Whitehead SS(1), Durbin AP(2), Pierce KK(3), Elwood D(2), McElvany BD(3), Fraser 
+EA(3), Carmolli MP(3), Tibery CM(2), Hynes NA(2), Jo M(2), Lovchik JM(2), 
+Larsson CJ(3), Doty EA(3), Dickson DM(3), Luke CJ(1), Subbarao K(1), Diehl 
+SA(3), Kirkpatrick BD(3).
+
+Author information:
+(1)Laboratory of Infectious Diseases, National Institutes of Allergy and 
+Infectious Diseases, National Institutes of Health, Bethesda, Maryland, United 
+States of America.
+(2)Center for Immunization Research, Johns Hopkins School of Public Health, 
+Baltimore, Maryland; United States of America.
+(3)Vaccine Testing Center, Department of Medicine, University of Vermont Larner 
+College of Medicine, Burlington, Vermont, United States of America.
+
+Infection caused by the four serotypes of dengue virus (DENV-1-4) is a leading 
+cause of mosquito-borne disease. Clinically-severe dengue disease is more common 
+when secondary dengue infection occurs following prior infection with a 
+heterologous dengue serotype. Other flaviviruses such as yellow fever virus, 
+Japanese encephalitis virus, and Zika virus, can also elicit antibodies which 
+are cross-reactive to DENV. As candidate dengue vaccines become available in 
+endemic settings and for individuals who have received other flavivirus 
+vaccines, it is important to examine vaccine safety and immunogenicity in these 
+flavivirus-experienced populations. We performed a randomized, controlled trial 
+of the National Institutes of Health live attenuated tetravalent dengue vaccine 
+candidate (TV003) in fifty-eight individuals with prior exposure to flavivirus 
+infection or vaccine. As in prior studies of this vaccine in flavivirus-naive 
+volunteers, flavivirus-experienced subjects received two doses of vaccine six 
+months apart and were followed closely for clinical events, laboratory changes, 
+viremia, and neutralizing antibody titers. TV003 was well tolerated with few 
+adverse events other than rash, which was predominately mild. Following one 
+dose, 87% of vaccinees had an antibody response to all four serotypes 
+(tetravalent response), suggesting a robust immune response. In addition, 76% of 
+vaccinees were viremic; mean peak titers ranged from 0.68–1.1 log10 PFU/mL and 
+did not differ by serotype. The second dose of TV003 was not associated with 
+viremia, rash, or a sustained boost in antibody titers indicating that a single 
+dose of the vaccine is likely sufficient to prevent viral replication and thus 
+protect against disease. In comparison to the viremia and neutralizing antibody 
+response elicited by TV003 in flavivirus-naïve subjects from prior studies, we 
+found that subjects who were flavivirus-exposed prior to vaccination exhibited 
+slightly higher DENV-3 viremia, higher neutralizing antibody titers to DENV-2, 
+-3, and -4, and a higher tetravalent response frequency after TV003 
+administration. In summary, we demonstrate that the NIH tetravalent dengue 
+vaccine TV003 is well-tolerated in flavivirus-experienced individuals and 
+elicits robust post-vaccination neutralizing antibody titers.
+TRIAL REGISTRATION: ClinicalTrials.gov NCT01506570.
+
+DOI: 10.1371/journal.pntd.0005584
+PMCID: PMC5436874
+PMID: 28481883 [Indexed for MEDLINE]
+
+Conflict of interest statement: The authors have declared that no competing 
+interests exist.

@@ -1,0 +1,37 @@
+1. Vaccine. 2011 Jun 20;29(28):4608-12. doi: 10.1016/j.vaccine.2011.04.058. Epub 
+2011 May 5.
+
+Protection provided by a recombinant ALVAC(®)-WNV vaccine expressing the prM/E 
+genes of a lineage 1 strain of WNV against a virulent challenge with a lineage 2 
+strain.
+
+Minke JM(1), Siger L, Cupillard L, Powers B, Bakonyi T, Boyum S, Nowotny N, 
+Bowen R.
+
+Author information:
+(1)Merial S.A.S., 254 rue Marcel Mérieux, 69007 Lyon, France. 
+jules.minke@merial.com
+
+The emergence of lineage 2 strains of WNV in Europe as a cause of clinical 
+disease and mortality in horses raised the question whether the existing WNV 
+vaccines, all based on lineage 1 strains, protect against circulating lineage 2 
+strains of WNV. In the present paper we have determined the level of cross 
+protection provided by the recombinant ALVAC(®)-WNV vaccine in a severe 
+challenge model that produces clinical signs of WNV type 2 disease. Ten horses 
+were vaccinated twice at 4 weeks interval with one dose of the ALVAC-WNV vaccine 
+formulated at the minimum protective dose. A further 10 horses served as 
+controls. Two weeks after the second vaccination, all horses were challenged 
+intrathecally with a recent neurovirulent lineage 2 strain of WNV. The challenge 
+produced viraemia in 10 out of 10 and encephalitis in 9 out of 10 control 
+horses. Three horses had to be euthanized for humane reasons. In contrast, none 
+of the vaccinated horses developed WNV disease and only 1 vaccinated horse 
+became viraemic at a single time point at low titre. The prevalence of WNV 
+disease and viraemia were significantly lower in the vaccinated horses than in 
+the control horses (P<0.0001 for both). Based on these results, the ALVAC-WNV 
+vaccine will provide veterinarians with an effective tool to control infections 
+caused by lineage 1 and 2 strains of WNV.
+
+Copyright © 2011 Elsevier Ltd. All rights reserved.
+
+DOI: 10.1016/j.vaccine.2011.04.058
+PMID: 21549780 [Indexed for MEDLINE]

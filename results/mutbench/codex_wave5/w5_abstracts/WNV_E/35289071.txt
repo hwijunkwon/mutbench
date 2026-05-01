@@ -1,0 +1,58 @@
+1. Aging Cell. 2022 Apr;21(4):e13582. doi: 10.1111/acel.13582. Epub 2022 Mar 15.
+
+Quantitative restoration of immune defense in old animals determined by naive 
+antigen-specific CD8 T-cell numbers.
+
+Uhrlaub JL(1)(2), Jergović M(1)(2), Bradshaw CM(1)(2), Sonar S(1)(2), Coplen 
+CP(1)(2), Dudakov J(3)(4), Murray KO(5)(6), Lanteri MC(7), Busch MP(7), van den 
+Brink MRM(8), Nikolich-Žugich J(1)(2).
+
+Author information:
+(1)Department of Immunobiology, University of Arizona College of Medicine, 
+Tucson, Arizona, USA.
+(2)University of Arizona, Center on Aging, University of Arizona, College of 
+Medicine, Tucson, Tucson, Arizona, USA.
+(3)Program in Immunology, Clinical Research Division, and Immunotherapy 
+Integrated Research Center, Fred Hutchinson Cancer Research Center, Seattle, 
+Washington, USA.
+(4)Department of Immunology, University of Washington, Seattle, Washington, USA.
+(5)Department of Pediatrics, Section of Pediatric Tropical Medicine and National 
+School of Tropical Medicine, Baylor College of Medicine, Houston, Texas, USA.
+(6)William T. Shearer Center for Human Immunobiology, Texas Children's Hospital, 
+Houston, Texas, USA.
+(7)Blood Systems Research Institute, Vitalant Research Institute, San Francisco, 
+California, USA.
+(8)Department of Medicine and Immunology Program, Memorial Sloan Kettering 
+Cancer Center, New York, New York City, USA.
+
+Older humans and animals often exhibit reduced immune responses to infection and 
+vaccination, and this often directly correlates to the numbers and frequency of 
+naive T (Tn) cells. We found such a correlation between reduced numbers of blood 
+CD8+ Tn cells and severe clinical outcomes of West Nile virus (WNV) in both 
+humans naturally exposed to, and mice experimentally infected with, WNV. To 
+examine possible causality, we sought to increase the number of CD8 Tn cells by 
+treating C57BL/6 mice with IL-7 complexes (IL-7C, anti-IL-7 mAb bound to IL-7), 
+shown previously to efficiently increase peripheral T-cell numbers by 
+homeostatic proliferation. T cells underwent robust expansion following IL-7C 
+administration to old mice increasing the number of total T cells (>fourfold) 
+and NS4b:H-2Db -restricted antigen-specific CD8 T cells (twofold). This improved 
+the numbers of NS4b-specific CD8 T cells detected at the peak of the response 
+against WNV, but not survival of WNV challenge. IL-7C-treated old animals also 
+showed no improvement in WNV-specific effector immunity (neutralizing antibody 
+and in vivo T-cell cytotoxicity). To test quantitative limits to which CD8 Tn 
+cell restoration could improve protective immunity, we transferred graded doses 
+of Ag-specific precursors into old mice and showed that injection of 5400 (but 
+not of 1800 or 600) adult naive WNV-specific CD8 T cells significantly increased 
+survival after WNV. These results set quantitative limits to the level of Tn 
+reconstitution necessary to improve immune defense in older organisms and are 
+discussed in light of targets of immune reconstitution.
+
+© 2022 The Authors. Aging Cell published by Anatomical Society and John Wiley & 
+Sons Ltd.
+
+DOI: 10.1111/acel.13582
+PMCID: PMC9009107
+PMID: 35289071 [Indexed for MEDLINE]
+
+Conflict of interest statement: J.N.Ž. is co‐chair of the scientific advisory 
+board of and receives research funding from Young Blood Institute, Inc.

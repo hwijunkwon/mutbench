@@ -1,0 +1,44 @@
+1. Vaccine. 2017 Dec 14;35(49 Pt B):6898-6904. doi:
+10.1016/j.vaccine.2017.08.055.  Epub 2017 Sep 9.
+
+A novel approach to a rabies vaccine based on a recombinant single-cycle 
+flavivirus vector.
+
+Giel-Moloney M(1), Rumyantsev AA(2), David F(3), Figueiredo M(3), Feilmeier 
+B(3), Mebatsion T(3), Parrington M(2), Kleanthous H(2), Pugachev KV(2).
+
+Author information:
+(1)Sanofi Pasteur, R&D Discovery US, 38 Sidney Street, Cambridge, MA 02139, 
+United States. Electronic address: Maryann.Giel-Moloney@sanofi.com.
+(2)Sanofi Pasteur, R&D Discovery US, 38 Sidney Street, Cambridge, MA 02139, 
+United States.
+(3)Merial Bio R&D, 1730 Olympic Drive, Athens, GA 30601, United States.
+
+The RepliVax® vaccine (RV) platform is based on flavivirus genomes that are 
+rationally attenuated by deletion. These single-cycle RV vaccine candidates 
+targeting flavivirus pathogens have been demonstrated to be safe, highly 
+immunogenic, and efficacious in animal models, including non-human primates. 
+Here we show utility of the technology for delivery of a non-flavivirus 
+immunogen by engineering several West Nile-based RV vectors to express 
+full-length rabies virus G protein. The rabies virus G protein gene was 
+incorporated in place of different West Nile structural protein gene deletions. 
+The resulting RV-RabG constructs were demonstrated to replicate to high titers 
+(8 log10 infectious particles/ml) in complementing helper cells. Following 
+infection of normal cells, they provided efficient rabies virus G protein 
+expression, but did not spread to surrounding cells. Expression of rabies virus 
+G protein was stable and maintained through multiple rounds of in vitro 
+passaging. A sensitive neurovirulence test in 2-3 day old neonatal mice 
+demonstrated that RV-RabG candidates were completely avirulent indicative of 
+high safety. We evaluated the RV-RabG variants in several animal models (mice, 
+dogs, and pigs) and demonstrated that a single dose elicited high titers of 
+rabies virus-neutralizing antibodies and protected animals from live rabies 
+virus challenge (mice and dogs). Importantly, dogs were protected at both one 
+and two years post-immunization, demonstrating durable protective immunity. The 
+data demonstrates the potential of the RepliVax® technology as a potent vector 
+delivery platform for developing vaccine candidates against non-flavivirus 
+targets.
+
+Copyright © 2017 Elsevier Ltd. All rights reserved.
+
+DOI: 10.1016/j.vaccine.2017.08.055
+PMID: 28899628 [Indexed for MEDLINE]

@@ -1,0 +1,32 @@
+1. Am J Trop Med Hyg. 2005 Feb;72(2):189-97.
+
+Randomized, double-blind, phase III, pivotal field trial of the comparative 
+immunogenicity, safety, and tolerability of two yellow fever 17D vaccines 
+(Arilvax and YF-VAX) in healthy infants and children in Peru.
+
+Belmusto-Worn VE(1), Sanchez JL, McCarthy K, Nichols R, Bautista CT, Magill AJ, 
+Pastor-Cauna G, Echevarria C, Laguna-Torres VA, Samame BK, Baldeon ME, Burans 
+JP, Olson JG, Bedford P, Kitchener S, Monath TP.
+
+Author information:
+(1)U.S. Naval Medical Research Center Detachment, Lima, Peru. 
+worn@nmrcd.med.navy.mil <worn@nmrcd.med.navy.mil>
+
+We conducted a randomized, double-blind, phase III yellow fever (YF) vaccine 
+trial among 1,107 healthy children in Sullana in northern Peru. The safety and 
+efficacy (by measurement of geometric mean neutralizing antibody titer 
+responses) were determined for two YF vaccines, ARILVAX (n = 738) and YF-VAX(R) 
+(n = 369). Serocon-version rates were higher (94.9%) in ARILVAX than in YF-VAX 
+(90.6%) recipients. The two-sided 95% confidence interval (YF-VAX-ARILVAX) was 
+(-12.8% to -2.5%), indicating that the higher seroconversion rate for Arilvax 
+was significant. Post-vaccination (30-day) mean log(10) neutralization indices 
+were found to be similar for both products: 1.32 for ARILVAX and 1.26 for YF-VAX 
+(P = 0.1404, by analysis of variance). A similar number of subjects in each 
+group reported at least one adverse event (AE); 441 (59.8%) for ARILVAX versus 
+211 (59.9%) for YF-VAX. Most (591; 96.7%) of these were of a mild nature and 
+resolved without treatment. There were no treatment-related serious AEs. This is 
+the first randomized, double-blind comparison of two YF vaccines in a pediatric 
+population; both vaccines were shown to be highly immunogenic and 
+well-tolerated.
+
+PMID: 15741556 [Indexed for MEDLINE]

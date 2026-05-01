@@ -1,0 +1,37 @@
+1. Virus Res. 2011 Jun;158(1-2):130-9. doi: 10.1016/j.virusres.2011.03.023. Epub 
+2011 Apr 4.
+
+Neutralization escape variant of West Nile virus associated with altered 
+peripheral pathogenicity and differential cytokine profile.
+
+Sapkal GN(1), Harini S, Ayachit VM, Fulmali PV, Mahamuni SA, Bondre VP, Gore MM.
+
+Author information:
+(1)National Institute of Virology, 20-A, Dr. Ambedkar Road, Pune 411001, 
+Maharashtra, India.
+
+In order to understand the factors influencing pathogenicity of a virus, two 
+neutralization escape (NE) variants were selected from wild type lineage 1 West 
+Nile virus (WNV) 68856 strain pathogenic by intra-peritoneal (i.p.) route using 
+monoclonal antibodies (MAbs) against envelope (E) protein. Both NE IF1A7 1.1 and 
+NE IVC3F10 1.2 were resistant to neutralization and were neurovirulent by 
+intra-cranial (i.c.) inoculation. Growth kinetics in porcine stable (PS) kidney 
+and baby hamster kidney (BHK) cells was unchanged. In contrast to parent WNV 
+only NE IF1A7 1.1 failed to cause lethal encephalitis on i.p. inoculation and 
+was non pathogenic. NE IF1A7 1.1 variant showed delayed replication kinetics in 
+murine peritoneal exudate cells (PEC) and Neuro 346 cells in vitro. In 
+comparison with parent WNV and NE IVC3F10 1.2 variant, non pathogenic variant 
+exhibited significantly reduced tumour necrosis factor α (TNF-α) induction in 
+infected animals and PEC. Other cytokines like Interleukin (IL)-10, IL-6 and 
+Interferon (IFN)-β remained unchanged. However, IL-1β did not follow the pattern 
+and was higher only in parent WNV-infected PEC. The E gene sequences of these NE 
+variants showed three common amino acid substitutions at residues E50, E89 and 
+E242. A unique E156 (ser→pro) substitution in NE IF1A7 1.1, was absent in NE 
+IVC3F10 1.2 variant suggested probable virulence marker. Our data indicates 
+possible role of WNV E protein in induction of TNF-α and IL-1β and its 
+association with WNV pathogenesis.
+
+Copyright © 2011 Elsevier B.V. All rights reserved.
+
+DOI: 10.1016/j.virusres.2011.03.023
+PMID: 21470570 [Indexed for MEDLINE]

@@ -1,0 +1,39 @@
+1. PLoS Pathog. 2018 Sep 28;14(9):e1007322. doi: 10.1371/journal.ppat.1007322. 
+eCollection 2018 Sep.
+
+Critical role for cholesterol in Lassa fever virus entry identified by a novel 
+small molecule inhibitor targeting the viral receptor LAMP1.
+
+Wang MK(1)(2), Ren T(2), Liu H(2), Lim SY(1), Lee K(2), Honko A(3), Zhou H(4), 
+Dyall J(4), Hensley L(4), Gartin AK(1)(2), Cunningham JM(1)(2).
+
+Author information:
+(1)Division of Hematology, Department of Medicine, Brigham and Women's Hospital, 
+Boston, Massachusetts, United States of America.
+(2)Department of Microbiology and Immunobiology, Harvard Medical School, Boston, 
+Massachusetts, United States of America.
+(3)United States Army Medical Research institute of Infectious Disease, Fort 
+Detrick, Maryland, United States of America.
+(4)NIAID/NIH Integrated Research Facility, Fort Detrick, Maryland, United States 
+of America.
+
+Lassa fever virus (LASV) is endemic in West Africa and causes severe hemorrhagic 
+fever and sensorineural hearing loss. We identified a small molecule inhibitor 
+of LASV and used it to analyze the mechanism of entry. Using a photo-reactive 
+analog that retains antiviral activity as a probe, we identified the inhibitor 
+target as lysosome-associated membrane protein 1 (LAMP1), a host factor that 
+binds to the LASV glycoprotein (GP) during infection. We found that LAMP1 
+binding to LASV GP is cholesterol-dependent, and that the inhibitor blocks 
+infection by competing with cholesterol in LAMP1. Mutational analysis of a 
+docking-based model identified a putative inhibitor binding site in the 
+cholesterol-binding pocket within the LAMP1 domain that binds GP. These findings 
+identify a critical role for cholesterol in LASV entry and a potential target 
+for therapeutic intervention.
+
+DOI: 10.1371/journal.ppat.1007322
+PMCID: PMC6179309
+PMID: 30265711 [Indexed for MEDLINE]
+
+Conflict of interest statement: Authors Tao Ren, Kyungae Lee and James 
+Cunningham hold patent 9676763, June 13, 2017, "Methods of Treating Ebola" that 
+discloses the structure and function of compound 3.3.

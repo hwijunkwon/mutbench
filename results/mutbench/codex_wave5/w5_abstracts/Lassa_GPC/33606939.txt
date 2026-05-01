@@ -1,0 +1,42 @@
+1. J Phys Chem B. 2021 Mar 4;125(8):2089-2097. doi: 10.1021/acs.jpcb.0c11516.
+Epub  2021 Feb 19.
+
+Glycan Cluster Shielding and Antibody Epitopes on Lassa Virus Envelop Protein.
+
+Re S(1)(2), Mizuguchi K(1)(3)(4).
+
+Author information:
+(1)Center for Drug Design Research, National Institutes of Biomedical 
+Innovation, Health, and Nutrition, 7-6-8 Saito-Asagi, Ibaraki, Osaka 567-0085, 
+Japan.
+(2)RIKEN Center for Biosystems Dynamics Research, Integrated Innovation Building 
+7F, 6-7-1 minatojima-minamimachi, Chuo-ku, Kobe, Hyogo 650-0047, Japan.
+(3)Artificial Intelligence Center for Health and Biomedical Research, National 
+Institutes of Biomedical Innovation, Health, and Nutrition, 7-6-8 Saito-Asagi, 
+Ibaraki, Osaka 567-0085, Japan.
+(4)Institute for Protein Research, Osaka University, 3-2 Yamadaoka, Suita, Osaka 
+565-0871, Japan.
+
+An understanding of how an antiviral monoclonal antibody recognizes its target 
+is vital for the development of neutralizing antibodies and vaccines. The 
+extensive glycosylation of viral proteins almost certainly affects the antibody 
+response, but the investigation of such effects is hampered by the huge range of 
+structures and interactions of surface glycans through their inherent complexity 
+and flexibility. Here, we built an atomistic model of a fully glycosylated 
+envelope protein complex of the Lassa virus and performed molecular dynamics 
+simulations to characterize the impact of surface glycans on the antibody 
+response. The simulations attested to the variety of conformations and 
+interactions of surface glycans. The results show that glycosylation 
+nonuniformly shields the surface of the complex and only marginally affects 
+protein dynamics. The glycans gather in distinct clusters through interaction 
+with protein residues, and only a few regions are left accessible by an 
+antibody. We successfully recovered known protein epitopes by integrating the 
+simulation results with existing sequence- and structure-based epitope 
+prediction methods. The results emphasize the rich structural environment of 
+glycans and demonstrate that shielding is not merely envelopment by a uniform 
+blanket of sugars. This work provides a molecular basis for integrating 
+otherwise elusive structural properties of glycans into vaccine and neutralizing 
+antibody developments.
+
+DOI: 10.1021/acs.jpcb.0c11516
+PMID: 33606939 [Indexed for MEDLINE]

@@ -1,0 +1,56 @@
+1. Int J Pharm. 2023 Mar 5;634:122658. doi: 10.1016/j.ijpharm.2023.122658. Epub 
+2023 Jan 30.
+
+Delivery of small molecule mast cell activators for West Nile Virus vaccination 
+using acetalated dextran microparticles.
+
+Hendy DA(1), Johnson-Weaver BT(2), Batty CJ(1), Bachelder EM(1), Abraham SN(2), 
+Staats HF(3), Ainslie KM(4).
+
+Author information:
+(1)Division of Pharmacoengineering and Molecular Pharmaceutics, Eshelman School 
+of Pharmacy, University of North Carolina at Chapel Hill, USA.
+(2)Department of Pathology, Duke University, USA.
+(3)Department of Pathology, Duke University, USA; Duke Human Vaccine Institute, 
+Duke University School of Medicine, Durham, NC, USA.
+(4)Division of Pharmacoengineering and Molecular Pharmaceutics, Eshelman School 
+of Pharmacy, University of North Carolina at Chapel Hill, USA; Joint Department 
+of Biomedical Engineering, University of North Carolina at Chapel Hill and North 
+Carolina State University, USA; Department of Microbiology and Immunology, UNC 
+School of Medicine, University of North Carolina, Chapel Hill, NC, USA. 
+Electronic address: ainsliek@email.unc.edu.
+
+Recently, there has been increasing interest in the activation of mast cells to 
+promote vaccine efficacy. Several mast cell activating (MCA) compounds have been 
+reported such as M7 and Compound 48/80 (C48/80). While these MCAs have been 
+proven to be efficacious vaccine adjuvants, their translatability is limited by 
+batch-to-batch variability, challenging large-scale manufacturing, and poor in 
+vivo stability for the M7 peptide. Due to this, high throughput screening was 
+performed to identify small molecule MCAs. Several potent MCAs were identified 
+via this screening, but the in vivo translatability of the compounds was limited 
+due to their poor aqueous solubility. To enhance the delivery of these MCAs we 
+encapsulated them in acetalated dextran (Ace-DEX) microparticles (MPs). We have 
+previously utilized Ace-DEX MPs for vaccine delivery due to their passive 
+targeting to phagocytic cells, acid sensitivity, and tunable degradation. Four 
+different MCA loaded MPs were combined with West Nile Virus Envelope III protein 
+(EDIII) and their vaccine adjuvant activities were compared in vivo. MPs 
+containing the small molecule MCA ST101036 produced the highest anti-EDIII IgG 
+titers of all the MCAs tested. Further, ST101036 MPs produced higher titers than 
+ST101036 formulated with PEG as a cosolvent which highlights the benefit of 
+Ace-DEX MPs over a conventional formulation technique. Finally, in a mouse model 
+of West Nile Virus infection ST101036 MPs produced similar survival to soluble 
+M7 (80-90%). Overall, these data show that ST101036 MPs produce a robust 
+antibody response against EDIII and survival emphasizing the benefits of using 
+Ace-DEX as a delivery platform for the poorly soluble ST101036.
+
+Copyright © 2023 Elsevier B.V. All rights reserved.
+
+DOI: 10.1016/j.ijpharm.2023.122658
+PMCID: PMC9975031
+PMID: 36731641 [Indexed for MEDLINE]
+
+Conflict of interest statement: Declaration of Competing Interest The authors 
+declare the following financial interests/personal relationships which may be 
+considered as potential competing interests: Ainslie reports financial support 
+was provided by National Institutes of Health. Bachelder has patent 
+#PCT/US2009/049415 pending to BERKELEY LAB.
