@@ -1,0 +1,29 @@
+target,pathogen_label,source_type,is_labeled,n_positions,median_pairwise_jaccard,p10_pairwise_jaccard,spearman_rank_corr_median,n_constant_score_drop,no_result_constant_rank,target_pass_stability
+Dengue,Dengue,feature_matrix,1,490,1.0,0.0,1.0,0,0,0
+EV-A71,EV-A71,feature_matrix,1,261,1.0,0.0,1.0,0,0,0
+H3N2,H3N2,feature_matrix,1,543,1.0,0.0,1.0,0,0,0
+HCV,HCV,feature_matrix,1,340,1.0,0.0,1.0,0,0,0
+HIV-1,HIV-1,feature_matrix,1,450,1.0,0.0,1.0,0,0,0
+Influenza_B,Influenza_B,feature_matrix,1,560,1.0,0.0,1.0,0,0,0
+MERS,MERS,feature_matrix,1,1330,1.0,0.0,1.0,0,0,0
+Norovirus,Norovirus,feature_matrix,1,536,1.0,0.0,1.0,0,0,0
+RSV,RSV,feature_matrix,1,550,1.0,0.0,1.0,0,0,0
+Rabies,Rabies,feature_matrix,1,491,1.0,0.0,1.0,0,0,0
+SARS-CoV-2,SARS-CoV-2,feature_matrix,1,1259,1.0,0.45664739884393063,1.0,0,0,1
+Zika,Zika,feature_matrix,1,452,1.0,0.24324324324324326,1.0,0,0,0
+chikungunya_virus_e2,Chikungunya Virus E2,cross_pathogen,0,540,1.0,0.0,1.0,0,0,0
+eastern_equine_encephalitis_virus_e2,Eastern Equine Encephalitis Virus E2,cross_pathogen,0,420,1.0,0.024390243902439025,1.0,0,0,0
+hcov-229e_spike,Hcov 229E Spike,cross_pathogen,0,1173,1.0,0.0,1.0,0,0,0
+hcov-nl63_spike,Hcov Nl63 Spike,cross_pathogen,0,1356,1.0,0.0,1.0,0,0,0
+hendra_virus_g,Hendra Virus G,cross_pathogen,0,604,1.0,0.0,1.0,0,0,0
+japanese_encephalitis_virus_e,Japanese Encephalitis Virus E,cross_pathogen,0,506,1.0,0.0,1.0,0,0,0
+lassa_gpc,Lassa Gpc,cross_pathogen,0,491,1.0,0.0,1.0,0,0,0
+marburg_virus_gp,Marburg Virus Gp,cross_pathogen,0,871,1.0,0.0,1.0,0,0,0
+measles_virus_h,Measles Virus H,cross_pathogen,0,620,1.0,0.0,1.0,0,0,0
+mumps_virus_hn,Mumps Virus Hn,cross_pathogen,0,582,1.0,0.0,1.0,0,0,0
+nipah_virus_g,Nipah Virus G,cross_pathogen,0,602,1.0,0.07964601769911504,1.0,0,0,0
+tick-borne_encephalitis_virus_e,Tick Borne Encephalitis Virus E,cross_pathogen,0,496,1.0,0.0,1.0,0,0,0
+venezuelan_equine_encephalitis_virus_e2,Venezuelan Equine Encephalitis Virus E2,cross_pathogen,0,520,1.0,0.0,1.0,0,0,0
+western_equine_encephalitis_virus_e2,Western Equine Encephalitis Virus E2,cross_pathogen,0,504,1.0,0.21428571428571427,1.0,0,0,0
+wnv_e,Wnv E,cross_pathogen,0,501,1.0,0.030303030303030304,1.0,0,0,0
+yfv_e,Yfv E,cross_pathogen,0,499,1.0,0.0,1.0,0,0,0

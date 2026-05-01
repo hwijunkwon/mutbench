@@ -1,0 +1,4 @@
+pathogen_pair,n_positions_labeled,n_positions_cross,n_positions_aligned,spearman_rho,spearman_p,top10pct_jaccard,top10pct_overlap_count,harmonizable_per_threshold
+Dengue:dengue_e,490,495,489,0.165117676451578,0.0002452586688096,0.0888888888888888,8,False
+HIV-1:hiv1_gp120,450,500,449,0.6315521316431838,2.3771063354840252e-51,0.0714285714285714,6,False
+Norovirus:norovirus_vp1,536,540,535,0.1916675106484565,8.030507050191835e-06,0.2,18,False
