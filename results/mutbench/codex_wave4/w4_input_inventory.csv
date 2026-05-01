@@ -1,0 +1,32 @@
+slug,pathogen_label,source_type,is_labeled,is_overlap,audit_only,unique_target_inclusion,n_positions,has_freq,has_entropy,has_hscore,has_layer_a,ground_truth_values
+Dengue,Dengue,feature_matrix,True,False,False,True,490,True,True,False,True,"[0,1]"
+EV-A71,EV-A71,feature_matrix,True,False,False,True,261,True,True,False,True,"[0,1]"
+H3N2,H3N2,feature_matrix,True,False,False,True,543,True,True,False,True,"[0,1]"
+HCV,HCV,feature_matrix,True,False,False,True,340,True,True,False,True,"[0,1]"
+HIV-1,HIV-1,feature_matrix,True,False,False,True,450,True,True,False,True,"[0,1]"
+Influenza_B,Influenza_B,feature_matrix,True,False,False,True,560,True,True,False,True,"[0,1]"
+MERS,MERS,feature_matrix,True,False,False,True,1330,True,True,False,True,"[0,1]"
+Norovirus,Norovirus,feature_matrix,True,False,False,True,536,True,True,False,True,"[0,1]"
+RSV,RSV,feature_matrix,True,False,False,True,550,True,True,False,True,"[0,1]"
+Rabies,Rabies,feature_matrix,True,False,False,True,491,True,True,False,True,"[0,1]"
+SARS-CoV-2,SARS-CoV-2,feature_matrix,True,False,False,True,1259,True,True,False,True,"[0,1]"
+Zika,Zika,feature_matrix,True,False,False,True,452,True,True,False,True,"[0,1]"
+chikungunya_virus_e2,Chikungunya Virus E2,cross_pathogen,False,False,False,True,540,True,True,True,False,[-1]
+dengue_e,Dengue E,cross_pathogen,False,True,True,False,495,True,True,True,False,"[0,1]"
+eastern_equine_encephalitis_virus_e2,Eastern Equine Encephalitis Virus E2,cross_pathogen,False,False,False,True,420,True,True,True,False,[-1]
+hcov-229e_spike,Hcov 229E Spike,cross_pathogen,False,False,False,True,1173,True,True,True,False,[-1]
+hcov-nl63_spike,Hcov Nl63 Spike,cross_pathogen,False,False,False,True,1356,True,True,True,False,[-1]
+hendra_virus_g,Hendra Virus G,cross_pathogen,False,False,False,True,604,True,True,True,False,[-1]
+hiv1_gp120,Hiv1 Gp120,cross_pathogen,False,True,True,False,500,True,True,True,False,"[0,1]"
+japanese_encephalitis_virus_e,Japanese Encephalitis Virus E,cross_pathogen,False,False,False,True,506,True,True,True,False,[-1]
+lassa_gpc,Lassa Gpc,cross_pathogen,False,False,False,True,491,True,True,True,False,[-1]
+marburg_virus_gp,Marburg Virus Gp,cross_pathogen,False,False,False,True,871,True,True,True,False,[-1]
+measles_virus_h,Measles Virus H,cross_pathogen,False,False,False,True,620,True,True,True,False,[-1]
+mumps_virus_hn,Mumps Virus Hn,cross_pathogen,False,False,False,True,582,True,True,True,False,[-1]
+nipah_virus_g,Nipah Virus G,cross_pathogen,False,False,False,True,602,True,True,True,False,[-1]
+norovirus_vp1,Norovirus Vp1,cross_pathogen,False,True,True,False,540,True,True,True,False,"[0,1]"
+tick-borne_encephalitis_virus_e,Tick Borne Encephalitis Virus E,cross_pathogen,False,False,False,True,496,True,True,True,False,[-1]
+venezuelan_equine_encephalitis_virus_e2,Venezuelan Equine Encephalitis Virus E2,cross_pathogen,False,False,False,True,520,True,True,True,False,[-1]
+western_equine_encephalitis_virus_e2,Western Equine Encephalitis Virus E2,cross_pathogen,False,False,False,True,504,True,True,True,False,[-1]
+wnv_e,Wnv E,cross_pathogen,False,False,False,True,501,True,True,True,False,[-1]
+yfv_e,Yfv E,cross_pathogen,False,False,False,True,499,True,True,True,False,[-1]
