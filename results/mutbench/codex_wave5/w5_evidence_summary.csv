@@ -1,4 +1,0 @@
-target,n_positions,n_with_any_evidence,n_strong_evidence_candidate,n_zero_evidence,p_with_evidence
-yfv_e,499,48,13,451,0.096192
-lassa_gpc,491,97,10,394,0.197556
-wnv_e,501,73,23,428,0.145709
