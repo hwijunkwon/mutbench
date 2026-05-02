@@ -1,0 +1,485 @@
+target,uniprot_acc,feature_type,start,end,description
+chikungunya_virus_e2,A0A5J6BK08,Transmembrane,368,390,Helical
+chikungunya_virus_e2,A0A5J6BK08,Transmembrane,402,421,Helical
+chikungunya_virus_e2,A0A5J6BK08,Transmembrane,441,462,Helical
+chikungunya_virus_e2,A0A5J6BK08,Transmembrane,901,921,Helical
+eastern_equine_encephalitis_virus_e2,P08768,Chain,1,259,Capsid protein
+eastern_equine_encephalitis_virus_e2,P08768,Chain,260,742,Precursor of protein E3/E2
+eastern_equine_encephalitis_virus_e2,P08768,Chain,260,322,Assembly protein E3
+eastern_equine_encephalitis_virus_e2,P08768,Chain,323,742,Spike glycoprotein E2
+eastern_equine_encephalitis_virus_e2,P08768,Chain,743,798,6K protein
+eastern_equine_encephalitis_virus_e2,P08768,Chain,799,1239,Spike glycoprotein E1
+eastern_equine_encephalitis_virus_e2,P08768,Topological domain,260,681,Extracellular
+eastern_equine_encephalitis_virus_e2,P08768,Transmembrane,682,702,Helical
+eastern_equine_encephalitis_virus_e2,P08768,Topological domain,703,742,Cytoplasmic
+eastern_equine_encephalitis_virus_e2,P08768,Topological domain,743,754,Extracellular
+eastern_equine_encephalitis_virus_e2,P08768,Transmembrane,755,775,Helical
+eastern_equine_encephalitis_virus_e2,P08768,Topological domain,776,776,Cytoplasmic
+eastern_equine_encephalitis_virus_e2,P08768,Transmembrane,777,797,Helical
+eastern_equine_encephalitis_virus_e2,P08768,Topological domain,798,1215,Extracellular
+eastern_equine_encephalitis_virus_e2,P08768,Transmembrane,1216,1236,Helical
+eastern_equine_encephalitis_virus_e2,P08768,Topological domain,1237,1239,Cytoplasmic
+eastern_equine_encephalitis_virus_e2,P08768,Region,1,101,Disordered
+eastern_equine_encephalitis_virus_e2,P08768,Region,1,35,Necessary for nucleocapsid assembly and virus assembly
+eastern_equine_encephalitis_virus_e2,P08768,Region,36,69,Host transcription inhibition
+eastern_equine_encephalitis_virus_e2,P08768,Region,81,111,Binding to the viral RNA
+eastern_equine_encephalitis_virus_e2,P08768,Region,96,110,Ribosome-binding
+eastern_equine_encephalitis_virus_e2,P08768,Region,152,157,Interaction with spike glycoprotein E2
+eastern_equine_encephalitis_virus_e2,P08768,Region,244,248,Interaction with spike glycoprotein E2
+eastern_equine_encephalitis_virus_e2,P08768,Region,260,271,Functions as an uncleaved signal peptide for the precursor of protein E3/E2
+eastern_equine_encephalitis_virus_e2,P08768,Region,710,714,Interaction with the capsid protein
+eastern_equine_encephalitis_virus_e2,P08768,Region,714,734,Transient transmembrane before p62-6K protein processing
+eastern_equine_encephalitis_virus_e2,P08768,Region,882,899,E1 fusion peptide loop
+eastern_equine_encephalitis_virus_e2,P08768,Site,184,184,Involved in dimerization of the capsid protein
+eastern_equine_encephalitis_virus_e2,P08768,Site,217,217,Involved in dimerization of the capsid protein
+eastern_equine_encephalitis_virus_e2,P08768,Site,259,260,Cleavage; by autolysis
+eastern_equine_encephalitis_virus_e2,P08768,Site,322,323,Cleavage; by host furin
+eastern_equine_encephalitis_virus_e2,P08768,Site,477,477,Interaction with host receptor VLDLR
+eastern_equine_encephalitis_virus_e2,P08768,Site,478,478,Interaction with host receptor VLDLR
+eastern_equine_encephalitis_virus_e2,P08768,Site,479,479,Interaction with host receptor VLDLR
+eastern_equine_encephalitis_virus_e2,P08768,Site,553,553,Interaction with host receptor VLDLR
+eastern_equine_encephalitis_virus_e2,P08768,Site,554,554,Interaction with host receptor VLDLR
+eastern_equine_encephalitis_virus_e2,P08768,Site,742,743,Cleavage; by host signal peptidase
+eastern_equine_encephalitis_virus_e2,P08768,Site,798,799,Cleavage; by host signal peptidase
+eastern_equine_encephalitis_virus_e2,P08768,Glycosylation,49,49,N-linked (GlcNAc...) asparagine; by host
+eastern_equine_encephalitis_virus_e2,P08768,Glycosylation,270,270,N-linked (GlcNAc...) asparagine; by host
+eastern_equine_encephalitis_virus_e2,P08768,Glycosylation,637,637,N-linked (GlcNAc...) asparagine; by host
+eastern_equine_encephalitis_virus_e2,P08768,Glycosylation,932,932,N-linked (GlcNAc...) asparagine; by host
+eastern_equine_encephalitis_virus_e2,P08768,Glycosylation,1069,1069,N-linked (GlcNAc...) asparagine; by host
+eastern_equine_encephalitis_virus_e2,P08768,Disulfide bond,266,275,
+eastern_equine_encephalitis_virus_e2,P08768,Disulfide bond,280,284,
+eastern_equine_encephalitis_virus_e2,P08768,Disulfide bond,283,315,
+eastern_equine_encephalitis_virus_e2,P08768,Disulfide bond,341,444,
+eastern_equine_encephalitis_virus_e2,P08768,Disulfide bond,344,349,
+eastern_equine_encephalitis_virus_e2,P08768,Disulfide bond,411,425,
+eastern_equine_encephalitis_virus_e2,P08768,Disulfide bond,472,585,
+eastern_equine_encephalitis_virus_e2,P08768,Disulfide bond,521,545,
+eastern_equine_encephalitis_virus_e2,P08768,Disulfide bond,523,539,
+eastern_equine_encephalitis_virus_e2,P08768,Disulfide bond,715,736,
+eastern_equine_encephalitis_virus_e2,P08768,Disulfide bond,847,912,
+eastern_equine_encephalitis_virus_e2,P08768,Disulfide bond,860,892,
+eastern_equine_encephalitis_virus_e2,P08768,Disulfide bond,861,894,
+eastern_equine_encephalitis_virus_e2,P08768,Disulfide bond,866,876,
+eastern_equine_encephalitis_virus_e2,P08768,Disulfide bond,1058,1070,
+eastern_equine_encephalitis_virus_e2,P08768,Disulfide bond,1100,1175,
+eastern_equine_encephalitis_virus_e2,P08768,Disulfide bond,1105,1179,
+eastern_equine_encephalitis_virus_e2,P08768,Natural variant,28,30,in strain: PE6 vaccine
+eastern_equine_encephalitis_virus_e2,P08768,Natural variant,49,49,in strain: PE6 vaccine
+eastern_equine_encephalitis_virus_e2,P08768,Natural variant,73,78,in strain: PE6 vaccine
+eastern_equine_encephalitis_virus_e2,P08768,Natural variant,226,226,in strain: PE6 vaccine
+eastern_equine_encephalitis_virus_e2,P08768,Natural variant,379,380,in strain: PE6 vaccine
+eastern_equine_encephalitis_virus_e2,P08768,Natural variant,445,446,in strain: PE6 vaccine
+eastern_equine_encephalitis_virus_e2,P08768,Natural variant,495,495,in strain: PE6 vaccine
+eastern_equine_encephalitis_virus_e2,P08768,Natural variant,528,528,in strain: PE6 vaccine
+eastern_equine_encephalitis_virus_e2,P08768,Natural variant,673,673,in strain: PE6 vaccine
+eastern_equine_encephalitis_virus_e2,P08768,Natural variant,702,711,in strain: PE6 vaccine
+eastern_equine_encephalitis_virus_e2,P08768,Natural variant,779,780,in strain: PE6 vaccine
+eastern_equine_encephalitis_virus_e2,P08768,Natural variant,795,795,in strain: PE6 vaccine
+eastern_equine_encephalitis_virus_e2,P08768,Natural variant,880,880,in strain: PE6 vaccine
+eastern_equine_encephalitis_virus_e2,P08768,Natural variant,939,939,in strain: PE6 vaccine
+eastern_equine_encephalitis_virus_e2,P08768,Natural variant,1035,1035,in strain: PE6 vaccine
+eastern_equine_encephalitis_virus_e2,P08768,Natural variant,1044,1044,in strain: PE6 vaccine
+eastern_equine_encephalitis_virus_e2,P08768,Natural variant,1067,1067,in strain: PE6 vaccine
+eastern_equine_encephalitis_virus_e2,P08768,Natural variant,1109,1109,in strain: PE6 vaccine
+eastern_equine_encephalitis_virus_e2,P08768,Natural variant,1117,1148,in strain: PE6 vaccine
+eastern_equine_encephalitis_virus_e2,P08768,Natural variant,1172,1173,in strain: PE6 vaccine
+eastern_equine_encephalitis_virus_e2,P08768,Natural variant,1209,1209,in strain: PE6 vaccine
+hcov-229e_spike,P15423,Signal,1,15,
+hcov-229e_spike,P15423,Chain,16,1173,Spike glycoprotein
+hcov-229e_spike,P15423,Topological domain,16,1115,Virion surface
+hcov-229e_spike,P15423,Transmembrane,1116,1135,Helical
+hcov-229e_spike,P15423,Topological domain,1136,1173,Intravirion
+hcov-229e_spike,P15423,Region,16,536,S1
+hcov-229e_spike,P15423,Region,417,547,Interaction with ANPEP
+hcov-229e_spike,P15423,Region,417,547,Interaction with host ANPEP
+hcov-229e_spike,P15423,Region,537,1173,S2
+hcov-229e_spike,P15423,Region,753,773,Fusion peptide
+hcov-229e_spike,P15423,Region,767,886,Heptad repeat 1 (HR1)
+hcov-229e_spike,P15423,Region,1031,1127,Heptad repeat 2 (HR2)
+hcov-229e_spike,P15423,Natural variant,98,98,in strain: Isolate LRI 281
+hcov-229e_spike,P15423,Natural variant,120,120,in strain: Isolate LRI 281
+hcov-229e_spike,P15423,Natural variant,127,128,in strain: Isolate A162
+hcov-229e_spike,P15423,Natural variant,176,176,in strain: Isolate P100E
+hcov-229e_spike,P15423,Natural variant,210,210,in strain: Isolate A162
+hcov-229e_spike,P15423,Natural variant,223,223,in strain: Isolate A162
+hcov-229e_spike,P15423,Natural variant,228,229,in strain: Isolate A162
+hcov-229e_spike,P15423,Natural variant,230,230,"in strain: Isolate RWStock, Isolate P11A, Isolate P11B, Isolate P100E and Isolate ATCCVR-74"
+hcov-229e_spike,P15423,Natural variant,230,230,in strain: Isolate LRI 281
+hcov-229e_spike,P15423,Natural variant,248,248,in strain: Isolate A162
+hcov-229e_spike,P15423,Natural variant,270,270,in strain: Isolate P100E
+hcov-229e_spike,P15423,Natural variant,295,295,in strain: Isolate LRI 281
+hcov-229e_spike,P15423,Natural variant,300,300,in strain: Isolate P100E
+hcov-229e_spike,P15423,Natural variant,307,307,in strain: Isolate A162
+hcov-229e_spike,P15423,Natural variant,310,311,in strain: Isolate A162
+hcov-229e_spike,P15423,Natural variant,314,324,in strain: Isolate A162
+hcov-229e_spike,P15423,Natural variant,336,336,in strain: Isolate LRI 281
+hcov-229e_spike,P15423,Natural variant,349,358,in strain: Isolate A162
+hcov-229e_spike,P15423,Natural variant,401,401,in strain: Isolate A162
+hcov-229e_spike,P15423,Natural variant,404,411,in strain: Isolate A162
+hcov-229e_spike,P15423,Natural variant,414,414,in strain: Isolate P100E
+hcov-229e_spike,P15423,Natural variant,424,424,in strain: Isolate A162
+hcov-229e_spike,P15423,Natural variant,430,430,in strain: Isolate A162
+hcov-229e_spike,P15423,Natural variant,441,441,in strain: Isolate LRI 281
+hcov-229e_spike,P15423,Natural variant,444,444,in strain: Isolate A162
+hcov-229e_spike,P15423,Natural variant,462,462,in strain: Isolate A162
+hcov-229e_spike,P15423,Natural variant,481,481,in strain: Isolate A162
+hcov-229e_spike,P15423,Natural variant,488,488,in strain: Isolate A162
+hcov-229e_spike,P15423,Natural variant,530,530,in strain: Isolate A162
+hcov-229e_spike,P15423,Natural variant,577,577,in strain: Isolate P11A
+hcov-229e_spike,P15423,Natural variant,578,578,in strain: Isolate P11B
+hcov-229e_spike,P15423,Natural variant,590,590,in strain: Isolate P100E
+hcov-229e_spike,P15423,Natural variant,642,642,in strain: Isolate A162
+hcov-229e_spike,P15423,Natural variant,681,681,in strain: Isolate A162
+hcov-229e_spike,P15423,Natural variant,700,700,"in strain: Isolate RWStock, Isolate P11A, Isolate P11B and Isolate P100E"
+hcov-229e_spike,P15423,Natural variant,711,711,in strain: Isolate LRI 281
+hcov-229e_spike,P15423,Natural variant,714,714,"in strain: Isolate RWStock, Isolate P11A, Isolate P11B and Isolate P100E"
+hcov-229e_spike,P15423,Natural variant,765,765,in strain: Isolate A162
+hcov-229e_spike,P15423,Natural variant,775,775,in strain: Isolate A162
+hcov-229e_spike,P15423,Natural variant,846,846,in strain: Isolate P11A and Isolate P11B
+hcov-229e_spike,P15423,Natural variant,871,871,in strain: Isolate A162
+hcov-229e_spike,P15423,Natural variant,937,937,in strain: Isolate A162
+hcov-229e_spike,P15423,Natural variant,971,971,in strain: Isolate A162
+hcov-229e_spike,P15423,Natural variant,1005,1005,in strain: Isolate A162
+hcov-nl63_spike,Q6Q1S2,Signal,1,18,
+hcov-nl63_spike,Q6Q1S2,Chain,19,1356,Spike glycoprotein
+hcov-nl63_spike,Q6Q1S2,Topological domain,19,1296,Virion surface
+hcov-nl63_spike,Q6Q1S2,Transmembrane,1297,1316,Helical
+hcov-nl63_spike,Q6Q1S2,Topological domain,1317,1356,Intravirion
+hcov-nl63_spike,Q6Q1S2,Region,16,717,S1
+hcov-nl63_spike,Q6Q1S2,Region,19,717,S1
+hcov-nl63_spike,Q6Q1S2,Region,598,728,Interaction with host ANPEP
+hcov-nl63_spike,Q6Q1S2,Region,718,1356,S2
+hcov-nl63_spike,Q6Q1S2,Region,934,954,Fusion peptide
+hcov-nl63_spike,Q6Q1S2,Region,948,1067,Heptad repeat 1 (HR1)
+hcov-nl63_spike,Q6Q1S2,Region,1212,1308,Heptad repeat 2 (HR2)
+hcov-nl63_spike,Q6Q1S2,Glycosylation,35,35,N-linked (GlcNAc) asparagine; by host
+hcov-nl63_spike,Q6Q1S2,Glycosylation,52,52,N-linked (GlcNAc) asparagine; by host
+hcov-nl63_spike,Q6Q1S2,Glycosylation,98,98,N-linked (GlcNAc) asparagine; by host
+hcov-nl63_spike,Q6Q1S2,Glycosylation,155,155,N-linked (GlcNAc) asparagine; by host
+hcov-nl63_spike,Q6Q1S2,Glycosylation,187,187,N-linked (GlcNAc) asparagine; by host
+hcov-nl63_spike,Q6Q1S2,Glycosylation,193,193,N-linked (GlcNAc) asparagine; by host
+hcov-nl63_spike,Q6Q1S2,Glycosylation,240,240,N-linked (GlcNAc) asparagine; by host
+hcov-nl63_spike,Q6Q1S2,Glycosylation,276,276,N-linked (GlcNAc) asparagine; by host
+hcov-nl63_spike,Q6Q1S2,Glycosylation,301,301,N-linked (GlcNAc) asparagine; by host
+hcov-nl63_spike,Q6Q1S2,Glycosylation,330,330,N-linked (GlcNAc) asparagine; by host
+hcov-nl63_spike,Q6Q1S2,Glycosylation,354,354,N-linked (GlcNAc) asparagine; by host
+hcov-nl63_spike,Q6Q1S2,Glycosylation,358,358,N-linked (GlcNAc) asparagine; by host
+hcov-nl63_spike,Q6Q1S2,Glycosylation,403,403,N-linked (GlcNAc) asparagine; by host
+hcov-nl63_spike,Q6Q1S2,Glycosylation,426,426,N-linked (GlcNAc) asparagine; by host
+hcov-nl63_spike,Q6Q1S2,Glycosylation,486,486,N-linked (GlcNAc...) asparagine; by host
+hcov-nl63_spike,Q6Q1S2,Glycosylation,506,506,N-linked (GlcNAc) asparagine; by host
+hcov-nl63_spike,Q6Q1S2,Glycosylation,512,512,N-linked (GlcNAc...) asparagine; by host
+hcov-nl63_spike,Q6Q1S2,Glycosylation,626,626,N-linked (GlcNAc) asparagine; by host
+hcov-nl63_spike,Q6Q1S2,Glycosylation,645,645,N-linked (GlcNAc) asparagine; by host
+hcov-nl63_spike,Q6Q1S2,Glycosylation,666,666,N-linked (GlcNAc) asparagine; by host
+hcov-nl63_spike,Q6Q1S2,Glycosylation,699,699,N-linked (GlcNAc) asparagine; by host
+hcov-nl63_spike,Q6Q1S2,Glycosylation,723,723,N-linked (GlcNAc) asparagine; by host
+hcov-nl63_spike,Q6Q1S2,Glycosylation,749,749,N-linked (GlcNAc) asparagine; by host
+hcov-nl63_spike,Q6Q1S2,Glycosylation,762,762,N-linked (GlcNAc) asparagine; by host
+hcov-nl63_spike,Q6Q1S2,Glycosylation,768,768,N-linked (GlcNAc) asparagine; by host
+hcov-nl63_spike,Q6Q1S2,Glycosylation,1111,1111,N-linked (GlcNAc) asparagine; by host
+hcov-nl63_spike,Q6Q1S2,Glycosylation,1196,1196,N-linked (GlcNAc) asparagine; by host
+hcov-nl63_spike,Q6Q1S2,Glycosylation,1201,1201,N-linked (GlcNAc) asparagine; by host
+hcov-nl63_spike,Q6Q1S2,Glycosylation,1218,1218,N-linked (GlcNAc) asparagine; by host
+hcov-nl63_spike,Q6Q1S2,Glycosylation,1242,1242,N-linked (GlcNAc) asparagine; by host
+hcov-nl63_spike,Q6Q1S2,Glycosylation,1247,1247,N-linked (GlcNAc) asparagine; by host
+hcov-nl63_spike,Q6Q1S2,Glycosylation,1277,1277,N-linked (GlcNAc) asparagine; by host
+hcov-nl63_spike,Q6Q1S2,Disulfide bond,106,126,
+hcov-nl63_spike,Q6Q1S2,Disulfide bond,175,181,
+hcov-nl63_spike,Q6Q1S2,Disulfide bond,207,210,
+hcov-nl63_spike,Q6Q1S2,Disulfide bond,259,284,
+hcov-nl63_spike,Q6Q1S2,Disulfide bond,328,351,
+hcov-nl63_spike,Q6Q1S2,Disulfide bond,438,447,
+hcov-nl63_spike,Q6Q1S2,Disulfide bond,497,500,
+hcov-nl63_spike,Q6Q1S2,Disulfide bond,516,567,
+hcov-nl63_spike,Q6Q1S2,Disulfide bond,550,577,
+hcov-nl63_spike,Q6Q1S2,Disulfide bond,627,678,
+hcov-nl63_spike,Q6Q1S2,Disulfide bond,724,737,
+hcov-nl63_spike,Q6Q1S2,Disulfide bond,789,811,
+hcov-nl63_spike,Q6Q1S2,Disulfide bond,794,800,
+hcov-nl63_spike,Q6Q1S2,Disulfide bond,896,907,
+hcov-nl63_spike,Q6Q1S2,Disulfide bond,1098,1109,
+hcov-nl63_spike,Q6Q1S2,Natural variant,9,9,in strain: Isolate BE03-40001 and Isolate NL
+hcov-nl63_spike,Q6Q1S2,Natural variant,13,13,in strain: Isolate BE03-40001 and Isolate NL
+hcov-nl63_spike,Q6Q1S2,Natural variant,17,17,in strain: Isolate BE03-40001 and Isolate NL
+hcov-nl63_spike,Q6Q1S2,Natural variant,24,25,in strain: Isolate BE03-40001 and Isolate NL
+hcov-nl63_spike,Q6Q1S2,Natural variant,46,46,in strain: Isolate BE03-40001 and Isolate NL
+hcov-nl63_spike,Q6Q1S2,Natural variant,49,49,"in strain: Isolate BE03-1153, Isolate BE03-40001, Isolate BE03-64880 and Isolate NL"
+hcov-nl63_spike,Q6Q1S2,Natural variant,57,59,in strain: Isolate BE03-40001 and Isolate NL
+hcov-nl63_spike,Q6Q1S2,Natural variant,70,70,in strain: Isolate BE03-40001 and Isolate NL
+hcov-nl63_spike,Q6Q1S2,Natural variant,79,79,in strain: Isolate BE03-40001 and Isolate NL
+hcov-nl63_spike,Q6Q1S2,Natural variant,84,84,in strain: Isolate BE03-1153 and Isolate BE03-64880
+hcov-nl63_spike,Q6Q1S2,Natural variant,91,91,in strain: Isolate BE03-40001 and Isolate NL
+hcov-nl63_spike,Q6Q1S2,Natural variant,94,96,in strain: Isolate BE03-40001 and Isolate NL
+hcov-nl63_spike,Q6Q1S2,Natural variant,100,100,in strain: Isolate BE03-40001 and Isolate NL
+hcov-nl63_spike,Q6Q1S2,Natural variant,109,110,in strain: Isolate BE03-1153 and Isolate BE03-64880 and Isolate NL
+hcov-nl63_spike,Q6Q1S2,Natural variant,109,109,in strain: Isolate BE03-40001 and Isolate NL
+hcov-nl63_spike,Q6Q1S2,Natural variant,110,110,in strain: Isolate BE03-40001 and Isolate NL
+hcov-nl63_spike,Q6Q1S2,Natural variant,113,113,in strain: Isolate BE03-40001 and Isolate NL
+hcov-nl63_spike,Q6Q1S2,Natural variant,120,124,in strain: Isolate BE03-40001 and Isolate NL
+hcov-nl63_spike,Q6Q1S2,Natural variant,125,125,in strain: Isolate BE03-40001
+hcov-nl63_spike,Q6Q1S2,Natural variant,130,130,in strain: Isolate BE03-40001
+hcov-nl63_spike,Q6Q1S2,Natural variant,131,131,in strain: Isolate BE03-40001 and Isolate NL
+hcov-nl63_spike,Q6Q1S2,Natural variant,138,138,in strain: Isolate BE03-40001 and Isolate NL
+hcov-nl63_spike,Q6Q1S2,Natural variant,156,156,in strain: Isolate BE03-40001 and Isolate NL
+hcov-nl63_spike,Q6Q1S2,Natural variant,178,179,in strain: Isolate BE03-40001 and Isolate NL
+hcov-nl63_spike,Q6Q1S2,Natural variant,190,190,in strain: Isolate NL
+hcov-nl63_spike,Q6Q1S2,Natural variant,197,197,in strain: Isolate NL
+hcov-nl63_spike,Q6Q1S2,Natural variant,201,201,in strain: Isolate NL
+hcov-nl63_spike,Q6Q1S2,Natural variant,293,293,in strain: Isolate NL
+hcov-nl63_spike,Q6Q1S2,Natural variant,302,302,in strain: Isolate NL
+hcov-nl63_spike,Q6Q1S2,Natural variant,307,307,in strain: Isolate NL
+hcov-nl63_spike,Q6Q1S2,Natural variant,503,503,in strain: Isolate NL
+hcov-nl63_spike,Q6Q1S2,Natural variant,730,730,in strain: Isolate NL
+hcov-nl63_spike,Q6Q1S2,Natural variant,863,863,in strain: Isolate NL
+hcov-nl63_spike,Q6Q1S2,Natural variant,999,999,in strain: Isolate NL
+hcov-nl63_spike,Q6Q1S2,Natural variant,1044,1044,in strain: Isolate NL
+japanese_encephalitis_virus_e,Q82932,Transmembrane,452,473,Helical
+japanese_encephalitis_virus_e,Q82932,Transmembrane,480,498,Helical
+measles_virus_h,Q98VT4,Transmembrane,36,58,Helical
+tick-borne_encephalitis_virus_e,A0A060GW74,Transmembrane,101,119,Helical
+tick-borne_encephalitis_virus_e,A0A060GW74,Transmembrane,728,749,Helical
+tick-borne_encephalitis_virus_e,A0A060GW74,Transmembrane,756,776,Helical
+tick-borne_encephalitis_virus_e,A0A060GW74,Transmembrane,1162,1181,Helical
+tick-borne_encephalitis_virus_e,A0A060GW74,Transmembrane,1229,1248,Helical
+tick-borne_encephalitis_virus_e,A0A060GW74,Transmembrane,1296,1317,Helical
+tick-borne_encephalitis_virus_e,A0A060GW74,Transmembrane,1329,1348,Helical
+tick-borne_encephalitis_virus_e,A0A060GW74,Transmembrane,1383,1401,Helical
+tick-borne_encephalitis_virus_e,A0A060GW74,Transmembrane,1455,1480,Helical
+tick-borne_encephalitis_virus_e,A0A060GW74,Transmembrane,2160,2183,Helical
+tick-borne_encephalitis_virus_e,A0A060GW74,Transmembrane,2195,2223,Helical
+tick-borne_encephalitis_virus_e,A0A060GW74,Transmembrane,2243,2259,Helical
+tick-borne_encephalitis_virus_e,A0A060GW74,Transmembrane,2346,2363,Helical
+tick-borne_encephalitis_virus_e,A0A060GW74,Transmembrane,2369,2387,Helical
+tick-borne_encephalitis_virus_e,A0A060GW74,Transmembrane,2433,2451,Helical
+tick-borne_encephalitis_virus_e,A0A060GW74,Region,1,30,Disordered
+tick-borne_encephalitis_virus_e,A0A060GW74,Binding site,2950,2950,
+tick-borne_encephalitis_virus_e,A0A060GW74,Binding site,2954,2954,
+tick-borne_encephalitis_virus_e,A0A060GW74,Binding site,2959,2959,
+tick-borne_encephalitis_virus_e,A0A060GW74,Binding site,2962,2962,
+tick-borne_encephalitis_virus_e,A0A060GW74,Binding site,3224,3224,
+tick-borne_encephalitis_virus_e,A0A060GW74,Binding site,3240,3240,
+tick-borne_encephalitis_virus_e,A0A060GW74,Binding site,3359,3359,
+tick-borne_encephalitis_virus_e,A0A060GW74,Disulfide bond,283,310,
+tick-borne_encephalitis_virus_e,A0A060GW74,Disulfide bond,340,396,
+tick-borne_encephalitis_virus_e,A0A060GW74,Disulfide bond,354,385,
+tick-borne_encephalitis_virus_e,A0A060GW74,Disulfide bond,372,401,
+tick-borne_encephalitis_virus_e,A0A060GW74,Disulfide bond,466,570,
+tick-borne_encephalitis_virus_e,A0A060GW74,Disulfide bond,587,618,
+venezuelan_equine_encephalitis_virus_e2,Q8V294,Chain,1,2497,Polyprotein P1234
+venezuelan_equine_encephalitis_virus_e2,Q8V294,Chain,1,1890,Polyprotein P123'
+venezuelan_equine_encephalitis_virus_e2,Q8V294,Chain,1,1883,Polyprotein P123
+venezuelan_equine_encephalitis_virus_e2,Q8V294,Chain,1,535,mRNA-capping enzyme nsP1
+venezuelan_equine_encephalitis_virus_e2,Q8V294,Chain,536,1329,Protease nsP2
+venezuelan_equine_encephalitis_virus_e2,Q8V294,Chain,1330,1890,Non-structural protein 3'
+venezuelan_equine_encephalitis_virus_e2,Q8V294,Chain,1330,1883,Non-structural protein 3
+venezuelan_equine_encephalitis_virus_e2,Q8V294,Chain,1891,2497,RNA-directed RNA polymerase nsP4
+venezuelan_equine_encephalitis_virus_e2,Q8V294,Region,244,263,NsP1 membrane-binding
+venezuelan_equine_encephalitis_virus_e2,Q8V294,Region,1004,1023,Nucleolus localization signal
+venezuelan_equine_encephalitis_virus_e2,Q8V294,Region,1774,1806,Disordered
+venezuelan_equine_encephalitis_virus_e2,Q8V294,Region,1827,1865,Disordered
+venezuelan_equine_encephalitis_virus_e2,Q8V294,Region,1856,1877,Binding to host FXR family members
+venezuelan_equine_encephalitis_virus_e2,Q8V294,Binding site,721,728,
+venezuelan_equine_encephalitis_virus_e2,Q8V294,Binding site,1339,1339,
+venezuelan_equine_encephalitis_virus_e2,Q8V294,Binding site,1353,1353,
+venezuelan_equine_encephalitis_virus_e2,Q8V294,Binding site,1361,1361,
+venezuelan_equine_encephalitis_virus_e2,Q8V294,Binding site,1441,1441,
+venezuelan_equine_encephalitis_virus_e2,Q8V294,Binding site,1442,1442,
+venezuelan_equine_encephalitis_virus_e2,Q8V294,Binding site,1443,1443,
+venezuelan_equine_encephalitis_virus_e2,Q8V294,Binding site,1596,1596,
+venezuelan_equine_encephalitis_virus_e2,Q8V294,Binding site,1598,1598,
+venezuelan_equine_encephalitis_virus_e2,Q8V294,Binding site,1621,1621,
+venezuelan_equine_encephalitis_virus_e2,Q8V294,Binding site,1639,1639,
+venezuelan_equine_encephalitis_virus_e2,Q8V294,Site,37,37,Involved in the phosphoramide link with 7-methyl-GMP
+venezuelan_equine_encephalitis_virus_e2,Q8V294,Site,535,536,Cleavage; by protease nsP2
+venezuelan_equine_encephalitis_virus_e2,Q8V294,Site,1329,1330,Cleavage; by protease nsP2
+venezuelan_equine_encephalitis_virus_e2,Q8V294,Site,1890,1891,Cleavage; by protease nsP2
+venezuelan_equine_encephalitis_virus_e2,Q8V294,Natural variant,167,167,in strain: MX01-22
+venezuelan_equine_encephalitis_virus_e2,Q8V294,Natural variant,487,487,"in strain: CPA152, MX01-22, OAX131 and OAX142"
+venezuelan_equine_encephalitis_virus_e2,Q8V294,Natural variant,1095,1095,"in strain: CPA152, MX01-22, OAX131 and OAX142"
+venezuelan_equine_encephalitis_virus_e2,Q8V294,Natural variant,1664,1664,in strain: MX01-22
+venezuelan_equine_encephalitis_virus_e2,Q8V294,Natural variant,1672,1672,"in strain: CPA152, MX01-22, OAX131 and OAX142"
+venezuelan_equine_encephalitis_virus_e2,Q8V294,Natural variant,1704,1704,"in strain: CPA152, OAX131, OAX142 and MX01-22"
+venezuelan_equine_encephalitis_virus_e2,Q8V294,Natural variant,1708,1708,in strain: OAX131
+venezuelan_equine_encephalitis_virus_e2,Q8V294,Natural variant,1821,1821,in strain: OAX131
+western_equine_encephalitis_virus_e2,P13897,Chain,1,259,Capsid protein
+western_equine_encephalitis_virus_e2,P13897,Chain,260,742,Precursor of protein E3/E2
+western_equine_encephalitis_virus_e2,P13897,Chain,260,319,Assembly protein E3
+western_equine_encephalitis_virus_e2,P13897,Chain,320,742,Spike glycoprotein E2
+western_equine_encephalitis_virus_e2,P13897,Chain,743,797,6K protein
+western_equine_encephalitis_virus_e2,P13897,Chain,798,1236,Spike glycoprotein E1
+western_equine_encephalitis_virus_e2,P13897,Topological domain,260,687,Extracellular
+western_equine_encephalitis_virus_e2,P13897,Transmembrane,688,708,Helical
+western_equine_encephalitis_virus_e2,P13897,Topological domain,709,742,Cytoplasmic
+western_equine_encephalitis_virus_e2,P13897,Topological domain,743,767,Extracellular
+western_equine_encephalitis_virus_e2,P13897,Transmembrane,768,788,Helical
+western_equine_encephalitis_virus_e2,P13897,Transmembrane,789,809,Helical
+western_equine_encephalitis_virus_e2,P13897,Topological domain,810,1205,Extracellular
+western_equine_encephalitis_virus_e2,P13897,Transmembrane,1206,1226,Helical
+western_equine_encephalitis_virus_e2,P13897,Topological domain,1227,1236,Cytoplasmic
+western_equine_encephalitis_virus_e2,P13897,Region,1,36,Necessary for nucleocapsid assembly and virus assembly
+western_equine_encephalitis_virus_e2,P13897,Region,37,70,Host transcription inhibition
+western_equine_encephalitis_virus_e2,P13897,Region,44,103,Disordered
+western_equine_encephalitis_virus_e2,P13897,Region,83,111,Binding to the viral RNA
+western_equine_encephalitis_virus_e2,P13897,Region,96,110,Ribosome-binding
+western_equine_encephalitis_virus_e2,P13897,Region,152,157,Interaction with spike glycoprotein E2
+western_equine_encephalitis_virus_e2,P13897,Region,244,248,Interaction with spike glycoprotein E2
+western_equine_encephalitis_virus_e2,P13897,Region,260,271,Functions as an uncleaved signal peptide for the precursor of protein E3/E2
+western_equine_encephalitis_virus_e2,P13897,Region,710,714,Interaction with the capsid protein
+western_equine_encephalitis_virus_e2,P13897,Region,717,737,Transient transmembrane before p62-6K protein processing
+western_equine_encephalitis_virus_e2,P13897,Region,881,898,E1 fusion peptide loop
+western_equine_encephalitis_virus_e2,P13897,Site,184,184,Involved in dimerization of the capsid protein
+western_equine_encephalitis_virus_e2,P13897,Site,217,217,Involved in dimerization of the capsid protein
+western_equine_encephalitis_virus_e2,P13897,Site,259,260,Cleavage; by autolysis
+western_equine_encephalitis_virus_e2,P13897,Site,319,320,Cleavage; by host furin
+western_equine_encephalitis_virus_e2,P13897,Site,742,743,Cleavage; by host signal peptidase
+western_equine_encephalitis_virus_e2,P13897,Site,797,798,Cleavage; by host signal peptidase
+western_equine_encephalitis_virus_e2,P13897,Glycosylation,270,270,N-linked (GlcNAc...) asparagine; by host
+western_equine_encephalitis_virus_e2,P13897,Glycosylation,515,515,N-linked (GlcNAc...) asparagine; by host
+western_equine_encephalitis_virus_e2,P13897,Glycosylation,637,637,N-linked (GlcNAc...) asparagine; by host
+western_equine_encephalitis_virus_e2,P13897,Glycosylation,936,936,N-linked (GlcNAc...) asparagine; by host
+western_equine_encephalitis_virus_e2,P13897,Glycosylation,1042,1042,N-linked (GlcNAc...) asparagine; by host
+western_equine_encephalitis_virus_e2,P13897,Glycosylation,1067,1067,N-linked (GlcNAc...) asparagine; by host
+western_equine_encephalitis_virus_e2,P13897,Disulfide bond,266,275,
+western_equine_encephalitis_virus_e2,P13897,Disulfide bond,335,443,
+western_equine_encephalitis_virus_e2,P13897,Disulfide bond,338,344,
+western_equine_encephalitis_virus_e2,P13897,Disulfide bond,410,424,
+western_equine_encephalitis_virus_e2,P13897,Disulfide bond,471,585,
+western_equine_encephalitis_virus_e2,P13897,Disulfide bond,520,545,
+western_equine_encephalitis_virus_e2,P13897,Disulfide bond,522,539,
+western_equine_encephalitis_virus_e2,P13897,Disulfide bond,715,736,
+western_equine_encephalitis_virus_e2,P13897,Disulfide bond,846,911,
+western_equine_encephalitis_virus_e2,P13897,Disulfide bond,859,891,
+western_equine_encephalitis_virus_e2,P13897,Disulfide bond,860,893,
+western_equine_encephalitis_virus_e2,P13897,Disulfide bond,865,875,
+western_equine_encephalitis_virus_e2,P13897,Disulfide bond,1056,1068,
+western_equine_encephalitis_virus_e2,P13897,Disulfide bond,1098,1173,
+western_equine_encephalitis_virus_e2,P13897,Disulfide bond,1103,1177,
+western_equine_encephalitis_virus_e2,P13897,Disulfide bond,1125,1167,
+wnv_e,P06935,Chain,1,3430,Genome polyprotein
+wnv_e,P06935,Chain,1,105,Capsid protein C
+wnv_e,P06935,Propeptide,106,123,"ER anchor for the capsid protein C, removed in mature form by serine protease NS3"
+wnv_e,P06935,Chain,124,290,Protein prM
+wnv_e,P06935,Chain,124,215,Peptide pr
+wnv_e,P06935,Chain,216,290,Small envelope protein M
+wnv_e,P06935,Chain,291,787,Envelope protein E
+wnv_e,P06935,Chain,788,1139,Non-structural protein 1
+wnv_e,P06935,Chain,1140,1370,Non-structural protein 2A
+wnv_e,P06935,Chain,1371,1501,Serine protease subunit NS2B
+wnv_e,P06935,Chain,1502,2120,Serine protease/Helicase NS3
+wnv_e,P06935,Chain,2121,2246,Non-structural protein 4A
+wnv_e,P06935,Chain,2270,2525,Non-structural protein 4B
+wnv_e,P06935,Chain,2526,3430,RNA-directed RNA polymerase/Methyltransferase NS5
+wnv_e,P06935,Topological domain,2,105,Cytoplasmic
+wnv_e,P06935,Transmembrane,106,126,Helical
+wnv_e,P06935,Topological domain,127,248,Extracellular
+wnv_e,P06935,Transmembrane,249,269,Helical
+wnv_e,P06935,Topological domain,270,275,Cytoplasmic
+wnv_e,P06935,Transmembrane,276,290,Helical
+wnv_e,P06935,Topological domain,291,739,Extracellular
+wnv_e,P06935,Transmembrane,740,760,Helical
+wnv_e,P06935,Topological domain,761,766,Cytoplasmic
+wnv_e,P06935,Transmembrane,767,787,Helical
+wnv_e,P06935,Topological domain,788,1212,Extracellular
+wnv_e,P06935,Transmembrane,1213,1233,Helical
+wnv_e,P06935,Topological domain,1234,1243,Cytoplasmic
+wnv_e,P06935,Transmembrane,1244,1264,Helical
+wnv_e,P06935,Topological domain,1265,1278,Lumenal
+wnv_e,P06935,Transmembrane,1279,1299,Helical
+wnv_e,P06935,Topological domain,1300,1307,Cytoplasmic
+wnv_e,P06935,Transmembrane,1308,1328,Helical
+wnv_e,P06935,Topological domain,1329,1340,Lumenal
+wnv_e,P06935,Transmembrane,1341,1361,Helical
+wnv_e,P06935,Topological domain,1362,1371,Cytoplasmic
+wnv_e,P06935,Transmembrane,1372,1392,Helical
+wnv_e,P06935,Topological domain,1393,1395,Lumenal
+wnv_e,P06935,Transmembrane,1396,1416,Helical
+wnv_e,P06935,Topological domain,1417,1473,Cytoplasmic
+wnv_e,P06935,Topological domain,1495,2170,Cytoplasmic
+wnv_e,P06935,Transmembrane,2171,2191,Helical
+wnv_e,P06935,Topological domain,2192,2196,Lumenal
+wnv_e,P06935,Topological domain,2218,2218,Lumenal
+wnv_e,P06935,Transmembrane,2219,2239,Helical
+wnv_e,P06935,Topological domain,2240,2254,Cytoplasmic
+wnv_e,P06935,Transmembrane,2255,2275,Helical; Note=Signal for NS4B
+wnv_e,P06935,Topological domain,2276,2309,Lumenal
+wnv_e,P06935,Topological domain,2331,2377,Lumenal
+wnv_e,P06935,Transmembrane,2378,2398,Helical
+wnv_e,P06935,Topological domain,2399,2441,Cytoplasmic
+wnv_e,P06935,Transmembrane,2442,2462,Helical
+wnv_e,P06935,Topological domain,2463,2467,Lumenal
+wnv_e,P06935,Transmembrane,2468,2488,Helical
+wnv_e,P06935,Topological domain,2489,3430,Cytoplasmic
+wnv_e,P06935,Region,2,15,Interaction with host EXOC1
+wnv_e,P06935,Region,37,72,Hydrophobic; homodimerization of capsid protein C
+wnv_e,P06935,Region,388,401,Fusion peptide loop
+wnv_e,P06935,Region,1424,1463,Interacts with and activates NS3 protease
+wnv_e,P06935,Region,1686,1689,Important for RNA-binding
+wnv_e,P06935,Region,2165,2169,Regulates the ATPase activity of NS3 helicase
+wnv_e,P06935,Region,2743,2747,Interaction with host SCRIB
+wnv_e,P06935,Binding site,1695,1702,
+wnv_e,P06935,Binding site,2581,2581,
+wnv_e,P06935,Binding site,2611,2611,
+wnv_e,P06935,Binding site,2612,2612,
+wnv_e,P06935,Binding site,2629,2629,
+wnv_e,P06935,Binding site,2630,2630,
+wnv_e,P06935,Binding site,2656,2656,
+wnv_e,P06935,Binding site,2657,2657,
+wnv_e,P06935,Binding site,2672,2672,
+wnv_e,P06935,Binding site,2745,2745,
+wnv_e,P06935,Binding site,2965,2965,
+wnv_e,P06935,Binding site,2969,2969,
+wnv_e,P06935,Binding site,2974,2974,
+wnv_e,P06935,Binding site,2977,2977,
+wnv_e,P06935,Binding site,3242,3242,
+wnv_e,P06935,Binding site,3258,3258,
+wnv_e,P06935,Binding site,3377,3377,
+wnv_e,P06935,Site,81,81,Homodimerization of capsid protein
+wnv_e,P06935,Site,105,106,Cleavage; by viral protease NS3
+wnv_e,P06935,Site,123,124,Cleavage; by host signal peptidase
+wnv_e,P06935,Site,215,216,Cleavage; by host furin
+wnv_e,P06935,Site,290,291,Cleavage; by host signal peptidase
+wnv_e,P06935,Site,787,788,Cleavage; by host signal peptidase
+wnv_e,P06935,Site,1139,1140,Cleavage; by host
+wnv_e,P06935,Site,1370,1371,Cleavage; by viral protease NS3
+wnv_e,P06935,Site,1501,1502,Cleavage; by autolysis
+wnv_e,P06935,Site,1959,1959,Involved in NS3 ATPase and RTPase activities
+wnv_e,P06935,Site,1962,1962,Involved in NS3 ATPase and RTPase activities
+wnv_e,P06935,Site,2120,2121,Cleavage; by autolysis
+wnv_e,P06935,Site,2246,2247,Cleavage; by viral protease NS3
+wnv_e,P06935,Site,2269,2270,Cleavage; by host signal peptidase
+wnv_e,P06935,Site,2525,2526,Cleavage; by viral protease NS3
+wnv_e,P06935,Site,2538,2538,mRNA cap binding
+wnv_e,P06935,Site,2541,2541,mRNA cap binding; via carbonyl oxygen
+wnv_e,P06935,Site,2542,2542,mRNA cap binding
+wnv_e,P06935,Site,2544,2544,mRNA cap binding; via carbonyl oxygen
+wnv_e,P06935,Site,2549,2549,mRNA cap binding
+wnv_e,P06935,Site,2553,2553,mRNA cap binding
+wnv_e,P06935,Site,2586,2586,Essential for 2'-O-methyltransferase activity
+wnv_e,P06935,Site,2671,2671,Essential for 2'-O-methyltransferase and N-7 methyltransferase activity
+wnv_e,P06935,Site,2675,2675,mRNA cap binding
+wnv_e,P06935,Site,2707,2707,Essential for 2'-O-methyltransferase activity
+wnv_e,P06935,Site,2738,2738,mRNA cap binding
+wnv_e,P06935,Site,2740,2740,mRNA cap binding
+wnv_e,P06935,Site,2743,2743,Essential for 2'-O-methyltransferase activity
+wnv_e,P06935,Glycosylation,138,138,N-linked (GlcNAc...) asparagine; by host
+wnv_e,P06935,Glycosylation,917,917,N-linked (GlcNAc...) asparagine; by host
+wnv_e,P06935,Glycosylation,962,962,N-linked (GlcNAc...) asparagine; by host
+wnv_e,P06935,Glycosylation,994,994,N-linked (GlcNAc...) asparagine; by host
+wnv_e,P06935,Disulfide bond,157,192,
+wnv_e,P06935,Disulfide bond,168,204,
+wnv_e,P06935,Disulfide bond,176,190,
+wnv_e,P06935,Disulfide bond,293,320,
+wnv_e,P06935,Disulfide bond,350,411,
+wnv_e,P06935,Disulfide bond,364,395,
+wnv_e,P06935,Disulfide bond,382,406,
+wnv_e,P06935,Disulfide bond,476,574,
+wnv_e,P06935,Disulfide bond,591,622,
+wnv_e,P06935,Disulfide bond,791,802,
+wnv_e,P06935,Disulfide bond,842,930,
+wnv_e,P06935,Disulfide bond,966,1010,
+wnv_e,P06935,Disulfide bond,1067,1116,
+wnv_e,P06935,Disulfide bond,1078,1099,
+wnv_e,P06935,Disulfide bond,1100,1103,
+yfv_e,Q15KJ2,Transmembrane,445,466,Helical
+yfv_e,Q15KJ2,Transmembrane,473,491,Helical

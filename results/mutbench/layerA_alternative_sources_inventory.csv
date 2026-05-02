@@ -1,0 +1,17 @@
+target,taxid,uniprot_acc,reviewed,length,site,binding,region,disulfid,glyco,chain,propep,variant,classification,notes
+chikungunya_virus_e2,37124,A0A5J6BK08,unreviewed (TrEMBL),923,0,0,0,0,0,0,0,0,C,alphavirus envelope E2
+eastern_equine_encephalitis_virus_e2,11021,P08768,reviewed (Swiss-Prot),1239,11,0,11,17,5,6,0,21,A,alphavirus E2
+hcov-229e_spike,11137,P15423,reviewed (Swiss-Prot),1173,0,0,7,0,0,1,0,44,A,coronavirus spike
+hcov-nl63_spike,277944,Q6Q1S2,reviewed (Swiss-Prot),1356,0,0,7,15,32,1,0,35,A,coronavirus spike
+hendra_virus_g,63330,,,0,0,0,0,0,0,0,0,0,C,no_uniprot_match
+japanese_encephalitis_virus_e,11072,Q82932,unreviewed (TrEMBL),500,0,0,0,0,0,0,0,0,C,flavivirus E
+lassa_gpc,11620,,,0,0,0,0,0,0,0,0,0,C,no_uniprot_match
+marburg_virus_gp,11269,,,0,0,0,0,0,0,0,0,0,C,no_uniprot_match
+measles_virus_h,11234,Q98VT4,unreviewed (TrEMBL),617,0,0,0,0,0,0,0,0,C,morbillivirus H
+mumps_virus_hn,1979165,,,0,0,0,0,0,0,0,0,0,C,no_uniprot_match
+nipah_virus_g,121791,,,0,0,0,0,0,0,0,0,0,C,no_uniprot_match
+tick-borne_encephalitis_virus_e,11084,A0A060GW74,unreviewed (TrEMBL),3414,0,7,1,6,0,0,0,0,A,flavivirus E
+venezuelan_equine_encephalitis_virus_e2,11036,Q8V294,reviewed (Swiss-Prot),2497,4,11,5,0,0,8,0,8,A,alphavirus E2
+western_equine_encephalitis_virus_e2,11039,P13897,reviewed (Swiss-Prot),1236,6,0,11,16,6,6,0,0,A,alphavirus E2
+wnv_e,11082,P06935,reviewed (Swiss-Prot),3430,28,17,7,15,4,13,1,0,A,flavivirus E
+yfv_e,11089,Q15KJ2,unreviewed (TrEMBL),493,0,0,0,0,0,0,0,0,C,flavivirus E

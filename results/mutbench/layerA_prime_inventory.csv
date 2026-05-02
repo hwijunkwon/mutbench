@@ -1,0 +1,17 @@
+target,uniprot_acc,csv_length,chain_length,length_delta,status,n_layer_a_prime_positions,raw_la_relevant,refined_class,reason
+lassa_gpc,P08669,491,491,0,match,10,10,A,
+marburg_virus_gp,P35253,871,681,190,mismatch,0,0,C,length mismatch >6
+measles_virus_h,P08362,620,617,3,close,90,14,A,
+mumps_virus_hn,P11235,582,582,0,match,14,10,A,
+hcov-229e_spike,P15423,1173,1173,0,match,157,8,A,
+hcov-nl63_spike,Q6Q1S2,1356,1356,0,match,157,8,A,
+yfv_e,P03314,499,493,6,mismatch,14,3,A,
+wnv_e,P06935,501,497,4,close,14,3,A,
+japanese_encephalitis_virus_e,P27395,506,500,6,mismatch,14,3,A,
+tick-borne_encephalitis_virus_e,P14336,496,496,0,match,14,3,A,
+chikungunya_virus_e2,Q8JUX5,540,487,53,mismatch,0,0,C,length mismatch >6
+eastern_equine_encephalitis_virus_e2,P08768,420,420,0,match,10,9,A,
+venezuelan_equine_encephalitis_virus_e2,P05674,520,482,38,mismatch,0,0,C,length mismatch >6
+western_equine_encephalitis_virus_e2,P13897,504,483,21,mismatch,0,0,C,length mismatch >6
+hendra_virus_g,O89343,604,604,0,match,0,0,C,
+nipah_virus_g,Q9IH62,602,602,0,match,0,2,C,

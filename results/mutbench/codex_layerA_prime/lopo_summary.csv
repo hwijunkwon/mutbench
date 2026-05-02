@@ -1,0 +1,2 @@
+mean_mcc,median_mcc,sd_mcc,n_positive_folds,n_total_folds,mean_precision_at_20,mean_top_bottom_decile_delta,random_seed
+-0.05548762017945942,-0.05687989517888118,0.06783455093095135,2,10,0.005,-0.02328186408516386,42

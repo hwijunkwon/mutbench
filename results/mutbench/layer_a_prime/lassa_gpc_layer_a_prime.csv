@@ -1,0 +1,11 @@
+position,layer_a_prime,feature_type,evidence_basis,uniprot_acc,description
+57,1,Binding site,uniprot_curated_feature,P08669,
+455,1,Binding site,uniprot_curated_feature,P08669,
+457,1,Binding site,uniprot_curated_feature,P08669,
+463,1,Binding site,uniprot_curated_feature,P08669,
+467,1,Binding site,uniprot_curated_feature,P08669,
+475,1,Binding site,uniprot_curated_feature,P08669,
+477,1,Binding site,uniprot_curated_feature,P08669,
+33,1,Site,uniprot_curated_feature,P08669,Important for GP-C-mediated membrane fusion
+259,1,Site,uniprot_curated_feature,P08669,Cleavage; by host MBTPS1
+260,1,Site,uniprot_curated_feature,P08669,Cleavage; by host MBTPS1

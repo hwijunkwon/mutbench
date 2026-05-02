@@ -1,0 +1,1516 @@
+target,uniprot_acc,feature_type,start_full,end_full,start_mature,end_mature,layer_a_relevant,description
+yfv_e,P03314,Chain,1,3411,-284,3126,no,Genome polyprotein
+yfv_e,P03314,Chain,286,778,1,493,no,Envelope protein E
+yfv_e,P03314,Topological domain,286,730,1,445,no,Extracellular
+yfv_e,P03314,Transmembrane,731,751,446,466,no,Helical
+yfv_e,P03314,Topological domain,752,757,467,472,no,Extracellular
+yfv_e,P03314,Transmembrane,758,778,473,493,no,Helical
+yfv_e,P03314,Region,383,396,98,111,yes,Fusion peptide loop
+yfv_e,P03314,Site,285,286,0,1,yes,Cleavage; by host signal peptidase
+yfv_e,P03314,Site,778,779,493,494,yes,Cleavage; by host signal peptidase
+yfv_e,P03314,Disulfide bond,288,315,3,30,no,
+yfv_e,P03314,Disulfide bond,345,401,60,116,no,
+yfv_e,P03314,Disulfide bond,359,390,74,105,no,
+yfv_e,P03314,Disulfide bond,377,406,92,121,no,
+yfv_e,P03314,Disulfide bond,467,568,182,283,no,
+yfv_e,P03314,Disulfide bond,585,615,300,330,no,
+yfv_e,P03314,Natural variant,341,341,56,56,no,in strain: Isolate Brazil/YF-VAVD/75 vaccine and Isolate 17DD vaccine
+yfv_e,P03314,Natural variant,438,438,153,153,no,"in strain: Isolate 17D-204-USAHONG1 vaccine, Isolate 17D-204-USAHONG2 vaccine and Isolate 17D-204-USAHONG3 vaccine"
+yfv_e,P03314,Natural variant,440,440,155,155,no,in strain: Isolate 17DD vaccine
+yfv_e,P03314,Natural variant,610,610,325,325,no,in strain: Isolate Brazil/YF-VAVD/75 vaccine and Isolate 17DD vaccine
+yfv_e,P03314,Natural variant,629,629,344,344,no,in strain: Isolate Brazil/YF-VAVD/75 vaccine
+yfv_e,P03314,Natural variant,701,701,416,416,no,in strain: Isolate 17DD vaccine
+yfv_e,P03314,Natural variant,744,744,459,459,no,in strain: Isolate 17D-204-South Africa vaccine large plaque variant
+yfv_e,P03314,Natural variant,764,764,479,479,no,in strain: Isolate 17D-204-South Africa vaccine large plaque variant
+yfv_e,P03314,Turn,288,290,3,5,no,
+yfv_e,P03314,Beta strand,292,298,7,13,no,
+yfv_e,P03314,Beta strand,305,311,20,26,no,
+yfv_e,P03314,Beta strand,315,319,30,34,no,
+yfv_e,P03314,Beta strand,326,335,41,50,no,
+yfv_e,P03314,Beta strand,340,357,55,72,no,
+yfv_e,P03314,Beta strand,370,385,85,100,no,
+yfv_e,P03314,Helix,386,388,101,103,no,
+yfv_e,P03314,Beta strand,394,414,109,129,no,
+yfv_e,P03314,Helix,417,419,132,134,no,
+yfv_e,P03314,Beta strand,421,428,136,143,no,
+yfv_e,P03314,Helix,434,439,149,154,no,
+yfv_e,P03314,Beta strand,442,446,157,161,no,
+yfv_e,P03314,Beta strand,453,456,168,171,no,
+yfv_e,P03314,Beta strand,460,465,175,180,no,
+yfv_e,P03314,Beta strand,468,470,183,185,no,
+yfv_e,P03314,Turn,473,475,188,190,no,
+yfv_e,P03314,Beta strand,479,483,194,198,no,
+yfv_e,P03314,Beta strand,486,490,201,205,no,
+yfv_e,P03314,Helix,492,496,207,211,no,
+yfv_e,P03314,Beta strand,505,507,220,222,no,
+yfv_e,P03314,Helix,513,516,228,231,no,
+yfv_e,P03314,Beta strand,517,519,232,234,no,
+yfv_e,P03314,Beta strand,529,531,244,246,no,
+yfv_e,P03314,Helix,536,542,251,257,no,
+yfv_e,P03314,Turn,543,545,258,260,no,
+yfv_e,P03314,Beta strand,548,551,263,266,no,
+yfv_e,P03314,Beta strand,559,562,274,277,no,
+yfv_e,P03314,Beta strand,565,571,280,286,no,
+yfv_e,P03314,Beta strand,582,584,297,299,no,
+yfv_e,P03314,Beta strand,589,597,304,312,no,
+yfv_e,P03314,Beta strand,599,601,314,316,no,
+yfv_e,P03314,Beta strand,603,611,318,326,no,
+yfv_e,P03314,Beta strand,613,616,328,331,no,
+yfv_e,P03314,Beta strand,619,626,334,341,no,
+yfv_e,P03314,Beta strand,633,636,348,351,no,
+yfv_e,P03314,Beta strand,640,643,355,358,no,
+yfv_e,P03314,Beta strand,646,653,361,368,no,
+yfv_e,P03314,Beta strand,656,666,371,381,no,
+yfv_e,P03314,Beta strand,670,676,385,391,no,
+lassa_gpc,P08669,Initiator methionine,1,1,1,1,no,Removed; by host
+lassa_gpc,P08669,Chain,2,491,2,491,no,Pre-glycoprotein polyprotein GP complex
+lassa_gpc,P08669,Chain,2,58,2,58,no,Stable signal peptide
+lassa_gpc,P08669,Chain,59,259,59,259,no,Glycoprotein G1
+lassa_gpc,P08669,Chain,260,491,260,491,no,Glycoprotein G2
+lassa_gpc,P08669,Topological domain,2,17,2,17,no,Extracellular
+lassa_gpc,P08669,Transmembrane,18,33,18,33,no,Helical
+lassa_gpc,P08669,Topological domain,34,58,34,58,no,Cytoplasmic
+lassa_gpc,P08669,Topological domain,59,432,59,432,no,Extracellular
+lassa_gpc,P08669,Transmembrane,433,453,433,453,no,Helical
+lassa_gpc,P08669,Topological domain,454,491,454,491,no,Cytoplasmic
+lassa_gpc,P08669,Binding site,57,57,57,57,yes,
+lassa_gpc,P08669,Binding site,455,455,455,455,yes,
+lassa_gpc,P08669,Binding site,457,457,457,457,yes,
+lassa_gpc,P08669,Binding site,463,463,463,463,yes,
+lassa_gpc,P08669,Binding site,467,467,467,467,yes,
+lassa_gpc,P08669,Binding site,475,475,475,475,yes,
+lassa_gpc,P08669,Binding site,477,477,477,477,yes,
+lassa_gpc,P08669,Site,33,33,33,33,yes,Important for GP-C-mediated membrane fusion
+lassa_gpc,P08669,Site,58,59,58,59,yes,Cleavage; by host signal peptidase
+lassa_gpc,P08669,Site,259,260,259,260,yes,Cleavage; by host MBTPS1
+lassa_gpc,P08669,Lipidation,2,2,2,2,no,N-myristoyl glycine; by host
+lassa_gpc,P08669,Glycosylation,79,79,79,79,no,N-linked (GlcNAc...) asparagine; by host
+lassa_gpc,P08669,Glycosylation,89,89,89,89,no,N-linked (GlcNAc...) asparagine; by host
+lassa_gpc,P08669,Glycosylation,99,99,99,99,no,N-linked (GlcNAc...) asparagine; by host
+lassa_gpc,P08669,Glycosylation,109,109,109,109,no,N-linked (GlcNAc...) asparagine; by host
+lassa_gpc,P08669,Glycosylation,119,119,119,119,no,N-linked (GlcNAc...) asparagine; by host
+lassa_gpc,P08669,Glycosylation,167,167,167,167,no,N-linked (GlcNAc...) asparagine; by host
+lassa_gpc,P08669,Glycosylation,224,224,224,224,no,N-linked (GlcNAc...) asparagine; by host
+lassa_gpc,P08669,Glycosylation,365,365,365,365,no,N-linked (GlcNAc...) asparagine; by host
+lassa_gpc,P08669,Glycosylation,373,373,373,373,no,N-linked (GlcNAc...) asparagine; by host
+lassa_gpc,P08669,Glycosylation,390,390,390,390,no,N-linked (GlcNAc...) asparagine; by host
+lassa_gpc,P08669,Glycosylation,395,395,395,395,no,N-linked (GlcNAc...) asparagine; by host
+lassa_gpc,P08669,Disulfide bond,86,231,86,231,no,
+lassa_gpc,P08669,Disulfide bond,118,155,118,155,no,
+lassa_gpc,P08669,Disulfide bond,180,212,180,212,no,
+lassa_gpc,P08669,Disulfide bond,279,292,279,292,no,
+lassa_gpc,P08669,Disulfide bond,301,310,301,310,no,
+lassa_gpc,P08669,Disulfide bond,364,385,364,385,no,
+lassa_gpc,P08669,Mutagenesis,54,54,54,54,no,No effect on SSP cleavage.
+lassa_gpc,P08669,Mutagenesis,56,56,56,56,no,Complete loss of SSP cleavage.
+lassa_gpc,P08669,Mutagenesis,58,58,58,58,no,Complete loss of SSP cleavage.
+lassa_gpc,P08669,Mutagenesis,60,60,60,60,no,No effect on SSP cleavage.
+lassa_gpc,P08669,Helix,4,10,4,10,no,
+lassa_gpc,P08669,Helix,15,34,15,34,no,
+lassa_gpc,P08669,Turn,63,65,63,65,no,
+lassa_gpc,P08669,Beta strand,66,73,66,73,no,
+lassa_gpc,P08669,Helix,75,78,75,78,no,
+lassa_gpc,P08669,Turn,79,81,79,81,no,
+lassa_gpc,P08669,Beta strand,84,86,84,86,no,
+lassa_gpc,P08669,Beta strand,91,95,91,95,no,
+lassa_gpc,P08669,Beta strand,98,109,98,109,no,
+lassa_gpc,P08669,Helix,123,139,123,139,no,
+lassa_gpc,P08669,Beta strand,152,158,152,158,no,
+lassa_gpc,P08669,Beta strand,161,167,161,167,no,
+lassa_gpc,P08669,Helix,173,178,173,178,no,
+lassa_gpc,P08669,Helix,183,194,183,194,no,
+lassa_gpc,P08669,Turn,195,198,195,198,no,
+lassa_gpc,P08669,Beta strand,201,204,201,204,no,
+lassa_gpc,P08669,Beta strand,211,214,211,214,no,
+lassa_gpc,P08669,Beta strand,219,226,219,226,no,
+lassa_gpc,P08669,Turn,227,231,227,231,no,
+lassa_gpc,P08669,Beta strand,233,238,233,238,no,
+lassa_gpc,P08669,Helix,239,246,239,246,no,
+lassa_gpc,P08669,Beta strand,248,251,248,251,no,
+lassa_gpc,P08669,Beta strand,275,277,275,277,no,
+lassa_gpc,P08669,Beta strand,278,280,278,280,no,
+lassa_gpc,P08669,Turn,282,284,282,284,no,
+lassa_gpc,P08669,Beta strand,285,288,285,288,no,
+lassa_gpc,P08669,Beta strand,291,293,291,293,no,
+lassa_gpc,P08669,Helix,295,298,295,298,no,
+lassa_gpc,P08669,Helix,300,303,300,303,no,
+lassa_gpc,P08669,Helix,306,354,306,354,no,
+lassa_gpc,P08669,Helix,356,358,356,358,no,
+lassa_gpc,P08669,Helix,368,373,368,373,no,
+lassa_gpc,P08669,Turn,375,377,375,377,no,
+lassa_gpc,P08669,Beta strand,384,389,384,389,no,
+lassa_gpc,P08669,Helix,390,392,390,392,no,
+lassa_gpc,P08669,Helix,396,398,396,398,no,
+lassa_gpc,P08669,Helix,402,417,402,417,no,
+lassa_gpc,P08669,Helix,428,447,428,447,no,
+wnv_e,P06935,Chain,1,3430,-289,3140,no,Genome polyprotein
+wnv_e,P06935,Chain,291,787,1,497,no,Envelope protein E
+wnv_e,P06935,Topological domain,291,739,1,449,no,Extracellular
+wnv_e,P06935,Transmembrane,740,760,450,470,no,Helical
+wnv_e,P06935,Topological domain,761,766,471,476,no,Cytoplasmic
+wnv_e,P06935,Transmembrane,767,787,477,497,no,Helical
+wnv_e,P06935,Region,388,401,98,111,yes,Fusion peptide loop
+wnv_e,P06935,Site,290,291,0,1,yes,Cleavage; by host signal peptidase
+wnv_e,P06935,Site,787,788,497,498,yes,Cleavage; by host signal peptidase
+wnv_e,P06935,Disulfide bond,293,320,3,30,no,
+wnv_e,P06935,Disulfide bond,350,411,60,121,no,
+wnv_e,P06935,Disulfide bond,364,395,74,105,no,
+wnv_e,P06935,Disulfide bond,382,406,92,116,no,
+wnv_e,P06935,Disulfide bond,476,574,186,284,no,
+wnv_e,P06935,Disulfide bond,591,622,301,332,no,
+wnv_e,P06935,Beta strand,595,603,305,313,no,
+wnv_e,P06935,Beta strand,605,607,315,317,no,
+wnv_e,P06935,Beta strand,609,615,319,325,no,
+wnv_e,P06935,Beta strand,621,623,331,333,no,
+wnv_e,P06935,Beta strand,626,631,336,341,no,
+wnv_e,P06935,Beta strand,634,637,344,347,no,
+wnv_e,P06935,Beta strand,639,643,349,353,no,
+wnv_e,P06935,Beta strand,657,662,367,372,no,
+wnv_e,P06935,Beta strand,665,673,375,383,no,
+wnv_e,P06935,Beta strand,679,685,389,395,no,
+japanese_encephalitis_virus_e,P27395,Chain,1,3432,-293,3138,no,Genome polyprotein
+japanese_encephalitis_virus_e,P27395,Chain,295,794,1,500,no,Envelope protein E
+japanese_encephalitis_virus_e,P27395,Topological domain,295,746,1,452,no,Extracellular
+japanese_encephalitis_virus_e,P27395,Transmembrane,747,767,453,473,no,Helical
+japanese_encephalitis_virus_e,P27395,Topological domain,768,773,474,479,no,Cytoplasmic
+japanese_encephalitis_virus_e,P27395,Transmembrane,774,794,480,500,no,Helical
+japanese_encephalitis_virus_e,P27395,Region,392,405,98,111,yes,Fusion peptide loop
+japanese_encephalitis_virus_e,P27395,Site,294,295,0,1,yes,Cleavage; by host signal peptidase
+japanese_encephalitis_virus_e,P27395,Site,794,795,500,501,yes,Cleavage; by host signal peptidase
+japanese_encephalitis_virus_e,P27395,Glycosylation,448,448,154,154,no,N-linked (GlcNAc...) asparagine; by host
+japanese_encephalitis_virus_e,P27395,Disulfide bond,297,324,3,30,no,
+japanese_encephalitis_virus_e,P27395,Disulfide bond,354,415,60,121,no,
+japanese_encephalitis_virus_e,P27395,Disulfide bond,368,399,74,105,no,
+japanese_encephalitis_virus_e,P27395,Disulfide bond,386,410,92,116,no,
+japanese_encephalitis_virus_e,P27395,Disulfide bond,484,581,190,287,no,
+japanese_encephalitis_virus_e,P27395,Disulfide bond,598,629,304,335,no,
+japanese_encephalitis_virus_e,P27395,Cross-link,430,430,136,136,no,Glycyl lysine isopeptide (Lys-Gly) (interchain with G-Cter in ubiquitin)
+japanese_encephalitis_virus_e,P27395,Cross-link,460,460,166,166,no,Glycyl lysine isopeptide (Lys-Gly) (interchain with G-Cter in ubiquitin)
+japanese_encephalitis_virus_e,P27395,Beta strand,301,307,7,13,no,
+japanese_encephalitis_virus_e,P27395,Beta strand,313,322,19,28,no,
+japanese_encephalitis_virus_e,P27395,Beta strand,324,328,30,34,no,
+japanese_encephalitis_virus_e,P27395,Beta strand,335,344,41,50,no,
+japanese_encephalitis_virus_e,P27395,Beta strand,348,366,54,72,no,
+japanese_encephalitis_virus_e,P27395,Helix,377,380,83,86,no,
+japanese_encephalitis_virus_e,P27395,Beta strand,384,394,90,100,no,
+japanese_encephalitis_virus_e,P27395,Helix,395,397,101,103,no,
+japanese_encephalitis_virus_e,P27395,Beta strand,403,423,109,129,no,
+japanese_encephalitis_virus_e,P27395,Beta strand,428,437,134,143,no,
+japanese_encephalitis_virus_e,P27395,Turn,443,447,149,153,no,
+japanese_encephalitis_virus_e,P27395,Helix,449,454,155,160,no,
+japanese_encephalitis_virus_e,P27395,Beta strand,458,463,164,169,no,
+japanese_encephalitis_virus_e,P27395,Beta strand,465,467,171,173,no,
+japanese_encephalitis_virus_e,P27395,Beta strand,469,473,175,179,no,
+japanese_encephalitis_virus_e,P27395,Helix,475,477,181,183,no,
+japanese_encephalitis_virus_e,P27395,Beta strand,478,485,184,191,no,
+japanese_encephalitis_virus_e,P27395,Helix,486,488,192,194,no,
+japanese_encephalitis_virus_e,P27395,Beta strand,494,500,200,206,no,
+japanese_encephalitis_virus_e,P27395,Beta strand,503,508,209,214,no,
+japanese_encephalitis_virus_e,P27395,Turn,509,514,215,220,no,
+japanese_encephalitis_virus_e,P27395,Beta strand,519,521,225,227,no,
+japanese_encephalitis_virus_e,P27395,Beta strand,524,528,230,234,no,
+japanese_encephalitis_virus_e,P27395,Helix,530,533,236,239,no,
+japanese_encephalitis_virus_e,P27395,Beta strand,534,540,240,246,no,
+japanese_encephalitis_virus_e,P27395,Beta strand,543,548,249,254,no,
+japanese_encephalitis_virus_e,P27395,Helix,553,559,259,265,no,
+japanese_encephalitis_virus_e,P27395,Beta strand,561,575,267,281,no,
+japanese_encephalitis_virus_e,P27395,Beta strand,578,584,284,290,no,
+japanese_encephalitis_virus_e,P27395,Turn,591,594,297,300,no,
+japanese_encephalitis_virus_e,P27395,Beta strand,602,610,308,316,no,
+japanese_encephalitis_virus_e,P27395,Beta strand,612,614,318,320,no,
+japanese_encephalitis_virus_e,P27395,Beta strand,616,622,322,328,no,
+japanese_encephalitis_virus_e,P27395,Beta strand,628,630,334,336,no,
+japanese_encephalitis_virus_e,P27395,Beta strand,633,638,339,344,no,
+japanese_encephalitis_virus_e,P27395,Beta strand,641,644,347,350,no,
+japanese_encephalitis_virus_e,P27395,Beta strand,646,650,352,356,no,
+japanese_encephalitis_virus_e,P27395,Beta strand,662,669,368,375,no,
+japanese_encephalitis_virus_e,P27395,Beta strand,672,681,378,387,no,
+japanese_encephalitis_virus_e,P27395,Helix,682,684,388,390,no,
+japanese_encephalitis_virus_e,P27395,Beta strand,686,692,392,398,no,
+tick-borne_encephalitis_virus_e,P14336,Chain,2,3414,-278,3134,no,Genome polyprotein
+tick-borne_encephalitis_virus_e,P14336,Chain,281,776,1,496,no,Envelope protein E
+tick-borne_encephalitis_virus_e,P14336,Topological domain,281,727,1,447,no,Extracellular
+tick-borne_encephalitis_virus_e,P14336,Transmembrane,728,748,448,468,no,Helical
+tick-borne_encephalitis_virus_e,P14336,Topological domain,749,755,469,475,no,Extracellular
+tick-borne_encephalitis_virus_e,P14336,Transmembrane,756,776,476,496,no,Helical
+tick-borne_encephalitis_virus_e,P14336,Region,378,391,98,111,yes,Fusion peptide loop
+tick-borne_encephalitis_virus_e,P14336,Site,280,281,0,1,yes,Cleavage; by host signal peptidase
+tick-borne_encephalitis_virus_e,P14336,Site,776,777,496,497,yes,Cleavage; by host signal peptidase
+tick-borne_encephalitis_virus_e,P14336,Glycosylation,434,434,154,154,no,N-linked (GlcNAc...) asparagine; by host
+tick-borne_encephalitis_virus_e,P14336,Disulfide bond,283,310,3,30,no,
+tick-borne_encephalitis_virus_e,P14336,Disulfide bond,340,401,60,121,no,
+tick-borne_encephalitis_virus_e,P14336,Disulfide bond,354,385,74,105,no,
+tick-borne_encephalitis_virus_e,P14336,Disulfide bond,372,396,92,116,no,
+tick-borne_encephalitis_virus_e,P14336,Disulfide bond,466,570,186,290,no,
+tick-borne_encephalitis_virus_e,P14336,Disulfide bond,587,618,307,338,no,
+tick-borne_encephalitis_virus_e,P14336,Mutagenesis,387,387,107,107,no,Complete loss of envelope protein E fusion activity.
+tick-borne_encephalitis_virus_e,P14336,Mutagenesis,387,387,107,107,no,About 50% loss of envelope protein E fusion activity.
+tick-borne_encephalitis_virus_e,P14336,Mutagenesis,387,387,107,107,no,About 70% loss of envelope protein E fusion activity.
+tick-borne_encephalitis_virus_e,P14336,Helix,282,285,2,5,no,
+tick-borne_encephalitis_virus_e,P14336,Beta strand,290,294,10,14,no,
+tick-borne_encephalitis_virus_e,P14336,Beta strand,300,306,20,26,no,
+tick-borne_encephalitis_virus_e,P14336,Beta strand,311,315,31,35,no,
+tick-borne_encephalitis_virus_e,P14336,Beta strand,318,332,38,52,no,
+tick-borne_encephalitis_virus_e,P14336,Beta strand,334,352,54,72,no,
+tick-borne_encephalitis_virus_e,P14336,Beta strand,355,357,75,77,no,
+tick-borne_encephalitis_virus_e,P14336,Helix,363,366,83,86,no,
+tick-borne_encephalitis_virus_e,P14336,Beta strand,370,380,90,100,no,
+tick-borne_encephalitis_virus_e,P14336,Helix,381,383,101,103,no,
+tick-borne_encephalitis_virus_e,P14336,Beta strand,389,401,109,121,no,
+tick-borne_encephalitis_virus_e,P14336,Beta strand,406,411,126,131,no,
+tick-borne_encephalitis_virus_e,P14336,Turn,414,416,134,136,no,
+tick-borne_encephalitis_virus_e,P14336,Beta strand,418,425,138,145,no,
+tick-borne_encephalitis_virus_e,P14336,Turn,432,435,152,155,no,
+tick-borne_encephalitis_virus_e,P14336,Beta strand,441,446,161,166,no,
+tick-borne_encephalitis_virus_e,P14336,Beta strand,451,455,171,175,no,
+tick-borne_encephalitis_virus_e,P14336,Helix,457,459,177,179,no,
+tick-borne_encephalitis_virus_e,P14336,Beta strand,460,467,180,187,no,
+tick-borne_encephalitis_virus_e,P14336,Helix,468,470,188,190,no,
+tick-borne_encephalitis_virus_e,P14336,Helix,474,476,194,196,no,
+tick-borne_encephalitis_virus_e,P14336,Beta strand,477,482,197,202,no,
+tick-borne_encephalitis_virus_e,P14336,Beta strand,484,486,204,206,no,
+tick-borne_encephalitis_virus_e,P14336,Beta strand,491,496,211,216,no,
+tick-borne_encephalitis_virus_e,P14336,Helix,497,501,217,221,no,
+tick-borne_encephalitis_virus_e,P14336,Helix,518,521,238,241,no,
+tick-borne_encephalitis_virus_e,P14336,Beta strand,522,524,242,244,no,
+tick-borne_encephalitis_virus_e,P14336,Beta strand,529,533,249,253,no,
+tick-borne_encephalitis_virus_e,P14336,Beta strand,534,536,254,256,no,
+tick-borne_encephalitis_virus_e,P14336,Helix,541,547,261,267,no,
+tick-borne_encephalitis_virus_e,P14336,Turn,548,550,268,270,no,
+tick-borne_encephalitis_virus_e,P14336,Beta strand,553,557,273,277,no,
+tick-borne_encephalitis_virus_e,P14336,Beta strand,560,562,280,282,no,
+tick-borne_encephalitis_virus_e,P14336,Beta strand,567,573,287,293,no,
+tick-borne_encephalitis_virus_e,P14336,Beta strand,580,584,300,304,no,
+tick-borne_encephalitis_virus_e,P14336,Beta strand,591,600,311,320,no,
+tick-borne_encephalitis_virus_e,P14336,Beta strand,602,604,322,324,no,
+tick-borne_encephalitis_virus_e,P14336,Beta strand,606,612,326,332,no,
+tick-borne_encephalitis_virus_e,P14336,Beta strand,614,619,334,339,no,
+tick-borne_encephalitis_virus_e,P14336,Beta strand,622,626,342,346,no,
+tick-borne_encephalitis_virus_e,P14336,Beta strand,629,633,349,353,no,
+tick-borne_encephalitis_virus_e,P14336,Beta strand,636,641,356,361,no,
+tick-borne_encephalitis_virus_e,P14336,Beta strand,643,645,363,365,no,
+tick-borne_encephalitis_virus_e,P14336,Beta strand,646,649,366,369,no,
+tick-borne_encephalitis_virus_e,P14336,Beta strand,651,655,371,375,no,
+tick-borne_encephalitis_virus_e,P14336,Beta strand,658,665,378,385,no,
+tick-borne_encephalitis_virus_e,P14336,Beta strand,668,674,388,394,no,
+marburg_virus_gp,P35253,Signal,1,18,1,18,no,
+marburg_virus_gp,P35253,Chain,19,681,19,681,no,Envelope glycoprotein
+marburg_virus_gp,P35253,Chain,33,435,33,435,no,GP1
+marburg_virus_gp,P35253,Chain,436,681,436,681,no,GP2
+marburg_virus_gp,P35253,Topological domain,19,648,19,648,no,Extracellular
+marburg_virus_gp,P35253,Transmembrane,649,669,649,669,no,Helical
+marburg_virus_gp,P35253,Topological domain,670,681,670,681,no,Cytoplasmic
+marburg_virus_gp,P35253,Region,38,188,38,188,yes,Receptor-binding
+marburg_virus_gp,P35253,Region,223,427,223,427,yes,Disordered
+marburg_virus_gp,P35253,Region,277,455,277,455,yes,Mucin-like region
+marburg_virus_gp,P35253,Region,529,549,529,549,yes,Fusion peptide
+marburg_virus_gp,P35253,Compositional bias,244,259,244,259,no,Polar residues
+marburg_virus_gp,P35253,Compositional bias,281,290,281,290,no,Polar residues
+marburg_virus_gp,P35253,Compositional bias,308,318,308,318,no,Polar residues
+marburg_virus_gp,P35253,Compositional bias,337,347,337,347,no,Low complexity
+marburg_virus_gp,P35253,Compositional bias,348,414,348,414,no,Polar residues
+marburg_virus_gp,P35253,Site,435,436,435,436,yes,Cleavage; by host furin
+marburg_virus_gp,P35253,Lipidation,671,671,671,671,no,S-palmitoyl cysteine; by host
+marburg_virus_gp,P35253,Lipidation,673,673,673,673,no,S-palmitoyl cysteine; by host
+marburg_virus_gp,P35253,Glycosylation,94,94,94,94,no,N-linked (GlcNAc...) asparagine; by host
+marburg_virus_gp,P35253,Glycosylation,171,171,171,171,no,N-linked (GlcNAc...) asparagine; by host
+marburg_virus_gp,P35253,Glycosylation,190,190,190,190,no,N-linked (GlcNAc...) asparagine; by host
+marburg_virus_gp,P35253,Glycosylation,202,202,202,202,no,N-linked (GlcNAc...) asparagine; by host
+marburg_virus_gp,P35253,Glycosylation,207,207,207,207,no,N-linked (GlcNAc...) asparagine; by host
+marburg_virus_gp,P35253,Glycosylation,219,219,219,219,no,N-linked (GlcNAc...) asparagine; by host
+marburg_virus_gp,P35253,Glycosylation,223,223,223,223,no,N-linked (GlcNAc...) asparagine; by host
+marburg_virus_gp,P35253,Glycosylation,255,255,255,255,no,N-linked (GlcNAc...) asparagine; by host
+marburg_virus_gp,P35253,Glycosylation,310,310,310,310,no,N-linked (GlcNAc...) asparagine; by host
+marburg_virus_gp,P35253,Glycosylation,313,313,313,313,no,N-linked (GlcNAc...) asparagine; by host
+marburg_virus_gp,P35253,Glycosylation,325,325,325,325,no,N-linked (GlcNAc...) asparagine; by host
+marburg_virus_gp,P35253,Glycosylation,326,326,326,326,no,N-linked (GlcNAc...) asparagine; by host
+marburg_virus_gp,P35253,Glycosylation,337,337,337,337,no,N-linked (GlcNAc...) asparagine; by host
+marburg_virus_gp,P35253,Glycosylation,344,344,344,344,no,N-linked (GlcNAc...) asparagine; by host
+marburg_virus_gp,P35253,Glycosylation,345,345,345,345,no,N-linked (GlcNAc...) asparagine; by host
+marburg_virus_gp,P35253,Glycosylation,350,350,350,350,no,N-linked (GlcNAc...) asparagine; by host
+marburg_virus_gp,P35253,Glycosylation,360,360,360,360,no,N-linked (GlcNAc...) asparagine; by host
+marburg_virus_gp,P35253,Glycosylation,408,408,408,408,no,N-linked (GlcNAc...) asparagine; by host
+marburg_virus_gp,P35253,Glycosylation,487,487,487,487,no,N-linked (GlcNAc...) asparagine; by host
+marburg_virus_gp,P35253,Glycosylation,564,564,564,564,no,N-linked (GlcNAc...) asparagine; by host
+marburg_virus_gp,P35253,Glycosylation,619,619,619,619,no,N-linked (GlcNAc...) asparagine; by host
+marburg_virus_gp,P35253,Disulfide bond,37,610,37,610,no,Interchain (between GP1 and GP2 chains)
+marburg_virus_gp,P35253,Disulfide bond,92,119,92,119,no,
+marburg_virus_gp,P35253,Disulfide bond,211,226,211,226,no,
+marburg_virus_gp,P35253,Disulfide bond,512,557,512,557,no,
+marburg_virus_gp,P35253,Disulfide bond,602,609,602,609,no,
+marburg_virus_gp,P35253,Natural variant,547,547,547,547,no,in strain: pp3/guinea pig lethal and pp4/guinea pig nonlethal
+marburg_virus_gp,P35253,Mutagenesis,434,434,434,434,no,Partial loss of cleavage between GP1 and GP2.
+marburg_virus_gp,P35253,Mutagenesis,435,435,435,435,no,Complete loss of cleavage between GP1 and GP2.
+hendra_virus_g,O89343,Chain,1,604,1,604,no,Glycoprotein G
+hendra_virus_g,O89343,Topological domain,1,49,1,49,no,Intravirion
+hendra_virus_g,O89343,Transmembrane,50,70,50,70,no,Helical
+hendra_virus_g,O89343,Topological domain,71,604,71,604,no,Virion surface
+hendra_virus_g,O89343,Glycosylation,72,72,72,72,no,N-linked (GlcNAc...) asparagine; by host
+hendra_virus_g,O89343,Glycosylation,159,159,159,159,no,N-linked (GlcNAc...) asparagine; by host
+hendra_virus_g,O89343,Glycosylation,306,306,306,306,no,N-linked (GlcNAc...) asparagine; by host
+hendra_virus_g,O89343,Glycosylation,378,378,378,378,no,N-linked (GlcNAc...) asparagine; by host
+hendra_virus_g,O89343,Glycosylation,417,417,417,417,no,N-linked (GlcNAc...) asparagine; by host
+hendra_virus_g,O89343,Glycosylation,481,481,481,481,no,N-linked (GlcNAc...) asparagine; by host
+hendra_virus_g,O89343,Glycosylation,529,529,529,529,no,N-linked (GlcNAc...) asparagine; by host
+hendra_virus_g,O89343,Beta strand,178,181,178,181,no,
+hendra_virus_g,O89343,Helix,195,197,195,197,no,
+hendra_virus_g,O89343,Beta strand,201,203,201,203,no,
+hendra_virus_g,O89343,Helix,204,206,204,206,no,
+hendra_virus_g,O89343,Turn,211,213,211,213,no,
+hendra_virus_g,O89343,Beta strand,215,225,215,225,no,
+hendra_virus_g,O89343,Beta strand,228,238,228,238,no,
+hendra_virus_g,O89343,Turn,240,242,240,242,no,
+hendra_virus_g,O89343,Beta strand,243,257,243,257,no,
+hendra_virus_g,O89343,Beta strand,259,271,259,271,no,
+hendra_virus_g,O89343,Helix,276,278,276,278,no,
+hendra_virus_g,O89343,Beta strand,279,287,279,287,no,
+hendra_virus_g,O89343,Beta strand,290,297,290,297,no,
+hendra_virus_g,O89343,Beta strand,299,301,299,301,no,
+hendra_virus_g,O89343,Helix,303,305,303,305,no,
+hendra_virus_g,O89343,Turn,307,309,307,309,no,
+hendra_virus_g,O89343,Beta strand,314,322,314,322,no,
+hendra_virus_g,O89343,Beta strand,330,337,330,337,no,
+hendra_virus_g,O89343,Beta strand,339,341,339,341,no,
+hendra_virus_g,O89343,Beta strand,346,350,346,350,no,
+hendra_virus_g,O89343,Beta strand,352,354,352,354,no,
+hendra_virus_g,O89343,Beta strand,356,358,356,358,no,
+hendra_virus_g,O89343,Beta strand,361,371,361,371,no,
+hendra_virus_g,O89343,Helix,372,374,372,374,no,
+hendra_virus_g,O89343,Helix,379,381,379,381,no,
+hendra_virus_g,O89343,Helix,394,397,394,397,no,
+hendra_virus_g,O89343,Beta strand,400,402,400,402,no,
+hendra_virus_g,O89343,Beta strand,406,417,406,417,no,
+hendra_virus_g,O89343,Helix,418,420,418,420,no,
+hendra_virus_g,O89343,Beta strand,425,431,425,431,no,
+hendra_virus_g,O89343,Beta strand,442,447,442,447,no,
+hendra_virus_g,O89343,Beta strand,450,455,450,455,no,
+hendra_virus_g,O89343,Beta strand,465,471,465,471,no,
+hendra_virus_g,O89343,Turn,472,474,472,474,no,
+hendra_virus_g,O89343,Beta strand,475,479,475,479,no,
+hendra_virus_g,O89343,Beta strand,491,493,491,493,no,
+hendra_virus_g,O89343,Beta strand,511,515,511,515,no,
+hendra_virus_g,O89343,Turn,516,519,516,519,no,
+hendra_virus_g,O89343,Beta strand,520,526,520,526,no,
+hendra_virus_g,O89343,Beta strand,529,533,529,533,no,
+hendra_virus_g,O89343,Beta strand,535,541,535,541,no,
+hendra_virus_g,O89343,Beta strand,544,552,544,552,no,
+hendra_virus_g,O89343,Beta strand,557,568,557,568,no,
+hendra_virus_g,O89343,Beta strand,571,580,571,580,no,
+hendra_virus_g,O89343,Turn,583,585,583,585,no,
+hendra_virus_g,O89343,Beta strand,586,588,586,588,no,
+hendra_virus_g,O89343,Beta strand,589,596,589,596,no,
+hendra_virus_g,O89343,Beta strand,599,602,599,602,no,
+nipah_virus_g,Q9IH62,Chain,1,602,1,602,no,Glycoprotein G
+nipah_virus_g,Q9IH62,Topological domain,1,49,1,49,no,Intravirion
+nipah_virus_g,Q9IH62,Transmembrane,50,70,50,70,no,Helical
+nipah_virus_g,Q9IH62,Topological domain,71,602,71,602,no,Virion surface
+nipah_virus_g,Q9IH62,Region,96,163,96,163,yes,Stalk
+nipah_virus_g,Q9IH62,Region,177,602,177,602,yes,Head
+nipah_virus_g,Q9IH62,Glycosylation,72,72,72,72,no,N-linked (GlcNAc...) asparagine; by host
+nipah_virus_g,Q9IH62,Glycosylation,159,159,159,159,no,N-linked (GlcNAc...) asparagine; by host
+nipah_virus_g,Q9IH62,Glycosylation,306,306,306,306,no,N-linked (GlcNAc...) asparagine; by host
+nipah_virus_g,Q9IH62,Glycosylation,378,378,378,378,no,N-linked (GlcNAc...) asparagine; by host
+nipah_virus_g,Q9IH62,Glycosylation,417,417,417,417,no,N-linked (GlcNAc...) asparagine; by host
+nipah_virus_g,Q9IH62,Glycosylation,481,481,481,481,no,N-linked (GlcNAc...) asparagine; by host
+nipah_virus_g,Q9IH62,Glycosylation,529,529,529,529,no,N-linked (GlcNAc...) asparagine; by host
+nipah_virus_g,Q9IH62,Disulfide bond,146,146,146,146,no,Interchain
+nipah_virus_g,Q9IH62,Disulfide bond,158,158,158,158,no,Interchain (with C-162)
+nipah_virus_g,Q9IH62,Disulfide bond,162,162,162,162,no,Interchain (with C-158)
+nipah_virus_g,Q9IH62,Disulfide bond,189,601,189,601,no,
+nipah_virus_g,Q9IH62,Disulfide bond,216,240,216,240,no,
+nipah_virus_g,Q9IH62,Disulfide bond,282,295,282,295,no,
+nipah_virus_g,Q9IH62,Disulfide bond,382,395,382,395,no,
+nipah_virus_g,Q9IH62,Disulfide bond,387,499,387,499,no,
+nipah_virus_g,Q9IH62,Disulfide bond,493,503,493,503,no,
+nipah_virus_g,Q9IH62,Disulfide bond,565,574,565,574,no,
+nipah_virus_g,Q9IH62,Natural variant,5,5,5,5,no,in strain: Isolate NiV/KHM/CSUR38
+nipah_virus_g,Q9IH62,Natural variant,20,20,20,20,no,in strain: Isolate NiV/MY/99/VRI-0626
+nipah_virus_g,Q9IH62,Natural variant,24,24,24,24,no,in strain: Isolate NiV/KHM/CSUR38
+nipah_virus_g,Q9IH62,Natural variant,248,248,248,248,no,in strain: Isolate NiV/KHM/CSUR38
+nipah_virus_g,Q9IH62,Natural variant,272,272,272,272,no,in strain: Isolate NiV/MY/99/VRI-0626
+nipah_virus_g,Q9IH62,Natural variant,327,327,327,327,no,in strain: Isolate NiV/KHM/CSUR38
+nipah_virus_g,Q9IH62,Natural variant,408,408,408,408,no,in strain: Isolate NiV/KHM/CSUR38
+nipah_virus_g,Q9IH62,Natural variant,426,426,426,426,no,in strain: Isolate NiV/KHM/CSUR38
+nipah_virus_g,Q9IH62,Natural variant,470,470,470,470,no,in strain: Isolate NiV/KHM/CSUR38
+nipah_virus_g,Q9IH62,Natural variant,478,478,478,478,no,in strain: Isolate NiV/KHM/CSUR38
+nipah_virus_g,Q9IH62,Natural variant,481,481,481,481,no,in strain: Isolate NiV/KHM/CSUR38
+nipah_virus_g,Q9IH62,Helix,97,103,97,103,no,
+nipah_virus_g,Q9IH62,Helix,106,117,106,117,no,
+nipah_virus_g,Q9IH62,Helix,133,145,133,145,no,
+nipah_virus_g,Q9IH62,Helix,155,157,155,157,no,
+nipah_virus_g,Q9IH62,Beta strand,158,161,158,161,no,
+nipah_virus_g,Q9IH62,Beta strand,178,180,178,180,no,
+nipah_virus_g,Q9IH62,Beta strand,201,203,201,203,no,
+nipah_virus_g,Q9IH62,Helix,204,206,204,206,no,
+nipah_virus_g,Q9IH62,Turn,208,211,208,211,no,
+nipah_virus_g,Q9IH62,Beta strand,215,225,215,225,no,
+nipah_virus_g,Q9IH62,Beta strand,228,238,228,238,no,
+nipah_virus_g,Q9IH62,Turn,240,242,240,242,no,
+nipah_virus_g,Q9IH62,Beta strand,243,257,243,257,no,
+nipah_virus_g,Q9IH62,Beta strand,259,261,259,261,no,
+nipah_virus_g,Q9IH62,Beta strand,263,271,263,271,no,
+nipah_virus_g,Q9IH62,Beta strand,278,287,278,287,no,
+nipah_virus_g,Q9IH62,Beta strand,290,297,290,297,no,
+nipah_virus_g,Q9IH62,Beta strand,299,301,299,301,no,
+nipah_virus_g,Q9IH62,Turn,303,305,303,305,no,
+nipah_virus_g,Q9IH62,Turn,307,309,307,309,no,
+nipah_virus_g,Q9IH62,Beta strand,314,322,314,322,no,
+nipah_virus_g,Q9IH62,Helix,328,331,328,331,no,
+nipah_virus_g,Q9IH62,Beta strand,332,336,332,336,no,
+nipah_virus_g,Q9IH62,Beta strand,346,350,346,350,no,
+nipah_virus_g,Q9IH62,Beta strand,352,354,352,354,no,
+nipah_virus_g,Q9IH62,Beta strand,356,358,356,358,no,
+nipah_virus_g,Q9IH62,Beta strand,361,371,361,371,no,
+nipah_virus_g,Q9IH62,Helix,372,374,372,374,no,
+nipah_virus_g,Q9IH62,Helix,379,381,379,381,no,
+nipah_virus_g,Q9IH62,Helix,394,397,394,397,no,
+nipah_virus_g,Q9IH62,Beta strand,400,402,400,402,no,
+nipah_virus_g,Q9IH62,Beta strand,406,417,406,417,no,
+nipah_virus_g,Q9IH62,Helix,418,420,418,420,no,
+nipah_virus_g,Q9IH62,Beta strand,426,431,426,431,no,
+nipah_virus_g,Q9IH62,Beta strand,433,435,433,435,no,
+nipah_virus_g,Q9IH62,Beta strand,442,447,442,447,no,
+nipah_virus_g,Q9IH62,Beta strand,450,455,450,455,no,
+nipah_virus_g,Q9IH62,Beta strand,465,471,465,471,no,
+nipah_virus_g,Q9IH62,Turn,472,474,472,474,no,
+nipah_virus_g,Q9IH62,Beta strand,475,479,475,479,no,
+nipah_virus_g,Q9IH62,Beta strand,491,493,491,493,no,
+nipah_virus_g,Q9IH62,Beta strand,511,515,511,515,no,
+nipah_virus_g,Q9IH62,Turn,516,519,516,519,no,
+nipah_virus_g,Q9IH62,Beta strand,520,526,520,526,no,
+nipah_virus_g,Q9IH62,Beta strand,529,533,529,533,no,
+nipah_virus_g,Q9IH62,Beta strand,535,541,535,541,no,
+nipah_virus_g,Q9IH62,Beta strand,544,550,544,550,no,
+nipah_virus_g,Q9IH62,Beta strand,557,568,557,568,no,
+nipah_virus_g,Q9IH62,Beta strand,571,581,571,581,no,
+nipah_virus_g,Q9IH62,Turn,583,585,583,585,no,
+nipah_virus_g,Q9IH62,Beta strand,586,588,586,588,no,
+nipah_virus_g,Q9IH62,Beta strand,591,596,591,596,no,
+nipah_virus_g,Q9IH62,Beta strand,599,601,599,601,no,
+measles_virus_h,P08362,Chain,1,617,1,617,no,Hemagglutinin glycoprotein
+measles_virus_h,P08362,Topological domain,1,37,1,37,no,Intravirion
+measles_virus_h,P08362,Transmembrane,38,58,38,58,no,Helical; Signal-anchor for type II membrane protein
+measles_virus_h,P08362,Topological domain,59,617,59,617,no,Virion surface
+measles_virus_h,P08362,Region,1,154,1,154,yes,Stalk
+measles_virus_h,P08362,Region,458,543,458,543,yes,Interaction with host NECTIN4 receptor
+measles_virus_h,P08362,Site,483,483,483,483,yes,Interaction with host SLAMF1 receptor
+measles_virus_h,P08362,Site,505,505,505,505,yes,Interaction with host SLAMF1 receptor
+measles_virus_h,P08362,Site,507,507,507,507,yes,Interaction with host SLAMF1 receptor
+measles_virus_h,P08362,Site,524,524,524,524,yes,Interaction with host SLAMF1 receptor
+measles_virus_h,P08362,Site,530,530,530,530,yes,Interaction with host SLAMF1 receptor
+measles_virus_h,P08362,Site,533,533,533,533,yes,Interaction with host SLAMF1 receptor
+measles_virus_h,P08362,Site,541,541,541,541,yes,Interaction with host SLAMF1 receptor
+measles_virus_h,P08362,Site,543,543,543,543,yes,Interaction with host SLAMF1 receptor
+measles_virus_h,P08362,Site,545,545,545,545,yes,Interaction with host SLAMF1 receptor
+measles_virus_h,P08362,Site,549,549,549,549,yes,Interaction with host SLAMF1 receptor during cell-cell fusion
+measles_virus_h,P08362,Site,552,552,552,552,yes,Interaction with host SLAMF1 receptor
+measles_virus_h,P08362,Site,554,554,554,554,yes,Interaction with host SLAMF1 receptor
+measles_virus_h,P08362,Glycosylation,168,168,168,168,no,N-linked (GlcNAc...) asparagine; by host
+measles_virus_h,P08362,Glycosylation,187,187,187,187,no,N-linked (GlcNAc...) asparagine; by host
+measles_virus_h,P08362,Glycosylation,200,200,200,200,no,N-linked (GlcNAc...) asparagine; by host
+measles_virus_h,P08362,Glycosylation,215,215,215,215,no,N-linked (GlcNAc...) asparagine; by host
+measles_virus_h,P08362,Glycosylation,238,238,238,238,no,N-linked (GlcNAc...) asparagine; by host
+measles_virus_h,P08362,Disulfide bond,139,139,139,139,no,Interchain
+measles_virus_h,P08362,Disulfide bond,154,154,154,154,no,Interchain
+measles_virus_h,P08362,Disulfide bond,188,606,188,606,no,
+measles_virus_h,P08362,Disulfide bond,287,300,287,300,no,
+measles_virus_h,P08362,Disulfide bond,381,494,381,494,no,
+measles_virus_h,P08362,Disulfide bond,386,394,386,394,no,
+measles_virus_h,P08362,Disulfide bond,570,579,570,579,no,
+measles_virus_h,P08362,Mutagenesis,139,139,139,139,no,Complete loss of dimerization; when associated with C-154 C-154.
+measles_virus_h,P08362,Mutagenesis,154,154,154,154,no,Complete loss of dimerization; when associated with C-139.
+measles_virus_h,P08362,Helix,159,163,159,163,no,
+measles_virus_h,P08362,Beta strand,189,198,189,198,no,
+measles_virus_h,P08362,Helix,205,211,205,211,no,
+measles_virus_h,P08362,Beta strand,215,224,215,224,no,
+measles_virus_h,P08362,Beta strand,227,236,227,236,no,
+measles_virus_h,P08362,Beta strand,250,261,250,261,no,
+measles_virus_h,P08362,Beta strand,264,267,264,267,no,
+measles_virus_h,P08362,Beta strand,269,279,269,279,no,
+measles_virus_h,P08362,Beta strand,281,283,281,283,no,
+measles_virus_h,P08362,Beta strand,286,292,286,292,no,
+measles_virus_h,P08362,Beta strand,295,307,295,307,no,
+measles_virus_h,P08362,Beta strand,313,315,313,315,no,
+measles_virus_h,P08362,Beta strand,318,327,318,327,no,
+measles_virus_h,P08362,Beta strand,333,339,333,339,no,
+measles_virus_h,P08362,Beta strand,344,350,344,350,no,
+measles_virus_h,P08362,Beta strand,355,359,355,359,no,
+measles_virus_h,P08362,Beta strand,362,371,362,371,no,
+measles_virus_h,P08362,Helix,374,385,374,385,no,
+measles_virus_h,P08362,Beta strand,387,389,387,389,no,
+measles_virus_h,P08362,Helix,391,395,391,395,no,
+measles_virus_h,P08362,Helix,400,403,400,403,no,
+measles_virus_h,P08362,Beta strand,409,418,409,418,no,
+measles_virus_h,P08362,Turn,420,422,420,422,no,
+measles_virus_h,P08362,Beta strand,425,430,425,430,no,
+measles_virus_h,P08362,Beta strand,442,445,442,445,no,
+measles_virus_h,P08362,Beta strand,451,456,451,456,no,
+measles_virus_h,P08362,Turn,460,462,460,462,no,
+measles_virus_h,P08362,Beta strand,466,471,466,471,no,
+measles_virus_h,P08362,Beta strand,473,475,473,475,no,
+measles_virus_h,P08362,Beta strand,477,486,477,486,no,
+measles_virus_h,P08362,Beta strand,488,493,488,493,no,
+measles_virus_h,P08362,Beta strand,495,497,495,497,no,
+measles_virus_h,P08362,Turn,504,506,504,506,no,
+measles_virus_h,P08362,Beta strand,509,511,509,511,no,
+measles_virus_h,P08362,Beta strand,519,521,519,521,no,
+measles_virus_h,P08362,Beta strand,524,530,524,530,no,
+measles_virus_h,P08362,Beta strand,531,535,531,535,no,
+measles_virus_h,P08362,Beta strand,538,543,538,543,no,
+measles_virus_h,P08362,Beta strand,548,552,548,552,no,
+measles_virus_h,P08362,Beta strand,565,572,565,572,no,
+measles_virus_h,P08362,Beta strand,574,584,574,584,no,
+measles_virus_h,P08362,Turn,588,590,588,590,no,
+measles_virus_h,P08362,Beta strand,595,606,595,606,no,
+mumps_virus_hn,P30924,Chain,1,861,1,861,no,"1,4-alpha-glucan-branching enzyme"
+mumps_virus_hn,P30924,Active site,429,429,429,429,yes,Nucleophile
+mumps_virus_hn,P30924,Active site,484,484,484,484,yes,Proton donor
+mumps_virus_hn,P30924,Binding site,173,173,173,173,yes,
+mumps_virus_hn,P30924,Binding site,208,208,208,208,yes,
+mumps_virus_hn,P30924,Site,553,553,553,553,yes,Transition state stabilizer
+chikungunya_virus_e2,Q8JUX5,Chain,1,261,1,261,no,Capsid protein
+chikungunya_virus_e2,Q8JUX5,Chain,262,748,262,748,no,Precursor of protein E3/E2
+chikungunya_virus_e2,Q8JUX5,Chain,262,325,262,325,no,Assembly protein E3
+chikungunya_virus_e2,Q8JUX5,Chain,326,748,326,748,no,Spike glycoprotein E2
+chikungunya_virus_e2,Q8JUX5,Chain,749,809,749,809,no,6K protein
+chikungunya_virus_e2,Q8JUX5,Chain,810,1248,810,1248,no,Spike glycoprotein E1
+chikungunya_virus_e2,Q8JUX5,Topological domain,262,692,262,692,no,Extracellular
+chikungunya_virus_e2,Q8JUX5,Transmembrane,693,713,693,713,no,Helical
+chikungunya_virus_e2,Q8JUX5,Topological domain,714,748,714,748,no,Cytoplasmic
+chikungunya_virus_e2,Q8JUX5,Topological domain,749,763,749,763,no,Extracellular
+chikungunya_virus_e2,Q8JUX5,Transmembrane,764,784,764,784,no,Helical
+chikungunya_virus_e2,Q8JUX5,Topological domain,785,795,785,795,no,Cytoplasmic
+chikungunya_virus_e2,Q8JUX5,Transmembrane,796,816,796,816,no,Helical
+chikungunya_virus_e2,Q8JUX5,Topological domain,817,1224,817,1224,no,Extracellular
+chikungunya_virus_e2,Q8JUX5,Transmembrane,1225,1245,1225,1245,no,Helical
+chikungunya_virus_e2,Q8JUX5,Topological domain,1246,1248,1246,1248,no,Cytoplasmic
+chikungunya_virus_e2,Q8JUX5,Domain,113,261,113,261,no,Peptidase S3
+chikungunya_virus_e2,Q8JUX5,Region,1,104,1,104,yes,Disordered
+chikungunya_virus_e2,Q8JUX5,Region,36,68,36,68,yes,Host transcription inhibition
+chikungunya_virus_e2,Q8JUX5,Region,84,114,84,114,yes,Binding to the viral RNA
+chikungunya_virus_e2,Q8JUX5,Region,99,113,99,113,yes,Ribosome-binding
+chikungunya_virus_e2,Q8JUX5,Region,155,160,155,160,yes,Interaction with spike glycoprotein E2
+chikungunya_virus_e2,Q8JUX5,Region,183,193,183,193,yes,Dimerization of the capsid protein
+chikungunya_virus_e2,Q8JUX5,Region,219,223,219,223,yes,Dimerization of the capsid protein
+chikungunya_virus_e2,Q8JUX5,Region,262,274,262,274,yes,Functions as an uncleaved signal peptide for the precursor of protein E3/E2
+chikungunya_virus_e2,Q8JUX5,Region,351,354,351,354,yes,Interaction with host Mxra8 receptor
+chikungunya_virus_e2,Q8JUX5,Region,387,389,387,389,yes,Interaction with host Mxra8 receptor
+chikungunya_virus_e2,Q8JUX5,Region,509,512,509,512,yes,Interaction with host Mxra8 receptor
+chikungunya_virus_e2,Q8JUX5,Region,541,547,541,547,yes,Interaction with host Mxra8 receptor
+chikungunya_virus_e2,Q8JUX5,Region,716,720,716,720,yes,Interaction with the capsid protein
+chikungunya_virus_e2,Q8JUX5,Region,721,741,721,741,yes,Transient transmembrane before p62-6K protein processing
+chikungunya_virus_e2,Q8JUX5,Region,893,910,893,910,yes,E1 fusion peptide loop
+chikungunya_virus_e2,Q8JUX5,Motif,61,99,61,99,yes,Nuclear localization signal
+chikungunya_virus_e2,Q8JUX5,Motif,144,154,144,154,yes,Nuclear export signal
+chikungunya_virus_e2,Q8JUX5,Compositional bias,1,10,1,10,no,Polar residues
+chikungunya_virus_e2,Q8JUX5,Compositional bias,22,44,22,44,no,Low complexity
+chikungunya_virus_e2,Q8JUX5,Compositional bias,60,72,60,72,no,Basic residues
+chikungunya_virus_e2,Q8JUX5,Compositional bias,73,85,73,85,no,Low complexity
+chikungunya_virus_e2,Q8JUX5,Compositional bias,86,101,86,101,no,Basic residues
+chikungunya_virus_e2,Q8JUX5,Active site,139,139,139,139,yes,Charge relay system
+chikungunya_virus_e2,Q8JUX5,Active site,161,161,161,161,yes,Charge relay system
+chikungunya_virus_e2,Q8JUX5,Active site,213,213,213,213,yes,Charge relay system
+chikungunya_virus_e2,Q8JUX5,Site,187,187,187,187,yes,Involved in dimerization of the capsid protein
+chikungunya_virus_e2,Q8JUX5,Site,220,220,220,220,yes,Involved in dimerization of the capsid protein
+chikungunya_virus_e2,Q8JUX5,Site,261,262,261,262,yes,Cleavage; by autolysis
+chikungunya_virus_e2,Q8JUX5,Site,325,326,325,326,yes,Cleavage; by host furin
+chikungunya_virus_e2,Q8JUX5,Site,748,749,748,749,yes,Cleavage; by host signal peptidase
+chikungunya_virus_e2,Q8JUX5,Site,809,810,809,810,yes,Cleavage; by host signal peptidase
+chikungunya_virus_e2,Q8JUX5,Lipidation,721,721,721,721,no,S-palmitoyl cysteine; by host
+chikungunya_virus_e2,Q8JUX5,Lipidation,741,741,741,741,no,S-palmitoyl cysteine; by host
+chikungunya_virus_e2,Q8JUX5,Lipidation,742,742,742,742,no,S-palmitoyl cysteine; by host
+chikungunya_virus_e2,Q8JUX5,Lipidation,1242,1242,1242,1242,no,S-palmitoyl cysteine; by host
+chikungunya_virus_e2,Q8JUX5,Lipidation,1242,1242,1242,1242,no,S-stearoyl cysteine; by host
+chikungunya_virus_e2,Q8JUX5,Glycosylation,273,273,273,273,no,N-linked (GlcNAc...) asparagine; by host
+chikungunya_virus_e2,Q8JUX5,Glycosylation,588,588,588,588,no,N-linked (GlcNAc...) asparagine; by host
+chikungunya_virus_e2,Q8JUX5,Glycosylation,670,670,670,670,no,N-linked (GlcNAc...) asparagine; by host
+chikungunya_virus_e2,Q8JUX5,Glycosylation,950,950,950,950,no,N-linked (GlcNAc...) asparagine; by host
+chikungunya_virus_e2,Q8JUX5,Glycosylation,1079,1079,1079,1079,no,N-linked (GlcNAc...) asparagine; by host
+chikungunya_virus_e2,Q8JUX5,Disulfide bond,113,128,113,128,no,
+chikungunya_virus_e2,Q8JUX5,Disulfide bond,269,278,269,278,no,
+chikungunya_virus_e2,Q8JUX5,Disulfide bond,283,287,283,287,no,
+chikungunya_virus_e2,Q8JUX5,Disulfide bond,286,318,286,318,no,
+chikungunya_virus_e2,Q8JUX5,Disulfide bond,344,450,344,450,no,
+chikungunya_virus_e2,Q8JUX5,Disulfide bond,347,353,347,353,no,
+chikungunya_virus_e2,Q8JUX5,Disulfide bond,416,430,416,430,no,
+chikungunya_virus_e2,Q8JUX5,Disulfide bond,478,591,478,591,no,
+chikungunya_virus_e2,Q8JUX5,Disulfide bond,526,550,526,550,no,
+chikungunya_virus_e2,Q8JUX5,Disulfide bond,528,545,528,545,no,
+chikungunya_virus_e2,Q8JUX5,Disulfide bond,721,742,721,742,no,
+chikungunya_virus_e2,Q8JUX5,Disulfide bond,858,923,858,923,no,
+chikungunya_virus_e2,Q8JUX5,Disulfide bond,871,903,871,903,no,
+chikungunya_virus_e2,Q8JUX5,Disulfide bond,872,905,872,905,no,
+chikungunya_virus_e2,Q8JUX5,Disulfide bond,877,887,877,887,no,
+chikungunya_virus_e2,Q8JUX5,Disulfide bond,1068,1080,1068,1080,no,
+chikungunya_virus_e2,Q8JUX5,Disulfide bond,1110,1185,1110,1185,no,
+chikungunya_virus_e2,Q8JUX5,Disulfide bond,1115,1189,1115,1189,no,
+chikungunya_virus_e2,Q8JUX5,Disulfide bond,1137,1179,1137,1179,no,
+chikungunya_virus_e2,Q8JUX5,Mutagenesis,51,51,51,51,no,Complete loss of nuclear expot of the capsid protein; when associated with A-53.
+chikungunya_virus_e2,Q8JUX5,Mutagenesis,53,53,53,53,no,Complete loss of nuclear expot of the capsid protein; when associated with A-51.
+chikungunya_virus_e2,Q8JUX5,Sequence conflict,63,63,63,63,no,in Ref. 1; AAN05102
+chikungunya_virus_e2,Q8JUX5,Sequence conflict,519,520,519,520,no,in Ref. 1; AAN05102
+chikungunya_virus_e2,Q8JUX5,Helix,895,899,895,899,no,
+chikungunya_virus_e2,Q8JUX5,Turn,904,907,904,907,no,
+eastern_equine_encephalitis_virus_e2,P08768,Chain,1,259,1,259,no,Capsid protein
+eastern_equine_encephalitis_virus_e2,P08768,Chain,260,742,260,742,no,Precursor of protein E3/E2
+eastern_equine_encephalitis_virus_e2,P08768,Chain,260,322,260,322,no,Assembly protein E3
+eastern_equine_encephalitis_virus_e2,P08768,Chain,323,742,323,742,no,Spike glycoprotein E2
+eastern_equine_encephalitis_virus_e2,P08768,Chain,743,798,743,798,no,6K protein
+eastern_equine_encephalitis_virus_e2,P08768,Chain,799,1239,799,1239,no,Spike glycoprotein E1
+eastern_equine_encephalitis_virus_e2,P08768,Topological domain,260,681,260,681,no,Extracellular
+eastern_equine_encephalitis_virus_e2,P08768,Transmembrane,682,702,682,702,no,Helical
+eastern_equine_encephalitis_virus_e2,P08768,Topological domain,703,742,703,742,no,Cytoplasmic
+eastern_equine_encephalitis_virus_e2,P08768,Topological domain,743,754,743,754,no,Extracellular
+eastern_equine_encephalitis_virus_e2,P08768,Transmembrane,755,775,755,775,no,Helical
+eastern_equine_encephalitis_virus_e2,P08768,Topological domain,776,776,776,776,no,Cytoplasmic
+eastern_equine_encephalitis_virus_e2,P08768,Transmembrane,777,797,777,797,no,Helical
+eastern_equine_encephalitis_virus_e2,P08768,Topological domain,798,1215,798,1215,no,Extracellular
+eastern_equine_encephalitis_virus_e2,P08768,Transmembrane,1216,1236,1216,1236,no,Helical
+eastern_equine_encephalitis_virus_e2,P08768,Topological domain,1237,1239,1237,1239,no,Cytoplasmic
+eastern_equine_encephalitis_virus_e2,P08768,Domain,110,259,110,259,no,Peptidase S3
+eastern_equine_encephalitis_virus_e2,P08768,Region,1,101,1,101,yes,Disordered
+eastern_equine_encephalitis_virus_e2,P08768,Region,1,35,1,35,yes,Necessary for nucleocapsid assembly and virus assembly
+eastern_equine_encephalitis_virus_e2,P08768,Region,36,69,36,69,yes,Host transcription inhibition
+eastern_equine_encephalitis_virus_e2,P08768,Region,81,111,81,111,yes,Binding to the viral RNA
+eastern_equine_encephalitis_virus_e2,P08768,Region,96,110,96,110,yes,Ribosome-binding
+eastern_equine_encephalitis_virus_e2,P08768,Region,152,157,152,157,yes,Interaction with spike glycoprotein E2
+eastern_equine_encephalitis_virus_e2,P08768,Region,244,248,244,248,yes,Interaction with spike glycoprotein E2
+eastern_equine_encephalitis_virus_e2,P08768,Region,260,271,260,271,yes,Functions as an uncleaved signal peptide for the precursor of protein E3/E2
+eastern_equine_encephalitis_virus_e2,P08768,Region,710,714,710,714,yes,Interaction with the capsid protein
+eastern_equine_encephalitis_virus_e2,P08768,Region,714,734,714,734,yes,Transient transmembrane before p62-6K protein processing
+eastern_equine_encephalitis_virus_e2,P08768,Region,882,899,882,899,yes,E1 fusion peptide loop
+eastern_equine_encephalitis_virus_e2,P08768,Motif,43,50,43,50,yes,Supraphysiological nuclear export signal
+eastern_equine_encephalitis_virus_e2,P08768,Motif,66,69,66,69,yes,Nuclear localization signal
+eastern_equine_encephalitis_virus_e2,P08768,Compositional bias,23,34,23,34,no,Pro residues
+eastern_equine_encephalitis_virus_e2,P08768,Compositional bias,79,101,79,101,no,Basic residues
+eastern_equine_encephalitis_virus_e2,P08768,Active site,136,136,136,136,yes,Charge relay system
+eastern_equine_encephalitis_virus_e2,P08768,Active site,158,158,158,158,yes,Charge relay system
+eastern_equine_encephalitis_virus_e2,P08768,Active site,210,210,210,210,yes,Charge relay system
+eastern_equine_encephalitis_virus_e2,P08768,Site,184,184,184,184,yes,Involved in dimerization of the capsid protein
+eastern_equine_encephalitis_virus_e2,P08768,Site,217,217,217,217,yes,Involved in dimerization of the capsid protein
+eastern_equine_encephalitis_virus_e2,P08768,Site,259,260,259,260,yes,Cleavage; by autolysis
+eastern_equine_encephalitis_virus_e2,P08768,Site,322,323,322,323,yes,Cleavage; by host furin
+eastern_equine_encephalitis_virus_e2,P08768,Site,477,477,477,477,yes,Interaction with host receptor VLDLR
+eastern_equine_encephalitis_virus_e2,P08768,Site,478,478,478,478,yes,Interaction with host receptor VLDLR
+eastern_equine_encephalitis_virus_e2,P08768,Site,479,479,479,479,yes,Interaction with host receptor VLDLR
+eastern_equine_encephalitis_virus_e2,P08768,Site,553,553,553,553,yes,Interaction with host receptor VLDLR
+eastern_equine_encephalitis_virus_e2,P08768,Site,554,554,554,554,yes,Interaction with host receptor VLDLR
+eastern_equine_encephalitis_virus_e2,P08768,Site,742,743,742,743,yes,Cleavage; by host signal peptidase
+eastern_equine_encephalitis_virus_e2,P08768,Site,798,799,798,799,yes,Cleavage; by host signal peptidase
+eastern_equine_encephalitis_virus_e2,P08768,Modified residue,108,108,108,108,no,Phosphoserine
+eastern_equine_encephalitis_virus_e2,P08768,Modified residue,111,111,111,111,no,Phosphothreonine
+eastern_equine_encephalitis_virus_e2,P08768,Lipidation,705,705,705,705,no,S-palmitoyl cysteine; by host
+eastern_equine_encephalitis_virus_e2,P08768,Lipidation,715,715,715,715,no,S-palmitoyl cysteine; by host
+eastern_equine_encephalitis_virus_e2,P08768,Lipidation,735,735,735,735,no,S-palmitoyl cysteine; by host
+eastern_equine_encephalitis_virus_e2,P08768,Lipidation,736,736,736,736,no,S-palmitoyl cysteine; by host
+eastern_equine_encephalitis_virus_e2,P08768,Glycosylation,49,49,49,49,no,N-linked (GlcNAc...) asparagine; by host
+eastern_equine_encephalitis_virus_e2,P08768,Glycosylation,270,270,270,270,no,N-linked (GlcNAc...) asparagine; by host
+eastern_equine_encephalitis_virus_e2,P08768,Glycosylation,637,637,637,637,no,N-linked (GlcNAc...) asparagine; by host
+eastern_equine_encephalitis_virus_e2,P08768,Glycosylation,932,932,932,932,no,N-linked (GlcNAc...) asparagine; by host
+eastern_equine_encephalitis_virus_e2,P08768,Glycosylation,1069,1069,1069,1069,no,N-linked (GlcNAc...) asparagine; by host
+eastern_equine_encephalitis_virus_e2,P08768,Disulfide bond,266,275,266,275,no,
+eastern_equine_encephalitis_virus_e2,P08768,Disulfide bond,280,284,280,284,no,
+eastern_equine_encephalitis_virus_e2,P08768,Disulfide bond,283,315,283,315,no,
+eastern_equine_encephalitis_virus_e2,P08768,Disulfide bond,341,444,341,444,no,
+eastern_equine_encephalitis_virus_e2,P08768,Disulfide bond,344,349,344,349,no,
+eastern_equine_encephalitis_virus_e2,P08768,Disulfide bond,411,425,411,425,no,
+eastern_equine_encephalitis_virus_e2,P08768,Disulfide bond,472,585,472,585,no,
+eastern_equine_encephalitis_virus_e2,P08768,Disulfide bond,521,545,521,545,no,
+eastern_equine_encephalitis_virus_e2,P08768,Disulfide bond,523,539,523,539,no,
+eastern_equine_encephalitis_virus_e2,P08768,Disulfide bond,715,736,715,736,no,
+eastern_equine_encephalitis_virus_e2,P08768,Disulfide bond,847,912,847,912,no,
+eastern_equine_encephalitis_virus_e2,P08768,Disulfide bond,860,892,860,892,no,
+eastern_equine_encephalitis_virus_e2,P08768,Disulfide bond,861,894,861,894,no,
+eastern_equine_encephalitis_virus_e2,P08768,Disulfide bond,866,876,866,876,no,
+eastern_equine_encephalitis_virus_e2,P08768,Disulfide bond,1058,1070,1058,1070,no,
+eastern_equine_encephalitis_virus_e2,P08768,Disulfide bond,1100,1175,1100,1175,no,
+eastern_equine_encephalitis_virus_e2,P08768,Disulfide bond,1105,1179,1105,1179,no,
+eastern_equine_encephalitis_virus_e2,P08768,Natural variant,28,30,28,30,no,in strain: PE6 vaccine
+eastern_equine_encephalitis_virus_e2,P08768,Natural variant,49,49,49,49,no,in strain: PE6 vaccine
+eastern_equine_encephalitis_virus_e2,P08768,Natural variant,73,78,73,78,no,in strain: PE6 vaccine
+eastern_equine_encephalitis_virus_e2,P08768,Natural variant,226,226,226,226,no,in strain: PE6 vaccine
+eastern_equine_encephalitis_virus_e2,P08768,Natural variant,379,380,379,380,no,in strain: PE6 vaccine
+eastern_equine_encephalitis_virus_e2,P08768,Natural variant,445,446,445,446,no,in strain: PE6 vaccine
+eastern_equine_encephalitis_virus_e2,P08768,Natural variant,495,495,495,495,no,in strain: PE6 vaccine
+eastern_equine_encephalitis_virus_e2,P08768,Natural variant,528,528,528,528,no,in strain: PE6 vaccine
+eastern_equine_encephalitis_virus_e2,P08768,Natural variant,673,673,673,673,no,in strain: PE6 vaccine
+eastern_equine_encephalitis_virus_e2,P08768,Natural variant,702,711,702,711,no,in strain: PE6 vaccine
+eastern_equine_encephalitis_virus_e2,P08768,Natural variant,779,780,779,780,no,in strain: PE6 vaccine
+eastern_equine_encephalitis_virus_e2,P08768,Natural variant,795,795,795,795,no,in strain: PE6 vaccine
+eastern_equine_encephalitis_virus_e2,P08768,Natural variant,880,880,880,880,no,in strain: PE6 vaccine
+eastern_equine_encephalitis_virus_e2,P08768,Natural variant,939,939,939,939,no,in strain: PE6 vaccine
+eastern_equine_encephalitis_virus_e2,P08768,Natural variant,1035,1035,1035,1035,no,in strain: PE6 vaccine
+eastern_equine_encephalitis_virus_e2,P08768,Natural variant,1044,1044,1044,1044,no,in strain: PE6 vaccine
+eastern_equine_encephalitis_virus_e2,P08768,Natural variant,1067,1067,1067,1067,no,in strain: PE6 vaccine
+eastern_equine_encephalitis_virus_e2,P08768,Natural variant,1109,1109,1109,1109,no,in strain: PE6 vaccine
+eastern_equine_encephalitis_virus_e2,P08768,Natural variant,1117,1148,1117,1148,no,in strain: PE6 vaccine
+eastern_equine_encephalitis_virus_e2,P08768,Natural variant,1172,1173,1172,1173,no,in strain: PE6 vaccine
+eastern_equine_encephalitis_virus_e2,P08768,Natural variant,1209,1209,1209,1209,no,in strain: PE6 vaccine
+eastern_equine_encephalitis_virus_e2,P08768,Mutagenesis,478,478,478,478,no,Complete loss of interaction of EEEV strain FL91-469 with host receptors LRP8/APOER2 and VLDLR. No effect on EEEV-PE6 strain.
+eastern_equine_encephalitis_virus_e2,P08768,Mutagenesis,553,554,553,554,no,Partial loss of interaction of EEEV strain FL91-469 with host receptor VLDLR but not with host receptor LRP8/APOER2. No effect on the interaction of EEEV-PE6 strain with host receptors VLDLR or LRP8/A
+eastern_equine_encephalitis_virus_e2,P08768,Beta strand,111,127,111,127,no,
+eastern_equine_encephalitis_virus_e2,P08768,Beta strand,130,134,130,134,no,
+eastern_equine_encephalitis_virus_e2,P08768,Beta strand,139,143,139,143,no,
+eastern_equine_encephalitis_virus_e2,P08768,Helix,144,147,144,147,no,
+eastern_equine_encephalitis_virus_e2,P08768,Beta strand,152,154,152,154,no,
+eastern_equine_encephalitis_virus_e2,P08768,Turn,155,158,155,158,no,
+eastern_equine_encephalitis_virus_e2,P08768,Beta strand,159,163,159,163,no,
+eastern_equine_encephalitis_virus_e2,P08768,Helix,166,168,166,168,no,
+eastern_equine_encephalitis_virus_e2,P08768,Beta strand,181,186,181,186,no,
+eastern_equine_encephalitis_virus_e2,P08768,Beta strand,189,194,189,194,no,
+eastern_equine_encephalitis_virus_e2,P08768,Beta strand,197,201,197,201,no,
+eastern_equine_encephalitis_virus_e2,P08768,Beta strand,213,215,213,215,no,
+eastern_equine_encephalitis_virus_e2,P08768,Beta strand,221,231,221,231,no,
+eastern_equine_encephalitis_virus_e2,P08768,Beta strand,234,242,234,242,no,
+eastern_equine_encephalitis_virus_e2,P08768,Beta strand,248,251,248,251,no,
+eastern_equine_encephalitis_virus_e2,P08768,Turn,325,330,325,330,no,
+eastern_equine_encephalitis_virus_e2,P08768,Helix,331,333,331,333,no,
+eastern_equine_encephalitis_virus_e2,P08768,Beta strand,339,347,339,347,no,
+eastern_equine_encephalitis_virus_e2,P08768,Beta strand,349,351,349,351,no,
+eastern_equine_encephalitis_virus_e2,P08768,Beta strand,355,359,355,359,no,
+eastern_equine_encephalitis_virus_e2,P08768,Beta strand,365,378,365,378,no,
+eastern_equine_encephalitis_virus_e2,P08768,Beta strand,381,391,381,391,no,
+eastern_equine_encephalitis_virus_e2,P08768,Beta strand,394,399,394,399,no,
+eastern_equine_encephalitis_virus_e2,P08768,Beta strand,404,410,404,410,no,
+eastern_equine_encephalitis_virus_e2,P08768,Beta strand,412,424,412,424,no,
+eastern_equine_encephalitis_virus_e2,P08768,Beta strand,428,437,428,437,no,
+eastern_equine_encephalitis_virus_e2,P08768,Beta strand,440,450,440,450,no,
+eastern_equine_encephalitis_virus_e2,P08768,Beta strand,456,458,456,458,no,
+eastern_equine_encephalitis_virus_e2,P08768,Beta strand,465,475,465,475,no,
+eastern_equine_encephalitis_virus_e2,P08768,Beta strand,485,489,485,489,no,
+eastern_equine_encephalitis_virus_e2,P08768,Helix,497,499,497,499,no,
+eastern_equine_encephalitis_virus_e2,P08768,Turn,503,505,503,505,no,
+eastern_equine_encephalitis_virus_e2,P08768,Beta strand,513,515,513,515,no,
+eastern_equine_encephalitis_virus_e2,P08768,Beta strand,516,521,516,521,no,
+eastern_equine_encephalitis_virus_e2,P08768,Beta strand,523,525,523,525,no,
+eastern_equine_encephalitis_virus_e2,P08768,Beta strand,527,533,527,533,no,
+eastern_equine_encephalitis_virus_e2,P08768,Helix,542,544,542,544,no,
+eastern_equine_encephalitis_virus_e2,P08768,Beta strand,545,550,545,550,no,
+eastern_equine_encephalitis_virus_e2,P08768,Beta strand,553,557,553,557,no,
+eastern_equine_encephalitis_virus_e2,P08768,Beta strand,570,575,570,575,no,
+eastern_equine_encephalitis_virus_e2,P08768,Beta strand,580,587,580,587,no,
+eastern_equine_encephalitis_virus_e2,P08768,Beta strand,594,598,594,598,no,
+eastern_equine_encephalitis_virus_e2,P08768,Beta strand,601,606,601,606,no,
+eastern_equine_encephalitis_virus_e2,P08768,Beta strand,612,622,612,622,no,
+eastern_equine_encephalitis_virus_e2,P08768,Beta strand,626,630,626,630,no,
+eastern_equine_encephalitis_virus_e2,P08768,Beta strand,634,639,634,639,no,
+eastern_equine_encephalitis_virus_e2,P08768,Beta strand,645,649,645,649,no,
+eastern_equine_encephalitis_virus_e2,P08768,Beta strand,655,659,655,659,no,
+eastern_equine_encephalitis_virus_e2,P08768,Helix,671,681,671,681,no,
+eastern_equine_encephalitis_virus_e2,P08768,Helix,683,720,683,720,no,
+eastern_equine_encephalitis_virus_e2,P08768,Helix,729,734,729,734,no,
+eastern_equine_encephalitis_virus_e2,P08768,Beta strand,800,807,800,807,no,
+eastern_equine_encephalitis_virus_e2,P08768,Beta strand,813,817,813,817,no,
+eastern_equine_encephalitis_virus_e2,P08768,Beta strand,825,846,825,846,no,
+eastern_equine_encephalitis_virus_e2,P08768,Beta strand,849,852,849,852,no,
+eastern_equine_encephalitis_virus_e2,P08768,Beta strand,857,859,857,859,no,
+eastern_equine_encephalitis_virus_e2,P08768,Beta strand,875,881,875,881,no,
+eastern_equine_encephalitis_virus_e2,P08768,Beta strand,889,891,889,891,no,
+eastern_equine_encephalitis_virus_e2,P08768,Beta strand,893,897,893,897,no,
+eastern_equine_encephalitis_virus_e2,P08768,Beta strand,899,908,899,908,no,
+eastern_equine_encephalitis_virus_e2,P08768,Helix,910,913,910,913,no,
+eastern_equine_encephalitis_virus_e2,P08768,Beta strand,917,935,917,935,no,
+eastern_equine_encephalitis_virus_e2,P08768,Beta strand,938,946,938,946,no,
+eastern_equine_encephalitis_virus_e2,P08768,Beta strand,948,950,948,950,no,
+eastern_equine_encephalitis_virus_e2,P08768,Beta strand,953,955,953,955,no,
+eastern_equine_encephalitis_virus_e2,P08768,Beta strand,958,962,958,962,no,
+eastern_equine_encephalitis_virus_e2,P08768,Beta strand,974,979,974,979,no,
+eastern_equine_encephalitis_virus_e2,P08768,Beta strand,982,984,982,984,no,
+eastern_equine_encephalitis_virus_e2,P08768,Helix,999,1001,999,1001,no,
+eastern_equine_encephalitis_virus_e2,P08768,Beta strand,1002,1006,1002,1006,no,
+eastern_equine_encephalitis_virus_e2,P08768,Beta strand,1012,1014,1012,1014,no,
+eastern_equine_encephalitis_virus_e2,P08768,Helix,1038,1045,1038,1045,no,
+eastern_equine_encephalitis_virus_e2,P08768,Helix,1050,1053,1050,1053,no,
+eastern_equine_encephalitis_virus_e2,P08768,Helix,1055,1057,1055,1057,no,
+eastern_equine_encephalitis_virus_e2,P08768,Beta strand,1059,1061,1059,1061,no,
+eastern_equine_encephalitis_virus_e2,P08768,Turn,1062,1065,1062,1065,no,
+eastern_equine_encephalitis_virus_e2,P08768,Beta strand,1066,1068,1066,1068,no,
+eastern_equine_encephalitis_virus_e2,P08768,Beta strand,1073,1080,1073,1080,no,
+eastern_equine_encephalitis_virus_e2,P08768,Helix,1083,1085,1083,1085,no,
+eastern_equine_encephalitis_virus_e2,P08768,Helix,1089,1091,1089,1091,no,
+eastern_equine_encephalitis_virus_e2,P08768,Beta strand,1095,1104,1095,1104,no,
+eastern_equine_encephalitis_virus_e2,P08768,Beta strand,1113,1122,1113,1122,no,
+eastern_equine_encephalitis_virus_e2,P08768,Beta strand,1126,1128,1126,1128,no,
+eastern_equine_encephalitis_virus_e2,P08768,Beta strand,1136,1139,1136,1139,no,
+eastern_equine_encephalitis_virus_e2,P08768,Beta strand,1141,1144,1141,1144,no,
+eastern_equine_encephalitis_virus_e2,P08768,Beta strand,1147,1157,1147,1157,no,
+eastern_equine_encephalitis_virus_e2,P08768,Beta strand,1163,1166,1163,1166,no,
+eastern_equine_encephalitis_virus_e2,P08768,Beta strand,1173,1176,1173,1176,no,
+eastern_equine_encephalitis_virus_e2,P08768,Beta strand,1185,1189,1185,1189,no,
+eastern_equine_encephalitis_virus_e2,P08768,Turn,1197,1200,1197,1200,no,
+eastern_equine_encephalitis_virus_e2,P08768,Helix,1203,1238,1203,1238,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Chain,1,275,1,275,no,Capsid protein
+venezuelan_equine_encephalitis_virus_e2,P05674,Chain,276,757,276,757,no,Precursor of protein E3/E2
+venezuelan_equine_encephalitis_virus_e2,P05674,Chain,276,334,276,334,no,Assembly protein E3
+venezuelan_equine_encephalitis_virus_e2,P05674,Chain,335,757,335,757,no,Spike glycoprotein E2
+venezuelan_equine_encephalitis_virus_e2,P05674,Chain,758,812,758,812,no,6K protein
+venezuelan_equine_encephalitis_virus_e2,P05674,Chain,813,1254,813,1254,no,Spike glycoprotein E1
+venezuelan_equine_encephalitis_virus_e2,P05674,Topological domain,276,701,276,701,no,Extracellular
+venezuelan_equine_encephalitis_virus_e2,P05674,Transmembrane,702,722,702,722,no,Helical
+venezuelan_equine_encephalitis_virus_e2,P05674,Topological domain,723,757,723,757,no,Cytoplasmic
+venezuelan_equine_encephalitis_virus_e2,P05674,Topological domain,758,772,758,772,no,Extracellular
+venezuelan_equine_encephalitis_virus_e2,P05674,Transmembrane,773,793,773,793,no,Helical
+venezuelan_equine_encephalitis_virus_e2,P05674,Topological domain,794,795,794,795,no,Cytoplasmic
+venezuelan_equine_encephalitis_virus_e2,P05674,Transmembrane,796,816,796,816,no,Helical
+venezuelan_equine_encephalitis_virus_e2,P05674,Topological domain,817,1224,817,1224,no,Extracellular
+venezuelan_equine_encephalitis_virus_e2,P05674,Transmembrane,1225,1245,1225,1245,no,Helical
+venezuelan_equine_encephalitis_virus_e2,P05674,Topological domain,1246,1254,1246,1254,no,Cytoplasmic
+venezuelan_equine_encephalitis_virus_e2,P05674,Domain,126,275,126,275,no,Peptidase S3
+venezuelan_equine_encephalitis_virus_e2,P05674,Region,1,33,1,33,yes,Necessary for nucleocapsid assembly and virus assembly
+venezuelan_equine_encephalitis_virus_e2,P05674,Region,33,68,33,68,yes,Host transcription inhibition
+venezuelan_equine_encephalitis_virus_e2,P05674,Region,45,119,45,119,yes,Disordered
+venezuelan_equine_encephalitis_virus_e2,P05674,Region,91,127,91,127,yes,Binding to the viral RNA
+venezuelan_equine_encephalitis_virus_e2,P05674,Region,112,126,112,126,yes,Ribosome-binding
+venezuelan_equine_encephalitis_virus_e2,P05674,Region,276,287,276,287,yes,Functions as an uncleaved signal peptide for the precursor of protein E3/E2
+venezuelan_equine_encephalitis_virus_e2,P05674,Region,896,913,896,913,yes,E1 fusion peptide loop
+venezuelan_equine_encephalitis_virus_e2,P05674,Motif,41,48,41,48,yes,Supraphysiological nuclear export signal
+venezuelan_equine_encephalitis_virus_e2,P05674,Motif,64,68,64,68,yes,Nuclear localization signal
+venezuelan_equine_encephalitis_virus_e2,P05674,Compositional bias,80,92,80,92,no,Basic residues
+venezuelan_equine_encephalitis_virus_e2,P05674,Compositional bias,104,118,104,118,no,Basic residues
+venezuelan_equine_encephalitis_virus_e2,P05674,Active site,152,152,152,152,yes,Charge relay system
+venezuelan_equine_encephalitis_virus_e2,P05674,Active site,174,174,174,174,yes,Charge relay system
+venezuelan_equine_encephalitis_virus_e2,P05674,Active site,226,226,226,226,yes,Charge relay system
+venezuelan_equine_encephalitis_virus_e2,P05674,Site,200,200,200,200,yes,Involved in dimerization of the capsid protein
+venezuelan_equine_encephalitis_virus_e2,P05674,Site,233,233,233,233,yes,Involved in dimerization of the capsid protein
+venezuelan_equine_encephalitis_virus_e2,P05674,Site,275,276,275,276,yes,Cleavage; by autolysis
+venezuelan_equine_encephalitis_virus_e2,P05674,Site,334,335,334,335,yes,Cleavage; by host furin
+venezuelan_equine_encephalitis_virus_e2,P05674,Site,378,378,378,378,yes,Interaction with host receptor LDLRAD3
+venezuelan_equine_encephalitis_virus_e2,P05674,Site,427,427,427,427,yes,Interaction with host receptor LDLRAD3
+venezuelan_equine_encephalitis_virus_e2,P05674,Site,487,487,487,487,yes,Interaction with host receptor LDLRAD3
+venezuelan_equine_encephalitis_virus_e2,P05674,Site,489,489,489,489,yes,Interaction with host receptor LDLRAD3
+venezuelan_equine_encephalitis_virus_e2,P05674,Site,490,490,490,490,yes,Interaction with host receptor LDLRAD3
+venezuelan_equine_encephalitis_virus_e2,P05674,Site,596,596,596,596,yes,Interaction with host receptor LDLRAD3
+venezuelan_equine_encephalitis_virus_e2,P05674,Site,757,758,757,758,yes,Cleavage; by host signal peptidase
+venezuelan_equine_encephalitis_virus_e2,P05674,Site,812,813,812,813,yes,Cleavage; by host signal peptidase
+venezuelan_equine_encephalitis_virus_e2,P05674,Modified residue,93,93,93,93,no,Phosphothreonine
+venezuelan_equine_encephalitis_virus_e2,P05674,Modified residue,108,108,108,108,no,Phosphothreonine
+venezuelan_equine_encephalitis_virus_e2,P05674,Modified residue,124,124,124,124,no,Phosphoserine
+venezuelan_equine_encephalitis_virus_e2,P05674,Modified residue,127,127,127,127,no,Phosphothreonine
+venezuelan_equine_encephalitis_virus_e2,P05674,Lipidation,730,730,730,730,no,S-palmitoyl cysteine; by host
+venezuelan_equine_encephalitis_virus_e2,P05674,Lipidation,750,750,750,750,no,S-palmitoyl cysteine; by host
+venezuelan_equine_encephalitis_virus_e2,P05674,Lipidation,751,751,751,751,no,S-palmitoyl cysteine; by host
+venezuelan_equine_encephalitis_virus_e2,P05674,Glycosylation,286,286,286,286,no,N-linked (GlcNAc...) asparagine; by host
+venezuelan_equine_encephalitis_virus_e2,P05674,Glycosylation,546,546,546,546,no,N-linked (GlcNAc...) asparagine; by host
+venezuelan_equine_encephalitis_virus_e2,P05674,Glycosylation,652,652,652,652,no,N-linked (GlcNAc...) asparagine; by host
+venezuelan_equine_encephalitis_virus_e2,P05674,Glycosylation,946,946,946,946,no,N-linked (GlcNAc...) asparagine; by host
+venezuelan_equine_encephalitis_virus_e2,P05674,Disulfide bond,861,926,861,926,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Disulfide bond,874,906,874,906,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Disulfide bond,875,908,875,908,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Disulfide bond,880,890,880,890,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Disulfide bond,1071,1083,1071,1083,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Disulfide bond,1113,1188,1113,1188,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Disulfide bond,1118,1192,1118,1192,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Disulfide bond,1140,1182,1140,1182,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Helix,114,122,114,122,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Beta strand,123,126,123,126,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Beta strand,127,132,127,132,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Beta strand,135,143,135,143,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Beta strand,146,150,146,150,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Beta strand,155,159,155,159,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Helix,160,164,160,164,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Beta strand,168,170,168,170,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Turn,171,174,171,174,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Beta strand,175,179,175,179,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Turn,182,186,182,186,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Beta strand,187,189,187,189,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Beta strand,197,202,197,202,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Beta strand,205,210,205,210,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Beta strand,213,217,213,217,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Beta strand,229,231,229,231,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Beta strand,237,247,237,247,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Beta strand,250,258,250,258,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Beta strand,262,267,262,267,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Beta strand,281,286,281,286,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Beta strand,288,290,288,290,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Turn,298,300,298,300,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Helix,302,311,302,311,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Helix,318,326,318,326,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Helix,337,339,337,339,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Helix,341,344,341,344,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Beta strand,351,359,351,359,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Beta strand,361,363,361,363,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Beta strand,369,371,369,371,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Beta strand,375,388,375,388,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Beta strand,391,393,391,393,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Beta strand,397,404,397,404,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Beta strand,407,412,407,412,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Helix,413,415,413,415,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Beta strand,417,423,417,423,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Beta strand,425,437,425,437,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Beta strand,444,452,444,452,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Beta strand,454,459,454,459,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Beta strand,469,471,469,471,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Beta strand,481,488,481,488,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Beta strand,498,502,498,502,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Turn,510,512,510,512,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Beta strand,513,515,513,515,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Beta strand,517,522,517,522,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Beta strand,529,534,529,534,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Beta strand,536,538,536,538,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Beta strand,540,546,540,546,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Beta strand,549,553,549,553,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Helix,557,559,557,559,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Beta strand,560,564,560,564,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Beta strand,568,572,568,572,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Beta strand,575,577,575,577,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Beta strand,588,590,588,590,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Beta strand,595,602,595,602,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Beta strand,609,613,609,613,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Beta strand,616,621,616,621,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Beta strand,627,637,627,637,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Beta strand,641,645,641,645,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Beta strand,649,653,649,653,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Beta strand,659,664,659,664,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Beta strand,670,674,670,674,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Beta strand,682,684,682,684,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Helix,686,696,686,696,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Helix,698,735,698,735,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Beta strand,737,739,737,739,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Helix,744,748,744,748,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Turn,749,751,749,751,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Beta strand,814,821,814,821,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Beta strand,823,825,823,825,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Beta strand,827,831,827,831,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Beta strand,834,836,834,836,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Beta strand,839,854,839,854,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Beta strand,858,860,858,860,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Beta strand,863,867,863,867,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Beta strand,871,873,871,873,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Beta strand,889,895,889,895,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Beta strand,903,905,903,905,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Beta strand,909,911,909,911,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Beta strand,913,922,913,922,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Turn,924,928,924,928,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Beta strand,931,951,931,951,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Beta strand,953,959,953,959,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Beta strand,961,963,961,963,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Beta strand,966,968,966,968,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Beta strand,971,973,971,973,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Beta strand,987,992,987,992,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Beta strand,995,997,995,997,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Beta strand,1014,1019,1014,1019,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Beta strand,1025,1027,1025,1027,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Helix,1051,1057,1051,1057,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Helix,1063,1066,1063,1066,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Helix,1068,1070,1068,1070,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Beta strand,1072,1074,1072,1074,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Turn,1075,1078,1075,1078,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Beta strand,1079,1082,1079,1082,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Beta strand,1086,1093,1086,1093,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Helix,1096,1098,1096,1098,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Helix,1102,1104,1102,1104,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Beta strand,1108,1119,1108,1119,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Beta strand,1121,1123,1121,1123,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Beta strand,1126,1136,1126,1136,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Beta strand,1138,1140,1138,1140,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Beta strand,1146,1152,1146,1152,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Beta strand,1156,1158,1156,1158,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Beta strand,1160,1170,1160,1170,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Beta strand,1176,1181,1176,1181,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Beta strand,1184,1189,1184,1189,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Beta strand,1198,1202,1198,1202,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Helix,1216,1226,1216,1226,no,
+venezuelan_equine_encephalitis_virus_e2,P05674,Helix,1228,1250,1228,1250,no,
+western_equine_encephalitis_virus_e2,P13897,Chain,1,259,1,259,no,Capsid protein
+western_equine_encephalitis_virus_e2,P13897,Chain,260,742,260,742,no,Precursor of protein E3/E2
+western_equine_encephalitis_virus_e2,P13897,Chain,260,319,260,319,no,Assembly protein E3
+western_equine_encephalitis_virus_e2,P13897,Chain,320,742,320,742,no,Spike glycoprotein E2
+western_equine_encephalitis_virus_e2,P13897,Chain,743,797,743,797,no,6K protein
+western_equine_encephalitis_virus_e2,P13897,Chain,798,1236,798,1236,no,Spike glycoprotein E1
+western_equine_encephalitis_virus_e2,P13897,Topological domain,260,687,260,687,no,Extracellular
+western_equine_encephalitis_virus_e2,P13897,Transmembrane,688,708,688,708,no,Helical
+western_equine_encephalitis_virus_e2,P13897,Topological domain,709,742,709,742,no,Cytoplasmic
+western_equine_encephalitis_virus_e2,P13897,Topological domain,743,767,743,767,no,Extracellular
+western_equine_encephalitis_virus_e2,P13897,Transmembrane,768,788,768,788,no,Helical
+western_equine_encephalitis_virus_e2,P13897,Transmembrane,789,809,789,809,no,Helical
+western_equine_encephalitis_virus_e2,P13897,Topological domain,810,1205,810,1205,no,Extracellular
+western_equine_encephalitis_virus_e2,P13897,Transmembrane,1206,1226,1206,1226,no,Helical
+western_equine_encephalitis_virus_e2,P13897,Topological domain,1227,1236,1227,1236,no,Cytoplasmic
+western_equine_encephalitis_virus_e2,P13897,Domain,110,259,110,259,no,Peptidase S3
+western_equine_encephalitis_virus_e2,P13897,Region,1,36,1,36,yes,Necessary for nucleocapsid assembly and virus assembly
+western_equine_encephalitis_virus_e2,P13897,Region,37,70,37,70,yes,Host transcription inhibition
+western_equine_encephalitis_virus_e2,P13897,Region,44,103,44,103,yes,Disordered
+western_equine_encephalitis_virus_e2,P13897,Region,83,111,83,111,yes,Binding to the viral RNA
+western_equine_encephalitis_virus_e2,P13897,Region,96,110,96,110,yes,Ribosome-binding
+western_equine_encephalitis_virus_e2,P13897,Region,152,157,152,157,yes,Interaction with spike glycoprotein E2
+western_equine_encephalitis_virus_e2,P13897,Region,244,248,244,248,yes,Interaction with spike glycoprotein E2
+western_equine_encephalitis_virus_e2,P13897,Region,260,271,260,271,yes,Functions as an uncleaved signal peptide for the precursor of protein E3/E2
+western_equine_encephalitis_virus_e2,P13897,Region,710,714,710,714,yes,Interaction with the capsid protein
+western_equine_encephalitis_virus_e2,P13897,Region,717,737,717,737,yes,Transient transmembrane before p62-6K protein processing
+western_equine_encephalitis_virus_e2,P13897,Region,881,898,881,898,yes,E1 fusion peptide loop
+western_equine_encephalitis_virus_e2,P13897,Motif,44,51,44,51,yes,Supraphysiological nuclear export signal
+western_equine_encephalitis_virus_e2,P13897,Motif,67,70,67,70,yes,Nuclear localization signal
+western_equine_encephalitis_virus_e2,P13897,Compositional bias,66,102,66,102,no,Basic residues
+western_equine_encephalitis_virus_e2,P13897,Active site,136,136,136,136,yes,Charge relay system
+western_equine_encephalitis_virus_e2,P13897,Active site,158,158,158,158,yes,Charge relay system
+western_equine_encephalitis_virus_e2,P13897,Active site,210,210,210,210,yes,Charge relay system
+western_equine_encephalitis_virus_e2,P13897,Site,184,184,184,184,yes,Involved in dimerization of the capsid protein
+western_equine_encephalitis_virus_e2,P13897,Site,217,217,217,217,yes,Involved in dimerization of the capsid protein
+western_equine_encephalitis_virus_e2,P13897,Site,259,260,259,260,yes,Cleavage; by autolysis
+western_equine_encephalitis_virus_e2,P13897,Site,319,320,319,320,yes,Cleavage; by host furin
+western_equine_encephalitis_virus_e2,P13897,Site,742,743,742,743,yes,Cleavage; by host signal peptidase
+western_equine_encephalitis_virus_e2,P13897,Site,797,798,797,798,yes,Cleavage; by host signal peptidase
+western_equine_encephalitis_virus_e2,P13897,Modified residue,108,108,108,108,no,Phosphoserine
+western_equine_encephalitis_virus_e2,P13897,Modified residue,111,111,111,111,no,Phosphothreonine
+western_equine_encephalitis_virus_e2,P13897,Lipidation,715,715,715,715,no,S-palmitoyl cysteine; by host
+western_equine_encephalitis_virus_e2,P13897,Lipidation,735,735,735,735,no,S-palmitoyl cysteine; by host
+western_equine_encephalitis_virus_e2,P13897,Lipidation,736,736,736,736,no,S-palmitoyl cysteine; by host
+western_equine_encephalitis_virus_e2,P13897,Glycosylation,270,270,270,270,no,N-linked (GlcNAc...) asparagine; by host
+western_equine_encephalitis_virus_e2,P13897,Glycosylation,515,515,515,515,no,N-linked (GlcNAc...) asparagine; by host
+western_equine_encephalitis_virus_e2,P13897,Glycosylation,637,637,637,637,no,N-linked (GlcNAc...) asparagine; by host
+western_equine_encephalitis_virus_e2,P13897,Glycosylation,936,936,936,936,no,N-linked (GlcNAc...) asparagine; by host
+western_equine_encephalitis_virus_e2,P13897,Glycosylation,1042,1042,1042,1042,no,N-linked (GlcNAc...) asparagine; by host
+western_equine_encephalitis_virus_e2,P13897,Glycosylation,1067,1067,1067,1067,no,N-linked (GlcNAc...) asparagine; by host
+western_equine_encephalitis_virus_e2,P13897,Disulfide bond,266,275,266,275,no,
+western_equine_encephalitis_virus_e2,P13897,Disulfide bond,335,443,335,443,no,
+western_equine_encephalitis_virus_e2,P13897,Disulfide bond,338,344,338,344,no,
+western_equine_encephalitis_virus_e2,P13897,Disulfide bond,410,424,410,424,no,
+western_equine_encephalitis_virus_e2,P13897,Disulfide bond,471,585,471,585,no,
+western_equine_encephalitis_virus_e2,P13897,Disulfide bond,520,545,520,545,no,
+western_equine_encephalitis_virus_e2,P13897,Disulfide bond,522,539,522,539,no,
+western_equine_encephalitis_virus_e2,P13897,Disulfide bond,715,736,715,736,no,
+western_equine_encephalitis_virus_e2,P13897,Disulfide bond,846,911,846,911,no,
+western_equine_encephalitis_virus_e2,P13897,Disulfide bond,859,891,859,891,no,
+western_equine_encephalitis_virus_e2,P13897,Disulfide bond,860,893,860,893,no,
+western_equine_encephalitis_virus_e2,P13897,Disulfide bond,865,875,865,875,no,
+western_equine_encephalitis_virus_e2,P13897,Disulfide bond,1056,1068,1056,1068,no,
+western_equine_encephalitis_virus_e2,P13897,Disulfide bond,1098,1173,1098,1173,no,
+western_equine_encephalitis_virus_e2,P13897,Disulfide bond,1103,1177,1103,1177,no,
+western_equine_encephalitis_virus_e2,P13897,Disulfide bond,1125,1167,1125,1167,no,
+western_equine_encephalitis_virus_e2,P13897,Sequence conflict,361,361,361,361,no,in Ref. 2; AA sequence
+western_equine_encephalitis_virus_e2,P13897,Sequence conflict,847,847,847,847,no,in Ref. 2; AA sequence
+western_equine_encephalitis_virus_e2,P13897,Sequence conflict,849,849,849,849,no,in Ref. 2; AA sequence
+western_equine_encephalitis_virus_e2,P13897,Sequence conflict,862,862,862,862,no,in Ref. 2; AA sequence
+western_equine_encephalitis_virus_e2,P13897,Turn,108,110,108,110,no,
+western_equine_encephalitis_virus_e2,P13897,Beta strand,111,116,111,116,no,
+western_equine_encephalitis_virus_e2,P13897,Beta strand,119,127,119,127,no,
+western_equine_encephalitis_virus_e2,P13897,Beta strand,130,137,130,137,no,
+western_equine_encephalitis_virus_e2,P13897,Beta strand,140,142,140,142,no,
+western_equine_encephalitis_virus_e2,P13897,Helix,144,147,144,147,no,
+western_equine_encephalitis_virus_e2,P13897,Beta strand,152,154,152,154,no,
+western_equine_encephalitis_virus_e2,P13897,Turn,155,158,155,158,no,
+western_equine_encephalitis_virus_e2,P13897,Beta strand,159,163,159,163,no,
+western_equine_encephalitis_virus_e2,P13897,Turn,166,168,166,168,no,
+western_equine_encephalitis_virus_e2,P13897,Beta strand,169,173,169,173,no,
+western_equine_encephalitis_virus_e2,P13897,Beta strand,181,186,181,186,no,
+western_equine_encephalitis_virus_e2,P13897,Beta strand,189,194,189,194,no,
+western_equine_encephalitis_virus_e2,P13897,Beta strand,197,201,197,201,no,
+western_equine_encephalitis_virus_e2,P13897,Beta strand,213,215,213,215,no,
+western_equine_encephalitis_virus_e2,P13897,Beta strand,221,230,221,230,no,
+western_equine_encephalitis_virus_e2,P13897,Beta strand,232,242,232,242,no,
+western_equine_encephalitis_virus_e2,P13897,Beta strand,248,251,248,251,no,
+western_equine_encephalitis_virus_e2,P13897,Beta strand,333,337,333,337,no,
+western_equine_encephalitis_virus_e2,P13897,Beta strand,339,342,339,342,no,
+western_equine_encephalitis_virus_e2,P13897,Beta strand,344,346,344,346,no,
+western_equine_encephalitis_virus_e2,P13897,Beta strand,350,354,350,354,no,
+western_equine_encephalitis_virus_e2,P13897,Beta strand,360,372,360,372,no,
+western_equine_encephalitis_virus_e2,P13897,Beta strand,380,386,380,386,no,
+western_equine_encephalitis_virus_e2,P13897,Beta strand,388,391,388,391,no,
+western_equine_encephalitis_virus_e2,P13897,Beta strand,394,398,394,398,no,
+western_equine_encephalitis_virus_e2,P13897,Helix,399,401,399,401,no,
+western_equine_encephalitis_virus_e2,P13897,Beta strand,402,409,402,409,no,
+western_equine_encephalitis_virus_e2,P13897,Beta strand,411,423,411,423,no,
+western_equine_encephalitis_virus_e2,P13897,Beta strand,426,436,426,436,no,
+western_equine_encephalitis_virus_e2,P13897,Beta strand,439,449,439,449,no,
+western_equine_encephalitis_virus_e2,P13897,Beta strand,454,457,454,457,no,
+western_equine_encephalitis_virus_e2,P13897,Beta strand,464,474,464,474,no,
+western_equine_encephalitis_virus_e2,P13897,Beta strand,484,488,484,488,no,
+western_equine_encephalitis_virus_e2,P13897,Beta strand,499,502,499,502,no,
+western_equine_encephalitis_virus_e2,P13897,Beta strand,505,508,505,508,no,
+western_equine_encephalitis_virus_e2,P13897,Beta strand,516,530,516,530,no,
+western_equine_encephalitis_virus_e2,P13897,Beta strand,534,538,534,538,no,
+western_equine_encephalitis_virus_e2,P13897,Helix,542,544,542,544,no,
+western_equine_encephalitis_virus_e2,P13897,Beta strand,545,549,545,549,no,
+western_equine_encephalitis_virus_e2,P13897,Beta strand,573,575,573,575,no,
+western_equine_encephalitis_virus_e2,P13897,Beta strand,580,587,580,587,no,
+western_equine_encephalitis_virus_e2,P13897,Beta strand,594,598,594,598,no,
+western_equine_encephalitis_virus_e2,P13897,Beta strand,601,621,601,621,no,
+western_equine_encephalitis_virus_e2,P13897,Beta strand,626,638,626,638,no,
+western_equine_encephalitis_virus_e2,P13897,Beta strand,645,649,645,649,no,
+western_equine_encephalitis_virus_e2,P13897,Beta strand,655,659,655,659,no,
+western_equine_encephalitis_virus_e2,P13897,Beta strand,667,669,667,669,no,
+western_equine_encephalitis_virus_e2,P13897,Helix,671,681,671,681,no,
+western_equine_encephalitis_virus_e2,P13897,Helix,683,716,683,716,no,
+western_equine_encephalitis_virus_e2,P13897,Turn,717,721,717,721,no,
+western_equine_encephalitis_virus_e2,P13897,Beta strand,722,724,722,724,no,
+western_equine_encephalitis_virus_e2,P13897,Helix,729,735,729,735,no,
+western_equine_encephalitis_virus_e2,P13897,Beta strand,799,805,799,805,no,
+western_equine_encephalitis_virus_e2,P13897,Beta strand,812,816,812,816,no,
+western_equine_encephalitis_virus_e2,P13897,Beta strand,819,821,819,821,no,
+western_equine_encephalitis_virus_e2,P13897,Beta strand,824,836,824,836,no,
+western_equine_encephalitis_virus_e2,P13897,Beta strand,839,845,839,845,no,
+western_equine_encephalitis_virus_e2,P13897,Beta strand,848,851,848,851,no,
+western_equine_encephalitis_virus_e2,P13897,Beta strand,870,878,870,878,no,
+western_equine_encephalitis_virus_e2,P13897,Beta strand,884,888,884,888,no,
+western_equine_encephalitis_virus_e2,P13897,Beta strand,894,896,894,896,no,
+western_equine_encephalitis_virus_e2,P13897,Beta strand,899,907,899,907,no,
+western_equine_encephalitis_virus_e2,P13897,Helix,909,912,909,912,no,
+western_equine_encephalitis_virus_e2,P13897,Beta strand,916,921,916,921,no,
+western_equine_encephalitis_virus_e2,P13897,Beta strand,925,934,925,934,no,
+western_equine_encephalitis_virus_e2,P13897,Beta strand,937,953,937,953,no,
+western_equine_encephalitis_virus_e2,P13897,Beta strand,956,960,956,960,no,
+western_equine_encephalitis_virus_e2,P13897,Beta strand,972,977,972,977,no,
+western_equine_encephalitis_virus_e2,P13897,Beta strand,980,982,980,982,no,
+western_equine_encephalitis_virus_e2,P13897,Beta strand,999,1004,999,1004,no,
+western_equine_encephalitis_virus_e2,P13897,Beta strand,1023,1025,1023,1025,no,
+western_equine_encephalitis_virus_e2,P13897,Helix,1036,1042,1036,1042,no,
+western_equine_encephalitis_virus_e2,P13897,Helix,1048,1050,1048,1050,no,
+western_equine_encephalitis_virus_e2,P13897,Beta strand,1057,1059,1057,1059,no,
+western_equine_encephalitis_virus_e2,P13897,Turn,1060,1063,1060,1063,no,
+western_equine_encephalitis_virus_e2,P13897,Beta strand,1064,1067,1064,1067,no,
+western_equine_encephalitis_virus_e2,P13897,Beta strand,1071,1078,1071,1078,no,
+western_equine_encephalitis_virus_e2,P13897,Beta strand,1081,1083,1081,1083,no,
+western_equine_encephalitis_virus_e2,P13897,Turn,1087,1089,1087,1089,no,
+western_equine_encephalitis_virus_e2,P13897,Beta strand,1094,1104,1094,1104,no,
+western_equine_encephalitis_virus_e2,P13897,Beta strand,1106,1108,1106,1108,no,
+western_equine_encephalitis_virus_e2,P13897,Beta strand,1111,1118,1111,1118,no,
+western_equine_encephalitis_virus_e2,P13897,Beta strand,1126,1129,1126,1129,no,
+western_equine_encephalitis_virus_e2,P13897,Beta strand,1134,1137,1134,1137,no,
+western_equine_encephalitis_virus_e2,P13897,Beta strand,1145,1159,1145,1159,no,
+western_equine_encephalitis_virus_e2,P13897,Beta strand,1161,1166,1161,1166,no,
+western_equine_encephalitis_virus_e2,P13897,Beta strand,1169,1174,1169,1174,no,
+western_equine_encephalitis_virus_e2,P13897,Beta strand,1183,1187,1183,1187,no,
+western_equine_encephalitis_virus_e2,P13897,Helix,1196,1198,1196,1198,no,
+western_equine_encephalitis_virus_e2,P13897,Helix,1201,1234,1201,1234,no,
+hcov-229e_spike,P15423,Signal,1,15,1,15,no,
+hcov-229e_spike,P15423,Chain,16,1173,16,1173,no,Spike glycoprotein
+hcov-229e_spike,P15423,Topological domain,16,1115,16,1115,no,Virion surface
+hcov-229e_spike,P15423,Transmembrane,1116,1135,1116,1135,no,Helical
+hcov-229e_spike,P15423,Topological domain,1136,1173,1136,1173,no,Intravirion
+hcov-229e_spike,P15423,Region,16,536,16,536,yes,S1
+hcov-229e_spike,P15423,Region,417,547,417,547,yes,Interaction with ANPEP
+hcov-229e_spike,P15423,Region,417,547,417,547,yes,Interaction with host ANPEP
+hcov-229e_spike,P15423,Region,537,1173,537,1173,yes,S2
+hcov-229e_spike,P15423,Region,753,773,753,773,yes,Fusion peptide
+hcov-229e_spike,P15423,Region,767,886,767,886,yes,Heptad repeat 1 (HR1)
+hcov-229e_spike,P15423,Region,1031,1127,1031,1127,yes,Heptad repeat 2 (HR2)
+hcov-229e_spike,P15423,Coiled coil,834,878,834,878,no,
+hcov-229e_spike,P15423,Coiled coil,1063,1105,1063,1105,no,
+hcov-229e_spike,P15423,Motif,1169,1173,1169,1173,yes,KxHxx
+hcov-229e_spike,P15423,Natural variant,98,98,98,98,no,in strain: Isolate LRI 281
+hcov-229e_spike,P15423,Natural variant,120,120,120,120,no,in strain: Isolate LRI 281
+hcov-229e_spike,P15423,Natural variant,127,128,127,128,no,in strain: Isolate A162
+hcov-229e_spike,P15423,Natural variant,176,176,176,176,no,in strain: Isolate P100E
+hcov-229e_spike,P15423,Natural variant,210,210,210,210,no,in strain: Isolate A162
+hcov-229e_spike,P15423,Natural variant,223,223,223,223,no,in strain: Isolate A162
+hcov-229e_spike,P15423,Natural variant,228,229,228,229,no,in strain: Isolate A162
+hcov-229e_spike,P15423,Natural variant,230,230,230,230,no,"in strain: Isolate RWStock, Isolate P11A, Isolate P11B, Isolate P100E and Isolate ATCCVR-74"
+hcov-229e_spike,P15423,Natural variant,230,230,230,230,no,in strain: Isolate LRI 281
+hcov-229e_spike,P15423,Natural variant,248,248,248,248,no,in strain: Isolate A162
+hcov-229e_spike,P15423,Natural variant,270,270,270,270,no,in strain: Isolate P100E
+hcov-229e_spike,P15423,Natural variant,295,295,295,295,no,in strain: Isolate LRI 281
+hcov-229e_spike,P15423,Natural variant,300,300,300,300,no,in strain: Isolate P100E
+hcov-229e_spike,P15423,Natural variant,307,307,307,307,no,in strain: Isolate A162
+hcov-229e_spike,P15423,Natural variant,310,311,310,311,no,in strain: Isolate A162
+hcov-229e_spike,P15423,Natural variant,314,324,314,324,no,in strain: Isolate A162
+hcov-229e_spike,P15423,Natural variant,336,336,336,336,no,in strain: Isolate LRI 281
+hcov-229e_spike,P15423,Natural variant,349,358,349,358,no,in strain: Isolate A162
+hcov-229e_spike,P15423,Natural variant,401,401,401,401,no,in strain: Isolate A162
+hcov-229e_spike,P15423,Natural variant,404,411,404,411,no,in strain: Isolate A162
+hcov-229e_spike,P15423,Natural variant,414,414,414,414,no,in strain: Isolate P100E
+hcov-229e_spike,P15423,Natural variant,424,424,424,424,no,in strain: Isolate A162
+hcov-229e_spike,P15423,Natural variant,430,430,430,430,no,in strain: Isolate A162
+hcov-229e_spike,P15423,Natural variant,441,441,441,441,no,in strain: Isolate LRI 281
+hcov-229e_spike,P15423,Natural variant,444,444,444,444,no,in strain: Isolate A162
+hcov-229e_spike,P15423,Natural variant,462,462,462,462,no,in strain: Isolate A162
+hcov-229e_spike,P15423,Natural variant,481,481,481,481,no,in strain: Isolate A162
+hcov-229e_spike,P15423,Natural variant,488,488,488,488,no,in strain: Isolate A162
+hcov-229e_spike,P15423,Natural variant,530,530,530,530,no,in strain: Isolate A162
+hcov-229e_spike,P15423,Natural variant,577,577,577,577,no,in strain: Isolate P11A
+hcov-229e_spike,P15423,Natural variant,578,578,578,578,no,in strain: Isolate P11B
+hcov-229e_spike,P15423,Natural variant,590,590,590,590,no,in strain: Isolate P100E
+hcov-229e_spike,P15423,Natural variant,642,642,642,642,no,in strain: Isolate A162
+hcov-229e_spike,P15423,Natural variant,681,681,681,681,no,in strain: Isolate A162
+hcov-229e_spike,P15423,Natural variant,700,700,700,700,no,"in strain: Isolate RWStock, Isolate P11A, Isolate P11B and Isolate P100E"
+hcov-229e_spike,P15423,Natural variant,711,711,711,711,no,in strain: Isolate LRI 281
+hcov-229e_spike,P15423,Natural variant,714,714,714,714,no,"in strain: Isolate RWStock, Isolate P11A, Isolate P11B and Isolate P100E"
+hcov-229e_spike,P15423,Natural variant,765,765,765,765,no,in strain: Isolate A162
+hcov-229e_spike,P15423,Natural variant,775,775,775,775,no,in strain: Isolate A162
+hcov-229e_spike,P15423,Natural variant,846,846,846,846,no,in strain: Isolate P11A and Isolate P11B
+hcov-229e_spike,P15423,Natural variant,871,871,871,871,no,in strain: Isolate A162
+hcov-229e_spike,P15423,Natural variant,937,937,937,937,no,in strain: Isolate A162
+hcov-229e_spike,P15423,Natural variant,971,971,971,971,no,in strain: Isolate A162
+hcov-229e_spike,P15423,Natural variant,1005,1005,1005,1005,no,in strain: Isolate A162
+hcov-229e_spike,P15423,Beta strand,61,63,61,63,no,
+hcov-229e_spike,P15423,Beta strand,65,86,65,86,no,
+hcov-229e_spike,P15423,Beta strand,94,96,94,96,no,
+hcov-229e_spike,P15423,Beta strand,97,99,97,99,no,
+hcov-229e_spike,P15423,Beta strand,115,121,115,121,no,
+hcov-229e_spike,P15423,Turn,124,127,124,127,no,
+hcov-229e_spike,P15423,Beta strand,128,136,128,136,no,
+hcov-229e_spike,P15423,Beta strand,139,146,139,146,no,
+hcov-229e_spike,P15423,Beta strand,167,174,167,174,no,
+hcov-229e_spike,P15423,Beta strand,177,185,177,185,no,
+hcov-229e_spike,P15423,Beta strand,192,196,192,196,no,
+hcov-229e_spike,P15423,Beta strand,200,203,200,203,no,
+hcov-229e_spike,P15423,Beta strand,206,210,206,210,no,
+hcov-229e_spike,P15423,Beta strand,214,220,214,220,no,
+hcov-229e_spike,P15423,Beta strand,224,227,224,227,no,
+hcov-229e_spike,P15423,Beta strand,229,245,229,245,no,
+hcov-229e_spike,P15423,Beta strand,248,254,248,254,no,
+hcov-229e_spike,P15423,Helix,258,264,258,264,no,
+hcov-229e_spike,P15423,Turn,265,267,265,267,no,
+hcov-229e_spike,P15423,Beta strand,268,270,268,270,no,
+hcov-229e_spike,P15423,Beta strand,273,278,273,278,no,
+hcov-229e_spike,P15423,Beta strand,288,291,288,291,no,
+hcov-229e_spike,P15423,Beta strand,299,309,299,309,no,
+hcov-229e_spike,P15423,Beta strand,313,316,313,316,no,
+hcov-229e_spike,P15423,Beta strand,323,329,323,329,no,
+hcov-229e_spike,P15423,Helix,334,336,334,336,no,
+hcov-229e_spike,P15423,Beta strand,338,340,338,340,no,
+hcov-229e_spike,P15423,Beta strand,343,352,343,352,no,
+hcov-229e_spike,P15423,Beta strand,360,364,360,364,no,
+hcov-229e_spike,P15423,Beta strand,368,371,368,371,no,
+hcov-229e_spike,P15423,Helix,375,377,375,377,no,
+hcov-229e_spike,P15423,Beta strand,381,390,381,390,no,
+hcov-229e_spike,P15423,Beta strand,396,404,396,404,no,
+hcov-229e_spike,P15423,Turn,405,407,405,407,no,
+hcov-229e_spike,P15423,Beta strand,408,427,408,427,no,
+hcov-229e_spike,P15423,Beta strand,445,451,445,451,no,
+hcov-229e_spike,P15423,Beta strand,454,462,454,462,no,
+hcov-229e_spike,P15423,Beta strand,471,474,471,474,no,
+hcov-229e_spike,P15423,Beta strand,480,484,480,484,no,
+hcov-229e_spike,P15423,Turn,486,488,486,488,no,
+hcov-229e_spike,P15423,Beta strand,491,495,491,495,no,
+hcov-229e_spike,P15423,Beta strand,501,519,501,519,no,
+hcov-229e_spike,P15423,Helix,521,523,521,523,no,
+hcov-229e_spike,P15423,Beta strand,525,530,525,530,no,
+hcov-229e_spike,P15423,Beta strand,533,538,533,538,no,
+hcov-229e_spike,P15423,Beta strand,546,550,546,550,no,
+hcov-229e_spike,P15423,Beta strand,553,556,553,556,no,
+hcov-229e_spike,P15423,Beta strand,561,563,561,563,no,
+hcov-229e_spike,P15423,Beta strand,583,598,583,598,no,
+hcov-229e_spike,P15423,Beta strand,604,606,604,606,no,
+hcov-229e_spike,P15423,Helix,608,613,608,613,no,
+hcov-229e_spike,P15423,Helix,617,623,617,623,no,
+hcov-229e_spike,P15423,Helix,629,651,629,651,no,
+hcov-229e_spike,P15423,Helix,656,661,656,661,no,
+hcov-229e_spike,P15423,Helix,664,666,664,666,no,
+hcov-229e_spike,P15423,Turn,667,669,667,669,no,
+hcov-229e_spike,P15423,Helix,672,674,672,674,no,
+hcov-229e_spike,P15423,Beta strand,683,686,683,686,no,
+hcov-229e_spike,P15423,Helix,691,699,691,699,no,
+hcov-229e_spike,P15423,Helix,712,714,712,714,no,
+hcov-229e_spike,P15423,Turn,715,717,715,717,no,
+hcov-229e_spike,P15423,Helix,724,730,724,730,no,
+hcov-229e_spike,P15423,Beta strand,733,735,733,735,no,
+hcov-229e_spike,P15423,Helix,742,754,742,754,no,
+hcov-229e_spike,P15423,Turn,755,757,755,757,no,
+hcov-229e_spike,P15423,Beta strand,762,764,762,764,no,
+hcov-229e_spike,P15423,Helix,769,778,769,778,no,
+hcov-229e_spike,P15423,Beta strand,782,784,782,784,no,
+hcov-229e_spike,P15423,Helix,786,871,786,871,no,
+hcov-229e_spike,P15423,Beta strand,924,941,924,941,no,
+hcov-229e_spike,P15423,Beta strand,944,959,944,959,no,
+hcov-229e_spike,P15423,Beta strand,964,968,964,968,no,
+hcov-229e_spike,P15423,Turn,969,971,969,971,no,
+hcov-229e_spike,P15423,Beta strand,972,976,972,976,no,
+hcov-229e_spike,P15423,Beta strand,981,986,981,986,no,
+hcov-229e_spike,P15423,Beta strand,989,994,989,994,no,
+hcov-229e_spike,P15423,Beta strand,1007,1012,1007,1012,no,
+hcov-229e_spike,P15423,Beta strand,1018,1021,1018,1021,no,
+hcov-229e_spike,P15423,Helix,1025,1028,1025,1028,no,
+hcov-229e_spike,P15423,Helix,1068,1096,1068,1096,no,
+hcov-nl63_spike,Q6Q1S2,Signal,1,18,1,18,no,
+hcov-nl63_spike,Q6Q1S2,Chain,19,1356,19,1356,no,Spike glycoprotein
+hcov-nl63_spike,Q6Q1S2,Topological domain,19,1296,19,1296,no,Virion surface
+hcov-nl63_spike,Q6Q1S2,Transmembrane,1297,1316,1297,1316,no,Helical
+hcov-nl63_spike,Q6Q1S2,Topological domain,1317,1356,1317,1356,no,Intravirion
+hcov-nl63_spike,Q6Q1S2,Region,16,717,16,717,yes,S1
+hcov-nl63_spike,Q6Q1S2,Region,19,717,19,717,yes,S1
+hcov-nl63_spike,Q6Q1S2,Region,598,728,598,728,yes,Interaction with host ANPEP
+hcov-nl63_spike,Q6Q1S2,Region,718,1356,718,1356,yes,S2
+hcov-nl63_spike,Q6Q1S2,Region,934,954,934,954,yes,Fusion peptide
+hcov-nl63_spike,Q6Q1S2,Region,948,1067,948,1067,yes,Heptad repeat 1 (HR1)
+hcov-nl63_spike,Q6Q1S2,Region,1212,1308,1212,1308,yes,Heptad repeat 2 (HR2)
+hcov-nl63_spike,Q6Q1S2,Coiled coil,1015,1059,1015,1059,no,
+hcov-nl63_spike,Q6Q1S2,Coiled coil,1244,1286,1244,1286,no,
+hcov-nl63_spike,Q6Q1S2,Motif,1352,1356,1352,1356,yes,KxHxx
+hcov-nl63_spike,Q6Q1S2,Glycosylation,35,35,35,35,no,N-linked (GlcNAc) asparagine; by host
+hcov-nl63_spike,Q6Q1S2,Glycosylation,52,52,52,52,no,N-linked (GlcNAc) asparagine; by host
+hcov-nl63_spike,Q6Q1S2,Glycosylation,98,98,98,98,no,N-linked (GlcNAc) asparagine; by host
+hcov-nl63_spike,Q6Q1S2,Glycosylation,155,155,155,155,no,N-linked (GlcNAc) asparagine; by host
+hcov-nl63_spike,Q6Q1S2,Glycosylation,187,187,187,187,no,N-linked (GlcNAc) asparagine; by host
+hcov-nl63_spike,Q6Q1S2,Glycosylation,193,193,193,193,no,N-linked (GlcNAc) asparagine; by host
+hcov-nl63_spike,Q6Q1S2,Glycosylation,240,240,240,240,no,N-linked (GlcNAc) asparagine; by host
+hcov-nl63_spike,Q6Q1S2,Glycosylation,276,276,276,276,no,N-linked (GlcNAc) asparagine; by host
+hcov-nl63_spike,Q6Q1S2,Glycosylation,301,301,301,301,no,N-linked (GlcNAc) asparagine; by host
+hcov-nl63_spike,Q6Q1S2,Glycosylation,330,330,330,330,no,N-linked (GlcNAc) asparagine; by host
+hcov-nl63_spike,Q6Q1S2,Glycosylation,354,354,354,354,no,N-linked (GlcNAc) asparagine; by host
+hcov-nl63_spike,Q6Q1S2,Glycosylation,358,358,358,358,no,N-linked (GlcNAc) asparagine; by host
+hcov-nl63_spike,Q6Q1S2,Glycosylation,403,403,403,403,no,N-linked (GlcNAc) asparagine; by host
+hcov-nl63_spike,Q6Q1S2,Glycosylation,426,426,426,426,no,N-linked (GlcNAc) asparagine; by host
+hcov-nl63_spike,Q6Q1S2,Glycosylation,486,486,486,486,no,N-linked (GlcNAc...) asparagine; by host
+hcov-nl63_spike,Q6Q1S2,Glycosylation,506,506,506,506,no,N-linked (GlcNAc) asparagine; by host
+hcov-nl63_spike,Q6Q1S2,Glycosylation,512,512,512,512,no,N-linked (GlcNAc...) asparagine; by host
+hcov-nl63_spike,Q6Q1S2,Glycosylation,626,626,626,626,no,N-linked (GlcNAc) asparagine; by host
+hcov-nl63_spike,Q6Q1S2,Glycosylation,645,645,645,645,no,N-linked (GlcNAc) asparagine; by host
+hcov-nl63_spike,Q6Q1S2,Glycosylation,666,666,666,666,no,N-linked (GlcNAc) asparagine; by host
+hcov-nl63_spike,Q6Q1S2,Glycosylation,699,699,699,699,no,N-linked (GlcNAc) asparagine; by host
+hcov-nl63_spike,Q6Q1S2,Glycosylation,723,723,723,723,no,N-linked (GlcNAc) asparagine; by host
+hcov-nl63_spike,Q6Q1S2,Glycosylation,749,749,749,749,no,N-linked (GlcNAc) asparagine; by host
+hcov-nl63_spike,Q6Q1S2,Glycosylation,762,762,762,762,no,N-linked (GlcNAc) asparagine; by host
+hcov-nl63_spike,Q6Q1S2,Glycosylation,768,768,768,768,no,N-linked (GlcNAc) asparagine; by host
+hcov-nl63_spike,Q6Q1S2,Glycosylation,1111,1111,1111,1111,no,N-linked (GlcNAc) asparagine; by host
+hcov-nl63_spike,Q6Q1S2,Glycosylation,1196,1196,1196,1196,no,N-linked (GlcNAc) asparagine; by host
+hcov-nl63_spike,Q6Q1S2,Glycosylation,1201,1201,1201,1201,no,N-linked (GlcNAc) asparagine; by host
+hcov-nl63_spike,Q6Q1S2,Glycosylation,1218,1218,1218,1218,no,N-linked (GlcNAc) asparagine; by host
+hcov-nl63_spike,Q6Q1S2,Glycosylation,1242,1242,1242,1242,no,N-linked (GlcNAc) asparagine; by host
+hcov-nl63_spike,Q6Q1S2,Glycosylation,1247,1247,1247,1247,no,N-linked (GlcNAc) asparagine; by host
+hcov-nl63_spike,Q6Q1S2,Glycosylation,1277,1277,1277,1277,no,N-linked (GlcNAc) asparagine; by host
+hcov-nl63_spike,Q6Q1S2,Disulfide bond,106,126,106,126,no,
+hcov-nl63_spike,Q6Q1S2,Disulfide bond,175,181,175,181,no,
+hcov-nl63_spike,Q6Q1S2,Disulfide bond,207,210,207,210,no,
+hcov-nl63_spike,Q6Q1S2,Disulfide bond,259,284,259,284,no,
+hcov-nl63_spike,Q6Q1S2,Disulfide bond,328,351,328,351,no,
+hcov-nl63_spike,Q6Q1S2,Disulfide bond,438,447,438,447,no,
+hcov-nl63_spike,Q6Q1S2,Disulfide bond,497,500,497,500,no,
+hcov-nl63_spike,Q6Q1S2,Disulfide bond,516,567,516,567,no,
+hcov-nl63_spike,Q6Q1S2,Disulfide bond,550,577,550,577,no,
+hcov-nl63_spike,Q6Q1S2,Disulfide bond,627,678,627,678,no,
+hcov-nl63_spike,Q6Q1S2,Disulfide bond,724,737,724,737,no,
+hcov-nl63_spike,Q6Q1S2,Disulfide bond,789,811,789,811,no,
+hcov-nl63_spike,Q6Q1S2,Disulfide bond,794,800,794,800,no,
+hcov-nl63_spike,Q6Q1S2,Disulfide bond,896,907,896,907,no,
+hcov-nl63_spike,Q6Q1S2,Disulfide bond,1098,1109,1098,1109,no,
+hcov-nl63_spike,Q6Q1S2,Natural variant,9,9,9,9,no,in strain: Isolate BE03-40001 and Isolate NL
+hcov-nl63_spike,Q6Q1S2,Natural variant,13,13,13,13,no,in strain: Isolate BE03-40001 and Isolate NL
+hcov-nl63_spike,Q6Q1S2,Natural variant,17,17,17,17,no,in strain: Isolate BE03-40001 and Isolate NL
+hcov-nl63_spike,Q6Q1S2,Natural variant,24,25,24,25,no,in strain: Isolate BE03-40001 and Isolate NL
+hcov-nl63_spike,Q6Q1S2,Natural variant,46,46,46,46,no,in strain: Isolate BE03-40001 and Isolate NL
+hcov-nl63_spike,Q6Q1S2,Natural variant,49,49,49,49,no,"in strain: Isolate BE03-1153, Isolate BE03-40001, Isolate BE03-64880 and Isolate NL"
+hcov-nl63_spike,Q6Q1S2,Natural variant,57,59,57,59,no,in strain: Isolate BE03-40001 and Isolate NL
+hcov-nl63_spike,Q6Q1S2,Natural variant,70,70,70,70,no,in strain: Isolate BE03-40001 and Isolate NL
+hcov-nl63_spike,Q6Q1S2,Natural variant,79,79,79,79,no,in strain: Isolate BE03-40001 and Isolate NL
+hcov-nl63_spike,Q6Q1S2,Natural variant,84,84,84,84,no,in strain: Isolate BE03-1153 and Isolate BE03-64880
+hcov-nl63_spike,Q6Q1S2,Natural variant,91,91,91,91,no,in strain: Isolate BE03-40001 and Isolate NL
+hcov-nl63_spike,Q6Q1S2,Natural variant,94,96,94,96,no,in strain: Isolate BE03-40001 and Isolate NL
+hcov-nl63_spike,Q6Q1S2,Natural variant,100,100,100,100,no,in strain: Isolate BE03-40001 and Isolate NL
+hcov-nl63_spike,Q6Q1S2,Natural variant,109,110,109,110,no,in strain: Isolate BE03-1153 and Isolate BE03-64880 and Isolate NL
+hcov-nl63_spike,Q6Q1S2,Natural variant,109,109,109,109,no,in strain: Isolate BE03-40001 and Isolate NL
+hcov-nl63_spike,Q6Q1S2,Natural variant,110,110,110,110,no,in strain: Isolate BE03-40001 and Isolate NL
+hcov-nl63_spike,Q6Q1S2,Natural variant,113,113,113,113,no,in strain: Isolate BE03-40001 and Isolate NL
+hcov-nl63_spike,Q6Q1S2,Natural variant,120,124,120,124,no,in strain: Isolate BE03-40001 and Isolate NL
+hcov-nl63_spike,Q6Q1S2,Natural variant,125,125,125,125,no,in strain: Isolate BE03-40001
+hcov-nl63_spike,Q6Q1S2,Natural variant,130,130,130,130,no,in strain: Isolate BE03-40001
+hcov-nl63_spike,Q6Q1S2,Natural variant,131,131,131,131,no,in strain: Isolate BE03-40001 and Isolate NL
+hcov-nl63_spike,Q6Q1S2,Natural variant,138,138,138,138,no,in strain: Isolate BE03-40001 and Isolate NL
+hcov-nl63_spike,Q6Q1S2,Natural variant,156,156,156,156,no,in strain: Isolate BE03-40001 and Isolate NL
+hcov-nl63_spike,Q6Q1S2,Natural variant,178,179,178,179,no,in strain: Isolate BE03-40001 and Isolate NL
+hcov-nl63_spike,Q6Q1S2,Natural variant,190,190,190,190,no,in strain: Isolate NL
+hcov-nl63_spike,Q6Q1S2,Natural variant,197,197,197,197,no,in strain: Isolate NL
+hcov-nl63_spike,Q6Q1S2,Natural variant,201,201,201,201,no,in strain: Isolate NL
+hcov-nl63_spike,Q6Q1S2,Natural variant,293,293,293,293,no,in strain: Isolate NL
+hcov-nl63_spike,Q6Q1S2,Natural variant,302,302,302,302,no,in strain: Isolate NL
+hcov-nl63_spike,Q6Q1S2,Natural variant,307,307,307,307,no,in strain: Isolate NL
+hcov-nl63_spike,Q6Q1S2,Natural variant,503,503,503,503,no,in strain: Isolate NL
+hcov-nl63_spike,Q6Q1S2,Natural variant,730,730,730,730,no,in strain: Isolate NL
+hcov-nl63_spike,Q6Q1S2,Natural variant,863,863,863,863,no,in strain: Isolate NL
+hcov-nl63_spike,Q6Q1S2,Natural variant,999,999,999,999,no,in strain: Isolate NL
+hcov-nl63_spike,Q6Q1S2,Natural variant,1044,1044,1044,1044,no,in strain: Isolate NL
+hcov-nl63_spike,Q6Q1S2,Helix,27,30,27,30,no,
+hcov-nl63_spike,Q6Q1S2,Beta strand,34,43,34,43,no,
+hcov-nl63_spike,Q6Q1S2,Beta strand,55,59,55,59,no,
+hcov-nl63_spike,Q6Q1S2,Beta strand,61,66,61,66,no,
+hcov-nl63_spike,Q6Q1S2,Beta strand,69,71,69,71,no,
+hcov-nl63_spike,Q6Q1S2,Beta strand,73,78,73,78,no,
+hcov-nl63_spike,Q6Q1S2,Beta strand,88,108,88,108,no,
+hcov-nl63_spike,Q6Q1S2,Beta strand,123,134,123,134,no,
+hcov-nl63_spike,Q6Q1S2,Beta strand,139,145,139,145,no,
+hcov-nl63_spike,Q6Q1S2,Beta strand,148,153,148,153,no,
+hcov-nl63_spike,Q6Q1S2,Beta strand,156,161,156,161,no,
+hcov-nl63_spike,Q6Q1S2,Helix,165,167,165,167,no,
+hcov-nl63_spike,Q6Q1S2,Beta strand,170,174,170,174,no,
+hcov-nl63_spike,Q6Q1S2,Helix,177,179,177,179,no,
+hcov-nl63_spike,Q6Q1S2,Beta strand,182,186,182,186,no,
+hcov-nl63_spike,Q6Q1S2,Beta strand,190,197,190,197,no,
+hcov-nl63_spike,Q6Q1S2,Beta strand,200,206,200,206,no,
+hcov-nl63_spike,Q6Q1S2,Helix,213,216,213,216,no,
+hcov-nl63_spike,Q6Q1S2,Helix,222,224,222,224,no,
+hcov-nl63_spike,Q6Q1S2,Beta strand,239,241,239,241,no,
+hcov-nl63_spike,Q6Q1S2,Beta strand,246,263,246,263,no,
+hcov-nl63_spike,Q6Q1S2,Beta strand,275,277,275,277,no,
+hcov-nl63_spike,Q6Q1S2,Beta strand,294,300,294,300,no,
+hcov-nl63_spike,Q6Q1S2,Helix,306,308,306,308,no,
+hcov-nl63_spike,Q6Q1S2,Beta strand,310,318,310,318,no,
+hcov-nl63_spike,Q6Q1S2,Beta strand,323,332,323,332,no,
+hcov-nl63_spike,Q6Q1S2,Helix,334,336,334,336,no,
+hcov-nl63_spike,Q6Q1S2,Beta strand,339,341,339,341,no,
+hcov-nl63_spike,Q6Q1S2,Beta strand,350,357,350,357,no,
+hcov-nl63_spike,Q6Q1S2,Beta strand,360,368,360,368,no,
+hcov-nl63_spike,Q6Q1S2,Beta strand,371,373,371,373,no,
+hcov-nl63_spike,Q6Q1S2,Beta strand,375,379,375,379,no,
+hcov-nl63_spike,Q6Q1S2,Beta strand,382,386,382,386,no,
+hcov-nl63_spike,Q6Q1S2,Beta strand,389,393,389,393,no,
+hcov-nl63_spike,Q6Q1S2,Beta strand,398,404,398,404,no,
+hcov-nl63_spike,Q6Q1S2,Beta strand,407,409,407,409,no,
+hcov-nl63_spike,Q6Q1S2,Beta strand,412,428,412,428,no,
+hcov-nl63_spike,Q6Q1S2,Beta strand,431,437,431,437,no,
+hcov-nl63_spike,Q6Q1S2,Helix,441,449,441,449,no,
+hcov-nl63_spike,Q6Q1S2,Beta strand,456,461,456,461,no,
+hcov-nl63_spike,Q6Q1S2,Beta strand,471,474,471,474,no,
+hcov-nl63_spike,Q6Q1S2,Beta strand,482,492,482,492,no,
+hcov-nl63_spike,Q6Q1S2,Beta strand,495,497,495,497,no,
+hcov-nl63_spike,Q6Q1S2,Turn,498,500,498,500,no,
+hcov-nl63_spike,Q6Q1S2,Beta strand,503,509,503,509,no,
+hcov-nl63_spike,Q6Q1S2,Beta strand,512,516,512,516,no,
+hcov-nl63_spike,Q6Q1S2,Beta strand,519,530,519,530,no,
+hcov-nl63_spike,Q6Q1S2,Turn,536,539,536,539,no,
+hcov-nl63_spike,Q6Q1S2,Beta strand,540,545,540,545,no,
+hcov-nl63_spike,Q6Q1S2,Beta strand,549,551,549,551,no,
+hcov-nl63_spike,Q6Q1S2,Helix,554,557,554,557,no,
+hcov-nl63_spike,Q6Q1S2,Turn,558,560,558,560,no,
+hcov-nl63_spike,Q6Q1S2,Beta strand,562,571,562,571,no,
+hcov-nl63_spike,Q6Q1S2,Beta strand,577,585,577,585,no,
+hcov-nl63_spike,Q6Q1S2,Beta strand,588,608,588,608,no,
+hcov-nl63_spike,Q6Q1S2,Beta strand,628,632,628,632,no,
+hcov-nl63_spike,Q6Q1S2,Beta strand,635,644,635,644,no,
+hcov-nl63_spike,Q6Q1S2,Beta strand,652,655,652,655,no,
+hcov-nl63_spike,Q6Q1S2,Beta strand,661,665,661,665,no,
+hcov-nl63_spike,Q6Q1S2,Beta strand,672,676,672,676,no,
+hcov-nl63_spike,Q6Q1S2,Beta strand,682,687,682,687,no,
+hcov-nl63_spike,Q6Q1S2,Beta strand,690,700,690,700,no,
+hcov-nl63_spike,Q6Q1S2,Beta strand,707,711,707,711,no,
+hcov-nl63_spike,Q6Q1S2,Beta strand,714,719,714,719,no,
+hcov-nl63_spike,Q6Q1S2,Beta strand,727,731,727,731,no,
+hcov-nl63_spike,Q6Q1S2,Beta strand,734,737,734,737,no,
+hcov-nl63_spike,Q6Q1S2,Beta strand,742,744,742,744,no,
+hcov-nl63_spike,Q6Q1S2,Beta strand,758,779,758,779,no,
+hcov-nl63_spike,Q6Q1S2,Beta strand,785,787,785,787,no,
+hcov-nl63_spike,Q6Q1S2,Turn,789,793,789,793,no,
+hcov-nl63_spike,Q6Q1S2,Helix,800,803,800,803,no,
+hcov-nl63_spike,Q6Q1S2,Helix,804,807,804,807,no,
+hcov-nl63_spike,Q6Q1S2,Helix,808,832,808,832,no,
+hcov-nl63_spike,Q6Q1S2,Helix,837,842,837,842,no,
+hcov-nl63_spike,Q6Q1S2,Helix,845,847,845,847,no,
+hcov-nl63_spike,Q6Q1S2,Helix,849,851,849,851,no,
+hcov-nl63_spike,Q6Q1S2,Turn,854,856,854,856,no,
+hcov-nl63_spike,Q6Q1S2,Beta strand,863,865,863,865,no,
+hcov-nl63_spike,Q6Q1S2,Helix,872,881,872,881,no,
+hcov-nl63_spike,Q6Q1S2,Helix,893,897,893,897,no,
+hcov-nl63_spike,Q6Q1S2,Helix,905,910,905,910,no,
+hcov-nl63_spike,Q6Q1S2,Turn,911,913,911,913,no,
+hcov-nl63_spike,Q6Q1S2,Beta strand,914,916,914,916,no,
+hcov-nl63_spike,Q6Q1S2,Helix,923,935,923,935,no,
+hcov-nl63_spike,Q6Q1S2,Turn,936,938,936,938,no,
+hcov-nl63_spike,Q6Q1S2,Beta strand,941,943,941,943,no,
+hcov-nl63_spike,Q6Q1S2,Helix,950,959,950,959,no,
+hcov-nl63_spike,Q6Q1S2,Helix,983,1029,983,1029,no,
+hcov-nl63_spike,Q6Q1S2,Helix,1031,1033,1031,1033,no,
+hcov-nl63_spike,Q6Q1S2,Beta strand,1037,1039,1037,1039,no,
+hcov-nl63_spike,Q6Q1S2,Helix,1043,1047,1043,1047,no,
+hcov-nl63_spike,Q6Q1S2,Helix,1052,1098,1052,1098,no,
+hcov-nl63_spike,Q6Q1S2,Turn,1099,1101,1099,1101,no,
+hcov-nl63_spike,Q6Q1S2,Beta strand,1108,1122,1108,1122,no,
+hcov-nl63_spike,Q6Q1S2,Beta strand,1125,1145,1125,1145,no,
+hcov-nl63_spike,Q6Q1S2,Beta strand,1147,1149,1147,1149,no,
+hcov-nl63_spike,Q6Q1S2,Turn,1150,1152,1150,1152,no,
+hcov-nl63_spike,Q6Q1S2,Beta strand,1153,1159,1153,1159,no,
+hcov-nl63_spike,Q6Q1S2,Beta strand,1162,1167,1162,1167,no,
+hcov-nl63_spike,Q6Q1S2,Beta strand,1170,1178,1170,1178,no,
+hcov-nl63_spike,Q6Q1S2,Helix,1186,1188,1186,1188,no,
+hcov-nl63_spike,Q6Q1S2,Beta strand,1189,1191,1189,1191,no,
+hcov-nl63_spike,Q6Q1S2,Beta strand,1197,1202,1197,1202,no,
+hcov-nl63_spike,Q6Q1S2,Helix,1206,1209,1206,1209,no,
+hcov-nl63_spike,Q6Q1S2,Helix,1217,1223,1217,1223,no,
+hcov-nl63_spike,Q6Q1S2,Helix,1249,1278,1249,1278,no,

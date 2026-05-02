@@ -1,0 +1,11 @@
+position,layer_a_prime,feature_type,evidence_basis,uniprot_acc,description
+388,1,Region,uniprot_curated_feature,P08768,Interaction with the capsid protein
+389,1,Region,uniprot_curated_feature,P08768,Interaction with the capsid protein
+390,1,Region,uniprot_curated_feature,P08768,Interaction with the capsid protein
+391,1,Region,uniprot_curated_feature,P08768,Interaction with the capsid protein
+392,1,Region,uniprot_curated_feature,P08768,Interaction with the capsid protein
+155,1,Site,uniprot_curated_feature,P08768,Interaction with host receptor VLDLR
+156,1,Site,uniprot_curated_feature,P08768,Interaction with host receptor VLDLR
+157,1,Site,uniprot_curated_feature,P08768,Interaction with host receptor VLDLR
+231,1,Site,uniprot_curated_feature,P08768,Interaction with host receptor VLDLR
+232,1,Site,uniprot_curated_feature,P08768,Interaction with host receptor VLDLR

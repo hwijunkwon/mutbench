@@ -1,0 +1,3 @@
+feature,full_sample_sign,n_bootstrap,fraction_preserve_full_sample_sign,fraction_positive_sign,fraction_negative_sign,random_seed
+freq,-1,1000,1.0,0.0,1.0,42
+entropy,-1,1000,1.0,0.0,1.0,42
