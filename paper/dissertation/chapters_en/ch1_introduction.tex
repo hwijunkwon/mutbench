@@ -5,48 +5,13 @@
 \section{Research Background}
 \label{sec:intro_background}
 
-When a new viral pandemic emerges, identifying which positions in the viral genome are mutating in functionally important ways is critical for public health response. These mutation ``hotspots'' help researchers prioritize which variants to monitor, which vaccine targets to update, and which drug resistance mutations to anticipate.
-SARS-CoV-2, which emerged in late 2019, caused more than 700 million confirmed cases worldwide, reaffirming the critical importance of viral genome analysis~\cite{harvey2021tracking}.
-Viruses continuously accumulate mutations during replication, and the phenomenon whereby mutations concentrate at specific genomic positions is termed a hotspot.
-Because hotspots are directly associated with major phenotypic changes in viruses---including increased transmissibility, immune evasion (the ability to escape pre-existing immune responses), and drug resistance---accurately detecting them is a core task in vaccine design, antiviral drug development, and real-time genomic surveillance~\cite{harvey2021tracking,carabelli2023convergent}.
-Table~\ref{tab:glossary} defines the key biological terms used throughout this dissertation.
+Viral mutation hotspots are genomic positions where mutations concentrate and can mark changes in transmissibility, immune escape, or drug resistance; they therefore help prioritize variant monitoring, vaccine updates, and antiviral-risk assessment~\cite{harvey2021tracking,carabelli2023convergent}.
+Despite the scale of SARS-CoV-2 genomic surveillance~\cite{harvey2021tracking}, most hotspot analyses still rely on mutation frequency or Shannon entropy, which cannot by themselves distinguish functional signal from founder effects or compare against phylogenetic, structural, protein-language-model, or DMS-derived information.
 
-\begin{table}[htbp]
-\centering
-\caption{Key biological terms used in this dissertation}
-\label{tab:glossary}
-\footnotesize
-\begin{tabularx}{\textwidth}{lX}
-\toprule
-\textbf{Term} & \textbf{Definition} \\
-\midrule
-Mutation & A change in the nucleotide or amino acid sequence during viral replication \\
-Hotspot & A genomic position where mutations accumulate more frequently than expected by chance \\
-Convergent evolution & Independent emergence of the same mutation in unrelated lineages, indicating positive selection \\
-Purifying selection & Evolutionary removal of harmful mutations that disrupt protein structure or function \\
-DMS & Laboratory technique measuring the functional impact of every possible amino acid substitution \\
-MSA & Computational alignment of multiple protein sequences to identify per-position variation \\
-\bottomrule
-\end{tabularx}
-\end{table}
-
-Existing computational approaches for hotspot detection have relied predominantly on two types of information: mutation frequency and Shannon entropy. While these capture the most direct signals of mutational enrichment, they fail to distinguish biologically meaningful hotspots from founder-effect artifacts and cannot leverage the growing wealth of complementary information sources---including phylogenetic selection signals, protein language model predictions, structural features, and deep mutational scanning data. Concurrent benchmarks evaluate per-variant fitness regression on overlapping virus panels (notably ViroGym~\cite{virogym2026}, 13 viruses / 79 DMS / 7 phenotypes; EVEREST~v3~\cite{gurev2026everest_v3}, 45 DMS / 31 forecasting clades / 40 WHO priority viruses; ProteinGym~\cite{notin2023proteingym,notin2025proteingym_v13}, 217 DMS / 90+ baselines; EVEscape~\cite{thadani2023evescape}, an immune-escape predictor combining fitness, accessibility, and antibody dissimilarity; and the variant-effect benchmark of Livesey \& Marsh~\cite{livesey2020using}), but none has performed a region-level hotspot-detection comparison that systematically decomposes which biological information types are most effective for which pathogens, leaving researchers to default to frequency-based approaches regardless of the virus under study.
-
-Formally, given a multiple sequence alignment (MSA) of viral protein sequences, the detection task identifies a subset of genomic positions with statistically elevated mutation rates; yet no standardized ground truth, composite evaluation metric, or cross-pathogen validation methodology has been established for the region-level detection task itself (concurrent benchmarks above target per-variant fitness regression rather than region selection), despite partial benchmark studies in cancer genomics~\cite{bailey2018comprehensive}.
-The author previously developed a systematic benchmark framework for multi-omics integration (MOSD~\cite{han2025mosd}) and an adaptive hotspot detection algorithm (MutClust~\cite{youn2025mutclust}); the experience of developing MutClust without a quantitative evaluation framework directly motivated this research.
-
-Current viral genomics platforms such as Nextstrain~\cite{nextstrain2018hadfield} and PANGO lineage classification~\cite{rambaut2020pangolin} monitor variant emergence but do not provide systematic evaluation of which biological information sources are most effective for hotspot detection.
-The absence of standardized hotspot-detection benchmarks (as opposed to fitness-regression benchmarks) means that the rich landscape of available information types---from phylogenetic signals to protein language models---remains comparatively unexplored at the region level, and researchers cannot make informed choices about which information source to prioritize for a given pathogen.
-
-In practice, mutation hotspot detection follows a three-step pipeline (sequence collection $\rightarrow$ computational analysis $\rightarrow$ experimental validation); to avoid lexical collision with the Stage~1/2/3 experimental design introduced in Sections~\ref{sec:intro_objectives}--\ref{sec:intro_contributions}, the present chapter uses the term ``step'' for the bench-side workflow.
-In the first step (\textit{sequence collection}), viral genomes from infected individuals are sequenced over weeks to months at research institutions worldwide and deposited in public databases such as GISAID and NCBI GenBank; for SARS-CoV-2, millions of sequences have been accumulated since 2020, while for influenza, tens of thousands of sequences span several decades.
-These sequences are then aligned to a reference genome to produce the MSA that enables position-by-position comparison of mutation patterns.
-In the second step (\textit{computational analysis}), statistical and algorithmic methods are applied to the MSA to identify positions where mutations are significantly concentrated---the hotspot candidates.
-This step, which encompasses frequency analysis, entropy computation, density-based clustering, wavelet transforms, and other approaches, is the focus of this dissertation.
-In the third step (\textit{experimental validation}), the computationally identified hotspot candidates are individually verified through laboratory experiments such as Deep Mutational Scanning (DMS), neutralization assays, and cell infection assays.
-Because each experimental validation requires weeks to months per position, it is prohibitively resource-intensive to test all positions; computational analysis therefore serves as a critical filter that prioritizes positions for experimental investigation.
-The effectiveness of this filtering---how well computational methods concentrate biologically meaningful positions in their top-ranked candidates---is precisely what MutBench evaluates (within the RNA-virus single-position scoping clarified in Chapter~\ref{ch:mutbench}; extension to DNA viruses, eukaryotic pathogens, and prokaryotic systems is left to future work in Chapter~\ref{ch:discussion}, Section~\ref{sec:future_work}).
-In practice, this means that for a virus with 1,000 amino acid positions, computational hotspot detection narrows the candidate list from 1,000 to approximately 50--100 positions (top 5--10\%), saving months of laboratory effort and enabling rapid response during emerging outbreaks.
+Adjacent benchmarks evaluate per-variant fitness or escape rather than region-level hotspot selection: ViroGym~\cite{virogym2026}, EVEREST v3~\cite{gurev2026everest_v3}, ProteinGym~\cite{notin2023proteingym,notin2025proteingym_v13}, EVEscape~\cite{thadani2023evescape}, Livesey \& Marsh~\cite{livesey2020using}, and partial cancer-genomics precedents~\cite{bailey2018comprehensive}.
+This gap also limits operational platforms such as Nextstrain~\cite{nextstrain2018hadfield} and PANGO~\cite{rambaut2020pangolin}, which track lineages but do not benchmark which information sources best identify mutation-prone positions.
+The author's prior MOSD~\cite{han2025mosd} and MutClust~\cite{youn2025mutclust} work motivated MutBench as a standardized evaluation framework for the computational-analysis step between sequence collection and experimental validation.
+MutBench evaluates how well computational rankings concentrate biologically meaningful positions for wet-lab triage within the RNA-virus single-position scope of Chapter~\ref{ch:mutbench}; extension to DNA viruses, eukaryotic pathogens, and prokaryotic systems remains future work (Chapter~\ref{ch:discussion}, Section~\ref{sec:future_work}).
 
 %% ===================================================================
 %% Related Research (was Chapter 2; merged into Chapter 1 in v170, M1)
