@@ -60,7 +60,7 @@ The best-performing method differed depending on the ground truth (Table~\ref{ta
 \toprule
 \textbf{Ground Truth} & \textbf{Best method} & \textbf{F1} & \textbf{Enrichment} & \textbf{Positions} \\
 \midrule
-Functional regions (439) & TC-freq-v2 & 0.474 & --- & 439 \\
+Functional regions (417) & TC-freq-v2 & 0.474 & --- & 417 \\
 DMS-escape (252) & Saturated H-score & 0.315 & --- & 252 \\
 Convergent evolution (97) & CH-score & 0.188 & 1.70$\times$ & 97 \\
 Convergent evolution-strict$^*$ & TC-freq-v3 & 0.108 & 3.43$\times$ & --- \\
@@ -568,7 +568,7 @@ Mean          & 0.338 & 0.552 &  -- & 0.341 \\
 }
 \end{table}
 
-The mean top-1 precision is 0.338 and recall is 0.552, with substantial heterogeneity across pathogens (e.g., HCV achieves precision 0.964 but MERS shows precision 0.045 with perfect recall), confirming the limitations of single-threshold detection. The MERS row should be read as a \emph{failure case} rather than a success: perfect recall is achieved only because the top-1 detector flags 200 of the 1{,}330 alignment positions ($\approx 22\%$ of the protein), so all 9~Layer-A positives are recovered by near-indiscriminate calling. This is symptomatic of threshold and parameter saturation under the small Layer-A positive count ($n_{\text{A}} = 9$) for MERS rather than of a meaningful detection signal, and is not a basis for claiming successful generalization to MERS.
+The mean top-1 precision is 0.338 and recall is 0.552, with substantial heterogeneity across pathogens (e.g., HCV achieves precision 0.964 but MERS shows precision 0.045 with perfect recall), confirming the limitations of single-threshold detection. The MERS row should be read as a \emph{failure case} rather than a success: perfect recall is achieved only because the top-1 detector flags 200 of the 1{,}330 alignment positions ($\approx 15\%$ of the protein), so all 9~Layer-A positives are recovered by near-indiscriminate calling. This is symptomatic of threshold and parameter saturation under the small Layer-A positive count ($n_{\text{A}} = 9$) for MERS rather than of a meaningful detection signal, and is not a basis for claiming successful generalization to MERS.
 
 \textbf{DMS Validation.}
 \label{subsec:dms_evolution_correlation}

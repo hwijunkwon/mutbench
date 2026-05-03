@@ -1,0 +1,48 @@
+# Audit v2 Job 12 - ch5:151-340
+
+Scope: `paper/dissertation/chapters_en/ch5_discussion.tex` lines 151-340. Read-only audit; no web checks needed because suspicious items were internal provenance gaps rather than external factual contradictions.
+
+## Per-Paragraph Table
+
+| Lines | Paragraph / block | Numerical claims | Citations | Cross-refs | Internal consistency / recent-fix check | Severity |
+|---|---|---|---|---|---|---|
+| 151-154 | Concurrent-benchmark task orthogonality | No numeric claims except HIV-1 name. | None. | None. | Consistent with MutBench being region-level, not per-variant fitness. No old v214 wording. | Verified |
+| 160 | Practical workflow, 4 steps | VERIFIED: 39 detectors, 8,580 grid from `results/mutbench/stage3_full_results.csv` schema and `stage3_statistics.csv`; 4-core delta +0.011 and p=0.61 from `results/mutbench/feature_analysis/feature_ablation_nested_lopo_summary.csv`. UNVERIFIED: >=200 sequences, ~5 min/1,000 seq, 2-5 min, 3-5 min/protein, <3 s/pathogen, ~25 s, 15-20 min, <10 min CPU are operational/runtime claims not backed by CSV in scope. | `katoh2013mafft`, `nextstrain2018hadfield`, `shu2017gisaid` exist and plausibly support MAFFT/Nextstrain/GISAID usage. | `tab:scoring_recommendation`, `tab:nested_lopo_4core` resolve correctly in `thesis_en.aux`. | Cold-start framing matches ch4. No v214 regression. | Minor |
+| 162-179 | Scoring-prior table | No direct numeric data; family-prior claims are qualitative. | None. | `tab:scoring_recommendation` resolves to this table. | Internally caveated as starting priors. | Verified |
+| 181 | Two operating regimes | VERIFIED: omega2=0.296, oracle/generalized gap 0.265 from `results/mutbench/stage3_statistics.csv`; 4-core p=0.61 from `feature_ablation_nested_lopo_summary.csv`. | None. | None. | Consistent with ch4 contribution framing. | Verified |
+| 197 | Residual risks | VERIFIED: 73-window AUROC 0.539 from ch4 audit source `results/mutbench/sliding_window_prospective_backtest_summary.csv` as previously inventoried; 12 folds / 0 callable from `results/mutbench/codex_wave2/p5_callable_decisions.csv` / ch4 audit. UNVERIFIED: IBC/P3CO/Select Agent review is governance prose, not CSV-backed. | None. | `tab:gt_positions` resolves. | Consistent with deployment refusal. | Verified |
+| 199 | Limitations matrix intro | No numeric claims. | None. | `tab:limitations_summary`; section refs `sec:phylo_limits`--`sec:mafft_auto_artifact` resolve, but most are phantom labels on the same limitations subsection rather than separate detailed sections. | Anchor-preservation device is acceptable but slightly artificial. | Minor |
+| 213-226 | Limitations matrix rows | VERIFIED: AUC 1.000 / rho -0.107 / p 1.36e-4 from `results/mutbench/phylo_*` artefacts; temporal AUCs and AUROC/enrichment from sliding-window files; PLM correlations from `results/mutbench/feature_analysis/*tranception*` / table; omega2 0.013/0.082/0.103 from `threeway_anova_omega.csv` + `stage3_statistics.csv`; 780, 9 types, 4/6 categories, 8,580, omega2 0.296/0.234, oracle 0.341, HIV-1 7.19x, padj 2.5e-16, ANCOVA 0.234->0.264 from `ancova_omega_summary.csv`; subset omega2 0.199/0.187/0.137 and HBV pilot values have manuscript-internal sources. UNVERIFIED: >80% high-income GISAID, Bolker >=20-30, and some HBV exact numerics need their specific CSV named here. | No citations in table. Bolker threshold is uncited in this row. | All listed labels resolve in `thesis_en.aux`. | Scope row says "surface glycoprotein substitutions"; acceptable but line 238 later correctly uses "single-position", avoiding old "point substitutions only". No v214 regression. | Minor |
+| 231 | Dominant residual risks | No numeric claims. | None. | None. | Consistent with limitations matrix. | Verified |
+| 238-243 | Three contributions | VERIFIED: 10/20/14/39/11/8,580 from `stage3_statistics.csv` and `stage3_full_results.csv`; omega2=0.296, CI [0.201,0.346], 0.103, 9 types/11 pathogens, gap 0.265, Friedman 7.69 p=0.990, LOPO 0/11 from `stage3_statistics.csv`, `omega_robustness_5way.csv`, `cluster_bootstrap_omega.csv`; vaccine escape anchors from `results/mutbench/vaccine_escape_stage3.csv`; 4-core delta/CI/p from `feature_ablation_nested_lopo_summary.csv`. UNVERIFIED: novel-only HIV-1 7.16-8.24x not directly present in `vaccine_escape_stage3.csv` schema. | None. | `ch:results`, `tab:vaccine_escape_stage3`, `subsec:feature_ablation`, `tab:nested_lopo_4core` resolve. | Recent fix PASS: CI uses [0.201,0.346]; wording is "single-position", not old "point substitutions only". | Minor |
+| 246-249 | Wave 1-3 audits | VERIFIED: 1023 lattice, rank 87/1023, 27/1023, MCCs, Shapley values from `results/mutbench/codex_wave1/p3_full_lattice_1023.csv` and `p3_shapley.csv`; 5/12 and Rabies inversion from `p2_top_vs_bottom.csv`; P1/P6 null counts and 100,000 permutations from `p1_null_summary.csv`, `p1_null_per_pathogen.csv`, `codex_wave3/p6_null_summary.csv`, `p6_p1_p6_robustness.csv`. | None. | All paragraph refs and `alg:mutbench_coldstart` resolve. | Consistent with ch4 audit. No old v214 wording. | Verified |
+| 250-251 | Wave 4 | VERIFIED: 0/3 PASS, mean MCC 0.077, 8/12, p=0.368, D1 0/12 from `results/mutbench/codex_wave4/w4_labeled_lopo_summary.csv`; expanded 28 and 16/16 from `w4_expanded_*` files; 1/28 sign stability from `w4_expanded_stability_per_target.csv`. | None. | `para:w4_tier2_lopo` resolves. | Consistent with no panel-extension claim. | Verified |
+| 253-254 | Wave 5 Layer A' | VERIFIED: 10 targets, mean -0.055, 2/10 positive folds from `results/mutbench/codex_layerA_prime/lopo_summary.csv`; negative sign/provenance comparison from `cross_panel_comparison.csv`. | None. | `para:w5_layer_a_prime` resolves. | Consistent with label-provenance non-equivalence. Recent fix PASS: Layer A counts elsewhere are 26 tags/23 mapped; no old wording here. | Verified |
+| 257-258 | Recommended use today | VERIFIED: 11-pathogen main panel from `stage3_statistics.csv`; 0/12 callability from Wave 2/P5 artefacts. | None. | `para:p5_callability`, `alg:mutbench_coldstart` resolve. | Strongly consistent with deployment boundary. | Verified |
+| 263-282 | Future roadmap table | Numerical claims 20-30+ are future-design thresholds, not result values; no CSV expected. | None. | `tab:future_roadmap` resolves. | Consistent with limitations row. | Verified |
+| 284 | Adaptive method selection | VERIFIED: 0.160 vs 0.083 from `results/mutbench/adapt_v2_summary.csv`; 0/12 from P5; 20-30+ is design threshold. | None. | `alg:mutbench_coldstart` resolves. | Consistent with negative adaptive result. | Verified |
+| 286 | Expanded-panel engineering | VERIFIED: accession manifest exists at `results/mutbench/pilot_accession_manifest.csv`; W4/W5 refs verified above. | None. | `para:w4_tier2_lopo`, `para:w5_layer_a_prime` resolve. | Consistent with label bottleneck. | Verified |
+| 288 | Phylogenetic correction | VERIFIED: rho -0.876 simulation and -0.107 real from phylo/homoplasy artefacts; exact source path should be named in chapter for ease. | `sagulenko2018treetime`, `turakhia2020ultrafast` exist and support TreeTime/UShER. | None. | Consistent with ch4 phylo caveat. | Verified |
+| 290-292 | Additional directions; reproduction | No result numerics except Priority 4 and HIV-1 Env only; code/data refs resolve. | None. | `para:hbv_pilot`, `sec:code_availability`, `tab:future_roadmap` resolve. | Consistent with scope boundary. | Verified |
+| 298 | Concluding remarks | VERIFIED: omega2 0.296, 9/11, HIV-1 7.19x and 82% from `stage3_statistics.csv`, `vaccine_escape_stage3.csv`, and Layer-A overlap audit files. | None. | None. | Recent fix PASS: "single-position scoring regime"; no old "point substitutions only". | Verified |
+| 299-315 | Defense map table | VERIFIED: 11, 8,580, omega2 0.296/0.234, five frames, 7.19x, 82%, 0/12, n=11, 20-30 from same sources above. | None. | `para:wave1_codex_audits`, `para:full_lattice_shapley`, `sec:vaccine_escape`, `para:p5_callability`, `para:w5_layer_a_prime`, `subsec:feature_ablation` resolve. | C1 ref points to audit paragraph rather than benchmark definition; acceptable but indirect. | Minor |
+| 317-319 | Take-home and dual-use | No new numerics. | None. | `sec:durc_ethics` resolves. | Consistent with dual-use mitigation. | Verified |
+| 321-340 | Code/data availability table + provenance sentence | VERIFIED: `results/mutbench/provenance/commit.txt`, `stage3_full_results.csv`, `vaccine_escape_stage3.csv`, and `feature_analysis/feature_ablation_nested_lopo_summary.csv` exist. UNVERIFIED/OUTDATED RISK: tag `dissertation-v1`, MIT/CC-BY-NC claims, final Zenodo DOI "will be minted", and ~25 s runtime are not verified from CSV. | None. | `ch:mutbench`, `subsec:code_data_availability` resolve. | Consistent with release constraints; no regression. | Minor |
+
+## Per-Section Severity Counts
+
+| Section | Critical | Major | Minor | Verified |
+|---|---:|---:|---:|---:|
+| Concurrent benchmark / practical workflow (151-181) | 0 | 0 | 1 | 3 |
+| Defense limitations matrix (197-231) | 0 | 0 | 2 | 2 |
+| Contributions and audit boundary (238-258) | 0 | 0 | 1 | 4 |
+| Future directions (263-292) | 0 | 0 | 0 | 5 |
+| Conclusion / defense map / availability (298-340) | 0 | 0 | 2 | 2 |
+
+## Overall Severity Tally
+
+Critical: 0. Major: 0. Minor: 6. Verified: 16. Regressions: 0.
+
+Recent-fix verification: no D614G, old omega CI, old HIV-1 Layer A count, old 439-AA Stage 1, or "point substitutions only" regression appears in this line range. The omega CI is the fixed [0.201, 0.346], and line 298 uses "single-position scoring regime."
+
+RESULT_AUDIT_V2_J12: critical=0 major=0 minor=6 regression=0
