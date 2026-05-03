@@ -1,0 +1,627 @@
+======================================================================
+DISSERTATION VERIFICATION SCRIPT
+Base directory: /proj/paper/paper/dissertation
+======================================================================
+
+======================================================================
+CHECK 1: Forbidden Pattern Scan
+======================================================================
+  [PASS] No 'Three studies (Korean)' found in any .tex file
+  [PASS] No 'Three studies (English)' found in any .tex file
+  [PASS] No 'Removed duplicate citation key' found in any .tex file
+  [PASS] No 'Should be '0에 가까운 값'' found in any .tex file
+  [PASS] No 'MOSD/MutClust/MutBench parallel listing' found in any .tex file
+
+  [PASS] ch1_introduction.tex: MOSD appears 1 times (<= 5)
+  [PASS] ch1_introduction.tex: MutClust appears 5 times (<= 5)
+  [PASS] ch1_introduction.tex: MOSD appears 1 times (<= 5)
+  [PASS] ch1_introduction.tex: MutClust appears 4 times (<= 5)
+
+======================================================================
+CHECK 2: Key Statistics Consistency
+======================================================================
+
+  --- omega^2 / eta^2 values ---
+    Found in ch4_results.tex:780: \textbf{핵심 발견}: 탐지 패밀리 $\times$ 병원체 상호작용($\omega^2 = 0.285$)이 \textbf{모든 주효과 및 다른 상호작용보다 큰 최대 분산 원천}
+    Found in ch4_results.tex:782: 병원체 주효과($\omega^2 = 0.260$)도 크며, 이는 병원체 간 변이 구조의 본질적 차이(엔트로피 분포 형태, 양성 선택 부위 밀도 등)가 성능 수준 자체를 결정함을 반
+    Found in ch4_results.tex:784: 반면, 스코어링과 탐지 패밀리의 주효과는 각각 $\omega^2 = 0.027$, $0.025$로 작아, 스코어링이나 탐지 방법 자체보다 ``어떤 병원체에 어떤 방법을 적용하느냐'
+    Found in ch4_results.tex:788: 이원 상호작용 중 family $\times$ pathogen($\omega^2 = 0.285$)이 이미 최대 분산 원천으로 확인되었으므로, 삼원 상호작용의 미보고가 핵심 결론에 
+    Found in ch4_results.tex:806: 0/9의 조합 일치율과 4.9\%의 일반화 비율은 벤치마크의 한계가 아니라 \textbf{핵심 발견}이다. 이 결과는 ``단일 최적 방법''이라는 전제 자체가 성립하지 않음을 정량
+    Found in ch4_results.tex:1009: \item \textbf{상호작용 지배}: 탐지 패밀리 $\times$ 병원체 상호작용($\omega^2 = 0.285$)이 모든 주효과보다 크다. 최적 방법은 병원체에 의존한다.
+    Found in ch4_results.tex:1137: 이 분석은 ANOVA에서 관찰된 탐지 패밀리 $\times$ 병원체 상호작용($\omega^2 = 0.285$)에 대한 기계론적 설명을 제공한다. 병원체마다 효과적인 핫스팟 판별에
+    Found in ch5_adapt.tex:196: 이는 ANOVA 교호작용 효과($\omega^2 = 0.285$)가 ground truth 정의 산물이 아닌 진정한 방법--병원체 교호작용을 반영함을 확인한다. 상세한 해석은 제~
+    Found in ch5_adapt.tex:306: \item \textbf{특성 이질성}: 가장 판별력 있는 정보 유형이 병원체마다 다르며(12개 병원체 중 5개 서로 다른 최적 특성), ANOVA에서 관찰된 탐지 family $
+    Found in ch5_discussion.tex:75: 구체적으로, MutBench의 결과는 Rice 프레임워크를 다음과 같이 실체화한다: \textit{문제 공간} $\mathcal{P}$는 게노믹 프로파일(정렬 길이, 다양성 비율,
+    Found in ch5_discussion.tex:142: 제~\ref{ch:introduction}장에서 제기한 세 가지 문제로 돌아가면: 표준화된 평가 프레임워크의 부재는 MutBench의 3계층 ground truth와 hotspot
+    Found in ch5_discussion.tex:218: 이러한 이질성은 ANOVA에서 방법 $\times$ 병원체 상호작용을 인위적으로 부풀릴 수 있다. 병원체 생물학의 차이뿐만 아니라 ground truth 정의 기준의 차이도 관찰된
+    Found in ch6_conclusion.tex:141: 탐지 방법 성능이 방법 자체가 아닌 방법--병원체 상호작용($\omega^2 = 0.285$)에 의해 지배된다는 발견은 바이러스 유전체학을 넘어 더 넓은 함의를 가진다: 이질적인 
+    Found in ch1_introduction.tex:152: The scoring~$\times$~pathogen interaction is the largest modeled variance component ($\omega^2 = 0.2
+    Found in ch2_background.tex:254: MutBench's unique contribution is the \textit{scoring $\times$ pathogen interaction analysis}: while
+    Found in ch2_background.tex:256: (1)~quantification of the scoring--pathogen interaction through three-way ANOVA, revealing that the 
+    Found in ch2_background.tex:298: Coupling-aware methods (DCA, EVcouplings, GREMLIN, and similar pairwise/epistatic models) remain exp
+    Found in ch3_methods.tex:34: The 11 pathogens span 8 ICTV viral families and four transmission routes (respiratory, blood-borne/s
+    Found in ch3_methods.tex:207: For each pathogen, Layer~A positions were compiled from published studies (Table~\ref{tab:gt_positio
+    Found in ch3_methods.tex:574: All correlations were computed on position-level scoring vectors archived in \texttt{results/mutbenc
+    Found in ch3_methods.tex:617: \item \emph{(a) Production EqualWeight column (headline path).} The EqualWeight column that contribu
+    Found in ch3_methods.tex:663: Since all methods operate on the same one-dimensional score array, the detection step serves as a ne
+    Found in ch3_methods.tex:764: (2)~the key finding is the \emph{scoring $\times$ pathogen interaction} ($\omega^2 = 0.296$), which 
+    Found in ch3_methods.tex:816: \textbf{Cell-level vs.\ evaluation-level $\omega^2$.}\phantomsection\label{subsubsec:cell_level_omeg
+    Found in ch3_methods.tex:818: \textbf{ANCOVA with technical covariates.}\phantomsection\label{subsubsec:ancova_methods} An ANCOVA 
+    Found in ch3_methods.tex:824: The Kruskal--Wallis test applied to the scoring main effect yielded $H = 277.9$, $p < 10^{-47}$, con
+    Found in ch4_results.tex:11: (1)~Scoring~$\times$~pathogen interaction is the largest modeled variance component ($\omega^2 = 0.2
+    Found in ch4_results.tex:292: While the finding that different pathogens favor different methods might appear self-evident, the no
+    Found in ch4_results.tex:296: For symmetry with the per-pathogen \emph{best} reported in Table~\ref{tab:stage2_best}, the correspo
+    Found in ch4_results.tex:354: \caption{Three-way ANOVA results: $\omega^2$ effect size of each modeled factor on MCC. The scoring 
+    Found in ch4_results.tex:379: \caption{Variance decomposition of hotspot detection performance. Among modeled factors, the scoring
+    Found in ch4_results.tex:383: \textbf{Key finding}: the scoring~$\times$~pathogen interaction ($\omega^2 = 0.296$ at the evaluatio
+    Found in ch4_results.tex:387: The same 8{,}580-evaluation dataset is re-examined under three statistical lenses: ANOVA (interactio
+    Found in ch4_results.tex:389: This finding directly addresses the third problem from Chapter~\ref{ch:introduction}: the interactio
+    Found in ch4_results.tex:441: This tempering does not invalidate the pathogen-adaptive conclusion: the $\omega^2 = 0.296$ interact
+    Found in ch4_results.tex:443: For transparency on selective-reporting concerns, four auxiliary quantities are archived in the prov
+    Found in ch4_results.tex:485: \caption[Five-way $\omega^2$ robustness comparison]{Five-way comparison of $\omega^2(\text{scoring} 
+    Found in ch4_results.tex:499: A sensitivity analysis excluding HCV---whose Layer~A is based on hypervariable regions (diversifying
+    Found in ch4_results.tex:598: \item \textbf{Interaction dominance (modeled)}: Among the modeled factors, the scoring $\times$ path
+    Found in ch4_results.tex:624: The 20 scoring formulas are derived from 10 underlying biological features spanning 6 categories: fr
+    Found in ch4_results.tex:696: The empirical evidence above operationalises into a deployable algorithm with two tiers, complementa
+    Found in ch4_results.tex:895: This argues against ground-truth composition being the sole explanation for the ANOVA interaction ef
+    Found in ch5_discussion.tex:30: Homoplasy-based scoring is one alternative motivated by the founder-bias problem ($\rho = -0.876$ be
+    Found in ch5_discussion.tex:42: A notable finding is the asymmetry between scoring and detection contributions: the detection method
+    Found in ch5_discussion.tex:46: The pathogen-dependence finding is consistent with related work but addresses a different task: EVER
+    Found in ch5_discussion.tex:95: Returning to the three problems identified in Chapter~\ref{ch:introduction}: the evaluation framewor
+    Found in ch5_discussion.tex:151: The two operating regimes are complementary, not a single universal algorithm: Contribution~2 gives 
+    Found in ch5_discussion.tex:173: \textbf{Detector-family Simpson's-paradox check}: the family main effect ($\omega^2 = 0.013$) is the
+    Found in ch5_discussion.tex:177: A methodological limitation concerns the \emph{winner's curse}~\cite{ioannidis2008winner}: with 780 
+    Found in ch5_discussion.tex:181: \textbf{Independent reproduction.} The 8{,}580-evaluation benchmark is a single-team, single-codebas
+    Found in ch5_discussion.tex:184: Per-pathogen oracle MCC correlates with two technical covariates not modeled in the three-way ANOVA-
+    Found in ch5_discussion.tex:205: Three caveats on the small-$n$ regime are explicit. First, the Friedman result ($p = 0.990$, $n = 11
+    Found in ch5_discussion.tex:237: \textbf{Second}, the benchmark shows that the optimal biological information source is pathogen-depe
+    Found in ch5_discussion.tex:313: MutBench shows that viral hotspot detection is driven more by the fit between pathogen and biologica
+    Found in abstract_en.tex:2: This dissertation presents \textbf{MutBench}, a hotspot-detection benchmark that systematically comp
+    Found in abstract_en.tex:10: Stage~1 validates the framework on SARS-CoV-2 (MutClust-Hybrid hotspot-score 0.778). Stage~2 establi
+    Found in abstract.tex:2: This dissertation presents \textbf{MutBench} (currently scoped to the RNA-virus single-position regi
+    Found in abstract.tex:10: Stage~1 provides a controlled SARS-CoV-2 sanity check for the framework (MutClust-Hybrid hotspot-sco
+    Found in ch4_results.tex:767: family $\times$ pathogen & 이원 상호작용 & \textbf{0.285} \\
+    Found in ch4_results.tex:1104: 앞선 절에서 최적의 스코어링--탐지 조합이 병원체마다 다르다는 것을 확인하였다($\omega^2_{\text{family}\times\text{pathogen}} = 0.285$)
+    Found in ch5_adapt.tex:9: 제~\ref{ch:results}장에서 최적의 scoring--detection 조합이 9개 병원체 모두에서 서로 다름을 입증하였다(9/9 고유 최적 조합; $\omega^2_{\
+    Found in ch4_results.tex:126: DMS-escape (252) & Saturated H-score & 0.315 & --- & 252 \\
+    Found in ch4_results.tex:137: 기능 영역에서는 TC-freq-v2가 최고 F1(0.474)을 달성하였고, DMS-escape에서는 포화 H-score가 최고 성능(F1 = 0.315)을 보였으며, 수렴 진화에서
+    Found in ch4_results.tex:297: MutClust-Fixed & 0.311 & 0.196 & 0.534 & 0.030 & 0.070 \\
+    Found in ch4_results.tex:800: \item \textbf{최빈 훈련 최적 조합}: E\_only + SWAN이 8/9 반복에서 훈련 최적으로 선정되었으나, 이는 SWAN이 Norovirus에서만 유효 결과(MCC
+    Found in ch4_results.tex:828: 병원체별 평균 MCC만으로 순위를 매기면 특정 병원체에서만 높은 성능을 보이는 조합(예: E\_only + SWAN은 Norovirus에서 MCC = 0.311이나 나머지 8개 병
+    Found in ch4_results.tex:881: HCV & 0.123 & 0.443 & $-$0.319 & 8/10 & E\_only \\
+    Found in ch3_methods.tex:820: \textbf{Bayesian partial-pooling cross-check.}\phantomsection\label{subsubsec:bayesian_methods} A Ba
+    Found in ch3_methods.tex:858: \textbf{Robustness-frame triangulation for $G \leq 30$.} The 11-cluster percentile bootstrap is anti
+    Found in ch4_results.tex:64: DMS-escape (252) & Saturated H-score & 0.315 & --- & 252 \\
+    Found in ch4_results.tex:197: Adding the static members of the 4-feature core (pLDDT, homoplasy; canonical scores projected onto t
+    Found in ch4_results.tex:449: Ranking by mean MCC alone could place combinations that perform well only on specific pathogens at t
+    Found in ch4_results.tex:481: For sensitivity, a naive $N = 8{,}580$ bootstrap (ignoring pathogen-cluster structure) yields a narr
+    Found in ch4_results.tex:495: Bayesian factor analysis           & 0.316 & 0.242 & 0.388 & 0.146 \\
+    Found in ch4_results.tex:511: Norovirus    & 0.3126 & $-0.0166$ & 2 \\
+    Found in ch4_results.tex:545: HIV-1        & 0.318 & 0.304 &  22 & 0.275 \\
+    Found in ch4_results.tex:588: In all 6 pathogens, the best scoring type differs between Layer~A and Layer~C (Table~\ref{tab:layer_
+    Found in ch5_discussion.tex:72: RSV           & 0.196 & 0.394 & 0.318 \\
+    Found in ch5_discussion.tex:179: The three-way ANOVA treats pathogen as a fixed effect, which is appropriate for inference about thes
+    Found in ch5_discussion.tex:217: A forward-time holdout (training restricted to pre-$T_0$ sequences, test on post-$T_0$ emergent posi
+
+  --- Friedman chi-squared ---
+    Friedman-related in ch4_results.tex:813: $k = 20$은 전체 유효 조합 수(병원체별 247--305개)의 상위 약 7\%에 해당하며, 경쟁력 있는 조합군을 대표하면서도 블록 수($b = 9$)에 비해 과도하지 않은 처
+  [WARN] Stale Friedman chi2=42.44 (KR-only / pre-cycle-12) found in ch4_results.tex:816
+  [WARN] Stale Friedman chi2=42.44 (KR-only / pre-cycle-12) found in ch4_results.tex:1012
+  [PASS] Friedman chi2=7.69 (current EN) found in ch4_results.tex:387
+  [PASS] Friedman chi2=7.69 (current EN) found in ch4_results.tex:427
+  [PASS] Friedman chi2=7.69 (current EN) found in ch4_results.tex:601
+  [PASS] Friedman chi2=7.69 (current EN) found in ch5_discussion.tex:238
+  [PASS] Friedman chi2=7.69 (current EN) found in abstract_kr.tex:17
+  [PASS] Friedman chi2=7.69 (current EN) found in abstract_en.tex:10
+  [PASS] Friedman chi2=7.69 (current EN) found in abstract.tex:10
+  [WARN] Stale Friedman chi2=42.44 (KR-only / pre-cycle-12) found in ch4_results.tex:816
+  [WARN] Stale Friedman chi2=42.44 (KR-only / pre-cycle-12) found in ch4_results.tex:1012
+  [PASS] Friedman chi2=7.69 (current EN) found in ch4_results.tex:387
+  [PASS] Friedman chi2=7.69 (current EN) found in ch4_results.tex:427
+  [PASS] Friedman chi2=7.69 (current EN) found in ch4_results.tex:430
+  [PASS] Friedman chi2=7.69 (current EN) found in ch4_results.tex:601
+  [PASS] Friedman chi2=7.69 (current EN) found in ch5_discussion.tex:238
+  [PASS] Friedman chi2=7.69 (current EN) found in abstract_kr.tex:17
+  [PASS] Friedman chi2=7.69 (current EN) found in abstract_en.tex:10
+  [PASS] Friedman chi2=7.69 (current EN) found in abstract.tex:10
+
+  --- Friedman p-value ---
+    p-value in ch4_results.tex:254: 무작위 레이블 섞기(1,000회)에서 모든 방법의 정밀도·재현율이 $p < 0.001$로 유의하였다.
+    p-value in ch4_results.tex:256: MutClust-Hybrid(F1 = 0.785, 귀무 평균 = 0.023, $z$ = 9.97, $p < 0.005$),
+    p-value in ch4_results.tex:257: MutClust-Original(F1 = 0.668, 귀무 평균 = 0.018, $z$ = 9.25, $p < 0.005$),
+    p-value in ch4_results.tex:258: MutClust-Fixed(F1 = 0.669, 귀무 평균 = 0.018, $z$ = 9.25, $p < 0.005$),
+    p-value in ch4_results.tex:259: HDBSCAN-Auto(F1 = 0.146, 귀무 평균 = 0.076, $z$ = 11.31, $p < 0.005$).
+    p-value in ch4_results.tex:264: 모든 5개 방법의 관찰 hotspot-score가 귀무 분포를 유의하게 초과하였다($p < 0.005$):
+    p-value in ch4_results.tex:349: 쌍별 비교는 MutClust-Hybrid가 모든 다른 방법에 대해 유의하게 높은 hotspot-score를 달성함을 확인하였다(모든 비교에서 $p < 0.001$, 점수 차이 범위
+  [PASS] Friedman p=0.0015 found in ch4_results.tex:806
+    p-value in ch4_results.tex:813: $k = 20$은 전체 유효 조합 수(병원체별 247--305개)의 상위 약 7\%에 해당하며, 경쟁력 있는 조합군을 대표하면서도 블록 수($b = 9$)에 비해 과도하지 않은 처
+  [PASS] Friedman p=0.0015 found in ch4_results.tex:816
+  [PASS] Friedman p=0.0015 found in ch4_results.tex:819
+  [PASS] Friedman p=0.0015 found in ch4_results.tex:1012
+    p-value in ch5_adapt.tex:238: \textbf{H3N2에서 EqualWeight는 4.012배 농축($p = 0.0023$)을 달성하여 통계적 유의성에 도달한 유일한 전략이다.}
+    p-value in ch5_adapt.tex:244: 10-feature 통합은 이를 상위 10\%(50개 위치)로 좁히며, 이 범위 내에서 핫스팟 위치가 무작위 선택 대비 4.0배 농축된다(H3N2, $p = 0.0023$).
+    p-value in ch5_adapt.tex:308: \item \textbf{실용적 탐색 범위 축소}: 균등 가중 10-feature 통합은 단일 특성 접근법이 유의성에 도달하지 못하는 상황에서 통계적으로 유의한 H3N2 백신 탈출
+    p-value in ch5_discussion.tex:16: 그럼에도 쌍별 부트스트랩 비교에서 방법 간 차이는 유의하며($p < 0.001$), 동일 리샘플에서의 쌍별 평가가 영역 조합 변동을 상쇄하기 때문이다.
+  [PASS] Friedman p=0.0015 found in ch5_discussion.tex:199
+    p-value in ch1_introduction.tex:155: The optimal scoring--detection combination narrows the candidate list from $\sim$1{,}000 alignment p
+    p-value in ch4_results.tex:124: All detection results are statistically significant: permutation tests (1,000 random and 200 circula
+    p-value in ch4_results.tex:126: Region-level BCa bootstrap CIs~\cite{efron1987better} (1,000 resamplings, $n = 7$ Spike regions; her
+    p-value in ch4_results.tex:197: Adding the static members of the 4-feature core (pLDDT, homoplasy; canonical scores projected onto t
+  [PASS] Friedman p=0.0015 found in ch4_results.tex:519
+    p-value in ch4_results.tex:564: For 4 of the 6 DMS pathogens with threshold sensitivity data, Spearman correlations between DMS fitn
+  [PASS] Friedman p=0.0015 found in ch4_results.tex:796
+    p-value in ch4_results.tex:804: A pre-registered null-calibration audit compares observed 4-core and 3-core metrics against $100{,}0
+    p-value in ch4_results.tex:812: P6 addresses the live committee objection that the callable-subset signal in Paragraph~\ref{para:nul
+    p-value in ch4_results.tex:820: Wave 5 replaces the deferred manual literature curation pilot with a structured-database-driven labe
+    p-value in ch4_results.tex:939: \footnotesize $***$: $p < 0.001$; $**$: $p < 0.01$; $*$: $p < 0.05$; n.s.: not significant. Best-com
+    p-value in ch4_results.tex:947: For H3N2, FUBAR Bayes factor captures 9 of 29 antigenic drift sites with 9.36-fold enrichment; 8 of 
+    p-value in ch5_adapt.tex:238: \textbf{For H3N2, EqualWeight achieves 4.012-fold enrichment ($p = 0.0023$), the only strategy reach
+    p-value in ch5_adapt.tex:244: The 10-feature integration narrows this to the top 10\% (50 positions), within which hotspot positio
+    p-value in ch5_adapt.tex:308: \item \textbf{Practical search space reduction}: Equal-weight 10-feature integration achieves statis
+    p-value in ch5_discussion.tex:10: The wide region-level BCa CIs ($n = 7$ regions; e.g., MutClust-Hybrid $[0.323, 0.635]$) reflect regi
+    p-value in ch5_discussion.tex:30: Homoplasy-based scoring is one alternative motivated by the founder-bias problem ($\rho = -0.876$ be
+    p-value in ch5_discussion.tex:102: The 10-feature EqualWeight integration (top-5\% threshold; \texttt{escape\_validation\_adapt.csv}) f
+    p-value in ch5_discussion.tex:217: A forward-time holdout (training restricted to pre-$T_0$ sequences, test on post-$T_0$ emergent posi
+    p-value in ch5_discussion.tex:239: \textbf{Third}, the framework yields practical search-space reduction validated on independently-cur
+  [PASS] Friedman p=0.0015 found in ch5_discussion.tex:272
+    p-value in abstract_kr.tex:18: 또한 탐지된 핫스팟이 실험적으로 확인된 백신 escape 위치와 최대 9.36배 enrichment($p < 0.0001$)를 보이며, 벤치마크에서 최적으로 식별된 scoring 
+    p-value in abstract_kr.tex:21: 다중 정보 통합이 실험적 탐색 범위를 축소하며(H3N2 백신 escape enrichment 4.012배, $p = 0.0023$), 4개 핵심 특징(homoplasy, pLDDT
+    p-value in abstract_en.tex:11: Contribution 3 is two-part: \textit{(3a) Multi-source integration infrastructure} ---a 4-feature cor
+    p-value in abstract_en.tex:14: Multi-source integration further reduces the experimental search space for hotspot validation, achie
+    p-value in abstract.tex:11: Contribution 3, practical search-space reduction validated on HIV-1 vaccine-escape: the optimal scor
+
+  --- LOPO match rate ---
+    LOPO ref in ch4_results.tex:797: \item \textbf{조합 일치율}: 0/9 (0\%). 9회 반복 모두에서 훈련 최적 조합과 테스트 oracle 조합이 불일치하였다.
+    LOPO ref in ch4_results.tex:804: SWAN 패밀리(9개 변이체)를 제외하고 LOPO를 수행하면\footnote{SWAN 제외 시 평가 수는 2,288개(원본 2,418개 대비 130개 감소)이며, 훈련 최적 조합이
+    LOPO ref in ch4_results.tex:806: 0/9의 조합 일치율과 4.9\%의 일반화 비율은 벤치마크의 한계가 아니라 \textbf{핵심 발견}이다. 이 결과는 ``단일 최적 방법''이라는 전제 자체가 성립하지 않음을 정량
+    LOPO ref in ch4_results.tex:1083: \textbf{탐지 패밀리 수준}(14개 패밀리)에서 1-NN 전략은 패밀리 일치율 0/9를 기록하였다---각 병원체의 oracle 최적 패밀리가 고유하며, 1-NN 이웃은 동일한
+    LOPO ref in ch4_results.tex:1085: \textbf{스코어링 공식 수준}(9개 공식)에서도 일치율은 0/9이었으나, 평균 MCC는 0.172(중위수 0.138)로 oracle 성능의 57.7\%를 회복하였다.
+    LOPO ref in ch4_results.tex:1093: 둘째, 정확한 조합 일치율은 v1과 v2 프로파일 모두에서 0/9으로, 85개 MSA 유래 특성을 사용하더라도 9개 병원체만으로는 단일 최적 조합 예측이 지나치게 야심적임을 확인하
+    LOPO ref in ch4_results.tex:1094: v2 프로파일의 개선에도 불구하고, $n = 9$ 병원체의 근본적 한계가 지속된다: LOPO 일치율은 0/9로 유지되어, 신뢰할 수 있는 조합 예측을 위해서는 knowledge b
+    LOPO ref in ch5_adapt.tex:9: 제~\ref{ch:results}장에서 최적의 scoring--detection 조합이 9개 병원체 모두에서 서로 다름을 입증하였다(9/9 고유 최적 조합; $\omega^2_{\
+    LOPO ref in ch6_conclusion.tex:105: 그러나 정확 일치율은 v1과 v2 모두에서 0/9로 유지되어, 85개 특성을 사용하더라도 $n = 9$ 병원체의 근본적 한계가 지속됨을 확인하였다.
+    LOPO ref in ch6_conclusion.tex:106: 더 거친 예측 단위---탐지 패밀리(14개 패밀리)와 스코어링 공식(9개 공식)---에서 평가할 때, 일치율은 역시 0/9이었으나 달성된 MCC는 실질적으로 개선되었다: 패밀리 수
+    LOPO ref in ch1_introduction.tex:149: \textbf{Contribution 2. Statistical demonstration that the optimal biological information source dif
+    LOPO ref in ch1_introduction.tex:150: All eleven pathogens exhibited different best-performing combinations (LOPO cross-validation: 0/11 m
+    LOPO ref in ch1_introduction.tex:152: The scoring~$\times$~pathogen interaction is the largest modeled variance component ($\omega^2 = 0.2
+    LOPO ref in ch2_background.tex:248: Most recently, EVEREST~\cite{gurev2025everest,gurev2026everest_v3} specifically benchmarked VEP meth
+    LOPO ref in ch4_results.tex:12: (2)~All 11 pathogens have unique best combinations; LOPO 0/11 match rate is null-consistent and serv
+    LOPO ref in ch4_results.tex:208: Application of the benchmark pipeline to Influenza A H3N2 hemagglutinin (1,967 sequences, 5 antigeni
+    LOPO ref in ch4_results.tex:290: The more substantive finding is not the uniqueness itself but the large performance gap between orac
+    LOPO ref in ch4_results.tex:292: While the finding that different pathogens favor different methods might appear self-evident, the no
+    LOPO ref in ch4_results.tex:387: The same 8{,}580-evaluation dataset is re-examined under three statistical lenses: ANOVA (interactio
+    LOPO ref in ch4_results.tex:404: Combination match rate (training-best $\equiv$ test-oracle) & 0/11 (0\%) \\
+    LOPO ref in ch4_results.tex:416: \caption{LOPO cross-validation results. For each pathogen, the predicted MCC (from training on the r
+    LOPO ref in ch4_results.tex:420: These results are consistent with a key interpretation: the 0/11 exact-match rate is itself not unex
+    LOPO ref in ch4_results.tex:437: \textbf{Permutation null for the 0/11 match rate and the 0.265 gap.}
+    LOPO ref in ch4_results.tex:439: First, the 0/11 exact-match rate is itself expected under the null: with 280 combinations and 11 pat
+    LOPO ref in ch4_results.tex:441: This tempering does not invalidate the pathogen-adaptive conclusion: the $\omega^2 = 0.296$ interact
+    LOPO ref in ch4_results.tex:595: The cross-pathogen benchmark supports pathogen-adaptive method selection through two primary analyse
+    LOPO ref in ch4_results.tex:600: \item \textbf{LOPO null-consistent corroboration}: LOPO cross-validation yielded 0/11 combination ma
+    LOPO ref in ch4_results.tex:824: A pre-registered Cycle-7 robustness experiment tests whether a Bayesian shrinkage model with hyperpr
+    LOPO ref in ch4_results.tex:857: The Cycle 7B comparison gives this dissertation seven independent failure modes for adaptive weighti
+    LOPO ref in ch5_adapt.tex:9: Chapter~\ref{ch:results} demonstrated that the best-performing scoring--detection combination differ
+    LOPO ref in ch5_discussion.tex:44: The pattern is formalisable as Rice's algorithm-selection problem~\cite{rice1976algorithm} with the 
+    LOPO ref in ch5_discussion.tex:95: Returning to the three problems identified in Chapter~\ref{ch:introduction}: the evaluation framewor
+    LOPO ref in ch5_discussion.tex:104: While LOPO cross-validation yields 0/11 generalization, MutBench provides practical value through th
+    LOPO ref in ch5_discussion.tex:238: Friedman $\chi^2=7.69$, $p=0.990$ (cluster-robust main statistic) shows no universally best combinat
+    LOPO ref in abstract_kr.tex:17: Friedman 검정($\chi^2 = 7.69$, $p = 0.990$)에서 상위 20개 조합 간 유의한 차이가 없음을 확인하였으며, LOPO 교차검증에서 11개 병원체 모두 서
+    LOPO ref in abstract_en.tex:10: Stage~1 validates the framework on SARS-CoV-2 (MutClust-Hybrid hotspot-score 0.778). Stage~2 establi
+    LOPO ref in abstract.tex:10: Stage~1 provides a controlled SARS-CoV-2 sanity check for the framework (MutClust-Hybrid hotspot-sco
+  [PASS] LOPO 0/11 match rate found
+
+  --- Total evaluations (8,580 main; 2,340 vaccine escape) ---
+  [PASS] 8,580 evaluations found 2 time(s)
+      ch3_methods.tex:480: Stage~2 systematically evaluates 20 scoring types $\times$ 39 detection parameter variants (from 14 
+      ch4_results.tex:939: \footnotesize $***$: $p < 0.001$; $**$: $p < 0.01$; $*$: $p < 0.05$; n.s.: not significant. Best-com
+  [PASS] 2,340 vaccine-escape evaluations found 1 time(s)
+  [PASS] 20 scoring × 39 detectors × 11 pathogens = 8580 (matches 8,580)
+
+  --- hotspot-score best value (0.778) ---
+  [PASS] hotspot-score 0.778 found in ch4_results.tex:75
+  [PASS] hotspot-score 0.778 found in ch4_results.tex:81
+  [PASS] hotspot-score 0.778 found in ch4_results.tex:188
+  [PASS] hotspot-score 0.778 found in ch4_results.tex:217
+  [PASS] hotspot-score 0.778 found in ch4_results.tex:228
+  [PASS] hotspot-score 0.778 found in ch4_results.tex:265
+  [PASS] hotspot-score 0.778 found in ch4_results.tex:313
+  [PASS] hotspot-score 0.778 found in ch4_results.tex:341
+  [PASS] hotspot-score 0.778 found in ch4_results.tex:545
+  [PASS] hotspot-score 0.778 found in ch4_results.tex:580
+  [PASS] hotspot-score 0.778 found in ch4_results.tex:590
+  [PASS] hotspot-score 0.778 found in ch4_results.tex:918
+  [PASS] hotspot-score 0.778 found in ch5_discussion.tex:26
+  [PASS] hotspot-score 0.778 found in ch5_discussion.tex:163
+  [PASS] hotspot-score 0.778 found in ch6_conclusion.tex:69
+  [PASS] hotspot-score 0.778 found in ch3_methods.tex:411
+  [PASS] hotspot-score 0.778 found in ch4_results.tex:25
+  [PASS] hotspot-score 0.778 found in ch4_results.tex:36
+  [PASS] hotspot-score 0.778 found in ch4_results.tex:112
+  [PASS] hotspot-score 0.778 found in ch4_results.tex:114
+  [PASS] hotspot-score 0.778 found in ch5_discussion.tex:10
+  [PASS] hotspot-score 0.778 found in abstract_kr.tex:14
+  [PASS] hotspot-score 0.778 found in abstract_en.tex:10
+  [PASS] hotspot-score 0.778 found in abstract.tex:10
+
+  --- Oracle-vs-generalized MCC gap (0.265) ---
+  [PASS] Oracle-vs-generalized MCC gap 0.265 found in ch4_results.tex:290
+  [PASS] Oracle-vs-generalized MCC gap 0.265 found in ch4_results.tex:292
+  [PASS] Oracle-vs-generalized MCC gap 0.265 found in ch4_results.tex:387
+  [PASS] Oracle-vs-generalized MCC gap 0.265 found in ch4_results.tex:407
+  [PASS] Oracle-vs-generalized MCC gap 0.265 found in ch4_results.tex:416
+  [PASS] Oracle-vs-generalized MCC gap 0.265 found in ch4_results.tex:420
+  [PASS] Oracle-vs-generalized MCC gap 0.265 found in ch4_results.tex:433
+  [PASS] Oracle-vs-generalized MCC gap 0.265 found in ch4_results.tex:437
+  [PASS] Oracle-vs-generalized MCC gap 0.265 found in ch4_results.tex:438
+  [PASS] Oracle-vs-generalized MCC gap 0.265 found in ch4_results.tex:440
+  [PASS] Oracle-vs-generalized MCC gap 0.265 found in ch4_results.tex:441
+  [PASS] Oracle-vs-generalized MCC gap 0.265 found in ch4_results.tex:600
+  [PASS] Oracle-vs-generalized MCC gap 0.265 found in ch4_results.tex:824
+  [PASS] Oracle-vs-generalized MCC gap 0.265 found in ch4_results.tex:857
+  [PASS] Oracle-vs-generalized MCC gap 0.265 found in ch5_discussion.tex:44
+  [PASS] Oracle-vs-generalized MCC gap 0.265 found in ch5_discussion.tex:78
+  [PASS] Oracle-vs-generalized MCC gap 0.265 found in ch5_discussion.tex:151
+  [PASS] Oracle-vs-generalized MCC gap 0.265 found in ch5_discussion.tex:205
+  [PASS] Oracle-vs-generalized MCC gap 0.265 found in ch5_discussion.tex:237
+  [PASS] Oracle-vs-generalized MCC gap 0.265 found in abstract_en.tex:10
+  [PASS] Oracle-vs-generalized MCC gap 0.265 found in abstract.tex:10
+
+  --- Random baseline std conflict check (0.002 vs 0.003) ---
+  [PASS] Random baseline std consistently 0.003
+
+  --- H-score founder bias rho (-0.876) ---
+  [PASS] rho -0.876 found in ch4_results.tex:619
+  [PASS] rho -0.876 found in ch5_discussion.tex:73
+  [PASS] rho -0.876 found in ch6_conclusion.tex:40
+  [PASS] rho -0.876 found in ch6_conclusion.tex:59
+  [PASS] rho -0.876 found in ch6_conclusion.tex:112
+  [PASS] rho -0.876 found in ch4_results.tex:219
+  [PASS] rho -0.876 found in ch5_discussion.tex:30
+  [PASS] rho -0.876 found in ch5_discussion.tex:303
+
+  --- Stale enrichment ratio conflict check (5.94 vs 5.918) ---
+  [PASS] No stale 5.94/5.918 enrichment-ratio claim found
+
+======================================================================
+CHECK 3: CSV Data vs Table Verification
+======================================================================
+
+  --- (a) extended_9pathogen_results.csv row count ---
+  [PASS] extended_9pathogen_results.csv has 3321 data rows (expected 3,321)
+
+  --- (b) multilayer/ANOVA n=2,544 ---
+  [PASS] multilayer_9pathogen_results.csv has 2544 data rows (expected 2,544)
+
+  --- (c) Best combos per pathogen from multilayer CSV ---
+    Best combo per pathogen (from CSV):
+      Dengue: E*rare + FreqThresh(p=85) (composite=0.2680)
+      H3N2: H-score + SlidingTest(p=0.01) (composite=0.3367)
+      HCV: E_only + CUSUM(d=0.5,h=5.0) (composite=0.5055)
+      HIV-1: rank(P*E) + GradPeak(p=0.5) (composite=0.1633)
+      Influenza_B: minority_E + Wavelet(t=2.0) (composite=0.2045)
+      MERS: E*rare + LocalContrast(z=1.5) (composite=0.0263)
+      Norovirus: P*E*rare + GradPeak(p=0.5) (composite=0.4151)
+      RSV: H-score + Spectral(z=2.0) (composite=0.2500)
+      SARS-CoV-2: E*rare + CUSUM(d=0.5,h=4.0) (composite=0.1265)
+    Unique best combos: 9/9
+  [PASS] All 9 pathogens have unique best combos (9/9)
+  [WARN] Pathogens not mentioned in ch4: ['Influenza_B']
+
+  --- (d) LOPO verification ---
+  [PASS] LOPO match rate: 0/9 (expected 0/9)
+    Mean generalization ratio: 0.0488 (4.9%)
+  [PASS] Generalization ratio ~4.9% (actual: 4.9%)
+
+  --- (e) Arithmetic verification ---
+  [PASS] 3321 - 2544 = 777 (correct)
+    5.80 / 0.98 = 5.9184
+  [PASS] 5.80/0.98 ≈ 5.94
+  [PASS] 9 scoring × 41 detectors × 9 pathogens = 3321 (matches 3,321)
+
+======================================================================
+CHECK 4: LaTeX Structure Integrity
+======================================================================
+
+  --- (a) Label/Ref cross-reference ---
+  [FAIL] 130 duplicate \label{} declarations found:
+      \label{ch:adapt} declared at ch5_adapt.tex:3, ch4_results.tex:614
+      \label{ch:background} declared at ch2_background.tex:4, ch2_background.tex:7
+      \label{ch:conclusion} declared at ch6_conclusion.tex:3, ch5_discussion.tex:233
+      \label{ch:discussion} declared at ch5_discussion.tex:3, ch5_discussion.tex:3
+      \label{ch:introduction} declared at ch1_introduction.tex:3, ch1_introduction.tex:3
+      \label{ch:mutbench} declared at ch3_methods.tex:3, ch3_methods.tex:3
+      \label{ch:results} declared at ch4_results.tex:3, ch4_results.tex:3
+      \label{eq:coordinate_transform} declared at ch3_methods.tex:148, ch3_methods.tex:344
+      \label{eq:expand_cluster} declared at ch3_methods.tex:317, ch3_methods.tex:400
+      \label{eq:hotspot_score} declared at ch3_methods.tex:387, ch3_methods.tex:419
+      \label{eq:mcc} declared at ch3_methods.tex:611, ch3_methods.tex:798
+      \label{eq:mutbench_hscore} declared at ch3_methods.tex:302, ch3_methods.tex:404
+      \label{eq:omega_squared} declared at ch3_methods.tex:628, ch3_methods.tex:829
+      \label{eq:shannon_entropy} declared at ch3_methods.tex:308, ch3_methods.tex:408
+      \label{eq:weighted_hotspot_score} declared at ch3_methods.tex:654, ch3_methods.tex:880
+      \label{fig:auroc_vs_mcc} declared at ch5_adapt.tex:265, ch5_adapt.tex:265
+      \label{fig:feature_ablation} declared at ch5_adapt.tex:107, ch4_results.tex:630
+      \label{fig:mutbench_hotspot_map} declared at ch3_methods.tex:258, ch3_methods.tex:394
+      \label{fig:mutbench_pipeline} declared at ch3_methods.tex:205, ch3_methods.tex:126
+      \label{fig:mutbench_sensitivity} declared at ch4_results.tex:390, ch4_results.tex:145
+      \label{fig:search_space} declared at ch5_adapt.tex:252, ch5_adapt.tex:252
+      \label{sec:10features} declared at ch5_adapt.tex:16, ch5_adapt.tex:16
+      \label{sec:9pathogen_benchmark} declared at ch3_methods.tex:9, ch3_methods.tex:12
+      \label{sec:9pathogen_results} declared at ch4_results.tex:689, ch4_results.tex:223
+      \label{sec:adapt_analysis} declared at ch5_adapt.tex:64, ch5_adapt.tex:64
+      \label{sec:adapt_limits} declared at ch5_adapt.tex:287, ch5_adapt.tex:287
+      \label{sec:adapt_motivation} declared at ch5_adapt.tex:7, ch5_adapt.tex:7
+      \label{sec:adapt_practical} declared at ch5_adapt.tex:200, ch5_adapt.tex:200
+      \label{sec:adapt_summary} declared at ch5_adapt.tex:301, ch5_adapt.tex:301
+      \label{sec:bg_hotspot} declared at ch2_background.tex:13, ch2_background.tex:7
+      \label{sec:bootstrap_interpretation} declared at ch5_discussion.tex:13, ch5_discussion.tex:10
+      \label{sec:circularity} declared at ch5_discussion.tex:35, ch5_discussion.tex:14
+      \label{sec:complementary_gt} declared at ch5_discussion.tex:55, ch5_discussion.tex:26
+      \label{sec:contribution_summary} declared at ch6_conclusion.tex:8, ch5_discussion.tex:232
+      \label{sec:cross_pathogen_implications} declared at ch5_discussion.tex:68, ch5_discussion.tex:37
+      \label{sec:cross_pathogen_structural} declared at ch4_results.tex:510, ch4_results.tex:201
+      \label{sec:esm2_leakage} declared at ch5_discussion.tex:203, ch5_discussion.tex:165
+      \label{sec:external_comparison} declared at ch4_results.tex:201, ch4_results.tex:112
+      \label{sec:final_conclusion} declared at ch6_conclusion.tex:135, ch5_discussion.tex:311
+      \label{sec:future_work} declared at ch6_conclusion.tex:79, ch5_discussion.tex:276
+      \label{sec:gt_heterogeneity} declared at ch5_discussion.tex:213, ch5_discussion.tex:191
+      \label{sec:hscore_saturation} declared at ch5_discussion.tex:47, ch5_discussion.tex:26
+      \label{sec:influenza_validation} declared at ch4_results.tex:514, ch4_results.tex:202
+      \label{sec:intro_background} declared at ch1_introduction.tex:6, ch1_introduction.tex:6
+      \label{sec:intro_contributions} declared at ch1_introduction.tex:51, ch1_introduction.tex:141
+      \label{sec:intro_motivation} declared at ch1_introduction.tex:20, ch1_introduction.tex:57
+      \label{sec:intro_objectives} declared at ch1_introduction.tex:39, ch1_introduction.tex:77
+      \label{sec:intro_organization} declared at ch1_introduction.tex:67, ch1_introduction.tex:161
+      \label{sec:limitations} declared at ch6_conclusion.tex:26, ch5_discussion.tex:244
+      \label{sec:multi_gt} declared at ch4_results.tex:100, ch4_results.tex:47
+      \label{sec:mutbench_materials} declared at ch3_methods.tex:13, ch3_methods.tex:16
+      \label{sec:mutbench_methods} declared at ch3_methods.tex:156, ch3_methods.tex:76
+      \label{sec:oracle_mcc_ceiling} declared at ch5_discussion.tex:84, ch5_discussion.tex:50
+      \label{sec:phylo_limits} declared at ch5_discussion.tex:176, ch5_discussion.tex:155
+      \label{sec:phylo_simulation} declared at ch4_results.tex:609, ch4_results.tex:204
+      \label{sec:practical_surveillance} declared at ch5_discussion.tex:146, ch5_discussion.tex:128
+      \label{sec:real_gisaid_benchmark} declared at ch4_results.tex:147, ch4_results.tex:80
+      \label{sec:robustness_validation} declared at ch4_results.tex:243, ch4_results.tex:118
+      \label{sec:sensitivity_analysis} declared at ch4_results.tex:369, ch4_results.tex:120
+      \label{sec:single_pathogen_benchmark} declared at ch4_results.tex:12, ch4_results.tex:19
+      \label{sec:statistical_validation} declared at ch4_results.tex:247, ch4_results.tex:119
+      \label{sec:structure_analysis} declared at ch4_results.tex:599, ch4_results.tex:203
+      \label{sec:synthetic_real_gap} declared at ch5_discussion.tex:22, ch5_discussion.tex:10
+      \label{sec:temporal} declared at ch4_results.tex:460, ch4_results.tex:121
+      \label{sec:variant_comparison} declared at ch4_results.tex:16, ch4_results.tex:23
+      \label{subsec:3layer_gt} declared at ch3_methods.tex:57, ch3_methods.tex:146
+      \label{subsec:9pathogen_anova} declared at ch4_results.tex:753, ch4_results.tex:348
+      \label{subsec:9pathogen_best_combos} declared at ch4_results.tex:711, ch4_results.tex:254
+      \label{subsec:9pathogen_bootstrap} declared at ch4_results.tex:824, ch4_results.tex:446
+      \label{subsec:9pathogen_data} declared at ch3_methods.tex:16, ch3_methods.tex:19
+      \label{subsec:9pathogen_detection} declared at ch3_methods.tex:460, ch3_methods.tex:623
+      \label{subsec:9pathogen_friedman} declared at ch4_results.tex:810, ch4_results.tex:423
+      \label{subsec:9pathogen_lopo} declared at ch4_results.tex:792, ch4_results.tex:392
+      \label{subsec:9pathogen_metrics} declared at ch3_methods.tex:587, ch3_methods.tex:773
+      \label{subsec:9pathogen_scale} declared at ch4_results.tex:698, ch4_results.tex:242
+      \label{subsec:9pathogen_scoring} declared at ch3_methods.tex:407, ch3_methods.tex:483
+      \label{subsec:9pathogen_statistical} declared at ch4_results.tex:750, ch4_results.tex:343
+      \label{subsec:9pathogen_statistics} declared at ch3_methods.tex:620, ch3_methods.tex:810
+      \label{subsec:9pathogen_subsampling} declared at ch4_results.tex:846, ch4_results.tex:460
+      \label{subsec:9pathogen_supplementary} declared at ch4_results.tex:855, ch4_results.tex:467
+      \label{subsec:alternative_scoring} declared at ch3_methods.tex:425, ch3_methods.tex:427
+      \label{subsec:anova_diagnostics} declared at ch4_results.tex:894, ch4_results.tex:476
+      \label{subsec:bg_density_clustering} declared at ch2_background.tex:42, ch2_background.tex:60
+      \label{subsec:bg_dms} declared at ch2_background.tex:58, ch2_background.tex:89
+      \label{subsec:bg_hotspot_methods} declared at ch2_background.tex:16, ch2_background.tex:12
+      \label{subsec:dms_evolution_correlation} declared at ch4_results.tex:935, ch4_results.tex:562
+      \label{subsec:dms_ground_truth} declared at ch3_methods.tex:141, ch3_methods.tex:338
+      \label{subsec:esm_validation} declared at ch4_results.tex:858, ch4_results.tex:472
+      \label{subsec:feature_ablation_adapt} declared at ch5_adapt.tex:99, ch5_adapt.tex:99
+      \label{subsec:feature_correlation_adapt} declared at ch5_adapt.tex:149, ch5_adapt.tex:149
+      \label{subsec:gt_heterogeneity_adapt} declared at ch5_adapt.tex:162, ch5_adapt.tex:162
+      \label{subsec:homoplasy_sensitivity} declared at ch4_results.tex:641, ch4_results.tex:219
+      \label{subsec:hotspot_score} declared at ch3_methods.tex:381, ch3_methods.tex:414
+      \label{subsec:improvements} declared at ch3_methods.tex:322, ch3_methods.tex:411
+      \label{subsec:mutbench_hscore} declared at ch3_methods.tex:297, ch3_methods.tex:400
+      \label{subsec:pahd_motivation_summary} declared at ch4_results.tex:1003, ch4_results.tex:593
+      \label{subsec:pahd_prototype} declared at ch4_results.tex:1020, ch4_results.tex:605
+      \label{subsec:per_pathogen_disc} declared at ch5_adapt.tex:68, ch5_adapt.tex:68
+      \label{subsec:phylo_correction_poc} declared at ch4_results.tex:615, ch4_results.tex:219
+      \label{subsec:precision_at_k} declared at ch4_results.tex:901, ch4_results.tex:529
+      \label{subsec:rf_importance_adapt} declared at ch5_adapt.tex:79, ch5_adapt.tex:79
+      \label{subsec:statistical_methods} declared at ch3_methods.tex:661, ch3_methods.tex:887
+      \label{subsec:treetime_gisaid_validation} declared at ch4_results.tex:632, ch4_results.tex:219
+      \label{subsec:treetime_ml_validation} declared at ch4_results.tex:626, ch4_results.tex:219
+      \label{subsec:variants} declared at ch3_methods.tex:294, ch3_methods.tex:398
+      \label{subsec:weight_sensitivity_methods} declared at ch3_methods.tex:650, ch3_methods.tex:876
+      \label{tab:adapt_escape} declared at ch5_adapt.tex:216, ch5_adapt.tex:216
+      \label{tab:bootstrap_ci} declared at ch4_results.tex:290, ch4_results.tex:125
+      \label{tab:detection_families} declared at ch3_methods.tex:469, ch3_methods.tex:632
+      \label{tab:detection_variants} declared at ch3_methods.tex:505, ch3_methods.tex:672
+      \label{tab:dms_threshold_sensitivity} declared at ch4_results.tex:968, ch4_results.tex:563
+      \label{tab:dnds_threshold} declared at ch4_results.tex:421, ch4_results.tex:131
+      \label{tab:external_methods} declared at ch4_results.tex:211, ch4_results.tex:112
+      \label{tab:feature_ablation} declared at ch5_adapt.tex:117, ch4_results.tex:635
+      \label{tab:future_roadmap} declared at ch6_conclusion.tex:84, ch5_discussion.tex:283
+      \label{tab:ground_truth} declared at ch3_methods.tex:227, ch3_methods.tex:363
+      \label{tab:gt_heterogeneity} declared at ch5_adapt.tex:171, ch4_results.tex:870
+      \label{tab:gt_positions} declared at ch3_methods.tex:111, ch3_methods.tex:277
+      \label{tab:hdbscan_sensitivity} declared at ch4_results.tex:399, ch4_results.tex:130
+      \label{tab:hotspot_scores} declared at ch4_results.tex:67, ch4_results.tex:30
+      \label{tab:influenza} declared at ch4_results.tex:525, ch4_results.tex:208
+      \label{tab:limitations_summary} declared at ch6_conclusion.tex:31, ch5_discussion.tex:251
+      \label{tab:multi_gt} declared at ch4_results.tex:120, ch4_results.tex:57
+      \label{tab:pathogen_data} declared at ch3_methods.tex:35, ch3_methods.tex:47
+      \label{tab:per_feature_auc_12} declared at ch5_adapt.tex:34, ch5_adapt.tex:34
+      \label{tab:phylo_sensitivity} declared at ch4_results.tex:650, ch4_results.tex:219
+      \label{tab:precision_at_k} declared at ch4_results.tex:908, ch4_results.tex:535
+      \label{tab:real_gisaid} declared at ch4_results.tex:159, ch4_results.tex:88
+      \label{tab:region_overlap_mcc} declared at ch5_discussion.tex:105, ch5_discussion.tex:57
+      \label{tab:weight_sensitivity} declared at ch4_results.tex:324, ch4_results.tex:127
+  [FAIL] 2 undefined \ref{} found:
+      \ref{fig:feature_correlation} used in ch5_adapt.tex:151, ch5_adapt.tex:151
+      \ref{fig:feature_importance_grid} used in ch5_adapt.tex:95, ch5_adapt.tex:95
+    Total labels: 266, Total unique refs: 176
+
+  --- (b) Citation key verification ---
+    Bib entries found: 126
+  [FAIL] 11 citation key(s) not in references.bib:
+      \cite{breiman2001random} used in ch5_adapt.tex:81, ch5_adapt.tex:81
+      \cite{jumper2021alphafold} used in ch5_adapt.tex:25, ch5_adapt.tex:25
+      \cite{moult2014casp} used in ch5_discussion.tex:92
+      \cite{nei1986simple} used in ch3_methods.tex:332
+      \cite{olshen2004cnv} used in ch3_methods.tex:549
+      \cite{picard2011genomicseg} used in ch3_methods.tex:556
+      \cite{satopaa2011kneedle} used in ch3_methods.tex:551
+      \cite{shrake1973environment} used in ch4_results.tex:1113, ch5_adapt.tex:25, ch5_adapt.tex:25
+      \cite{simonich2025rsvdms} used in ch3_methods.tex:132
+      \cite{sonesson2003cusum} used in ch3_methods.tex:550
+      \cite{zhang2008chipseq} used in ch3_methods.tex:546, ch3_methods.tex:548
+
+  --- (c) Section hierarchy ---
+  [PASS] No section hierarchy skips found
+
+  --- (d) Tables and figures per chapter ---
+    ch1_introduction.tex: 0 tables, 0 figures
+    ch2_background.tex: 1 tables, 0 figures
+    ch3_methods.tex: 7 tables, 2 figures
+    ch4_results.tex: 20 tables, 2 figures
+    ch5_adapt.tex: 4 tables, 3 figures
+    ch5_discussion.tex: 2 tables, 1 figures
+    ch6_conclusion.tex: 2 tables, 0 figures
+    ch1_introduction.tex: 1 tables, 1 figures
+    ch2_background.tex: 1 tables, 0 figures
+    ch3_methods.tex: 11 tables, 4 figures
+    ch4_results.tex: 18 tables, 9 figures
+    ch5_adapt.tex: 4 tables, 3 figures
+    ch5_discussion.tex: 4 tables, 0 figures
+
+  --- (e) \includegraphics file existence ---
+    Searched dirs: ['.', 'figures', '/proj/paper/results/mutbench', '/proj/paper/docs/figures']
+  [FAIL] 1 \includegraphics files not found:
+      \includegraphics{feature_ablation_bars.png} used in ch5_adapt.tex:105, ch5_adapt.tex:105
+
+======================================================================
+CHECK 5: Scoring Formula vs Code Verification
+======================================================================
+
+  --- (a) Scoring formulas from code ---
+    Code scoring formulas (9): ['E*rare', 'P*E*rare', 'minority_E', 'P*minority_E', 'P*E', 'H-score', 'E_only', 'P*E^2', 'rank(P*E)']
+  [PASS] All 9 scoring formulas present in code
+
+  --- (b) Detector families from code ---
+    Detectors in get_detectors(): 41
+    Detector families (15): ['AdaptWin', 'AdaptiveKnee', 'Bayes', 'CUSUM', 'Ensemble', 'FreqThresh', 'GradPeak', 'KDE', 'LocalContrast', 'MutClust-Orig', 'SWAN', 'ScoreDBSCAN', 'SlidingTest', 'Spectral', 'Wavelet']
+  [PASS] Detector count = 41 (expected 41)
+  [PASS] 15 detector families found
+
+  --- (c) Verify ch3_methods.tex matches current benchmark design ---
+  [WARN] ch3_methods.tex: Current 20/39/11 benchmark design not clearly referenced
+  [PASS] ch3_methods.tex: All 14 current detector families referenced
+  [PASS] ch3_methods.tex: Detector count 41 mentioned
+  [PASS] ch3_methods.tex: Current 20 scoring x 39 detector x 11 pathogen design referenced
+  [PASS] ch3_methods.tex: All 14 current detector families referenced
+  [PASS] ch3_methods.tex: Detector count 41 mentioned
+
+  --- (d) legacy minority_E formula description ---
+  [PASS] ch3_methods.tex: minority_E correctly described as second most common allele
+  [PASS] ch3_methods.tex: Legacy minority_E formula absent from current 20-type benchmark text
+
+======================================================================
+CHECK 6: Permutation Test Formula Check
+======================================================================
+  [PASS] Code p-value formula: count/n (np.mean of boolean)
+  [PASS] ch3_methods.tex: p-value formula matches code (count/n)
+  [PASS] ch3_methods.tex: p-value formula matches code (count/n)
+  [PASS] ch3_methods.tex: p-value formula matches code (count/n)
+  [PASS] ch3_methods.tex: p-value formula matches code (count/n)
+  [PASS] ch3_methods.tex: p-value formula matches code (count/n)
+
+======================================================================
+CHECK 7: MOSD/MutClust Weight Analysis
+======================================================================
+
+    ch1_introduction.tex (80 lines):
+      MOSD: 1 lines
+      MutClust: 5 lines
+      Either: 5 lines (6.2%)
+  [PASS] ch1_introduction.tex: MOSD/MutClust mentions = 6.2% (<= 15%)
+
+    ch2_background.tex (156 lines):
+      MOSD: 1 lines
+      MutClust: 11 lines
+      Either: 11 lines (7.1%)
+  [PASS] ch2_background.tex: MOSD/MutClust mentions = 7.1% (<= 15%)
+
+    ch3_methods.tex (674 lines):
+      MOSD: 0 lines
+      MutClust: 29 lines
+      Either: 29 lines (4.3%)
+  [PASS] ch3_methods.tex: MOSD/MutClust mentions = 4.3% (<= 15%)
+
+    ch4_results.tex (1140 lines):
+      MOSD: 0 lines
+      MutClust: 73 lines
+      Either: 73 lines (6.4%)
+  [PASS] ch4_results.tex: MOSD/MutClust mentions = 6.4% (<= 15%)
+
+    ch5_adapt.tex (312 lines):
+      MOSD: 0 lines
+      MutClust: 0 lines
+      Either: 0 lines (0.0%)
+  [PASS] ch5_adapt.tex: MOSD/MutClust mentions = 0.0% (<= 15%)
+
+    ch5_discussion.tex (221 lines):
+      MOSD: 0 lines
+      MutClust: 7 lines
+      Either: 7 lines (3.2%)
+  [PASS] ch5_discussion.tex: MOSD/MutClust mentions = 3.2% (<= 15%)
+
+    ch6_conclusion.tex (148 lines):
+      MOSD: 0 lines
+      MutClust: 0 lines
+      Either: 0 lines (0.0%)
+  [PASS] ch6_conclusion.tex: MOSD/MutClust mentions = 0.0% (<= 15%)
+
+    ch1_introduction.tex (171 lines):
+      MOSD: 1 lines
+      MutClust: 4 lines
+      Either: 4 lines (2.3%)
+  [PASS] ch1_introduction.tex: MOSD/MutClust mentions = 2.3% (<= 15%)
+
+    ch2_background.tex (299 lines):
+      MOSD: 0 lines
+      MutClust: 4 lines
+      Either: 4 lines (1.3%)
+  [PASS] ch2_background.tex: MOSD/MutClust mentions = 1.3% (<= 15%)
+
+    ch3_methods.tex (940 lines):
+      MOSD: 0 lines
+      MutClust: 15 lines
+      Either: 15 lines (1.6%)
+  [PASS] ch3_methods.tex: MOSD/MutClust mentions = 1.6% (<= 15%)
+
+    ch4_results.tex (957 lines):
+      MOSD: 0 lines
+      MutClust: 20 lines
+      Either: 20 lines (2.1%)
+  [PASS] ch4_results.tex: MOSD/MutClust mentions = 2.1% (<= 15%)
+
+    ch5_adapt.tex (312 lines):
+      MOSD: 0 lines
+      MutClust: 0 lines
+      Either: 0 lines (0.0%)
+  [PASS] ch5_adapt.tex: MOSD/MutClust mentions = 0.0% (<= 15%)
+
+    ch5_discussion.tex (333 lines):
+      MOSD: 0 lines
+      MutClust: 2 lines
+      Either: 2 lines (0.6%)
+  [PASS] ch5_discussion.tex: MOSD/MutClust mentions = 0.6% (<= 15%)
+
+======================================================================
+SUMMARY
+======================================================================
+  [PASS] 129
+  [FAIL] 4
+  [WARN] 6
+  Total checks: 139
+======================================================================
+
+  4 FAILURE(s) detected — review required.
