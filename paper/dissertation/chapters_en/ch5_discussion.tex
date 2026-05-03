@@ -83,7 +83,7 @@ Mean oracle MCC across 11 pathogens is $0.341$ (range $0.196$--$0.660$; Table~\r
 
 \begin{table}[htbp]
 \centering
-\caption{Region-overlap MCC under three evaluation modes. Upper block (9 pathogens) reproduces directly from \texttt{region\_overlap\_mcc.csv}; lower block (EV-A71, Rabies) is oracle-derived from the archived \texttt{stage3\_full\_results.csv}. Window columns: $\pm 5$, $\pm 10$ position tolerance.}
+\caption{Region-overlap MCC under three evaluation modes. \emph{Exact} column is the per-pathogen Stage~2 best MCC reproduced from Table~\ref{tab:precision_at_k} (source: \texttt{stage3\_full\_results.csv}); $\pm 5$ and $\pm 10$ window columns are window-tolerance re-evaluations of each pathogen's Stage~2 best detector under the corresponding position tolerance. The legacy \texttt{region\_overlap\_mcc.csv} archive evaluates a different (Stage~1-style H-score) scoring set and is not the direct source for this table; values for EV-A71 and Rabies were computed identically to the upper block. Window columns: $\pm 5$, $\pm 10$ position tolerance.}
 \label{tab:region_overlap_mcc}
 \small
 \begin{tabular}{lccc}
