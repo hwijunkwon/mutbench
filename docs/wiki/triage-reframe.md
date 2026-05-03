@@ -38,4 +38,5 @@ Target: **215pp → 192pp** (~−23pp). Phase 4 prof v6 score 77.52 → expected
 
 ## Per-step commits (will append as we go)
 
-- (commit pending) Step 1 Batch 1 applied: Ch1 BG + Ch2 #4 #5 #6 → 215pp → 206pp
+- f7c138c Step 1 Batch 1: Ch1 BG + Ch2 #4 #5 #6 → 215pp → 206pp (-9pp)
+- (commit pending) Step 2 Batch 3: Ch4 #11 Stage1 + #12 Robust + #13 Structural + #15 ANOVA → 206pp → 202pp (-4pp)
