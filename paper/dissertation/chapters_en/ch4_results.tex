@@ -667,7 +667,7 @@ EV-A71     &  +0.0499 &  +0.0499 &  $\phantom{+}$0.0000 \\
 \end{minipage}
 \end{table}
 
-Three legacy adaptive-weighting strategies (kNN, Top-3 AUC, correlation-aware ensemble; archived as \texttt{adapt\_v2\_summary.csv}) all underperform EqualWeight (max MCC $0.020$/$0.049$/$0.043$ vs.\ $0.083$) at $n=11$ pathogens, while the oracle ceiling (per-pathogen weights with labels) reaches $0.160$; the Cycle 7 + 7B audits below extend this to seven independent failure modes for adaptive weighting under the tested panel and label regime, with 20--30+ pathogens recommended as a stability target rather than as a proven phase transition (Chapter~\ref{ch:discussion}, Section~\ref{sec:future_work}).\phantomsection\label{subsec:adaptive_weighting_limits}
+Three legacy adaptive-weighting strategies (kNN, Top-3 AUC, correlation-aware ensemble; archived as \texttt{adapt\_v2\_summary.csv}) all underperform EqualWeight (max MCC $0.020$/$0.049$/$0.043$ vs.\ $0.083$) at $n=11$ pathogens, while the oracle ceiling (per-pathogen weights with labels) reaches $0.160$; the Cycle 7 + 7B audits below extend this to seven independent failure modes for adaptive weighting under the tested panel and label regime, with 20--30+ pathogens recommended as a stability target~\cite{bolker2009glmm} rather than as a proven phase transition (Chapter~\ref{ch:discussion}, Section~\ref{sec:future_work}).\phantomsection\label{subsec:adaptive_weighting_limits}
 
 \paragraph{MutBench Cold-Start algorithm: retrospective triage, not deployment.}
 \label{para:mutbench_algorithm}

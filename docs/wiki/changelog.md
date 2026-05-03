@@ -2,6 +2,19 @@
 
 Reverse chronological. Latest first.
 
+## v228 (2026-05-04) — Final audit cleanup (defense_readiness GREEN)
+
+Final audit (option C: 5 chapter-deep + 1 cross-cutting aggregator + visual review of 6 PDF pages):
+- 0 Critical, 0 framing inconsistencies, 0 orphan refs, 0 layout issues
+- 4 actionable findings fixed:
+  - ch5 ANCOVA stale value 0.234→0.264 → corrected to 0.233→0.274 (matches `ancova_omega_summary.csv`)
+  - ch3 "HCV-only ANOVA" → "HCV-excluded ANOVA" (semantic fix)
+  - ch4 + ch5 Bolker 20-30 statement now cites `bolker2009glmm`
+  - 3 orphan bib entries removed (chen2022gisaid, kaku2024virological, ioannidis2008winner)
+- Defense readiness: YELLOW → **GREEN**
+
+Reports: `final_audit_aggregate.md`, `final_audit_stage1_*.md` (5 chapter reports)
+
 ## v227 (2026-05-04) — Triage reframe merge: 215pp → 197pp, Phase 4 PASS 83.63/100
 
 Branch `experiments/triage-reframe` (9 commits) merged into master with `--no-ff`.
