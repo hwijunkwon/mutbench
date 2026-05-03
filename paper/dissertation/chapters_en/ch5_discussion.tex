@@ -62,18 +62,14 @@ Homoplasy-based scoring is one alternative motivated by the founder-bias problem
 %% ============================================================
 \section{Cross-Pathogen Generalization}
 
-%% ============================================================
 \subsection{Implications of Cross-Pathogen Generalization}
 \label{sec:cross_pathogen_implications}
 
-The cross-pathogen benchmark demonstrated that no universally best-performing method exists (Chapter~\ref{ch:results}), with implications for real-time surveillance systems such as Nextstrain~\cite{nextstrain2018hadfield}: applying a previously optimized combination to a new pathogen may not generalize.
-The underlying cause is that pathogen-specific genomic characteristics create fundamentally different signal landscapes---for example, H3N2's uniformly nonzero H-scores neutralize threshold-based seed detection, while MERS's sparse genome favors weak-signal detectors.
+The main cross-pathogen result is not that MutBench ``tried to generalize and failed,'' but that the 11-pathogen panel is below the size needed to learn an adaptive method-selection rule. Detection-family choice contributes little variance ($\omega^2=0.013$), about 23 times less than the scoring~$\times$~pathogen interaction ($\omega^2=0.296$); the operational implication is wet-lab triage---choose the information source that matches the pathogen's signal landscape before optimizing detector details.
 
-A notable finding is the asymmetry between scoring and detection contributions: the detection method family main effect ($\omega^2 = 0.013$) is the smallest variance component, approximately 23 times smaller than the scoring $\times$ pathogen interaction ($\omega^2 = 0.296$). This implies that \textit{the choice of input information} matters far more than \textit{the choice of detection algorithm}. Practically, this means that effort should be directed toward selecting the right information source for each pathogen rather than optimizing detection algorithm parameters.
+This is Rice's algorithm-selection problem~\cite{rice1976algorithm}, with the No-Free-Lunch theorem~\cite{wolpert1997nfl} as intuition rather than proof. At $n=11$, the empirical mapping from pathogen properties to optimal scoring is not yet learnable under the tested labels and features: LOPO gives 0/11 exact matches, Friedman gives $p=0.990$, and the oracle-vs-generalised gap is $0.265$. The ESM-2 validation (Section~\ref{subsec:esm_validation}) illustrates the same boundary: ESM-LLR is strongest for SARS-CoV-2 but is dominated by homoplasy on Norovirus (AUC $0.763$ vs.\ $0.944$).
 
-The pattern is formalisable as Rice's algorithm-selection problem~\cite{rice1976algorithm} with the No-Free-Lunch theorem~\cite{wolpert1997nfl} as theoretical scaffold: the empirical mapping $f$ from pathogen features to optimal scoring is not yet learnable from $n = 11$ pathogens (LOPO 0/11, Friedman $p = 0.990$, $0.265$ oracle-vs-generalised gap are jointly null-consistent), and operationalising $f$ requires substantially larger panels (Section~\ref{sec:future_work}). The ESM-2 cross-paradigm validation (Section~\ref{subsec:esm_validation}) is consistent: ESM-LLR tops SARS-CoV-2 but is dominated by homoplasy on Norovirus (AUC $0.763$ vs.\ $0.944$).
-
-The pathogen-dependence finding is consistent with related work but addresses a different task: EVEREST~\cite{gurev2025everest} and ProteinGym~\cite{notin2023proteingym} target per-variant fitness/escape prediction, while MutBench evaluates per-region hotspot detection. The contribution here is the quantified scoring~$\times$~pathogen interaction ($\omega^2 = 0.296$ / $0.103$ at 20-type / 6-category granularity) and the HIV-1 vaccine-escape cross-check ($7.19\times$, 82\% Layer-A-disjoint) as the strongest external anchor.\phantomsection\label{sec:comparison_prior_work}
+This differs from EVEREST~\cite{gurev2025everest} and ProteinGym~\cite{notin2023proteingym}, which target per-variant fitness or escape prediction. MutBench evaluates region-level hotspot prioritization and contributes a quantified pathogen-dependent information-utility result ($\omega^2=0.296$ at 20-type granularity; $0.103$ at 6-category granularity), with HIV-1 vaccine-escape enrichment ($7.19\times$, 82\% Layer-A-disjoint) as the strongest external triage anchor.\phantomsection\label{sec:comparison_prior_work}
 
 %% ============================================================
 \subsection{Upper Bound of Detection Performance}
@@ -117,7 +113,7 @@ Despite these ceiling effects, the benchmark results have practical implications
 \subsection{Recall Analysis: Which Positions Are Missed?}
 \label{sec:recall_analysis}
 
-Mean oracle recall across 11 pathogens is $0.552$ (Table~\ref{tab:precision_at_k}). Three observations bound the interpretation: (i) missed positions are not random---low-recall positions are typically Layer~A entries documented in only the minimum 3 lineages or governed by epistatic selection (e.g., 8 of the 25 SARS-CoV-2 Layer~A positions are NTD supersite residues where immune evasion operates through conformational change, not direct frequency elevation); (ii) multi-source integration recovers positions missed by a single-feature view (the H3N2 EqualWeight ensemble picks up antigenic site~B positions $160$ and $186$ that frequency-only Top-5 misses, Section~\ref{subsec:search_space_reduction}); and (iii) region-level coverage is substantially higher than position-level recall---under $\pm 10$~position windows mean MCC rises from $0.341$ to $0.454$ (Influenza~B $0.924$), so most ``missed'' positions are detected within $1$--$2$ residues of the true site, sufficient to guide experimental prioritisation. The remaining risk is concentrated in EV-A71 (recall $0.185$) and Rabies ($0.308$), whose short post-truncation alignments (261 / 491~AA) limit statistical power; users applying MutBench to such pathogens should treat detected positions as a prioritised subset rather than an exhaustive list and complement with DMS or epitope mapping.
+Mean oracle recall is $0.552$ (Table~\ref{tab:precision_at_k}). Missed sites are not random: low-recall positions are typically Layer~A entries with minimum-evidence support, NTD-supersite-style epistatic escape (8 of 25 SARS-CoV-2 Layer~A residues), or short alignments (EV-A71 recall $0.185$, Rabies $0.308$; 261/491~AA after truncation). Multi-source integration recovers some single-feature misses (H3N2 EqualWeight picks up antigenic site~B positions 160 and 186 that frequency-only Top-5 misses; Section~\ref{subsec:search_space_reduction}), and region-level windowing closes more (mean MCC $0.341\to0.454$ at $\pm10$, Influenza~B $0.924$). Detected positions should therefore be treated as a prioritised subset for DMS, neutralization assays, or epitope mapping rather than as an exhaustive map of adaptive positions.
 
 %% ============================================================
 \section{Practical Implications and Fundamental Limitations}
@@ -260,7 +256,7 @@ Within the boundaries established above, the recommended near-term use of MutBen
 \section{Future Research Directions}
 \label{sec:future_work}
 
-Table~\ref{tab:future_roadmap} separates completed negative gates from engineering-feasible extensions and true future validation work.
+Table~\ref{tab:future_roadmap} separates completed negative gates from extensions that could convert retrospective triage into prospective callability.
 
 \begin{table}[htbp]
 \centering
@@ -272,24 +268,16 @@ Table~\ref{tab:future_roadmap} separates completed negative gates from engineeri
 \toprule
 \textbf{Priority} & \textbf{Status} & \textbf{Research direction} & \textbf{Gate / expected impact} \\
 \midrule
-1 & Done negative & Adaptive method selection & EqualWeight not beaten under nested-LOPO; current panel remains non-deployable \\
-2 & Engineering feasible & Expanded feature pipeline & Automated features scale; external labels are the bottleneck \\
-3 & Future & 20--30+ pathogen validation & Curated labels, time-forward validation, and paired nested-LOPO/callability gates \\
-4 & Future & Scope extension and reproduction & DNA viruses, multi-protein panels, indels, independent reruns, Zenodo provenance \\
+1 & Done negative & Adaptive selection at current size & Oracle $0.160$ vs.\ EqualWeight $0.083$, but seven paradigms fail and abstention calls $0/12$ \\
+2 & Engineering feasible & Expanded feature pipeline & Feature automation scales; curated external labels remain bottleneck \\
+3 & Future & 20--30+ pathogen validation & Time-forward labels plus paired nested-LOPO/callability gates \\
+4 & Future & Scope and release & DNA viruses, multi-protein targets, indels, reproduction, Zenodo provenance \\
 \bottomrule
 \end{tabular}
 }
 \end{table}
 
-\textbf{Adaptive method selection and prospective callability.} Adaptive selection remains a direction rather than a deployable result: the adaptive-weight oracle exceeds EqualWeight in principle (MCC $0.160$ vs.\ $0.083$), but the seven tested adaptive paradigms fail under nested-LOPO, and the predeclared abstention rule calls $0/12$ folds. The next test is therefore not another weighting model on the same panel, but a 20--30+ pathogen expansion with curated external labels, time-forward validation, and the same paired nested-LOPO/callability gates; until those gates pass, Algorithm~\ref{alg:mutbench_coldstart} remains a retrospective prioritization heuristic rather than a prospective classifier.
-
-\textbf{Expanded-panel engineering and label provenance.} The deadline scaling pilot established that the automated feature path is engineering-bound rather than science-bound: Layer A annotation was deferred, so the pilot is a sequence-and-features extension only, not a benchmark-validated panel expansion; NCBI provenance and per-target accessions are archived in \texttt{results/mutbench/pilot\_accession\_manifest.csv}. Wave 4 and Wave 5 already report the decisive bounded results in Paragraphs~\ref{para:w4_tier2_lopo} and~\ref{para:w5_layer_a_prime}: feature expansion is feasible, but label-provenance equivalence failed, so the bottleneck is curated external labels rather than detector arithmetic.
-
-\textbf{Integration of Phylogenetic Correction.} Homoplasy-based scoring captures signals distinct from frequency (simulation $\rho=-0.876$; real GISAID $\rho=-0.107$) and should be integrated through TreeTime~\cite{sagulenko2018treetime} or scalable alternatives such as UShER~\cite{turakhia2020ultrafast}. This would mainly affect founder-effect-prone pathogens such as SARS-CoV-2, and should be paired with temporal/geographic stratification.
-
-\textbf{Additional Research Directions.} Scope extensions are DNA viruses, multi-protein panels, indels/recombination, virus-tuned PLM features, real-time surveillance integration via Nextstrain pipelines, and non-coding regions; current evidence does not support claims outside RNA-virus surface-glycoprotein substitutions. The HBV polymerase pilot reported in Section~\ref{para:hbv_pilot} provides empirical sanity-check evidence for the rate-based boundary, and HIV-1 Env remains the only retroviral target evaluated.
-
-\textbf{Reproduction and Release.} The archived CSVs, provenance manifest, and Zenodo tag (Section~\ref{sec:code_availability}) close the reproducibility gap as a defense-time deliverable, instantiating Priority~4 of Table~\ref{tab:future_roadmap}.
+The next study should not tune another weighting model on the same panel. It should expand to 20--30+ curated pathogens, treat that number as a stability rule-of-thumb rather than a guaranteed phase transition, and require time-forward validation plus predeclared callability (Wave 4 and Wave 5 already showed feature expansion is feasible while label-provenance equivalence failed; Paragraphs~\ref{para:w4_tier2_lopo}, \ref{para:w5_layer_a_prime}; per-target NCBI provenance in \texttt{pilot\_accession\_manifest.csv}). Phylogenetic correction remains a targeted extension because homoplasy is distinct from frequency (simulation $\rho=-0.876$; real GISAID $\rho=-0.107$) and can be integrated through TreeTime~\cite{sagulenko2018treetime} or UShER~\cite{turakhia2020ultrafast}. Scope expansion (DNA viruses, multi-protein panels, indels/recombination, virus-tuned PLMs, Nextstrain integration, non-coding regions) should remain explicitly bounded beyond RNA-virus surface-glycoprotein substitutions; reproduction and release deliverables (archived CSVs, provenance manifest, Zenodo tag) instantiate Priority~4 (Section~\ref{sec:code_availability}).
 
 %% ============================================================
 \section{Concluding Remarks}
