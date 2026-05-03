@@ -43,4 +43,5 @@ Target: **215pp → 192pp** (~−23pp). Phase 4 prof v6 score 77.52 → expected
 - d5ae269 Step 3 Batch 4: Ch4 #14 Cold-Start + #18 Cycle 7B + #19 lattice → 202pp → 200pp (-2pp)
 - 4dcc0c8 Step 4 Batch 5 partial: Ch4 #16 #17 + Ch5 #20 #21 → 200pp → 198pp (-2pp). Ch1 #2 #3 already triage-aligned, deferred.
 - f83b078 Step 5 Abstract rewrite (r3_deep_abstract_draft applied): 13/13 anchors preserved, 4-row evidence ledger, wet-lab triage as primary value → 198pp → 197pp (-1pp)
-- (commit pending) Step 6 Layer C re-anchoring + A micro-restoration: abstract evidence ledger row 1 adds Layer C 6/11 DMS validation (650 positions, MCC 0.139-0.322); ch5 sec:vaccine_escape retitled "Wet-Lab Validation: Layer C DMS and Vaccine Escape" with Layer C as first axis; ch4 ANOVA 5-frame narrative restored (small-G inference rationale, frame-by-frame justification). 197pp unchanged.
+- 2806d8b Step 6 Layer C re-anchoring + A micro-restoration: abstract ledger row 1 adds Layer C 6/11; ch5 sec:vaccine_escape retitled; ch4 ANOVA 5-frame narrative restored. 197pp unchanged.
+- (commit pending) Step 7 Phase 4 Prof v8 (2-stage hybrid 5+10 = 15 codex jobs): total **83.63/100** (v7 → v8 = **+5.91**); all 10 profs ≥ 80 (vs v7 only 2); min item G=7.71. Phase 4 80/100 gate **PASSED**. Detailed report: review/2026-05-03/professor_v8_aggregate.md
