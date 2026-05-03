@@ -188,23 +188,35 @@ Figure~\ref{fig:3layer_gt_concept} illustrates the structure and integration of 
 \end{figure}
 
 \textbf{Design rationale: three orthogonal dimensions.}
-The three layers are deliberately designed to capture different dimensions of mutational importance.
-Layer~A asks whether a position is supported by literature as adaptively or diversifyingly important for that pathogen---through recurrent emergence, immune-escape evidence, epochal-variant membership, or hypervariable-region membership depending on the pathogen.
-Layer~B asks ``is this position structurally constrained?'' (a \textit{structural} question), identifying positions where any mutation destroys protein function.
-Layer~C asks ``what is the measurable functional impact of mutations at this position?'' (a \textit{functional} question), using laboratory DMS experiments that directly quantify how each amino acid substitution affects viral fitness (e.g., cell entry efficiency, receptor binding affinity).
-This separation means each layer provides a non-redundant perspective: Layer~A captures literature-curated adaptive or diversifying evidence that DMS cannot always provide, while Layer~C captures functional effects that may not yet be visible in surveillance-derived annotations.
+The three layers capture non-redundant dimensions of mutational importance: literature-supported adaptation, structural constraint, and direct experimental fitness effect.
+
+\begin{table}[htbp]
+\centering
+\caption{Evaluation role of the three ground-truth layers.}
+\label{tab:gt_layer_roles}
+\small
+\adjustbox{max width=\textwidth}{
+\begin{tabular}{llll}
+\toprule
+\textbf{Layer} & \textbf{Evidence role} & \textbf{Positive label / metric role} & \textbf{Audit role and limitation} \\
+\midrule
+A & Literature-curated adaptive/diversifying evidence & Hotspot positives for MCC & Heterogeneous by pathogen source and mechanism \\
+B & Structural or evolutionary constraint & Constrained negatives for constrained FPR & Not a universal non-hotspot label for MCC \\
+C & DMS mean absolute fitness effect & Top 20\% positives for DMS F1 & Available for 6 pathogens only \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
 
 \subsubsection{Layer A: Adaptive Positive Selection}
 \label{subsec:layer_a}
 
-Layer~A positions are literature-curated adaptive or diversifying positions treated as hotspot positives.
-For pathogens where convergent-evolution evidence is available, positions where mutations recurrently arose in multiple independent lineages \textit{within the same viral species} are classified as hotspots under positive selection.
-For example, mutations at Spike position 484 in SARS-CoV-2---enabling immune evasion by altering the antibody binding surface---emerged independently across multiple lineages: E484K (glutamic acid to lysine) in Beta, Gamma, and Mu, and E484A (glutamic acid to alanine) in Omicron, each descending from different ancestral branches of the phylogenetic tree. This repeated independent emergence at the same position provides strong evidence of positive selection.
-Importantly, Layer~A does not impose one universal biological mechanism: the annotation can reflect immune evasion, receptor-binding adaptation, diversifying selection, or recurrent lineage-level emergence depending on the pathogen and source study.
-These positions are used as \textbf{True Positives}, evaluating whether detection methods correctly identify them as hotspots.
+Layer~A positions are literature-curated adaptive or diversifying positions treated as hotspot positives for MCC.
+For pathogens with convergent-evolution evidence, recurrent emergence in multiple independent lineages \textit{within the same viral species} is accepted as positive-selection evidence; for example, SARS-CoV-2 Spike E484K emerged in Beta, Gamma, and Mu, and E484A in Omicron.
+The operational contract is therefore evidence-based rather than algorithmic: Layer~A is the union of literature-curated positive/diversifying-selection positions per the references in Table~\ref{tab:gt_positions}.
 
 \textbf{Identification criteria.}
-For each pathogen, Layer~A positions were compiled from published studies (Table~\ref{tab:gt_positions}, rightmost column). The construction is operationally heterogeneous across the 11 pathogens: SARS-CoV-2 and H3N2 use phylogenetically confirmed convergent evolution sites ($\geq$3 independent lineages); Norovirus uses epochal-variant positions; HCV uses the hypervariable regions HVR1/HVR2 (diversifying selection rather than convergence); and the remaining seven pathogens use literature-reported immune-escape position lists. No single computational criterion is applied uniformly---the framework adopts the per-pathogen literature-curated list to maximize biological fidelity, accepting in exchange that ``Layer~A'' denotes a heterogeneous adaptive-selection union (convergent evolution $\cup$ immune escape $\cup$ HVR membership) rather than a single algorithmic construct. This heterogeneity is revisited in Chapter~\ref{ch:discussion} where its quantitative impact on the headline $\omega^2 = 0.296$ is discussed; for the purposes of this chapter the operational definition is: \emph{Layer~A is the union of literature-curated positive/diversifying-selection positions per the references in Table~\ref{tab:gt_positions}}. As a forward-disclosure cross-reference, the Stage~2 sensitivity analysis in Chapter~\ref{ch:discussion} (Section~\ref{sec:gt_heterogeneity}) reports $\omega^2_{\text{scoring} \times \text{pathogen}} = 0.234$--$0.296$ across the cell-level/evaluation-level alternatives and Layer~A normalizations considered there, so the headline number is bracketed by both ends in this chapter.
+For each pathogen, Layer~A positions were compiled from published studies (Table~\ref{tab:gt_positions}, rightmost column). SARS-CoV-2 and H3N2 use phylogenetically confirmed convergent evolution sites ($\geq$3 independent lineages); Norovirus uses epochal-variant positions; HCV uses the hypervariable regions HVR1/HVR2; and the remaining seven pathogens use literature-reported immune-escape position lists. This heterogeneous adaptive-selection union (convergent evolution $\cup$ immune escape $\cup$ HVR membership) is a limitation rather than a single computational construct; Chapter~\ref{ch:discussion}, Section~\ref{sec:gt_heterogeneity}, reports $\omega^2_{\text{scoring} \times \text{pathogen}} = 0.234$--$0.296$ across the cell-level/evaluation-level alternatives and Layer~A normalizations considered there.
 
 \textbf{Preregistration of ground-truth thresholds and ANOVA grid.}\phantomsection\label{subsubsec:preregistration} The Layer~A/B/C inclusion criteria, the Layer~B dN/dS $< 0.5$ cutoff, the Layer~C top-20\% threshold, the $20 \times 39 = 780$ scoring~$\times$~detector-variant ANOVA grid, and the $20 \times 14 \times 11 = 3{,}080$ scoring~$\times$~family~$\times$~pathogen ANOVA factor structure were all frozen in the project SOP prior to running the Stage~1 analysis on SARS-CoV-2 (lab-notebook freeze date: 2024-08-12; lab-notebook entry archived alongside the released CSV bundle). No post-hoc adjustment of these thresholds or factor structures was performed after observing Stage~2 MCC results. The Bonferroni denominator for vaccine-escape Fisher tests ($780 = 20 \times 39$) was specified in the same SOP entry; the ``exploratory rather than confirmatory'' framing for the omnibus ANOVA reported below applies to the joint family-wise correction policy across the six $\omega^2$ tiers (we do not Bonferroni-correct the ANOVA), not to the headline scoring~$\times$~pathogen interaction itself, which was the pre-specified primary effect of interest.
 For example, SARS-CoV-2 Layer~A positions (e.g., E484, N501, L452, K417) were identified by Carabelli et al.~\cite{carabelli2023convergent} through phylogenetic analysis showing independent emergence across Alpha, Beta, Gamma, Delta, and Omicron lineages.
@@ -303,7 +315,7 @@ $^\ddagger$HCV E2 literature coordinates are commonly reported in polyprotein nu
 
 \textbf{HIV-1 Layer~A count reconciliation}: this table reports the literature-curated Layer~A count of \textbf{23} positions (Moore \& Williamson 2015 baseline) which is the canonical narrative reference. The downstream operational alignment-QC count of \textbf{26} positions (used by AUC computation in Table~\ref{tab:gt_heterogeneity} and the positive-rate footnote in Table~\ref{tab:design_characteristics}) adds three positions identified during alignment quality control after the literature scan; the difference does not affect any headline conclusion (the scoring~$\times$~pathogen interaction is computed identically under both counts because Layer~A appears as a binary label, not a count, in the per-position regression).
 
-Note that Layer~A selection criteria vary across pathogens: SARS-CoV-2 and H3N2 use phylogenetically confirmed convergent evolution sites, Norovirus uses epochal variant positions, HCV uses hypervariable regions (HVR1/HVR2), and the remaining pathogens use literature-reported immune evasion positions. This heterogeneity is a limitation of the current ground truth construction (discussed in Chapter~\ref{ch:discussion}).
+Layer~A source heterogeneity is summarized above and treated as a limitation in Chapter~\ref{ch:discussion}.
 
 \textbf{Inclusion of pathogens with incomplete ground truth layers.}
 Six pathogens (SARS-CoV-2, H3N2, HIV-1, RSV, Rabies, EV-A71) have all three layers available.
@@ -622,74 +634,35 @@ The two variants agree to within 0.012~MCC on the 12-fold nested-LOPO mean (full
 \subsubsection{Detection Method Families}
 \label{subsec:9pathogen_detection}
 
-A total of 39 detection methods belonging to 14 algorithm families are evaluated.
-Each detection method identifies hotspot regions from the per-position score profile assigned by a scoring type.
-Two additional ensemble variants (majority vote of 4 threshold-based sub-detectors) were initially considered but excluded from the benchmark because their outputs are deterministic combinations of other methods already in the benchmark, violating the independence assumption required for fair comparison.
+A total of 39 detection methods belonging to 14 algorithm families are evaluated (Table~\ref{tab:detection_families}).
+Each method converts a one-dimensional per-position score profile into discrete hotspot calls.
+Two additional ensemble variants (majority vote of 4 threshold-based sub-detectors) were initially considered but excluded from the benchmark because their deterministic dependence on existing methods would violate the independence assumption required for fair comparison.
 
 \begin{table}[htbp]
 \centering
-\caption{39 detection methods evaluated in the 11-pathogen benchmark (14 families)}
+\caption{Detection families, categories, and parameter variants evaluated in the 11-pathogen benchmark (39 methods total)}
 \label{tab:detection_families}
-\small
-\adjustbox{max width=\textwidth}{
-\begin{tabular}{llr}
-\toprule
-\textbf{Family} & \textbf{Method description} & \textbf{Variants} \\
-\midrule
-Wavelet & Multi-resolution peak detection via wavelet transform & 3 \\
-KDE & Hotspot detection via kernel density estimation & 3 \\
-SlidingTest & Sliding window statistical test & 2 \\
-GradPeak & Gradient peak detection on score profile & 2 \\
-LocalContrast & Local contrast (local--global ratio) based detection & 3 \\
-CUSUM & Cumulative sum change-point detection & 3 \\
-AdaptiveKnee & Adaptive curvature-based threshold & 1 \\
-ScoreDBSCAN & Score-based density-space clustering & 2 \\
-Spectral & Spectral analysis-based periodic pattern detection & 2 \\
-Bayes & Bayesian change-point detection & 2 \\
-\midrule
-AdaptWin & Adaptive window size detection & 2 \\
-FreqThresh & Frequency percentile threshold (top-$k$\%) & 4 \\
-SWAN & Sliding window adaptive normalization & 9 \\
-MutClust-Orig & MutClust original algorithm & 1 \\
-\midrule
-\textbf{Total} & & \textbf{39} \\
-\bottomrule
-\end{tabular}
-}
-\end{table}
-
-The 14 families are organized into 5 higher-level categories reflecting their algorithmic approach to converting continuous score profiles into discrete hotspot calls.
-Supervised machine learning methods (e.g., Random Forest or gradient boosting classifiers) were not included because they require labeled training data at the position level, and with only 11 pathogens---each having 9--54 Layer~A positives---the available ground truth is insufficient for training generalizable classifiers without severe overfitting.
-Since all methods operate on the same one-dimensional score array, the detection step serves as a necessary score-to-call conversion; the ANOVA results confirm that the detection family contributes only $\omega^2 = 0.013$ to performance variance, indicating that the choice of conversion method is a minor factor compared to the choice of input information.
-
-The 39 methods arise from 14 algorithm families, each instantiated with different parameter settings (Table~\ref{tab:detection_variants}).
-For example, the Wavelet family is tested with three peak detection thresholds ($t = 1.0, 1.5, 2.0$ standard deviations above the CWT coefficient mean), and FreqThresh is tested with four percentile cutoffs (top 1\%, 3\%, 5\%, 10\%).
-This multi-parameter design ensures that the benchmark evaluates each algorithm family across a range of sensitivity--specificity trade-offs rather than at a single, potentially suboptimal, operating point.
-
-\begin{table}[htbp]
-\centering
-\caption{Parameter variants for each detection method family (39 methods total)}
 \label{tab:detection_variants}
 \small
 \adjustbox{max width=\textwidth}{
-\begin{tabular}{llrl}
+\begin{tabular}{llll}
 \toprule
-\textbf{Family} & \textbf{Parameter} & \textbf{Variants} & \textbf{Values} \\
+\textbf{Family} & \textbf{Category} & \textbf{Variants} & \textbf{Parameter values} \\
 \midrule
-Wavelet & CWT peak threshold $t$ (std.\ dev.) & 3 & $t = 1.0, 1.5, 2.0$ \\
-KDE & Density percentile $p$ & 3 & $p = 75, 80, 85$ \\
-SlidingTest & Test-level $p$ (per-window) & 2 & $p = 0.01, 0.05$ \\
-GradPeak & Gradient percentile $p$ & 2 & $p = 0.2, 0.5$ \\
-LocalContrast & Local $z$-score threshold & 3 & $z = 1.0, 1.5, 2.0$ \\
-CUSUM & Drift $d$ $\times$ threshold $h$ & 3 & $(d{=}0.3, h{=}3.0), (d{=}0.5, h{=}4.0), (d{=}0.5, h{=}5.0)$ \\
-AdaptiveKnee & (parameter-free) & 1 & Automatic knee detection \\
-ScoreDBSCAN & Epsilon \texttt{ep} & 2 & $\texttt{ep} = 8, 15$ (\texttt{min\_samples} = 3 throughout) \\
-Spectral & Peak $z$-score threshold & 2 & $z = 1.5, 2.0$ \\
-Bayes & Prior probability & 2 & prior $= 0.10, 0.15$; Gaussian likelihood $\mathcal{N}(\mu_c, \sigma_c^2)$ per class fit by maximum likelihood, posterior $> 0.5$ \\
-AdaptWin & Seed percentile $s$ & 2 & $s = 85, 90$ \\
-FreqThresh & Top percentile $p$ & 4 & $p = 80, 85, 90, 95$ (equivalently top $20, 15, 10, 5\%$) \\
-SWAN & Window $w$ $\times$ $k$-score $k$ & 9 & $w \in \{10, 20, 50\} \times k \in \{1.0, 1.5, 2.0\}$ \\
-MutClust-Orig & Gap parameter $g$ & 1 & $g = 10$ (CCM~+ adaptive DBSCAN) \\
+FreqThresh & Threshold-based & 4 & $p = 80, 85, 90, 95$ (equivalently top $20, 15, 10, 5\%$) \\
+AdaptiveKnee & Threshold-based & 1 & Automatic knee detection \\
+AdaptWin & Threshold-based & 2 & Seed percentile $s = 85, 90$ \\
+Wavelet & Signal processing & 3 & CWT peak threshold $t = 1.0, 1.5, 2.0$ std.\ dev. \\
+Spectral & Signal processing & 2 & Peak $z$-score threshold $z = 1.5, 2.0$ \\
+CUSUM & Signal processing & 3 & $(d{=}0.3, h{=}3.0), (d{=}0.5, h{=}4.0), (d{=}0.5, h{=}5.0)$ \\
+KDE & Density and clustering & 3 & Density percentile $p = 75, 80, 85$ \\
+ScoreDBSCAN & Density and clustering & 2 & $\texttt{ep} = 8, 15$ (\texttt{min\_samples} = 3 throughout) \\
+SlidingTest & Statistical/model-based & 2 & Test-level $p = 0.01, 0.05$ per window \\
+LocalContrast & Statistical/model-based & 3 & Local $z$-score threshold $z = 1.0, 1.5, 2.0$ \\
+GradPeak & Statistical/model-based & 2 & Gradient percentile $p = 0.2, 0.5$ \\
+Bayes & Statistical/model-based & 2 & prior $= 0.10, 0.15$; Gaussian likelihood $\mathcal{N}(\mu_c, \sigma_c^2)$ per class fit by maximum likelihood, posterior $> 0.5$ \\
+SWAN & Statistical/model-based & 9 & $w \in \{10, 20, 50\} \times k \in \{1.0, 1.5, 2.0\}$ \\
+MutClust-Orig & Legacy & 1 & Gap parameter $g = 10$ (CCM~+ adaptive DBSCAN) \\
 \midrule
 \textbf{Total} & & \textbf{39} & \\
 \bottomrule
@@ -697,35 +670,14 @@ MutClust-Orig & Gap parameter $g$ & 1 & $g = 10$ (CCM~+ adaptive DBSCAN) \\
 }
 \begin{minipage}{\textwidth}
 \smallskip
-\footnotesize Parameter names and values match the detector strings recorded in \texttt{stage3\_full\_results.csv} (column \texttt{detector}) and are authoritative for reproduction; older design-phase drafts used different parameter names.
+\footnotesize Parameter names and values match the detector strings recorded in \texttt{stage3\_full\_results.csv} (column \texttt{detector}) and are authoritative for reproduction; older design-phase drafts used different parameter names. Algorithmic precedents include frequency threshold surveillance~\cite{mercatelli2020geographic}, wavelet genomic analysis~\cite{anastassiou2001genomic,arneodo2011wavelet}, DBSCAN and hotspot clustering~\cite{ester1996dbscan,tokheim2016hotmaps}, sliding-window selection scans~\cite{tajima1989statistical}, and the original MutClust pipeline~\cite{youn2025mutclust}.
 \end{minipage}
 \end{table}
 
-The number of parameter variants per family ranges from 1 (AdaptiveKnee, MutClust-Orig) to 9 (SWAN), reflecting the inherent parametric complexity of each algorithm. Families with more variants have a higher probability of containing a favorable parameter setting by chance; however, the ANOVA uses detection \textit{family} (14 levels) rather than individual variants (39 levels) as a factor, partially mitigating this bias.
-
-\noindent The 14 families are grouped into five categories below; each family is summarized in Table~\ref{tab:detection_families}.
-
-\textbf{Threshold-based} (FreqThresh, AdaptiveKnee, AdaptWin).
-These methods select hotspots by applying a score cutoff: FreqThresh uses a fixed percentile threshold (top $k$\%), AdaptiveKnee automatically determines the threshold via knee-point detection on the sorted score curve, and AdaptWin extends seed positions above a percentile threshold bidirectionally to adjacent high-scoring positions.
-Frequency-based thresholding is widely used in viral genomic surveillance; for example, Mercatelli and Giorgi~\cite{mercatelli2020geographic} applied mutation frequency thresholds to identify recurrent SARS-CoV-2 mutations across geographic regions.
-
-\textbf{Signal processing} (Wavelet, Spectral, CUSUM).
-Transform-based methods that convert the score profile into an alternative representation to identify anomalous regions: Wavelet applies continuous wavelet transform with a Mexican hat kernel across multiple scales, Spectral uses FFT-based high-pass filtering to isolate local deviations, and CUSUM applies cumulative sum control charts to detect change points in the $z$-normalized profile.
-Wavelet-based approaches have been applied to genomic sequence analysis, including Anastassiou~\cite{anastassiou2001genomic} who demonstrated wavelet transforms for detecting periodicities in DNA sequences, and Arneodo et al.~\cite{arneodo2011wavelet} who used multi-scale wavelet analysis to characterize long-range correlations in genomic sequences.
-
-\textbf{Density and clustering} (KDE, ScoreDBSCAN).
-KDE applies Gaussian kernel density estimation to the score-weighted position profile and thresholds by percentile. ScoreDBSCAN maps positions to a 2D (coordinate, score) space and applies DBSCAN clustering with rescaled axes.
-Density-based clustering was originally proposed by Ester et al.~\cite{ester1996dbscan} and has been adapted for mutation hotspot detection in cancer genomics; notably, Tokheim et al.~\cite{tokheim2016hotmaps} applied density-based clustering to 3D protein structures for exome-scale hotspot discovery.
-
-\textbf{Statistical and model-based} (SlidingTest, LocalContrast, GradPeak, Bayes, SWAN).
-These methods apply statistical tests to identify positions or windows significantly deviating from the background: SlidingTest and SWAN use sliding-window $z$-tests against the global mean, LocalContrast computes local $z$-scores, GradPeak detects prominence-filtered peaks on smoothed profiles, and Bayes computes posterior hotspot probabilities from a prior and normalized scores.
-Sliding window approaches are a standard technique in population genetics and genomic analysis; Tajima~\cite{tajima1989statistical} introduced sliding window computation of the D statistic for detecting departures from neutrality, and similar windowed scanning strategies have been widely adopted for identifying regions under selection in viral genomes.
-
-\textbf{Legacy} (MutClust-Orig).
-MutClust-Orig applies the original MutClust logic (CCM seed + adaptive DBSCAN) to MSA-based score profiles, serving as a reference baseline representing the prior state-of-the-art in domain-specific hotspot detection~\cite{youn2025mutclust}.
-Although MutClust uses DBSCAN clustering internally, it is separated from the Density/Clustering category because it constitutes a virus-specific pipeline (H-score computation $\to$ CCM seed selection $\to$ adaptive $\varepsilon$ clustering) rather than a generic density-based algorithm applied to arbitrary score profiles.
-As the only existing virus-specific hotspot detection tool and the precursor study that motivated MutBench, it serves as the domain-specific reference baseline.
-The detailed description of MutClust and the five Stage~1 variants is presented in Section~\ref{subsec:variants}.
+Supervised machine learning methods (e.g., Random Forest or gradient boosting classifiers) were not included because they require labeled training data at the position level, and with only 11 pathogens---each having 9--54 Layer~A positives---the available ground truth is insufficient for training generalizable classifiers without severe overfitting.
+Since all methods operate on the same one-dimensional score array, the detection step serves as a necessary score-to-call conversion; the ANOVA results confirm that the detection family contributes only $\omega^2 = 0.013$ to performance variance, indicating that the choice of conversion method is a minor factor compared to the choice of input information.
+The number of parameter variants per family ranges from 1 (AdaptiveKnee, MutClust-Orig) to 9 (SWAN); therefore, the ANOVA models detection \textit{family} (14 levels) rather than individual variants (39 levels) to reduce the chance that more heavily parameterized families gain an advantage merely by having more operating points.
+The detailed description of MutClust and the five Stage~1 variants remains in Section~\ref{subsec:variants}.
 
 %% ============================================================
 \subsubsection{Experimental Design Considerations}
@@ -817,12 +769,11 @@ Omega-squared ($\omega^2$, Equation~\ref{eq:omega_squared}; non-partial form wit
 
 \textbf{ANCOVA with technical covariates.}\phantomsection\label{subsubsec:ancova_methods} An ANCOVA was fit on the cell-level grid using statsmodels Type~II OLS (\texttt{scripts/ancova\_omega.py}; archive \texttt{results/mutbench/ancova\_omega\_summary.csv}). The categorical pathogen main effect was replaced by two pathogen-constant continuous covariates---$\log(\text{alignment length})$ and Layer~A positive rate---chosen specifically because they are the two technical pathogen-level confounds the variance-explained interpretation needs to absorb; pathogen still enters the model through the load-bearing scoring~$\times$~pathogen and family~$\times$~pathogen interactions. The ANCOVA confirms the directional prediction: the pathogen categorical main effect drops from $\omega^2 = 0.108$ in the cell-level baseline (Section~\ref{subsubsec:cell_level_omega}) to ``not in model'' under the covariate-replacement formulation, while the scoring~$\times$~pathogen interaction \emph{rises} from $\omega^2 = 0.234$ to $0.274$ after adjustment ($p < 10^{-167}$); family~$\times$~pathogen also rises modestly ($0.080 \to 0.088$). The amplification under covariate adjustment (rather than attenuation) is the load-bearing quantity. Discussion in Chapter~\ref{ch:discussion}, Section~\ref{sec:scoring_input_heterogeneity}.
 
-\textbf{Bayesian partial-pooling cross-check.}\phantomsection\label{subsubsec:bayesian_methods} A Bayesian hierarchical (partial-pooling) model was fit as an alternative to the small-$n$ frequentist mixed-effects estimator. An exploratory half-Cauchy fit (PyMC 5.28; 2~chains $\times$ 800 draws; $\hat R \leq 1.01$) yielded posterior mean $\omega^2_{\text{scoring} \times \text{pathogen}} = 0.252$, 95\% HDI $[0.188, 0.314]$, $\Pr(\omega^2_{\text{int}} > 0.14) = 0.996$; an archived half-Normal re-implementation (\texttt{scripts/bayesian\_omega.py}; scale-0.2 priors, evaluation-level model on the 8{,}580 observations, 4~chains $\times$ 2{,}000 draws, \texttt{random\_seed=42}; archive \texttt{results/mutbench/bayesian\_omega\_summary.csv}) gives 0.319, HDI $[0.246, 0.396]$, $\Pr(>0.14) \approx 0.9998$. Both runs concur on the qualitative conclusion (large interaction); the credible-interval lower bound (0.188) essentially coincides with the cluster-bootstrap lower bound (0.195) reported in Chapter~\ref{ch:results}. The fully Bayesian factor-analysis frame at the same evaluation level is reported in subsection~\ref{subsec:wild_cluster_future} below.
+\textbf{Bayesian partial-pooling cross-check.}\phantomsection\label{subsubsec:bayesian_methods} A Bayesian hierarchical (partial-pooling) model was fit as an alternative to the small-$n$ frequentist mixed-effects estimator. An exploratory half-Cauchy fit (PyMC 5.28; 2~chains $\times$ 800 draws; $\hat R \leq 1.01$) yielded posterior mean $\omega^2_{\text{scoring} \times \text{pathogen}} = 0.252$, 95\% HDI $[0.188, 0.314]$, $\Pr(\omega^2_{\text{int}} > 0.14) = 0.996$; an archived half-Normal re-implementation (\texttt{scripts/bayesian\_omega.py}; scale-0.2 priors, evaluation-level model on the 8{,}580 observations, 4~chains $\times$ 2{,}000 draws, \texttt{random\_seed=42}; archive \texttt{results/mutbench/bayesian\_omega\_summary.csv}) gives 0.319, HDI $[0.246, 0.396]$, $\Pr(>0.14) \approx 0.9998$. Both runs concur on the qualitative conclusion (large interaction); the fully Bayesian factor-analysis frame at the same evaluation level is reported in Chapter~\ref{ch:results}, Section~\ref{subsec:anova_diagnostics}, Table~\ref{tab:omega_robustness_5way}.
 
-Levene's test indicated heterogeneous variances across groups (Levene $W = 14.83$, df$_1 = 219$, df$_2 = 8{,}360$, $p < 10^{-50}$); however, with $N = 8{,}580$ observations and a balanced design, ANOVA is robust to moderate violations of homoscedasticity.
-As a safeguard, the ANOVA was accompanied by nonparametric checks.
-The Kruskal--Wallis test applied to the scoring main effect yielded $H = 277.9$, $p < 10^{-47}$, consistent with the parametric main-effect result but not by itself testing interactions. An additional Aligned Rank Transform (ART) two-way ANOVA on the scoring~$\times$~pathogen interaction~\cite{wobbrock2011aligned} yielded a rank-scale interaction $\omega^2 = 0.277$ in the original exploratory calculation; an archived re-implementation (\texttt{scripts/art\_omega.py}: align $Y$ on a $\mathrm{scoring} + \mathrm{pathogen}$ OLS fit, rank-transform, refit with the interaction, then apply the same non-partial $\omega^2$ formula) gives $\omega^2 = 0.343$ on the 8{,}580-row panel. Both readings remain well above Cohen's large-effect threshold (0.14); the slight discrepancy reflects the difference between the original unarchived ART implementation and the archived re-implementation, and is reported transparently for reproducibility. The ART result therefore provides distribution-free support for the specific interaction that carries the main conclusion under either implementation.
-No family-wise multiple testing correction (e.g., Bonferroni, Holm) was applied to the ANOVA results because the analysis is exploratory rather than confirmatory: the goal is to decompose variance sources, not to test individual pairwise comparisons. The Friedman test and LOPO cross-validation are reported as additional lenses on the same dataset, not as independent replications. For the vaccine escape Fisher's exact tests, the per-pathogen family used in Chapter~\ref{ch:results} is the $20\times39 = 780$ scoring--detection combinations searched per pathogen (not 3), so Bonferroni-adjusted $p$-values are reported as $p_{\text{adj}} = \min(1, 780\,p)$; cross-pathogen denominators (joint $8{,}580$) are reported in the Table~\ref{tab:vaccine_escape_stage3} caption and do not change the three-tier tier assignment.
+Levene's test indicated heterogeneous variances across groups (Levene $W = 14.83$, df$_1 = 219$, df$_2 = 8{,}360$, $p < 10^{-50}$), so the parametric ANOVA is interpreted through cluster-aware and distribution-robust checks rather than through naive row-level independence.
+The nonparametric checks agree on direction: the Kruskal--Wallis scoring main-effect test gives $H = 277.9$, $p < 10^{-47}$, and the Aligned Rank Transform (ART) interaction check~\cite{wobbrock2011aligned} gives $\omega^2 = 0.277$ in the original exploratory calculation and $\omega^2 = 0.343$ in the archived \texttt{scripts/art\_omega.py} re-implementation.
+No family-wise multiple-testing correction is applied to the ANOVA because it decomposes pre-specified variance components rather than testing pairwise contrasts; Fisher tests in the vaccine-escape audit use the separate $20\times39 = 780$ Bonferroni denominator, with joint $8{,}580$ denominators reported in the Table~\ref{tab:vaccine_escape_stage3} caption.
 Following Cohen's effect size benchmarks~\cite{cohen1988statistical}, $\omega^2$ values are interpreted as small (0.01), medium (0.06), and large ($\geq 0.14$):
 \begin{equation}
 \omega^2 = \frac{SS_{\text{effect}} - df_{\text{effect}} \times MS_{\text{error}}}{SS_{\text{total}} + MS_{\text{error}}}
@@ -852,14 +803,15 @@ Critical values and interpretation follow Dem\v{s}ar~\cite{demsar2006statistical
 \subsubsection{Pathogen-level BCa Bootstrap Confidence Intervals}
 \phantomsection\label{subsec:wild_cluster_future}
 
-Bias-corrected and accelerated (BCa) bootstrap confidence intervals (10,000 resamples) are computed for MCC values across 11 pathogens to quantify the performance variability of the best-performing combination across pathogens. With $n = 11$, the actual coverage of BCa intervals may be somewhat below the nominal 95\% level; these intervals should therefore be interpreted as approximate confidence intervals (a small numerical simulation at $n = 11$ under the present effect size yielded an actual coverage of $\approx 88\%$ for nominal-95\% percentile BCa, consistent with the standard small-cluster anti-conservatism literature).
-A separate combination-level cluster bootstrap (1{,}000 resamples, clustered by pathogen) is reported in Chapter~\ref{ch:results} to bound the spread of per-pathogen best-combination MCC under resampling of pathogens; the lower resample count reflects the much larger compute footprint of running the full $20\times39$ scoring--detection grid per resample, and is sufficient for stable percentile-CI estimation at $n_{\text{path}}=11$.
+Bias-corrected and accelerated (BCa) bootstrap confidence intervals (10,000 resamples) are computed for MCC values across 11 pathogens to quantify the performance variability of the best-performing combination across pathogens; because $n = 11$, these intervals are treated as approximate (a small numerical simulation at $n = 11$ under the present effect size yielded actual coverage of $\approx 88\%$ for nominal-95\% percentile BCa).
+A separate combination-level cluster bootstrap (1{,}000 resamples, clustered by pathogen) is reported in Chapter~\ref{ch:results} to bound the spread of per-pathogen best-combination MCC under resampling of pathogens.
 
-\textbf{Robustness-frame triangulation for $G \leq 30$.} The 11-cluster percentile bootstrap is anti-conservative for the small-cluster regime ($G \leq 30$), so four complementary inferential frames are added on the same 8{,}580-row evaluation grid with \texttt{random\_seed = 42}; full numerical results, schemas, and CI/HDI lower bounds are tabulated in Chapter~\ref{ch:results}, Section~\ref{subsec:anova_diagnostics}, Table~\ref{tab:omega_robustness_5way} (archive: \texttt{results/mutbench/omega\_robustness\_5way.csv}). (i)~Wild-cluster (Rademacher-weight) bootstrap~\cite{cameron2008bootstrap} (\texttt{scripts/wild\_cluster\_bootstrap\_omega.py}, $B = 1{,}000$): residuals from the restricted ANOVA dropping the scoring~$\times$~pathogen interaction are re-signed cluster-by-cluster, then the same Type-II-like $\omega^2$ decomposition is recomputed; this gives a 95\% percentile interval of $[0.201, 0.303]$, narrower at the upper tail rather than the lower bound (the expected sharper-but-not-uniformly-wider behaviour when standard cluster anti-conservatism manifests as right-tail over-coverage). (ii)~Phylogenetic block bootstrap (Felsenstein 1985 spirit) groups the 11 pathogens into 8 ICTV families (Coronaviridae \{SARS-CoV-2, MERS\}; Orthomyxoviridae \{H3N2, Influenza~B\}; Flaviviridae \{HCV, Dengue\}; Picornaviridae \{EV-A71\}; Caliciviridae \{Norovirus\}; Retroviridae \{HIV-1\}; Pneumoviridae \{RSV\}; Rhabdoviridae \{Rabies\}) and resamples at the family level: 95\% interval $[0.202, 0.346]$, $\Pr(\omega^2 \leq 0.14) = 0.008$. (iii)~Frequentist linear mixed-effects model in \texttt{statsmodels.MixedLM} (REML) with $\mathrm{MCC} \sim \mathrm{scoring}_{\text{fixed}} + (1\,|\,\mathrm{pathogen}) + (1\,|\,\mathrm{scoring{:}pathogen})$ (\texttt{scripts/block\_bootstrap\_mixed\_effects\_omega.py}): pathogen random-intercept variance significant by the Self--Liang (1987) boundary-corrected likelihood-ratio test ($\chi^2_1 = 913.7$, $p < 10^{-198}$, $\mathrm{ICC}_{\text{pathogen}} = 0.135$); pseudo-$\omega^2_{\text{int}} = 0.340$. (iv)~Bayesian two-way random-effects factor analysis (\texttt{scripts/bayesian\_factor\_analysis\_omega.py}; PyMC 5.28; non-centered with half-Normal hyperpriors of scale 0.5 on the factor sds and 0.2 on the residual sd; 4~chains $\times$ 2{,}000 draws, \texttt{random\_seed=42}; $\hat R = 1.003$, ESS$_{\text{bulk}} = 618$, no post-tuning divergences): posterior mean $\omega^2_{\text{int}} = 0.316$, 95\% HDI $[0.242, 0.388]$, $\Pr(\omega^2_{\text{int}} > 0.14) = 0.9998$. All four lower bounds (0.201, 0.202, 0.242, and the variance-component point at 0.340) and the earlier Bayesian hierarchical lower bound (0.188/0.246) sit above Cohen's large-effect threshold ($\omega^2 > 0.14$); the headline conclusion is therefore invariant to the choice of inferential paradigm.
+\textbf{Robustness-frame triangulation for $G \leq 30$.} The 11-cluster percentile bootstrap is anti-conservative for the small-cluster regime ($G \leq 30$), so four complementary frames were run on the same 8{,}580-row evaluation grid with \texttt{random\_seed = 42}: wild-cluster (Rademacher-weight) bootstrap~\cite{cameron2008bootstrap} $[0.201, 0.303]$, phylogenetic block bootstrap across 8 ICTV families $[0.202, 0.346]$ with $\Pr(\omega^2 \leq 0.14) = 0.008$, mixed-effects pseudo-$\omega^2_{\text{int}} = 0.340$ with $\chi^2_1 = 913.7$, $p < 10^{-198}$, $\mathrm{ICC}_{\text{pathogen}} = 0.135$, and Bayesian factor-analysis mean $0.316$, HDI $[0.242, 0.388]$, $\Pr(\omega^2_{\text{int}} > 0.14) = 0.9998$.
+Together with the standard cluster interval $[0.195, 0.333]$ and archived re-implementation $[0.201, 0.346]$, these frames keep every lower bound or point estimate above Cohen's large-effect threshold ($\omega^2 > 0.14$); the full diagnostic table is Chapter~\ref{ch:results}, Section~\ref{subsec:anova_diagnostics}, Table~\ref{tab:omega_robustness_5way} (archive: \texttt{results/mutbench/omega\_robustness\_5way.csv}).
 
-\textbf{Delete-one jackknife (not performed).}\phantomsection\label{subsubsec:jackknife_acknowledgement} A delete-one jackknife over the 11 pathogens (which would directly supply the BCa acceleration term and is computationally trivial at $n = 11$) was \emph{not} performed in this cycle; the BCa intervals reported here use the standard percentile/bias-correction implementation in \texttt{scipy.stats.bootstrap} without an explicit jackknife-based acceleration term. A jackknife-based BCa re-fit is left for future work as a small-cluster-honesty deliverable (the wild-cluster robustness check called for in the same context has been performed in this cycle, as reported above).
+\textbf{Delete-one jackknife (not performed).}\phantomsection\label{subsubsec:jackknife_acknowledgement} A delete-one jackknife over the 11 pathogens was \emph{not} performed; the BCa intervals use the standard percentile/bias-correction implementation in \texttt{scipy.stats.bootstrap} without an explicit jackknife-based acceleration term.
 
-\textbf{Mantel/Procrustes distance-matrix tests (not performed).}\phantomsection\label{subsubsec:mantel_acknowledgement} A Mantel test~\cite{mantel1967nonparametric} or Procrustes analysis comparing the pathogen--pathogen scoring-rank distance matrix with a phylogenetic or evolutionary-rate distance matrix was \emph{not} performed in this dissertation. Phylogenetic non-independence at the pathogen level is instead controlled through the surface-protein family-pair sensitivity discussion (Chapter~\ref{ch:discussion}, Section~\ref{sec:gt_heterogeneity}), the pathogen-cluster bootstrap (Section~\ref{subsec:wild_cluster_future}), the LOPO cross-validation, and the Friedman rank-block design. A Mantel-style alternate distance-matrix test on the 11-pathogen panel ($n = 11$, $\binom{11}{2} = 55$ off-diagonal entries) is computationally trivial via \texttt{scipy.spatial.distance} or \texttt{scikit-bio} and is left for future work; the absence of an explicit Mantel correlation $r$/$p$ readout is noted as a limitation rather than as a positive negative result.
+\textbf{Mantel/Procrustes distance-matrix tests (not performed).}\phantomsection\label{subsubsec:mantel_acknowledgement} A Mantel test~\cite{mantel1967nonparametric} or Procrustes analysis was \emph{not} performed; phylogenetic non-independence is instead handled through the surface-protein family-pair sensitivity discussion (Chapter~\ref{ch:discussion}, Section~\ref{sec:gt_heterogeneity}), pathogen-cluster bootstrap, LOPO cross-validation, and Friedman rank-block design.
 
 \subsubsection{Subsample Robustness Analysis}
 

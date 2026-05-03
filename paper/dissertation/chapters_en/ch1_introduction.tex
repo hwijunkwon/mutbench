@@ -83,10 +83,26 @@ To address the problems above, this study establishes the following three object
   \begin{itemize}
   \item A three-layer ground truth (Layer~A literature-curated positives---a pathogen-specific union of convergent-evolution, immune-escape, and HVR-membership evidence types, dominated by immune-escape sites; Layer~B purifying-selection negatives; Layer~C DMS fitness validation),
   \item The hotspot-score composite metric (recall + precision + stability)/3,
-  \item A two-stage main experimental design with a Stage~3 information-integration layer: Stage~1 for in-depth SARS-CoV-2 analysis; Stage~2 for large-scale comparison across 11 RNA viruses (20 scoring formulas $\times$ 39 detection parameter variants from 14 families $\times$ 11 pathogens = 8{,}580 evaluations); and Stage~3 for multi-source feature integration on the 11-pathogen main panel, extended to 12 pathogens by adding Zika for the feature-ablation and nested-LOPO analyses (see Chapter~\ref{ch:results} Section~\ref{subsec:feature_ablation}).
+  \item A two-stage main experimental design with a Stage~3 information-integration layer: Stage~1 for in-depth SARS-CoV-2 analysis; Stage~2 for large-scale comparison across 11 RNA viruses (20 scoring formulas $\times$ 39 detection parameter variants from 14 families $\times$ 11 pathogens = 8{,}580 evaluations); and Stage~3 for multi-source feature integration (see Chapter~\ref{ch:results} Section~\ref{subsec:feature_ablation}).
   \end{itemize}
 
-\noindent\textit{Panel-scope summary.} The dissertation uses three nested panels: the \textbf{11-pathogen main panel} (used for the headline $\omega^2$ interaction, Friedman, LOPO 0/11, vaccine-escape enrichment); the \textbf{12-pathogen Stage~3 panel} (11 main + Zika; used only for the feature-ablation and nested-LOPO robustness check); and the \textbf{Wave 4--5 features-only panels} (Wave~4 28-target stability with 12 labeled + 16 unlabeled; Wave~5 Layer~A$'$ sensitivity on 10 UniProt-derived targets, Chapter~\ref{ch:discussion} Paragraphs~\ref{para:w4_tier2_lopo}, \ref{para:w5_layer_a_prime}). All headline claims belong to the 11-pathogen main panel unless stated otherwise; the 12-pathogen Stage~3 panel is a feature-ablation extension, not a benchmark expansion; the Wave panels are bounded sensitivity analyses, not panel extensions.
+\begin{table}[htbp]
+\centering
+\caption{Panel-scope ledger for MutBench claims}
+\label{tab:intro_panel_scope}
+\small
+\begin{tabularx}{\textwidth}{p{0.26\textwidth}XX}
+\toprule
+\textbf{Panel} & \textbf{Used for} & \textbf{Not used for} \\
+\midrule
+11-pathogen main panel & Headline $\omega^2$ interaction, Friedman, LOPO 0/11, and vaccine-escape enrichment & Replaced by neither the 12-pathogen Stage~3 panel nor the Wave panels for headline claims \\
+12-pathogen Stage~3 panel & 11 main + Zika; feature-ablation and nested-LOPO robustness check (Chapter~\ref{ch:results} Section~\ref{subsec:feature_ablation}) & Benchmark expansion beyond the 11-pathogen main panel \\
+Wave 4--5 features-only panels & Wave~4 28-target stability with 12 labeled + 16 unlabeled; Wave~5 Layer~A$'$ sensitivity on 10 UniProt-derived targets (Chapter~\ref{ch:discussion} Paragraphs~\ref{para:w4_tier2_lopo}, \ref{para:w5_layer_a_prime}) & Headline panel extension; bounded sensitivity analyses only \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+All headline claims belong to the 11-pathogen main panel unless stated otherwise.
 
   \item \textbf{Determine which factor---scoring type, detection method, or pathogen---dominates the variance in hotspot-detection performance}, and whether the dominant factor is a main effect or an interaction. Operationally, this asks whether a single ``best'' scoring--detection combination exists across pathogens, and is addressed through factorial Analysis of Variance (ANOVA), Friedman test, and Leave-One-Pathogen-Out (LOPO) cross-validation (see Chapter~\ref{ch:results}).
 
@@ -154,8 +170,26 @@ The Friedman test ($p = 0.990$) showed no reliably superior combination across a
 The scoring~$\times$~pathogen interaction is the largest modeled variance component ($\omega^2 = 0.296$, 95\% cluster-bootstrap CI [0.195, 0.333]; 6-category aggregation gives $\omega^2 = 0.103$ as a collinearity-robust lower bound; 11 pathogen clusters places the design near the small-cluster regime---above the Bolker rule-of-thumb minimum of 5--6 but below the typical recommendation of 20--30 for stable random-effects estimation, see Chapter~\ref{ch:discussion}, Section~\ref{sec:limitations}). The conclusion rests on the interaction effect plus the vaccine-escape audit; LOPO 0/11 alone is null-consistent under permutation (Chapter~\ref{ch:results} Table~\ref{tab:stage2_anova}).
 
 \textbf{Contribution 3. Practical search-space reduction validated on independently-curated vaccine-escape positions.}
-The optimal scoring--detection combination narrows the candidate list from $\sim$1{,}000 alignment positions to approximately 20--80 (top 5--10\%) with $7$--$9\times$ enrichment for escape sites, transforming exhaustive experimental screening into a guided investigation that directs limited laboratory resources to the most promising positions. Under a three-tier evidence rule (Bonferroni survival $\times$ Layer~A overlap $<33\%$), the Layer-A-disjoint subset of HIV-1 escape positions (37 of 45) yields direct novel-only enrichment of $7.16\text{--}8.24\times$ (worst-case nominal Fisher $p = 5.0 \times 10^{-12}$; Bonferroni-adjusted $p_{\text{adj}} \approx 3.9 \times 10^{-9}$ across 780 combinations); H3N2's $9.36\times$ is a self-consistency check (69\% Layer~A overlap), and SARS-CoV-2 is exploratory after multiple-comparison correction. The H3N2 EqualWeight integration case yields $4.012\times$ enrichment ($p = 0.0023$); per-feature analyses show the most discriminative feature differs across pathogens (homoplasy for Norovirus, pLDDT for H3N2, ESM-2 for SARS-CoV-2), complementing the Stage~2 MCC-optimal scoring results in Contribution~2.
-A multi-source feature-ablation robustness check (nested-LOPO on the 12-pathogen Stage~3 panel: full-10 LOPO mean MCC $0.070$, fixed-4 LOPO mean MCC $0.081$, paired delta $+0.011$, 95\% CI [$-0.018$, $+0.042$], sign-flip permutation $p = 0.61$; Section~\ref{subsec:feature_ablation}, Table~\ref{tab:nested_lopo_4core}) shows the compact 4-feature core (homoplasy, pLDDT, entropy, frequency) is statistically indistinguishable from the full 10-feature EqualWeight ensemble within a $\pm 0.04$~MCC non-inferiority bound, providing a practical cold-start recipe when labelled positions are unavailable. This is a retrospective, fixed historical recipe rather than a lattice-optimal or prospectively callable detector; Chapters~\ref{ch:results}--\ref{ch:discussion} report the full-lattice audit and abstention-rule boundaries.
+The optimal scoring--detection combination narrows the candidate list from $\sim$1{,}000 alignment positions to approximately 20--80 (top 5--10\%) with $7$--$9\times$ enrichment for escape sites, transforming exhaustive experimental screening into guided investigation. The validation hierarchy is summarized below.
+
+\begin{table}[htbp]
+\centering
+\caption{External-validation ledger for practical search-space reduction}
+\label{tab:intro_external_validation_ledger}
+\small
+\begin{tabularx}{\textwidth}{p{0.18\textwidth}p{0.31\textwidth}p{0.24\textwidth}X}
+\toprule
+\textbf{Anchor} & \textbf{Main result} & \textbf{Boundary} & \textbf{Role} \\
+\midrule
+HIV-1 primary anchor & Layer-A-disjoint subset of HIV-1 escape positions (37 of 45) yields direct novel-only enrichment $7.16\text{--}8.24\times$ (worst-case nominal Fisher $p = 5.0 \times 10^{-12}$; Bonferroni-adjusted $p_{\text{adj}} \approx 3.9 \times 10^{-9}$ across 780 combinations) & Three-tier evidence rule: Bonferroni survival $\times$ Layer~A overlap $<33\%$ & Primary external validation on independently-curated vaccine-escape positions \\
+H3N2 self-consistency & $9.36\times$ enrichment with 69\% Layer~A overlap; EqualWeight integration yields $4.012\times$ enrichment ($p = 0.0023$) & Overlap makes this a self-consistency check & Secondary support for practical enrichment \\
+SARS-CoV-2 exploratory & Escape enrichment persists after multiple-comparison correction & Exploratory after multiple-comparison correction & Bounded external check, not the primary anchor \\
+4-core robustness boundary & Nested-LOPO on the 12-pathogen Stage~3 panel: full-10 LOPO mean MCC $0.070$, fixed-4 LOPO mean MCC $0.081$, paired delta $+0.011$, 95\% CI [$-0.018$, $+0.042$], sign-flip permutation $p = 0.61$; compact 4-feature core (homoplasy, pLDDT, entropy, frequency) is statistically indistinguishable within a $\pm 0.04$~MCC non-inferiority bound (Section~\ref{subsec:feature_ablation}, Table~\ref{tab:nested_lopo_4core}) & Retrospective, fixed historical recipe rather than a lattice-optimal or prospectively callable detector & Practical cold-start recipe when labelled positions are unavailable \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Per-feature analyses show that the most discriminative feature differs across pathogens (homoplasy for Norovirus, pLDDT for H3N2, ESM-2 for SARS-CoV-2), complementing the Stage~2 MCC-optimal scoring results in Contribution~2; Chapters~\ref{ch:results}--\ref{ch:discussion} report the full-lattice audit and abstention-rule boundaries.
 
 These three contributions form a logical hierarchy: Contribution~1 provides the standardized evaluation infrastructure; Contribution~2 uses it to establish pathogen-dependent information-source utility; and Contribution~3 provides external validation on independently-curated vaccine-escape positions.
 
