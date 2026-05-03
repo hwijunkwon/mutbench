@@ -41,4 +41,5 @@ Target: **215pp → 192pp** (~−23pp). Phase 4 prof v6 score 77.52 → expected
 - f7c138c Step 1 Batch 1: Ch1 BG + Ch2 #4 #5 #6 → 215pp → 206pp (-9pp)
 - 36bccbe Step 2 Batch 3: Ch4 #11 Stage1 + #12 Robust + #13 Structural + #15 ANOVA → 206pp → 202pp (-4pp)
 - d5ae269 Step 3 Batch 4: Ch4 #14 Cold-Start + #18 Cycle 7B + #19 lattice → 202pp → 200pp (-2pp)
-- (commit pending) Step 4 Batch 5 partial: Ch4 #16 #17 + Ch5 #20 #21 → 200pp → 198pp (-2pp). Ch1 #2 #3 already triage-aligned, deferred.
+- 4dcc0c8 Step 4 Batch 5 partial: Ch4 #16 #17 + Ch5 #20 #21 → 200pp → 198pp (-2pp). Ch1 #2 #3 already triage-aligned, deferred.
+- (commit pending) Step 5 Abstract rewrite (r3_deep_abstract_draft applied): 13/13 anchors preserved, 4-row evidence ledger, wet-lab triage as primary value → 198pp → 197pp (-1pp)
