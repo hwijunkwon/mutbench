@@ -2,6 +2,21 @@
 
 Reverse chronological. Latest first.
 
+## v227 (2026-05-04) — Triage reframe merge: 215pp → 197pp, Phase 4 PASS 83.63/100
+
+Branch `experiments/triage-reframe` (9 commits) merged into master with `--no-ff`.
+
+**Outcome**:
+- 215pp → 197pp (-18pp risk-managed compression)
+- Wet-lab triage repositioning: deployment refused; Layer C (6/11 DMS pathogens, 650 positions) elevated as primary practical-value anchor
+- ANOVA 5-frame narrative restored (Cameron 2008 wild-cluster justification)
+- Phase 4 Prof v8 (2-stage hybrid 5 chapter-deep + 10 prof aggregator): **83.63/100** (vs single-read v7: 77.72)
+- All 10 profs ≥ 80; All 4 gates PASS
+
+**Method innovation**: 2-stage hybrid evaluation. Single-read 10-prof was systematically underrating because 197pp/prof attention is too thin per item. Stage 1 caught 52 hidden issues bulk-read missed; Stage 2 prof aggregators consume Stage 1 reports + their specialty deep-read.
+
+Reports: `paper/dissertation/review/2026-05-03/professor_v8_aggregate.md`, `docs/wiki/triage-reframe.md`.
+
 ## v220 (2026-05-03) — Phase 4 prof v6 distributed
 - 10 codex blind agents per professor role
 - Score: **77.52/100** (range 73.5–81.0); item I limit-awareness 9.00 strongest, G practical 6.80 weakest
