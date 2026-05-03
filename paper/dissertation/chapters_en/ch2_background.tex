@@ -59,31 +59,10 @@ MutBench incorporates four phylogenetic selection-pressure scoring channels---th
 \subsection{Density-Based Clustering}
 \label{subsec:bg_density_clustering}
 
-DBSCAN~\cite{ester1996dbscan} is a representative density-based clustering algorithm that defines high-density regions as clusters and classifies low-density regions as noise.
-The algorithm operates on two fundamental concepts: the \textit{$\varepsilon$-neighborhood} of a point $p$, defined as all points within distance $\varepsilon$ from $p$, and \textit{core points}, defined as points whose $\varepsilon$-neighborhood contains at least MinPts points.
-Points reachable from core points through chains of $\varepsilon$-neighborhoods form clusters, while points not reachable from any core point are classified as \textit{noise}.
-This formulation enables discovery of clusters with arbitrary shapes without requiring the number of clusters to be specified in advance---a key advantage over partitional methods such as K-means.
-
-However, DBSCAN uses a \textbf{fixed global epsilon}, making it unable to form appropriate clusters in data with substantial density variation.
-In viral genomics, mutation density varies dramatically across the genome: immunodominant surface proteins (e.g., the Spike receptor-binding domain) accumulate mutations at far higher density than conserved polymerase regions.
-A single epsilon value cannot simultaneously capture tight clusters in high-density regions and sparser clusters in lower-density functional domains.
-This problem manifests in extreme form:
-direct application to the SARS-CoV-2 genome with default parameters results in 99.76\% of the data being merged into a single massive cluster; even with manually tuned parameters ($\varepsilon = 0.15$, MinPts $= 5$), only 4 undifferentiated clusters are obtained, rendering biologically meaningful hotspot distinction impossible~\cite{youn2025mutclust}.
-
-HDBSCAN~\cite{campello2013hdbscan} addresses the fundamental limitation of DBSCAN's fixed epsilon by constructing a hierarchy of density-based clusterings.
-Rather than fixing a single epsilon value, HDBSCAN computes a \textit{mutual reachability distance} between all pairs of points and builds a minimum spanning tree, which is then condensed into a cluster hierarchy.
-Clusters are extracted by selecting the most persistent components across density levels, effectively adapting the neighborhood radius to local data density.
-It operates with a single parameter, min\_cluster\_size, without requiring explicit specification of epsilon.
-It can detect clusters of arbitrary shape, automatically identifies noise points, and provides probabilistic interpretation of cluster membership through cluster stability scores.
-For viral hotspot detection, HDBSCAN's adaptive density handling is conceptually appealing, but it was designed for general-purpose spatial data and does not incorporate domain-specific biological information such as mutation importance scores.
-
-OPTICS~\cite{ankerst1999optics} takes a complementary approach by producing a \textit{reachability plot}---an ordering of data points where the reachability distance of each point reflects the density required to connect it to the preceding point.
-Valleys in this plot correspond to clusters, and their depth indicates cluster density relative to surrounding regions.
-This visualization reveals clustering structure at all density levels simultaneously, but requires post-processing (e.g., the $\xi$-extraction method) to convert the reachability plot into discrete clusters.
-The multi-scale perspective of OPTICS is valuable for exploratory analysis, but the additional extraction step introduces subjectivity in cluster boundary determination.
-
-The limitations of standard density-based methods in the viral genomics context motivated the development of adaptive approaches that integrate biological scoring into the clustering framework.
-MutClust~\cite{youn2025mutclust} addressed this by replacing DBSCAN's fixed epsilon with a position-specific radius proportional to the H-score (a mutation importance metric combining frequency and entropy), thereby assigning wider neighborhoods to biologically significant positions and narrower neighborhoods elsewhere.
+DBSCAN~\cite{ester1996dbscan} identifies density-connected clusters and noise from $\varepsilon$-neighborhoods and core points, allowing arbitrary cluster shapes without a pre-set cluster count.
+Its fixed global epsilon is poorly matched to viral genomes, where mutation density can differ sharply between immunodominant surface regions and conserved domains; in SARS-CoV-2, default DBSCAN merged 99.76\% of points into one cluster, and tuned parameters ($\varepsilon = 0.15$, MinPts $= 5$) still yielded only 4 broad clusters~\cite{youn2025mutclust}.
+HDBSCAN~\cite{campello2013hdbscan} and OPTICS~\cite{ankerst1999optics} address variable density through hierarchical stability or reachability plots, but remain generic spatial algorithms.
+This limitation motivated MutClust~\cite{youn2025mutclust}, which replaces a global epsilon with an H-score-scaled, position-specific radius so biologically important positions receive wider neighborhoods.
 
 \subsection{Deep Mutational Scanning as Ground Truth}
 \label{subsec:bg_dms}
@@ -124,45 +103,12 @@ The success of EVE and related generative models suggests that evolutionary info
 \subsection{Protein Language Models for Variant Effect Prediction}
 \label{subsec:bg_plm}
 
-Protein language models (PLMs) trained on large-scale protein sequence databases have emerged as a complementary computational approach to variant effect prediction.
-The fundamental insight underlying PLMs is that evolutionary constraints on protein function are implicitly encoded in the patterns of amino acid co-occurrence across millions of naturally evolved sequences.
-By training transformer-based architectures on these patterns, PLMs learn a representation of ``evolutionary plausibility'' that can be used to score mutations without requiring structural data or experimental fitness measurements.
-
-\textbf{ESM-2}~\cite{lin2023esm2,rives2021biological} is a masked language model with 650 million parameters, trained on approximately 250 million protein sequences from the UniRef database.
-For variant effect prediction, it computes a \textit{log-likelihood ratio} (LLR) at each position: $\text{LLR}(m, i) = \log P(m_{\text{mut}} | \text{context}) - \log P(m_{\text{wt}} | \text{context})$, where $m_{\text{mut}}$ and $m_{\text{wt}}$ are the mutant and wild-type amino acids at position $i$, and the context is provided by the surrounding sequence.
-Negative LLR values indicate that the mutation is disfavored relative to the wild-type, suggesting functional constraint, while positive values suggest the mutation may be tolerated or even beneficial.
-ESM-2 LLR scores have shown competitive performance with alignment-based methods on human protein variant effect prediction, though their effectiveness on viral proteins---which evolve under distinct selective pressures and exhibit higher sequence divergence within protein families---is less well characterized.
-A critical consideration is that ESM-2 was trained predominantly on cellular organism proteins from UniRef; viral proteins, which constitute a small fraction of the training data and exhibit evolutionary dynamics distinct from eukaryotic and prokaryotic proteins, may not be equally well represented in the learned embedding space.
-
-\textbf{Tranception}~\cite{notin2022tranception} takes an autoregressive approach, modeling the probability of each amino acid conditioned on the preceding sequence positions.
-Unlike ESM-2's masked (bidirectional) architecture, Tranception's autoregressive design captures directional dependencies and can incorporate retrieval-augmented inference using homologous sequences at test time.
-This retrieval mechanism aligns Tranception more closely with alignment-based methods while retaining the flexibility of deep learning.
-
-\textbf{ProtTrans}~\cite{elnaggar2022prottrans} adopts transformer architectures (including BERT and T5 variants) pretrained on UniRef and BFD databases totaling over 2 billion protein sequences, achieving competitive performance on protein function prediction tasks including secondary structure prediction and localization.
-More recently, the ESM-3 generation~\cite{hayes2024esm3} extended the ESM family to a multimodal generative model integrating sequence, structure, and function tokens, enabling joint reasoning across these modalities; ESM-3 is named here for completeness of the protein-language-model landscape but is \emph{not} used as a scoring channel in MutBench's headline 8{,}580-evaluation grid because its public-weights release is governed by EvolutionaryScale's Cambrian non-commercial license (academic only), incompatible with the MIT-redistribution requirement of the headline benchmark (Chapter~\ref{ch:mutbench}, Section~\ref{para:external_licenses}).
-Structure-aware extensions of the PLM landscape---ESM-IF (inverse folding)~\cite{hsu2022esmif}, SaProt (structure-aware tokenization)~\cite{su2024saprot}, and ProteinMPNN (sequence design conditioned on backbone)~\cite{dauparas2022proteinmpnn}---explicitly inject 3D structural context into the learned representation; these are likewise outside the 20-scoring panel of the present benchmark and are noted as future-work scoring channels.
-While ProtTrans, ESM-3, and structure-aware PLMs represent important advances in protein representation learning, to our knowledge no large-scale viral hotspot-detection benchmark has yet incorporated these models as scoring channels, motivating the more conservative ESM-2 / Tranception / EVE-style PLM coverage adopted by MutBench.
-
-Beyond single-model predictions, \textbf{EVEscape}~\cite{thadani2023evescape} demonstrated the value of combining a generative-model fitness signal with complementary biological information.
-EVEscape integrates three components to predict viral immune escape mutations: (1)~EVE fitness scores from a Bayesian variational autoencoder trained on MSAs (i.e., a generative evolutionary model rather than a generic protein language model), (2)~structural accessibility from experimentally determined structures (PDB) or AlphaFold predictions, and (3)~physicochemical dissimilarity between wildtype and mutant residues (charge and hydrophobicity changes).
-Its success in forecasting SARS-CoV-2 Omicron escape mutations from pre-pandemic data illustrates the potential of multi-source feature integration. MutBench's \texttt{EVEscape\_composite} channel adopts the same multiplicative form (fitness $\times$ accessibility $\times$ dissimilarity) but substitutes an ESM-2 masked-marginal mutation-surprise score for the EVE fitness term as a cross-pathogen-feasible proxy (Section~\ref{sec:scoring_detection})---it is therefore an EVEscape-style implementation, not the original EVEscape model.
-
-\textbf{AlphaMissense}~\cite{cheng2023alphamissense} adopted an AlphaFold-derived architecture to classify missense variants across the entire human proteome, achieving high accuracy for pathogenicity prediction.
-However, its training data and evaluation are centered on human genetic variants, and the distinct evolutionary dynamics of viral proteins---rapid evolution, high mutation rates, and population-level rather than individual-level selection---limit the direct applicability of AlphaMissense to viral variant effect prediction.
-
-A key question for this dissertation is whether PLM-derived scores can serve as effective features for hotspot detection across diverse pathogens.
-The EVEREST benchmark~\cite{gurev2025everest,gurev2026everest_v3} found that PLMs substantially underperform alignment-based methods on viral proteins, suggesting that the evolutionary patterns learned from predominantly cellular organism sequences may not transfer well to fast-evolving viral proteins; the strength of this finding as \emph{independent} corroboration of MutBench's own pathogen-dependence result is qualified in Section~\ref{subsec:bg_benchmarking_gap} (PLM~$\ll$~alignment is a cross-study \emph{parallel}, not independent confirmation).
-Despite the growing adoption of PLMs in protein engineering and variant effect prediction, no systematic comparison of PLM-derived features exists for viral mutation hotspot detection across multiple pathogens.
-In this dissertation, the ESM-2 masked-marginal score and embedding-derived semantic change scores are evaluated as two of the 10 underlying biological information families (expanded into 20 scoring channels with normalization or composite variants) in the MutBench information-type analysis (Section~\ref{sec:information_analysis}).
-
-\textbf{PLM benchmarking.}
-The most comprehensive benchmark for PLM-based variant effect prediction is ProteinGym~\cite{notin2023proteingym}, which evaluates over 70 predictors on 217 DMS assays spanning 2.7 million substitution variants drawn from a taxonomically broad protein set (human, other eukaryote, prokaryote, and viral proteins; general-purpose VEP rather than virus-specific surveillance).
-ProteinGym has been instrumental in establishing performance rankings among PLMs and alignment-based methods for the per-mutation fitness prediction task: given a specific amino acid substitution at a specific position, predict its continuous fitness effect (evaluated by Spearman correlation against DMS measurements).
-MutBench differs from ProteinGym in three fundamental respects.
-First, the \textit{task} differs: ProteinGym evaluates per-mutation effect prediction (a continuous regression problem), whereas MutBench evaluates per-region hotspot detection (a binary classification problem over genomic regions).
-Second, the \textit{domain} differs: ProteinGym is a general-purpose protein VEP benchmark (taxonomically broad and not virus-specific), while MutBench targets viral proteins across 11 pathogens under distinct evolutionary dynamics (high mutation rate, strong immune-driven positive selection, region-level surveillance use cases).
-Third, the \textit{analysis objective} differs: ProteinGym ranks prediction methods, while MutBench quantifies the scoring--pathogen interaction to determine which biological information source is optimal for each virus.
-These distinctions make ProteinGym and MutBench complementary rather than competing: ProteinGym establishes which PLMs best predict individual mutation effects, while MutBench establishes which information types (including but not limited to PLM-derived scores) best identify mutation-enriched genomic regions across diverse pathogens.
+Protein language models score mutations from evolutionary plausibility learned over large sequence corpora, offering structure- and assay-free features for variant-effect prediction.
+ESM-2~\cite{lin2023esm2,rives2021biological} uses masked log-likelihood ratios, whereas Tranception~\cite{notin2022tranception} is autoregressive and can retrieve homologous context; both are relevant to MutBench because viral proteins may be underrepresented in cellular-protein-heavy training corpora.
+Broader PLM and structure-aware systems include ProtTrans~\cite{elnaggar2022prottrans}, ESM-3~\cite{hayes2024esm3}, ESM-IF~\cite{hsu2022esmif}, SaProt~\cite{su2024saprot}, and ProteinMPNN~\cite{dauparas2022proteinmpnn}; ESM-3 is excluded from the headline 8{,}580-evaluation grid because its Cambrian non-commercial license conflicts with the MIT-redistribution requirement (Chapter~\ref{ch:mutbench}, Section~\ref{para:external_licenses}), and structure-aware channels are deferred as future work.
+EVEscape~\cite{thadani2023evescape} shows that generative fitness, accessibility, and residue dissimilarity can be productively combined; MutBench adopts only an EVEscape-style composite that substitutes ESM-2 mutation surprise for the EVE term (Section~\ref{sec:scoring_detection}).
+AlphaMissense~\cite{cheng2023alphamissense} is important but human-variant-centered, while EVEREST~\cite{gurev2025everest,gurev2026everest_v3} reports PLM underperformance on viral proteins as a cross-study parallel, not independent confirmation of MutBench's pathogen-dependence result (Section~\ref{subsec:bg_benchmarking_gap}).
+ProteinGym~\cite{notin2023proteingym} ranks predictors for per-mutation fitness regression over DMS assays; MutBench instead asks which information types, including ESM-2 masked-marginal and semantic-change scores, identify mutation-enriched regions across pathogens (Section~\ref{sec:information_analysis}).
 
 \subsection{Viral Genomic Surveillance Platforms}
 \label{subsec:bg_surveillance}
@@ -187,25 +133,9 @@ The relationship between surveillance platforms and hotspot detection is thus co
 \subsection{Feature Importance Analysis in Viral Mutation Prediction}
 \label{subsec:bg_feature_importance}
 
-Several recent studies have analyzed which biological features predict viral mutation patterns, providing context for the multi-source information analysis in this dissertation (Section~\ref{sec:information_analysis}).
-
-Maher et al.~\cite{maher2022predicting} analyzed a comprehensive set of features predicting future SARS-CoV-2 variants of concern, including mutation frequency, phylogenetic placement, geographic spread, growth rate, and structural properties.
-Their key finding was that epidemiological features (geographic spread, growth rate) dominated over sequence-based features for predicting variant emergence in a single pathogen.
-However, their analysis was restricted to SARS-CoV-2, and the feature importance hierarchy they established may not generalize to pathogens with different evolutionary dynamics.
-
-Rodriguez-Rivas et al.~\cite{rodriguez2022epistatic} took a co-evolutionary approach, applying Direct Coupling Analysis (DCA) to model epistatic interactions between positions in SARS-CoV-2 proteins.
-Their epistatic models achieved AUC = 0.76 for predicting escape mutations, substantially outperforming non-epistatic (independent-site) models (AUC = 0.63).
-This result highlights that mutual information between positions---capturing the constraint network within protein structures---provides predictive power beyond what single-position features can offer. The broader DCA / EVcouplings / GREMLIN family of position-coupling methods is intentionally outside the 20-scoring panel of MutBench (Section~\ref{sec:scoring_detection}), which restricts itself to single-position scorers to enable the orthogonal scoring~$\times$~detection-family ANOVA decomposition; epistasis-aware extensions are flagged as future work in Chapter~\ref{ch:discussion}. This single-position restriction is a design choice, not a neutral simplification: because viral escape and compensatory evolution are both epistasis-driven, the benchmark's biological realism is bounded by this exclusion, and the interaction $\omega^2$ reported in Chapter~\ref{ch:results} should be read as an information-type contrast \emph{within} the single-position regime rather than as an upper bound on what coupling-aware methods can deliver.
-
-Hie et al.~\cite{hie2021learning} demonstrated that protein language model embeddings can capture ``semantic change''---the degree to which a mutation alters the functional meaning of a protein as represented in the PLM embedding space.
-They showed that viral sequences that are antigenically distinct but phylogenetically close exhibit large semantic change, suggesting that PLM representations can detect functionally significant mutations that traditional phylogenetic or frequency-based approaches might miss.
-
-EVEscape~\cite{thadani2023evescape} demonstrated that combining evolutionary fitness predictions with structural accessibility and physicochemical dissimilarity features can predict viral escape mutations, providing a practical example of multi-source information integration for viral mutation analysis.
-Its three-component score (evolutionary fitness from EVE, structural accessibility, and physicochemical dissimilarity) achieved stronger predictive performance than any single component, establishing a precedent for the multi-source approach.
-
-A critical limitation shared by all these studies is their focus on \textbf{single pathogens}---primarily SARS-CoV-2 or influenza.
-None systematically compares feature importance \textit{across} multiple pathogens to determine whether the same features are universally predictive or whether the optimal feature set is pathogen-dependent.
-This is the gap that the present study addresses: by evaluating 20 scoring channels (derived from 10 underlying biological information families with normalization or composite variants) across 11 pathogens, MutBench quantifies the pathogen-specificity of feature importance and provides concrete recommendations for which information source to prioritize for each virus (Section~\ref{sec:information_analysis}).
+Prior feature-importance studies motivate MutBench's multi-source analysis but remain mostly single-pathogen: Maher et al.~\cite{maher2022predicting} found epidemiological features dominated sequence features for SARS-CoV-2 variant emergence, Rodriguez-Rivas et al.~\cite{rodriguez2022epistatic} showed epistatic DCA models improved escape prediction (AUC 0.76 vs.\ 0.63), Hie et al.~\cite{hie2021learning} linked PLM semantic change to antigenic novelty, and EVEscape~\cite{thadani2023evescape} combined fitness, accessibility, and residue dissimilarity.
+Coupling-aware methods such as DCA, EVcouplings, and GREMLIN remain outside MutBench's 20-scoring panel (Section~\ref{sec:scoring_detection}), so the scoring~$\times$~pathogen interaction in Chapter~\ref{ch:results} is an information-type contrast within a single-position regime, not an upper bound on epistasis-aware methods.
+MutBench addresses the remaining gap by evaluating 20 scoring channels from 10 biological information families across 11 pathogens and reporting pathogen-specific feature recommendations (Section~\ref{sec:information_analysis}).
 
 \subsection{Algorithm Selection and Benchmarking Methodology}
 \label{subsec:bg_algorithm_selection}
