@@ -553,7 +553,7 @@ SASA values were computed from the available predicted structures using a solven
 
 \begin{table}[htbp]
 \centering
-\caption{Per-pathogen structure source for pLDDT and SASA computation. SARS-CoV-2 uses the AlphaFold~DB entry; all other pathogens use the ESMFold API for both pLDDT and SASA features. The 3D spatial-contact analysis (Chapter~\ref{ch:results}, Section~\ref{sec:structure_analysis}) uses the cryo-EM structure PDB~6VSB~\cite{wrapp2020cryo} and is restricted to SARS-CoV-2.}
+\caption{Per-pathogen structure source for pLDDT computation (the ``pLDDT/SASA source'' column reflects the structure used for pLDDT). For SASA, the pipeline standardized on ESMFold-derived structures uniformly across all pathogens (computed via Shrake--Rupley; \texttt{structural\_features/sasa\_summary.csv}), independent of which structure provided pLDDT; the SARS-CoV-2 SASA values are therefore from ESMFold rather than AlphaFold~DB despite the AlphaFold~DB pLDDT anchor. Norovirus pLDDT is also from AlphaFold~DB (per \texttt{structural\_features/plddt\_summary.csv}; the table row below reflects this). The 3D spatial-contact analysis (Chapter~\ref{ch:results}, Section~\ref{sec:structure_analysis}) uses the cryo-EM structure PDB~6VSB~\cite{wrapp2020cryo} and is restricted to SARS-CoV-2.}
 \label{tab:structure_sources}
 \footnotesize
 \begin{tabular}{llll}
@@ -566,7 +566,7 @@ Influenza~B & HA & ESMFold API & not analyzed \\
 HCV & E2 & ESMFold API & not analyzed \\
 HIV-1 & gp120 & ESMFold API & not analyzed \\
 RSV & F & ESMFold API & not analyzed \\
-Norovirus & VP1 & ESMFold API & not analyzed \\
+Norovirus & VP1 & AlphaFold~DB & not analyzed \\
 Dengue & E & ESMFold API & not analyzed \\
 MERS & Spike (S) & ESMFold API & not analyzed \\
 Rabies & G & ESMFold API & not analyzed \\
