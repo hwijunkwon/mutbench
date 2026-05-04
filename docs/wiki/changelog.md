@@ -2,6 +2,20 @@
 
 Reverse chronological. Latest first.
 
+## v229 (2026-05-04) — Phase 4 prof v9 re-eval on v228 (PASS, all gates)
+
+Re-run of v8 method (5 chapter-deep + 10 prof aggregator = 15 codex jobs) on v228 to verify cleanup did not regress.
+
+- v9 total: **83.31/100** (vs v8 83.63, Δ -0.32 — within evaluation noise)
+- All 10 profs ≥ 80 (10/10)
+- Min item: G 7.80 (vs v8 7.71, +0.09)
+- Stage 1 hidden issues: 49 (v8 52, ch4 17→10 = -7 from cleanup)
+- All 4 gates PASS, defense readiness GREEN confirmed
+
+No problematic findings. Defense-ready as v228 manuscript.
+
+Reports: `professor_v9_aggregate.md`, `professor_v9_prof01-10.md`, `professor_v9_stage1_*.md`
+
 ## v228 (2026-05-04) — Final audit cleanup (defense_readiness GREEN)
 
 Final audit (option C: 5 chapter-deep + 1 cross-cutting aggregator + visual review of 6 PDF pages):
