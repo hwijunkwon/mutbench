@@ -2,6 +2,36 @@
 
 Reverse chronological. Latest first.
 
+## experiments/flow-improve (2026-05-04) — Failed score-improvement experiment, branch DISCARDED
+
+Investigated whether content-flow improvements + targeted deletions could push score above v9 (83.31). Result: every step lost score. Experiment ABANDONED, master remains at v229.
+
+### Trajectory
+
+| Branch step | Action | PDF | Score | Δ |
+|---|---|---|---|---|
+| v229 (master) | baseline | 197pp | 83.31 | — |
+| Step 1: flow-fix | TOP 10 flow improvements (5 codex agents) | 197pp | not measured | — |
+| Step 2: deletion | Moderate plan applied (5 codex agents); -39pp aggressive | 158pp | v10 = 81.85 | -1.46 |
+| Step 3: partial rollback | restore 3 ch4 tables | 153pp | v11 = 80.86 | -0.99 |
+
+### Key findings
+
+- v9 (197pp, 83.31) is the empirical sweet spot for this manuscript
+- Aggressive deletion (-39pp) hurt H/clarity score: panels lost evidence visibility
+- Partial table restoration without surrounding narrative context made flow worse, not better
+- Hidden-issues count went UP (44→52) after partial rollback — agents flagged "table appears with thin context"
+- 80/100 gate near-miss in v11 (3 profs <80) confirmed branch should be abandoned
+
+### Branch status
+
+`experiments/flow-improve` retained on origin for institutional memory; not merged. Reports under `paper/dissertation/review/2026-05-03/`:
+- `flow_audit_aggregate.md`, `flow_fix_chN_changelog.md` (flow analysis + edits)
+- `deletion_deep_aggregate.md`, `deletion_apply_chN_changelog.md` (deletion analysis + edits)
+- `professor_v10_aggregate.md`, `professor_v11_aggregate.md` (failed scoring)
+
+Master continues at v229 (197pp, 83.31, all 4 gates PASS).
+
 ## v229 (2026-05-04) — Phase 4 prof v9 re-eval on v228 (PASS, all gates)
 
 Re-run of v8 method (5 chapter-deep + 10 prof aggregator = 15 codex jobs) on v228 to verify cleanup did not regress.
