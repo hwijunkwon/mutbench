@@ -812,7 +812,7 @@ Figure 10은 6개 점수화 카테고리별 평균 MCC를 보여줍니다. 빈�
 > **해석**: scoring × pathogen(29.6%)이 family(1.3%)의 **약 23배**입니다. 이는 "어떤 알고리즘을 쓰느냐"보다 **"어떤 정보를 어떤 바이러스에 쓰느냐"가 압도적으로 중요**하다는 것을 의미합니다. Figure 12는 이 결과를 시각화합니다.
 
 > **신뢰 구간과 민감도 분석**:
-> - **Bootstrap 95% CI**: 1,000회 클러스터 부트스트랩(11개 병원체 재샘플링)으로 ω²=0.296의 95% CI = **[0.195, 0.333]** — CI 하한조차 Cohen 기준 large effect(>0.14)를 초과하므로 결과 안정적.
+> - **Bootstrap 95% CI**: 1,000회 클러스터 부트스트랩(11개 병원체 재샘플링)으로 ω²=0.296의 95% CI = **[0.201, 0.346]** — CI 하한조차 Cohen 기준 large effect(>0.14)를 초과하므로 결과 안정적. 5-frame 보강 (standard cluster, wild-cluster Rademacher~\cite{cameron2008bootstrap}, phylogenetic block 8 ICTV families, mixed-effects pseudo-ω², Bayesian factor analysis HDI [0.242, 0.388]) 모두 large-effect 임계값(0.14) 위 유지.
 > - **HCV 제외 민감도**: HCV의 Layer A는 수렴 진화가 아닌 **다양화 선택(diversifying selection)** 기반(HVR1/HVR2 초변이 영역)이라 이질성이 있음. HCV 제외 10개 병원체 ANOVA에서 ω²_{scoring×pathogen} = **0.246** 확인 — 효과는 HCV의 비정형 정답 기준 때문이 아님을 확인.
 
 ![ANOVA 분산 분해 (11 병원체, 20 scoring, 14 families). scoring × pathogen 상호작용(29.6%)이 가장 큰 막대이며, family 주효과(1.3%)는 거의 보이지 않을 정도로 작음.](figures/stage3_anova_decomposition.png){ width=80% }
@@ -1298,3 +1298,57 @@ SARS-CoV-2에서 최고 방법이 34개 중 25개 탐지 (recall 73.5%, 4.9배 e
 11개 RNA 바이러스에서 8,580번 비교한 결과, 바이러스마다 잘 맞는 정보가 달랐습니다. 이 차이는 통계적으로도 가장 큰 성능 요인이었고(ω²=0.296), HIV-1에서는 백신 회피 위치를 무작위보다 7.19배 더 잘 모아 찾아 실제 활용 가능성을 확인했습니다. PAHD-R은 이 결론을 바탕으로 실험 후보를 우선순위화하는 세 가지 사용 모드로 정리되었습니다.
 
 앞으로는 바이러스 특성에 맞는 정보 유형을 선택·통합하는 접근이 필요하며, 병원체 참조 데이터베이스의 확장이 적응적 방법 선택의 핵심 과제입니다.
+
+---
+
+## 부록: 최종 상태 요약 (v229, 2026-05-04)
+
+### 정체성 재정의: wet-lab triage 도구
+
+학위논문 v220→v229 정리 과정에서 MutBench의 정체성이 명확해졌습니다.
+
+- **deployable detector가 아닙니다.** P5 abstention 규칙 하에 0/12 callable — 어떤 병원체도 prospective 배포 가능 판정을 못 받음
+- **wet-lab 실험 우선순위 도구입니다.** 단백질당 ~1,000 위치 → 10–50 후보 압축, 7–9× escape 농축
+- **일반화 알고리즘은 n=11 패널에서 본질적으로 학습 불가.** 이건 실패가 아니라 panel-size threshold 본질을 정량화한 contribution
+
+### Phase 4 평가 결과 (10명 분산 평가, 2-stage hybrid)
+
+| 평가 | PDF | 점수 | 통과 |
+|---|---|---|---|
+| v6 (single-read) | 215pp | 77.52 | conditional (skill 정본만) |
+| v8 (2-stage hybrid) | 197pp | **83.63** | ✅ 모든 게이트 |
+| v9 (post-cleanup) | 197pp | **83.31** | ✅ 모든 게이트 (current) |
+
+**Phase 4 모든 게이트 PASS**: 총점 ≥ 80, item별 mean ≥ 6, skill 정본 mean ≥ 7 + 개별 ≥ 5
+
+### Layer C wet-lab 검증 (재배치된 anchor)
+
+실용가치는 vaccine escape 3개 (HIV-1, H3N2, SARS) 만이 아니라 **Layer C DMS 6/11 pathogens**가 메인 anchor:
+
+| Pathogen | n_gt_c | Best Layer C scoring | Best Layer C MCC |
+|---|---|---|---|
+| SARS-CoV-2 | 247 | plddt_inv + KDE(p=75) | 0.186 |
+| H3N2 | 112 | semantic_change + KDE(p=80) | 0.245 |
+| HIV-1 | 48 | fubar + Wavelet(t=2.0) | 0.139 |
+| RSV | 101 | EVEscape_composite + KDE(p=75) | 0.180 |
+| Rabies | 87 | homoplasy + ScoreDBSCAN(ep=8) | 0.182 |
+| EV-A71 | 55 | plddt_inv + Wavelet(t=1.5) | **0.322** |
+
+EV-A71 0.322 + H3N2 0.245가 가장 강력한 functional anchor. 6개 모두에서 Layer A 최적 ≠ Layer C 최적 → 두 평가 차원 독립 확인.
+
+### 분량 sweet spot 발견
+
+flow-improve 실험(experiments/flow-improve branch, 폐기) 결과:
+- 197pp (v9 baseline): 83.31 — sweet spot
+- 158pp (Aggressive 삭제): v10 81.85 (-1.46)
+- 153pp (부분 롤백): v11 80.86 (-0.99)
+
+**더 짧게 만들면 점수 하락**. 표/figure는 evidence 신뢰도에 직접 영향 — prose만으로는 strict reviewer 설득 불가. 197pp가 evidence + flow 균형 sweet spot.
+
+### Defense readiness
+
+- **Master**: v229 (commit aa13920), 197pp, 83.31 PASS
+- 모든 4 gate 통과 (Phase 4 80 / item ≥ 6 / skill mean ≥ 7 / individual ≥ 5)
+- Hidden issues 49건 (chapter-deep), 0 framing inconsistencies, 0 orphan refs
+- Visual layout 검증 완료 (6개 핵심 페이지 sample)
+- defense-ready 🟢 GREEN
