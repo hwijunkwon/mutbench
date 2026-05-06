@@ -37,6 +37,10 @@ Existing methods use parameters tuned for a single pathogen, and their generaliz
 Whether differences in pathogen-specific genomic characteristics (genome length, mutation rate, recombination frequency, etc.) systematically affect the best-performing detection strategy has not been verified.
 This is a specific instance of the algorithm selection problem~\cite{rice1976algorithm}: given a pathogen with particular genomic characteristics, which detection method should be applied? Without systematic cross-pathogen evaluation, this question cannot be answered.
 
+\paragraph{Scope of the answers.}
+\label{para:intro_scope}
+This dissertation fully standardises the computational benchmark contract (information types, scoring formulas, detector grid, evaluation metrics, and reporting; Chapter~\ref{ch:mutbench}). The biological target, however, remains an \emph{operational, literature-curated hotspot definition} rather than a single assay-homogeneous label. Hotspot-ness in viral genomics is treated here as a \emph{comprehensive and fluid} concept: \emph{comprehensive} because Layer~A integrates multiple complementary evidence types (convergent evolution, immune-escape, hypervariable-region membership, antigenic drift, DMS-supported escape), and \emph{fluid} because the relevant operationalisation naturally varies across pathogens whose evolution mode and immune-pressure context differ (e.g., HVR1/HVR2 dominate HCV, antigenic drift sites dominate H3N2, multi-VOC convergent-evolution sites dominate SARS-CoV-2). Layer~C DMS and vaccine-escape audits provide independent validation where data are available, with HIV-1 as the strongest Layer-A-disjoint external anchor. Accordingly, the reported scoring~$\times$~pathogen interaction quantifies method performance under this real, comprehensive-and-fluid curation regime; the contribution is the benchmarked dependence itself, not a clean partition of pathogen biology from curation protocol.
+
 
 \section{Research Objectives}
 \label{sec:intro_objectives}
